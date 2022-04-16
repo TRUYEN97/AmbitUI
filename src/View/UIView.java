@@ -4,39 +4,39 @@
  */
 package View;
 
-import Model.UIWarehouse.BigUIProxy;
-import Model.UIWarehouse.FactoryUI;
-import Model.UIWarehouse.SmallProxy;
-import View.DrawBoardUI.DrawBoardUI;
+import Control.Core.Core;
+import Control.Message;
+import Model.DataSource.LoadSource;
+import View.DrawBoardUI.UIWarehouse.BigUIProxy;
+import View.DrawBoardUI.UIWarehouse.Factory;
+import View.DrawBoardUI.UIWarehouse.SmallProxy;
+import View.DrawBoardUI.UIWarehouse.TabItemProxy;
+import View.DrawBoardUI.UIWarehouse.TabLogProxy;
+import View.DrawBoardUI.UIWarehouse.TabViewProxy;
 import View.LoadModelTime.LoadModeTime;
-import java.awt.Component;
-import javax.swing.DefaultListCellRenderer;
-import javax.swing.JLabel;
-import javax.swing.JList;
-import javax.swing.SwingConstants;
+import java.awt.event.KeyEvent;
 
 /**
  *
  * @author Administrator
  */
 public class UIView extends javax.swing.JFrame {
-    
-    private final FactoryUI factoryUI;
-    private final DrawBoardUI drawBoardUI;
+
+    private LoadSource loadSource;
+    private Core core;
+    private final Factory factoryUI;
 
     /**
      * Creates new form UI
      */
     public UIView() {
         initComponents();
-        this.factoryUI = FactoryUI.getInstance();
-        this.factoryUI.addType(new BigUIProxy("big"));
-        this.factoryUI.addType(new SmallProxy("small"));
-        this.drawBoardUI = new DrawBoardUI();
-        this.drawBoardUI.setBoardUi(this.BoardSubUI);
-        this.drawBoardUI.setTypeUI("small");
-        this.drawBoardUI.setYXaxis(12, 8);
-        this.drawBoardUI.Draw();
+        this.factoryUI = Factory.getInstance();
+        this.factoryUI.addType(new BigUIProxy("Big"));
+        this.factoryUI.addType(new SmallProxy("Small"));
+        this.factoryUI.addType(new TabViewProxy("View"));
+        this.factoryUI.addType(new TabItemProxy("Item"));
+        this.factoryUI.addType(new TabLogProxy("Log"));
     }
 
     /**
@@ -63,7 +63,7 @@ public class UIView extends javax.swing.JFrame {
         jScrollPane2 = new javax.swing.JScrollPane();
         textMess = new javax.swing.JTextArea();
         cbbModeTest = new javax.swing.JComboBox<>();
-        jTextInput = new javax.swing.JTextField();
+        txtInput = new javax.swing.JTextField();
         BoardSubUI = new javax.swing.JPanel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
@@ -190,14 +190,7 @@ public class UIView extends javax.swing.JFrame {
         jScrollPane2.setViewportView(textMess);
 
         cbbModeTest.setFont(new java.awt.Font("Segoe UI", 1, 18)); // NOI18N
-        cbbModeTest.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Debug" }));
-        cbbModeTest.setRenderer(new DefaultListCellRenderer() {
-            public Component getListCellRendererComponent(JList jList, Object o, int i, boolean b, boolean b1) {
-                JLabel rendrlbl = (JLabel) super.getListCellRendererComponent(jList, o, i, b, b1);    //todo: override
-                rendrlbl.setHorizontalAlignment(SwingConstants.CENTER);
-                return rendrlbl;
-            }
-        });
+        cbbModeTest.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Production", "Debug" }));
 
         javax.swing.GroupLayout jPanel5Layout = new javax.swing.GroupLayout(jPanel5);
         jPanel5.setLayout(jPanel5Layout);
@@ -226,12 +219,12 @@ public class UIView extends javax.swing.JFrame {
                 .addContainerGap())
         );
 
-        jTextInput.setEditable(false);
-        jTextInput.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
-        jTextInput.setHorizontalAlignment(javax.swing.JTextField.CENTER);
-        jTextInput.addKeyListener(new java.awt.event.KeyAdapter() {
+        txtInput.setEditable(false);
+        txtInput.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
+        txtInput.setHorizontalAlignment(javax.swing.JTextField.CENTER);
+        txtInput.addKeyListener(new java.awt.event.KeyAdapter() {
             public void keyTyped(java.awt.event.KeyEvent evt) {
-                jTextInputKeyTyped(evt);
+                txtInputKeyTyped(evt);
             }
         });
 
@@ -246,14 +239,14 @@ public class UIView extends javax.swing.JFrame {
                     .addComponent(jPanel4, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                     .addComponent(jPanel5, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                     .addComponent(jPanel3, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                    .addComponent(jTextInput, javax.swing.GroupLayout.Alignment.TRAILING))
+                    .addComponent(txtInput, javax.swing.GroupLayout.Alignment.TRAILING))
                 .addContainerGap())
         );
         jPanel1Layout.setVerticalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel1Layout.createSequentialGroup()
                 .addContainerGap()
-                .addComponent(jTextInput, javax.swing.GroupLayout.PREFERRED_SIZE, 37, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addComponent(txtInput, javax.swing.GroupLayout.PREFERRED_SIZE, 37, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(jScrollPane1, javax.swing.GroupLayout.DEFAULT_SIZE, 151, Short.MAX_VALUE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
@@ -266,7 +259,6 @@ public class UIView extends javax.swing.JFrame {
         );
 
         BoardSubUI.setBackground(new java.awt.Color(51, 51, 51));
-        BoardSubUI.setToolTipText("");
         BoardSubUI.setPreferredSize(new java.awt.Dimension(794, 700));
 
         javax.swing.GroupLayout BoardSubUILayout = new javax.swing.GroupLayout(BoardSubUI);
@@ -325,16 +317,47 @@ public class UIView extends javax.swing.JFrame {
         LoadModeTime.getInstance().next();
     }//GEN-LAST:event_lbTimeVNMouseClicked
 
-    private void jTextInputKeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_jTextInputKeyTyped
+    private void txtInputKeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_txtInputKeyTyped
         // TODO add your handling code here:
         char input = evt.getKeyChar();
-    }//GEN-LAST:event_jTextInputKeyTyped
+        System.out.println((int) input);
+        String dataString = this.txtInput.getText();
+        this.txtInput.setText("");
+        switch (input) {
+            case KeyEvent.VK_ENTER -> {
+                if (dataString != null && !dataString.isEmpty()) {
+                    core.input(dataString);
+                }
+            }
+            case KeyEvent.VK_BACK_SPACE -> {
+                if (dataString.length() > 0) {
+                    dataString = dataString.substring(0, dataString.length() - 1);
+                }
+                this.txtInput.setText(dataString);
+            }
+            case 22 -> {
+                this.txtInput.setText(dataString);
+            }
+            default -> {
+                if (input >= '0' && input <= 'z') {
+                    dataString = dataString.concat(String.valueOf(input));
+                    this.txtInput.setText(dataString);
+                }
+            }
+        }
+    }//GEN-LAST:event_txtInputKeyTyped
 
     private void formWindowOpened(java.awt.event.WindowEvent evt) {//GEN-FIRST:event_formWindowOpened
         // TODO add your handling code here:
         LoadModeTime.getInstance().setLabel(this.lbTimeVN);
         LoadModeTime.getInstance().setBackground(this.BoardSubUI);
         LoadModeTime.getInstance().run();
+        Message.ShowWarning.addLbMess(textMess);
+        this.loadSource = new LoadSource();
+        this.loadSource.init();
+        this.core = Core.getInstance();
+        this.core.setDrawBoardUI(BoardSubUI);
+        this.core.setComboBox(cbbModeTest);
     }//GEN-LAST:event_formWindowOpened
 
     /**
@@ -380,7 +403,6 @@ public class UIView extends javax.swing.JFrame {
     private javax.swing.JPanel jPanel5;
     private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JScrollPane jScrollPane2;
-    private javax.swing.JTextField jTextInput;
     private javax.swing.JTextArea jTextShowSfis;
     private javax.swing.JLabel lbIP;
     private javax.swing.JLabel lbNamePC;
@@ -389,5 +411,6 @@ public class UIView extends javax.swing.JFrame {
     private javax.swing.JLabel lbTimeVN;
     private javax.swing.JPanel panelBackground;
     private javax.swing.JTextArea textMess;
+    private javax.swing.JTextField txtInput;
     // End of variables declaration//GEN-END:variables
 }

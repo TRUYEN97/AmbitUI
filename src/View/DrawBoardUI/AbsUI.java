@@ -9,17 +9,17 @@ import javax.swing.JPanel;
 /**
  *
  * @author Administrator
- * @param <T>
  */
-public abstract class AbsUI<T> extends JPanel {
+public abstract class AbsUI extends JPanel {
 
-    private String index;
+    private final String name;
 
-    protected AbsUI(String index) {
-        this.index = index;
+    protected AbsUI(String name) {
+        this.name = name;
     }
 
-    public String getIndex() {
-        return this.index;
+    @Override
+    public String getName() {
+        return this.name;
     }
 }

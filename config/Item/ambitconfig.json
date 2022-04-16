@@ -1,0 +1,45 @@
+{
+  "Info": {
+    "UUT_MODEL": "Trieste",
+    "STATION_NAME": "MBLT",
+    "STATION_SN": 1.1,
+    "FACILITY_ID": "AmbitVN",
+    "FixtureType": 3,
+    "COM": "COM5",
+    "BAUDRATE": 9600,
+    "LINE": 1
+  },
+  "Functions": {
+    "gen_node": {
+      "INDEX": 0,
+      "FLAG": "SKIP_FAIL",
+      "SKIP_FAIL": "DEBUG",
+       //"TIME_OVER": 110,
+      "RETRY": 1,
+      // "TYPE": "BOOL",
+      // "SPEC": "haha",
+      "RESULT_TYPE": "GEN_NODE",
+      "NAME_FUNC": "GenerateNodeFromBarcode"
+    },
+    "nodeproperty_mac": {
+      "INDEX": 1,
+      "FLAG": "ON",
+      "SKIP_FAIL": "DEBUG",
+      "TIME_OVER": 70,
+      "RETRY": 1,
+      "TYPE": "LIMIT",
+      "LIMIT_UP": "2",
+      "LIMIT_DN": "0",
+      "NAME_FUNC": "GetMacFromShopFloor"
+    },
+    "fixture_close": {
+      "INDEX": 2,
+      "FLAG": "ON",
+      // "TIME_OVER": 10,
+      "RETRY": 1,
+      "TYPE": "MATH",
+      "SPEC": "spec",
+      "NAME_FUNC": "FIXTURE_CONTROL"
+    }
+  }
+}

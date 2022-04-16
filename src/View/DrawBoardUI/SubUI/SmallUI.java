@@ -4,20 +4,25 @@
  */
 package View.DrawBoardUI.SubUI;
 
+import View.DrawBoardUI.FormDetail.FormShow;
+
 /**
  *
  * @author Administrator
  */
 public class SmallUI extends AbsSubUi {
 
+    private final FormShow formShow;
     /**
      * Creates new form SmallUI
+     *
      * @param indexName
      */
     public SmallUI(String indexName) {
         super(indexName);
         initComponents();
-         this.lbTime.setText(indexName);
+        this.lbTime.setText(indexName);
+        this.formShow = new FormShow();
     }
 
     /**
@@ -38,8 +43,20 @@ public class SmallUI extends AbsSubUi {
         lbTime.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         lbTime.setText("00:00");
         lbTime.setOpaque(true);
+        lbTime.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                lbTimeMouseClicked(evt);
+            }
+        });
         add(lbTime, java.awt.BorderLayout.CENTER);
     }// </editor-fold>//GEN-END:initComponents
+
+    private void lbTimeMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_lbTimeMouseClicked
+        // TODO add your handling code here:
+        if (evt.getClickCount() > 1) {
+            this.formShow.showDetail(tabDetail);
+        }
+    }//GEN-LAST:event_lbTimeMouseClicked
 
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
