@@ -4,20 +4,10 @@
  */
 package Control.Core;
 
-import Control.Launch.LaunchMode;
 import Control.Mode.ModeTest;
-import Model.DataSource.Setting.Setting;
-import View.DrawBoardUI.UIWarehouse.BigUIProxy;
-import View.DrawBoardUI.UIWarehouse.Factory;
-import View.DrawBoardUI.UIWarehouse.SmallProxy;
+import Model.DataSource.LoadSource;
 import Model.WareHouse.ManagerUI;
-import View.DrawBoardUI.DrawBoardUI;
-import View.DrawBoardUI.UIWarehouse.TabItemProxy;
-import View.DrawBoardUI.UIWarehouse.TabLogProxy;
-import View.DrawBoardUI.UIWarehouse.TabViewProxy;
-import java.awt.event.KeyEvent;
-import javax.swing.JComboBox;
-import javax.swing.JPanel;
+import View.UIView;
 
 /**
  *
@@ -26,21 +16,15 @@ import javax.swing.JPanel;
 public class Core {
 
     private static volatile Core instance;
-    private final Factory factoryUI;
-    private final DrawBoardUI drawBoardUI;
-    private final LaunchMode launchMode;
-    private final Setting setting;
+    private final LoadSource loadSource;
     private ModeTest currMode;
 
     private Core() {
-        this.factoryUI = Factory.getInstance();
-        this.drawBoardUI = new DrawBoardUI();
-        this.setting = Setting.getInstance();
-        this.launchMode = new LaunchMode(this);
+        this.loadSource = new LoadSource();
+        this.loadSource.init();
     }
-    
-    public static Core getInstance()
-    {
+
+    public static Core getInstance() {
         Core temp = Core.instance;
         if (temp == null) {
             synchronized (Core.class) {
@@ -51,17 +35,6 @@ public class Core {
             }
         }
         return temp;
-    }
-
-    public void setDrawBoardUI(JPanel panel) {
-        this.drawBoardUI.setBoardUi(panel);
-        this.drawBoardUI.setTypeUI(this.setting.getTypeUI());
-        this.drawBoardUI.setYXaxis(this.setting.getRow(), this.setting.getColumn());
-        this.drawBoardUI.Draw();
-    }
-
-    public void setComboBox(JComboBox cbb) {
-        this.launchMode.setListMode(cbb);
     }
 
     public void setCurrMode(ModeTest modeTest) {
@@ -76,7 +49,29 @@ public class Core {
     }
 
     public void input(String input) {
-        
+        System.out.println(input);
     }
-
+    
+   
+    
+    public static void main(String[] args) {
+        Core core = Core.getInstance();
+        core.showUI();
+    }
+    
+     private void showUI() {
+        try {
+            for (javax.swing.UIManager.LookAndFeelInfo info : javax.swing.UIManager.getInstalledLookAndFeels()) {
+                if ("Nimbus".equals(info.getName())) {
+                    javax.swing.UIManager.setLookAndFeel(info.getClassName());
+                    break;
+                }
+            }
+        } catch (ClassNotFoundException | InstantiationException | IllegalAccessException | javax.swing.UnsupportedLookAndFeelException ex) {
+            java.util.logging.Logger.getLogger(UIView.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+        }
+        java.awt.EventQueue.invokeLater(() -> {
+            new UIView().setVisible(true);
+        });
+    }
 }

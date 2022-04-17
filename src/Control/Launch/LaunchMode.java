@@ -29,8 +29,8 @@ public class LaunchMode {
     private final Setting setting;
     private final Core core;
 
-    public LaunchMode(Core core) {
-        this.core = core;
+    public LaunchMode() {
+        this.core = Core.getInstance();
         this.setting = Setting.getInstance();
     }
 

@@ -5,16 +5,17 @@
 package View;
 
 import Control.Core.Core;
+import Control.Launch.LaunchMode;
 import Control.Message;
-import Model.DataSource.LoadSource;
-import View.DrawBoardUI.UIWarehouse.BigUIProxy;
-import View.DrawBoardUI.UIWarehouse.Factory;
-import View.DrawBoardUI.UIWarehouse.SmallProxy;
-import View.DrawBoardUI.UIWarehouse.TabItemProxy;
-import View.DrawBoardUI.UIWarehouse.TabLogProxy;
-import View.DrawBoardUI.UIWarehouse.TabViewProxy;
+import Model.DataSource.Setting.Setting;
+import View.DrawBoardUI.DrawBoardUI;
 import View.LoadModelTime.LoadModeTime;
+import java.awt.Toolkit;
+import java.awt.datatransfer.Clipboard;
+import java.awt.datatransfer.DataFlavor;
+import java.awt.datatransfer.UnsupportedFlavorException;
 import java.awt.event.KeyEvent;
+import java.io.IOException;
 
 /**
  *
@@ -22,21 +23,11 @@ import java.awt.event.KeyEvent;
  */
 public class UIView extends javax.swing.JFrame {
 
-    private LoadSource loadSource;
-    private Core core;
-    private final Factory factoryUI;
-
     /**
      * Creates new form UI
      */
     public UIView() {
         initComponents();
-        this.factoryUI = Factory.getInstance();
-        this.factoryUI.addType(new BigUIProxy("Big"));
-        this.factoryUI.addType(new SmallProxy("Small"));
-        this.factoryUI.addType(new TabViewProxy("View"));
-        this.factoryUI.addType(new TabItemProxy("Item"));
-        this.factoryUI.addType(new TabLogProxy("Log"));
     }
 
     /**
@@ -179,18 +170,15 @@ public class UIView extends javax.swing.JFrame {
         });
 
         textMess.setEditable(false);
-        textMess.setColumns(5);
+        textMess.setColumns(20);
         textMess.setFont(new java.awt.Font("Monospaced", 1, 16)); // NOI18N
         textMess.setLineWrap(true);
-        textMess.setRows(1);
-        textMess.setTabSize(5);
+        textMess.setRows(4);
         textMess.setWrapStyleWord(true);
         textMess.setCursor(new java.awt.Cursor(java.awt.Cursor.DEFAULT_CURSOR));
-        textMess.setPreferredSize(new java.awt.Dimension(142, 200));
         jScrollPane2.setViewportView(textMess);
 
         cbbModeTest.setFont(new java.awt.Font("Segoe UI", 1, 18)); // NOI18N
-        cbbModeTest.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Production", "Debug" }));
 
         javax.swing.GroupLayout jPanel5Layout = new javax.swing.GroupLayout(jPanel5);
         jPanel5.setLayout(jPanel5Layout);
@@ -320,30 +308,39 @@ public class UIView extends javax.swing.JFrame {
     private void txtInputKeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_txtInputKeyTyped
         // TODO add your handling code here:
         char input = evt.getKeyChar();
-        System.out.println((int) input);
-        String dataString = this.txtInput.getText();
+        StringBuilder dataString = new StringBuilder(this.txtInput.getText());
         this.txtInput.setText("");
         switch (input) {
             case KeyEvent.VK_ENTER -> {
-                if (dataString != null && !dataString.isEmpty()) {
-                    core.input(dataString);
+                if (!dataString.isEmpty()) {
+                    Core.getInstance().input(dataString.toString());
                 }
             }
             case KeyEvent.VK_BACK_SPACE -> {
                 if (dataString.length() > 0) {
-                    dataString = dataString.substring(0, dataString.length() - 1);
+                    dataString.deleteCharAt(dataString.length() - 1);
                 }
-                this.txtInput.setText(dataString);
+                this.txtInput.setText(dataString.toString());
             }
             case 22 -> {
-                this.txtInput.setText(dataString);
+                Clipboard clipboard = Toolkit.getDefaultToolkit().getSystemClipboard();
+                DataFlavor flavor = DataFlavor.stringFlavor;
+                if (clipboard.isDataFlavorAvailable(flavor)) {
+                    try {
+                        dataString.append(clipboard.getData(flavor));
+                        this.txtInput.setText(dataString.toString());
+                    } catch (UnsupportedFlavorException | IOException e) {
+                        e.printStackTrace();
+                    }
+                }
             }
             default -> {
                 if (input >= '0' && input <= 'z') {
-                    dataString = dataString.concat(String.valueOf(input));
-                    this.txtInput.setText(dataString);
+                    dataString.append(input);
+                    this.txtInput.setText(dataString.toString());
                 }
             }
+
         }
     }//GEN-LAST:event_txtInputKeyTyped
 
@@ -353,46 +350,21 @@ public class UIView extends javax.swing.JFrame {
         LoadModeTime.getInstance().setBackground(this.BoardSubUI);
         LoadModeTime.getInstance().run();
         Message.ShowWarning.addLbMess(textMess);
-        this.loadSource = new LoadSource();
-        this.loadSource.init();
-        this.core = Core.getInstance();
-        this.core.setDrawBoardUI(BoardSubUI);
-        this.core.setComboBox(cbbModeTest);
+        drawBoardUI();
+        new LaunchMode().setListMode(cbbModeTest);
     }//GEN-LAST:event_formWindowOpened
 
+    private void drawBoardUI() {
+        DrawBoardUI drawBoardUI = new DrawBoardUI();
+        Setting setting = Setting.getInstance();
+        drawBoardUI.setBoardUi(this.BoardSubUI);
+        drawBoardUI.setTypeUI(setting.getTypeUI());
+        drawBoardUI.setYXaxis(setting.getRow(), setting.getColumn());
+        drawBoardUI.Draw();
+    }
     /**
      * @param args the command line arguments
      */
-    public static void main(String args[]) {
-        /* Set the Nimbus look and feel */
-        //<editor-fold defaultstate="collapsed" desc=" Look and feel setting code (optional) ">
-        /* If Nimbus (introduced in Java SE 6) is not available, stay with the default look and feel.
-         * For details see http://download.oracle.com/javase/tutorial/uiswing/lookandfeel/plaf.html 
-         */
-        try {
-            for (javax.swing.UIManager.LookAndFeelInfo info : javax.swing.UIManager.getInstalledLookAndFeels()) {
-                if ("Nimbus".equals(info.getName())) {
-                    javax.swing.UIManager.setLookAndFeel(info.getClassName());
-                    break;
-                }
-            }
-        } catch (ClassNotFoundException ex) {
-            java.util.logging.Logger.getLogger(UIView.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
-        } catch (InstantiationException ex) {
-            java.util.logging.Logger.getLogger(UIView.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
-        } catch (IllegalAccessException ex) {
-            java.util.logging.Logger.getLogger(UIView.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
-        } catch (javax.swing.UnsupportedLookAndFeelException ex) {
-            java.util.logging.Logger.getLogger(UIView.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
-        }
-        //</editor-fold>
-        //</editor-fold>
-
-        /* Create and display the form */
-        java.awt.EventQueue.invokeLater(() -> {
-            new UIView().setVisible(true);
-        });
-    }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JPanel BoardSubUI;
@@ -413,4 +385,5 @@ public class UIView extends javax.swing.JFrame {
     private javax.swing.JTextArea textMess;
     private javax.swing.JTextField txtInput;
     // End of variables declaration//GEN-END:variables
+
 }

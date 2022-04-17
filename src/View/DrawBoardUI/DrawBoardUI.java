@@ -4,7 +4,8 @@
  */
 package View.DrawBoardUI;
 
-import View.DrawBoardUI.UIWarehouse.Factory;
+import Model.Factory.Factory;
+import Model.Factory.FactoryType;
 import Model.WareHouse.ManagerUI;
 import View.DrawBoardUI.SubUI.AbsSubUi;
 import java.awt.GridLayout;
@@ -78,7 +79,7 @@ public class DrawBoardUI {
         if (indexName == null || indexName.isBlank()) {
             return null;
         }
-        AbsSubUi subUi = (AbsSubUi) Factory.getInstance().getUIType(this.typeUI, indexName);
+        AbsSubUi subUi = Factory.getInstance().getSubUI(this.typeUI, indexName);
         if (subUi != null) {
             this.boardUi.add(subUi);
         }

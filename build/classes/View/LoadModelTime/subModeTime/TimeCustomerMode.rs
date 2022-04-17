@@ -1,2 +1,1 @@
-Control.Mode.AbstractMode.SubModeTime.TimeCustomerMode
 View.LoadModelTime.subModeTime.TimeCustomerMode

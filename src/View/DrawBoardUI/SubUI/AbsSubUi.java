@@ -6,11 +6,10 @@ package View.DrawBoardUI.SubUI;
 
 import Control.Core.Core;
 import Model.DataSource.Setting.ModeInfo;
+import Model.Factory.Factory;
 import Model.Interface.IUpdate;
 import View.DrawBoardUI.AbsUI;
-import View.DrawBoardUI.FormDetail.AbsTabUI;
 import View.DrawBoardUI.FormDetail.TabDetail;
-import View.DrawBoardUI.UIWarehouse.Factory;
 import java.awt.Color;
 import javax.swing.border.LineBorder;
 
@@ -34,12 +33,12 @@ public abstract class AbsSubUi extends AbsUI implements IUpdate {
     @Override
     public void update() {
         ModeInfo modeInfo;
-        Factory<AbsTabUI> factory;
+        Factory factory;
         modeInfo = Core.getInstance().getCurrMode().getModeInfo();
         factory = Factory.getInstance();
         this.tabDetail.clear();
         for (String name : modeInfo.getDetail()) {
-            this.tabDetail.addTab(factory.getUIType(name, name));
+            this.tabDetail.addTab(factory.getTabUI(name));
         }
     }
 
