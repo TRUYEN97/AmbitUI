@@ -9,7 +9,6 @@ import Control.Mode.ModeTest;
 import Model.DataSource.Setting.ModeInfo;
 import Model.DataSource.Setting.Setting;
 import View.ComboboxMode;
-import com.alibaba.fastjson.JSONObject;
 import java.awt.Component;
 import java.awt.event.ItemEvent;
 import java.util.Vector;
@@ -54,7 +53,6 @@ public class LaunchMode {
             if (evt.getStateChange() == ItemEvent.SELECTED) {
                 ModeTest item = (ModeTest) evt.getItem();
                 this.core.setCurrMode(item);
-                System.out.println(item.getName());
             }
         });
     }

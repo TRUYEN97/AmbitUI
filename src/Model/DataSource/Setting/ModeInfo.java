@@ -40,6 +40,10 @@ public class ModeInfo extends AbsSetting {
         }
     }
 
+    public String getModeType() {
+        return this.warehouse.getString(KeyWord.TYPE_MODE);
+    }
+
     public String getModeName() {
         return name;
     }

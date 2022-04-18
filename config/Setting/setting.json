@@ -1,49 +1,35 @@
 {
     "STATION": "RTT",
-    "ROW": 1,
-    "COLUMN": 1,
     "DHCP": "OFF",
-    "CHECK_SN_FAIL": "OFF",
-    "CHECK_FIXTURE": "UP",
-    "SFIS": "SIMPLE",
-    "FPT_SERVER": "ON",
-    "CUS_SERVER": "ON",
-    "UP_API": "ON",
-    "TYPE_UI": "Big",
+    "ROW": 5,
+    "COLUMN": 5,
+    "TYPE_UI": "Smail",
+    "INIT": [],
     "DETAIL": ["View", "Item", "Log"],
+    "PREPARE":["SFIS","CHECK_SN_FAIL","CHECK_FIXTURE"],
+    "END":["FPT_SERVER","CUS_SERVER","UP_API","SFIS"],
     "LOAD_MODE": [
         {
-            "NAME": "Production", 
+            "NAME": "PRODUCTION", 
             "TYPE_MODE": "Production",
-            "CHECK_SN_FAIL": "ON",
             "DETAIL": ["Item", "Log"],
-            "CHECK_FIXTURE": "RESET",
-            "ROW": 12,
-            "COLUMN": 8
+            "PREPARE":["SIMPLE_SFIS","CHECK_SN_FAIL","CHECK_FIXTURE"],
+            "END":["FPT_SERVER","CUS_SERVER","UP_API","SIMPLE_SFIS"]
         },
         {
-            "NAME": "Debug",
+            "NAME": "DEBUG",
             "TYPE_MODE": "Debug",
             "INIT": ["PASSWORD"],
-            "TYPE_UI": "Big",
-            "SFIS": "OFF",
-            "CUS_SERVER": "OFF",
-            "UP_API": "OFF",
-            "CHECK_SN_FAIL": "OFF",
-            "CHECK_FIXTURE": "ON",
-            "ROW": 1,
-            "COLUMN": 1
+            "DETAIL": ["View", "Item", "Log"],
+            "PREPARE":[],
+            "END":["FPT_SERVER","CUS_SERVER","UP_API","FIX_FIXTURE"]
         },
 	{
-            "NAME": "RE BEBUG",
-            "TYPE_MODE": "Debug",
-            "DETAIL": ["View", "Item", "Log"],
-            "SFIS": "DEV",
-            "CUS_SERVER": "OFF",
-            "UP_API": "OFF",
-            "FPT_SERVER": "OFF",
-            "CHECK_SN_FAIL": "ON",
-            "CHECK_FIXTURE": "ON"
+            "NAME": "PRO-DEV", 
+            "TYPE_MODE": "Production",
+            "DETAIL": ["Item", "Log"],
+            "PREPARE":["DEV_SFIS","CHECK_SN_FAIL","CHECK_FIXTURE"],
+            "END":["FPT_SERVER","CUS_SERVER","UP_API","DEV_SFIS"]
         }
     ]
 }

@@ -2,9 +2,8 @@
  * To change this template, choose Tools | Templates
  * and open the template in the editor.
  */
-package Model.WareHouse;
+package Model.ManagerUI;
 
-import Model.DataSource.Setting.KeyWord;
 import Control.Message;
 import com.alibaba.fastjson.JSONArray;
 import com.alibaba.fastjson.JSONObject;

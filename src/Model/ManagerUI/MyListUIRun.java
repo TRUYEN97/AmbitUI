@@ -2,7 +2,7 @@
  * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
  * Click nbfs://nbhost/SystemFileSystem/Templates/Classes/Class.java to edit this template
  */
-package Model.WareHouse;
+package Model.ManagerUI;
 
 import Control.Mode.ModeTest;
 import View.DrawBoardUI.SubUI.AbsSubUi;
@@ -34,7 +34,7 @@ public class MyListUIRun extends MyListUI{
         if (containIndex(ui.getName()) || containUI(ui)) {
             throw new Exception(
                     String.format("Index \" %s \" đã được sử dụng để test %s",
-                            ui.getName(), getModeOf(ui).getName()));
+                            ui.getName(), getModeOf(ui)));
         }
         this.listUI.add(ui);
         this.listIndex.add(ui.getName());

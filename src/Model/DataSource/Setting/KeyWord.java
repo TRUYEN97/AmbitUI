@@ -11,24 +11,54 @@ import java.util.List;
  *
  * @author Administrator
  */
-public class KeyWord {
+public final class KeyWord {
 
-    public static final String CHECK_FIXTURE = "CHECK_FIXTURE";
-    public static final String CHECK_SN_FAIL = "CHECK_SN_FAIL";
-    public static final String CUS_SERVER = "CUS_SERVER";
-    public static final String FPT_SERVER = "FPT_SERVER";
     public static final String TYPE_MODE = "TYPE_MODE";
     public static final String COLUMN = "COLUMN";
     public static final String DETAIL = "DETAIL";
-    public static final String UP_API = "UP_API";
     public static final String STATION = "STATION";
     public static final String TYPE_UI = "TYPE_UI";
     public static final String NAME = "NAME";
-    public static final String SFIS = "SFIS";
     public static final String ROW = "ROW";
     public static final String LOAD_MODE = "LOAD_MODE";
     public static final String INIT_FUNC = "INIT";
-    public static final List<String> MODE_KEY = Arrays.asList(CHECK_FIXTURE,
-            CHECK_SN_FAIL, FPT_SERVER, COLUMN, DETAIL, UP_API,
-            CUS_SERVER, ROW, SFIS, TYPE_MODE, TYPE_UI, INIT_FUNC);
+    public static final String PREPARE = "PREPARE";
+    public static final String END = "END";
+    public static final List<String> MODE_KEY = Arrays.asList(
+            COLUMN, DETAIL,ROW,  TYPE_MODE, TYPE_UI,
+            INIT_FUNC, PREPARE, END);
+
+    public class Init {
+
+        public static final String PASSWORD = "Password";
+    }
+
+    public class Detail {
+
+        public static final String VIEW = "View";
+        public static final String LOG = "Log";
+        public static final String ITEM = "Item";
+    }
+    
+    public class SubUI {
+
+        public static final String BIG_UI = "Big";
+        public static final String SMAIL_UI = "Smail";
+    }
+
+    public class Prepare {
+
+        public static final String CHECK_SN_FAIL = "CHECK_SN_FAIL";
+        public static final String CHECK_FIXTURE = "CHECK_FIXTURE";
+        public static final String SIMPLE_SFIS = "SIMPLE_SFIS";
+        public static final String DEV_SFIS = "DEV_SFIS";
+    }
+
+    public class End {
+
+        public static final String CUS_SERVER = "CUS_SERVER";
+        public static final String FPT_SERVER = "FPT_SERVER";
+        public static final String UP_API = "UP_API";
+        public static final String DEV_SFIS = "DEV_SFIS";
+    }
 }

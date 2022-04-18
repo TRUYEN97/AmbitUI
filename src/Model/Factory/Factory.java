@@ -4,6 +4,7 @@
  */
 package Model.Factory;
 
+import Model.DataSource.Setting.KeyWord;
 import View.DrawBoardUI.FormDetail.AbsTabUI;
 import View.DrawBoardUI.SubUI.AbsSubUi;
 import View.DrawBoardUI.UIWarehouse.BigUIProxy;
@@ -51,13 +52,13 @@ public class Factory {
     }
 
     private void addSubUI() {
-        this.subUIFactory.addType(new BigUIProxy("Big"));
-        this.subUIFactory.addType(new SmallProxy("Small"));
+        this.subUIFactory.addType(new BigUIProxy(KeyWord.SubUI.BIG_UI));
+        this.subUIFactory.addType(new SmallProxy(KeyWord.SubUI.SMAIL_UI));
     }
 
     private void addTabUI() {
-        this.tabUIFactory.addType(new TabViewProxy("View"));
-        this.tabUIFactory.addType(new TabItemProxy("Item"));
-        this.tabUIFactory.addType(new TabLogProxy("Log"));
+        this.tabUIFactory.addType(new TabViewProxy(KeyWord.Detail.VIEW));
+        this.tabUIFactory.addType(new TabItemProxy(KeyWord.Detail.ITEM));
+        this.tabUIFactory.addType(new TabLogProxy(KeyWord.Detail.LOG));
     }
 }

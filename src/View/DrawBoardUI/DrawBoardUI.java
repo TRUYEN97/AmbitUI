@@ -6,7 +6,7 @@ package View.DrawBoardUI;
 
 import Model.Factory.Factory;
 import Model.Factory.FactoryType;
-import Model.WareHouse.ManagerUI;
+import Model.ManagerUI.ManagerUI;
 import View.DrawBoardUI.SubUI.AbsSubUi;
 import java.awt.GridLayout;
 import javax.swing.JPanel;

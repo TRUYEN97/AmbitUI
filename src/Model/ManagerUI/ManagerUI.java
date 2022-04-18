@@ -2,7 +2,7 @@
  * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
  * Click nbfs://nbhost/SystemFileSystem/Templates/Classes/Class.java to edit this template
  */
-package Model.WareHouse;
+package Model.ManagerUI;
 
 import Control.Message;
 import Control.Mode.ModeTest;
@@ -54,5 +54,9 @@ public class ManagerUI {
 
     public MyListUI getListUI() {
         return this.listSubUI;
+    }
+
+    public boolean isIndex(String index) {
+        return this.listSubUI.containIndex(index);
     }
 }

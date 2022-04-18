@@ -10,6 +10,7 @@ import Control.Message;
 import Model.DataSource.Setting.Setting;
 import View.DrawBoardUI.DrawBoardUI;
 import View.LoadModelTime.LoadModeTime;
+import java.awt.HeadlessException;
 import java.awt.Toolkit;
 import java.awt.datatransfer.Clipboard;
 import java.awt.datatransfer.DataFlavor;
@@ -42,7 +43,7 @@ public class UIView extends javax.swing.JFrame {
         panelBackground = new javax.swing.JPanel();
         jPanel1 = new javax.swing.JPanel();
         jScrollPane1 = new javax.swing.JScrollPane();
-        jTextShowSfis = new javax.swing.JTextArea();
+        txtInput = new javax.swing.JTextArea();
         jPanel3 = new javax.swing.JPanel();
         lbNamePC = new javax.swing.JLabel();
         lbIP = new javax.swing.JLabel();
@@ -54,7 +55,8 @@ public class UIView extends javax.swing.JFrame {
         jScrollPane2 = new javax.swing.JScrollPane();
         textMess = new javax.swing.JTextArea();
         cbbModeTest = new javax.swing.JComboBox<>();
-        txtInput = new javax.swing.JTextField();
+        jScrollPane3 = new javax.swing.JScrollPane();
+        jTextShowSfis1 = new javax.swing.JTextArea();
         BoardSubUI = new javax.swing.JPanel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
@@ -70,19 +72,19 @@ public class UIView extends javax.swing.JFrame {
 
         jPanel1.setBackground(new java.awt.Color(102, 102, 102));
 
-        jTextShowSfis.setEditable(false);
-        jTextShowSfis.setColumns(20);
-        jTextShowSfis.setFont(new java.awt.Font("Monospaced", 0, 18)); // NOI18N
-        jTextShowSfis.setLineWrap(true);
-        jTextShowSfis.setRows(4);
-        jTextShowSfis.setWrapStyleWord(true);
-        jTextShowSfis.setMinimumSize(new java.awt.Dimension(113, 200));
-        jTextShowSfis.addKeyListener(new java.awt.event.KeyAdapter() {
+        txtInput.setEditable(false);
+        txtInput.setColumns(20);
+        txtInput.setFont(new java.awt.Font("Monospaced", 0, 16)); // NOI18N
+        txtInput.setLineWrap(true);
+        txtInput.setRows(2);
+        txtInput.setWrapStyleWord(true);
+        txtInput.setMinimumSize(new java.awt.Dimension(113, 200));
+        txtInput.addKeyListener(new java.awt.event.KeyAdapter() {
             public void keyTyped(java.awt.event.KeyEvent evt) {
-                jTextShowSfisKeyTyped(evt);
+                txtInputKeyTyped(evt);
             }
         });
-        jScrollPane1.setViewportView(jTextShowSfis);
+        jScrollPane1.setViewportView(txtInput);
 
         jPanel3.setBackground(new java.awt.Color(153, 153, 255));
         jPanel3.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
@@ -207,14 +209,19 @@ public class UIView extends javax.swing.JFrame {
                 .addContainerGap())
         );
 
-        txtInput.setEditable(false);
-        txtInput.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
-        txtInput.setHorizontalAlignment(javax.swing.JTextField.CENTER);
-        txtInput.addKeyListener(new java.awt.event.KeyAdapter() {
+        jTextShowSfis1.setEditable(false);
+        jTextShowSfis1.setColumns(20);
+        jTextShowSfis1.setFont(new java.awt.Font("Monospaced", 0, 18)); // NOI18N
+        jTextShowSfis1.setLineWrap(true);
+        jTextShowSfis1.setRows(3);
+        jTextShowSfis1.setWrapStyleWord(true);
+        jTextShowSfis1.setMinimumSize(new java.awt.Dimension(113, 200));
+        jTextShowSfis1.addKeyListener(new java.awt.event.KeyAdapter() {
             public void keyTyped(java.awt.event.KeyEvent evt) {
-                txtInputKeyTyped(evt);
+                jTextShowSfis1KeyTyped(evt);
             }
         });
+        jScrollPane3.setViewportView(jTextShowSfis1);
 
         javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
         jPanel1.setLayout(jPanel1Layout);
@@ -223,20 +230,20 @@ public class UIView extends javax.swing.JFrame {
             .addGroup(jPanel1Layout.createSequentialGroup()
                 .addContainerGap()
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(jScrollPane1, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, 274, Short.MAX_VALUE)
+                    .addComponent(jScrollPane1, javax.swing.GroupLayout.Alignment.TRAILING)
                     .addComponent(jPanel4, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                     .addComponent(jPanel5, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                     .addComponent(jPanel3, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                    .addComponent(txtInput, javax.swing.GroupLayout.Alignment.TRAILING))
+                    .addComponent(jScrollPane3))
                 .addContainerGap())
         );
         jPanel1Layout.setVerticalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel1Layout.createSequentialGroup()
                 .addContainerGap()
-                .addComponent(txtInput, javax.swing.GroupLayout.PREFERRED_SIZE, 37, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 81, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(jScrollPane1, javax.swing.GroupLayout.DEFAULT_SIZE, 151, Short.MAX_VALUE)
+                .addComponent(jScrollPane3, javax.swing.GroupLayout.DEFAULT_SIZE, 107, Short.MAX_VALUE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(jPanel3, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
@@ -268,7 +275,7 @@ public class UIView extends javax.swing.JFrame {
                 .addContainerGap()
                 .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(BoardSubUI, javax.swing.GroupLayout.DEFAULT_SIZE, 696, Short.MAX_VALUE)
+                .addComponent(BoardSubUI, javax.swing.GroupLayout.DEFAULT_SIZE, 682, Short.MAX_VALUE)
                 .addContainerGap())
         );
         panelBackgroundLayout.setVerticalGroup(
@@ -296,16 +303,31 @@ public class UIView extends javax.swing.JFrame {
         setLocationRelativeTo(null);
     }// </editor-fold>//GEN-END:initComponents
 
-    private void jTextShowSfisKeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_jTextShowSfisKeyTyped
+    private void txtInputKeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_txtInputKeyTyped
         // TODO add your handling code here:
-    }//GEN-LAST:event_jTextShowSfisKeyTyped
+        inputAnalysis(evt);
+    }//GEN-LAST:event_txtInputKeyTyped
 
     private void lbTimeVNMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_lbTimeVNMouseClicked
         // TODO add your handling code here:
         LoadModeTime.getInstance().next();
     }//GEN-LAST:event_lbTimeVNMouseClicked
 
-    private void txtInputKeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_txtInputKeyTyped
+    private void formWindowOpened(java.awt.event.WindowEvent evt) {//GEN-FIRST:event_formWindowOpened
+        // TODO add your handling code here:
+        LoadModeTime.getInstance().setLabel(this.lbTimeVN);
+        LoadModeTime.getInstance().setBackground(this.BoardSubUI);
+        LoadModeTime.getInstance().run();
+        Message.ShowWarning.addLbMess(textMess);
+        drawBoardUI();
+        new LaunchMode().setListMode(cbbModeTest);
+    }//GEN-LAST:event_formWindowOpened
+
+    private void jTextShowSfis1KeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_jTextShowSfis1KeyTyped
+        inputAnalysis(evt);
+    }//GEN-LAST:event_jTextShowSfis1KeyTyped
+
+    private void inputAnalysis(KeyEvent evt) throws HeadlessException {
         // TODO add your handling code here:
         char input = evt.getKeyChar();
         StringBuilder dataString = new StringBuilder(this.txtInput.getText());
@@ -313,7 +335,7 @@ public class UIView extends javax.swing.JFrame {
         switch (input) {
             case KeyEvent.VK_ENTER -> {
                 if (!dataString.isEmpty()) {
-                    Core.getInstance().input(dataString.toString());
+                    Core.getInstance().input(dataString.toString().trim().toUpperCase());
                 }
             }
             case KeyEvent.VK_BACK_SPACE -> {
@@ -335,24 +357,13 @@ public class UIView extends javax.swing.JFrame {
                 }
             }
             default -> {
-                if (input >= '0' && input <= 'z') {
-                    dataString.append(input);
-                    this.txtInput.setText(dataString.toString());
-                }
-            }
-
+                    if (input >= '0' && input <= 'z') {
+                            dataString.append(input);
+                            this.txtInput.setText(dataString.toString());
+                            }
+                    }
         }
-    }//GEN-LAST:event_txtInputKeyTyped
-
-    private void formWindowOpened(java.awt.event.WindowEvent evt) {//GEN-FIRST:event_formWindowOpened
-        // TODO add your handling code here:
-        LoadModeTime.getInstance().setLabel(this.lbTimeVN);
-        LoadModeTime.getInstance().setBackground(this.BoardSubUI);
-        LoadModeTime.getInstance().run();
-        Message.ShowWarning.addLbMess(textMess);
-        drawBoardUI();
-        new LaunchMode().setListMode(cbbModeTest);
-    }//GEN-LAST:event_formWindowOpened
+    }
 
     private void drawBoardUI() {
         DrawBoardUI drawBoardUI = new DrawBoardUI();
@@ -375,7 +386,8 @@ public class UIView extends javax.swing.JFrame {
     private javax.swing.JPanel jPanel5;
     private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JScrollPane jScrollPane2;
-    private javax.swing.JTextArea jTextShowSfis;
+    private javax.swing.JScrollPane jScrollPane3;
+    private javax.swing.JTextArea jTextShowSfis1;
     private javax.swing.JLabel lbIP;
     private javax.swing.JLabel lbNamePC;
     private javax.swing.JLabel lbProductname;
@@ -383,7 +395,7 @@ public class UIView extends javax.swing.JFrame {
     private javax.swing.JLabel lbTimeVN;
     private javax.swing.JPanel panelBackground;
     private javax.swing.JTextArea textMess;
-    private javax.swing.JTextField txtInput;
+    private javax.swing.JTextArea txtInput;
     // End of variables declaration//GEN-END:variables
 
 }

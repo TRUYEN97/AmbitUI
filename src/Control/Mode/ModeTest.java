@@ -17,26 +17,28 @@ public class ModeTest implements IInit {
 
     private final String name;
     private final ModeInfo modeInfo;
-    private final List<IInit> funcInit;
+    private final List<IInit> inits;
+    private final List<IPrepare> prepares;
+    private final List<IEnd> ends;
+    private final CheckInput checkInput;
 
     public ModeTest(ModeInfo modeTest) {
         this.name = modeTest.getModeName();
         this.modeInfo = modeTest;
-        this.funcInit = new ArrayList<>();
+        this.inits = new ArrayList<>();
+        this.prepares = new ArrayList<>();
+        this.ends = new ArrayList<>();
+        this.checkInput = new CheckInput(this.modeInfo);
     }
 
     @Override
     public String toString() {
-        return getName();
-    }
-
-    public String getName() {
         return name;
     }
 
     @Override
     public boolean init() {
-        for (IInit iInit : funcInit) {
+        for (IInit iInit : inits) {
             if (!iInit.init()) {
                 return false;
             }
@@ -44,7 +46,39 @@ public class ModeTest implements IInit {
         return true;
     }
 
-    public ModeInfo getModeInfo() {
-        return modeInfo;
+    public void run() {
+        if (prepare()) {
+            test();
+            end();
+        }
     }
+
+    private boolean prepare() {
+        System.out.println("init");
+        for (IPrepare prepare : prepares) {
+            if (!prepare.prepare()) {
+                return false;
+            }
+        }
+        return true;
+    }
+
+    private void test() {
+        System.out.println("test");
+    }
+
+    private void end() {
+        System.out.println("end");
+        for (IEnd end : ends) {
+        }
+    }
+
+    public ModeInfo getModeInfo() {
+        return this.modeInfo;
+    }
+
+    public boolean checkInput(String input) {
+        return this.checkInput.checkInput(input);
+    }
+   
 }

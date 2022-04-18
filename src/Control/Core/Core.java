@@ -6,7 +6,7 @@ package Control.Core;
 
 import Control.Mode.ModeTest;
 import Model.DataSource.LoadSource;
-import Model.WareHouse.ManagerUI;
+import Model.ManagerUI.ManagerUI;
 import View.UIView;
 
 /**
@@ -49,17 +49,17 @@ public class Core {
     }
 
     public void input(String input) {
-        System.out.println(input);
+        if (this.currMode.checkInput(input)) {
+            this.currMode.run();
+        }
     }
-    
-   
-    
+
     public static void main(String[] args) {
         Core core = Core.getInstance();
         core.showUI();
     }
-    
-     private void showUI() {
+
+    private void showUI() {
         try {
             for (javax.swing.UIManager.LookAndFeelInfo info : javax.swing.UIManager.getInstalledLookAndFeels()) {
                 if ("Nimbus".equals(info.getName())) {
