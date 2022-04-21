@@ -4,8 +4,11 @@
  */
 package Control.Mode;
 
+import Model.Interface.IPrepare;
+import Model.Interface.IEnd;
 import Model.Interface.IInit;
 import Model.DataSource.Setting.ModeInfo;
+import Model.Factory.Factory;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -21,6 +24,7 @@ public class ModeTest implements IInit {
     private final List<IPrepare> prepares;
     private final List<IEnd> ends;
     private final CheckInput checkInput;
+    private final Factory factory;
 
     public ModeTest(ModeInfo modeTest) {
         this.name = modeTest.getModeName();
@@ -29,6 +33,14 @@ public class ModeTest implements IInit {
         this.prepares = new ArrayList<>();
         this.ends = new ArrayList<>();
         this.checkInput = new CheckInput(this.modeInfo);
+        this.factory = Factory.getInstance();
+        setupInitFunc();
+    }
+
+    private void setupInitFunc() {
+        for (String type : this.modeInfo.getInit()) {
+            this.inits.add(this.factory.getInitFunc(type));
+        }
     }
 
     @Override

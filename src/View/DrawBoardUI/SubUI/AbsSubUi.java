@@ -31,14 +31,20 @@ public abstract class AbsSubUi extends AbsUI implements IUpdate {
     public abstract void setText(String txt);
 
     @Override
-    public void update() {
-        ModeInfo modeInfo;
-        Factory factory;
-        modeInfo = Core.getInstance().getCurrMode().getModeInfo();
-        factory = Factory.getInstance();
-        this.tabDetail.clear();
-        for (String name : modeInfo.getDetail()) {
-            this.tabDetail.addTab(factory.getTabUI(name));
+    public boolean update() {
+        try {
+            ModeInfo modeInfo;
+            Factory factory;
+            modeInfo = Core.getInstance().getCurrMode().getModeInfo();
+            factory = Factory.getInstance();
+            this.tabDetail.clear();
+            for (String name : modeInfo.getDetail()) {
+                this.tabDetail.addTab(factory.getTabUI(name));
+            }
+            return true;
+        } catch (Exception e) {
+            e.printStackTrace();
+            return false;
         }
     }
 

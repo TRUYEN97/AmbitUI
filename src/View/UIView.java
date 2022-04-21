@@ -27,6 +27,7 @@ public class UIView extends javax.swing.JFrame {
     /**
      * Creates new form UI
      */
+    private static final int CTRL_V = 22;
     public UIView() {
         initComponents();
     }
@@ -344,7 +345,7 @@ public class UIView extends javax.swing.JFrame {
                 }
                 this.txtInput.setText(dataString.toString());
             }
-            case 22 -> {
+            case CTRL_V -> {
                 Clipboard clipboard = Toolkit.getDefaultToolkit().getSystemClipboard();
                 DataFlavor flavor = DataFlavor.stringFlavor;
                 if (clipboard.isDataFlavorAvailable(flavor)) {

@@ -28,7 +28,7 @@ public final class Message {
         }
 
         public synchronized static void Console(String contain, Object pare1, Object pare2, Object pare3) {
-            System.out.println(String.format("\r\n".concat(contain).concat("\r\n////////////\r\n"), pare1, pare2, pare3));
+            System.err.println(String.format("\r\n".concat(contain).concat("\r\n////////////\r\n"), pare1, pare2, pare3));
         }
 
         public synchronized static void ShowAll(String contain, Object pare1, Object pare2, Object pare3) {

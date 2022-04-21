@@ -37,11 +37,12 @@ public class Core {
         return temp;
     }
 
-    public void setCurrMode(ModeTest modeTest) {
+    public boolean setCurrMode(ModeTest modeTest) {
         if (modeTest.init()) {
             this.currMode = modeTest;
-            ManagerUI.getInstance().getListUI().update();
+            return ManagerUI.getInstance().getListUI().update();
         }
+        return false;
     }
 
     public ModeTest getCurrMode() {
@@ -49,7 +50,7 @@ public class Core {
     }
 
     public void input(String input) {
-        if (this.currMode.checkInput(input)) {
+        if (notNull(this.currMode) && this.currMode.checkInput(input)) {
             this.currMode.run();
         }
     }
@@ -73,5 +74,9 @@ public class Core {
         java.awt.EventQueue.invokeLater(() -> {
             new UIView().setVisible(true);
         });
+    }
+
+    private boolean notNull(Object obj) {
+        return obj != null;
     }
 }

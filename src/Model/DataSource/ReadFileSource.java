@@ -5,7 +5,7 @@
 package Model.DataSource;
 
 import Model.Interface.IInit;
-import Control.FileType.ITypeRead;
+import Model.Interface.ITypeRead;
 import Control.Message;
 import com.alibaba.fastjson.JSONObject;
 import java.io.BufferedReader;
@@ -60,9 +60,14 @@ public class ReadFileSource implements IInit {
             this.coreData.putAll(type.readContain(new BufferedReader(new FileReader(file))));
             return true;
         } catch (Exception ex) {
-            ex.printStackTrace();
-            Message.WriteMessger.ConfixErro("%s\r\nRead file fail!\r\n%s\r\n%s",
-                    path, getAllClassName(), ex.toString());
+            try {
+                Thread.sleep(1000);
+            } catch (InterruptedException ex1) {
+            }
+            Message.WriteMessger.Console("%s\r\nRead file fail!\r\n%s\r\n%s",
+                    path, getAllClassName(), ex.getMessage());
+            Message.WriteMessger.ConfixErro("%s\r\nRead file fail!\r\n%s",
+                    path, getAllClassName(), null);
             return false;
         }
     }

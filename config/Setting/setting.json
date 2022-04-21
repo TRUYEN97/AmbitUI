@@ -1,8 +1,8 @@
 {
     "STATION": "RTT",
     "DHCP": "OFF",
-    "ROW": 5,
-    "COLUMN": 5,
+    "ROW": 12,
+    "COLUMN": 8,
     "TYPE_UI": "Smail",
     "INIT": [],
     "DETAIL": ["View", "Item", "Log"],
@@ -19,7 +19,7 @@
         {
             "NAME": "DEBUG",
             "TYPE_MODE": "Debug",
-            "INIT": ["PASSWORD"],
+            "INIT": ["Password"],
             "DETAIL": ["View", "Item", "Log"],
             "PREPARE":[],
             "END":["FPT_SERVER","CUS_SERVER","UP_API","FIX_FIXTURE"]
@@ -27,8 +27,9 @@
 	{
             "NAME": "PRO-DEV", 
             "TYPE_MODE": "Production",
+            "INIT": ["Password"],
             "DETAIL": ["Item", "Log"],
-            "PREPARE":["DEV_SFIS","CHECK_SN_FAIL","CHECK_FIXTURE"],
+            "PREPARE":["DEV_SFIS"],
             "END":["FPT_SERVER","CUS_SERVER","UP_API","DEV_SFIS"]
         }
     ]

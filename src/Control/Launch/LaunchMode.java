@@ -36,7 +36,7 @@ public class LaunchMode {
     public void setListMode(JComboBox listMode) {
         this.listMode = listMode;
         initCbb();
-        core.setCurrMode((ModeTest) this.listMode.getSelectedItem());
+        updateMode((ModeTest) this.listMode.getSelectedItem());
     }
 
     private void initCbb() {
@@ -52,9 +52,27 @@ public class LaunchMode {
         this.listMode.addItemListener((java.awt.event.ItemEvent evt) -> {
             if (evt.getStateChange() == ItemEvent.SELECTED) {
                 ModeTest item = (ModeTest) evt.getItem();
-                this.core.setCurrMode(item);
+                updateMode(item);
             }
         });
+    }
+
+    private void updateMode(ModeTest item) {
+        if (!setCurrMode(item)) {
+            backUpMode();
+        }
+    }
+
+    private boolean setCurrMode(ModeTest item) {
+        return (isCurrentMode(item) || this.core.setCurrMode(item));
+    }
+
+    private boolean isCurrentMode(ModeTest item) {
+        return this.core.getCurrMode() != null && this.core.getCurrMode().equals(item);
+    }
+
+    private void backUpMode() {
+        listMode.setSelectedItem(this.core.getCurrMode());
     }
 
     private Vector<ModeTest> createListMode() {

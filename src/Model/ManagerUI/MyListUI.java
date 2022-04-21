@@ -101,11 +101,15 @@ public class MyListUI implements IUpdate {
     }
 
     @Override
-    public void update() {
+    public boolean update() {
         ModeTest currMode = Core.getInstance().getCurrMode();
         for (int index = 0; index < this.listUI.size(); index++) {
-            this.listUI.get(index).update();
-            this.listMode.set(index, currMode);
+            if (this.listUI.get(index).update()) {
+                this.listMode.set(index, currMode);
+            }else{
+                return false;
+            }
         }
+        return true;
     }
 }

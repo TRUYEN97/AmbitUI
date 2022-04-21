@@ -4,7 +4,7 @@
  */
 package Control.FileType;
 
-import Control.FileType.ITypeRead;
+import Model.Interface.ITypeRead;
 import com.alibaba.fastjson.JSONObject;
 import java.io.BufferedReader;
 import java.io.IOException;
