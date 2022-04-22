@@ -1,6 +1,7 @@
 package Model.DataSource.Setting;
 
 import Control.FileType.FileJson;
+import Control.Mode.ModeTest;
 import Model.Interface.IInit;
 import Model.DataSource.ReadFileSource;
 import com.alibaba.fastjson.JSONArray;
@@ -86,5 +87,9 @@ public class Setting extends AbsSetting implements IInit {
 
     private JSONArray getLoadMode() {
         return this.warehouse.getJSONArray(KeyWord.LOAD_MODE);
+    }
+
+    public ModeTest getDefaultMode() {
+        return new ModeTest(new ModeInfo(getModeInfos().get(0)));
     }
 }

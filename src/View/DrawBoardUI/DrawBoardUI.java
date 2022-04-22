@@ -4,9 +4,9 @@
  */
 package View.DrawBoardUI;
 
+import Control.Mode.LoadMode;
 import Model.Factory.Factory;
-import Model.Factory.FactoryType;
-import Model.ManagerUI.ManagerUI;
+import View.ManagerUI.ManagerUI;
 import View.DrawBoardUI.SubUI.AbsSubUi;
 import java.awt.GridLayout;
 import javax.swing.JPanel;
@@ -21,12 +21,10 @@ public class DrawBoardUI {
     private int y_axis = 1;
     private JPanel boardUi;
     private String typeUI;
+    private final LoadMode loadMode;
 
-    public DrawBoardUI() {
-    }
-
-    public DrawBoardUI(JPanel boardUi) {
-        this.boardUi = boardUi;
+    public DrawBoardUI(LoadMode loadMode) {
+        this.loadMode = loadMode;
     }
 
     public void setBoardUi(JPanel boardUi) {
@@ -36,19 +34,10 @@ public class DrawBoardUI {
         this.boardUi = boardUi;
     }
 
-    public void setYXaxis(int y_axis, int x_axis) {
-        if (checkOutSizeInt(x_axis) || checkOutSizeInt(y_axis)) {
-            return;
-        }
-        this.x_axis = x_axis;
-        this.y_axis = y_axis;
-    }
-
-    public void setTypeUI(String typeUI) {
-        if (typeUI == null) {
-            return;
-        }
-        this.typeUI = typeUI;
+    public void setting() {
+        setTypeUI(this.loadMode.getCurrMode().getModeInfo().getTypeUI());
+        setYXaxis(this.loadMode.getCurrMode().getModeInfo().getRow(),
+                this.loadMode.getCurrMode().getModeInfo().getColumn());
     }
 
     public void Draw() {
@@ -82,7 +71,24 @@ public class DrawBoardUI {
         AbsSubUi subUi = Factory.getInstance().getSubUI(this.typeUI, indexName);
         if (subUi != null) {
             this.boardUi.add(subUi);
+            subUi.setLoadMode(this.loadMode);
+            return subUi;
         }
-        return subUi;
+        return null;
+    }
+
+    private void setYXaxis(int y_axis, int x_axis) {
+        if (checkOutSizeInt(x_axis) || checkOutSizeInt(y_axis)) {
+            return;
+        }
+        this.x_axis = x_axis;
+        this.y_axis = y_axis;
+    }
+
+    private void setTypeUI(String typeUI) {
+        if (typeUI == null) {
+            return;
+        }
+        this.typeUI = typeUI;
     }
 }

@@ -23,7 +23,6 @@ public class ModeTest implements IInit {
     private final List<IInit> inits;
     private final List<IPrepare> prepares;
     private final List<IEnd> ends;
-    private final CheckInput checkInput;
     private final Factory factory;
 
     public ModeTest(ModeInfo modeTest) {
@@ -32,7 +31,6 @@ public class ModeTest implements IInit {
         this.inits = new ArrayList<>();
         this.prepares = new ArrayList<>();
         this.ends = new ArrayList<>();
-        this.checkInput = new CheckInput(this.modeInfo);
         this.factory = Factory.getInstance();
         setupInitFunc();
     }
@@ -87,10 +85,6 @@ public class ModeTest implements IInit {
 
     public ModeInfo getModeInfo() {
         return this.modeInfo;
-    }
-
-    public boolean checkInput(String input) {
-        return this.checkInput.checkInput(input);
     }
    
 }

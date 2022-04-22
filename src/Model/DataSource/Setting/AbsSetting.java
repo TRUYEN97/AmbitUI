@@ -4,8 +4,7 @@
  */
 package Model.DataSource.Setting;
 
-import Model.ManagerUI.DataWareHouse;
-import com.alibaba.fastjson.JSONArray;
+import View.ManagerUI.DataWareHouse;
 import com.alibaba.fastjson.JSONObject;
 import java.util.List;
 

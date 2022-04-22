@@ -2,7 +2,7 @@
  * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
  * Click nbfs://nbhost/SystemFileSystem/Templates/Classes/Class.java to edit this template
  */
-package Model.ManagerUI;
+package View.ManagerUI;
 
 import Control.Mode.ModeTest;
 import View.DrawBoardUI.SubUI.AbsSubUi;
@@ -27,7 +27,7 @@ public class MyListUIRun extends MyListUI{
         return listSN.contains(sn);
     }
 
-    public void put(AbsSubUi ui, ModeTest modeTest, String sn) throws Exception {
+    public void put(AbsSubUi ui, String sn) throws Exception {
         if (containSN(sn)) {
             throw new Exception(String.format("SN \" %s \" đã tồn tại", sn));
         }
@@ -38,7 +38,6 @@ public class MyListUIRun extends MyListUI{
         }
         this.listUI.add(ui);
         this.listIndex.add(ui.getName());
-        this.listMode.add(modeTest);
         this.listSN.add(sn);
     }
 
@@ -56,7 +55,6 @@ public class MyListUIRun extends MyListUI{
         }
         this.listUI.remove(index);
         this.listIndex.remove(index);
-        this.listMode.remove(index);
         this.listSN.remove(index);
     }
 

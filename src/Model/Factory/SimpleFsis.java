@@ -17,7 +17,7 @@ public class SimpleFsis implements IPrepare {
 
     @Override
     public boolean prepare() {
-        
+        return true;
     }
     
 }

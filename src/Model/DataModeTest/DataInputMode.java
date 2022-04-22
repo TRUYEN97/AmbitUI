@@ -11,6 +11,16 @@ package Model.DataModeTest;
 public class DataInputMode {
     private String snInput;
     private String index;
+    private final StringBuilder builder;
+
+    public DataInputMode() {
+        this.builder = new StringBuilder();
+    }
+
+    public StringBuilder getBuilder() {
+        return builder;
+    }
+    
 
     public String getSnInput() {
         return snInput;

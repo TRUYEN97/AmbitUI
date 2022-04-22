@@ -5,6 +5,8 @@
 package View.DrawBoardUI.SubUI;
 
 import Control.Core.Core;
+import Control.Mode.LoadMode;
+import Control.Mode.ModeTest;
 import Model.DataSource.Setting.ModeInfo;
 import Model.Factory.Factory;
 import Model.Interface.IUpdate;
@@ -20,12 +22,17 @@ import javax.swing.border.LineBorder;
 public abstract class AbsSubUi extends AbsUI implements IUpdate {
 
     protected final TabDetail tabDetail;
+    protected LoadMode loadMode;
 
     protected AbsSubUi(String name) {
         super(name);
         this.setBorder(new LineBorder(Color.BLACK, 2));
         this.setToolTipText(name);
         tabDetail = new TabDetail(this);
+    }
+
+    public void setLoadMode(LoadMode loadMode) {
+        this.loadMode = loadMode;
     }
 
     public abstract void setText(String txt);
@@ -35,7 +42,7 @@ public abstract class AbsSubUi extends AbsUI implements IUpdate {
         try {
             ModeInfo modeInfo;
             Factory factory;
-            modeInfo = Core.getInstance().getCurrMode().getModeInfo();
+            modeInfo = this.loadMode.getCurrMode().getModeInfo();
             factory = Factory.getInstance();
             this.tabDetail.clear();
             for (String name : modeInfo.getDetail()) {
@@ -46,6 +53,10 @@ public abstract class AbsSubUi extends AbsUI implements IUpdate {
             e.printStackTrace();
             return false;
         }
+    }
+
+    public ModeTest getMode() {
+        throw new UnsupportedOperationException("Not supported yet."); // Generated from nbfs://nbhost/SystemFileSystem/Templates/Classes/Code/GeneratedMethodBody
     }
 
 }

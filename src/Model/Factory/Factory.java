@@ -5,7 +5,7 @@
 package Model.Factory;
 
 import Model.Interface.IPrepare;
-import InitPackages.InitProxy.IdPasswordProxy;
+import Control.InitPackages.InitProxy.IdPasswordProxy;
 import Model.DataSource.Setting.KeyWord;
 import Model.Interface.IInit;
 import View.DrawBoardUI.FormDetail.AbsTabUI;

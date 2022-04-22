@@ -2,7 +2,7 @@
  * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
  * Click nbfs://nbhost/SystemFileSystem/Templates/Classes/Class.java to edit this template
  */
-package Model.ManagerUI;
+package View.ManagerUI;
 
 import Control.Core.Core;
 import Control.Mode.ModeTest;
@@ -18,12 +18,10 @@ import java.util.List;
 public class MyListUI implements IUpdate {
 
     protected final List<AbsSubUi> listUI;
-    protected final List<ModeTest> listMode;
     protected final List<String> listIndex;
 
     public MyListUI() {
         this.listUI = new ArrayList<>();
-        this.listMode = new ArrayList<>();
         this.listIndex = new ArrayList<>();
     }
 
@@ -32,13 +30,6 @@ public class MyListUI implements IUpdate {
             return false;
         }
         return listUI.contains(ui);
-    }
-
-    public boolean containMode(ModeTest mode) {
-        if (mode == null) {
-            return false;
-        }
-        return listMode.contains(mode);
     }
 
     public boolean containIndex(String index) {
@@ -54,7 +45,6 @@ public class MyListUI implements IUpdate {
         }
         this.listUI.add(ui);
         this.listIndex.add(ui.getName());
-        this.listMode.add(modeTest);
     }
 
     public void remove(AbsSubUi ui) {
@@ -64,18 +54,16 @@ public class MyListUI implements IUpdate {
         }
         this.listUI.remove(index);
         this.listIndex.remove(index);
-        this.listMode.remove(index);
     }
 
     public void clear() {
         this.listUI.clear();
         this.listIndex.clear();
-        this.listMode.clear();
     }
 
     public ModeTest getModeOf(AbsSubUi ui) {
         try {
-            return this.listMode.get(this.listUI.indexOf(ui));
+            return ui.getMode();
         } catch (Exception e) {
             e.printStackTrace();
             return null;
@@ -84,7 +72,7 @@ public class MyListUI implements IUpdate {
 
     public ModeTest getModeOf(String index) {
         try {
-            return this.listMode.get(this.listIndex.indexOf(index));
+            return this.listUI.get(this.listIndex.indexOf(index)).getMode();
         } catch (Exception e) {
             e.printStackTrace();
             return null;
@@ -102,11 +90,8 @@ public class MyListUI implements IUpdate {
 
     @Override
     public boolean update() {
-        ModeTest currMode = Core.getInstance().getCurrMode();
         for (int index = 0; index < this.listUI.size(); index++) {
-            if (this.listUI.get(index).update()) {
-                this.listMode.set(index, currMode);
-            }else{
+            if (!this.listUI.get(index).update()) {
                 return false;
             }
         }

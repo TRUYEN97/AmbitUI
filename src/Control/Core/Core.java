@@ -4,9 +4,9 @@
  */
 package Control.Core;
 
-import Control.Mode.ModeTest;
-import Model.DataSource.LoadSource;
-import Model.ManagerUI.ManagerUI;
+import Control.Mode.LoadMode;
+import Model.DataSource.Setting.Setting;
+import View.DrawBoardUI.DrawBoardUI;
 import View.UIView;
 
 /**
@@ -15,52 +15,29 @@ import View.UIView;
  */
 public class Core {
 
-    private static volatile Core instance;
-    private final LoadSource loadSource;
-    private ModeTest currMode;
+    private final Setting setting;
+    private final DrawBoardUI drawBoardUI;
+    private final LoadMode loadMode;
+    private UIView view;
 
-    private Core() {
-        this.loadSource = new LoadSource();
-        this.loadSource.init();
+    public Core() {
+        this.setting = Setting.getInstance();
+        this.loadMode = new LoadMode(this.setting.getDefaultMode());
+        this.drawBoardUI = new DrawBoardUI(loadMode);
     }
 
-    public static Core getInstance() {
-        Core temp = Core.instance;
-        if (temp == null) {
-            synchronized (Core.class) {
-                temp = Core.instance;
-                if (temp == null) {
-                    Core.instance = temp = new Core();
-                }
-            }
-        }
-        return temp;
-    }
-
-    public boolean setCurrMode(ModeTest modeTest) {
-        if (modeTest.init()) {
-            this.currMode = modeTest;
-            return ManagerUI.getInstance().getListUI().update();
-        }
-        return false;
-    }
-
-    public ModeTest getCurrMode() {
-        return currMode;
-    }
-
-    public void input(String input) {
-        if (notNull(this.currMode) && this.currMode.checkInput(input)) {
-            this.currMode.run();
-        }
-    }
-
-    public static void main(String[] args) {
-        Core core = Core.getInstance();
-        core.showUI();
+    public void run() {
+        drawUI();
+        showUI();
     }
 
     private void showUI() {
+        java.awt.EventQueue.invokeLater(() -> {
+            view.setVisible(true);
+        });
+    }
+
+    private void drawUI() {
         try {
             for (javax.swing.UIManager.LookAndFeelInfo info : javax.swing.UIManager.getInstalledLookAndFeels()) {
                 if ("Nimbus".equals(info.getName())) {
@@ -71,12 +48,10 @@ public class Core {
         } catch (ClassNotFoundException | InstantiationException | IllegalAccessException | javax.swing.UnsupportedLookAndFeelException ex) {
             java.util.logging.Logger.getLogger(UIView.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         }
-        java.awt.EventQueue.invokeLater(() -> {
-            new UIView().setVisible(true);
-        });
+        this.view = new UIView(loadMode);
+        drawBoardUI.setBoardUi(this.view.getBoardUI());
+        drawBoardUI.setting();
+        drawBoardUI.Draw();
     }
 
-    private boolean notNull(Object obj) {
-        return obj != null;
-    }
 }

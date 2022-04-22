@@ -2,7 +2,7 @@
  * To change this template, choose Tools | Templates
  * and open the template in the editor.
  */
-package Model.ManagerUI;
+package View.ManagerUI;
 
 import Control.Message;
 import com.alibaba.fastjson.JSONArray;

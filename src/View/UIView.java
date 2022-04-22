@@ -4,19 +4,21 @@
  */
 package View;
 
-import Control.Core.Core;
-import Control.Launch.LaunchMode;
 import Control.Message;
+import Control.Mode.LoadMode;
+import Control.Mode.ModeTest;
+import Model.DataSource.Setting.ModeInfo;
 import Model.DataSource.Setting.Setting;
-import View.DrawBoardUI.DrawBoardUI;
 import View.LoadModelTime.LoadModeTime;
-import java.awt.HeadlessException;
-import java.awt.Toolkit;
-import java.awt.datatransfer.Clipboard;
-import java.awt.datatransfer.DataFlavor;
-import java.awt.datatransfer.UnsupportedFlavorException;
-import java.awt.event.KeyEvent;
-import java.io.IOException;
+import java.awt.Component;
+import java.awt.event.ItemEvent;
+import java.util.Vector;
+import javax.swing.DefaultComboBoxModel;
+import javax.swing.DefaultListCellRenderer;
+import javax.swing.JLabel;
+import javax.swing.JList;
+import javax.swing.JPanel;
+import javax.swing.SwingConstants;
 
 /**
  *
@@ -27,9 +29,17 @@ public class UIView extends javax.swing.JFrame {
     /**
      * Creates new form UI
      */
-    private static final int CTRL_V = 22;
-    public UIView() {
+    private final LoadModeTime modeTime;
+    private final LoadMode loadMode;
+
+    public UIView(LoadMode loadMode) {
+        this.loadMode = loadMode;
+        this.modeTime = new LoadModeTime();
         initComponents();
+    }
+
+    public JPanel getBoardUI() {
+        return BoardSubUI;
     }
 
     /**
@@ -182,6 +192,12 @@ public class UIView extends javax.swing.JFrame {
         jScrollPane2.setViewportView(textMess);
 
         cbbModeTest.setFont(new java.awt.Font("Segoe UI", 1, 18)); // NOI18N
+        cbbModeTest.setModel(new DefaultComboBoxModel(createListMode()));
+        cbbModeTest.addItemListener(new java.awt.event.ItemListener() {
+            public void itemStateChanged(java.awt.event.ItemEvent evt) {
+                cbbModeTestItemStateChanged(evt);
+            }
+        });
 
         javax.swing.GroupLayout jPanel5Layout = new javax.swing.GroupLayout(jPanel5);
         jPanel5.setLayout(jPanel5Layout);
@@ -209,6 +225,15 @@ public class UIView extends javax.swing.JFrame {
                 .addComponent(lbTimeVN, javax.swing.GroupLayout.PREFERRED_SIZE, 34, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addContainerGap())
         );
+
+        this.cbbModeTest.setRenderer(new DefaultListCellRenderer() {
+            @Override
+            public Component getListCellRendererComponent(JList jList, Object o, int i, boolean b, boolean b1) {
+                JLabel rendrlbl = (JLabel) super.getListCellRendererComponent(jList, o, i, b, b1);    //todo: override
+                rendrlbl.setHorizontalAlignment(SwingConstants.CENTER);
+                return rendrlbl;
+            }
+        });
 
         jTextShowSfis1.setEditable(false);
         jTextShowSfis1.setColumns(20);
@@ -276,7 +301,7 @@ public class UIView extends javax.swing.JFrame {
                 .addContainerGap()
                 .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(BoardSubUI, javax.swing.GroupLayout.DEFAULT_SIZE, 682, Short.MAX_VALUE)
+                .addComponent(BoardSubUI, javax.swing.GroupLayout.DEFAULT_SIZE, 736, Short.MAX_VALUE)
                 .addContainerGap())
         );
         panelBackgroundLayout.setVerticalGroup(
@@ -306,74 +331,45 @@ public class UIView extends javax.swing.JFrame {
 
     private void txtInputKeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_txtInputKeyTyped
         // TODO add your handling code here:
-        inputAnalysis(evt);
+        this.loadMode.checkInput(evt.getKeyChar());
+        this.txtInput.setText(this.loadMode.getDataInput());
     }//GEN-LAST:event_txtInputKeyTyped
 
     private void lbTimeVNMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_lbTimeVNMouseClicked
         // TODO add your handling code here:
-        LoadModeTime.getInstance().next();
+        modeTime.next();
     }//GEN-LAST:event_lbTimeVNMouseClicked
 
     private void formWindowOpened(java.awt.event.WindowEvent evt) {//GEN-FIRST:event_formWindowOpened
         // TODO add your handling code here:
-        LoadModeTime.getInstance().setLabel(this.lbTimeVN);
-        LoadModeTime.getInstance().setBackground(this.BoardSubUI);
-        LoadModeTime.getInstance().run();
+        modeTime.setLabel(this.lbTimeVN);
+        modeTime.setBackground(this.BoardSubUI);
+        modeTime.run();
         Message.ShowWarning.addLbMess(textMess);
-        drawBoardUI();
-        new LaunchMode().setListMode(cbbModeTest);
+        updateMode((ModeTest) this.cbbModeTest.getSelectedItem());
     }//GEN-LAST:event_formWindowOpened
 
     private void jTextShowSfis1KeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_jTextShowSfis1KeyTyped
-        inputAnalysis(evt);
+        this.loadMode.checkInput(evt.getKeyChar());
+        this.txtInput.setText(this.loadMode.getDataInput());
     }//GEN-LAST:event_jTextShowSfis1KeyTyped
 
-    private void inputAnalysis(KeyEvent evt) throws HeadlessException {
+    private void cbbModeTestItemStateChanged(java.awt.event.ItemEvent evt) {//GEN-FIRST:event_cbbModeTestItemStateChanged
         // TODO add your handling code here:
-        char input = evt.getKeyChar();
-        StringBuilder dataString = new StringBuilder(this.txtInput.getText());
-        this.txtInput.setText("");
-        switch (input) {
-            case KeyEvent.VK_ENTER -> {
-                if (!dataString.isEmpty()) {
-                    Core.getInstance().input(dataString.toString().trim().toUpperCase());
-                }
-            }
-            case KeyEvent.VK_BACK_SPACE -> {
-                if (dataString.length() > 0) {
-                    dataString.deleteCharAt(dataString.length() - 1);
-                }
-                this.txtInput.setText(dataString.toString());
-            }
-            case CTRL_V -> {
-                Clipboard clipboard = Toolkit.getDefaultToolkit().getSystemClipboard();
-                DataFlavor flavor = DataFlavor.stringFlavor;
-                if (clipboard.isDataFlavorAvailable(flavor)) {
-                    try {
-                        dataString.append(clipboard.getData(flavor));
-                        this.txtInput.setText(dataString.toString());
-                    } catch (UnsupportedFlavorException | IOException e) {
-                        e.printStackTrace();
-                    }
-                }
-            }
-            default -> {
-                    if (input >= '0' && input <= 'z') {
-                            dataString.append(input);
-                            this.txtInput.setText(dataString.toString());
-                            }
-                    }
+        if (evt.getStateChange() == ItemEvent.SELECTED) {
+            ModeTest item = (ModeTest) evt.getItem();
+            updateMode(item);
         }
+    }//GEN-LAST:event_cbbModeTestItemStateChanged
+
+    private Vector<ModeTest> createListMode() {
+        Vector<ModeTest> result = new Vector<>();
+        for (var info : Setting.getInstance().getModeInfos()) {
+            result.add(new ModeTest(new ModeInfo(info)));
+        }
+        return result;
     }
 
-    private void drawBoardUI() {
-        DrawBoardUI drawBoardUI = new DrawBoardUI();
-        Setting setting = Setting.getInstance();
-        drawBoardUI.setBoardUi(this.BoardSubUI);
-        drawBoardUI.setTypeUI(setting.getTypeUI());
-        drawBoardUI.setYXaxis(setting.getRow(), setting.getColumn());
-        drawBoardUI.Draw();
-    }
     /**
      * @param args the command line arguments
      */
@@ -399,4 +395,21 @@ public class UIView extends javax.swing.JFrame {
     private javax.swing.JTextArea txtInput;
     // End of variables declaration//GEN-END:variables
 
+    private void updateMode(ModeTest item) {
+        if (!setCurrMode(item)) {
+            backUpMode();
+        }
+    }
+
+    private boolean setCurrMode(ModeTest item) {
+        return (isCurrentMode(item) || this.loadMode.setCurrMode(item));
+    }
+
+    private boolean isCurrentMode(ModeTest item) {
+        return this.loadMode.getCurrMode() != null && this.loadMode.getCurrMode().equals(item);
+    }
+
+    private void backUpMode() {
+        this.cbbModeTest.setSelectedItem(this.loadMode.getCurrMode());
+    }
 }
