@@ -5,7 +5,7 @@
 package Model.DataSource;
 
 import Model.Interface.IInit;
-import View.ManagerUI.DataWareHouse;
+import Model.ManagerUI.DataWareHouse;
 import Control.Message;
 import com.alibaba.fastjson.JSONObject;
 import java.io.BufferedReader;

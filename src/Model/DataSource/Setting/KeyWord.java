@@ -13,19 +13,20 @@ import java.util.List;
  */
 public final class KeyWord {
 
-    public static final String TYPE_MODE = "TYPE_MODE";
-    public static final String COLUMN = "COLUMN";
-    public static final String DETAIL = "DETAIL";
     public static final String STATION = "STATION";
-    public static final String TYPE_UI = "TYPE_UI";
-    public static final String NAME = "NAME";
+    public static final String DHCP = "DHCP";
+    public static final String COLUMN = "COLUMN";
     public static final String ROW = "ROW";
+    public static final String DETAIL = "DETAIL";
+    public static final String TYPE_UI = "TYPE_UI";
     public static final String LOAD_MODE = "LOAD_MODE";
+    public static final String NAME = "NAME";
+    public static final String TYPE_MODE = "TYPE_MODE";
     public static final String INIT_FUNC = "INIT";
     public static final String PREPARE = "PREPARE";
     public static final String END = "END";
     public static final List<String> MODE_KEY = Arrays.asList(
-            COLUMN, DETAIL,ROW,  TYPE_MODE, TYPE_UI,
+            STATION,DHCP,COLUMN, ROW,  DETAIL, TYPE_UI,NAME,TYPE_MODE,
             INIT_FUNC, PREPARE, END);
 
     public class Init {

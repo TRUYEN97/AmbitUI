@@ -6,8 +6,13 @@ package Control.Core;
 
 import Control.Mode.LoadMode;
 import Model.DataSource.Setting.Setting;
-import View.DrawBoardUI.DrawBoardUI;
+import Control.DrawBoardUI;
+import Control.Mode.ModeTest;
+import Model.DataSource.Setting.ModeInfo;
 import View.UIView;
+import java.lang.reflect.Array;
+import java.util.ArrayList;
+import java.util.List;
 
 /**
  *
@@ -16,42 +21,33 @@ import View.UIView;
 public class Core {
 
     private final Setting setting;
-    private final DrawBoardUI drawBoardUI;
     private final LoadMode loadMode;
+    private final List<ModeTest> modeTests;
     private UIView view;
 
     public Core() {
         this.setting = Setting.getInstance();
-        this.loadMode = new LoadMode(this.setting.getDefaultMode());
-        this.drawBoardUI = new DrawBoardUI(loadMode);
+        this.modeTests = new ArrayList<>();
+        this.loadMode = new LoadMode(new UIView());
     }
 
     public void run() {
-        drawUI();
+        getAllMode();
         showUI();
     }
 
+    private void getAllMode() {
+        for (ModeInfo modeInfo : setting.getModeInfos()) {
+            this.modeTests.add(new ModeTest(modeInfo));
+        }
+    }
+
     private void showUI() {
+        this.view = loadMode.getView();
+        this.view.setMode(this.modeTests);
         java.awt.EventQueue.invokeLater(() -> {
             view.setVisible(true);
         });
-    }
-
-    private void drawUI() {
-        try {
-            for (javax.swing.UIManager.LookAndFeelInfo info : javax.swing.UIManager.getInstalledLookAndFeels()) {
-                if ("Nimbus".equals(info.getName())) {
-                    javax.swing.UIManager.setLookAndFeel(info.getClassName());
-                    break;
-                }
-            }
-        } catch (ClassNotFoundException | InstantiationException | IllegalAccessException | javax.swing.UnsupportedLookAndFeelException ex) {
-            java.util.logging.Logger.getLogger(UIView.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
-        }
-        this.view = new UIView(loadMode);
-        drawBoardUI.setBoardUi(this.view.getBoardUI());
-        drawBoardUI.setting();
-        drawBoardUI.Draw();
     }
 
 }

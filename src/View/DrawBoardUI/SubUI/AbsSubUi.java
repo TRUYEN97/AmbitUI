@@ -4,7 +4,6 @@
  */
 package View.DrawBoardUI.SubUI;
 
-import Control.Core.Core;
 import Control.Mode.LoadMode;
 import Control.Mode.ModeTest;
 import Model.DataSource.Setting.ModeInfo;

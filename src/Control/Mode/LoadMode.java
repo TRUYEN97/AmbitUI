@@ -4,34 +4,40 @@
  */
 package Control.Mode;
 
-import View.ManagerUI.ManagerUI;
+import Control.DrawBoardUI;
+import Model.ManagerUI.ManagerUI;
+import View.UIView;
+import static java.util.Objects.isNull;
 
 /**
  *
  * @author 21AK22
  */
 public class LoadMode {
+
     private ModeTest currMode;
     private final CheckInput checkInput;
-    public LoadMode(ModeTest modeTest) {
+    private final DrawBoardUI drawBoardUI;
+    private final UIView view;
+
+    public LoadMode(UIView view) {
         this.checkInput = new CheckInput();
-        this.currMode = modeTest;
+        this.drawBoardUI = new DrawBoardUI(this);
+        this.drawBoardUI.setBoardUi(view.getBoardUI());
+        this.view = view;
     }
-    
 
     public void checkInput(char input) {
-        if(this.checkInput.inputAnalysis(input))
-        {
-            
+        if (this.checkInput.inputAnalysis(input)) {
+
         }
     }
-    
-    public boolean setCurrMode(ModeTest modeTest) {
-        if (modeTest != null  && modeTest.init()) {
-            this.currMode = modeTest;
-            return ManagerUI.getInstance().getListUI().update();
+
+    public UIView getView() {
+        if (isNull(view.getLoadMode())) {
+            this.view.setLoadMode(this);
         }
-        return false;
+        return view;
     }
 
     public ModeTest getCurrMode() {
@@ -41,5 +47,35 @@ public class LoadMode {
     public String getDataInput() {
         return this.checkInput.getDataInput();
     }
-   
+
+    public void setCurrMode(ModeTest item) {
+        if (isCurrentMode(item)) {
+            return;
+        }
+        if (updateMode(item)) {
+            this.view.setSelectMode(getCurrMode());
+        } else {
+            backUpMode();
+        }
+    }
+
+    private boolean updateMode(ModeTest modeTest) {
+        if (modeTest != null && modeTest.init()) {
+            this.currMode = modeTest;
+            if (drawBoardUI.isNewFormUI() && ManagerUI.getInstance().isNotTest()) {
+                drawBoardUI.setting();
+                drawBoardUI.Draw();
+            }
+            return ManagerUI.getInstance().getListUI().update();
+        }
+        return false;
+    }
+
+    private boolean isCurrentMode(ModeTest item) {
+        return this.getCurrMode() != null && getCurrMode().equals(item);
+    }
+
+    private void backUpMode() {
+        this.view.setSelectMode(getCurrMode());
+    }
 }

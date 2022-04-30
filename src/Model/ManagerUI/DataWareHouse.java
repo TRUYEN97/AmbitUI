@@ -2,14 +2,16 @@
  * To change this template, choose Tools | Templates
  * and open the template in the editor.
  */
-package View.ManagerUI;
+package Model.ManagerUI;
 
 import Control.Message;
 import com.alibaba.fastjson.JSONArray;
 import com.alibaba.fastjson.JSONObject;
 import java.util.ArrayList;
+import java.util.Arrays;
 import java.util.List;
 import java.util.Map;
+import static java.util.Objects.isNull;
 
 /**
  *
@@ -17,15 +19,15 @@ import java.util.Map;
  */
 public class DataWareHouse {
 
-    private JSONObject coreData = null;
+    private final JSONObject coreData;
 
     public DataWareHouse() {
         this.coreData = new JSONObject();
     }
 
     protected boolean setData(JSONObject data) {
-        if (data != null && !data.isEmpty()) {
-            this.coreData = data;
+        if (isNull(data)) {
+            this.coreData.putAll(data);
             return true;
         }
         return false;
@@ -33,7 +35,7 @@ public class DataWareHouse {
 
     public boolean setData(Map data) {
         if (data != null && !data.isEmpty()) {
-            this.coreData = new JSONObject(data);
+            this.coreData.putAll(data);
             return true;
         }
         return false;
@@ -41,6 +43,9 @@ public class DataWareHouse {
 
     public List<String> cvtArrays2List(JSONArray array) {
         List<String> result = new ArrayList<>();
+        if (isNull(array)) {
+            return result;
+        }
         for (Object object : array) {
             if (object != null) {
                 result.add(object.toString());
@@ -79,10 +84,9 @@ public class DataWareHouse {
     public Integer getIntege(JSONObject json, String key, int radix) {
         try {
             return Integer.parseInt(getString(json, key), radix);
-        } catch (Exception e) {
+        } catch (NumberFormatException e) {
             Message.WriteMessger.Console("ParseInt fail!\r\nvalue: %s\r\n%s",
                     getString(json, key), getAllClassName(this), null);
-            e.printStackTrace();
             return null;
         }
     }
@@ -102,10 +106,9 @@ public class DataWareHouse {
     public Double getDouble(JSONObject json, String key) {
         try {
             return Double.parseDouble(getString(json, key));
-        } catch (Exception e) {
+        } catch (NumberFormatException e) {
             Message.WriteMessger.Console("ParseDouble fail!\r\nvalue: %s\r\n%s",
                     getString(json, key), getAllClassName(this), null);
-            e.printStackTrace();
             return null;
         }
     }
@@ -156,5 +159,29 @@ public class DataWareHouse {
 
     public void put(String key, Object get) {
         this.coreData.put(key, get);
+    }
+
+    public List<String> getList(String key) {
+        return Arrays.asList(getArrays(key));
+    }
+
+    public List<String> getList(JSONObject json, String key) {
+        return Arrays.asList(getArrays(json, key));
+    }
+
+    public List<JSONObject> getListJson(String key) {
+        return getListJson(this.coreData, key);
+    }
+
+    public List<JSONObject> getListJson(JSONObject json, String key) {
+        List<JSONObject> result = new ArrayList<>();
+        for (var object : json.getJSONArray(key)) {
+            result.add((JSONObject) object);
+        }
+        return result;
+    }
+
+    public void clear() {
+        this.coreData.clear();
     }
 }

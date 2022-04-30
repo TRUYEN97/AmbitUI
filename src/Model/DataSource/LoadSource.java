@@ -6,6 +6,8 @@ package Model.DataSource;
 
 import Model.Interface.IInit;
 import Model.DataSource.Setting.Setting;
+import java.util.ArrayList;
+import java.util.List;
 
 /**
  *
@@ -14,19 +16,23 @@ import Model.DataSource.Setting.Setting;
 public class LoadSource implements IInit {
 
     private final InfoBase info;
-    private final Setting setting;
+    private final List<AbsSource> sources;
 
     public LoadSource() {
         this.info = InfoBase.getInstance();
         this.info.setPath("Model/FilePathBase/config.json");
-        this.setting = Setting.getInstance();
+        this.info.init();
+        this.sources = new ArrayList<>();
+        this.sources.add(Setting.getInstance().setPath(this.info.getPathOfSetting()));
     }
 
     @Override
     public boolean init() {
-        this.info.init();
-        this.setting.setFile(this.info.getPathOfSetting());
-        this.setting.init();
+        for (AbsSource source : sources) {
+            if (!source.init()) {
+                return false;
+            }
+        }
         return true;
     }
 

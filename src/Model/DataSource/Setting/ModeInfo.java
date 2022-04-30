@@ -4,6 +4,7 @@
  */
 package Model.DataSource.Setting;
 
+import Model.ManagerUI.DataWareHouse;
 import com.alibaba.fastjson.JSONObject;
 import java.util.List;
 import javax.swing.JOptionPane;
@@ -12,30 +13,19 @@ import javax.swing.JOptionPane;
  *
  * @author Administrator
  */
-public class ModeInfo extends AbsSetting {
+public class ModeInfo {
+    private final DataWareHouse warehouse;
 
-    private final String name;
-
-    public ModeInfo(JSONObject data) {
-        super();
-        JSONObject result = new JSONObject();
-        setBaseSetting(result);
-        setModeSetting(result, data);
-        setData(result);
-        this.name = getName(data);
+    public ModeInfo(JSONObject base, JSONObject config) {
+        this.warehouse = new DataWareHouse();
+        setSetting(base);
+        setSetting(config);
     }
 
-    private void setBaseSetting(JSONObject result) {
-        JSONObject data = Setting.getInstance().toJson();
-        for (String key : KeyWord.MODE_KEY) {
-            result.put(key, data.get(key));
-        }
-    }
-
-    private void setModeSetting(JSONObject result, JSONObject data) {
+    private void setSetting(JSONObject data) {
         for (String key : data.keySet()) {
             if (KeyWord.MODE_KEY.contains(key)) {
-                result.put(key, data.get(key));
+                this.warehouse.put(key, data.get(key));
             }
         }
     }
@@ -45,7 +35,7 @@ public class ModeInfo extends AbsSetting {
     }
 
     public String getModeName() {
-        return name;
+        return this.warehouse.getString(KeyWord.NAME);
     }
 
     public List<String> getIniFunc() {
@@ -58,5 +48,41 @@ public class ModeInfo extends AbsSetting {
         }
         JOptionPane.showMessageDialog(null, "Mode setting no have name!");
         return null;
+    }
+
+    public List<String> getDetail() {
+        return this.warehouse.cvtArrays2List(this.warehouse.getJSONArray(KeyWord.DETAIL));
+    }
+    
+    public List<String> getPrepare() {
+        return this.warehouse.cvtArrays2List(this.warehouse.getJSONArray(KeyWord.PREPARE));
+    }
+    
+    public List<String> getInit() {
+        return this.warehouse.cvtArrays2List(this.warehouse.getJSONArray(KeyWord.INIT_FUNC));
+    }
+    
+    public List<String> getEnd() {
+        return this.warehouse.cvtArrays2List(this.warehouse.getJSONArray(KeyWord.END));
+    }
+
+    public int getRow() {
+        return this.warehouse.getInteger(KeyWord.ROW);
+    }
+
+    public int getColumn() {
+        return this.warehouse.getInteger(KeyWord.COLUMN);
+    }
+
+    public String getTypeUI() {
+        return this.warehouse.getString(KeyWord.TYPE_UI);
+    }
+
+    public JSONObject toJson() {
+        return this.warehouse.toJson();
+    }
+    
+    public boolean isMutiThread() {
+        return (getColumn() * getRow()) > 1;
     }
 }

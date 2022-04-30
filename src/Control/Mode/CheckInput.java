@@ -6,7 +6,7 @@ package Control.Mode;
 
 import Model.DataModeTest.DataInputMode;
 import Model.DataSource.Setting.ModeInfo;
-import View.ManagerUI.ManagerUI;
+import Model.ManagerUI.ManagerUI;
 import java.awt.HeadlessException;
 import java.awt.Toolkit;
 import java.awt.datatransfer.Clipboard;

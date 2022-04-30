@@ -20,7 +20,7 @@ public class IdPasswordProxy extends AbsProxy<IInit>{
 
     @Override
     public IInit takeIt() {
-        return new idPassWord("sqt", "123");
+        return new idPassWord("1", "1");
     }
     
 }

@@ -7,12 +7,10 @@ package View;
 import Control.Message;
 import Control.Mode.LoadMode;
 import Control.Mode.ModeTest;
-import Model.DataSource.Setting.ModeInfo;
-import Model.DataSource.Setting.Setting;
 import View.LoadModelTime.LoadModeTime;
 import java.awt.Component;
 import java.awt.event.ItemEvent;
-import java.util.Vector;
+import java.util.List;
 import javax.swing.DefaultComboBoxModel;
 import javax.swing.DefaultListCellRenderer;
 import javax.swing.JLabel;
@@ -30,12 +28,23 @@ public class UIView extends javax.swing.JFrame {
      * Creates new form UI
      */
     private final LoadModeTime modeTime;
-    private final LoadMode loadMode;
+    private final DefaultComboBoxModel comboBoxModel;
+    private LoadMode loadMode;
 
-    public UIView(LoadMode loadMode) {
-        this.loadMode = loadMode;
+    public UIView() {
         this.modeTime = new LoadModeTime();
+        try {
+            for (javax.swing.UIManager.LookAndFeelInfo info : javax.swing.UIManager.getInstalledLookAndFeels()) {
+                if ("Nimbus".equals(info.getName())) {
+                    javax.swing.UIManager.setLookAndFeel(info.getClassName());
+                    break;
+                }
+            }
+        } catch (ClassNotFoundException | InstantiationException | IllegalAccessException | javax.swing.UnsupportedLookAndFeelException ex) {
+            ex.printStackTrace();
+        }
         initComponents();
+        this.comboBoxModel = (DefaultComboBoxModel) this.cbbModeTest.getModel();
     }
 
     public JPanel getBoardUI() {
@@ -192,7 +201,6 @@ public class UIView extends javax.swing.JFrame {
         jScrollPane2.setViewportView(textMess);
 
         cbbModeTest.setFont(new java.awt.Font("Segoe UI", 1, 18)); // NOI18N
-        cbbModeTest.setModel(new DefaultComboBoxModel(createListMode()));
         cbbModeTest.addItemListener(new java.awt.event.ItemListener() {
             public void itemStateChanged(java.awt.event.ItemEvent evt) {
                 cbbModeTestItemStateChanged(evt);
@@ -346,7 +354,6 @@ public class UIView extends javax.swing.JFrame {
         modeTime.setBackground(this.BoardSubUI);
         modeTime.run();
         Message.ShowWarning.addLbMess(textMess);
-        updateMode((ModeTest) this.cbbModeTest.getSelectedItem());
     }//GEN-LAST:event_formWindowOpened
 
     private void jTextShowSfis1KeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_jTextShowSfis1KeyTyped
@@ -358,16 +365,19 @@ public class UIView extends javax.swing.JFrame {
         // TODO add your handling code here:
         if (evt.getStateChange() == ItemEvent.SELECTED) {
             ModeTest item = (ModeTest) evt.getItem();
-            updateMode(item);
+            this.loadMode.setCurrMode(item);
         }
     }//GEN-LAST:event_cbbModeTestItemStateChanged
 
-    private Vector<ModeTest> createListMode() {
-        Vector<ModeTest> result = new Vector<>();
-        for (var info : Setting.getInstance().getModeInfos()) {
-            result.add(new ModeTest(new ModeInfo(info)));
+    public void setMode(List<ModeTest> modeTests) {
+        this.comboBoxModel.addAll(modeTests);
+        if (!modeTests.isEmpty()) {
+            this.loadMode.setCurrMode(modeTests.get(0));
         }
-        return result;
+    }
+
+    public void setLoadMode(LoadMode loadMode) {
+        this.loadMode = loadMode;
     }
 
     /**
@@ -395,21 +405,12 @@ public class UIView extends javax.swing.JFrame {
     private javax.swing.JTextArea txtInput;
     // End of variables declaration//GEN-END:variables
 
-    private void updateMode(ModeTest item) {
-        if (!setCurrMode(item)) {
-            backUpMode();
-        }
+    public void setSelectMode(ModeTest currMode) {
+        this.comboBoxModel.setSelectedItem(currMode);
     }
 
-    private boolean setCurrMode(ModeTest item) {
-        return (isCurrentMode(item) || this.loadMode.setCurrMode(item));
+    public LoadMode getLoadMode() {
+        return loadMode;
     }
 
-    private boolean isCurrentMode(ModeTest item) {
-        return this.loadMode.getCurrMode() != null && this.loadMode.getCurrMode().equals(item);
-    }
-
-    private void backUpMode() {
-        this.cbbModeTest.setSelectedItem(this.loadMode.getCurrMode());
-    }
 }

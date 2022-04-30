@@ -24,7 +24,7 @@ public class ModeTest implements IInit {
     private final List<IPrepare> prepares;
     private final List<IEnd> ends;
     private final Factory factory;
-
+    private LoadMode loadMode;
     public ModeTest(ModeInfo modeTest) {
         this.name = modeTest.getModeName();
         this.modeInfo = modeTest;
@@ -40,6 +40,11 @@ public class ModeTest implements IInit {
             this.inits.add(this.factory.getInitFunc(type));
         }
     }
+
+    public void setLoadMode(LoadMode loadMode) {
+        this.loadMode = loadMode;
+    }
+
 
     @Override
     public String toString() {

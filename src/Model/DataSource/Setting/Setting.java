@@ -1,13 +1,14 @@
 package Model.DataSource.Setting;
 
 import Control.FileType.FileJson;
-import Control.Mode.ModeTest;
+import Model.DataSource.AbsSource;
 import Model.Interface.IInit;
 import Model.DataSource.ReadFileSource;
-import com.alibaba.fastjson.JSONArray;
+import Model.ManagerUI.DataWareHouse;
 import com.alibaba.fastjson.JSONObject;
 import java.util.ArrayList;
 import java.util.List;
+import static java.util.Objects.isNull;
 
 /*
  * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
@@ -17,11 +18,10 @@ import java.util.List;
  *
  * @author Administrator
  */
-public class Setting extends AbsSetting implements IInit {
+public class Setting extends AbsSource implements IInit {
 
     private static volatile Setting instaince;
-    private final ReadFileSource readFile;
-    private final List<JSONObject> modeInfos;
+    private final List<ModeInfo> modeInfos;
 
     private Setting() {
         this.readFile = new ReadFileSource(new FileJson());
@@ -41,55 +41,31 @@ public class Setting extends AbsSetting implements IInit {
         return ins;
     }
 
-    public List<JSONObject> getModeInfos() {
+    @Override
+    public boolean init() {
+        if (super.init()) {
+            return getMode();
+        }
+        return false;
+    }
+
+    public List<ModeInfo> getModeInfos() {
         return modeInfos;
     }
 
-    public boolean setFile(String path) {
-        if (path == null) {
-            return false;
-        }
-        this.readFile.addPathFile(path);
-        return true;
-    }
-
-    public JSONObject getModeSetting(String name) {
-        for (JSONObject modeInfo : modeInfos) {
-            if (modeInfo.containsKey(KeyWord.NAME) && modeInfo.getString(name).equals(name)) {
-                return modeInfo;
-            }
-        }
-        return null;
-    }
-
-    @Override
-    public boolean init() {
-        boolean success = readFile.init();
-        if (success) {
-            this.setData(readFile.toJson());
-            getMode();
-        }
-        return success;
-    }
-
     public int getCountMode() {
-        return getModeInfos().size();
+        return this.modeInfos.size();
     }
 
-    private void getMode() {
-        for (var elem : getLoadMode()) {
-            JSONObject json = (JSONObject) elem;
-            if (json != null && json.containsKey(KeyWord.NAME)) {
-                modeInfos.add(json);
+    private boolean getMode() {
+        DataWareHouse wareHouse = readFile.getData();
+        ModeInfo info;
+        for (JSONObject modeInfo : wareHouse.getListJson(KeyWord.LOAD_MODE)) {
+            info = new ModeInfo(wareHouse.toJson(), modeInfo);
+            if (!isNull(info.getModeName())) {
+                this.modeInfos.add(info);
             }
         }
-    }
-
-    private JSONArray getLoadMode() {
-        return this.warehouse.getJSONArray(KeyWord.LOAD_MODE);
-    }
-
-    public ModeTest getDefaultMode() {
-        return new ModeTest(new ModeInfo(getModeInfos().get(0)));
+        return !this.modeInfos.isEmpty();
     }
 }
