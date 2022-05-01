@@ -5,11 +5,14 @@
 package View;
 
 import Control.Message;
-import Control.Mode.LoadMode;
-import Control.Mode.ModeTest;
-import View.LoadModelTime.LoadModeTime;
+import Control.Core.Core;
+import Control.Core.ModeTest;
+import Control.LoadModelTime.LoadModeTime;
+import Control.CheckInput;
 import java.awt.Component;
+import java.awt.HeadlessException;
 import java.awt.event.ItemEvent;
+import java.awt.event.KeyEvent;
 import java.util.List;
 import javax.swing.DefaultComboBoxModel;
 import javax.swing.DefaultListCellRenderer;
@@ -29,7 +32,8 @@ public class UIView extends javax.swing.JFrame {
      */
     private final LoadModeTime modeTime;
     private final DefaultComboBoxModel comboBoxModel;
-    private LoadMode loadMode;
+    private CheckInput checkInput;
+    private Core loadMode;
 
     public UIView() {
         this.modeTime = new LoadModeTime();
@@ -47,8 +51,40 @@ public class UIView extends javax.swing.JFrame {
         this.comboBoxModel = (DefaultComboBoxModel) this.cbbModeTest.getModel();
     }
 
+    public void setCheckInput(CheckInput checkInput) {
+        this.checkInput = checkInput;
+    }
+
     public JPanel getBoardUI() {
         return BoardSubUI;
+    }
+
+    public void setCore(Core loadMode) {
+        this.loadMode = loadMode;
+    }
+
+    public Core getCore() {
+        return loadMode;
+    }
+
+    public void setMode(List<ModeTest> modeTests) {
+        this.comboBoxModel.addAll(modeTests);
+    }
+
+    public void setSelectMode(ModeTest currMode) {
+        this.comboBoxModel.setSelectedItem(currMode);
+    }
+
+    public void setInputText(String mess) {
+        this.txtInput.setText(mess);
+    }
+
+    public void setShowText(String mess) {
+        this.txtShow.setText(mess);
+    }
+
+    public void setMessageText(String mess) {
+        this.textMess.setText(mess);
     }
 
     /**
@@ -76,7 +112,7 @@ public class UIView extends javax.swing.JFrame {
         textMess = new javax.swing.JTextArea();
         cbbModeTest = new javax.swing.JComboBox<>();
         jScrollPane3 = new javax.swing.JScrollPane();
-        jTextShowSfis1 = new javax.swing.JTextArea();
+        txtShow = new javax.swing.JTextArea();
         BoardSubUI = new javax.swing.JPanel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
@@ -243,19 +279,19 @@ public class UIView extends javax.swing.JFrame {
             }
         });
 
-        jTextShowSfis1.setEditable(false);
-        jTextShowSfis1.setColumns(20);
-        jTextShowSfis1.setFont(new java.awt.Font("Monospaced", 0, 18)); // NOI18N
-        jTextShowSfis1.setLineWrap(true);
-        jTextShowSfis1.setRows(3);
-        jTextShowSfis1.setWrapStyleWord(true);
-        jTextShowSfis1.setMinimumSize(new java.awt.Dimension(113, 200));
-        jTextShowSfis1.addKeyListener(new java.awt.event.KeyAdapter() {
+        txtShow.setEditable(false);
+        txtShow.setColumns(20);
+        txtShow.setFont(new java.awt.Font("Monospaced", 0, 18)); // NOI18N
+        txtShow.setLineWrap(true);
+        txtShow.setRows(3);
+        txtShow.setWrapStyleWord(true);
+        txtShow.setMinimumSize(new java.awt.Dimension(113, 200));
+        txtShow.addKeyListener(new java.awt.event.KeyAdapter() {
             public void keyTyped(java.awt.event.KeyEvent evt) {
-                jTextShowSfis1KeyTyped(evt);
+                txtShowKeyTyped(evt);
             }
         });
-        jScrollPane3.setViewportView(jTextShowSfis1);
+        jScrollPane3.setViewportView(txtShow);
 
         javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
         jPanel1.setLayout(jPanel1Layout);
@@ -338,10 +374,16 @@ public class UIView extends javax.swing.JFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     private void txtInputKeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_txtInputKeyTyped
-        // TODO add your handling code here:
-        this.loadMode.checkInput(evt.getKeyChar());
-        this.txtInput.setText(this.loadMode.getDataInput());
+        checkinput(evt.getKeyChar());
     }//GEN-LAST:event_txtInputKeyTyped
+
+    private void checkinput(char input) throws HeadlessException {
+        if (this.checkInput == null) {
+            return;
+        }
+        this.checkInput.inputAnalysis(input);
+    }
+
 
     private void lbTimeVNMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_lbTimeVNMouseClicked
         // TODO add your handling code here:
@@ -356,10 +398,9 @@ public class UIView extends javax.swing.JFrame {
         Message.ShowWarning.addLbMess(textMess);
     }//GEN-LAST:event_formWindowOpened
 
-    private void jTextShowSfis1KeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_jTextShowSfis1KeyTyped
-        this.loadMode.checkInput(evt.getKeyChar());
-        this.txtInput.setText(this.loadMode.getDataInput());
-    }//GEN-LAST:event_jTextShowSfis1KeyTyped
+    private void txtShowKeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_txtShowKeyTyped
+        checkinput(evt.getKeyChar());
+    }//GEN-LAST:event_txtShowKeyTyped
 
     private void cbbModeTestItemStateChanged(java.awt.event.ItemEvent evt) {//GEN-FIRST:event_cbbModeTestItemStateChanged
         // TODO add your handling code here:
@@ -368,17 +409,6 @@ public class UIView extends javax.swing.JFrame {
             this.loadMode.setCurrMode(item);
         }
     }//GEN-LAST:event_cbbModeTestItemStateChanged
-
-    public void setMode(List<ModeTest> modeTests) {
-        this.comboBoxModel.addAll(modeTests);
-        if (!modeTests.isEmpty()) {
-            this.loadMode.setCurrMode(modeTests.get(0));
-        }
-    }
-
-    public void setLoadMode(LoadMode loadMode) {
-        this.loadMode = loadMode;
-    }
 
     /**
      * @param args the command line arguments
@@ -394,7 +424,6 @@ public class UIView extends javax.swing.JFrame {
     private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JScrollPane jScrollPane2;
     private javax.swing.JScrollPane jScrollPane3;
-    private javax.swing.JTextArea jTextShowSfis1;
     private javax.swing.JLabel lbIP;
     private javax.swing.JLabel lbNamePC;
     private javax.swing.JLabel lbProductname;
@@ -403,14 +432,7 @@ public class UIView extends javax.swing.JFrame {
     private javax.swing.JPanel panelBackground;
     private javax.swing.JTextArea textMess;
     private javax.swing.JTextArea txtInput;
+    private javax.swing.JTextArea txtShow;
     // End of variables declaration//GEN-END:variables
-
-    public void setSelectMode(ModeTest currMode) {
-        this.comboBoxModel.setSelectedItem(currMode);
-    }
-
-    public LoadMode getLoadMode() {
-        return loadMode;
-    }
 
 }

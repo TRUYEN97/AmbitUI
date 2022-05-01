@@ -1,6 +1,6 @@
 
-import Control.Mode.LoadMode;
-import Control.Mode.ModeTest;
+import Control.Core.Core;
+import Control.Core.ModeTest;
 
 /*
  * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
@@ -12,7 +12,7 @@ import Control.Mode.ModeTest;
  * @author 21AK22
  */
 public abstract class AbsFunction implements Runnable{
-    protected LoadMode loadMode;
+    protected Core loadMode;
     protected ModeTest modeTest;
     private String itemName;
     

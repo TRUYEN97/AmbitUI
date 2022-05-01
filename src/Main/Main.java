@@ -4,8 +4,8 @@
  */
 package Main;
 
-import Control.Core.Core;
-import Model.DataSource.LoadSource;
+import Control.Core.Engine;
+import Model.DataSource.Tool.LoadSource;
 
 /**
  *
@@ -15,7 +15,7 @@ public class Main {
 
     public static void main(String[] args) {
         new LoadSource().init();
-        Core core = new Core();
+        Engine core = new Engine();
         core.run();
     }
 }

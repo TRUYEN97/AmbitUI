@@ -4,50 +4,83 @@
  */
 package Control.Core;
 
-import Control.Mode.LoadMode;
-import Model.DataSource.Setting.Setting;
 import Control.DrawBoardUI;
-import Control.Mode.ModeTest;
-import Model.DataSource.Setting.ModeInfo;
+import Model.DataModeTest.DataCore;
+import Model.ManagerUI.ManagerUI;
 import View.UIView;
-import java.lang.reflect.Array;
-import java.util.ArrayList;
-import java.util.List;
+import static java.util.Objects.isNull;
 
 /**
  *
- * @author Administrator
+ * @author 21AK22
  */
 public class Core {
 
-    private final Setting setting;
-    private final LoadMode loadMode;
-    private final List<ModeTest> modeTests;
-    private UIView view;
+    private ModeTest currMode;
+    private final DrawBoardUI drawBoardUI;
+    private final UIView view;
+    private final ManagerUI managerUI;
+    private final DataCore dataCore;
 
-    public Core() {
-        this.setting = Setting.getInstance();
-        this.modeTests = new ArrayList<>();
-        this.loadMode = new LoadMode(new UIView());
+    public Core(UIView view, DataCore dataCore) {
+        this.managerUI = new ManagerUI(this);
+        this.drawBoardUI = new DrawBoardUI(this, this.managerUI);
+        this.drawBoardUI.setBoardUi(view.getBoardUI());
+        this.view = view;
+        this.dataCore = dataCore;
     }
 
     public void run() {
-        getAllMode();
-        showUI();
+       this.currMode.run();
     }
 
-    private void getAllMode() {
-        for (ModeInfo modeInfo : setting.getModeInfos()) {
-            this.modeTests.add(new ModeTest(modeInfo));
+    public UIView getView() {
+        if (isNull(view.getCore())) {
+            this.view.setCore(this);
+        }
+        return view;
+    }
+
+    public ModeTest getCurrMode() {
+        return currMode;
+    }
+    
+    public void setCurrMode(ModeTest item) {
+        if (isCurrentMode(item)) {
+            return;
+        }
+        if (updateMode(item)) {
+            this.view.setSelectMode(getCurrMode());
+        } else {
+            backUpMode();
         }
     }
 
-    private void showUI() {
-        this.view = loadMode.getView();
-        this.view.setMode(this.modeTests);
-        java.awt.EventQueue.invokeLater(() -> {
-            view.setVisible(true);
-        });
+    public ManagerUI getManagerUI() {
+        return managerUI;
     }
 
+    public DataCore getDataCore() {
+        return dataCore;
+    }
+
+    private boolean updateMode(ModeTest modeTest) {
+        if (modeTest != null && modeTest.init()) {
+            this.currMode = modeTest;
+            if (drawBoardUI.isNewFormUI() && managerUI.isNotTest()) {
+                drawBoardUI.setting();
+                drawBoardUI.Draw();
+            }
+            return managerUI.update();
+        }
+        return false;
+    }
+
+    private boolean isCurrentMode(ModeTest item) {
+        return this.getCurrMode() != null && getCurrMode().equals(item);
+    }
+
+    private void backUpMode() {
+        this.view.setSelectMode(getCurrMode());
+    }
 }

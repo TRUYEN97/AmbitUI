@@ -1,14 +1,8 @@
 {
-    "Info": {
-        "UUT_MODEL": "Trieste",
-        "STATION_NAME": "MBLT",
-        "STATION_SN": 1.1,
-        "FACILITY_ID": "AmbitVN",
-        "FixtureType": 3,
-        "COM": "COM5",
-        "BAUDRATE": 9600,
-        "LINE": 1
-    },
+    "UUT_MODEL": "Trieste",
+    "STATION_NAME": "MBLT",
+    "COM": "COM5",
+    "BAUDRATE": 9600,
     "Functions": [
         {
             "FLAG": "ON",
@@ -16,8 +10,7 @@
             "TIME_OVER": 110,
             "RETRY": 1,
             "TYPE": "BOOL",
-            "SPEC": "haha",
-            "RESULT_TYPE": "GEN_NODE",
+            "SPEC": "sqt",
             "ITEM_NAME": "gen_node",
             "FUNC_NAME": "GenerateNodeFromBarcode"
         },

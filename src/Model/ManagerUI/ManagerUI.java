@@ -4,62 +4,68 @@
  */
 package Model.ManagerUI;
 
-import Control.Message;
-import View.DrawBoardUI.SubUI.AbsSubUi;
+import Control.Core.Core;
+import Model.Interface.IUpdate;
+import View.subUI.SubUI.AbsSubUi;
+import java.util.ArrayList;
+import java.util.List;
+import static java.util.Objects.isNull;
 
 /**
  *
  * @author Administrator
  */
-public class ManagerUI {
+public class ManagerUI implements IUpdate {
 
-    private static volatile ManagerUI instance;
-    private final MyListUI listSubUI;
-    private final MyListUIRun listUIRun;
+    private final Core loadMode;
+    private final List<UiStatus> uiStatuses;
 
-    private ManagerUI() {
-        this.listSubUI = new MyListUI();
-        this.listUIRun = new MyListUIRun();
+    public ManagerUI(Core loadMode) {
+        this.uiStatuses = new ArrayList<>();
+        this.loadMode = loadMode;
     }
 
-    public static ManagerUI getInstance() {
-        ManagerUI temp = ManagerUI.instance;
-        if (temp == null) {
-            synchronized (ManagerUI.class) {
-                temp = ManagerUI.instance;
-                if (temp == null) {
-                    ManagerUI.instance = temp = new ManagerUI();
-                }
+    public boolean containUI(AbsSubUi ui) {
+        if (isNull(ui)) {
+            return false;
+        }
+        for (UiStatus uiStatuse : uiStatuses) {
+            if (uiStatuse.isUI(ui) || uiStatuse.isName(ui.getName())) {
+                return true;
             }
         }
-        return temp;
+        return false;
     }
 
-    public void addSubUI(AbsSubUi subUi) {
-        if (subUi == null) {
-            return;
+    public boolean addUI(AbsSubUi subUi) {
+        if (isNull(subUi) || containUI(subUi)) {
+            return false;
         }
-        try {
-            this.listSubUI.put(subUi,null);
-        } catch (Exception ex) {
-            ex.printStackTrace();
-            Message.ShowWarning.show(ex.getMessage());
+        UiStatus uiStatus = new UiStatus(subUi, loadMode);
+        uiStatus.update();
+        return this.uiStatuses.add(uiStatus);
+    }
+
+    @Override
+    public boolean update() {
+        for (UiStatus uiStatuse : uiStatuses) {
+            if (!uiStatuse.isTesting() && !uiStatuse.update()) {
+                return false;
+            }
         }
+        return true;
     }
 
-    public void reset() {
-        this.listSubUI.clear();
-    }
-
-    public MyListUI getListUI() {
-        return this.listSubUI;
-    }
-
-    public boolean isIndex(String index) {
-        return this.listSubUI.containIndex(index);
+    public void clear() {
+        this.uiStatuses.clear();
     }
 
     public boolean isNotTest() {
+        for (UiStatus uiStatuse : uiStatuses) {
+            if (uiStatuse.isTesting()) {
+                return false;
+            }
+        }
         return true;
     }
 }

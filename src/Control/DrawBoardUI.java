@@ -4,11 +4,13 @@
  */
 package Control;
 
-import Control.Mode.LoadMode;
+import Control.Core.Core;
 import Model.Factory.Factory;
 import Model.ManagerUI.ManagerUI;
-import View.DrawBoardUI.SubUI.AbsSubUi;
+import View.subUI.SubUI.AbsSubUi;
+import java.awt.Color;
 import java.awt.GridLayout;
+import java.util.Objects;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 import javax.swing.JPanel;
@@ -23,12 +25,12 @@ public class DrawBoardUI {
     private int rowSize = 1;
     private JPanel boardUi;
     private String typeUI;
-    private final LoadMode loadMode;
+    private final Core loadMode;
     private final ManagerUI managerUI;
 
-    public DrawBoardUI(LoadMode loadMode) {
+    public DrawBoardUI(Core loadMode, ManagerUI managerUI) {
         this.loadMode = loadMode;
-        this.managerUI = ManagerUI.getInstance();
+        this.managerUI = managerUI;
     }
 
     public void setBoardUi(JPanel boardUi) {
@@ -50,23 +52,28 @@ public class DrawBoardUI {
     }
 
     public void Draw() {
-        if (this.boardUi == null) {
+        if (Objects.isNull(boardUi)) {
             return;
         }
-        reset();
-        if (this.loadMode.getCurrMode().getModeInfo().isMutiThread()) {
-            for (int row = 0; row < this.rowSize; row++) {
-                for (int col = 1; col <= this.colSize; col++) {
+        clear();
+        if (isMutiThread()) {
+            for (int row = 0; row < rowSize; row++) {
+                for (int col = 1; col <= colSize; col++) {
                     drawOne(String.format("%s%s", (char) ('A' + row), col));
                 }
             }
         } else {
             drawOne("main");
         }
+        boardUi.updateUI();
     }
 
-    private void reset() {
-        this.managerUI.reset();
+    private boolean isMutiThread() {
+        return this.loadMode.getCurrMode().getModeInfo().isMutiThread();
+    }
+
+    private void clear() {
+        this.managerUI.clear();
         this.boardUi.removeAll();
         this.boardUi.setLayout(new GridLayout(rowSize, colSize, 2, 2));
     }
@@ -83,7 +90,7 @@ public class DrawBoardUI {
         if (subUi != null) {
             this.boardUi.add(subUi);
             subUi.setLoadMode(this.loadMode);
-            managerUI.addSubUI(subUi);
+            managerUI.addUI(subUi);
         }
     }
 

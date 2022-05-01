@@ -4,22 +4,22 @@
  */
 package Control.InitPackages.InitProxy;
 
+import Control.Functions.AbsFunction;
 import Control.InitPackages.idPassWord;
-import Model.Interface.IInit;
-import View.DrawBoardUI.UIWarehouse.AbsProxy;
+import View.subUI.UIWarehouse.AbsProxy;
 
 /**
  *
  * @author Administrator
  */
-public class IdPasswordProxy extends AbsProxy<IInit>{
+public class IdPasswordProxy extends AbsProxy<AbsFunction>{
 
     public IdPasswordProxy(String type) {
         super(type);
     }
 
     @Override
-    public IInit takeIt() {
+    public AbsFunction takeIt() {
         return new idPassWord("1", "1");
     }
     

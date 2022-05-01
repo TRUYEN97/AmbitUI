@@ -401,7 +401,7 @@
 
               <Layout class="org.netbeans.modules.form.compat2.layouts.support.JScrollPaneSupportLayout"/>
               <SubComponents>
-                <Component class="javax.swing.JTextArea" name="jTextShowSfis1">
+                <Component class="javax.swing.JTextArea" name="txtShow">
                   <Properties>
                     <Property name="editable" type="boolean" value="false"/>
                     <Property name="columns" type="int" value="20"/>
@@ -416,7 +416,7 @@
                     </Property>
                   </Properties>
                   <Events>
-                    <EventHandler event="keyTyped" listener="java.awt.event.KeyListener" parameters="java.awt.event.KeyEvent" handler="jTextShowSfis1KeyTyped"/>
+                    <EventHandler event="keyTyped" listener="java.awt.event.KeyListener" parameters="java.awt.event.KeyEvent" handler="txtShowKeyTyped"/>
                   </Events>
                 </Component>
               </SubComponents>

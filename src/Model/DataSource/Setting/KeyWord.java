@@ -11,7 +11,7 @@ import java.util.List;
  *
  * @author Administrator
  */
-public final class KeyWord {
+final class KeyWord {
 
     public static final String STATION = "STATION";
     public static final String DHCP = "DHCP";

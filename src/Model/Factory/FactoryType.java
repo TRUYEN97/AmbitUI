@@ -4,7 +4,7 @@
  */
 package Model.Factory;
 
-import View.DrawBoardUI.UIWarehouse.AbsProxy;
+import View.subUI.UIWarehouse.AbsProxy;
 import java.util.HashMap;
 import java.util.Map;
 import javax.swing.JOptionPane;

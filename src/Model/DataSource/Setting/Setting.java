@@ -1,13 +1,9 @@
 package Model.DataSource.Setting;
 
-import Control.FileType.FileJson;
-import Model.DataSource.AbsSource;
+import Model.DataSource.AbsJsonSource;
 import Model.Interface.IInit;
-import Model.DataSource.ReadFileSource;
-import Model.ManagerUI.DataWareHouse;
+import Model.DataWareHouse;
 import com.alibaba.fastjson.JSONObject;
-import java.util.ArrayList;
-import java.util.List;
 import static java.util.Objects.isNull;
 
 /*
@@ -18,14 +14,12 @@ import static java.util.Objects.isNull;
  *
  * @author Administrator
  */
-public class Setting extends AbsSource implements IInit {
+public class Setting extends AbsJsonSource<ModeInfo> implements IInit {
 
     private static volatile Setting instaince;
-    private final List<ModeInfo> modeInfos;
 
     private Setting() {
-        this.readFile = new ReadFileSource(new FileJson());
-        this.modeInfos = new ArrayList<>();
+        super();
     }
 
     public static Setting getInstance() {
@@ -41,31 +35,17 @@ public class Setting extends AbsSource implements IInit {
         return ins;
     }
 
+
     @Override
-    public boolean init() {
-        if (super.init()) {
-            return getMode();
-        }
-        return false;
-    }
-
-    public List<ModeInfo> getModeInfos() {
-        return modeInfos;
-    }
-
-    public int getCountMode() {
-        return this.modeInfos.size();
-    }
-
-    private boolean getMode() {
+    protected boolean getData() {
         DataWareHouse wareHouse = readFile.getData();
         ModeInfo info;
         for (JSONObject modeInfo : wareHouse.getListJson(KeyWord.LOAD_MODE)) {
             info = new ModeInfo(wareHouse.toJson(), modeInfo);
             if (!isNull(info.getModeName())) {
-                this.modeInfos.add(info);
+                this.elements.add(info);
             }
         }
-        return !this.modeInfos.isEmpty();
+        return !this.elements.isEmpty();
     }
 }

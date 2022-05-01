@@ -4,17 +4,16 @@
  */
 package Model.Factory;
 
-import Model.Interface.IPrepare;
+import Control.Functions.AbsFunction;
 import Control.InitPackages.InitProxy.IdPasswordProxy;
-import Model.DataSource.Setting.KeyWord;
-import Model.Interface.IInit;
-import View.DrawBoardUI.FormDetail.AbsTabUI;
-import View.DrawBoardUI.SubUI.AbsSubUi;
-import View.DrawBoardUI.UIWarehouse.BigUIProxy;
-import View.DrawBoardUI.UIWarehouse.SmallProxy;
-import View.DrawBoardUI.UIWarehouse.TabItemProxy;
-import View.DrawBoardUI.UIWarehouse.TabLogProxy;
-import View.DrawBoardUI.UIWarehouse.TabViewProxy;
+import View.subUI.FormDetail.AbsTabUI;
+import View.subUI.SubUI.AbsSubUi;
+import View.subUI.SubUiKeyWord;
+import View.subUI.UIWarehouse.BigUIProxy;
+import View.subUI.UIWarehouse.SmallProxy;
+import View.subUI.UIWarehouse.TabItemProxy;
+import View.subUI.UIWarehouse.TabLogProxy;
+import View.subUI.UIWarehouse.TabViewProxy;
 
 /**
  *
@@ -25,18 +24,15 @@ public class Factory {
     private static volatile Factory instance;
     private final FactoryType<AbsSubUi> subUIFactory;
     private final FactoryType<AbsTabUI> tabUIFactory;
-    private final FactoryType<IInit> initFunc;
-    private final FactoryType<IPrepare> prepareFunc;
+    private final FactoryType<AbsFunction> functions;
 
     private Factory() {
         this.subUIFactory = new FactoryType<>();
         addSubUI();
         this.tabUIFactory = new FactoryType<>();
         addTabUI();
-        this.initFunc = new FactoryType<>();
+        this.functions = new FactoryType<>();
         addInitFunc();
-        this.prepareFunc = new FactoryType<>();
-        addPrepareFunc();
     }
 
     public static Factory getInstance() {
@@ -60,30 +56,23 @@ public class Factory {
         return this.tabUIFactory.takeIt(type);
     }
 
-    public IInit getInitFunc(String type) {
-        return this.initFunc.takeIt(type);
+    public AbsFunction getFunc(String type) {
+        return this.functions.takeIt(type);
     }
     
-    public IPrepare getPrepareFunc(String type) {
-        return this.prepareFunc.takeIt(type);
-    }
 
     private void addSubUI() {
-        this.subUIFactory.addType(new BigUIProxy(KeyWord.SubUI.BIG_UI));
-        this.subUIFactory.addType(new SmallProxy(KeyWord.SubUI.SMAIL_UI));
+        this.subUIFactory.addType(new BigUIProxy(SubUiKeyWord.SubUI.BIG_UI));
+        this.subUIFactory.addType(new SmallProxy(SubUiKeyWord.SubUI.SMAIL_UI));
     }
 
     private void addTabUI() {
-        this.tabUIFactory.addType(new TabViewProxy(KeyWord.Detail.VIEW));
-        this.tabUIFactory.addType(new TabItemProxy(KeyWord.Detail.ITEM));
-        this.tabUIFactory.addType(new TabLogProxy(KeyWord.Detail.LOG));
+        this.tabUIFactory.addType(new TabViewProxy(SubUiKeyWord.Detail.VIEW));
+        this.tabUIFactory.addType(new TabItemProxy(SubUiKeyWord.Detail.ITEM));
+        this.tabUIFactory.addType(new TabLogProxy(SubUiKeyWord.Detail.LOG));
     }
 
     private void addInitFunc() {
-        this.initFunc.addType(new IdPasswordProxy(KeyWord.Init.PASSWORD));
-    }
-
-    private void addPrepareFunc() {
-        this.prepareFunc.addType(new simpleCheckSfisProxy(KeyWord.Prepare.SIMPLE_SFIS));
+        this.functions.addType(new IdPasswordProxy(SubUiKeyWord.Init.PASSWORD));
     }
 }

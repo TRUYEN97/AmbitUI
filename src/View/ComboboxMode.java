@@ -4,7 +4,7 @@
  */
 package View;
 
-import Control.Mode.ModeTest;
+import Control.Core.ModeTest;
 import java.util.Vector;
 import javax.swing.DefaultComboBoxModel;
 
