@@ -6,8 +6,9 @@ package Control.Functions;
 
 import Control.Core.Core;
 import Control.Core.ModeTest;
-import Model.DataModeTest.DataCore;
-import Model.DataSource.FunctionConfig.FuntionConfig;
+import Model.DataModeTest.InputData;
+import Model.DataSource.FunctionConfig.FunctionConfig;
+import Model.ManagerUI.UIManager;
 
 /**
  *
@@ -15,16 +16,16 @@ import Model.DataSource.FunctionConfig.FuntionConfig;
  */
 public abstract class AbsFunction implements Runnable {
 
-    protected DataCore dataCore;
+    protected UIManager uIManager;
     protected ModeTest modeTest;
-    protected FuntionConfig funtionConfig;
+    protected FunctionConfig funtionConfig;
     private boolean pass;
 
     public void setCore(Core core) {
         if (core == null) {
             return;
         }
-        this.dataCore = core.getDataCore();
+        this.uIManager = core.getUiManager();
     }
 
     public boolean isPass() {

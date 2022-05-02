@@ -15,14 +15,23 @@ import static java.util.Objects.isNull;
  *
  * @author Administrator
  */
-public class ManagerUI implements IUpdate {
+public class UIManager implements IUpdate {
 
     private final Core loadMode;
     private final List<UiStatus> uiStatuses;
 
-    public ManagerUI(Core loadMode) {
+    public UIManager(Core loadMode) {
         this.uiStatuses = new ArrayList<>();
         this.loadMode = loadMode;
+    }
+
+    public UiStatus getUiStatus(String index) {
+        for (UiStatus uiStatuse : uiStatuses) {
+            if (uiStatuse.isName(index)) {
+                return uiStatuse;
+            }
+        }
+        return null;
     }
 
     public boolean containUI(AbsSubUi ui) {
@@ -67,5 +76,13 @@ public class ManagerUI implements IUpdate {
             }
         }
         return true;
+    }
+
+    public boolean isIndexFree(String index) {
+        UiStatus status = getUiStatus(index);
+        if (isNull(status)) {
+            return false;
+        }
+        return !status.isTesting();
     }
 }

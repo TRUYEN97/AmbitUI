@@ -7,27 +7,31 @@ package Model.DataSource.FunctionConfig;
 import Model.DataSource.AbsJsonSource;
 import Model.DataWareHouse;
 import com.alibaba.fastjson.JSONObject;
+import java.util.ArrayList;
+import java.util.List;
 import static java.util.Objects.isNull;
 
 /**
  *
  * @author 21AK22
  */
-public class FuntionConfig extends AbsJsonSource<FunctionInfo>{
+public class FunctionConfig extends AbsJsonSource<FunctionInfo>{
 
-    private static volatile FuntionConfig instaince;
+    private static volatile FunctionConfig instaince;
+    private final List<String> funtionNames;
 
-    private FuntionConfig() {
+    private FunctionConfig() {
         super();
+        this.funtionNames = new ArrayList<>();
     }
 
-    public static FuntionConfig getInstance() {
-        FuntionConfig ins = FuntionConfig.instaince;
+    public static FunctionConfig getInstance() {
+        FunctionConfig ins = FunctionConfig.instaince;
         if (ins == null) {
-            synchronized (FuntionConfig.class) {
-                ins = FuntionConfig.instaince;
+            synchronized (FunctionConfig.class) {
+                ins = FunctionConfig.instaince;
                 if (ins == null) {
-                    FuntionConfig.instaince = ins = new FuntionConfig();
+                    FunctionConfig.instaince = ins = new FunctionConfig();
                 }
             }
         }
@@ -42,9 +46,14 @@ public class FuntionConfig extends AbsJsonSource<FunctionInfo>{
             info = new FunctionInfo(wareHouse.toJson(), modeInfo);
             if (!isNull(info.getFunctionName())) {
                 this.elements.add(info);
+                this.funtionNames.add(info.getFunctionName());
             }
         }
         return !this.elements.isEmpty();
+    }
+
+    public List<String> getListFunction() {
+        return this.funtionNames;
     }
     
 }

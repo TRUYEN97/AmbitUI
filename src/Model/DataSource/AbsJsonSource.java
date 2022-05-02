@@ -44,7 +44,7 @@ public abstract class AbsJsonSource<AbsElementInfo> implements IInit {
         return elements;
     }
 
-    public int getCountMode() {
+    public int getCountElement() {
         return this.elements.size();
     }
 

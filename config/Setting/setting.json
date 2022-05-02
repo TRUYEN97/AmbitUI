@@ -1,15 +1,14 @@
 {
     "STATION": "RTT",
     "DHCP": "OFF",
-    "ROW": 12,
-    "COLUMN": 8,
+    "ROW": 30,
+    "COLUMN": 30,
     "TYPE_UI": "Smail",
     "DETAIL": ["View", "Item", "Log"],
     "LOAD_MODE": [
         {
             "NAME": "PRODUCTION", 
             "TYPE_MODE": "Production",
-            "INIT": ["Password"],
             "DETAIL": ["Item", "Log"],
             "PREPARE": [],
             "END": []
@@ -17,16 +16,16 @@
         {
             "NAME": "DEBUG",
             "TYPE_MODE": "Debug",
-            "INIT": ["Password"],
-            "DETAIL": ["View", "Item", "Log"],
+            "DISCRETE_TEST": "ON",
+            "DETAIL": ["Item", "Log"],
             "PREPARE": [],
             "END": []
         },
         {
             "NAME": "PRO-DEV", 
             "TYPE_MODE": "Production",
-            "INIT": ["Password"],
-            "DETAIL": [ "Log"],
+           // "INIT": ["Password"],
+            "DETAIL": ["Log"],
             "PREPARE": [],
             "END": []
         }

@@ -12,10 +12,10 @@ import java.util.List;
  *
  * @author Administrator
  */
-public class ModeInfo extends AbsElementInfo{
+public class ModeInfo extends AbsElementInfo {
 
     public ModeInfo(JSONObject base, JSONObject config) {
-       super(KeyWord.MODE_KEY, base, config);
+        super(KeyWord.MODE_KEY, base, config);
     }
 
     public String getModeType() {
@@ -29,25 +29,33 @@ public class ModeInfo extends AbsElementInfo{
     public List<String> getDetail() {
         return this.warehouse.cvtArrays2List(this.warehouse.getJSONArray(KeyWord.DETAIL));
     }
-    
+
     public List<String> getIniFunc() {
         return this.warehouse.cvtArrays2List(this.warehouse.getJSONArray(KeyWord.INIT_FUNC));
     }
-    
-    public List<String> getPrepare() {
+
+    public List<String> getCheckFunctions() {
         return this.warehouse.cvtArrays2List(this.warehouse.getJSONArray(KeyWord.PREPARE));
     }
-    
-    public List<String> getEnd() {
+
+    public List<String> getEndFunctions() {
         return this.warehouse.cvtArrays2List(this.warehouse.getJSONArray(KeyWord.END));
     }
 
     public int getRow() {
-        return this.warehouse.getInteger(KeyWord.ROW);
+        Integer mun = this.warehouse.getInteger(KeyWord.ROW);
+        if (mun == null) {
+            return 1;
+        }
+        return mun;
     }
 
     public int getColumn() {
-        return this.warehouse.getInteger(KeyWord.COLUMN);
+        Integer mun = this.warehouse.getInteger(KeyWord.COLUMN);
+        if (mun == null) {
+            return 1;
+        }
+        return mun;
     }
 
     public String getTypeUI() {
@@ -57,8 +65,13 @@ public class ModeInfo extends AbsElementInfo{
     public JSONObject toJson() {
         return this.warehouse.toJson();
     }
-    
+
     public boolean isMutiThread() {
         return (getColumn() * getRow()) > 1;
+    }
+
+    public boolean isDiscreteTest() {
+        String str = this.warehouse.getString(KeyWord.DISCRETE_TEST);
+        return !(str == null || str.equalsIgnoreCase("on"));
     }
 }

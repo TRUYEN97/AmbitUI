@@ -5,8 +5,8 @@
 package Control.Core;
 
 import Control.DrawBoardUI;
-import Model.DataModeTest.DataCore;
-import Model.ManagerUI.ManagerUI;
+import Model.DataModeTest.InputData;
+import Model.ManagerUI.UIManager;
 import View.UIView;
 import static java.util.Objects.isNull;
 
@@ -19,19 +19,18 @@ public class Core {
     private ModeTest currMode;
     private final DrawBoardUI drawBoardUI;
     private final UIView view;
-    private final ManagerUI managerUI;
-    private final DataCore dataCore;
+    private final UIManager uIManager;
 
-    public Core(UIView view, DataCore dataCore) {
-        this.managerUI = new ManagerUI(this);
-        this.drawBoardUI = new DrawBoardUI(this, this.managerUI);
-        this.drawBoardUI.setBoardUi(view.getBoardUI());
+    public Core(UIView view) {
         this.view = view;
-        this.dataCore = dataCore;
+        this.uIManager = new UIManager(this);
+        this.drawBoardUI = new DrawBoardUI(this);
     }
 
-    public void run() {
-       this.currMode.run();
+    public void checkInput(InputData inputDate) {
+        if (currMode.setInput(inputDate)) {
+            currMode.run();
+        }
     }
 
     public UIView getView() {
@@ -44,7 +43,7 @@ public class Core {
     public ModeTest getCurrMode() {
         return currMode;
     }
-    
+
     public void setCurrMode(ModeTest item) {
         if (isCurrentMode(item)) {
             return;
@@ -56,22 +55,18 @@ public class Core {
         }
     }
 
-    public ManagerUI getManagerUI() {
-        return managerUI;
-    }
-
-    public DataCore getDataCore() {
-        return dataCore;
+    public UIManager getUiManager() {
+        return uIManager;
     }
 
     private boolean updateMode(ModeTest modeTest) {
         if (modeTest != null && modeTest.init()) {
             this.currMode = modeTest;
-            if (drawBoardUI.isNewFormUI() && managerUI.isNotTest()) {
+            if (drawBoardUI.isNewFormUI() && uIManager.isNotTest()) {
                 drawBoardUI.setting();
                 drawBoardUI.Draw();
             }
-            return managerUI.update();
+            return uIManager.update();
         }
         return false;
     }

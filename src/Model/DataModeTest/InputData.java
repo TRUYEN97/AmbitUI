@@ -8,12 +8,14 @@ package Model.DataModeTest;
  *
  * @author 21AK22
  */
-public class DataCore {
+public class InputData {
 
     private final StringBuffer inputData;
+    private String index;
 
-    public DataCore() {
+    public InputData() {
         this.inputData = new StringBuffer();
+        this.index = new String();
     }
 
     public void setInput(String input) {
@@ -25,6 +27,20 @@ public class DataCore {
 
     public String getInput() {
         return this.inputData.toString();
+    }
+
+    public String getIndex() {
+        if (this.index == null) {
+            return "";
+        }
+        return this.index;
+    }
+
+    public void setIndex(String index) {
+        if (index == null) {
+            return;
+        }
+        this.index = index;
     }
 
 }

@@ -9,10 +9,11 @@ import Control.Core.Core;
 import Control.Core.ModeTest;
 import Control.LoadModelTime.LoadModeTime;
 import Control.CheckInput;
+import View.subUI.SubUI.AbsSubUi;
 import java.awt.Component;
+import java.awt.GridLayout;
 import java.awt.HeadlessException;
 import java.awt.event.ItemEvent;
-import java.awt.event.KeyEvent;
 import java.util.List;
 import javax.swing.DefaultComboBoxModel;
 import javax.swing.DefaultListCellRenderer;
@@ -55,8 +56,15 @@ public class UIView extends javax.swing.JFrame {
         this.checkInput = checkInput;
     }
 
-    public JPanel getBoardUI() {
-        return BoardSubUI;
+    public void setBoardSubUISize(int row, int column) {
+        this.BoardSubUI.removeAll();
+        this.BoardSubUI.setLayout(new GridLayout(row, column, 2, 2));
+    }
+
+    public void addSubUi(AbsSubUi subUi) {
+        subUi.setUiView(this);
+        this.BoardSubUI.add(subUi);
+        this.BoardSubUI.updateUI();
     }
 
     public void setCore(Core loadMode) {

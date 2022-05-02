@@ -5,7 +5,7 @@
 package Control;
 
 import Control.Core.Core;
-import Model.DataModeTest.DataCore;
+import Model.DataModeTest.InputData;
 import View.UIView;
 import java.awt.HeadlessException;
 import java.awt.Toolkit;
@@ -24,26 +24,27 @@ public class CheckInput {
 
     private static final int CTRL_V = 22;
     private final StringBuilder data;
-    private final Core loadMode;
+    private final Core core;
     private final UIView view;
-    private final DataCore dataCore;
+    private InputData inputData;
 
-    public CheckInput(Core core, DataCore dataCore) {
+    public CheckInput(Core core, UIView view) {
         this.data = new StringBuilder();
-        this.loadMode = core;
-        this.view = core.getView();
-        this.dataCore = dataCore;
+        this.core = core;
+        this.view = view;
     }
 
     public synchronized void inputAnalysis(char input) throws HeadlessException {
-        if (isNull(this.view) || isNull(this.loadMode)) {
+        if (isNull(this.view) || isNull(this.core)) {
             return;
         }
         switch (input) {
             case KeyEvent.VK_ENTER -> {
                 if (!data.isEmpty()) {
-                    dataCore.setInput(this.data.toString());
-                    loadMode.run();
+                    inputData = new InputData();
+                    inputData.setInput(this.data.toString());
+                    inputData.setIndex("");
+                    core.checkInput(inputData);
                     clear();
                 }
             }

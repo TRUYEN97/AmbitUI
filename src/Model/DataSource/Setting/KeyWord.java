@@ -24,9 +24,10 @@ final class KeyWord {
     public static final String TYPE_MODE = "TYPE_MODE";
     public static final String INIT_FUNC = "INIT";
     public static final String PREPARE = "PREPARE";
+    public static final String DISCRETE_TEST = "DISCRETE_TEST";
     public static final String END = "END";
     public static final List<String> MODE_KEY = Arrays.asList(
-            STATION,DHCP,COLUMN, ROW,  DETAIL, TYPE_UI,NAME,TYPE_MODE,
+            STATION, DHCP, COLUMN, ROW, DETAIL, DISCRETE_TEST, TYPE_UI, NAME, TYPE_MODE,
             INIT_FUNC, PREPARE, END);
 
     public class Init {
@@ -40,7 +41,7 @@ final class KeyWord {
         public static final String LOG = "Log";
         public static final String ITEM = "Item";
     }
-    
+
     public class SubUI {
 
         public static final String BIG_UI = "Big";

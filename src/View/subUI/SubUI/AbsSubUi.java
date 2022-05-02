@@ -5,10 +5,10 @@
 package View.subUI.SubUI;
 
 import Control.Core.Core;
-import Control.Core.ModeTest;
 import Model.DataSource.Setting.ModeInfo;
 import Model.Factory.Factory;
 import Model.Interface.IUpdate;
+import View.UIView;
 import View.subUI.AbsUI;
 import View.subUI.FormDetail.TabDetail;
 import java.awt.Color;
@@ -21,6 +21,7 @@ import javax.swing.border.LineBorder;
 public abstract class AbsSubUi extends AbsUI implements IUpdate {
 
     protected final TabDetail tabDetail;
+    protected UIView view;
     protected Core loadMode;
 
     protected AbsSubUi(String name) {
@@ -43,6 +44,9 @@ public abstract class AbsSubUi extends AbsUI implements IUpdate {
             Factory factory;
             modeInfo = this.loadMode.getCurrMode().getModeInfo();
             factory = Factory.getInstance();
+            if (isOldDetails(modeInfo)) {
+                return true;
+            }
             this.tabDetail.clear();
             for (String name : modeInfo.getDetail()) {
                 this.tabDetail.addTab(factory.getTabUI(name));
@@ -54,8 +58,15 @@ public abstract class AbsSubUi extends AbsUI implements IUpdate {
         }
     }
 
-    public ModeTest getMode() {
-        throw new UnsupportedOperationException("Not supported yet."); // Generated from nbfs://nbhost/SystemFileSystem/Templates/Classes/Code/GeneratedMethodBody
+    private boolean isOldDetails(ModeInfo modeInfo) {
+        return this.tabDetail.getListTab().equals(modeInfo.getDetail());
+    }
+
+    public void setUiView(UIView view) {
+        if (view == null) {
+            return;
+        }
+        this.view = view;
     }
 
 }

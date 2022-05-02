@@ -12,7 +12,9 @@ package View.subUI.FormDetail;
 
 import View.subUI.AbsUI;
 import View.subUI.SubUI.AbsSubUi;
+import java.util.ArrayList;
 import java.util.HashMap;
+import java.util.List;
 
 /**
  *
@@ -22,6 +24,7 @@ public class TabDetail extends AbsUI {
 
     private final HashMap<String, AbsSubUi> tabElemnt;
     private final AbsSubUi boss;
+    private List<String> listTitle;
 
     /**
      * Creates new form PanelDetail
@@ -31,6 +34,7 @@ public class TabDetail extends AbsUI {
     public TabDetail(AbsSubUi boss) {
         super(boss.getName());
         this.tabElemnt = new HashMap<>();
+        this.listTitle = new ArrayList<>();
         initComponents();
         this.boss = boss;
     }
@@ -71,10 +75,16 @@ private void tabDetailKeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_t
 
     public void clear() {
         this.tabDetail.removeAll();
+        this.listTitle.clear();
     }
 
     public void addTab(AbsTabUI tabUI) {
         this.tabDetail.addTab(tabUI.getName(), tabUI);
+        this.listTitle.add(tabUI.getName());
+    }
+
+    public List<String> getListTab() {
+        return this.listTitle;
     }
 
 }

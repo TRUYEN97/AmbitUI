@@ -6,13 +6,12 @@ package Control;
 
 import Control.Core.Core;
 import Model.Factory.Factory;
-import Model.ManagerUI.ManagerUI;
+import Model.ManagerUI.UIManager;
+import View.UIView;
 import View.subUI.SubUI.AbsSubUi;
-import java.awt.Color;
+import java.awt.Component;
 import java.awt.GridLayout;
 import java.util.Objects;
-import java.util.logging.Level;
-import java.util.logging.Logger;
 import javax.swing.JPanel;
 
 /**
@@ -23,21 +22,15 @@ public class DrawBoardUI {
 
     private int colSize = 1;
     private int rowSize = 1;
-    private JPanel boardUi;
     private String typeUI;
-    private final Core loadMode;
-    private final ManagerUI managerUI;
+    private final Core core;
+    private final UIManager uImanager;
+    private final UIView view;
 
-    public DrawBoardUI(Core loadMode, ManagerUI managerUI) {
-        this.loadMode = loadMode;
-        this.managerUI = managerUI;
-    }
-
-    public void setBoardUi(JPanel boardUi) {
-        if (boardUi == null) {
-            return;
-        }
-        this.boardUi = boardUi;
+    public DrawBoardUI(Core core) {
+        this.core = core;
+        this.uImanager = core.getUiManager();
+        this.view = core.getView();
     }
 
     public boolean isNewFormUI() {
@@ -52,10 +45,8 @@ public class DrawBoardUI {
     }
 
     public void Draw() {
-        if (Objects.isNull(boardUi)) {
-            return;
-        }
-        clear();
+        this.uImanager.clear();
+        this.view.setBoardSubUISize(rowSize, colSize);
         if (isMutiThread()) {
             for (int row = 0; row < rowSize; row++) {
                 for (int col = 1; col <= colSize; col++) {
@@ -65,17 +56,10 @@ public class DrawBoardUI {
         } else {
             drawOne("main");
         }
-        boardUi.updateUI();
     }
 
     private boolean isMutiThread() {
-        return this.loadMode.getCurrMode().getModeInfo().isMutiThread();
-    }
-
-    private void clear() {
-        this.managerUI.clear();
-        this.boardUi.removeAll();
-        this.boardUi.setLayout(new GridLayout(rowSize, colSize, 2, 2));
+        return this.core.getCurrMode().getModeInfo().isMutiThread();
     }
 
     private static boolean checkOutSizeInt(int value) {
@@ -88,9 +72,9 @@ public class DrawBoardUI {
         }
         AbsSubUi subUi = Factory.getInstance().getSubUI(this.typeUI, indexName);
         if (subUi != null) {
-            this.boardUi.add(subUi);
-            subUi.setLoadMode(this.loadMode);
-            managerUI.addUI(subUi);
+            this.view.addSubUi(subUi);
+            subUi.setLoadMode(this.core);
+            uImanager.addUI(subUi);
         }
     }
 
@@ -110,14 +94,14 @@ public class DrawBoardUI {
     }
 
     private int getColumn() {
-        return this.loadMode.getCurrMode().getModeInfo().getColumn();
+        return this.core.getCurrMode().getModeInfo().getColumn();
     }
 
     private int getRow() {
-        return this.loadMode.getCurrMode().getModeInfo().getRow();
+        return this.core.getCurrMode().getModeInfo().getRow();
     }
 
     private String getType() {
-        return this.loadMode.getCurrMode().getModeInfo().getTypeUI();
+        return this.core.getCurrMode().getModeInfo().getTypeUI();
     }
 }

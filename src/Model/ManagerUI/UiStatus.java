@@ -6,8 +6,11 @@ package Model.ManagerUI;
 
 import Control.Core.Core;
 import Control.Core.ModeTest;
+import Control.Core.UnitTest;
+import Control.Functions.AbsFunction;
 import Model.Interface.IUpdate;
 import View.subUI.SubUI.AbsSubUi;
+import java.util.List;
 import static java.util.Objects.isNull;
 
 /**
@@ -18,44 +21,29 @@ public class UiStatus implements IUpdate {
 
     private final AbsSubUi subUi;
     private final String name;
-    private final Core loadMode;
+    private final Core core;
+    private final UIInput input;
+    private final UIData Data;
+    private final UITest test;
     private ModeTest modeTest;
-    private boolean isTesting;
 
-    public UiStatus(AbsSubUi subUi, Core loadMode) {
+    UiStatus(AbsSubUi subUi, Core core) {
         this.subUi = subUi;
         this.name = subUi.getName();
-        this.loadMode = loadMode;
-    }
-
-    public AbsSubUi getSubUi() {
-        return subUi;
-    }
-
-    public ModeTest getModeTest() {
-        return modeTest;
+        this.core = core;
+        this.Data = new UIData();
+        this.input = new UIInput();
+        this.test = new UITest(Data, input, subUi);
     }
 
     public boolean isTesting() {
-        return isTesting;
-    }
-
-    void setModeTest(ModeTest modeTest) {
-        this.modeTest = modeTest;
-    }
-
-    void setIsTesting(boolean isTesting) {
-        this.isTesting = isTesting;
-    }
-
-    public String getName() {
-        return name;
+        return this.test.isTesting();
     }
 
     @Override
     public boolean update() {
-        if (this.subUi.update()) {
-            this.modeTest = loadMode.getCurrMode();
+        if (!this.isTesting() && this.subUi.update()) {
+            this.modeTest = core.getCurrMode();
             return true;
         }
         return false;
@@ -73,5 +61,21 @@ public class UiStatus implements IUpdate {
             return false;
         }
         return this.subUi.equals(ui);
+    }
+
+    void setModeTest(ModeTest modeTest) {
+        this.modeTest = modeTest;
+    }
+
+    public String getName() {
+        return name;
+    }
+
+    public void setUnitTest(UnitTest unitTest) {
+        this.test.setUnitTest(unitTest);
+    }
+
+    public List<AbsFunction> getFunctionSelected() {
+        return this.input.getFunctionSelected();
     }
 }

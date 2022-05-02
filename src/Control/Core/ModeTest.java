@@ -4,47 +4,46 @@
  */
 package Control.Core;
 
-import Control.Core.Core;
 import Control.Functions.AbsFunction;
+import Model.DataModeTest.InputData;
+import Model.DataSource.FunctionConfig.FunctionConfig;
 import Model.Interface.IInit;
 import Model.DataSource.Setting.ModeInfo;
 import Model.Factory.Factory;
+import Model.ManagerUI.UIManager;
+import Model.ManagerUI.UiStatus;
+import java.awt.HeadlessException;
 import java.util.ArrayList;
 import java.util.List;
+import javax.swing.JOptionPane;
 
 /**
  *
  * @author Administrator
  */
-public class ModeTest implements IInit {
+public class ModeTest implements IInit, Runnable {
 
-    private final String name;
     private final ModeInfo modeInfo;
     private final List<AbsFunction> inits;
-    private final List<AbsFunction> prepares;
-    private final List<AbsFunction> ends;
     private final Factory factory;
-    private Core core;
+    private final FunctionConfig functionConfig;
+    private final UIManager uIManager;
+    private InputData inputData;
+    private UnitTest unitTest;
+    private UiStatus uiStatus;
 
-    public ModeTest(ModeInfo modeTest) {
-        this.name = modeTest.getModeName();
-        this.modeInfo = modeTest;
+    public ModeTest(ModeInfo info, Core core) {
         this.inits = new ArrayList<>();
-        this.prepares = new ArrayList<>();
-        this.ends = new ArrayList<>();
         this.factory = Factory.getInstance();
-        setupInitFunc(this.inits, this.modeInfo.getIniFunc());
-        setupInitFunc(this.prepares, this.modeInfo.getPrepare());
-        setupInitFunc(this.ends, this.modeInfo.getEnd());
-    }
-
-    public void setLoadMode(Core core) {
-        this.core = core;
+        this.functionConfig = FunctionConfig.getInstance();
+        this.modeInfo = info;
+        this.uIManager = core.getUiManager();
+        addFunctions(this.inits, this.modeInfo.getIniFunc());
     }
 
     @Override
     public String toString() {
-        return name;
+        return modeInfo.getModeName();
     }
 
     @Override
@@ -58,44 +57,89 @@ public class ModeTest implements IInit {
         return true;
     }
 
-    public void run() {
-        if (prepare()) {
-            test();
-            end();
+    public boolean setInput(InputData inputData) {
+        if (inputData != null) {
+            this.inputData = inputData;
+            return true;
         }
+        return false;
     }
 
-    private boolean prepare() {
-        for (AbsFunction function : this.prepares) {
-            function.run();
-            if (!function.isPass()) {
-                return false;
+    private boolean check() {
+        if (isIndexEmpty(inputData)) {
+            if (isMutiThread()) {
+                inputData.setIndex("main");
+                return true;
+            } else if (getIndex(inputData)) {
+                return true;
             }
+            return false;
         }
         return true;
     }
 
-    private void test() {
-        System.out.println("test");
-    }
-
-    private void end() {
-        for (AbsFunction function : this.prepares) {
-            function.run();
-            if (!function.isPass()) {
-                return;
-            }
+    @Override
+    public void run() {
+        if (check()) {
+            uiStatus = uIManager.getUiStatus(inputData.getIndex());
+            unitTest = new UnitTest(inputData);
+            unitTest.setCheckFunction(getCheckFunctions());
+            unitTest.setTestFunction(getTestFunctions());
+            unitTest.setEndFunction(getEndFunctions());
+            uiStatus.setUnitTest(unitTest);
         }
+        inputData = null;
+        unitTest = null;
+        uiStatus = null;
     }
 
     public ModeInfo getModeInfo() {
         return this.modeInfo;
     }
 
-    private void setupInitFunc(List<AbsFunction> list, List<String> functions) {
+    private void addFunctions(List<AbsFunction> list, List<String> functions) {
         for (String type : functions) {
             list.add(this.factory.getFunc(type));
         }
     }
 
+    private List<AbsFunction> getCheckFunctions() {
+        List<AbsFunction> functions = new ArrayList<>();
+        addFunctions(functions, this.modeInfo.getCheckFunctions());
+        return functions;
+    }
+
+    private List<AbsFunction> getTestFunctions() {
+        List<AbsFunction> functions = new ArrayList<>();
+        if (this.modeInfo.isDiscreteTest()) {
+            functions.addAll(uiStatus.getFunctionSelected());
+        } else {
+            addFunctions(functions, this.functionConfig.getListFunction());
+        }
+        return functions;
+    }
+
+    private List<AbsFunction> getEndFunctions() {
+        List<AbsFunction> functions = new ArrayList<>();
+        addFunctions(functions, this.modeInfo.getEndFunctions());
+        return functions;
+    }
+
+    private boolean isMutiThread() {
+        return this.modeInfo.isMutiThread();
+    }
+
+    private boolean isIndexEmpty(InputData inputData) {
+        String index = inputData.getIndex();
+        return index == null || index.isBlank() || !uIManager.isIndexFree(index);
+    }
+
+    private boolean getIndex(InputData inputData) throws HeadlessException {
+        String index = JOptionPane.showInputDialog("Nhập vị trí");
+        if (uIManager.isIndexFree(index)) {
+            inputData.setIndex(index);
+            return true;
+        }
+        return false;
+    }
 }
