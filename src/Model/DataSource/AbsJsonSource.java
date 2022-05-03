@@ -52,7 +52,7 @@ public abstract class AbsJsonSource<AbsElementInfo> implements IInit {
         return elements;
     }
 
-    public AbsElementInfo getElemnt(String name) {
+    public AbsElementInfo getElement(String name) {
         return this.mapElemnts.get(name);
     }
 

@@ -26,13 +26,13 @@ public class FactoryType<T> {
         this.type.put(proxyUi.getTypeName(), proxyUi);
     }
 
-    public T takeIt(String type, String IndexName) {
+    public T takeIt(String type, String name) {
         if (!this.type.containsKey(type)) {
             JOptionPane.showMessageDialog(null, String.format("Not have: %s in factory !", type));
             return null;
         }
         AbsProxy<T> proxy = this.type.get(type);
-        proxy.setName(IndexName);
+        proxy.setName(name);
         return proxy.takeIt();
     }
 

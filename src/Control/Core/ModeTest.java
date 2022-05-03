@@ -10,6 +10,7 @@ import Model.DataSource.FunctionConfig.FunctionConfig;
 import Model.Interface.IInit;
 import Model.DataSource.Setting.ModeElement;
 import Model.Factory.Factory;
+import Model.Interface.IFunction;
 import Model.ManagerUI.UIManager;
 import Model.ManagerUI.UiStatus;
 import java.awt.HeadlessException;
@@ -24,7 +25,7 @@ import javax.swing.JOptionPane;
 public class ModeTest implements IInit, Runnable {
 
     private final ModeElement modeInfo;
-    private final List<AbsFunction> inits;
+    private final List<IFunction> inits;
     private final Factory factory;
     private final FunctionConfig functionConfig;
     private final UIManager uIManager;
@@ -38,7 +39,7 @@ public class ModeTest implements IInit, Runnable {
         this.functionConfig = FunctionConfig.getInstance();
         this.modeInfo = info;
         this.uIManager = core.getUiManager();
-        addFunctions(this.inits, this.modeInfo.getIniFunc());
+        addInitFunctions(this.inits, this.modeInfo.getIniFunc());
     }
 
     @Override
@@ -48,7 +49,7 @@ public class ModeTest implements IInit, Runnable {
 
     @Override
     public boolean init() {
-        for (AbsFunction iInit : inits) {
+        for (IFunction iInit : inits) {
             iInit.run();
             if (!iInit.isPass()) {
                 return false;
@@ -87,7 +88,6 @@ public class ModeTest implements IInit, Runnable {
             unitTest.setEndFunction(getEndFunctions());
             uiStatus.setUnitTest(unitTest);
         }
-        System.out.println("hhhh null");
         inputData = null;
         unitTest = null;
         uiStatus = null;
@@ -97,9 +97,15 @@ public class ModeTest implements IInit, Runnable {
         return this.modeInfo;
     }
 
+    private void addInitFunctions(List<IFunction> list, List<String> functions) {
+        for (String type : functions) {
+            list.add(this.factory.getInitFunc(type));
+        }
+    }
+    
     private void addFunctions(List<AbsFunction> list, List<String> functions) {
         for (String type : functions) {
-            list.add(this.factory.getFunc(type));
+            list.add(this.factory.getFunc(type, type));
         }
     }
 

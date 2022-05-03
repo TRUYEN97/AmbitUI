@@ -26,4 +26,11 @@ public class FunctionElement extends AbsElementInfo {
         return !(multiTasking == null || !multiTasking.equalsIgnoreCase("on"));
     }
 
+    public int getRetry() {
+        if (this.warehouse.getInteger(KeyWord.RETRY) == null) {
+            return 1;
+        }
+        return this.warehouse.getInteger(KeyWord.RETRY);
+    }
+
 }

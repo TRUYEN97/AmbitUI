@@ -7,33 +7,35 @@ package Control.Functions;
 import Control.Core.Core;
 import Control.Core.ModeTest;
 import Model.DataSource.FunctionConfig.FunctionConfig;
+import Model.DataSource.FunctionConfig.FunctionElement;
 import Model.DataSource.Limit.Limit;
 import Model.ManagerUI.UIData;
 import Model.ManagerUI.UIInput;
 import Model.ManagerUI.UIManager;
 import Model.ManagerUI.UiStatus;
 import View.subUI.SubUI.AbsSubUi;
+import Model.Interface.IFunction;
 
 /**
  *
  * @author 21AK22
  */
-public abstract class AbsFunction implements Runnable {
+public abstract class AbsFunction implements IFunction {
 
     protected UIManager uIManager;
     protected ModeTest modeTest;
-    protected final FunctionConfig funtionConfig;
+    protected final FunctionElement funtionConfig;
     protected final Limit limit;
-    private String name;
     protected UiStatus uiStatus;
+    protected boolean isPass;
     private UIData Data;
     private UIInput input;
     private AbsSubUi subUi;
-    private boolean pass;
 
-    protected AbsFunction() {
-        this.funtionConfig = FunctionConfig.getInstance();
+    protected AbsFunction(String FunctionName) {
+        this.funtionConfig = FunctionConfig.getInstance().getElement(FunctionName);
         this.limit = Limit.getInstance();
+        this.isPass = false;
     }
 
     public void setCore(Core core) {
@@ -50,23 +52,33 @@ public abstract class AbsFunction implements Runnable {
         this.subUi = uiStatus.getSubUi();
     }
 
+    @Override
+    public void run() {
+        for (int times = 0; times < getRetry(); times++) {
+            if (test()) {
+                break;
+            }
+        }
+    }
+
+    public abstract boolean test();
+
+    @Override
     public boolean isPass() {
-        return pass;
-    }
-
-    protected void setPass(boolean pass) {
-        this.pass = pass;
-    }
-
-    public String getName() {
-        return name;
-    }
-
-    public void setName(String name) {
-        this.name = name;
+        return isPass;
     }
 
     public boolean isMutiTasking() {
-        return this.funtionConfig.getElemnt(name).isMutiTasking();
+        if (funtionConfig == null) {
+            return false;
+        }
+        return this.funtionConfig.isMutiTasking();
+    }
+
+    private int getRetry() {
+        if (funtionConfig != null) {
+            return funtionConfig.getRetry();
+        }
+        return 1;
     }
 }

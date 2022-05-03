@@ -39,7 +39,7 @@ public class UnitTest implements Runnable {
 
     @Override
     public void run() {
-        if (testting(checks) && test() && testting(ends)) {
+        if (runFunctions(checks) && test() && runFunctions(ends)) {
             
         }
     }
@@ -71,7 +71,7 @@ public class UnitTest implements Runnable {
         this.subUi = uiStatus.getSubUi();
     }
 
-    private boolean testting(List<AbsFunction> funcs) {
+    private boolean runFunctions(List<AbsFunction> funcs) {
         process.setListFunc(funcs);
         process.run();
         return process.isPass();
@@ -81,6 +81,6 @@ public class UnitTest implements Runnable {
         if (tests.isEmpty()) {
             return false;
         }
-        return testting(tests);
+        return runFunctions(tests);
     }
 }
