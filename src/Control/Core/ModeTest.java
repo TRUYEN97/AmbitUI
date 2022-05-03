@@ -8,7 +8,7 @@ import Control.Functions.AbsFunction;
 import Model.DataModeTest.InputData;
 import Model.DataSource.FunctionConfig.FunctionConfig;
 import Model.Interface.IInit;
-import Model.DataSource.Setting.ModeInfo;
+import Model.DataSource.Setting.ModeElement;
 import Model.Factory.Factory;
 import Model.ManagerUI.UIManager;
 import Model.ManagerUI.UiStatus;
@@ -23,7 +23,7 @@ import javax.swing.JOptionPane;
  */
 public class ModeTest implements IInit, Runnable {
 
-    private final ModeInfo modeInfo;
+    private final ModeElement modeInfo;
     private final List<AbsFunction> inits;
     private final Factory factory;
     private final FunctionConfig functionConfig;
@@ -32,7 +32,7 @@ public class ModeTest implements IInit, Runnable {
     private UnitTest unitTest;
     private UiStatus uiStatus;
 
-    public ModeTest(ModeInfo info, Core core) {
+    public ModeTest(ModeElement info, Core core) {
         this.inits = new ArrayList<>();
         this.factory = Factory.getInstance();
         this.functionConfig = FunctionConfig.getInstance();
@@ -67,13 +67,12 @@ public class ModeTest implements IInit, Runnable {
 
     private boolean check() {
         if (isIndexEmpty(inputData)) {
-            if (isMutiThread()) {
+            if (isMultiThread()) {
+                return getIndex(inputData);
+            } else {
                 inputData.setIndex("main");
                 return true;
-            } else if (getIndex(inputData)) {
-                return true;
             }
-            return false;
         }
         return true;
     }
@@ -88,12 +87,13 @@ public class ModeTest implements IInit, Runnable {
             unitTest.setEndFunction(getEndFunctions());
             uiStatus.setUnitTest(unitTest);
         }
+        System.out.println("hhhh null");
         inputData = null;
         unitTest = null;
         uiStatus = null;
     }
 
-    public ModeInfo getModeInfo() {
+    public ModeElement getModeInfo() {
         return this.modeInfo;
     }
 
@@ -125,8 +125,8 @@ public class ModeTest implements IInit, Runnable {
         return functions;
     }
 
-    private boolean isMutiThread() {
-        return this.modeInfo.isMutiThread();
+    private boolean isMultiThread() {
+        return this.modeInfo.isMultiThread();
     }
 
     private boolean isIndexEmpty(InputData inputData) {

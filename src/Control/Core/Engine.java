@@ -7,7 +7,7 @@ package Control.Core;
 import Control.CheckInput;
 import Model.DataSource.Setting.Setting;
 import Model.DataModeTest.InputData;
-import Model.DataSource.Setting.ModeInfo;
+import Model.DataSource.Setting.ModeElement;
 import View.UIView;
 import java.util.ArrayList;
 import java.util.List;
@@ -40,7 +40,7 @@ public class Engine {
     }
 
     private void getAllMode() {
-        for (ModeInfo modeInfo : setting.getElments()) {
+        for (ModeElement modeInfo : setting.getElments()) {
             this.modeTests.add(new ModeTest(modeInfo, this.core));
         }
     }

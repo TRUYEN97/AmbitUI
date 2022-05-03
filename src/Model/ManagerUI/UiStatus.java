@@ -33,7 +33,27 @@ public class UiStatus implements IUpdate {
         this.core = core;
         this.Data = new UIData();
         this.input = new UIInput();
-        this.test = new UITest(Data, input, subUi);
+        this.test = new UITest(this);
+    }
+    
+    public UIData getData() {
+        return Data;
+    }
+
+    public AbsSubUi getSubUi() {
+        return subUi;
+    }
+
+    public Core getCore() {
+        return core;
+    }
+
+    public UIInput getInput() {
+        return input;
+    }
+
+    public ModeTest getModeTest() {
+        return modeTest;
     }
 
     public boolean isTesting() {

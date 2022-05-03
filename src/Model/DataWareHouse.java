@@ -85,7 +85,7 @@ public class DataWareHouse {
         try {
             return Integer.parseInt(getString(json, key), radix);
         } catch (NumberFormatException e) {
-            Message.WriteMessger.Console("ParseInt fail!\r\nvalue: %s\r\n%s",
+            Message.WriteMessger.Console("Parse Integer fail!\r\nvalue: %s\r\n%s",
                     getString(json, key), getAllClassName(this), null);
             return null;
         }
@@ -107,7 +107,7 @@ public class DataWareHouse {
         try {
             return Double.parseDouble(getString(json, key));
         } catch (NumberFormatException e) {
-            Message.WriteMessger.Console("ParseDouble fail!\r\nvalue: %s\r\n%s",
+            Message.WriteMessger.Console("Parse Double fail!\r\nvalue: %s\r\n%s",
                     getString(json, key), getAllClassName(this), null);
             return null;
         }
@@ -183,5 +183,19 @@ public class DataWareHouse {
 
     public void clear() {
         this.coreData.clear();
+    }
+
+    public Long getLong(String key) {
+        return getLong(coreData, key);
+    }
+
+    public Long getLong(JSONObject json, String key) {
+        try {
+            return Long.parseLong(getString(json, key));
+        } catch (NumberFormatException e) {
+            Message.WriteMessger.Console("Parse Long fail!\r\nvalue: %s\r\n%s",
+                    getString(json, key), getAllClassName(this), null);
+            return null;
+        }
     }
 }

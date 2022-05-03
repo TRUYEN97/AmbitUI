@@ -11,14 +11,19 @@ import com.alibaba.fastjson.JSONObject;
  *
  * @author 21AK22
  */
-public class FunctionInfo extends AbsElementInfo {
+public class FunctionElement extends AbsElementInfo {
 
-    public FunctionInfo(JSONObject base, JSONObject config) {
+    public FunctionElement(JSONObject base, JSONObject config) {
         super(KeyWord.KEYS, base, config);
     }
 
     public String getFunctionName() {
         return this.warehouse.getString(KeyWord.FUNC_NAME);
+    }
+
+    public boolean isMutiTasking() {
+        String multiTasking = this.warehouse.getString(KeyWord.MULTI_TASK);
+        return !(multiTasking == null || !multiTasking.equalsIgnoreCase("on"));
     }
 
 }

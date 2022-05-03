@@ -5,7 +5,10 @@
 package Model.ManagerUI;
 
 import Control.Core.UnitTest;
-import View.subUI.SubUI.AbsSubUi;
+import Model.DataSource.FunctionConfig.FunctionConfig;
+import java.awt.event.ActionEvent;
+import java.awt.event.ActionListener;
+import javax.swing.Timer;
 
 /**
  *
@@ -13,22 +16,39 @@ import View.subUI.SubUI.AbsSubUi;
  */
 class UITest {
 
-    private final UIData Data;
-    private final UIInput input;
-    private final AbsSubUi subUi;
+    private final UiStatus uiStatus;
+    private Thread thread;
+    private Timer timer;
+    private long startTime;
 
-    UITest(UIData Data, UIInput input, AbsSubUi subUi) {
-        this.Data = Data;
-        this.input = input;
-        this.subUi = subUi;
+    UITest(UiStatus uiStatus) {
+        this.uiStatus = uiStatus;
+        this.timer = new Timer(10000, new ActionListener() {
+            private final long timeOut = FunctionConfig.getInstance().getTimeOutTest();
+
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                if (isTesting() && (System.currentTimeMillis() - startTime >= timeOut)) {
+                    thread.stop();
+                    timer.stop();
+                }
+            }
+        });
     }
 
     boolean isTesting() {
-        return false;
+        return this.thread != null && this.thread.isAlive();
     }
 
     void setUnitTest(UnitTest unitTest) {
-        throw new UnsupportedOperationException("Not supported yet."); // Generated from nbfs://nbhost/SystemFileSystem/Templates/Classes/Code/GeneratedMethodBody
+        if (isTesting()) {
+            return;
+        }
+        startTime = System.currentTimeMillis();
+        unitTest.setup(this.uiStatus);
+        this.thread = new Thread(unitTest);
+        this.thread.start();
+        this.timer.start();
     }
 
 }

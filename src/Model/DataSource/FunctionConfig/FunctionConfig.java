@@ -15,14 +15,14 @@ import static java.util.Objects.isNull;
  *
  * @author 21AK22
  */
-public class FunctionConfig extends AbsJsonSource<FunctionInfo>{
+public class FunctionConfig extends AbsJsonSource<FunctionElement> {
 
     private static volatile FunctionConfig instaince;
-    private final List<String> funtionNames;
+    private final List<String> itemNames;
 
     private FunctionConfig() {
         super();
-        this.funtionNames = new ArrayList<>();
+        this.itemNames = new ArrayList<>();
     }
 
     public static FunctionConfig getInstance() {
@@ -37,23 +37,31 @@ public class FunctionConfig extends AbsJsonSource<FunctionInfo>{
         }
         return ins;
     }
-    
+
     @Override
     protected boolean getData() {
         DataWareHouse wareHouse = readFile.getData();
-        FunctionInfo info;
+        FunctionElement info;
         for (JSONObject modeInfo : wareHouse.getListJson(KeyWord.FUNCTIONS)) {
-            info = new FunctionInfo(wareHouse.toJson(), modeInfo);
+            info = new FunctionElement(wareHouse.toJson(), modeInfo);
             if (!isNull(info.getFunctionName())) {
-                this.elements.add(info);
-                this.funtionNames.add(info.getFunctionName());
+                put(info.getFunctionName(), info);
+                this.itemNames.add(info.getFunctionName());
             }
         }
         return !this.elements.isEmpty();
     }
 
     public List<String> getListFunction() {
-        return this.funtionNames;
+        return itemNames;
     }
-    
+
+    public long getTimeOutTest() {
+        Long timeout = this.readFile.getData().getLong(KeyWord.TIME_OUT_TEST);
+        if (timeout == null) {
+            return Long.MAX_VALUE;
+        }
+        return timeout;
+    }
+
 }

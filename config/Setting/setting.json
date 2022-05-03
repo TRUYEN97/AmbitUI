@@ -1,8 +1,8 @@
 {
     "STATION": "RTT",
     "DHCP": "OFF",
-    "ROW": 30,
-    "COLUMN": 30,
+    "ROW": 12,
+    "COLUMN": 8,
     "TYPE_UI": "Smail",
     "DETAIL": ["View", "Item", "Log"],
     "LOAD_MODE": [

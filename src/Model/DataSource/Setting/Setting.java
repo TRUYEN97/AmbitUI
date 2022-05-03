@@ -14,7 +14,7 @@ import static java.util.Objects.isNull;
  *
  * @author Administrator
  */
-public class Setting extends AbsJsonSource<ModeInfo> implements IInit {
+public class Setting extends AbsJsonSource<ModeElement> implements IInit {
 
     private static volatile Setting instaince;
 
@@ -39,9 +39,9 @@ public class Setting extends AbsJsonSource<ModeInfo> implements IInit {
     @Override
     protected boolean getData() {
         DataWareHouse wareHouse = readFile.getData();
-        ModeInfo info;
+        ModeElement info;
         for (JSONObject modeInfo : wareHouse.getListJson(KeyWord.LOAD_MODE)) {
-            info = new ModeInfo(wareHouse.toJson(), modeInfo);
+            info = new ModeElement(wareHouse.toJson(), modeInfo);
             if (!isNull(info.getModeName())) {
                 this.elements.add(info);
             }

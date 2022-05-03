@@ -47,7 +47,7 @@ public class DrawBoardUI {
     public void Draw() {
         this.uImanager.clear();
         this.view.setBoardSubUISize(rowSize, colSize);
-        if (isMutiThread()) {
+        if (isMultiThread()) {
             for (int row = 0; row < rowSize; row++) {
                 for (int col = 1; col <= colSize; col++) {
                     drawOne(String.format("%s%s", (char) ('A' + row), col));
@@ -58,8 +58,8 @@ public class DrawBoardUI {
         }
     }
 
-    private boolean isMutiThread() {
-        return this.core.getCurrMode().getModeInfo().isMutiThread();
+    private boolean isMultiThread() {
+        return this.core.getCurrMode().getModeInfo().isMultiThread();
     }
 
     private static boolean checkOutSizeInt(int value) {

@@ -5,7 +5,7 @@
 package View.subUI.SubUI;
 
 import Control.Core.Core;
-import Model.DataSource.Setting.ModeInfo;
+import Model.DataSource.Setting.ModeElement;
 import Model.Factory.Factory;
 import Model.Interface.IUpdate;
 import View.UIView;
@@ -40,7 +40,7 @@ public abstract class AbsSubUi extends AbsUI implements IUpdate {
     @Override
     public boolean update() {
         try {
-            ModeInfo modeInfo;
+            ModeElement modeInfo;
             Factory factory;
             modeInfo = this.loadMode.getCurrMode().getModeInfo();
             factory = Factory.getInstance();
@@ -58,7 +58,7 @@ public abstract class AbsSubUi extends AbsUI implements IUpdate {
         }
     }
 
-    private boolean isOldDetails(ModeInfo modeInfo) {
+    private boolean isOldDetails(ModeElement modeInfo) {
         return this.tabDetail.getListTab().equals(modeInfo.getDetail());
     }
 

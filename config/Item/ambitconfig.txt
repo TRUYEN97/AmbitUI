@@ -1,0 +1,684 @@
+/////////////////////////////////////////////////////////
+//Testperf System configuration and station informations/
+/////////////////////////////////////////////////////////
+
+//Environment Setting
+{
+UUT_MODEL=Eden;//UUT information
+STATION_NAME=MBLT;
+TEST_FLOW_VER=1.1;
+STATION_SN=123;
+LOG_FILE_TYPE=TRACE_AE;
+LOG_FILE_PATH=Data\eden;
+AREA=A1;
+LINE=1;
+}
+
+
+
+{
+ITEM=GenerateNodeFromBarcode:gen_node; 
+FLAG=1;
+RESULT_TYPE=GET_BARCODE;
+ERR_CODE=9;
+ERR_CODE_DES=ProcessControl;
+}
+
+
+
+
+{
+ITEM=GetMacFromShopFloor:nodeproperty_mac; 
+FLAG=1;
+LIMIT_UP=ffffffffffff;
+LIMIT_DN=100000000000;
+UUT_CMD=generate_product_serial_py.py;
+DIAG_CMD=root@eero-test:/#;
+}
+
+
+{
+ITEM=FIXTURE_CONTROL:fixture_close; 
+FLAG=1;
+COM_PORT=COM5;
+TRANS_RATE=115200;
+DIAG_CMD_TIME=15;       
+DIAG_CMD=AT+READ_FIXNUM%;  //fixnum
+UUT_CMD=AT+TESTSTART%,AT+CC_BOFF%,AT+VBUS_BOFF%,AT+VBUS_AON%,AT+CC_AON%;         
+SPEC=OK;
+}
+
+{
+ITEM=USBConnectorABSideTest:usb_aside; 
+FLAG=0;
+RTY_VAL=3;
+UUT_CMD=COM5,115200;                      //          FIXTURE 1 
+UUT_CMD1=AT+CC_BOFF%,AT+VBUS_BOFF%,AT+CC_AON%,AT+VBUS_AON%; // FIXTURE Command
+DIAG_CMD=COM4,115200;                //  DUT
+DIAG_CMD_TIME=8;           //ping IP num
+SPEC=eero u-boot;
+}
+
+{
+ITEM=USBConnectorASideTest:usb_aside; 
+FLAG=1;
+RTY_VAL=3;
+UUT_CMD=COM5,115200;                      //          FIXTURE 1 
+UUT_CMD1=AT+CC_BOFF%,AT+VBUS_BOFF%,AT+CC_AON%,AT+VBUS_AON%; // FIXTURE Command
+DIAG_CMD=COM4,115200;                //  DUT
+DIAG_CMD_TIME=8;           //ping IP num
+SPEC=eero u-boot;
+}
+
+{
+ITEM=USBConnectorABSideTest:usb_bside; 
+FLAG=1;
+RTY_VAL=3;
+UUT_CMD=COM5,115200;                      //          FIXTURE 1 
+UUT_CMD1=AT+CC_BOFF%,AT+VBUS_BOFF%,AT+CC_AON%,AT+VBUS_AON%; // FIXTURE Command
+DIAG_CMD=COM4,115200;                //  DUT
+DIAG_CMD_TIME=8;           //ping IP num
+SPEC=eero u-boot;
+}
+
+{
+ITEM=OpenShort:openshort; 
+FLAG=1;
+NAME=OpenShort;
+RTY_VAL=2;
+DIAG_CMD_TIME=20;
+DIAG_CMD=COM4,115200;                //  DUT
+DIAG_CMD1=IPQ807x#;                //  DUT
+COM_PORT=COM5;
+TRANS_RATE=115200;
+UUT_CMD1=AT+DCIN%;         //supply voltage
+UUT_CMD2=AT+VBUS_CUR%;        //ma
+UUT_CMD3=AT+PORTEJECT%,AT+PORTINSERT%;        //usb
+}
+
+
+
+
+
+{
+ITEM=VoltageTestFixture:VOLTAGE_TEST; 
+FLAG=1;
+NAME=VoltageTest;
+RTY_VAL=2;
+COM_PORT=COM5;
+DIAG_CMD_TIME=1000;   //ms
+TRANS_RATE=115200;
+CUT1=TP26;			// Continue Voltage 
+UUT_CMD=AT+VOLTAGE%;         //supply voltage
+DIAG_CMD1=AT+PRESSUP%;         //  Fixture rise
+DIAG_CMD2=AT+PRESSDOWN%;         // Fixture push
+API_NAME=v_tp25_usbc_vbus;
+}
+
+
+{
+ITEM=ThermalShutdown:thermal_shutdown; 
+FLAG=1;
+RTY_VAL=0;
+NAME=ThermalShutdownTest;
+UUT_CMD=COM5,115200;                      //         FIXTURE 1 
+DIAG_CMD_TIME=4;           //time
+DIAG_CMD=TP61;
+CUT0=5;                                    //try
+UUT_CMD1=AT+TSD_OUTLOW%,AT+TSD_OUTHIGH%; 	 //  
+UUT_CMD3=AT+VOLTAGE%; 
+}
+
+
+
+{
+ITEM=PING_IP:dut_ping; 
+FLAG=1;
+SOCKET_IP=192.168.1.1;
+DIAG_CMD=root@eero-test:/#;
+DIAG_CMD_TIME=30;
+}
+
+
+
+{
+ITEM=DUTWaitForTelnet:dut_telnet; 
+FLAG=1;
+RTY_VAL=0;
+SOCKET_IP=192.168.1.1;
+UUT_CMD=fw_printenv;
+DIAG_CMD=root@eero-test:/#;
+}
+
+
+{
+ITEM=ResetButtonTest1:button; 
+FLAG=1;
+RTY_VAL=2;
+COM_PORT=COM5;
+TRANS_RATE=115200;  
+UUT_CMD1=AT+RESET_PRESS%; // FIXTURE Command
+DIAG_CMD_TIME=4;   
+UUT_CMD2=AT+RESET_RELEASE%; // FIXTURE Command
+DIAG_CMD=root@eero-test:/#;
+SOCKET_IP=192.168.1.1;
+SPEC=WPS PUSH BUTTON EVENT DETECTED;
+}
+
+{
+ITEM=TelnetBatchProcessing:wifi_start; 
+FLAG=1;
+RTY_VAL=1;
+SOCKET_IP=192.168.1.1;
+DIAG_CMD1=wifi detect > /etc/config/wireless;     //dut eth cmd 
+DIAG_CMD=root@eero-test:/#;
+SPEC=root@eero-test:/#; 
+DIAG_CMD_TIME=50;   
+}
+
+
+{
+ITEM=WifiTestSetup:wifi_check; 
+FLAG=1;
+RTY_VAL=1;
+SOCKET_IP=192.168.1.1;
+UUT_CMD=ifconfig -a | grep wifi;  
+DIAG_CMD_TIME=2;    
+SPEC=wifi0,wifi1,wifi2;    
+DIAG_CMD=root@eero-test:/#;
+}
+
+{
+ITEM=BLETestSetup:ble_start; 
+FLAG=1;
+RTY_VAL=3;
+DIAG_CMD_TIME=30;   
+SOCKET_IP=192.168.1.1;
+DIAG_CMD1=BLE_command.txt;   //command file    
+UUT_CMD=startble;  
+SPEC=Firmware update SUCCEEDED;  
+DIAG_CMD=root@eero-test:/#;
+}
+
+
+{
+ITEM=V_CurrentTestFixture:v_wifi; 
+FLAG=1;
+RTY_VAL=1;
+COM_PORT=COM5;
+TRANS_RATE=115200;
+UUT_CMD=AT+DCIN%;        //ma
+}
+
+
+{
+ITEM=I_CurrentTestFixture:i_wifi; 
+FLAG=1;
+RTY_VAL=1;
+COM_PORT=COM5;
+TRANS_RATE=115200;
+UUT_CMD=AT+VBUS_CUR%;        //ma
+}
+
+
+
+
+{
+ITEM=HWVerCheck:nodeproperty_board_register_value; 
+FLAG=1;
+RTY_VAL=0;
+SOCKET_IP=192.168.1.1;
+SPEC=17;
+UUT_CMD=gethwversion;
+DIAG_CMD=root@eero-test:/#;
+}
+
+{
+ITEM=CheckQSDKVersion:qsdk_version; 
+FLAG=1;
+RTY_VAL=0;
+API_FLAG=0;
+SOCKET_IP=192.168.1.1;
+UUT_CMD=cat /etc/openwrt_version;
+DIAG_CMD=root@eero-test:/#;
+SPEC=15.05.1;
+}
+
+{
+ITEM=CheckTestImageVersion:test_image_version; 
+FLAG=1;
+RTY_VAL=0;
+API_FLAG=1;
+SOCKET_IP=192.168.1.1;
+UUT_CMD=fwversion;
+DIAG_CMD=root@eero-test:/#;
+SPEC=Ambit test image version:V3.4.9.1;
+}
+
+
+{
+ITEM=WriteProductSerialNumber:setenv_sn; 
+FLAG=1;
+RTY_VAL=0;
+API_FLAG=0;
+SOCKET_IP=192.168.1.1;
+UUT_CMD=fw_setenv serial ;
+UUT_CMD1=fw_printenv serial ;
+DIAG_CMD=root@eero-test:/#;
+}
+
+
+{
+ITEM=WriteEth0Mac:setenv_eth; 
+FLAG=1;
+RTY_VAL=0;
+SOCKET_IP=192.168.1.1;
+UUT_CMD=fw_setenv ethaddr;         //eth mac  set
+UUT_CMD1=fw_printenv ethaddr; 
+DIAG_CMD=root@eero-test:/#;
+}
+
+{
+ITEM=WriteMac:setenv_mac; 
+FLAG=1;
+RTY_VAL=0;
+SOCKET_IP=192.168.1.1;
+UUT_CMD=fw_setenv mac;         //mac  set
+UUT_CMD1=fw_printenv serial;
+DIAG_CMD=root@eero-test:/#;
+}
+
+
+{
+ITEM=VerifyUBootVersion:nodeproperty_uboot_version; 
+FLAG=1;
+RTY_VAL=0;
+SOCKET_IP=192.168.1.1;
+UUT_CMD=fw_printenv ver;
+DIAG_CMD=root@eero-test:/#;
+}
+
+
+
+{
+ITEM=SubsystemTest:led_vendor; 
+FLAG=1;
+RTY_VAL=0;
+SOCKET_IP=192.168.1.1;
+UUT_CMD=cat /sys/bus/i2c/devices/0-0030/name;
+DIAG_CMD=root@eero-test:/#;
+}
+
+{
+ITEM=SubsystemTest:led_model; 
+FLAG=0;
+RTY_VAL=0;
+SOCKET_IP=192.168.1.1;
+UUT_CMD=cat /sys/bus/i2c/devices/0-0030/name;
+DIAG_CMD=root@eero-test:/#;
+}
+
+{
+ITEM=PhyModel:phy_model; 
+FLAG=1;
+RTY_VAL=0;
+SOCKET_IP=192.168.1.1;
+UUT_CMD=dmesg|grep 'PHY ID';
+DIAG_CMD=root@eero-test:/#;
+}
+
+{
+ITEM=CHECK_PHP_STATUS:phy_status; 
+FLAG=1;
+RTY_VAL=0;
+SOCKET_IP=192.168.1.1;
+UUT_CMD=dmesg|grep 'phy driver';
+DIAG_CMD1=qca probe malibu phy driver succeeded!;
+DIAG_CMD3=qca probe qca808x phy driver succeeded!;
+DIAG_CMD=root@eero-test:/#;
+}
+
+
+
+{
+ITEM=MMCModel:mmc_model; 
+FLAG=1;
+RTY_VAL=0;
+SOCKET_IP=192.168.1.1;
+UUT_CMD=dmesg|grep 'mmcblk0'|head -1 ;
+DIAG_CMD=root@eero-test:/#;
+}
+
+{
+ITEM=CHECK_DUT_CMD_MATCH:ccg_model; 
+FLAG=0;
+RTY_VAL=0;
+SOCKET_IP=192.168.1.1;
+UUT_CMD=cat /sys/bus/i2c/devices/0-0008/name;
+DIAG_CMD=root@eero-test:/#;
+}
+
+
+{
+ITEM=CCGFirmware:ccg_firmware; 
+FLAG=0;
+RTY_VAL=0;
+SOCKET_IP=192.168.1.1;
+UUT_CMD=cat /sys/bus/i2c/devices/0-0008/fw*_ver;
+DIAG_CMD=root@eero-test:/#;
+}
+
+{
+ITEM=MMCReadWriteSpeedTest:MMCReadWriteSpeedTest; 
+FLAG=1;
+RTY_VAL=2;
+API_NAME=emmc_speed_read,emmc_speed_write;
+SOCKET_IP=192.168.1.1;
+UUT_CMD=test-emmc;         //check TYPE ccg
+CUT0=0x00;
+UUT_CMD1=dmesg|grep 'mmcblk0'|head -1  ;        //Device (MMC) vendor
+SPEC=M04A11,4FTE4R,M62704;
+LIMIT_DN=30,5:30,5:100,10;//	Reading/ Writing
+DIAG_CMD=root@eero-test:/#;s
+}
+
+{
+ITEM=USBReadandWriteTest:USB_READ_WRITE_TEST; 
+FLAG=1;
+RTY_VAL=5;
+COM_PORT=COM5;
+TRANS_RATE=115200;
+DIAG_CMD1=AT+USB_RETRY%;        
+API_NAME=usb_speed_write,usb_speed_read;
+UUT_CMD1=COM4;
+UUT_CMD2=115200;
+SOCKET_IP=192.168.1.1;
+UUT_CMD=test-usb;     //dut eth cmd 
+LIMIT_DN=20,2;    Reading/ Writing
+DIAG_CMD_TIME=5;   
+DIAG_CMD=root@eero-test:/#;
+}
+
+
+{
+ITEM=USBConnectorABSideTest:usb_bside; 
+FLAG=0;
+RTY_VAL=3;
+UUT_CMD=COM5,115200;                      //          FIXTURE 1 
+UUT_CMD1=AT+CC_AOFF%,AT+VBUS_AOFF%,AT+CC_BON%,AT+VBUS_BON%; // FIXTURE Command
+DIAG_CMD=COM4,115200;                //  DUT
+DIAG_CMD_TIME=8;           //ping IP num
+SPEC=eero u-boot;
+}
+
+{
+ITEM=USB_DETECT:usb_detect;
+FLAG=1;
+RTY_VAL=2;
+SOCKET_IP=192.168.1.1;
+UUT_CMD=ls /dev/sda;        
+SPEC=/dev/sda;                             //item
+DIAG_CMD=root@eero-test:/#;
+}
+
+
+{
+ITEM=CheckUSBConsole:usb_console_test;
+FLAG=1;
+RTY_VAL=2;
+SOCKET_IP=192.168.1.1;
+UUT_CMD=ls /dev/sda;        
+SPEC=/dev/sda;                             //item
+DIAG_CMD=root@eero-test:/#;
+}
+
+{
+ITEM=LEDTestFixtureRGB:LED_R; 
+FLAG=1;
+RTY_VAL=1;
+API_NAME=led_r_r,led_r_g,led_r_b;
+COM_PORT=COM5;
+TRANS_RATE=115200; 
+DIAG_CMD1=AT+LEDSTATUS%;    // FIXTURE Command
+SOCKET_IP=192.168.1.1;
+CUT1=i2cset -f -y 0 0x30 0x70 0x00;      
+CUT2=i2cset -f -y 0 0x30 0x04 0x00;    //off red  
+CUT3=i2cset -f -y 0 0x30 0x03 0x00;    //off green 
+CUT4=i2cset -f -y 0 0x30 0x02 0x00;    //off blue 
+CUT5=i2cset -f -y 0 0x30 0x0e 0x00;    //off white 
+UUT_CMD1=i2cset -f -y 0 0x30 0x04;    //red
+DIAG_CMD_TIME=1;   
+DIAG_CMD=root@eero-test:/#;
+SPEC=0x80,0x00;              //off on
+}
+
+{
+ITEM=LEDTestFixtureRGB:LED_G; 
+FLAG=1;
+RTY_VAL=1;
+API_NAME=led_g_r,led_g_g,led_g_b;
+COM_PORT=COM5;
+TRANS_RATE=115200; 
+DIAG_CMD1=AT+LEDSTATUS%;    // FIXTURE Command
+SOCKET_IP=192.168.1.1;
+CUT1=i2cset -f -y 0 0x30 0x70 0x00;      
+CUT2=i2cset -f -y 0 0x30 0x04 0x00;    //off red  
+CUT3=i2cset -f -y 0 0x30 0x03 0x00;    //off green 
+CUT4=i2cset -f -y 0 0x30 0x02 0x00;    //off blue 
+CUT5=i2cset -f -y 0 0x30 0x0e 0x00;    //off white 
+UUT_CMD1=i2cset -f -y 0 0x30 0x03;    //green
+DIAG_CMD_TIME=1;   
+DIAG_CMD=root@eero-test:/#;
+SPEC=0x80,0x00;              //off on
+}
+
+{
+ITEM=LEDTestFixtureRGB:LED_B; 
+FLAG=1;
+RTY_VAL=1;
+API_NAME=led_b_r,led_b_g,led_b_b;
+COM_PORT=COM5;
+TRANS_RATE=115200; 
+DIAG_CMD1=AT+LEDSTATUS%;    // FIXTURE Command
+SOCKET_IP=192.168.1.1;
+CUT1=i2cset -f -y 0 0x30 0x70 0x00;      
+CUT2=i2cset -f -y 0 0x30 0x04 0x00;    //off red  
+CUT3=i2cset -f -y 0 0x30 0x03 0x00;    //off green 
+CUT4=i2cset -f -y 0 0x30 0x02 0x00;    //off blue 
+CUT5=i2cset -f -y 0 0x30 0x0e 0x00;    //off white 
+UUT_CMD1=i2cset -f -y 0 0x30 0x02;    //blue
+DIAG_CMD_TIME=1;   
+DIAG_CMD=root@eero-test:/#;
+SPEC=0x80,0x00;              //off on
+}
+
+
+{
+ITEM=LEDTestFixtureRGB:LED_W; 
+FLAG=1;
+RTY_VAL=1;
+API_NAME=led_w_r,led_w_g,led_w_b;
+COM_PORT=COM5;
+TRANS_RATE=115200; 
+DIAG_CMD1=AT+LEDSTATUS%;    // FIXTURE Command
+SOCKET_IP=192.168.1.1;
+CUT1=i2cset -f -y 0 0x30 0x70 0x00;      
+CUT2=i2cset -f -y 0 0x30 0x04 0x00;    //off red  
+CUT3=i2cset -f -y 0 0x30 0x03 0x00;    //off green 
+CUT4=i2cset -f -y 0 0x30 0x02 0x00;    //off blue 
+CUT5=i2cset -f -y 0 0x30 0x0e 0x00;    //off white 
+UUT_CMD1=i2cset -f -y 0 0x30 0x0e;    //white
+DIAG_CMD_TIME=1;   
+DIAG_CMD=root@eero-test:/#;
+SPEC=0x80,0x00;              //off on
+}
+
+
+{
+ITEM=LEDTestFixtureRGB:LED_OFF; 
+FLAG=1;
+RTY_VAL=0;
+API_NAME=led_off_r,led_off_g,led_off_b;
+COM_PORT=COM5;
+TRANS_RATE=115200; 
+DIAG_CMD1=AT+LEDSTATUS%;    // FIXTURE Command
+SOCKET_IP=192.168.1.1;
+CUT1=i2cset -f -y 0 0x30 0x70 0x00;      
+CUT2=i2cset -f -y 0 0x30 0x04 0x00;    //off red  
+CUT3=i2cset -f -y 0 0x30 0x03 0x00;    //off green 
+CUT4=i2cset -f -y 0 0x30 0x02 0x00;    //off blue 
+CUT5=i2cset -f -y 0 0x30 0x0e 0x00;    //off white 
+UUT_CMD1=;    //white
+DIAG_CMD_TIME=1;   
+DIAG_CMD=root@eero-test:/#;
+SPEC=0x00,0x00;              //off on
+}
+
+
+
+
+{
+ITEM=TelnetBatchProcessing:eth_start; 
+FLAG=1;
+SOCKET_IP=192.168.1.1;
+DIAG_CMD1=brctl stp br-lan off;     //dut eth cmd 
+DIAG_CMD2=brctl addif br-lan eth0;
+DIAG_CMD3=ifconfig eth0 0.0.0.0 up;
+DIAG_CMD4=ifconfig eth1 0.0.0.0 up;
+DIAG_CMD5=ifconfig br-lan up;
+DIAG_CMD=root@eero-test:/#;
+SPEC=root@eero-test:/#; 
+}
+
+
+
+{
+ITEM=EthernetSpeedTest_dutServer:eth0_speed_tx; 
+FLAG=1;
+RTY_VAL=5;
+SOCKET_IP=192.168.1.1;   //DUT IP  
+UUT_CMD1=192.168.1.1;  //// Localhost IP
+UUT_CMD2=-i 1 -w 4M -t 5 -P 8 -B 192.168.1.10 -R;  //    pc client cmd
+UUT_CMD4=-i 1 -t 2 -P 8 -B 192.168.1.10 -R;  //    pc client cmd
+DIAG_CMD=root@eero-test:/#;
+DIAG_CMD_TIME=20;   
+DIAG_CMD1=iperf3 -s -D;
+}
+
+{
+ITEM=EthernetSpeedTest_dutServer:eth0_speed_rx; 
+FLAG=1;
+RTY_VAL=5;
+SOCKET_IP=192.168.1.1;   //DUT IP  
+UUT_CMD1=192.168.1.1;  //// Localhost IP
+UUT_CMD2=-i 1 -w 4M -t 5 -P 8 -B 192.168.1.10;  //    pc client cmd
+UUT_CMD4=-i 1 -t 2 -P 8 -B 192.168.1.10;  //    pc client cmd
+DIAG_CMD=root@eero-test:/#;
+DIAG_CMD_TIME=20;   
+DIAG_CMD1=iperf3 -s -D;
+}
+
+
+{
+ITEM=EthernetSpeedTest_dutServer:eth1_speed_tx; 
+FLAG=1;
+RTY_VAL=5;
+SOCKET_IP=192.168.1.1;   //DUT IP  
+UUT_CMD1=192.168.1.1;  //// Localhost IP
+UUT_CMD2=-i 1 -w 4M -t 5 -P 8 -B 192.168.1.20 -R;  //    pc client cmd
+UUT_CMD4=-i 1 -t 2 -P 8 -B 192.168.1.20 -R;  //    pc client cmd
+DIAG_CMD=root@eero-test:/#;
+DIAG_CMD_TIME=20;   
+DIAG_CMD1=iperf3 -s -D;
+}
+
+{
+ITEM=EthernetSpeedTest_dutServer:eth1_speed_rx; 
+FLAG=1;
+RTY_VAL=5;
+SOCKET_IP=192.168.1.1;   //DUT IP  
+UUT_CMD1=192.168.1.1;  //// Localhost IP
+UUT_CMD2=-i 1 -w 4M -t 5 -P 8 -B 192.168.1.20;  //    pc client cmd
+UUT_CMD4=-i 1 -t 2 -P 8 -B 192.168.1.20;  //    pc client cmd
+DIAG_CMD=root@eero-test:/#;
+DIAG_CMD_TIME=20;   
+DIAG_CMD1=iperf3 -s -D;
+}
+
+
+
+{
+ITEM=EthernetSpeedTest:EthernetSpeedTest0; 
+FLAG=0;
+RTY_VAL=3;
+SOCKET_IP=192.168.1.1;   //DUT IP  
+UUT_CMD1=192.168.1.10;  //// Localhost IP
+UUT_CMD2=-w 4M -t 5 -i 1 -d;  //    pc client cmd
+DIAG_CMD=root@eero-test:/#;
+DIAG_CMD1=iperf3.exe -s;
+DIAG_CMD_TIME=20;   
+UUT_CMD=send,receive;  //// DUT   tx, rx
+CUT1=Eth0;
+CUT2=Write,Read;
+API_NAME=eth0_speed_tx,eth0_speed_rx;  
+}
+
+{
+ITEM=EthernetSpeedTest:EthernetSpeedTest1; 
+FLAG=0;
+RTY_VAL=3;
+SOCKET_IP=192.168.1.1;   //DUT IP  
+UUT_CMD1=192.168.1.20;  //// Localhost IP
+UUT_CMD2=-w 4M -t 5 -i 1 -d;  //    pc client cmd
+DIAG_CMD=root@eero-test:/#;
+DIAG_CMD1=iperf3.exe -s;
+DIAG_CMD_TIME=20;   
+UUT_CMD=send,receive;  //// DUT   tx, rx
+CUT1=Eth1;
+CUT2=Write,Read;
+API_NAME=eth1_speed_tx,eth1_speed_rx;  
+}
+
+
+
+{
+ITEM=USBConnectorBSideTest:usb_bside; 
+FLAG=1;
+RTY_VAL=1;
+COM_PORT=COM5;
+DIAG_CMD_TIME=1000;   //ms
+TRANS_RATE=115200;
+UUT_CMD=AT+VOLTAGE%;         //supply voltage
+DIAG_CMD=AT+TSD_Q%;         //supply Current voltage
+DIAG_CMD1=AT+PRESSUP%;         //  Fixture rise
+DIAG_CMD2=AT+PRESSDOWN%;         // Fixture push
+DIAG_CMD3=AT+CC_AOFF%,AT+VBUS_AOFF%;         // Fixture close
+DIAG_CMD4=AT+CC_BON%,AT+VBUS_BON%;         // Fixture open
+DIAG_CMD5=AT+DCIN%;
+UUT_CMD1=TP60=3.16-3.50,    	TP64=1.72-1.90,    	 TP66=1.14-1.26;
+RESULT_TYPE=USB_AB;
+ERR_CODE=3.12.1.2;
+ERR_CODE_DES=Device.Power.USB.Side2;
+}
+{
+ITEM=SendDataEeroSFTP:shop_floor; 
+FLAG=1;
+SOCKET_IP=192.168.4.100;
+DIAG_CMD_TIME=5;           //ping IP num
+UUT_CMD=system_engage_dut;
+SPEC=ready;
+}
+
+
+{
+ITEM=FIXTURE_CONTROL:*fixtureOpen; 
+FLAG=5;
+RTY_VAL=1;
+COM_PORT=COM5;
+TRANS_RATE=115200;
+DIAG_CMD_TIME=8;           //ping IP num
+DIAG_CMD=;  //fixnum
+UUT_CMD=AT+CC_AOFF%,AT+VBUS_AOFF%,AT+TESTEND%;
+SPEC=OK;
+API_NAME=fixture_close;
+}

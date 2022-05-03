@@ -12,9 +12,9 @@ import java.util.List;
  *
  * @author Administrator
  */
-public class ModeInfo extends AbsElementInfo {
+public class ModeElement extends AbsElementInfo {
 
-    public ModeInfo(JSONObject base, JSONObject config) {
+    public ModeElement(JSONObject base, JSONObject config) {
         super(KeyWord.MODE_KEY, base, config);
     }
 
@@ -66,7 +66,7 @@ public class ModeInfo extends AbsElementInfo {
         return this.warehouse.toJson();
     }
 
-    public boolean isMutiThread() {
+    public boolean isMultiThread() {
         return (getColumn() * getRow()) > 1;
     }
 

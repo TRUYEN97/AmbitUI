@@ -6,6 +6,7 @@ package Model.DataSource.Tool;
 
 import Model.DataSource.AbsJsonSource;
 import Model.DataSource.FunctionConfig.FunctionConfig;
+import Model.DataSource.Limit.Limit;
 import Model.Interface.IInit;
 import Model.DataSource.Setting.Setting;
 import java.util.ArrayList;
@@ -27,6 +28,7 @@ public class LoadSource implements IInit {
         this.sources = new ArrayList<>();
         this.sources.add(Setting.getInstance().setPath(this.info.getPathOfSetting()));
         this.sources.add(FunctionConfig.getInstance().setPath(this.info.getPathOfAmbitconfig()));
+        this.sources.add(Limit.getInstance().setPath(this.info.getPathOfLimit()));
     }
 
     @Override

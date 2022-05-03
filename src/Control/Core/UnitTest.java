@@ -8,6 +8,7 @@ import Control.Functions.AbsFunction;
 import Model.DataModeTest.InputData;
 import Model.ManagerUI.UIData;
 import Model.ManagerUI.UIInput;
+import Model.ManagerUI.UiStatus;
 import View.subUI.SubUI.AbsSubUi;
 import java.util.ArrayList;
 import java.util.List;
@@ -22,82 +23,64 @@ public class UnitTest implements Runnable {
     private final List<AbsFunction> checks;
     private final List<AbsFunction> tests;
     private final List<AbsFunction> ends;
+    private final Process process;
+    private UiStatus uiStatus;
     private UIData Data;
     private UIInput input;
     private AbsSubUi subUi;
 
     UnitTest(InputData inputData) {
         this.InputData = inputData;
+        this.process = new Process();
         this.checks = new ArrayList<>();
         this.tests = new ArrayList<>();
         this.ends = new ArrayList<>();
     }
 
-    public void setData(UIData Data) {
-        this.Data = Data;
-    }
-
-    public void setInput(UIInput input) {
-        this.input = input;
-    }
-
-    public void setSubUi(AbsSubUi subUi) {
-        this.subUi = subUi;
-    }
-
     @Override
     public void run() {
-        if (check() && test() && end()) {
-
+        if (testting(checks) && test() && testting(ends)) {
+            
         }
     }
 
     void setCheckFunction(List<AbsFunction> checkFunctions) {
-        this.checks.clear();
-        this.checks.addAll(checkFunctions);
+        setFuncList(checks, checkFunctions);
     }
 
     void setTestFunction(List<AbsFunction> testFunctions) {
-        this.tests.clear();
-        this.tests.addAll(testFunctions);
+        setFuncList(tests, testFunctions);
     }
 
     void setEndFunction(List<AbsFunction> endFunctions) {
-        this.ends.clear();
-        this.ends.addAll(endFunctions);
+        setFuncList(ends, endFunctions);
     }
 
-    private boolean check() {
-        for (var check : checks) {
-            check.run();
-            if (check.isPass()) {
-                return false;
-            }
+    private void setFuncList(List<AbsFunction> list, List<AbsFunction> testFunctions) {
+        list.clear();
+        for (AbsFunction testFunction : testFunctions) {
+            testFunction.setUIStatus(this.uiStatus);
+            list.add(testFunction);
         }
-        return true;
+    }
+
+    public void setup(UiStatus uiStatus) {
+        this.uiStatus = uiStatus;
+        this.Data = uiStatus.getData();
+        this.input = uiStatus.getInput();
+        this.subUi = uiStatus.getSubUi();
+    }
+
+    private boolean testting(List<AbsFunction> funcs) {
+        process.setListFunc(funcs);
+        process.run();
+        return process.isPass();
     }
 
     private boolean test() {
         if (tests.isEmpty()) {
             return false;
         }
-        for (var check : tests) {
-            check.run();
-            if (check.isPass()) {
-                return false;
-            }
-        }
-        return true;
+        return testting(tests);
     }
-
-    private boolean end() {
-        for (var check : ends) {
-            check.run();
-            if (check.isPass()) {
-                return false;
-            }
-        }
-        return true;
-    }
-
 }

@@ -3,12 +3,14 @@
     "STATION_NAME": "MBLT",
     "COM": "COM5",
     "BAUDRATE": 9600,
+    "TIME_OUT_TEST": 60,
     "Functions": [
         {
             "FLAG": "ON",
             "SKIP_FAIL": "DEBUG",
             "TIME_OVER": 110,
             "RETRY": 1,
+            "MULTI_TASK": "On",
             "TYPE": "BOOL",
             "SPEC": "sqt",
             "ITEM_NAME": "gen_node",

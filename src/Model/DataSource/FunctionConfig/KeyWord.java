@@ -25,6 +25,8 @@ final class KeyWord {
     public static final String FUNC_NAME = "FUNC_NAME";
     public static final String LIMIT_UP = "LIMIT_UP";
     public static final String LIMIT_DN = "LIMIT_DN";
+    public static final String MULTI_TASK = "MULTI_TASK";
+    public static final String TIME_OUT_TEST = "TIME_OUT_TEST";
     public static final List<String> KEYS = Arrays.asList(UUT_MODEL,STATION_NAME,COM, BAUDRATE, FLAG,TIME_OVER,RETRY,
-            ITEM_NAME, FUNC_NAME, LIMIT_UP, LIMIT_DN);
+            ITEM_NAME, FUNC_NAME, LIMIT_UP, LIMIT_DN, MULTI_TASK, TIME_OUT_TEST);
 }
