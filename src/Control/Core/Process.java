@@ -5,23 +5,34 @@
 package Control.Core;
 
 import Control.Functions.AbsFunction;
+import Model.Interface.IFunction;
+import java.awt.event.ActionEvent;
+import java.awt.event.ActionListener;
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
+import javax.swing.Timer;
 
 /**
  *
  * @author Administrator
  */
-class Process {
+class Process implements IFunction {
 
     private final HashMap<Thread, AbsFunction> multiTasking;
     private final List<AbsFunction> functions;
+    private final Timer timer;
     private boolean result;
 
     public Process() {
         this.multiTasking = new HashMap<>();
         this.functions = new ArrayList<>();
+        this.result = true;
+        this.timer = new Timer(5000, (ActionEvent e) -> {
+            for (Thread thread : multiTasking.keySet()) {
+                
+            }
+        });
     }
 
     public void setListFunc(List<AbsFunction> functions) {
@@ -29,16 +40,19 @@ class Process {
         this.functions.addAll(functions);
     }
 
+    @Override
     public boolean isPass() {
         return result;
     }
 
+    @Override
     public void run() {
         for (var function : this.functions) {
             if (function.isMutiTasking()) {
                 multiTasking.put(new Thread(function), function);
             } else {
-                if (hasFailed(function)) {
+                function.run();
+                if (isPass(function)) {
                     return;
                 }
             }
@@ -48,19 +62,17 @@ class Process {
         }
     }
 
-    private boolean hasFailed(AbsFunction function) {
-        function.run();
-        if (!function.isPass()) {
-            result = false;
+    private boolean isPass(AbsFunction function) {
+        if (function.isPass()) {
             return true;
         }
-        return false;
+        return result = false;
     }
 
     private boolean hasTaskFailed() {
         for (Thread thread : multiTasking.keySet()) {
             if (!thread.isAlive()) {
-                if (hasFailed(multiTasking.remove(thread))) {
+                if (!isPass(multiTasking.remove(thread)) ) {
                     return true;
                 }
             }

@@ -6,7 +6,6 @@ package Control.Core;
 
 import Control.CheckInput;
 import Model.DataSource.Setting.Setting;
-import Model.DataModeTest.InputData;
 import Model.DataSource.Setting.ModeElement;
 import View.UIView;
 import java.util.ArrayList;
