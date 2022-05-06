@@ -17,7 +17,7 @@ import java.util.List;
  *
  * @author 21AK22
  */
-public class UnitTest implements Runnable {
+public class CellTest implements Runnable {
 
     private final InputData InputData;
     private final List<AbsFunction> checks;
@@ -29,7 +29,7 @@ public class UnitTest implements Runnable {
     private UIInput input;
     private AbsSubUi subUi;
 
-    UnitTest(InputData inputData) {
+    CellTest(InputData inputData) {
         this.InputData = inputData;
         this.process = new Process();
         this.checks = new ArrayList<>();

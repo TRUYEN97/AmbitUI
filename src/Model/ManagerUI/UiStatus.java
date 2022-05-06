@@ -6,7 +6,7 @@ package Model.ManagerUI;
 
 import Control.Core.Core;
 import Control.Core.ModeTest;
-import Control.Core.UnitTest;
+import Control.Core.CellTest;
 import Control.Functions.AbsFunction;
 import Model.Interface.IUpdate;
 import View.subUI.SubUI.AbsSubUi;
@@ -91,7 +91,7 @@ public class UiStatus implements IUpdate {
         return name;
     }
 
-    public void setUnitTest(UnitTest unitTest) {
+    public void setUnitTest(CellTest unitTest) {
         this.test.setUnitTest(unitTest);
     }
 

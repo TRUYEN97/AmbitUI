@@ -24,7 +24,7 @@ public abstract class AbsFunction implements IFunction {
 
     protected UIManager uIManager;
     protected ModeTest modeTest;
-    protected final FunctionElement funtionConfig;
+    protected final FunctionElement funtionElement;
     protected final Limit limit;
     protected UiStatus uiStatus;
     protected boolean isPass;
@@ -33,7 +33,7 @@ public abstract class AbsFunction implements IFunction {
     private AbsSubUi subUi;
 
     protected AbsFunction(String FunctionName) {
-        this.funtionConfig = FunctionConfig.getInstance().getElement(FunctionName);
+        this.funtionElement = FunctionConfig.getInstance().getElement(FunctionName);
         this.limit = Limit.getInstance();
         this.isPass = false;
     }
@@ -67,17 +67,22 @@ public abstract class AbsFunction implements IFunction {
     public boolean isPass() {
         return isPass;
     }
+    
+    public long getTimeOut()
+    {
+        return funtionElement.getTimeOut();
+    }
 
     public boolean isMutiTasking() {
-        if (funtionConfig == null) {
+        if (funtionElement == null) {
             return false;
         }
-        return this.funtionConfig.isMutiTasking();
+        return this.funtionElement.isMutiTasking();
     }
 
     private int getRetry() {
-        if (funtionConfig != null) {
-            return funtionConfig.getRetry();
+        if (funtionElement != null) {
+            return funtionElement.getRetry();
         }
         return 1;
     }

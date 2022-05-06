@@ -33,4 +33,11 @@ public class FunctionElement extends AbsElementInfo {
         return this.warehouse.getInteger(KeyWord.RETRY);
     }
 
+    public long getTimeOut() {
+        if (this.warehouse.getLong(KeyWord.TIME_OUT_TEST) == null) {
+            return Long.MAX_VALUE;
+        }
+        return this.warehouse.getLong(KeyWord.TIME_OUT_TEST);
+    }
+
 }

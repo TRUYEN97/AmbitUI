@@ -30,7 +30,7 @@ public class ModeTest implements IInit, Runnable {
     private final FunctionConfig functionConfig;
     private final UIManager uIManager;
     private InputData inputData;
-    private UnitTest unitTest;
+    private CellTest unitTest;
     private UiStatus uiStatus;
 
     public ModeTest(ModeElement info, Core core) {
@@ -82,7 +82,7 @@ public class ModeTest implements IInit, Runnable {
     public void run() {
         if (check()) {
             uiStatus = uIManager.getUiStatus(inputData.getIndex());
-            unitTest = new UnitTest(inputData);
+            unitTest = new CellTest(inputData);
             unitTest.setCheckFunction(getCheckFunctions());
             unitTest.setTestFunction(getTestFunctions());
             unitTest.setEndFunction(getEndFunctions());

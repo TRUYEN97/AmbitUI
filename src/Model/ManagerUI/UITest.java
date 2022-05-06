@@ -4,7 +4,7 @@
  */
 package Model.ManagerUI;
 
-import Control.Core.UnitTest;
+import Control.Core.CellTest;
 import Model.DataSource.FunctionConfig.FunctionConfig;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
@@ -40,7 +40,7 @@ class UITest {
         return this.thread != null && this.thread.isAlive();
     }
 
-    void setUnitTest(UnitTest unitTest) {
+    void setUnitTest(CellTest unitTest) {
         if (isTesting()) {
             return;
         }

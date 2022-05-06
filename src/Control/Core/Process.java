@@ -6,12 +6,8 @@ package Control.Core;
 
 import Control.Functions.AbsFunction;
 import Model.Interface.IFunction;
-import java.awt.event.ActionEvent;
-import java.awt.event.ActionListener;
 import java.util.ArrayList;
-import java.util.HashMap;
 import java.util.List;
-import javax.swing.Timer;
 
 /**
  *
@@ -19,20 +15,14 @@ import javax.swing.Timer;
  */
 class Process implements IFunction {
 
-    private final HashMap<Thread, AbsFunction> multiTasking;
+    private final List<FunctionCover> multiTasking;
     private final List<AbsFunction> functions;
-    private final Timer timer;
     private boolean result;
 
     public Process() {
-        this.multiTasking = new HashMap<>();
+        this.multiTasking = new ArrayList<>();
         this.functions = new ArrayList<>();
         this.result = true;
-        this.timer = new Timer(5000, (ActionEvent e) -> {
-            for (Thread thread : multiTasking.keySet()) {
-                
-            }
-        });
     }
 
     public void setListFunc(List<AbsFunction> functions) {
@@ -47,36 +37,45 @@ class Process implements IFunction {
 
     @Override
     public void run() {
+        FunctionCover cover;
         for (var function : this.functions) {
-            if (function.isMutiTasking()) {
-                multiTasking.put(new Thread(function), function);
-            } else {
-                function.run();
-                if (isPass(function)) {
-                    return;
+            cover = new FunctionCover(function);
+            cover.start();
+            multiTasking.add(cover);
+            if (!cover.isMutiTasking()) {
+                while (cover.isAlive()) {
+                    if (hasTaskFailed()) {
+                        return;
+                    }
                 }
-            }
-            if (hasTaskFailed()) {
-                return;
             }
         }
     }
 
-    private boolean isPass(AbsFunction function) {
-        if (function.isPass()) {
+    private boolean isFuncPass(FunctionCover function) {
+        if (function.getFunction().isPass()) {
             return true;
         }
         return result = false;
     }
 
     private boolean hasTaskFailed() {
-        for (Thread thread : multiTasking.keySet()) {
-            if (!thread.isAlive()) {
-                if (!isPass(multiTasking.remove(thread)) ) {
-                    return true;
+        List<FunctionCover> deleteFunc = new ArrayList<>();
+        try {
+            for (FunctionCover cover : multiTasking) {
+                if (!cover.isAlive() || cover.isOutTime()) {
+                    deleteFunc.add(cover);
+                    if (!isFuncPass(cover)) {
+                        return true;
+                    }
                 }
             }
+            return false;
+        } catch (Exception e) {
+            e.printStackTrace();
+            return true;
+        } finally {
+            multiTasking.removeAll(deleteFunc);
         }
-        return false;
     }
 }
