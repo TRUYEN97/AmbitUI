@@ -24,16 +24,16 @@ public abstract class AbsFunction implements IFunction {
 
     protected UIManager uIManager;
     protected ModeTest modeTest;
-    protected final FunctionElement funtionElement;
+    protected final FunctionElement funcConfig;
     protected final Limit limit;
     protected UiStatus uiStatus;
     protected boolean isPass;
-    private UIData Data;
+    private UIData data;
     private UIInput input;
     private AbsSubUi subUi;
 
     protected AbsFunction(String FunctionName) {
-        this.funtionElement = FunctionConfig.getInstance().getElement(FunctionName);
+        this.funcConfig = FunctionConfig.getInstance().getElement(FunctionName);
         this.limit = Limit.getInstance();
         this.isPass = false;
     }
@@ -47,18 +47,30 @@ public abstract class AbsFunction implements IFunction {
 
     public void setUIStatus(UiStatus uiStatus) {
         this.uiStatus = uiStatus;
-        this.Data = uiStatus.getData();
+        this.data = uiStatus.getData();
         this.input = uiStatus.getInput();
         this.subUi = uiStatus.getSubUi();
     }
 
     @Override
     public void run() {
+        if (isModeSkip()) {
+            this.data.setResult("Canceled");
+            isPass = true;
+            return;
+        }
         for (int times = 0; times < getRetry(); times++) {
             if (test()) {
-                break;
+                isPass = true;
+                return;
             }
         }
+        isPass = false;
+    }
+
+    private boolean isModeSkip() {
+        String modeSkip = this.funcConfig.getModeSkip();
+        return modeSkip != null && modeSkip.isBlank() && modeSkip.equals(modeTest.toString());
     }
 
     public abstract boolean test();
@@ -67,22 +79,21 @@ public abstract class AbsFunction implements IFunction {
     public boolean isPass() {
         return isPass;
     }
-    
-    public long getTimeOut()
-    {
-        return funtionElement.getTimeOut();
+
+    public long getTimeOut() {
+        return funcConfig.getTimeOut();
     }
 
     public boolean isMutiTasking() {
-        if (funtionElement == null) {
+        if (funcConfig == null) {
             return false;
         }
-        return this.funtionElement.isMutiTasking();
+        return this.funcConfig.isMutiTasking();
     }
 
     private int getRetry() {
-        if (funtionElement != null) {
-            return funtionElement.getRetry();
+        if (funcConfig != null) {
+            return funcConfig.getRetry();
         }
         return 1;
     }

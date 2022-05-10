@@ -7,7 +7,7 @@
     "Functions": [
         {
             "FLAG": "ON",
-            "SKIP_FAIL": "DEBUG",
+            "SKIP": "DEBUG",
             "TIME_OVER": 110,
             "RETRY": 1,
             "MULTI_TASK": "On",
@@ -18,7 +18,7 @@
         },
         {
             "FLAG": "ON",
-            "SKIP_FAIL": "DEBUG",
+            "SKIP": "DEBUG",
             "TIME_OVER": 70,
             "RETRY": 1,
             "TYPE": "LIMIT",

@@ -40,4 +40,8 @@ public class FunctionElement extends AbsElementInfo {
         return this.warehouse.getLong(KeyWord.TIME_OUT_TEST);
     }
 
+    public String getModeSkip() {
+        return this.warehouse.getString(KeyWord.SKIP);
+    }
+
 }

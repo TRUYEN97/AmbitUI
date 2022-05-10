@@ -18,7 +18,7 @@ final class KeyWord {
     public static final String BAUDRATE = "BAUDRATE";
     public static final String FUNCTIONS = "Functions";
     public static final String FLAG = "FLAG";
-    public static final String SKIP_FAIL = "SKIP_FAIL";
+    public static final String SKIP = "SKIP";
     public static final String TIME_OVER = "TIME_OVER";
     public static final String RETRY = "RETRY";
     public static final String ITEM_NAME = "ITEM_NAME";
@@ -27,6 +27,6 @@ final class KeyWord {
     public static final String LIMIT_DN = "LIMIT_DN";
     public static final String MULTI_TASK = "MULTI_TASK";
     public static final String TIME_OUT_TEST = "TIME_OUT_TEST";
-    public static final List<String> KEYS = Arrays.asList(UUT_MODEL,STATION_NAME,COM, BAUDRATE, FLAG,TIME_OVER,RETRY,
+    public static final List<String> KEYS = Arrays.asList(UUT_MODEL,STATION_NAME,COM, BAUDRATE, FLAG,SKIP,TIME_OVER,RETRY,
             ITEM_NAME, FUNC_NAME, LIMIT_UP, LIMIT_DN, MULTI_TASK, TIME_OUT_TEST);
 }

@@ -5,6 +5,8 @@
 package Model.Factory;
 
 import Control.Functions.AbsFunction;
+import Control.Functions.FunctionKeyWord;
+import Control.Functions.FunctionsTest.GenerateNode.GenerateNodeProxy;
 import Control.Functions.InitPackages.InitProxy.IdPasswordProxy;
 import View.subUI.FormDetail.AbsTabUI;
 import View.subUI.SubUI.AbsSubUi;
@@ -84,6 +86,6 @@ public class Factory {
     }
 
     private void addFunc() {
-        
+        this.functions.addType(new GenerateNodeProxy(FunctionKeyWord.GENERATE_NODE));
     }
 }

@@ -28,6 +28,7 @@ public class FunctionCover extends Thread {
     public void run() {
         start = System.currentTimeMillis();
         super.start();
+        System.out.println("end");
     }
 
     public long getRunTime() {
