@@ -28,9 +28,7 @@ public class Core {
     }
 
     public void checkInput(InputData inputDate) {
-        if (currMode.setInput(inputDate)) {
-            currMode.run();
-        }
+        currMode.run(inputDate);
     }
 
     public UIView getView() {

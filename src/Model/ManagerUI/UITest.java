@@ -45,7 +45,6 @@ class UITest {
             return;
         }
         startTime = System.currentTimeMillis();
-        unitTest.setup(this.uiStatus);
         this.thread = new Thread(unitTest);
         this.thread.start();
         this.timer.start();

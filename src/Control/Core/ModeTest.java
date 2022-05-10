@@ -22,16 +22,13 @@ import javax.swing.JOptionPane;
  *
  * @author Administrator
  */
-public class ModeTest implements IInit, Runnable {
+public class ModeTest implements IInit {
 
     private final ModeElement modeInfo;
     private final List<IFunction> inits;
     private final Factory factory;
     private final FunctionConfig functionConfig;
     private final UIManager uIManager;
-    private InputData inputData;
-    private CellTest unitTest;
-    private UiStatus uiStatus;
 
     public ModeTest(ModeElement info, Core core) {
         this.inits = new ArrayList<>();
@@ -58,15 +55,14 @@ public class ModeTest implements IInit, Runnable {
         return true;
     }
 
-    public boolean setInput(InputData inputData) {
-        if (inputData != null) {
-            this.inputData = inputData;
-            return true;
+    public void run(InputData inputData) {
+        if (inputData != null && check(inputData)) {
+            UiStatus uiStatus = uIManager.getUiStatus(inputData.getIndex());
+            uiStatus.setUnitTest(createUnitTest(inputData, uiStatus));
         }
-        return false;
     }
 
-    private boolean check() {
+    private boolean check(InputData inputData) {
         if (isIndexEmpty(inputData)) {
             if (isMultiThread()) {
                 return getIndex(inputData);
@@ -78,19 +74,12 @@ public class ModeTest implements IInit, Runnable {
         return true;
     }
 
-    @Override
-    public void run() {
-        if (check()) {
-            uiStatus = uIManager.getUiStatus(inputData.getIndex());
-            unitTest = new CellTest(inputData);
-            unitTest.setCheckFunction(getCheckFunctions());
-            unitTest.setTestFunction(getTestFunctions());
-            unitTest.setEndFunction(getEndFunctions());
-            uiStatus.setUnitTest(unitTest);
-        }
-        inputData = null;
-        unitTest = null;
-        uiStatus = null;
+    private CellTest createUnitTest(InputData inputData, UiStatus uiStatus) {
+        CellTest unitTest = new CellTest(inputData, uiStatus);
+        unitTest.setCheckFunction(getCheckFunctions());
+        unitTest.setTestFunction(getTestFunctions(uiStatus));
+        unitTest.setEndFunction(getEndFunctions());
+        return unitTest;
     }
 
     public ModeElement getModeInfo() {
@@ -102,10 +91,13 @@ public class ModeTest implements IInit, Runnable {
             list.add(this.factory.getInitFunc(type));
         }
     }
-    
+
     private void addFunctions(List<AbsFunction> list, List<String> functions) {
         for (String type : functions) {
-            list.add(this.factory.getFunc(type, type));
+            AbsFunction func = this.factory.getFunc(type, type);
+            if (func != null) {
+                list.add(func);
+            }
         }
     }
 
@@ -115,7 +107,7 @@ public class ModeTest implements IInit, Runnable {
         return functions;
     }
 
-    private List<AbsFunction> getTestFunctions() {
+    private List<AbsFunction> getTestFunctions(UiStatus uiStatus) {
         List<AbsFunction> functions = new ArrayList<>();
         if (this.modeInfo.isDiscreteTest()) {
             functions.addAll(uiStatus.getFunctionSelected());

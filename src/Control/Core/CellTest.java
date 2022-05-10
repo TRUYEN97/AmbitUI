@@ -24,23 +24,27 @@ public class CellTest implements Runnable {
     private final List<AbsFunction> tests;
     private final List<AbsFunction> ends;
     private final Process process;
-    private UiStatus uiStatus;
-    private UIData Data;
-    private UIInput input;
-    private AbsSubUi subUi;
+    private final UiStatus uiStatus;
+    private final UIData Data;
+    private final UIInput input;
+    private final AbsSubUi subUi;
 
-    CellTest(InputData inputData) {
+    CellTest(InputData inputData, UiStatus uiStatus) {
         this.InputData = inputData;
         this.process = new Process();
         this.checks = new ArrayList<>();
         this.tests = new ArrayList<>();
         this.ends = new ArrayList<>();
+        this.uiStatus = uiStatus;
+        this.Data = uiStatus.getData();
+        this.input = uiStatus.getInput();
+        this.subUi = uiStatus.getSubUi();
     }
 
     @Override
     public void run() {
         if (runFunctions(checks) && test() && runFunctions(ends)) {
-            
+
         }
     }
 
@@ -60,15 +64,8 @@ public class CellTest implements Runnable {
         list.clear();
         for (AbsFunction testFunction : testFunctions) {
             testFunction.setUIStatus(this.uiStatus);
-            list.add(testFunction);
         }
-    }
-
-    public void setup(UiStatus uiStatus) {
-        this.uiStatus = uiStatus;
-        this.Data = uiStatus.getData();
-        this.input = uiStatus.getInput();
-        this.subUi = uiStatus.getSubUi();
+        list.addAll(testFunctions);
     }
 
     private boolean runFunctions(List<AbsFunction> funcs) {

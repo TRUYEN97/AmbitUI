@@ -27,7 +27,7 @@ public class FunctionCover extends Thread {
     @Override
     public void run() {
         start = System.currentTimeMillis();
-        super.start();
+        super.run();
         System.out.println("end");
     }
 
