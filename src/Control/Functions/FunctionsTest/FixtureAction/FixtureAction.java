@@ -18,7 +18,7 @@ public class FixtureAction extends AbsFunction {
 
     @Override
     public boolean test() {
-        for (int i = 0; i < 5; i++) {
+        for (int i = 0; i < 10; i++) {
             try {
                 System.out.println(getItemName() + i);
                 Thread.sleep(1000);

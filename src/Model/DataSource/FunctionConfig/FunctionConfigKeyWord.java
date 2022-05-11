@@ -11,7 +11,7 @@ import java.util.List;
  *
  * @author 21AK22
  */
-final class KeyWord {
+public final class FunctionConfigKeyWord {
     public static final String UUT_MODEL = "UUT_MODEL";
     public static final String STATION_NAME = "STATION_NAME";
     public static final String COM = "COM";
@@ -29,4 +29,6 @@ final class KeyWord {
     public static final String TIME_OUT_TEST = "TIME_OUT_TEST";
     public static final List<String> KEYS = Arrays.asList(UUT_MODEL,STATION_NAME,COM, BAUDRATE, FLAG,SKIP,TIME_OVER,RETRY,
             ITEM_NAME, FUNC_NAME, LIMIT_UP, LIMIT_DN, MULTI_TASK, TIME_OUT_TEST);
+    
+    public static final String FAIL_CONTINUS = "Skip fail";
 }

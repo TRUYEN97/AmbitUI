@@ -5,6 +5,8 @@
 package Control.Core;
 
 import Control.Functions.AbsFunction;
+import Control.Functions.FunctionKeyWord;
+import Model.DataSource.FunctionConfig.FunctionConfigKeyWord;
 
 /**
  *
@@ -28,18 +30,22 @@ public class FunctionCover extends Thread {
     public void run() {
         start = System.currentTimeMillis();
         super.run();
-        System.out.println("ggggggggg");
     }
 
     public long getRunTime() {
-        return (System.currentTimeMillis() - start) / 1000;
+        return (System.currentTimeMillis() - start);
     }
 
     boolean isMutiTasking() {
-        return function.isMutiTasking();
+        return function.getFuncConfig().isMutiTasking();
     }
 
     boolean isOutTime() {
-        return getRunTime() >= function.getTimeOut();
+        return getRunTime() >= function.getFuncConfig().getTimeOutFunction();
+    }
+
+    boolean isSkipFail() {
+        String flag = function.getFuncConfig().getFlag();
+        return flag != null && flag.equals(FunctionConfigKeyWord.FAIL_CONTINUS);
     }
 }

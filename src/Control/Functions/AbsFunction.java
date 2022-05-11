@@ -52,6 +52,10 @@ public abstract class AbsFunction implements IFunction {
         this.subUi = uiStatus.getSubUi();
     }
 
+    public FunctionElement getFuncConfig() {
+        return funcConfig;
+    }
+
     @Override
     public void run() {
         if (isModeSkip()) {
@@ -78,17 +82,6 @@ public abstract class AbsFunction implements IFunction {
     @Override
     public boolean isPass() {
         return isPass;
-    }
-
-    public long getTimeOut() {
-        return funcConfig.getTimeOut();
-    }
-
-    public boolean isMutiTasking() {
-        if (funcConfig == null) {
-            return false;
-        }
-        return this.funcConfig.isMutiTasking();
     }
 
     public String getItemName() {

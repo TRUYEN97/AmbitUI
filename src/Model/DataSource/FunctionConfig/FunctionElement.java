@@ -14,38 +14,49 @@ import com.alibaba.fastjson.JSONObject;
 public class FunctionElement extends AbsElementInfo {
 
     public FunctionElement(JSONObject base, JSONObject config) {
-        super(KeyWord.KEYS, base, config);
+        super(FunctionConfigKeyWord.KEYS, base, config);
     }
 
     public String getFunctionName() {
-        return this.warehouse.getString(KeyWord.FUNC_NAME);
+        return this.warehouse.getString(FunctionConfigKeyWord.FUNC_NAME);
     }
-    
+
     public String getItemName() {
-        return this.warehouse.getString(KeyWord.ITEM_NAME);
+        return this.warehouse.getString(FunctionConfigKeyWord.ITEM_NAME);
     }
 
     public boolean isMutiTasking() {
-        String multiTasking = this.warehouse.getString(KeyWord.MULTI_TASK);
+        String multiTasking = this.warehouse.getString(FunctionConfigKeyWord.MULTI_TASK);
         return !(multiTasking == null || !multiTasking.equalsIgnoreCase("on"));
     }
 
     public int getRetry() {
-        if (this.warehouse.getInteger(KeyWord.RETRY) == null) {
+        if (this.warehouse.getInteger(FunctionConfigKeyWord.RETRY) == null) {
             return 1;
         }
-        return this.warehouse.getInteger(KeyWord.RETRY);
+        return this.warehouse.getInteger(FunctionConfigKeyWord.RETRY);
     }
 
-    public long getTimeOut() {
-        if (this.warehouse.getLong(KeyWord.TIME_OUT_TEST) == null) {
+    public long getTimeOutFunction() {
+        if (this.warehouse.getLong(FunctionConfigKeyWord.TIME_OVER) == null) {
             return Long.MAX_VALUE;
         }
-        return this.warehouse.getLong(KeyWord.TIME_OUT_TEST);
+        return this.warehouse.getLong(FunctionConfigKeyWord.TIME_OVER) * 1000;
+    }
+
+    public long getTimeOutTest() {
+        if (this.warehouse.getLong(FunctionConfigKeyWord.TIME_OUT_TEST) == null) {
+            return Long.MAX_VALUE;
+        }
+        return this.warehouse.getLong(FunctionConfigKeyWord.TIME_OUT_TEST) * 1000;
     }
 
     public String getModeSkip() {
-        return this.warehouse.getString(KeyWord.SKIP);
+        return this.warehouse.getString(FunctionConfigKeyWord.SKIP);
+    }
+
+    public String getFlag() {
+        return warehouse.getString(FunctionConfigKeyWord.FLAG);
     }
 
 }

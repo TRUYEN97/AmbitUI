@@ -42,7 +42,7 @@ public class FunctionConfig extends AbsJsonSource<FunctionElement> {
     protected boolean getData() {
         DataWareHouse wareHouse = readFile.getData();
         FunctionElement info;
-        for (JSONObject modeInfo : wareHouse.getListJson(KeyWord.FUNCTIONS)) {
+        for (JSONObject modeInfo : wareHouse.getListJson(FunctionConfigKeyWord.FUNCTIONS)) {
             info = new FunctionElement(wareHouse.toJson(), modeInfo);
             if (!isNull(info.getFunctionName())) {
                 put(info.getFunctionName(), info);
@@ -57,11 +57,11 @@ public class FunctionConfig extends AbsJsonSource<FunctionElement> {
     }
 
     public long getTimeOutTest() {
-        Long timeout = this.readFile.getData().getLong(KeyWord.TIME_OUT_TEST);
+        Long timeout = this.readFile.getData().getLong(FunctionConfigKeyWord.TIME_OUT_TEST);
         if (timeout == null) {
             return Long.MAX_VALUE;
         }
-        return timeout;
+        return timeout * 1000;
     }
 
 }

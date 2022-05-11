@@ -1,15 +1,15 @@
 {
     "STATION": "RTT",
     "DHCP": "OFF",
-    "ROW": 12,
-    "COLUMN": 8,
-    "TYPE_UI": "Smail",
+    "ROW": 1,
+    "COLUMN": 1,
+    "TYPE_UI": "Big",
     "DETAIL": ["View", "Item", "Log"],
     "LOAD_MODE": [
         {
             "NAME": "PRODUCTION", 
             "TYPE_MODE": "Production",
-            "DETAIL": ["Item", "Log"],
+            "DETAIL": ["View", "Item", "Log"],
             "PREPARE": [],
             "END": []
         },

@@ -27,6 +27,7 @@ class Process implements IFunction {
 
     public void setListFunc(List<AbsFunction> functions) {
         this.functions.clear();
+        this.result = true;
         for (AbsFunction function : functions) {
             this.functions.add(new FunctionCover(function));
         }
@@ -45,38 +46,36 @@ class Process implements IFunction {
             if (!cover.isMutiTasking()) {
                 try {
                     cover.join();
-                    hasTaskFailed();
+                    if (hasTaskFailed()) {
+                        break;
+                    }
                 } catch (InterruptedException ex) {
-                    System.out.println(ex);
+                    break;
                 }
             }
         }
         while (!multiTasking.isEmpty()) {
             try {
-                hasTaskFailed();
+                if (hasTaskFailed()) {
+                    break;
+                }
                 Thread.sleep(100);
             } catch (InterruptedException ex) {
-                System.out.println(ex);
+                break;
             }
         }
-        System.out.println("endd");
-    }
-
-    private boolean isFuncPass(FunctionCover function) {
-        if (function.getFunction().isPass()) {
-            return true;
-        }
-        return result = false;
+        System.out.println(isPass());
     }
 
     private boolean hasTaskFailed() {
-        List<FunctionCover> deleteFunc = new ArrayList<>();
+        List<FunctionCover> funcRemoves = new ArrayList<>();
         try {
             for (FunctionCover cover : multiTasking) {
                 if (!cover.isAlive() || cover.isOutTime()) {
-                    deleteFunc.add(cover);
-                    if (!isFuncPass(cover)) {
-                        return true;
+                    funcRemoves.add(cover);
+                    if (!cover.getFunction().isPass()) {
+                        result = false;
+                        return !cover.isSkipFail();
                     }
                 }
             }
@@ -85,7 +84,13 @@ class Process implements IFunction {
             e.printStackTrace();
             return true;
         } finally {
-            multiTasking.removeAll(deleteFunc);
+            multiTasking.removeAll(funcRemoves);
+        }
+    }
+
+    void stop() {
+        for (FunctionCover functionCover : multiTasking) {
+            functionCover.stop();
         }
     }
 }
