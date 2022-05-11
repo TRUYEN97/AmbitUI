@@ -20,6 +20,10 @@ public class FunctionElement extends AbsElementInfo {
     public String getFunctionName() {
         return this.warehouse.getString(KeyWord.FUNC_NAME);
     }
+    
+    public String getItemName() {
+        return this.warehouse.getString(KeyWord.ITEM_NAME);
+    }
 
     public boolean isMutiTasking() {
         String multiTasking = this.warehouse.getString(KeyWord.MULTI_TASK);

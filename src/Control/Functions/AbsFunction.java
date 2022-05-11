@@ -91,6 +91,14 @@ public abstract class AbsFunction implements IFunction {
         return this.funcConfig.isMutiTasking();
     }
 
+    public String getItemName() {
+        return this.funcConfig.getItemName();
+    }
+
+    public String getFuncName() {
+        return this.funcConfig.getFunctionName();
+    }
+
     private int getRetry() {
         if (funcConfig != null) {
             return funcConfig.getRetry();

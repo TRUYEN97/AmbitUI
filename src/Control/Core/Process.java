@@ -16,7 +16,7 @@ import java.util.List;
 class Process implements IFunction {
 
     private final List<FunctionCover> multiTasking;
-    private final List<AbsFunction> functions;
+    private final List<FunctionCover> functions;
     private boolean result;
 
     public Process() {
@@ -27,7 +27,9 @@ class Process implements IFunction {
 
     public void setListFunc(List<AbsFunction> functions) {
         this.functions.clear();
-        this.functions.addAll(functions);
+        for (AbsFunction function : functions) {
+            this.functions.add(new FunctionCover(function));
+        }
     }
 
     @Override
@@ -37,19 +39,27 @@ class Process implements IFunction {
 
     @Override
     public void run() {
-        FunctionCover cover;
-        for (var function : this.functions) {
-            cover = new FunctionCover(function);
+        for (FunctionCover cover : this.functions) {
             cover.start();
             multiTasking.add(cover);
             if (!cover.isMutiTasking()) {
-                while (cover.isAlive()) {
-                    if (hasTaskFailed()) {
-                        return;
-                    }
+                try {
+                    cover.join();
+                    hasTaskFailed();
+                } catch (InterruptedException ex) {
+                    System.out.println(ex);
                 }
             }
         }
+        while (!multiTasking.isEmpty()) {
+            try {
+                hasTaskFailed();
+                Thread.sleep(100);
+            } catch (InterruptedException ex) {
+                System.out.println(ex);
+            }
+        }
+        System.out.println("endd");
     }
 
     private boolean isFuncPass(FunctionCover function) {

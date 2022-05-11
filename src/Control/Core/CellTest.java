@@ -44,8 +44,9 @@ public class CellTest implements Runnable {
     @Override
     public void run() {
         if (runFunctions(checks) && test() && runFunctions(ends)) {
-
+             System.out.println("test s");
         }
+        System.out.println("test f");
     }
 
     void setCheckFunction(List<AbsFunction> checkFunctions) {

@@ -20,6 +20,7 @@
             "FLAG": "ON",
             "SKIP": "DEBUG",
             "TIME_OVER": 70,
+   //         "MULTI_TASK": "On",
             "RETRY": 1,
             "TYPE": "LIMIT",
             "LIMIT_UP": "2",
@@ -30,11 +31,12 @@
         {
             "FLAG": "ON",
             "TIME_OVER": 10,
+//            "MULTI_TASK": "On",
             "RETRY": 1,
             "TYPE": "MATH",
             "SPEC": "spec",
             "ITEM_NAME": "fixture_close",
-            "FUNC_NAME": "FIXTURE_CONTROL"
+            "FUNC_NAME": "FixtureAction"
         }
     ]
 }

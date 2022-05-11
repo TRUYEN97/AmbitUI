@@ -6,7 +6,9 @@ package Model.Factory;
 
 import Control.Functions.AbsFunction;
 import Control.Functions.FunctionKeyWord;
+import Control.Functions.FunctionsTest.FixtureAction.FixtureActionProxy;
 import Control.Functions.FunctionsTest.GenerateNode.GenerateNodeProxy;
+import Control.Functions.FunctionsTest.GetMacFromSfis.GetMacFormSfisProxy;
 import Control.Functions.InitPackages.InitProxy.IdPasswordProxy;
 import View.subUI.FormDetail.AbsTabUI;
 import View.subUI.SubUI.AbsSubUi;
@@ -87,5 +89,7 @@ public class Factory {
 
     private void addFunc() {
         this.functions.addType(new GenerateNodeProxy(FunctionKeyWord.GENERATE_NODE));
+        this.functions.addType(new GetMacFormSfisProxy(FunctionKeyWord.GET_MAC_FROM_SFIS));
+        this.functions.addType(new FixtureActionProxy(FunctionKeyWord.FIXTURE_ACTION));
     }
 }

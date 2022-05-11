@@ -55,14 +55,14 @@ public class ModeTest implements IInit {
         return true;
     }
 
-    public void run(InputData inputData) {
-        if (inputData != null && check(inputData)) {
+    public void runTest(InputData inputData) {
+        if (inputData != null && checkIndex(inputData)) {
             UiStatus uiStatus = uIManager.getUiStatus(inputData.getIndex());
             uiStatus.setUnitTest(createUnitTest(inputData, uiStatus));
         }
     }
 
-    private boolean check(InputData inputData) {
+    private boolean checkIndex(InputData inputData) {
         if (isIndexEmpty(inputData)) {
             if (isMultiThread()) {
                 return getIndex(inputData);

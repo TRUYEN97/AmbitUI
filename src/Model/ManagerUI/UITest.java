@@ -28,8 +28,12 @@ class UITest {
 
             @Override
             public void actionPerformed(ActionEvent e) {
-                if (isTesting() && (System.currentTimeMillis() - startTime >= timeOut)) {
-                    thread.stop();
+                if (isTesting()) {
+                    if (System.currentTimeMillis() - startTime >= timeOut) {
+                        thread.stop();
+                        timer.stop();
+                    }
+                } else {
                     timer.stop();
                 }
             }

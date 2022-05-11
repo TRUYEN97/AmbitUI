@@ -2,26 +2,26 @@
  * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
  * Click nbfs://nbhost/SystemFileSystem/Templates/Classes/Class.java to edit this template
  */
-package Control.Functions.FunctionsTest.GenerateNode;
+package Control.Functions.FunctionsTest.GetMacFromSfis;
 
 import Control.Functions.AbsFunction;
 
 /**
  *
- * @author 21AK22
+ * @author Administrator
  */
-public class GenerateNode extends AbsFunction{
+public class GetMacFromSfis extends AbsFunction {
 
-    public GenerateNode(String FunctionName) {
+    public GetMacFromSfis(String FunctionName) {
         super(FunctionName);
     }
 
     @Override
     public boolean test() {
-        for (int i = 0; i < 10; i++) {
+        for (int i = 0; i < 20; i++) {
             try {
                 System.out.println(getItemName() + i);
-                Thread.sleep(400);
+                Thread.sleep(1000);
             } catch (InterruptedException ex) {
                 ex.printStackTrace();
             }
@@ -29,5 +29,4 @@ public class GenerateNode extends AbsFunction{
         return true;
     }
 
-    
 }
