@@ -44,7 +44,7 @@ public class FunctionConfig extends AbsJsonSource<FunctionElement> {
         FunctionElement info;
         for (JSONObject modeInfo : wareHouse.getListJson(FunctionConfigKeyWord.FUNCTIONS)) {
             info = new FunctionElement(wareHouse.toJson(), modeInfo);
-            if (!isNull(info.getFunctionName())) {
+            if (!isNull(info.getFunctionName()) && info.isActive()) {
                 put(info.getFunctionName(), info);
                 this.itemNames.add(info.getFunctionName());
             }

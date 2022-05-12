@@ -4,7 +4,7 @@
  */
 package Control.LoadModelTime;
 
-import Control.Time.TimeBase;
+import TimeBase.TimeBase;
 
 /**
  *

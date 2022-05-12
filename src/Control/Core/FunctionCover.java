@@ -45,7 +45,6 @@ public class FunctionCover extends Thread {
     }
 
     boolean isSkipFail() {
-        String flag = function.getFuncConfig().getFlag();
-        return flag != null && flag.equals(FunctionConfigKeyWord.FAIL_CONTINUS);
+        return function.getFuncConfig().isSkipFail();
     }
 }

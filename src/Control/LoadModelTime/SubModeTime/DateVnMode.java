@@ -4,8 +4,8 @@
  */
 package Control.LoadModelTime.SubModeTime;
 
-import Control.Time.TimeBase;
 import Control.LoadModelTime.AbsModeTime;
+import TimeBase.TimeBase;
 
 /**
  *

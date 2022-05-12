@@ -26,7 +26,7 @@ public class GenerateNode extends AbsFunction{
                 ex.printStackTrace();
             }
         }
-        return false;
+        return true;
     }
 
     

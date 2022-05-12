@@ -31,4 +31,5 @@ public final class FunctionConfigKeyWord {
             ITEM_NAME, FUNC_NAME, LIMIT_UP, LIMIT_DN, MULTI_TASK, TIME_OUT_TEST);
     
     public static final String FAIL_CONTINUS = "Skip fail";
+    public static final String ON = "on";
 }
