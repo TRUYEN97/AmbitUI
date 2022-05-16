@@ -41,7 +41,7 @@ public class FunctionElement extends AbsElementInfo {
         if (this.warehouse.getLong(FunctionConfigKeyWord.TIME_OVER) == null) {
             return Long.MAX_VALUE;
         }
-        return this.warehouse.getLong(FunctionConfigKeyWord.TIME_OVER) * 1000;
+        return this.warehouse.getLong(FunctionConfigKeyWord.TIME_OVER);
     }
 
     public long getTimeOutTest() {

@@ -7,7 +7,7 @@ package Control.Core;
 import Control.Functions.AbsFunction;
 import Model.DataModeTest.InputData;
 import Model.DataSource.FunctionConfig.FunctionConfig;
-import Model.ManagerUI.UIStatus.Elemants.DataTest.UIData;
+import Model.ManagerUI.UIStatus.Elemants.UIData;
 import Model.ManagerUI.UIStatus.Elemants.UISignal;
 import Model.ManagerUI.UIStatus.UiStatus;
 import View.subUI.SubUI.AbsSubUi;

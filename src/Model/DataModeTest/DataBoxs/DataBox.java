@@ -2,7 +2,7 @@
  * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
  * Click nbfs://nbhost/SystemFileSystem/Templates/Classes/Class.java to edit this template
  */
-package Model.ManagerUI.UIStatus.Elemants.DataTest.DataBoxs;
+package Model.DataModeTest.DataBoxs;
 
 import Model.ManagerUI.UIStatus.UiStatus;
 import MyLoger.MyLoger;
@@ -19,7 +19,7 @@ public class DataBox {
 
     public DataBox(UiStatus uiStatus, String itemName) {
         this.loger = new MyLoger();
-        String fileLogName = String.format("LogTest\\%s\\%s.txt", uiStatus.getName(), itemName);
+        String fileLogName = String.format("Log\\TestLog\\%s\\%s.txt", uiStatus.getName(), itemName);
         this.loger.begin(new File(fileLogName), true, true);
     }
 
@@ -29,6 +29,10 @@ public class DataBox {
             return;
         }
         this.resultTest = resultTest;
+    }
+
+    public void addLog(Object str) {
+        this.loger.addLog(str);
     }
 
 }

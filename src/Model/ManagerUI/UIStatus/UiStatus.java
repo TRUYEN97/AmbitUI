@@ -4,7 +4,7 @@
  */
 package Model.ManagerUI.UIStatus;
 
-import Model.ManagerUI.UIStatus.Elemants.DataTest.UIData;
+import Model.ManagerUI.UIStatus.Elemants.UIData;
 import Model.ManagerUI.UIStatus.Elemants.UITest;
 import Model.ManagerUI.UIStatus.Elemants.UISignal;
 import Control.Core.Core;

@@ -5,6 +5,7 @@
 package Main;
 
 import Control.Core.Engine;
+import Model.DataModeTest.ErrorLog;
 import Model.DataSource.Tool.LoadSource;
 
 /**
@@ -14,8 +15,12 @@ import Model.DataSource.Tool.LoadSource;
 public class Main {
 
     public static void main(String[] args) {
-        new LoadSource().init();
-        Engine core = new Engine();
-        core.run();
+        try {
+            new LoadSource().init();
+            Engine core = new Engine();
+            core.run();
+        } catch (Exception e) {
+            ErrorLog.getInstance().addError(e.getMessage());
+        }
     }
 }

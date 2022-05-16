@@ -21,7 +21,8 @@ public class GenerateNode extends AbsFunction{
         for (int i = 0; i < 10; i++) {
             try {
                 System.out.println(getItemName() + i);
-                Thread.sleep(400);
+                this.addLog(i);
+                Thread.sleep(500);
             } catch (InterruptedException ex) {
                 ex.printStackTrace();
             }

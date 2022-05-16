@@ -4,6 +4,7 @@
  */
 package Control.Core;
 
+import Control.Functions.FunctionCover;
 import Control.Functions.AbsFunction;
 import Model.Interface.IFunction;
 import java.util.ArrayList;
