@@ -2,28 +2,29 @@
  * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
  * Click nbfs://nbhost/SystemFileSystem/Templates/Classes/Class.java to edit this template
  */
-package Model.ManagerUI;
+package Model.ManagerUI.UIStatus.Elemants;
 
 import Control.Core.CellTest;
+import Model.ManagerUI.UIStatus.UiStatus;
 
 /**
  *
  * @author 21AK22
  */
-class UITest {
+public class UITest {
 
     private final UiStatus uiStatus;
     private Thread thread;
 
-    UITest(UiStatus uiStatus) {
+    public UITest(UiStatus uiStatus) {
         this.uiStatus = uiStatus;
     }
 
-    boolean isTesting() {
+    public boolean isTesting() {
         return this.thread != null && this.thread.isAlive();
     }
 
-    void setUnitTest(CellTest cellTest) {
+    public void setUnitTest(CellTest cellTest) {
         if (isTesting()) {
             return;
         }

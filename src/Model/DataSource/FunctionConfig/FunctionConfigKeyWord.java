@@ -12,13 +12,14 @@ import java.util.List;
  * @author 21AK22
  */
 public final class FunctionConfigKeyWord {
+
     public static final String UUT_MODEL = "UUT_MODEL";
     public static final String STATION_NAME = "STATION_NAME";
     public static final String COM = "COM";
     public static final String BAUDRATE = "BAUDRATE";
     public static final String FUNCTIONS = "Functions";
     public static final String FLAG = "FLAG";
-    public static final String SKIP = "SKIP";
+    public static final String CANCEL = "CANCEL";
     public static final String TIME_OVER = "TIME_OVER";
     public static final String RETRY = "RETRY";
     public static final String ITEM_NAME = "ITEM_NAME";
@@ -27,9 +28,12 @@ public final class FunctionConfigKeyWord {
     public static final String LIMIT_DN = "LIMIT_DN";
     public static final String MULTI_TASK = "MULTI_TASK";
     public static final String TIME_OUT_TEST = "TIME_OUT_TEST";
-    public static final List<String> KEYS = Arrays.asList(UUT_MODEL,STATION_NAME,COM, BAUDRATE, FLAG,SKIP,TIME_OVER,RETRY,
+    public static final String FAIL_CONTNIUE = "FAIL_CONTNIUE";
+    public static final List<String> KEYS = Arrays.asList(FAIL_CONTNIUE, UUT_MODEL, STATION_NAME, COM, BAUDRATE, FLAG, CANCEL, TIME_OVER, RETRY,
             ITEM_NAME, FUNC_NAME, LIMIT_UP, LIMIT_DN, MULTI_TASK, TIME_OUT_TEST);
     
-    public static final String FAIL_CONTINUS = "Skip fail";
     public static final String ON = "on";
+    public static final String MACTH = "MACTH";
+    public static final String LIMIT = "LIMIT";
+    public static final String BOOL = "BOOL";
 }

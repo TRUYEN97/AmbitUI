@@ -9,27 +9,27 @@ import Control.Core.ModeTest;
 import Model.DataSource.FunctionConfig.FunctionConfig;
 import Model.DataSource.FunctionConfig.FunctionElement;
 import Model.DataSource.Limit.Limit;
-import Model.ManagerUI.UIData;
-import Model.ManagerUI.UIInput;
+import Model.ManagerUI.UIStatus.Elemants.DataTest.UIData;
+import Model.ManagerUI.UIStatus.Elemants.UISignal;
 import Model.ManagerUI.UIManager;
-import Model.ManagerUI.UiStatus;
+import Model.ManagerUI.UIStatus.UiStatus;
 import View.subUI.SubUI.AbsSubUi;
 import Model.Interface.IFunction;
+import Model.ManagerUI.UIStatus.Elemants.DataTest.DataBoxs.DataBox;
 
 /**
  *
  * @author 21AK22
  */
 public abstract class AbsFunction implements IFunction {
-
-    protected UIManager uIManager;
-    protected ModeTest modeTest;
+    
     protected final FunctionElement funcConfig;
     protected final Limit limit;
-    protected UiStatus uiStatus;
     protected boolean isPass;
-    private UIData data;
-    private UIInput input;
+    private UIData uIData;
+    private DataBox dataBox;
+    private ModeTest modeTest;
+    private UISignal uISignal;
     private AbsSubUi subUi;
 
     protected AbsFunction(String FunctionName) {
@@ -38,18 +38,12 @@ public abstract class AbsFunction implements IFunction {
         this.isPass = false;
     }
 
-    public void setCore(Core core) {
-        if (core == null) {
-            return;
-        }
-        this.uIManager = core.getUiManager();
-    }
-
     public void setUIStatus(UiStatus uiStatus) {
-        this.uiStatus = uiStatus;
-        this.data = uiStatus.getData();
-        this.input = uiStatus.getInput();
+        this.uIData = uiStatus.getData();
+        this.dataBox = this.uIData.getDataBox(uiStatus.);
+        this.uISignal = uiStatus.getUiSignal();
         this.subUi = uiStatus.getSubUi();
+        this.modeTest = uiStatus.getModeTest();
     }
 
     public FunctionElement getFuncConfig() {
@@ -59,7 +53,8 @@ public abstract class AbsFunction implements IFunction {
     @Override
     public void run() {
         if (isModeSkip()) {
-            this.data.setResult("Canceled");
+            this.uIData.addLog("dd");
+            this.uIData.setResult(this.getItemName(),"Canceled");
             isPass = true;
             return;
         }
@@ -73,7 +68,7 @@ public abstract class AbsFunction implements IFunction {
     }
 
     private boolean isModeSkip() {
-        String modeSkip = this.funcConfig.getModeSkip();
+        String modeSkip = this.funcConfig.getModeCancel();
         return modeSkip != null && modeSkip.isBlank() && modeSkip.equals(modeTest.toString());
     }
 

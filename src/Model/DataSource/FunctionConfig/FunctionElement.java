@@ -51,21 +51,17 @@ public class FunctionElement extends AbsElementInfo {
         return this.warehouse.getLong(FunctionConfigKeyWord.TIME_OUT_TEST) * 1000;
     }
 
-    public String getModeSkip() {
-        return this.warehouse.getString(FunctionConfigKeyWord.SKIP);
-    }
-
-    public String getFlag() {
-        return warehouse.getString(FunctionConfigKeyWord.FLAG);
+    public String getModeCancel() {
+        return this.warehouse.getString(FunctionConfigKeyWord.CANCEL);
     }
     
     public boolean isSkipFail() {
-        String flag = getFlag();
-        return flag != null && flag.equals(FunctionConfigKeyWord.FAIL_CONTINUS);
+        String flag = warehouse.getString(FunctionConfigKeyWord.FAIL_CONTNIUE);
+        return flag != null && flag.equals(FunctionConfigKeyWord.ON);
     }
 
     boolean isActive() {
-        String flag = getFlag();
+        String flag =  warehouse.getString(FunctionConfigKeyWord.FLAG);
         return flag != null && flag.equalsIgnoreCase(FunctionConfigKeyWord.ON);
     }
 

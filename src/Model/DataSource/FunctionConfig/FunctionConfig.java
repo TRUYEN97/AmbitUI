@@ -5,7 +5,7 @@
 package Model.DataSource.FunctionConfig;
 
 import Model.DataSource.AbsJsonSource;
-import Model.DataWareHouse;
+import Model.DataSource.DataWareHouse;
 import com.alibaba.fastjson.JSONObject;
 import java.util.ArrayList;
 import java.util.List;

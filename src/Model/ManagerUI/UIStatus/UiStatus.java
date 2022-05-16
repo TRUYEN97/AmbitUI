@@ -2,8 +2,11 @@
  * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
  * Click nbfs://nbhost/SystemFileSystem/Templates/Classes/Class.java to edit this template
  */
-package Model.ManagerUI;
+package Model.ManagerUI.UIStatus;
 
+import Model.ManagerUI.UIStatus.Elemants.DataTest.UIData;
+import Model.ManagerUI.UIStatus.Elemants.UITest;
+import Model.ManagerUI.UIStatus.Elemants.UISignal;
 import Control.Core.Core;
 import Control.Core.ModeTest;
 import Control.Core.CellTest;
@@ -22,17 +25,17 @@ public class UiStatus implements IUpdate {
     private final AbsSubUi subUi;
     private final String name;
     private final Core core;
-    private final UIInput input;
+    private final UISignal input;
     private final UIData Data;
     private final UITest test;
     private ModeTest modeTest;
 
-    UiStatus(AbsSubUi subUi, Core core) {
+    public UiStatus(AbsSubUi subUi, Core core) {
         this.subUi = subUi;
         this.name = subUi.getName();
         this.core = core;
-        this.Data = new UIData();
-        this.input = new UIInput();
+        this.Data = new UIData(this);
+        this.input = new UISignal();
         this.test = new UITest(this);
     }
     
@@ -48,7 +51,7 @@ public class UiStatus implements IUpdate {
         return core;
     }
 
-    public UIInput getInput() {
+    public UISignal getUiSignal() {
         return input;
     }
 
@@ -69,14 +72,14 @@ public class UiStatus implements IUpdate {
         return false;
     }
 
-    boolean isName(String name) {
+    public boolean isName(String name) {
         if (isNull(name)) {
             return false;
         }
         return this.name.equals(name);
     }
 
-    boolean isUI(AbsSubUi ui) {
+    public boolean isUI(AbsSubUi ui) {
         if (isNull(ui)) {
             return false;
         }

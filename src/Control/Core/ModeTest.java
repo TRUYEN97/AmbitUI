@@ -12,7 +12,7 @@ import Model.DataSource.Setting.ModeElement;
 import Model.Factory.Factory;
 import Model.Interface.IFunction;
 import Model.ManagerUI.UIManager;
-import Model.ManagerUI.UiStatus;
+import Model.ManagerUI.UIStatus.UiStatus;
 import java.awt.HeadlessException;
 import java.util.ArrayList;
 import java.util.List;

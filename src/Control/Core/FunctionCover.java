@@ -5,8 +5,6 @@
 package Control.Core;
 
 import Control.Functions.AbsFunction;
-import Control.Functions.FunctionKeyWord;
-import Model.DataSource.FunctionConfig.FunctionConfigKeyWord;
 
 /**
  *

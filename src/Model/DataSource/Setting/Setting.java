@@ -2,7 +2,7 @@ package Model.DataSource.Setting;
 
 import Model.DataSource.AbsJsonSource;
 import Model.Interface.IInit;
-import Model.DataWareHouse;
+import Model.DataSource.DataWareHouse;
 import com.alibaba.fastjson.JSONObject;
 import static java.util.Objects.isNull;
 

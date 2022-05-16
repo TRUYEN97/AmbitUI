@@ -4,6 +4,7 @@
  */
 package Model.ManagerUI;
 
+import Model.ManagerUI.UIStatus.UiStatus;
 import Control.Core.Core;
 import Model.Interface.IUpdate;
 import View.subUI.SubUI.AbsSubUi;

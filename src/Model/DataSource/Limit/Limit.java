@@ -5,7 +5,7 @@
 package Model.DataSource.Limit;
 
 import Model.DataSource.AbsJsonSource;
-import Model.DataWareHouse;
+import Model.DataSource.DataWareHouse;
 import com.alibaba.fastjson.JSONObject;
 import java.util.Arrays;
 import java.util.List;

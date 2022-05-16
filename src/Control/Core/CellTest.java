@@ -7,9 +7,9 @@ package Control.Core;
 import Control.Functions.AbsFunction;
 import Model.DataModeTest.InputData;
 import Model.DataSource.FunctionConfig.FunctionConfig;
-import Model.ManagerUI.UIData;
-import Model.ManagerUI.UIInput;
-import Model.ManagerUI.UiStatus;
+import Model.ManagerUI.UIStatus.Elemants.DataTest.UIData;
+import Model.ManagerUI.UIStatus.Elemants.UISignal;
+import Model.ManagerUI.UIStatus.UiStatus;
 import View.subUI.SubUI.AbsSubUi;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
@@ -31,7 +31,7 @@ public class CellTest implements Runnable {
     private final UiStatus uiStatus;
     private final Timer timer;
     private final UIData Data;
-    private final UIInput input;
+    private final UISignal input;
     private final AbsSubUi subUi;
     private long startTime;
 
@@ -43,7 +43,7 @@ public class CellTest implements Runnable {
         this.ends = new ArrayList<>();
         this.uiStatus = uiStatus;
         this.Data = uiStatus.getData();
-        this.input = uiStatus.getInput();
+        this.input = uiStatus.getUiSignal();
         this.subUi = uiStatus.getSubUi();
         this.timer = new Timer(1000, new ActionListener() {
             private final long timeOut = FunctionConfig.getInstance().getTimeOutTest();

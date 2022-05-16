@@ -7,7 +7,7 @@ package Model.DataSource.Tool;
 import Model.Interface.IInit;
 import Model.Interface.ITypeRead;
 import Control.Message;
-import Model.DataWareHouse;
+import Model.DataSource.DataWareHouse;
 import java.io.BufferedReader;
 import java.io.File;
 import java.io.FileReader;

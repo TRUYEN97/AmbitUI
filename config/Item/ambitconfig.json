@@ -7,11 +7,11 @@
     "Functions": [
         {
             "FLAG": "on",
-           // "FLAG": "Skip fail",
-            "SKIP": "DEBUG",
+            "FAIL_CONTNIUE": "off",
+            "CANCEL": "DEBUG",
             "TIME_OVER": 110,
             "RETRY": 5,
-          //  "MULTI_TASK": "On",
+            "MULTI_TASK": "Off",
             "TYPE": "BOOL",
             "SPEC": "sqt",
             "ITEM_NAME": "gen_node",
@@ -19,9 +19,10 @@
         },
         {
             "FLAG": "ON",
-            "SKIP": "DEBUG",
+            "CANCEL": "DEBUG",
+            "FAIL_CONTNIUE": "on",
             "TIME_OVER": 70,
-   //         "MULTI_TASK": "On",
+            "MULTI_TASK": "Off",
             "RETRY": 1,
             "TYPE": "LIMIT",
             "LIMIT_UP": "2",
@@ -32,9 +33,9 @@
         {
             "FLAG": "ON",
             "TIME_OVER": 10,
-//            "MULTI_TASK": "On",
+            "MULTI_TASK": "Off",
             "RETRY": 1,
-            "TYPE": "MATH",
+            "TYPE": "MACTH",
             "SPEC": "spec",
             "ITEM_NAME": "fixture_close",
             "FUNC_NAME": "FixtureAction"
