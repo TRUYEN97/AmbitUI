@@ -4,7 +4,7 @@
  */
 package Model.ManagerUI.UIStatus;
 
-import Model.ManagerUI.UIStatus.Elemants.UIData;
+import Model.ManagerUI.UIStatus.Elemants.UiData;
 import Model.ManagerUI.UIStatus.Elemants.UITest;
 import Model.ManagerUI.UIStatus.Elemants.UISignal;
 import Control.Core.Core;
@@ -25,8 +25,8 @@ public class UiStatus implements IUpdate {
     private final AbsSubUi subUi;
     private final String name;
     private final Core core;
-    private final UISignal input;
-    private final UIData Data;
+    private final UISignal signal;
+    private final UiData uiData;
     private final UITest test;
     private ModeTest modeTest;
 
@@ -34,13 +34,13 @@ public class UiStatus implements IUpdate {
         this.subUi = subUi;
         this.name = subUi.getName();
         this.core = core;
-        this.Data = new UIData(this);
-        this.input = new UISignal();
+        this.uiData = new UiData(this);
+        this.signal = new UISignal();
         this.test = new UITest(this);
     }
-    
-    public UIData getData() {
-        return Data;
+
+    public UiData getUiData() {
+        return uiData;
     }
 
     public AbsSubUi getSubUi() {
@@ -52,11 +52,11 @@ public class UiStatus implements IUpdate {
     }
 
     public UISignal getUiSignal() {
-        return input;
+        return signal;
     }
 
     public ModeTest getModeTest() {
-        return modeTest;
+        return this.modeTest;
     }
 
     public boolean isTesting() {
@@ -65,9 +65,11 @@ public class UiStatus implements IUpdate {
 
     @Override
     public boolean update() {
-        if (!this.isTesting() && this.subUi.update()) {
+        if (!this.isTesting()) {
             this.modeTest = core.getCurrMode();
-            return true;
+            if (this.subUi.update()) {
+                return true;
+            }
         }
         return false;
     }
@@ -99,6 +101,6 @@ public class UiStatus implements IUpdate {
     }
 
     public List<AbsFunction> getFunctionSelected() {
-        return this.input.getFunctionSelected();
+        return this.signal.getFunctionSelected();
     }
 }

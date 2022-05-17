@@ -7,7 +7,7 @@ package Control.Core;
 import Control.Functions.AbsFunction;
 import Model.DataModeTest.InputData;
 import Model.DataSource.FunctionConfig.FunctionConfig;
-import Model.ManagerUI.UIStatus.Elemants.UIData;
+import Model.ManagerUI.UIStatus.Elemants.UiData;
 import Model.ManagerUI.UIStatus.Elemants.UISignal;
 import Model.ManagerUI.UIStatus.UiStatus;
 import View.subUI.SubUI.AbsSubUi;
@@ -30,7 +30,7 @@ public class CellTest implements Runnable {
     private final Process process;
     private final UiStatus uiStatus;
     private final Timer timer;
-    private final UIData Data;
+    private final UiData uiData;
     private final UISignal input;
     private final AbsSubUi subUi;
     private long startTime;
@@ -42,7 +42,7 @@ public class CellTest implements Runnable {
         this.tests = new ArrayList<>();
         this.ends = new ArrayList<>();
         this.uiStatus = uiStatus;
-        this.Data = uiStatus.getData();
+        this.uiData = uiStatus.getUiData();
         this.input = uiStatus.getUiSignal();
         this.subUi = uiStatus.getSubUi();
         this.timer = new Timer(1000, new ActionListener() {
@@ -68,11 +68,14 @@ public class CellTest implements Runnable {
     @Override
     public void run() {
         timer.start();
+        this.subUi.startTest();
         if (runFunctions(checks) && test() && runFunctions(ends)) {
             System.out.println("Pass");
         }else{
             System.out.println("failed");
         }
+        this.subUi.endTest();
+        this.uiData.clear();
     }
 
     void setCheckFunction(List<AbsFunction> checkFunctions) {

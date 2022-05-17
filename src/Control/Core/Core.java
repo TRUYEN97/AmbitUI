@@ -7,6 +7,7 @@ package Control.Core;
 import Control.DrawBoardUI;
 import Model.DataModeTest.InputData;
 import Model.ManagerUI.UIManager;
+import Model.ManagerUI.UIStatus.UiStatus;
 import View.UIView;
 import static java.util.Objects.isNull;
 
@@ -75,5 +76,9 @@ public class Core {
 
     private void backUpMode() {
         this.view.setSelectMode(getCurrMode());
+    }
+
+    public void setUiStatus(UiStatus aThis) {
+        throw new UnsupportedOperationException("Not supported yet."); // Generated from nbfs://nbhost/SystemFileSystem/Templates/Classes/Code/GeneratedMethodBody
     }
 }

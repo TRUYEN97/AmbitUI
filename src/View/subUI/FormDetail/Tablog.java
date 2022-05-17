@@ -10,6 +10,7 @@
  */
 package View.subUI.FormDetail;
 
+import java.awt.event.KeyEvent;
 import java.awt.event.MouseEvent;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
@@ -109,15 +110,6 @@ private void textLogMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:eve
         }
     }
   
-    @Override
-    public void eventData(Object value) {
-        if (value instanceof String) {
-            String regex = value.toString();
-            if (findAndHighLight(regex)) {
-                offAutoCrolls();
-            }
-        }
-    }
 
     private void autoCrolls() {
         goToLine(this.textLog.getDocument().getLength());
@@ -146,5 +138,13 @@ private void textLogMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:eve
             }
         }
         return result;
+    }
+
+    @Override
+    public void keyEvent(KeyEvent evt) {
+    }
+
+    @Override
+    public void updateData() {
     }
 }

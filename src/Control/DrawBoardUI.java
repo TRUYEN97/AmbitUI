@@ -9,10 +9,6 @@ import Model.Factory.Factory;
 import Model.ManagerUI.UIManager;
 import View.UIView;
 import View.subUI.SubUI.AbsSubUi;
-import java.awt.Component;
-import java.awt.GridLayout;
-import java.util.Objects;
-import javax.swing.JPanel;
 
 /**
  *
@@ -73,8 +69,7 @@ public class DrawBoardUI {
         AbsSubUi subUi = Factory.getInstance().getSubUI(this.typeUI, indexName);
         if (subUi != null) {
             this.view.addSubUi(subUi);
-            subUi.setLoadMode(this.core);
-            uImanager.addUI(subUi);
+            this.uImanager.addUI(subUi);
         }
     }
 

@@ -18,11 +18,13 @@ import static java.util.Objects.isNull;
 public class FunctionConfig extends AbsJsonSource<FunctionElement> {
 
     private static volatile FunctionConfig instaince;
-    private final List<String> itemNames;
+    private final List<String> functionName;
+    private final List<String> ItemfunctionName;
 
     private FunctionConfig() {
         super();
-        this.itemNames = new ArrayList<>();
+        this.functionName = new ArrayList<>();
+        this.ItemfunctionName = new ArrayList<>();
     }
 
     public static FunctionConfig getInstance() {
@@ -46,14 +48,15 @@ public class FunctionConfig extends AbsJsonSource<FunctionElement> {
             info = new FunctionElement(wareHouse.toJson(), modeInfo);
             if (!isNull(info.getFunctionName()) && info.isActive()) {
                 put(info.getFunctionName(), info);
-                this.itemNames.add(info.getFunctionName());
+                this.functionName.add(info.getFunctionName());
+                this.ItemfunctionName.add(info.getItemName());
             }
         }
         return !this.elements.isEmpty();
     }
 
     public List<String> getListFunction() {
-        return itemNames;
+        return functionName;
     }
 
     public long getTimeOutTest() {
@@ -62,6 +65,10 @@ public class FunctionConfig extends AbsJsonSource<FunctionElement> {
             return Long.MAX_VALUE;
         }
         return timeout * 1000;
+    }
+
+    public List<String> getListItemFunctionName() {
+        return this.ItemfunctionName;
     }
 
 }

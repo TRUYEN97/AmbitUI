@@ -20,7 +20,7 @@ public class Main {
             Engine core = new Engine();
             core.run();
         } catch (Exception e) {
-            ErrorLog.getInstance().addError(e.getMessage());
+            ErrorLog.addError(e.getMessage());
         }
     }
 }

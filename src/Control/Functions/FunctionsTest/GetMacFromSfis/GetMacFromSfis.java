@@ -18,14 +18,15 @@ public class GetMacFromSfis extends AbsFunction {
 
     @Override
     public boolean test() {
-        for (int i = 0; i < 20; i++) {
+        for (int i = 0; i < 10; i++) {
             try {
                 System.out.println(getItemName() + i);
-                Thread.sleep(1000);
+                Thread.sleep(500);
             } catch (InterruptedException ex) {
                 ex.printStackTrace();
             }
         }
+        setRsutlt("Pass");
         return true;
     }
 

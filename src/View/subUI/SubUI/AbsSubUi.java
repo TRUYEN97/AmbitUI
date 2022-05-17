@@ -4,10 +4,10 @@
  */
 package View.subUI.SubUI;
 
-import Control.Core.Core;
 import Model.DataSource.Setting.ModeElement;
 import Model.Factory.Factory;
 import Model.Interface.IUpdate;
+import Model.ManagerUI.UIStatus.UiStatus;
 import View.UIView;
 import View.subUI.AbsUI;
 import View.subUI.FormDetail.TabDetail;
@@ -22,7 +22,7 @@ public abstract class AbsSubUi extends AbsUI implements IUpdate {
 
     protected final TabDetail tabDetail;
     protected UIView view;
-    protected Core loadMode;
+    
 
     protected AbsSubUi(String name) {
         super(name);
@@ -30,11 +30,7 @@ public abstract class AbsSubUi extends AbsUI implements IUpdate {
         this.setToolTipText(name);
         tabDetail = new TabDetail(this);
     }
-
-    public void setLoadMode(Core loadMode) {
-        this.loadMode = loadMode;
-    }
-
+    
     public abstract void setText(String txt);
 
     @Override
@@ -42,7 +38,7 @@ public abstract class AbsSubUi extends AbsUI implements IUpdate {
         try {
             ModeElement modeInfo;
             Factory factory;
-            modeInfo = this.loadMode.getCurrMode().getModeInfo();
+            modeInfo = this.uiStatus.getModeTest().getModeInfo();
             factory = Factory.getInstance();
             if (isOldDetails(modeInfo)) {
                 return true;
@@ -51,6 +47,7 @@ public abstract class AbsSubUi extends AbsUI implements IUpdate {
             for (String name : modeInfo.getDetail()) {
                 this.tabDetail.addTab(factory.getTabUI(name));
             }
+            this.tabDetail.setUiStatus(uiStatus);
             return true;
         } catch (Exception e) {
             e.printStackTrace();
@@ -58,15 +55,36 @@ public abstract class AbsSubUi extends AbsUI implements IUpdate {
         }
     }
 
-    private boolean isOldDetails(ModeElement modeInfo) {
-        return this.tabDetail.getListTab().equals(modeInfo.getDetail());
+    @Override
+    public void startTest() {
+        super.startTest();
+        this.tabDetail.startTest();
     }
+
+    @Override
+    public void endTest() {
+        super.endTest(); 
+        this.tabDetail.endTest();
+    }
+    
+    
+
+    @Override
+    public void setUiStatus(UiStatus uiStatus) {
+        super.setUiStatus(uiStatus);
+        this.tabDetail.setUiStatus(uiStatus);
+    }
+    
 
     public void setUiView(UIView view) {
         if (view == null) {
             return;
         }
         this.view = view;
+    }
+
+    private boolean isOldDetails(ModeElement modeInfo) {
+        return this.tabDetail.getListTab().equals(modeInfo.getDetail());
     }
 
 }

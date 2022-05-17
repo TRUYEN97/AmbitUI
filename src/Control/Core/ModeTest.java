@@ -58,7 +58,7 @@ public class ModeTest implements IInit {
     public void runTest(InputData inputData) {
         if (inputData != null && checkIndex(inputData)) {
             UiStatus uiStatus = uIManager.getUiStatus(inputData.getIndex());
-            uiStatus.setUnitTest(createUnitTest(inputData, uiStatus));
+            uiStatus.setUnitTest(createCellTest(inputData, uiStatus));
         }
     }
 
@@ -74,16 +74,20 @@ public class ModeTest implements IInit {
         return true;
     }
 
-    private CellTest createUnitTest(InputData inputData, UiStatus uiStatus) {
-        CellTest unitTest = new CellTest(inputData, uiStatus);
-        unitTest.setCheckFunction(getCheckFunctions());
-        unitTest.setTestFunction(getTestFunctions(uiStatus));
-        unitTest.setEndFunction(getEndFunctions());
-        return unitTest;
+    private CellTest createCellTest(InputData inputData, UiStatus uiStatus) {
+        CellTest cellTest = new CellTest(inputData, uiStatus);
+        cellTest.setCheckFunction(getCheckFunctions());
+        cellTest.setTestFunction(getTestFunctions(uiStatus));
+        cellTest.setEndFunction(getEndFunctions());
+        return cellTest;
     }
 
     public ModeElement getModeInfo() {
         return this.modeInfo;
+    }
+
+    public List<String> getListFunction() {
+        return this.functionConfig.getListFunction();
     }
 
     private void addInitFunctions(List<IFunction> list, List<String> functions) {
@@ -112,7 +116,7 @@ public class ModeTest implements IInit {
         if (this.modeInfo.isDiscreteTest()) {
             functions.addAll(uiStatus.getFunctionSelected());
         } else {
-            addFunctions(functions, this.functionConfig.getListFunction());
+            addFunctions(functions, getListFunction());
         }
         return functions;
     }
@@ -139,5 +143,9 @@ public class ModeTest implements IInit {
             return true;
         }
         return false;
+    }
+
+    public List<String> getListItemFunctionName() {
+       return this.functionConfig.getListItemFunctionName();
     }
 }

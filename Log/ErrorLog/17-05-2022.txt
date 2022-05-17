@@ -1,0 +1,3 @@
+2022-05-17 03:19:23 : error in Model.DataModeTest.DataBoxs.DataBox : can't delete local function log file of gen_node
+2022-05-17 03:19:27 : error in Model.DataModeTest.DataBoxs.DataBox : can't delete local function log file of nodeproperty_mac
+2022-05-17 03:19:27 : error in Model.DataModeTest.DataBoxs.DataBox : can't delete local function log file of fixture_close

@@ -67,4 +67,8 @@ public class SmallUI extends AbsSubUi {
     public void setText(String txt) {
         this.lbTime.setText(txt);
     }
+
+    @Override
+    public void updateData() {
+    }
 }

@@ -134,4 +134,8 @@ public class BigUI extends AbsSubUi {
     public void setText(String txt) {
         
     }
+
+    @Override
+    public void updateData() {
+    }
 }

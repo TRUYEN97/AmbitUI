@@ -27,5 +27,5 @@ public abstract class AbsTabUI extends AbsUI{
         return this.boss;
     }
     
-    public abstract void eventData(Object value);
+    public abstract void keyEvent(java.awt.event.KeyEvent evt);
 }

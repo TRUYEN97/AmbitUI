@@ -4,7 +4,6 @@
  */
 package Model.DataModeTest;
 
-import Control.Functions.FunctionCover;
 import MyLoger.MyLoger;
 import java.io.File;
 
@@ -14,37 +13,23 @@ import java.io.File;
  */
 public class ErrorLog {
 
-    private static volatile ErrorLog instance;
-    private final MyLoger loger;
+    private static MyLoger loger;
 
-    private ErrorLog() {
-        this.loger = new MyLoger();
+    static {
+        ErrorLog.loger = new MyLoger();
         String filePath = String.format("Log\\ErrorLog\\%s.txt",
                 new TimeBase.TimeBase().getDate());
-        this.loger.begin(new File(filePath), true);
+        ErrorLog.loger.begin(new File(filePath), true);
     }
 
-    public static ErrorLog getInstance() {
-        ErrorLog ins = ErrorLog.instance;
-        if (ins == null) {
-            synchronized (ErrorLog.class) {
-                ins = ErrorLog.instance;
-                if (ins == null) {
-                    ins = ErrorLog.instance = new ErrorLog();
-                }
-            }
-        }
-        return ins;
+    public static void addError(String error) {
+        ErrorLog.loger.addLog(error);
     }
 
-    public void addError(String error) {
-        this.loger.addLog(error);
-    }
-
-    public void addError(Object object, String error) {
+    public static void addError(Object object, String error) {
         String mess = String.format("error in %s : %s", 
                 object.getClass().getName(), error);
-        this.loger.addLog(mess);
+        ErrorLog.loger.addLog(mess);
     }
 
 }

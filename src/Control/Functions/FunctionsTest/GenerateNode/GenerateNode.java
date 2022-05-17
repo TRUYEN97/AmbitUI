@@ -27,6 +27,7 @@ public class GenerateNode extends AbsFunction{
                 ex.printStackTrace();
             }
         }
+        this.setRsutlt("PASS");
         return true;
     }
 

@@ -10,6 +10,7 @@
  */
 package View.subUI.FormDetail;
 
+import Model.ManagerUI.UIStatus.UiStatus;
 import View.subUI.AbsUI;
 import View.subUI.SubUI.AbsSubUi;
 import java.util.ArrayList;
@@ -22,9 +23,9 @@ import java.util.List;
  */
 public class TabDetail extends AbsUI {
 
-    private final HashMap<String, AbsSubUi> tabElemnt;
+    private final HashMap<String, AbsTabUI> tabElements;
     private final AbsSubUi boss;
-    private List<String> listTitle;
+    private final List<String> listTitle;
 
     /**
      * Creates new form PanelDetail
@@ -33,7 +34,7 @@ public class TabDetail extends AbsUI {
      */
     public TabDetail(AbsSubUi boss) {
         super(boss.getName());
-        this.tabElemnt = new HashMap<>();
+        this.tabElements = new HashMap<>();
         this.listTitle = new ArrayList<>();
         initComponents();
         this.boss = boss;
@@ -56,7 +57,7 @@ public class TabDetail extends AbsUI {
 
         setLayout(new java.awt.BorderLayout());
 
-        tabDetail.setFont(new java.awt.Font("Tahoma", 1, 14));
+        tabDetail.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
         tabDetail.setName("tabDetail"); // NOI18N
         tabDetail.addKeyListener(new java.awt.event.KeyAdapter() {
             public void keyTyped(java.awt.event.KeyEvent evt) {
@@ -66,25 +67,59 @@ public class TabDetail extends AbsUI {
         add(tabDetail, java.awt.BorderLayout.CENTER);
     }// </editor-fold>//GEN-END:initComponents
 
-private void tabDetailKeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_tabDetailKeyTyped
-// TODO add your handling code here:
-}//GEN-LAST:event_tabDetailKeyTyped
+    private void tabDetailKeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_tabDetailKeyTyped
+        // TODO add your handling code here:
+        for (String name : tabElements.keySet()) {
+            tabElements.get(name).keyEvent(evt);
+        }
+    }//GEN-LAST:event_tabDetailKeyTyped
+
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JTabbedPane tabDetail;
     // End of variables declaration//GEN-END:variables
 
     public void clear() {
         this.tabDetail.removeAll();
+        this.tabElements.clear();
         this.listTitle.clear();
+    }
+
+    @Override
+    public void setUiStatus(UiStatus uiStatus) {
+        super.setUiStatus(uiStatus);
+        for (String name : tabElements.keySet()) {
+            tabElements.get(name).setUiStatus(uiStatus);
+        }
+    }
+
+    @Override
+    public void startTest() {
+        super.startTest();
+        for (String item : tabElements.keySet()) {
+            tabElements.get(item).startTest();
+        }
+    }
+
+    @Override
+    public void endTest() {
+        super.endTest();
+        for (String item : tabElements.keySet()) {
+            tabElements.get(item).endTest();
+        }
     }
 
     public void addTab(AbsTabUI tabUI) {
         this.tabDetail.addTab(tabUI.getName(), tabUI);
+        this.tabElements.put(tabUI.getName(), tabUI);
         this.listTitle.add(tabUI.getName());
     }
 
     public List<String> getListTab() {
         return this.listTitle;
+    }
+
+    @Override
+    public void updateData() {
     }
 
 }

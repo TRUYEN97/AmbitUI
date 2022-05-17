@@ -18,12 +18,12 @@ import static java.util.Objects.isNull;
  */
 public class UIManager implements IUpdate {
 
-    private final Core loadMode;
+    private final Core core;
     private final List<UiStatus> uiStatuses;
 
     public UIManager(Core loadMode) {
         this.uiStatuses = new ArrayList<>();
-        this.loadMode = loadMode;
+        this.core = loadMode;
     }
 
     public UiStatus getUiStatus(String index) {
@@ -51,7 +51,8 @@ public class UIManager implements IUpdate {
         if (isNull(subUi) || containUI(subUi)) {
             return false;
         }
-        UiStatus uiStatus = new UiStatus(subUi, loadMode);
+        UiStatus uiStatus = new UiStatus(subUi, core);
+        subUi.setUiStatus(uiStatus);
         uiStatus.update();
         return this.uiStatuses.add(uiStatus);
     }

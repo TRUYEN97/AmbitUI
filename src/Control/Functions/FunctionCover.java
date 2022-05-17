@@ -31,14 +31,14 @@ public class FunctionCover extends Thread {
         while (this.thread.isAlive()) {
             if (isOutTime()) {
                 this.thread.stop();
-                this.function.addLog("This function has out of time run time!");
+                this.function.addLog("This function has out of run time!");
                 this.function.addLog(String.format("time: %s s\r\nSpec: %s s",
                         getRunTime(), timeSpec));
             }
             try {
                 Thread.sleep(1000);
             } catch (InterruptedException ex) {
-                ErrorLog.getInstance().addError(this, ex.getMessage());
+                ErrorLog.addError(this, ex.getMessage());
             }
         }
         this.function.addLog(endFunction());

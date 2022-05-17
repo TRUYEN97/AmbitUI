@@ -10,11 +10,13 @@
  */
 package View.subUI.FormDetail;
 
+import Model.DataModeTest.DataBoxs.DataBox;
+import java.awt.event.KeyEvent;
+import java.util.List;
 import java.util.Vector;
 import javax.swing.JLabel;
 import javax.swing.table.DefaultTableCellRenderer;
 import javax.swing.table.DefaultTableModel;
-import javax.swing.table.TableColumnModel;
 
 /**
  *
@@ -23,7 +25,8 @@ import javax.swing.table.TableColumnModel;
 public class TabItem extends AbsTabUI {
 
     private static final int VID_TABLE = 1;
-    private Vector<String> column;
+    private final Vector<String> testColumn;
+    private final Vector<String> listFunc;
     private DefaultTableModel tableModel;
     private static final int ADD_NEW_ROW = -1;
 
@@ -33,32 +36,35 @@ public class TabItem extends AbsTabUI {
     public TabItem() {
         super("Item");
         initComponents();
-        this.column = new Vector<>();
-        this.column.add("STT");
-        this.column.add("Item");
-        this.column.add("Staus");
-        this.column.add("Error code");
-        initTable();
+        this.testColumn = new Vector<>();
+        this.testColumn.add("STT");
+        this.testColumn.add("Item");
+        this.testColumn.add("Time");
+        this.testColumn.add("Staus");
+        this.testColumn.add("Result");
+        this.testColumn.add("Cus error code");
+        this.testColumn.add("Error code");
+        this.listFunc = new Vector<>();
+        this.listFunc.add("STT");
+        this.listFunc.add("Item");
+        initTable(this.testColumn);
     }
 
-    private void initTable() {
-        int maxWith = (int) ((this.getWidth() - VID_TABLE) / 4);
+    private void initTable(Vector<String> column) {
+        int maxWith = (int) ((this.getWidth() - VID_TABLE) / 6);
         int minWith = (int) (maxWith / 3);
-        int[] sizeColumn = {minWith, maxWith, minWith, minWith, maxWith, maxWith};
+        int[] sizeColumn = {minWith, maxWith, minWith,minWith, minWith, maxWith, maxWith};
         this.tableItem.setModel(
-                new javax.swing.table.DefaultTableModel(new Vector(), this.column) {
-
-            boolean[] canEdit = new boolean[]{false, false, false, false, false, false};
-
+                new javax.swing.table.DefaultTableModel(null, column) {
             @Override
             public boolean isCellEditable(int rowIndex, int columnIndex) {
-                return canEdit[columnIndex];
+                return false;
             }
         });
         this.tableItem.getTableHeader().setReorderingAllowed(true);//
         this.tableItem.setShowGrid(true);
         this.tableModel = (DefaultTableModel) this.tableItem.getModel();
-        for (int i = 0; i < this.column.size(); i++) {
+        for (int i = 0; i < column.size(); i++) {
             setPropertiesColumn(i, sizeColumn[i], JLabel.CENTER, JLabel.CENTER);
         }
     }
@@ -124,14 +130,15 @@ public class TabItem extends AbsTabUI {
         );
     }// </editor-fold>//GEN-END:initComponents
 
-private void tableItemMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_tableItemMouseClicked
-// TODO add your handling code here:
-
-}//GEN-LAST:event_tableItemMouseClicked
-
 private void tableItemKeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_tableItemKeyTyped
 // TODO add your handling code here:
+    keyEvent(evt);
 }//GEN-LAST:event_tableItemKeyTyped
+
+    private void tableItemMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_tableItemMouseClicked
+        // TODO add your handling code here:
+    }//GEN-LAST:event_tableItemMouseClicked
+
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JScrollPane jScrollPane2;
     private javax.swing.JTable tableItem;
@@ -143,8 +150,45 @@ private void tableItemKeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_t
         return tabItem;
     }
 
-    @Override
-    public void eventData(Object value) {
+    private void showListFunction() {
+        initTable(listFunc);
+        for (String funcName : this.uiStatus.getModeTest().getListItemFunctionName()) {
+            this.tableModel.addRow(new Object[]{this.tableModel.getRowCount(), funcName});
+        }
+    }
 
+    @Override
+    public void keyEvent(KeyEvent evt) {
+        if (!isVisible()) {
+            return;
+        }
+        if (evt.getKeyChar() == CTRL_S) {
+            showListFunction();
+        }
+    }
+    private static final int CTRL_S = 19;
+
+    @Override
+    public void startTest() {
+        super.startTest();
+        initTable(testColumn);
+    }
+
+    @Override
+    public void updateData() {
+        List<DataBox> dataBoxs = this.uiStatus.getUiData().getDataBoxs();
+        if (dataBoxs.isEmpty()) {
+            return;
+        }
+        for (DataBox dataBox : dataBoxs) {
+            
+        }
+        for (DataBox dataBox : dataBoxs) {
+            if (dataBoxs.size() > this.tableModel.getRowCount()) {
+                this.tableModel.addRow(new Object[]{this.tableModel.getRowCount()});
+            }
+            this.tableModel.setValueAt(dataBox.getItemName(), dataBoxs.indexOf(dataBox), 1);
+            this.tableModel.setValueAt(dataBox.getResultTest(), dataBoxs.indexOf(dataBox), 4);
+        }
     }
 }

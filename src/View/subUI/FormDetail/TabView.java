@@ -10,6 +10,8 @@
  */
 package View.subUI.FormDetail;
 
+import java.awt.event.KeyEvent;
+
 /**
  *
  * @author Administrator
@@ -60,7 +62,10 @@ public class TabView extends AbsTabUI{
 
 
     @Override
-    public void eventData(Object value) {
-       
+    public void keyEvent(KeyEvent evt) {
+    }
+
+    @Override
+    public void updateData() {
     }
 }

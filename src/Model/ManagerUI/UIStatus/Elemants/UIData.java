@@ -6,29 +6,47 @@ package Model.ManagerUI.UIStatus.Elemants;
 
 import Model.DataModeTest.DataBoxs.DataBox;
 import Model.ManagerUI.UIStatus.UiStatus;
-import java.util.HashMap;
+import java.util.ArrayList;
+import java.util.List;
 
 /**
  *
  * @author 21AK22
  */
-public class UIData {
+public class UiData {
 
-    private final HashMap<String, DataBox> dataBoxs;
+    private final List<DataBox> dataBoxs;
     private final UiStatus uiStatus;
 
-    public UIData(UiStatus uiStatus) {
-        this.dataBoxs = new HashMap<>();
+    public UiData(UiStatus uiStatus) {
+        this.dataBoxs = new ArrayList<>();
         this.uiStatus = uiStatus;
     }
 
-    public DataBox getDataBox(String itemName) {
-        DataBox dataBox = this.dataBoxs.get(itemName);
-        if (dataBox == null) {
-            dataBox = new DataBox(this.uiStatus, itemName);
-            this.dataBoxs.put(itemName, dataBox);
+    public List<DataBox> getDataBoxs() {
+        return dataBoxs;
+    }
+
+    public void clear() {
+        for (var dataBox : dataBoxs) {
+            dataBox.remove();
         }
+        dataBoxs.clear();
+    }
+
+    public DataBox createDataBox(String itemName) {
+        DataBox dataBox = new DataBox(uiStatus, itemName);
+        this.dataBoxs.add(dataBox);
         return dataBox;
+    }
+
+    public DataBox getDataBox(String itemName) {
+        for (DataBox dataBox : dataBoxs) {
+            if (dataBox.getItemName().equals(itemName)) {
+                return dataBox;
+            }
+        }
+        return null;
     }
 
 }
