@@ -8,6 +8,7 @@ import Model.DataModeTest.ErrorLog;
 import Model.ManagerUI.UIStatus.UiStatus;
 import MyLoger.MyLoger;
 import java.io.File;
+import java.util.Scanner;
 import javax.swing.JOptionPane;
 
 /**
@@ -64,10 +65,6 @@ public class DataBox {
         return testing;
     }
 
-    public File getLogFile() {
-        return loger.getFileLog();
-    }
-
     public void start() {
         startTime = System.currentTimeMillis();
         testing = true;
@@ -91,10 +88,13 @@ public class DataBox {
     }
 
     public String getLog() {
+
         return this.loger.getLog();
     }
 
     public MyLoger getLoger() {
         return this.loger;
     }
+
+    
 }

@@ -12,7 +12,9 @@ package View.subUI.FormDetail;
 
 import Model.DataModeTest.DataBoxs.DataBox;
 import java.awt.event.KeyEvent;
+import java.util.HashMap;
 import java.util.List;
+import java.util.Map;
 import java.util.Vector;
 import javax.swing.JLabel;
 import javax.swing.table.DefaultTableCellRenderer;
@@ -24,9 +26,12 @@ import javax.swing.table.DefaultTableModel;
  */
 public class TabItem extends AbsTabUI {
 
+    private static final String STAUS = "Staus";
+    private static final String TIME = "Time";
+    private static final String ITEM = "Item";
     private final Vector<String> testColumn;
     private final Vector<String> listFunc;
-    private final ItemLog itemLog;
+    private final Map<DataBox, ItemLog> itemLogs;
     private DefaultTableModel tableModel;
 
     /**
@@ -37,10 +42,10 @@ public class TabItem extends AbsTabUI {
         initComponents();
         this.testColumn = new Vector<>();
         this.listFunc = new Vector<>();
+        this.itemLogs = new HashMap<>();
         addTestClomn();
         addListClomn();
         initTable(this.testColumn);
-        this.itemLog = new ItemLog();
     }
 
     private void addListClomn() {
@@ -56,9 +61,6 @@ public class TabItem extends AbsTabUI {
         this.testColumn.add("Cus error code");
         this.testColumn.add("Error code");
     }
-    private static final String STAUS = "Staus";
-    private static final String TIME = "Time";
-    private static final String ITEM = "Item";
 
     private void initTable(Vector<String> column) {
         int maxWith = (int) ((this.getWidth() - 1) / 6);
@@ -148,16 +150,26 @@ private void tableItemKeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_t
     private void tableItemMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_tableItemMouseClicked
         // TODO add your handling code here:
         if (evt.getClickCount() > 1) {
-            int row = this.tableItem.getSelectedRow();
-            System.out.println(row);
-            DataBox dataBox = this.uiStatus.getUiData().getDataBox(row);
-            if (dataBox == null) {
-                return;
+            System.out.println(itemLogs.size());
+            for (int row : this.tableItem.getSelectedRows()) {
+                DataBox dataBox = this.uiStatus.getUiData().getDataBox(row);
+                if (itemLogs.containsKey(dataBox)) {
+                    itemLogs.get(dataBox).showLog();
+                } else {
+                    if (dataBox != null) {
+                        ItemLog itemLog = new ItemLog(this);
+                        itemLog.setDataBox(dataBox);
+                        itemLog.showLog();
+                        itemLogs.put(dataBox, itemLog);
+                    }
+                }
             }
-            this.itemLog.setDataBox(dataBox);
-            this.itemLog.showLog();
         }
     }//GEN-LAST:event_tableItemMouseClicked
+
+    public Map<DataBox, ItemLog> getItemLogs() {
+        return itemLogs;
+    }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JScrollPane jScrollPane2;

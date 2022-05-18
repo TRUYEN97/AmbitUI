@@ -3,12 +3,10 @@
     <editor-bookmarks xmlns="http://www.netbeans.org/ns/editor-bookmarks/2" lastBookmarkId="1"/>
     <open-files xmlns="http://www.netbeans.org/ns/projectui-open-files/2">
         <group>
-            <file>file:/D:/Ambit-module/EnginerUI/src/Model/DataModeTest/DataBoxs/DataBox.java</file>
-            <file>file:/D:/Ambit-module/EnginerUI/src/View/subUI/FormDetail/ItemLog.java</file>
-            <file>file:/D:/Ambit-module/EnginerUI/src/Model/ManagerUI/UIStatus/Elemants/UiData.java</file>
-            <file>file:/D:/Ambit-module/EnginerUI/src/Control/Functions/AbsFunction.java</file>
-            <file>file:/D:/Ambit-module/EnginerUI/config/Item/ambitconfig.json</file>
-            <file>file:/D:/Ambit-module/EnginerUI/src/View/subUI/FormDetail/TabItem.java</file>
+            <file>file:/D:/NetBeans/Projects/AmbitNew/EnginerUI/src/View/subUI/FormDetail/TabItem.java</file>
+            <file>file:/D:/NetBeans/Projects/AmbitNew/EnginerUI/src/View/subUI/FormDetail/ItemLog.java</file>
+            <file>file:/D:/NetBeans/Projects/AmbitNew/EnginerUI/src/Model/DataModeTest/DataBoxs/DataBox.java</file>
+            <file>file:/D:/NetBeans/Projects/AmbitNew/EnginerUI/src/Model/ManagerUI/UIStatus/Elemants/UiData.java</file>
         </group>
     </open-files>
 </project-private>

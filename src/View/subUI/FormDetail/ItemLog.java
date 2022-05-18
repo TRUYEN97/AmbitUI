@@ -6,7 +6,7 @@ package View.subUI.FormDetail;
 
 import Model.DataModeTest.DataBoxs.DataBox;
 import java.awt.event.ActionEvent;
-import java.awt.event.ActionListener;
+import java.util.Scanner;
 import javax.swing.Timer;
 
 /**
@@ -20,8 +20,10 @@ public class ItemLog extends javax.swing.JFrame {
      */
     private DataBox dataBox;
     private final Timer timer;
+    private final TabItem tabItem;
+    private Scanner scanner;
 
-    public ItemLog() {
+    public ItemLog(TabItem tabItem) {
         //<editor-fold defaultstate="collapsed" desc=" Look and feel setting code (optional) ">
         /* If Nimbus (introduced in Java SE 6) is not available, stay with the default look and feel.
          * For details see http://download.oracle.com/javase/tutorial/uiswing/lookandfeel/plaf.html 
@@ -38,10 +40,13 @@ public class ItemLog extends javax.swing.JFrame {
         }
         //</editor-fold>
         initComponents();
-        this.timer = new Timer(500, (ActionEvent e) -> {
+        this.tabItem = tabItem;
+        this.timer = new Timer(50, (ActionEvent e) -> {
             if (dataBox.isTesting()) {
-                appenLog(dataBox.getLoger().getNewLog());
-            }else{
+                if (scanner != null && scanner.hasNextLine()) {
+                    appenLog(scanner.nextLine().concat("\r\n"));
+                }
+            } else {
                 stopTimer();
             }
         });
@@ -56,9 +61,14 @@ public class ItemLog extends javax.swing.JFrame {
     }
 
     public void showLog() {
+        this.setTitle(dataBox.getItemName());
         setVisible(true);
-        this.txtLog.setText(dataBox.getLog());
-        this.timer.start();
+        if (dataBox.isTesting()) {
+            this.scanner = dataBox.getLoger().getScaner();
+            this.timer.start();
+        } else {
+            this.txtLog.setText(dataBox.getLog());
+        }
     }
 
     /**
@@ -89,11 +99,11 @@ public class ItemLog extends javax.swing.JFrame {
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(jScrollPane2, javax.swing.GroupLayout.DEFAULT_SIZE, 490, Short.MAX_VALUE)
+            .addComponent(jScrollPane2, javax.swing.GroupLayout.DEFAULT_SIZE, 500, Short.MAX_VALUE)
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(jScrollPane2, javax.swing.GroupLayout.DEFAULT_SIZE, 207, Short.MAX_VALUE)
+            .addComponent(jScrollPane2, javax.swing.GroupLayout.DEFAULT_SIZE, 342, Short.MAX_VALUE)
         );
 
         pack();
@@ -102,17 +112,18 @@ public class ItemLog extends javax.swing.JFrame {
 
     private void formWindowClosed(java.awt.event.WindowEvent evt) {//GEN-FIRST:event_formWindowClosed
         // TODO add your handling code here:
-        this.txtLog.setText("");
-        this.dataBox = null;
         stopTimer();
+        this.tabItem.getItemLogs().remove(dataBox);
     }//GEN-LAST:event_formWindowClosed
 
     /**
      * @param args the command line arguments
      */
-
     private void stopTimer() {
         this.timer.stop();
+        if (this.scanner != null) {
+            this.scanner.close();
+        }
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
