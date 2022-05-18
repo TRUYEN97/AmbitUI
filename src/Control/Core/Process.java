@@ -6,6 +6,7 @@ package Control.Core;
 
 import Control.Functions.FunctionCover;
 import Control.Functions.AbsFunction;
+import Model.DataModeTest.ErrorLog;
 import Model.Interface.IFunction;
 import java.util.ArrayList;
 import java.util.List;
@@ -15,17 +16,17 @@ import java.util.List;
  * @author Administrator
  */
 class Process implements IFunction {
-
+    
     private final List<FunctionCover> multiTasking;
     private final List<FunctionCover> functions;
     private boolean result;
-
+    
     public Process() {
         this.multiTasking = new ArrayList<>();
         this.functions = new ArrayList<>();
         this.result = true;
     }
-
+    
     public void setListFunc(List<AbsFunction> functions) {
         this.functions.clear();
         this.result = true;
@@ -33,15 +34,16 @@ class Process implements IFunction {
             this.functions.add(new FunctionCover(function));
         }
     }
-
+    
     @Override
     public boolean isPass() {
         return result;
     }
-
+    
     @Override
     public void run() {
         for (FunctionCover cover : this.functions) {
+            cover.init();
             cover.start();
             multiTasking.add(cover);
             if (!cover.isMutiTasking()) {
@@ -51,6 +53,7 @@ class Process implements IFunction {
                         break;
                     }
                 } catch (InterruptedException ex) {
+                    ErrorLog.addError(this, ex.getMessage());
                     break;
                 }
             }
@@ -67,7 +70,13 @@ class Process implements IFunction {
         }
         System.out.println(isPass());
     }
-
+    
+    void stop() {
+        for (FunctionCover functionCover : multiTasking) {
+            functionCover.stop();
+        }
+    }
+    
     private boolean hasTaskFailed() {
         List<FunctionCover> funcRemoves = new ArrayList<>();
         try {
@@ -86,12 +95,6 @@ class Process implements IFunction {
             return true;
         } finally {
             multiTasking.removeAll(funcRemoves);
-        }
-    }
-
-    void stop() {
-        for (FunctionCover functionCover : multiTasking) {
-            functionCover.stop();
         }
     }
 }

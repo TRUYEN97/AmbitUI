@@ -24,36 +24,46 @@ import javax.swing.table.DefaultTableModel;
  */
 public class TabItem extends AbsTabUI {
 
-    private static final int VID_TABLE = 1;
     private final Vector<String> testColumn;
     private final Vector<String> listFunc;
+    private final ItemLog itemLog;
     private DefaultTableModel tableModel;
-    private static final int ADD_NEW_ROW = -1;
 
     /**
      * Creates new form TagLog
      */
     public TabItem() {
-        super("Item");
+        super(ITEM);
         initComponents();
         this.testColumn = new Vector<>();
-        this.testColumn.add("STT");
-        this.testColumn.add("Item");
-        this.testColumn.add("Time");
-        this.testColumn.add("Staus");
-        this.testColumn.add("Result");
-        this.testColumn.add("Cus error code");
-        this.testColumn.add("Error code");
         this.listFunc = new Vector<>();
-        this.listFunc.add("STT");
-        this.listFunc.add("Item");
+        addTestClomn();
+        addListClomn();
         initTable(this.testColumn);
+        this.itemLog = new ItemLog();
     }
 
+    private void addListClomn() {
+        this.listFunc.add("STT");
+        this.listFunc.add(ITEM);
+    }
+
+    private void addTestClomn() {
+        this.testColumn.add("STT");
+        this.testColumn.add(ITEM);
+        this.testColumn.add(TIME);
+        this.testColumn.add(STAUS);
+        this.testColumn.add("Cus error code");
+        this.testColumn.add("Error code");
+    }
+    private static final String STAUS = "Staus";
+    private static final String TIME = "Time";
+    private static final String ITEM = "Item";
+
     private void initTable(Vector<String> column) {
-        int maxWith = (int) ((this.getWidth() - VID_TABLE) / 6);
+        int maxWith = (int) ((this.getWidth() - 1) / 6);
         int minWith = (int) (maxWith / 3);
-        int[] sizeColumn = {minWith, maxWith, minWith,minWith, minWith, maxWith, maxWith};
+        int[] sizeColumn = {minWith, maxWith, minWith, minWith, maxWith, maxWith};
         this.tableItem.setModel(
                 new javax.swing.table.DefaultTableModel(null, column) {
             @Override
@@ -137,6 +147,16 @@ private void tableItemKeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_t
 
     private void tableItemMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_tableItemMouseClicked
         // TODO add your handling code here:
+        if (evt.getClickCount() > 1) {
+            int row = this.tableItem.getSelectedRow();
+            System.out.println(row);
+            DataBox dataBox = this.uiStatus.getUiData().getDataBox(row);
+            if (dataBox == null) {
+                return;
+            }
+            this.itemLog.setDataBox(dataBox);
+            this.itemLog.showLog();
+        }
     }//GEN-LAST:event_tableItemMouseClicked
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
@@ -162,7 +182,7 @@ private void tableItemKeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_t
         if (!isVisible()) {
             return;
         }
-        if (evt.getKeyChar() == CTRL_S) {
+        if (evt.getKeyChar() == CTRL_S && !this.uiStatus.isTesting()) {
             showListFunction();
         }
     }
@@ -175,20 +195,47 @@ private void tableItemKeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_t
     }
 
     @Override
+    public void endTest() {
+        updateData();
+        super.endTest();
+    }
+
+    @Override
     public void updateData() {
-        List<DataBox> dataBoxs = this.uiStatus.getUiData().getDataBoxs();
-        if (dataBoxs.isEmpty()) {
+        if (!this.isVisible()) {
+            this.tableModel.setRowCount(0);
             return;
         }
+        List<DataBox> dataBoxs = this.uiStatus.getUiData().getDataBoxs();
         for (DataBox dataBox : dataBoxs) {
-            
-        }
-        for (DataBox dataBox : dataBoxs) {
-            if (dataBoxs.size() > this.tableModel.getRowCount()) {
+            int row = dataBoxs.indexOf(dataBox);
+            if (row > this.tableModel.getRowCount() - 1) {
                 this.tableModel.addRow(new Object[]{this.tableModel.getRowCount()});
+                editRow(dataBox.getItemName(), row, ITEM);
+                editRow(dataBox.getRunTime(), row, TIME);
+                editRow(getStatus(dataBox), row, STAUS);
+            } else {
+                editRow(dataBox.getRunTime(), row, TIME);
+                editRow(getStatus(dataBox), row, STAUS);
             }
-            this.tableModel.setValueAt(dataBox.getItemName(), dataBoxs.indexOf(dataBox), 1);
-            this.tableModel.setValueAt(dataBox.getResultTest(), dataBoxs.indexOf(dataBox), 4);
+        }
+    }
+
+    private void editRow(Object value, int row, String colmn) {
+        if (row < 0 || !this.testColumn.contains(colmn)) {
+            return;
+        }
+        this.tableModel.setValueAt(value, row, this.testColumn.indexOf(colmn));
+    }
+
+    private Object getStatus(DataBox dataBox) {
+        if (!dataBox.isTesting()) {
+            return dataBox.getResultTest();
+        }
+        if (dataBox.isMultiStacking()) {
+            return "Multistacking";
+        } else {
+            return "Testing";
         }
     }
 }

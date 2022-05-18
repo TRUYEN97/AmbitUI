@@ -22,7 +22,7 @@ public abstract class AbsUI extends JPanel {
 
     protected AbsUI(String name) {
         this.name = name;
-        this.timer = new Timer(500, (ActionEvent e) -> {
+        this.timer = new Timer(1000, (ActionEvent e) -> {
             updateData();
         });
     }

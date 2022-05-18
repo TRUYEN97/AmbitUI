@@ -1,0 +1,7 @@
+2022-05-18 02:30:16 : can't delete local function log file of nodeproperty_mac
+2022-05-18 08:39:09 : can't delete local function log file of nodeproperty_mac
+2022-05-18 08:46:21 : can't delete local function log file of nodeproperty_mac
+2022-05-18 08:48:50 : can't delete local function log file of nodeproperty_mac
+2022-05-18 08:48:51 : can't delete local function log file of fixture_close
+2022-05-18 08:54:25 : can't delete local function log file of nodeproperty_mac
+2022-05-18 08:54:27 : can't delete local function log file of fixture_close

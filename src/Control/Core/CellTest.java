@@ -8,7 +8,6 @@ import Control.Functions.AbsFunction;
 import Model.DataModeTest.InputData;
 import Model.DataSource.FunctionConfig.FunctionConfig;
 import Model.ManagerUI.UIStatus.Elemants.UiData;
-import Model.ManagerUI.UIStatus.Elemants.UISignal;
 import Model.ManagerUI.UIStatus.UiStatus;
 import View.subUI.SubUI.AbsSubUi;
 import java.awt.event.ActionEvent;
@@ -31,7 +30,6 @@ public class CellTest implements Runnable {
     private final UiStatus uiStatus;
     private final Timer timer;
     private final UiData uiData;
-    private final UISignal input;
     private final AbsSubUi subUi;
     private long startTime;
 
@@ -43,7 +41,6 @@ public class CellTest implements Runnable {
         this.ends = new ArrayList<>();
         this.uiStatus = uiStatus;
         this.uiData = uiStatus.getUiData();
-        this.input = uiStatus.getUiSignal();
         this.subUi = uiStatus.getSubUi();
         this.timer = new Timer(1000, new ActionListener() {
             private final long timeOut = FunctionConfig.getInstance().getTimeOutTest();
@@ -67,6 +64,7 @@ public class CellTest implements Runnable {
 
     @Override
     public void run() {
+        this.uiData.clear();
         timer.start();
         this.subUi.startTest();
         if (runFunctions(checks) && test() && runFunctions(ends)) {
@@ -75,7 +73,6 @@ public class CellTest implements Runnable {
             System.out.println("failed");
         }
         this.subUi.endTest();
-        this.uiData.clear();
     }
 
     void setCheckFunction(List<AbsFunction> checkFunctions) {

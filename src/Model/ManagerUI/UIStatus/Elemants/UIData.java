@@ -4,7 +4,9 @@
  */
 package Model.ManagerUI.UIStatus.Elemants;
 
+import Control.Functions.AbsFunction;
 import Model.DataModeTest.DataBoxs.DataBox;
+import Model.DataModeTest.DataBoxs.UISignal;
 import Model.ManagerUI.UIStatus.UiStatus;
 import java.util.ArrayList;
 import java.util.List;
@@ -17,10 +19,12 @@ public class UiData {
 
     private final List<DataBox> dataBoxs;
     private final UiStatus uiStatus;
+    private final UISignal signal;
 
     public UiData(UiStatus uiStatus) {
         this.dataBoxs = new ArrayList<>();
         this.uiStatus = uiStatus;
+        this.signal = new UISignal();
     }
 
     public List<DataBox> getDataBoxs() {
@@ -28,9 +32,6 @@ public class UiData {
     }
 
     public void clear() {
-        for (var dataBox : dataBoxs) {
-            dataBox.remove();
-        }
         dataBoxs.clear();
     }
 
@@ -47,6 +48,17 @@ public class UiData {
             }
         }
         return null;
+    }
+
+    public DataBox getDataBox(int index) {
+        if (index >= this.dataBoxs.size()) {
+            return null;
+        }
+        return this.dataBoxs.get(index);
+    }
+
+    public List<AbsFunction> getFunctionSelected() {
+        return this.signal.getFunctionSelected();
     }
 
 }

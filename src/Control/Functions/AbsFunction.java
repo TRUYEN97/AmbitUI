@@ -9,7 +9,7 @@ import Model.DataSource.FunctionConfig.FunctionConfig;
 import Model.DataSource.FunctionConfig.FunctionElement;
 import Model.DataSource.Limit.Limit;
 import Model.ManagerUI.UIStatus.Elemants.UiData;
-import Model.ManagerUI.UIStatus.Elemants.UISignal;
+import Model.DataModeTest.DataBoxs.UISignal;
 import Model.ManagerUI.UIStatus.UiStatus;
 import View.subUI.SubUI.AbsSubUi;
 import Model.Interface.IFunction;
@@ -21,34 +21,31 @@ import Model.DataModeTest.ErrorLog;
  * @author 21AK22
  */
 public abstract class AbsFunction implements IFunction {
-    
+
     protected final FunctionElement funcConfig;
     protected final Limit limit;
     protected boolean isPass;
     private UiData uIData;
     private DataBox dataBox;
     private ModeTest modeTest;
-    private UISignal uISignal;
     private AbsSubUi subUi;
-    
+
     protected AbsFunction(String itemName) {
         this.funcConfig = FunctionConfig.getInstance().getElement(itemName);
         this.limit = Limit.getInstance();
         this.isPass = false;
     }
-    
+
     public void setUIStatus(UiStatus uiStatus) {
         this.uIData = uiStatus.getUiData();
-        this.dataBox = getDataBox();
-        this.uISignal = uiStatus.getUiSignal();
         this.subUi = uiStatus.getSubUi();
         this.modeTest = uiStatus.getModeTest();
     }
-    
+
     public FunctionElement getFuncConfig() {
         return funcConfig;
     }
-    
+
     @Override
     public void run() {
         try {
@@ -58,7 +55,8 @@ public abstract class AbsFunction implements IFunction {
                 isPass = true;
                 return;
             }
-            for (int times = 0; times < getRetry(); times++) {
+            for (int turn = 0; turn < getRetry(); turn++) {
+                this.dataBox.addLog(String.format("- Turn %s..", turn));
                 if (test()) {
                     isPass = true;
                     return;
@@ -69,49 +67,68 @@ public abstract class AbsFunction implements IFunction {
             ErrorLog.addError(e.getLocalizedMessage());
             this.addLog(e.getMessage());
         }
-        
+
     }
 
     public void setRsutlt(String result) {
         this.dataBox.setResult(result);
     }
-    
+
     public abstract boolean test();
-    
+
     @Override
     public boolean isPass() {
         return isPass;
     }
-    
+
     public String getItemName() {
         return this.funcConfig.getItemName();
     }
-    
+
     public String getFuncName() {
         return this.funcConfig.getFunctionName();
     }
-    
+
     public void addLog(Object str) {
         this.dataBox.addLog(str);
     }
-    
+
+    public double getRunTime() {
+        return dataBox.getRunTime();
+    }
+
+    void createDataBox() {
+        this.dataBox = getDataBox();
+        if (funcConfig.isMutiTasking()) {
+            this.dataBox.setMultistacking();
+        }
+        this.dataBox.start();
+    }
+
+    void end() {
+        this.dataBox.end();
+    }
+
     private int getRetry() {
         if (funcConfig != null) {
             return funcConfig.getRetry();
         }
         return 1;
     }
-    
+
     private DataBox getDataBox() {
-        DataBox dataBox = this.uIData.getDataBox(funcConfig.getItemName());
-        if (dataBox == null) {
-            dataBox = this.uIData.createDataBox(funcConfig.getItemName());
+        if (this.uIData.getDataBox(funcConfig.getItemName()) == null) {
+            return this.uIData.createDataBox(funcConfig.getItemName());
         }
-        return dataBox;
+        return this.uIData.getDataBox(funcConfig.getItemName());
     }
-    
+
     private boolean isModeSkip() {
         String modeSkip = this.funcConfig.getModeCancel();
         return modeSkip != null && modeSkip.isBlank() && modeSkip.equals(modeTest.toString());
+    }
+
+    String getResult() {
+        return this.dataBox.getResultTest();
     }
 }

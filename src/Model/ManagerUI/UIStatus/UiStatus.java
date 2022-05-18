@@ -6,7 +6,6 @@ package Model.ManagerUI.UIStatus;
 
 import Model.ManagerUI.UIStatus.Elemants.UiData;
 import Model.ManagerUI.UIStatus.Elemants.UITest;
-import Model.ManagerUI.UIStatus.Elemants.UISignal;
 import Control.Core.Core;
 import Control.Core.ModeTest;
 import Control.Core.CellTest;
@@ -25,7 +24,6 @@ public class UiStatus implements IUpdate {
     private final AbsSubUi subUi;
     private final String name;
     private final Core core;
-    private final UISignal signal;
     private final UiData uiData;
     private final UITest test;
     private ModeTest modeTest;
@@ -35,7 +33,6 @@ public class UiStatus implements IUpdate {
         this.name = subUi.getName();
         this.core = core;
         this.uiData = new UiData(this);
-        this.signal = new UISignal();
         this.test = new UITest(this);
     }
 
@@ -50,11 +47,7 @@ public class UiStatus implements IUpdate {
     public Core getCore() {
         return core;
     }
-
-    public UISignal getUiSignal() {
-        return signal;
-    }
-
+    
     public ModeTest getModeTest() {
         return this.modeTest;
     }
@@ -101,6 +94,6 @@ public class UiStatus implements IUpdate {
     }
 
     public List<AbsFunction> getFunctionSelected() {
-        return this.signal.getFunctionSelected();
+        return this.uiData.getFunctionSelected();
     }
 }

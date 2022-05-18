@@ -13,7 +13,6 @@ import Model.DataModeTest.ErrorLog;
 public class FunctionCover extends Thread {
 
     private final AbsFunction function;
-    private long startTime;
     private final double timeSpec;
     private final Thread thread;
 
@@ -23,33 +22,39 @@ public class FunctionCover extends Thread {
         this.timeSpec = function.getFuncConfig().getTimeOutFunction();
     }
 
+    public void init() {
+        this.function.createDataBox();
+    }
+
     @Override
     public void run() {
-        this.function.addLog(startFunction());
-        this.thread.start();
-        this.startTime = System.currentTimeMillis();
-        while (this.thread.isAlive()) {
-            if (isOutTime()) {
-                this.thread.stop();
-                this.function.addLog("This function has out of run time!");
-                this.function.addLog(String.format("time: %s s\r\nSpec: %s s",
-                        getRunTime(), timeSpec));
+        try {
+            this.function.addLog(startFunction());
+            this.thread.start();
+            while (this.thread.isAlive()) {
+                if (isOutTime()) {
+                    this.thread.stop();
+                    this.function.addLog("This function has out of run time!");
+                    this.function.addLog(String.format("time: %s s\r\nSpec: %s s",
+                            function.getRunTime(), timeSpec));
+                }
+                try {
+                    this.thread.join(1000);
+                } catch (InterruptedException ex) {
+                    ErrorLog.addError(this, ex.getMessage());
+                }
             }
-            try {
-                Thread.sleep(1000);
-            } catch (InterruptedException ex) {
-                ErrorLog.addError(this, ex.getMessage());
+        } finally {
+            if (this.function.getResult() == null) {
+                this.function.setRsutlt(function.isPass() ? "PASS" : "FAIL");
             }
+            this.function.addLog(endFunction());
+            this.function.end();
         }
-        this.function.addLog(endFunction());
     }
 
     public AbsFunction getFunction() {
         return function;
-    }
-
-    public double getRunTime() {
-        return (System.currentTimeMillis() - this.startTime)/1000.0;
     }
 
     public boolean isMutiTasking() {
@@ -57,7 +62,7 @@ public class FunctionCover extends Thread {
     }
 
     public boolean isOutTime() {
-        return getRunTime() >= timeSpec;
+        return function.getRunTime() >= timeSpec;
     }
 
     public boolean isSkipFail() {
@@ -71,6 +76,6 @@ public class FunctionCover extends Thread {
 
     private String endFunction() {
         return String.format("TIME[%S s]-RESULT[%S]",
-                ((double) getRunTime()), this.function.isPass() ? "PASS" : "FAILED");
+                ((double) function.getRunTime()), this.function.isPass() ? "PASS" : "FAILED");
     }
 }
