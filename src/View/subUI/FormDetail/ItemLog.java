@@ -6,7 +6,8 @@ package View.subUI.FormDetail;
 
 import Model.DataModeTest.DataBoxs.DataBox;
 import java.awt.event.ActionEvent;
-import java.util.Scanner;
+import java.util.Iterator;
+import java.util.Queue;
 import javax.swing.Timer;
 
 /**
@@ -19,9 +20,9 @@ public class ItemLog extends javax.swing.JFrame {
      * Creates new form ItemLog
      */
     private DataBox dataBox;
+    private Queue<String> queueLog;
     private final Timer timer;
     private final TabItem tabItem;
-    private Scanner scanner;
 
     public ItemLog(TabItem tabItem) {
         //<editor-fold defaultstate="collapsed" desc=" Look and feel setting code (optional) ">
@@ -41,13 +42,10 @@ public class ItemLog extends javax.swing.JFrame {
         //</editor-fold>
         initComponents();
         this.tabItem = tabItem;
-        this.timer = new Timer(50, (ActionEvent e) -> {
-            if (dataBox.isTesting()) {
-                if (scanner != null && scanner.hasNextLine()) {
-                    appenLog(scanner.nextLine().concat("\r\n"));
-                }
-            } else {
-                stopTimer();
+        int a = 0;
+        this.timer = new Timer(500, (ActionEvent e) -> {
+            while (!queueLog.isEmpty()) {
+                this.txtLog.append(queueLog.poll());
             }
         });
     }
@@ -64,7 +62,6 @@ public class ItemLog extends javax.swing.JFrame {
         this.setTitle(dataBox.getItemName());
         setVisible(true);
         if (dataBox.isTesting()) {
-            this.scanner = dataBox.getLoger().getScaner();
             this.timer.start();
         } else {
             this.txtLog.setText(dataBox.getLog());
@@ -92,6 +89,7 @@ public class ItemLog extends javax.swing.JFrame {
 
         txtLog.setEditable(false);
         txtLog.setColumns(20);
+        txtLog.setFont(new java.awt.Font("Segoe UI", 0, 16)); // NOI18N
         txtLog.setRows(5);
         jScrollPane2.setViewportView(txtLog);
 
@@ -99,11 +97,13 @@ public class ItemLog extends javax.swing.JFrame {
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(jScrollPane2, javax.swing.GroupLayout.DEFAULT_SIZE, 500, Short.MAX_VALUE)
+            .addGroup(layout.createSequentialGroup()
+                .addComponent(jScrollPane2, javax.swing.GroupLayout.PREFERRED_SIZE, 640, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(0, 0, Short.MAX_VALUE))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(jScrollPane2, javax.swing.GroupLayout.DEFAULT_SIZE, 342, Short.MAX_VALUE)
+            .addComponent(jScrollPane2, javax.swing.GroupLayout.DEFAULT_SIZE, 392, Short.MAX_VALUE)
         );
 
         pack();
@@ -121,9 +121,6 @@ public class ItemLog extends javax.swing.JFrame {
      */
     private void stopTimer() {
         this.timer.stop();
-        if (this.scanner != null) {
-            this.scanner.close();
-        }
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
@@ -133,5 +130,6 @@ public class ItemLog extends javax.swing.JFrame {
 
     void setDataBox(DataBox dataBox) {
         this.dataBox = dataBox;
+        this.queueLog = dataBox.getLoger().getQueueLog();
     }
 }

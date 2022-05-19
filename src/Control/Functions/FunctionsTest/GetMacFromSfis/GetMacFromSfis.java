@@ -22,6 +22,7 @@ public class GetMacFromSfis extends AbsFunction {
             try {
                 System.out.println(getItemName() + i);
                 Thread.sleep(500);
+                addLog(i);
             } catch (InterruptedException ex) {
                 ex.printStackTrace();
             }

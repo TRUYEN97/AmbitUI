@@ -65,7 +65,7 @@ public class CellTest implements Runnable {
     @Override
     public void run() {
         this.uiData.clear();
-        timer.start();
+        this.timer.start();
         this.subUi.startTest();
         if (runFunctions(checks) && test() && runFunctions(ends)) {
             System.out.println("Pass");

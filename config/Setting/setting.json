@@ -9,7 +9,7 @@
         {
             "NAME": "PRODUCTION", 
             "TYPE_MODE": "Production",
-            "DETAIL": ["View", "Item", "Log"],
+            "DETAIL": ["Item", "Log"],
             "PREPARE": [],
             "END": []
         },
@@ -17,7 +17,7 @@
             "NAME": "DEBUG",
             "TYPE_MODE": "Debug",
             "DISCRETE_TEST": "ON",
-            "DETAIL": ["Item", "Log"],
+            "DETAIL": ["View","Item", "Log"],
             "PREPARE": [],
             "END": []
         },

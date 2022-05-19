@@ -29,6 +29,9 @@ public class TabItem extends AbsTabUI {
     private static final String STAUS = "Staus";
     private static final String TIME = "Time";
     private static final String ITEM = "Item";
+    private static final String STT = "STT";
+    private static final String ERROR_CODE = "Error code";
+    private static final String CUS_ERROR_CODE = "Cus error code";
     private final Vector<String> testColumn;
     private final Vector<String> listFunc;
     private final Map<DataBox, ItemLog> itemLogs;
@@ -49,17 +52,17 @@ public class TabItem extends AbsTabUI {
     }
 
     private void addListClomn() {
-        this.listFunc.add("STT");
+        this.listFunc.add(STT);
         this.listFunc.add(ITEM);
     }
 
     private void addTestClomn() {
-        this.testColumn.add("STT");
+        this.testColumn.add(STT);
         this.testColumn.add(ITEM);
         this.testColumn.add(TIME);
         this.testColumn.add(STAUS);
-        this.testColumn.add("Cus error code");
-        this.testColumn.add("Error code");
+        this.testColumn.add(CUS_ERROR_CODE);
+        this.testColumn.add(ERROR_CODE);
     }
 
     private void initTable(Vector<String> column) {
@@ -101,86 +104,72 @@ public class TabItem extends AbsTabUI {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
-        jScrollPane2 = new javax.swing.JScrollPane();
+        jScrollPane1 = new javax.swing.JScrollPane();
         tableItem = new javax.swing.JTable();
 
-        jScrollPane2.setName("jScrollPane2"); // NOI18N
+        jScrollPane1.setName("jScrollPane1"); // NOI18N
 
         tableItem.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
-        tableItem.setFont(new java.awt.Font("Tahoma", 0, 12)); // NOI18N
-        tableItem.setCursor(new java.awt.Cursor(java.awt.Cursor.DEFAULT_CURSOR));
-        tableItem.setGridColor(new java.awt.Color(0, 0, 0));
+        tableItem.setFont(new java.awt.Font("Arial", 0, 14)); // NOI18N
+        tableItem.setModel(new javax.swing.table.DefaultTableModel(
+            null,
+            new String [] {
+                "Title 1", "Title 2", "Title 3", "Title 4"
+            }
+        ));
         tableItem.setName("tableItem"); // NOI18N
-        tableItem.setRowHeight(22);
-        tableItem.setSelectionMode(javax.swing.ListSelectionModel.MULTIPLE_INTERVAL_SELECTION);
-        tableItem.setShowGrid(false);
+        tableItem.setRowHeight(30);
         tableItem.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
                 tableItemMouseClicked(evt);
             }
         });
-        tableItem.addKeyListener(new java.awt.event.KeyAdapter() {
-            public void keyTyped(java.awt.event.KeyEvent evt) {
-                tableItemKeyTyped(evt);
-            }
-        });
-        jScrollPane2.setViewportView(tableItem);
+        jScrollPane1.setViewportView(tableItem);
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(this);
         this.setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 400, Short.MAX_VALUE)
-            .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                .addComponent(jScrollPane2, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, 400, Short.MAX_VALUE))
+            .addComponent(jScrollPane1, javax.swing.GroupLayout.DEFAULT_SIZE, 295, Short.MAX_VALUE)
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 300, Short.MAX_VALUE)
-            .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                .addComponent(jScrollPane2, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, 300, Short.MAX_VALUE))
+            .addComponent(jScrollPane1, javax.swing.GroupLayout.DEFAULT_SIZE, 183, Short.MAX_VALUE)
         );
     }// </editor-fold>//GEN-END:initComponents
-
-private void tableItemKeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_tableItemKeyTyped
-// TODO add your handling code here:
-    keyEvent(evt);
-}//GEN-LAST:event_tableItemKeyTyped
 
     private void tableItemMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_tableItemMouseClicked
         // TODO add your handling code here:
         if (evt.getClickCount() > 1) {
-            System.out.println(itemLogs.size());
-            for (int row : this.tableItem.getSelectedRows()) {
-                DataBox dataBox = this.uiStatus.getUiData().getDataBox(row);
-                if (itemLogs.containsKey(dataBox)) {
-                    itemLogs.get(dataBox).showLog();
-                } else {
-                    if (dataBox != null) {
-                        ItemLog itemLog = new ItemLog(this);
-                        itemLog.setDataBox(dataBox);
-                        itemLog.showLog();
-                        itemLogs.put(dataBox, itemLog);
-                    }
+            showItemLogSelected();
+        }
+    }//GEN-LAST:event_tableItemMouseClicked
+
+    private void showItemLogSelected() {
+        for (int row : this.tableItem.getSelectedRows()) {
+            DataBox dataBox = this.uiStatus.getUiData().getDataBox(row);
+            if (itemLogs.containsKey(dataBox)) {
+                itemLogs.get(dataBox).showLog();
+            } else {
+                if (dataBox != null) {
+                    ItemLog itemLog = new ItemLog(this);
+                    itemLog.setDataBox(dataBox);
+                    itemLog.showLog();
+                    itemLogs.put(dataBox, itemLog);
                 }
             }
         }
-    }//GEN-LAST:event_tableItemMouseClicked
+    }
 
     public Map<DataBox, ItemLog> getItemLogs() {
         return itemLogs;
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JScrollPane jScrollPane2;
+    private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JTable tableItem;
     // End of variables declaration//GEN-END:variables
 
-    public TabItem cloneUI(String name) {
-        TabItem tabItem = new TabItem();
-        tabItem.setName(name);
-        return tabItem;
-    }
 
     private void showListFunction() {
         initTable(listFunc);
@@ -224,10 +213,11 @@ private void tableItemKeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_t
             if (row > this.tableModel.getRowCount() - 1) {
                 this.tableModel.addRow(new Object[]{this.tableModel.getRowCount()});
                 editRow(dataBox.getItemName(), row, ITEM);
-                editRow(dataBox.getRunTime(), row, TIME);
+                editRow(dataBox.getRunTime() + " S", row, TIME);
                 editRow(getStatus(dataBox), row, STAUS);
             } else {
-                editRow(dataBox.getRunTime(), row, TIME);
+                editRow(dataBox.getItemName(), row, ITEM);
+                editRow(dataBox.getRunTime() + " S", row, TIME);
                 editRow(getStatus(dataBox), row, STAUS);
             }
         }

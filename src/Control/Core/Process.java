@@ -68,7 +68,6 @@ class Process implements IFunction {
                 break;
             }
         }
-        System.out.println(isPass());
     }
     
     void stop() {

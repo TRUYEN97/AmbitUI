@@ -8,7 +8,6 @@ import Model.DataModeTest.ErrorLog;
 import Model.ManagerUI.UIStatus.UiStatus;
 import MyLoger.MyLoger;
 import java.io.File;
-import java.util.Scanner;
 import javax.swing.JOptionPane;
 
 /**
