@@ -48,4 +48,12 @@ public class Setting extends AbsJsonSource<ModeElement> implements IInit {
         }
         return !this.elements.isEmpty();
     }
+    
+    public String getFunctionsLocalLog() {
+        return this.readFile.getData().getString(KeyWord.LOCAL_FUNCTION_LOG);
+    }
+    
+    public String getLocalLog() {
+        return this.readFile.getData().getString(KeyWord.LOCAL_LOG);
+    }
 }

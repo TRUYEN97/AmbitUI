@@ -5,6 +5,7 @@
 package Model.DataModeTest.DataBoxs;
 
 import Model.DataModeTest.ErrorLog;
+import Model.DataSource.Setting.Setting;
 import Model.ManagerUI.UIStatus.UiStatus;
 import MyLoger.MyLoger;
 import java.io.File;
@@ -28,7 +29,9 @@ public class DataBox {
         this.loger = new MyLoger();
         this.itemName = itemName;
         this.testing = false;
-        String fileLogName = String.format("Log\\TestLog\\%s\\%s.txt", uiStatus.getName(), itemName);
+        String localFunctionsFile = Setting.getInstance().getFunctionsLocalLog();
+        String fileLogName = String.format("%s\\%s\\%s.txt", 
+                localFunctionsFile, uiStatus.getName(), itemName);
         if (!this.loger.begin(new File(fileLogName), true, true)) {
             String mess = "can't delete local function log file of " + itemName;
             JOptionPane.showMessageDialog(null, mess);
@@ -95,5 +98,4 @@ public class DataBox {
         return this.loger;
     }
 
-    
 }

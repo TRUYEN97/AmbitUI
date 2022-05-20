@@ -35,7 +35,7 @@ public class FunctionCover extends Thread {
                 if (isOutTime()) {
                     this.thread.stop();
                     this.function.addLog("This function has out of run time!");
-                    this.function.addLog(String.format("time: %s s\r\nSpec: %s s",
+                    this.function.addLog(String.format("Time: %s s\r\nSpec: %s s",
                             function.getRunTime(), timeSpec));
                 }
                 try {
@@ -70,12 +70,13 @@ public class FunctionCover extends Thread {
     }
 
     private String startFunction() {
-        return String.format("ITEM[%S]-FUNCTION[%S]",
-                this.function.getItemName(), this.function.getFuncName());
+        return String.format("Item[%S]---Function[%S]---Mode[%s]",
+                this.function.getItemName(), this.function.getFuncName(),
+                this.function.getModeTest());
     }
 
     private String endFunction() {
-        return String.format("TIME[%S s]-RESULT[%S]",
+        return String.format("Time[%S s]---Result[%S]",
                 ((double) function.getRunTime()), this.function.isPass() ? "PASS" : "FAILED");
     }
 }

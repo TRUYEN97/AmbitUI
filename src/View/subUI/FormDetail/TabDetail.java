@@ -10,6 +10,10 @@
  */
 package View.subUI.FormDetail;
 
+import Model.DataModeTest.ErrorLog;
+import Model.DataSource.Setting.ModeElement;
+import Model.Factory.Factory;
+import Model.Interface.IUpdate;
 import Model.ManagerUI.UIStatus.UiStatus;
 import View.subUI.AbsUI;
 import View.subUI.SubUI.AbsSubUi;
@@ -21,11 +25,10 @@ import java.util.List;
  *
  * @author Administrator
  */
-public class TabDetail extends AbsUI {
+public class TabDetail extends AbsUI implements IUpdate {
 
     private final HashMap<String, AbsTabUI> tabElements;
     private final AbsSubUi boss;
-    private final List<String> listTitle;
 
     /**
      * Creates new form PanelDetail
@@ -35,7 +38,6 @@ public class TabDetail extends AbsUI {
     public TabDetail(AbsSubUi boss) {
         super(boss.getName());
         this.tabElements = new HashMap<>();
-        this.listTitle = new ArrayList<>();
         initComponents();
         this.boss = boss;
     }
@@ -81,7 +83,6 @@ public class TabDetail extends AbsUI {
     public void clear() {
         this.tabDetail.removeAll();
         this.tabElements.clear();
-        this.listTitle.clear();
     }
 
     @Override
@@ -94,7 +95,6 @@ public class TabDetail extends AbsUI {
 
     @Override
     public void startTest() {
-        super.startTest();
         for (String item : tabElements.keySet()) {
             tabElements.get(item).startTest();
         }
@@ -102,24 +102,52 @@ public class TabDetail extends AbsUI {
 
     @Override
     public void endTest() {
-        super.endTest();
         for (String item : tabElements.keySet()) {
             tabElements.get(item).endTest();
         }
     }
 
-    public void addTab(AbsTabUI tabUI) {
+    private void addTab(AbsTabUI tabUI) {
+        tabUI.setUiStatus(uiStatus);
         this.tabDetail.addTab(tabUI.getName(), tabUI);
         this.tabElements.put(tabUI.getName(), tabUI);
-        this.listTitle.add(tabUI.getName());
-    }
-
-    public List<String> getListTab() {
-        return this.listTitle;
     }
 
     @Override
     public void updateData() {
+    }
+
+    @Override
+    public boolean update() {
+        try {
+            addAllTab(getListTab());
+            return true;
+        } catch (Exception e) {
+            e.printStackTrace();
+            ErrorLog.addError(e.getMessage());
+            return false;
+        }
+    }
+
+    private void addAllTab(List<AbsTabUI> tabTemp) {
+        clear();
+        for (AbsTabUI tabUI : tabTemp) {
+            addTab(tabUI);
+        }
+    }
+
+    private List<AbsTabUI> getListTab() {
+        ModeElement modeInfo = this.uiStatus.getModeTest().getModeInfo();
+        Factory factory = Factory.getInstance();
+        List<AbsTabUI> tabTemp = new ArrayList();
+        for (String name : modeInfo.getDetail()) {
+            if (tabElements.containsKey(name)) {
+                tabTemp.add(tabElements.get(name));
+            } else {
+                tabTemp.add(factory.getTabUI(name));
+            }
+        }
+        return tabTemp;
     }
 
 }

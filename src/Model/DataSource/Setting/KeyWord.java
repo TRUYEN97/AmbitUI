@@ -25,10 +25,12 @@ final class KeyWord {
     public static final String INIT_FUNC = "INIT";
     public static final String PREPARE = "PREPARE";
     public static final String DISCRETE_TEST = "DISCRETE_TEST";
+    public static final String LOCAL_FUNCTION_LOG = "LOCAL_FUNCTION_LOG";
+    public static final String LOCAL_LOG = "LOCAL_LOG";
     public static final String END = "END";
     public static final List<String> MODE_KEY = Arrays.asList(
             STATION, DHCP, COLUMN, ROW, DETAIL, DISCRETE_TEST, TYPE_UI, NAME, TYPE_MODE,
-            INIT_FUNC, PREPARE, END);
+            INIT_FUNC, PREPARE, END, LOCAL_LOG);
 
     public class Init {
 

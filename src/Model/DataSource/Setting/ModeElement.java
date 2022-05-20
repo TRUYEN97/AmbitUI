@@ -21,7 +21,7 @@ public class ModeElement extends AbsElementInfo {
     public String getModeType() {
         return this.warehouse.getString(KeyWord.TYPE_MODE);
     }
-
+    
     public String getModeName() {
         return this.warehouse.getString(KeyWord.NAME);
     }

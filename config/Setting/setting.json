@@ -3,6 +3,8 @@
     "DHCP": "OFF",
     "ROW": 1,
     "COLUMN": 1,
+    "LOCAL_FUNCTION_LOG": "Log\\TestLog\\Functions",
+    "LOCAL_LOG": "Log\\TestLog",
     "TYPE_UI": "Big",
     "DETAIL": ["View", "Item", "Log"],
     "LOAD_MODE": [
@@ -17,7 +19,7 @@
             "NAME": "DEBUG",
             "TYPE_MODE": "Debug",
             "DISCRETE_TEST": "ON",
-            "DETAIL": ["View","Item", "Log"],
+            "DETAIL": ["View", "Item", "Log"],
             "PREPARE": [],
             "END": []
         },

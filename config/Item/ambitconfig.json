@@ -9,7 +9,7 @@
             "FLAG": "on",
             "FAIL_CONTNIUE": "off",
             "CANCEL": "DEBUG",
-            "TIME_OVER": 20,
+            "TIME_OVER": 25,
             "RETRY": 5,
             "MULTI_TASK": "On",
             "TYPE": "BOOL",

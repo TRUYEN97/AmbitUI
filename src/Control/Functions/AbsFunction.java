@@ -9,7 +9,6 @@ import Model.DataSource.FunctionConfig.FunctionConfig;
 import Model.DataSource.FunctionConfig.FunctionElement;
 import Model.DataSource.Limit.Limit;
 import Model.ManagerUI.UIStatus.Elemants.UiData;
-import Model.DataModeTest.DataBoxs.UISignal;
 import Model.ManagerUI.UIStatus.UiStatus;
 import View.subUI.SubUI.AbsSubUi;
 import Model.Interface.IFunction;
@@ -51,12 +50,13 @@ public abstract class AbsFunction implements IFunction {
         try {
             if (isModeSkip()) {
                 this.dataBox.addLog("Mode Skip: " + modeTest.toString());
+                this.dataBox.addLog("This function will be canceled because the mode is " + modeTest.toString());
                 this.dataBox.setResult("Canceled");
                 isPass = true;
                 return;
             }
             for (int turn = 0; turn < getRetry(); turn++) {
-                this.dataBox.addLog(String.format("- Turn %s..", turn));
+                this.dataBox.addLog(String.format("Turn %s:", turn));
                 if (test()) {
                     isPass = true;
                     return;
@@ -68,6 +68,10 @@ public abstract class AbsFunction implements IFunction {
             this.addLog(e.getMessage());
         }
 
+    }
+
+    public ModeTest getModeTest() {
+        return modeTest;
     }
 
     public void setRsutlt(String result) {
@@ -125,7 +129,7 @@ public abstract class AbsFunction implements IFunction {
 
     private boolean isModeSkip() {
         String modeSkip = this.funcConfig.getModeCancel();
-        return modeSkip != null && modeSkip.isBlank() && modeSkip.equals(modeTest.toString());
+        return modeSkip != null && !modeSkip.isBlank() && modeSkip.equals(modeTest.toString());
     }
 
     String getResult() {

@@ -6,7 +6,6 @@ package View.subUI;
 
 import Model.ManagerUI.UIStatus.UiStatus;
 import java.awt.event.ActionEvent;
-import java.awt.event.ActionListener;
 import javax.swing.JPanel;
 import javax.swing.Timer;
 
@@ -14,7 +13,7 @@ import javax.swing.Timer;
  *
  * @author Administrator
  */
-public abstract class AbsUI extends JPanel {
+public abstract class AbsUI extends JPanel{
 
     private final String name;
     private final Timer timer;
