@@ -20,6 +20,8 @@ public class UiData {
     private final List<DataBox> dataBoxs;
     private final UiStatus uiStatus;
     private final UISignal signal;
+    private String message;
+    private boolean isPass;
 
     public UiData(UiStatus uiStatus) {
         this.dataBoxs = new ArrayList<>();
@@ -43,7 +45,7 @@ public class UiData {
 
     public DataBox getDataBox(String itemName) {
         for (DataBox dataBox : dataBoxs) {
-            if (dataBox.getItemName().equals(itemName)) {
+            if (dataBox.getItemFunction().equals(itemName)) {
                 return dataBox;
             }
         }
@@ -59,6 +61,33 @@ public class UiData {
 
     public List<AbsFunction> getFunctionSelected() {
         return this.signal.getFunctionSelected();
+    }
+
+    public void setMessage(String message) {
+        if (message == null || message.isBlank()) {
+            return;
+        }
+        this.message = message;
+    }
+
+    public boolean isPass() {
+        return isPass;
+    }
+
+    public void setPass(boolean isPass) {
+        this.isPass = isPass;
+    }
+    
+    public String getMassage() {
+        if (this.message != null) {
+            return message;
+        }
+        for (DataBox dataBox : dataBoxs) {
+            if (!dataBox.isPass()) {
+                return String.format("FAILED\r\n%s", dataBox.getItemFunction());
+            }
+        }
+        return "PASS";
     }
 
 }

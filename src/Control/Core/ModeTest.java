@@ -5,6 +5,7 @@
 package Control.Core;
 
 import Control.Functions.AbsFunction;
+import Model.DataModeTest.ErrorLog;
 import Model.DataModeTest.InputData;
 import Model.DataSource.FunctionConfig.FunctionConfig;
 import Model.Interface.IInit;
@@ -57,6 +58,11 @@ public class ModeTest implements IInit {
 
     public void runTest(InputData inputData) {
         if (inputData != null && checkIndex(inputData)) {
+            if (!uIManager.getUiStatus(inputData.getIndex()).update()) {
+                String mess = String.format("%s update mode fail!", inputData.getIndex());
+                ErrorLog.addError(this, mess);
+                JOptionPane.showMessageDialog(null, mess);
+            }
             UiStatus uiStatus = uIManager.getUiStatus(inputData.getIndex());
             uiStatus.setUnitTest(createCellTest(inputData, uiStatus));
         }
@@ -146,6 +152,6 @@ public class ModeTest implements IInit {
     }
 
     public List<String> getListItemFunctionName() {
-       return this.functionConfig.getListItemFunctionName();
+        return this.functionConfig.getListItemFunctionName();
     }
 }

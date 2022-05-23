@@ -9,6 +9,8 @@ import Model.DataSource.Setting.Setting;
 import Model.ManagerUI.UIStatus.UiStatus;
 import MyLoger.MyLoger;
 import java.io.File;
+import java.util.ArrayList;
+import java.util.List;
 import javax.swing.JOptionPane;
 
 /**
@@ -18,29 +20,39 @@ import javax.swing.JOptionPane;
 public class DataBox {
 
     private final MyLoger loger;
-    private final String itemName;
+    private final String itemFunction;
+    private final List<ItemTest> itemTests;
     private boolean testing;
     private boolean isMultistacking;
     private String resultTest;
     private long startTime;
     private Double testTime;
 
-    public DataBox(UiStatus uiStatus, String itemName) {
+    public DataBox(UiStatus uiStatus, String itemFunction) {
         this.loger = new MyLoger();
-        this.itemName = itemName;
+        this.itemTests = new ArrayList<>();
+        this.itemFunction = itemFunction;
         this.testing = false;
         String localFunctionsFile = Setting.getInstance().getFunctionsLocalLog();
-        String fileLogName = String.format("%s\\%s\\%s.txt", 
-                localFunctionsFile, uiStatus.getName(), itemName);
+        String fileLogName = String.format("%s\\%s\\%s.txt",
+                localFunctionsFile, uiStatus.getName(), itemFunction);
         if (!this.loger.begin(new File(fileLogName), true, true)) {
-            String mess = "can't delete local function log file of " + itemName;
+            String mess = "can't delete local function log file of " + itemFunction;
             JOptionPane.showMessageDialog(null, mess);
             ErrorLog.addError(mess);
         }
     }
 
-    public String getItemName() {
-        return itemName;
+    public String getItemFunction() {
+        return itemFunction;
+    }
+
+    public boolean addItemtest(ItemTest itemTest) {
+        return this.itemTests.add(itemTest);
+    }
+
+    public List<ItemTest> getListItemTest() {
+        return new ArrayList<>(itemTests);
     }
 
     public void setResult(String resultTest) {
@@ -96,6 +108,10 @@ public class DataBox {
 
     public MyLoger getLoger() {
         return this.loger;
+    }
+
+    public boolean isPass() {
+        throw new UnsupportedOperationException("Not supported yet."); // Generated from nbfs://nbhost/SystemFileSystem/Templates/Classes/Code/GeneratedMethodBody
     }
 
 }

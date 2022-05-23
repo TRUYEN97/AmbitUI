@@ -5,6 +5,7 @@
 package Control.Core;
 
 import Control.Functions.AbsFunction;
+import Model.DataModeTest.ErrorLog;
 import Model.DataModeTest.InputData;
 import Model.DataSource.FunctionConfig.FunctionConfig;
 import Model.ManagerUI.UIStatus.Elemants.UiData;
@@ -48,8 +49,10 @@ public class CellTest implements Runnable {
             @Override
             public void actionPerformed(ActionEvent e) {
                 if (System.currentTimeMillis() - startTime >= timeOut) {
-                    timer.stop();
-                    process.stop();
+                    String mess = String.format("Out of time: test time < ", (timeOut / 1000));
+                    ErrorLog.addError(mess);
+                    uiData.setMessage(mess);
+                    end();
                 }
             }
         }) {
@@ -64,15 +67,24 @@ public class CellTest implements Runnable {
 
     @Override
     public void run() {
+        prepare();
+        if (runFunctions(checks)) {
+            runItemFunctions();
+            runFunctions(ends);
+        }
+        end();
+    }
+
+    private void end() {
+        this.timer.stop();
+        this.process.stop();
+        this.subUi.endTest();
+    }
+
+    private void prepare() {
         this.uiData.clear();
         this.timer.start();
         this.subUi.startTest();
-        if (runFunctions(checks) && test() && runFunctions(ends)) {
-            System.out.println("Pass");
-        }else{
-            System.out.println("failed");
-        }
-        this.subUi.endTest();
     }
 
     void setCheckFunction(List<AbsFunction> checkFunctions) {
@@ -101,7 +113,7 @@ public class CellTest implements Runnable {
         return process.isPass();
     }
 
-    private boolean test() {
+    private boolean runItemFunctions() {
         if (tests.isEmpty()) {
             return false;
         }

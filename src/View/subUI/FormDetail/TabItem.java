@@ -212,11 +212,11 @@ public class TabItem extends AbsTabUI {
             int row = dataBoxs.indexOf(dataBox);
             if (row > this.tableModel.getRowCount() - 1) {
                 this.tableModel.addRow(new Object[]{this.tableModel.getRowCount()});
-                editRow(dataBox.getItemName(), row, ITEM);
+                editRow(dataBox.getItemFunction(), row, ITEM);
                 editRow(dataBox.getRunTime() + " S", row, TIME);
                 editRow(getStatus(dataBox), row, STAUS);
             } else {
-                editRow(dataBox.getItemName(), row, ITEM);
+                editRow(dataBox.getItemFunction(), row, ITEM);
                 editRow(dataBox.getRunTime() + " S", row, TIME);
                 editRow(getStatus(dataBox), row, STAUS);
             }
