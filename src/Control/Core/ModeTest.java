@@ -84,7 +84,7 @@ public class ModeTest implements IInit {
         CellTest cellTest = new CellTest(inputData, uiStatus);
         cellTest.setCheckFunction(getCheckFunctions());
         cellTest.setTestFunction(getTestFunctions(uiStatus));
-        cellTest.setEndFunction(getEndFunctions());
+        cellTest.setEndFunction(getListEnd());
         return cellTest;
     }
 
@@ -113,7 +113,7 @@ public class ModeTest implements IInit {
 
     private List<AbsFunction> getCheckFunctions() {
         List<AbsFunction> functions = new ArrayList<>();
-        addFunctions(functions, this.modeInfo.getCheckFunctions());
+        addFunctions(functions, getInitFunctions());
         return functions;
     }
 
@@ -127,9 +127,9 @@ public class ModeTest implements IInit {
         return functions;
     }
 
-    private List<AbsFunction> getEndFunctions() {
+    private List<AbsFunction> getListEnd() {
         List<AbsFunction> functions = new ArrayList<>();
-        addFunctions(functions, this.modeInfo.getEndFunctions());
+        addFunctions(functions, getEndFunctions());
         return functions;
     }
 
@@ -151,7 +151,13 @@ public class ModeTest implements IInit {
         return false;
     }
 
-    public List<String> getListItemFunctionName() {
-        return this.functionConfig.getListItemFunctionName();
+    public List<String> getItemFunctions() {
+        return this.functionConfig.getItemFunctions();
+    }
+    public List<String> getInitFunctions() {
+        return this.functionConfig.getInitFunctions();
+    }
+    public List<String> getEndFunctions() {
+        return this.functionConfig.getEndFunctions();
     }
 }

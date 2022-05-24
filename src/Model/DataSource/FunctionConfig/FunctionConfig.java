@@ -20,11 +20,15 @@ public class FunctionConfig extends AbsJsonSource<FunctionElement> {
     private static volatile FunctionConfig instaince;
     private final List<String> functionName;
     private final List<String> ItemfunctionName;
+    private final List<String> initFucntions;;
+    private final List<String> endFucntions;
 
     private FunctionConfig() {
         super();
         this.functionName = new ArrayList<>();
         this.ItemfunctionName = new ArrayList<>();
+        this.initFucntions = new ArrayList<>();
+        this.endFucntions = new ArrayList<>();
     }
 
     public static FunctionConfig getInstance() {
@@ -43,16 +47,35 @@ public class FunctionConfig extends AbsJsonSource<FunctionElement> {
     @Override
     protected boolean getData() {
         DataWareHouse wareHouse = readFile.getData();
+        getFunctionIn(wareHouse,
+                wareHouse.getListJson(FuncKeyWord.INIT), FuncKeyWord.INIT);
+        getFunctionIn(wareHouse,
+                wareHouse.getListJson(FuncKeyWord.FUNCTIONS), FuncKeyWord.FUNCTIONS);
+        getFunctionIn(wareHouse,
+                wareHouse.getListJson(FuncKeyWord.END), FuncKeyWord.END);
+        return !this.elements.isEmpty();
+    }
+
+    private void getFunctionIn(DataWareHouse baseData, List<JSONObject> listInfo, String type) {
         FunctionElement info;
-        for (JSONObject modeInfo : wareHouse.getListJson(FunctionConfigKeyWord.FUNCTIONS)) {
-            info = new FunctionElement(wareHouse.toJson(), modeInfo);
+        for (JSONObject modeInfo : listInfo) {
+            info = new FunctionElement(baseData.toJson(), modeInfo);
             if (!isNull(info.getFunctionName()) && info.isActive()) {
                 put(info.getFunctionName(), info);
-                this.functionName.add(info.getFunctionName());
-                this.ItemfunctionName.add(info.getItemName());
+                addAllFunction(info);
+                switch (type) {
+                    case FuncKeyWord.INIT ->
+                        this.initFucntions.add(info.getFunctionName());
+                    case FuncKeyWord.END ->
+                        this.endFucntions.add(info.getFunctionName());
+                }
             }
         }
-        return !this.elements.isEmpty();
+    }
+
+    private void addAllFunction(FunctionElement info) {
+        this.functionName.add(info.getFunctionName());
+        this.ItemfunctionName.add(info.getItemName());
     }
 
     public List<String> getListFunction() {
@@ -60,15 +83,23 @@ public class FunctionConfig extends AbsJsonSource<FunctionElement> {
     }
 
     public long getTimeOutTest() {
-        Long timeout = this.readFile.getData().getLong(FunctionConfigKeyWord.TIME_OUT_TEST);
+        Long timeout = this.readFile.getData().getLong(FuncKeyWord.TIME_OUT_TEST);
         if (timeout == null) {
             return Long.MAX_VALUE;
         }
         return timeout * 1000;
     }
 
-    public List<String> getListItemFunctionName() {
-        return this.ItemfunctionName;
+    public List<String> getItemFunctions() {
+        return ItemfunctionName;
+    }
+
+    public List<String> getInitFunctions() {
+        return initFucntions;
+    }
+
+    public List<String> getEndFunctions() {
+        return endFucntions;
     }
 
 }

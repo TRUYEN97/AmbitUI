@@ -11,25 +11,19 @@
         {
             "NAME": "PRODUCTION", 
             "TYPE_MODE": "Production",
-            "DETAIL": ["Item", "Log"],
-            "PREPARE": [],
-            "END": []
+            "DETAIL": ["Item", "Log"]
         },
         {
             "NAME": "DEBUG",
             "TYPE_MODE": "Debug",
             "DISCRETE_TEST": "ON",
-            "DETAIL": ["View", "Item", "Log"],
-            "PREPARE": [],
-            "END": []
+            "DETAIL": ["View", "Item", "Log"]
         },
         {
             "NAME": "PRO-DEV", 
             "TYPE_MODE": "Production",
             "INIT": ["Password"],
-            "DETAIL": ["Log"],
-            "PREPARE": [],
-            "END": []
+            "DETAIL": ["Log"]
         }
     ]
 }

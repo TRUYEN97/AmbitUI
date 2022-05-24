@@ -1,9 +1,19 @@
 {
     "UUT_MODEL": "Trieste",
     "STATION_NAME": "MBLT",
-    "COM": "COM5",
-    "BAUDRATE": 9600,
     "TIME_OUT_TEST": 200,
+    "INIT":[
+        {
+            "FLAG": "on",
+            "FAIL_CONTNIUE": "off",
+            "CANCEL": "DEBUG",
+            "TIME_OVER": 25,
+            "RETRY": 5,
+            "MULTI_TASK": "On",
+            "ITEM_NAME": "CHECK_SFIS",
+            "FUNC_NAME": "CHECK_SFIS"
+        }
+    ],
     "Functions": [
         {
             "FLAG": "on",
@@ -40,5 +50,19 @@
             "ITEM_NAME": "fixture_close",
             "FUNC_NAME": "FixtureAction"
         }
+    ],
+     "END":[
+        {
+            "FLAG": "on",
+            "FAIL_CONTNIUE": "off",
+            "CANCEL": "DEBUG",
+            "TIME_OVER": 25,
+            "RETRY": 5,
+            "MULTI_TASK": "On",
+            "SPEC": "Go to xxx",
+            "ITEM_NAME": "SendResultSfis",
+            "FUNC_NAME": "SendResultSfis"
+        }
+        
     ]
 }

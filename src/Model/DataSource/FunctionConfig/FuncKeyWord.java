@@ -11,13 +11,15 @@ import java.util.List;
  *
  * @author 21AK22
  */
-public final class FunctionConfigKeyWord {
+public final class FuncKeyWord {
 
     public static final String UUT_MODEL = "UUT_MODEL";
     public static final String STATION_NAME = "STATION_NAME";
     public static final String COM = "COM";
     public static final String BAUDRATE = "BAUDRATE";
     public static final String FUNCTIONS = "Functions";
+    public static final String INIT = "INIT";
+    public static final String END = "END";
     public static final String FLAG = "FLAG";
     public static final String CANCEL = "CANCEL";
     public static final String TIME_OVER = "TIME_OVER";

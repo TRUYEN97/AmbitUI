@@ -3,12 +3,17 @@
     <editor-bookmarks xmlns="http://www.netbeans.org/ns/editor-bookmarks/2" lastBookmarkId="1"/>
     <open-files xmlns="http://www.netbeans.org/ns/projectui-open-files/2">
         <group>
-            <file>file:/D:/NetBeans/Projects/AmbitNew/EnginerUI/src/Control/Functions/AbsFunction.java</file>
-            <file>file:/D:/NetBeans/Projects/AmbitNew/EnginerUI/src/View/subUI/FormDetail/ItemLog.java</file>
+            <file>file:/D:/NetBeans/Projects/AmbitNew/EnginerUI/src/Control/Core/Engine.java</file>
+            <file>file:/D:/NetBeans/Projects/AmbitNew/EnginerUI/src/Model/DataSource/AbsJsonSource.java</file>
+            <file>file:/D:/NetBeans/Projects/AmbitNew/EnginerUI/src/Model/DataSource/FunctionConfig/FunctionConfig.java</file>
             <file>file:/D:/NetBeans/Projects/AmbitNew/EnginerUI/src/Control/Core/Process.java</file>
-            <file>file:/D:/NetBeans/Projects/AmbitNew/EnginerUI/src/Model/DataModeTest/DataBoxs/DataBox.java</file>
             <file>file:/D:/NetBeans/Projects/AmbitNew/EnginerUI/src/Model/ManagerUI/UIStatus/Elemants/UiData.java</file>
             <file>file:/D:/NetBeans/Projects/AmbitNew/EnginerUI/src/Control/Core/CellTest.java</file>
+            <file>file:/D:/NetBeans/Projects/AmbitNew/EnginerUI/src/Control/Core/ModeTest.java</file>
+            <file>file:/D:/NetBeans/Projects/AmbitNew/EnginerUI/config/Setting/setting.json</file>
+            <file>file:/D:/NetBeans/Projects/AmbitNew/EnginerUI/src/Model/DataSource/Setting/ModeElement.java</file>
+            <file>file:/D:/NetBeans/Projects/AmbitNew/EnginerUI/config/Item/ambitconfig.json</file>
+            <file>file:/D:/NetBeans/Projects/AmbitNew/EnginerUI/src/Model/DataSource/FunctionConfig/FunctionElement.java</file>
         </group>
     </open-files>
 </project-private>
