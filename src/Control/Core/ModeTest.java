@@ -92,10 +92,6 @@ public class ModeTest implements IInit {
         return this.modeInfo;
     }
 
-    public List<String> getListFunction() {
-        return this.functionConfig.getListFunction();
-    }
-
     private void addInitFunctions(List<IFunction> list, List<String> functions) {
         for (String type : functions) {
             list.add(this.factory.getInitFunc(type));
@@ -113,7 +109,7 @@ public class ModeTest implements IInit {
 
     private List<AbsFunction> getCheckFunctions() {
         List<AbsFunction> functions = new ArrayList<>();
-        addFunctions(functions, getInitFunctions());
+        addFunctions(functions, getFunctionInit());
         return functions;
     }
 
@@ -122,14 +118,14 @@ public class ModeTest implements IInit {
         if (this.modeInfo.isDiscreteTest()) {
             functions.addAll(uiStatus.getFunctionSelected());
         } else {
-            addFunctions(functions, getListFunction());
+            addFunctions(functions, getTestFunction());
         }
         return functions;
     }
 
     private List<AbsFunction> getListEnd() {
         List<AbsFunction> functions = new ArrayList<>();
-        addFunctions(functions, getEndFunctions());
+        addFunctions(functions, getFuntionEnd());
         return functions;
     }
 
@@ -151,13 +147,18 @@ public class ModeTest implements IInit {
         return false;
     }
 
-    public List<String> getItemFunctions() {
-        return this.functionConfig.getItemFunctions();
+    public List<String> getTestFunction() {
+        return this.functionConfig.getFunctionTest();
     }
-    public List<String> getInitFunctions() {
-        return this.functionConfig.getInitFunctions();
+    
+    public List<String> getFunctionItemTest() {
+        return this.functionConfig.getFunctionItemTest();
     }
-    public List<String> getEndFunctions() {
-        return this.functionConfig.getEndFunctions();
+
+    public List<String> getFunctionInit() {
+        return this.functionConfig.getFunctionInit();
+    }
+    public List<String> getFuntionEnd() {
+        return this.functionConfig.getFuntionEnd();
     }
 }

@@ -18,17 +18,17 @@ import static java.util.Objects.isNull;
 public class FunctionConfig extends AbsJsonSource<FunctionElement> {
 
     private static volatile FunctionConfig instaince;
-    private final List<String> functionName;
-    private final List<String> ItemfunctionName;
-    private final List<String> initFucntions;;
-    private final List<String> endFucntions;
+    private final List<String> functionInit;
+    private final List<String> functionTest;
+    private final List<String> functionItemTest;
+    private final List<String> funtionEnd;
 
     private FunctionConfig() {
         super();
-        this.functionName = new ArrayList<>();
-        this.ItemfunctionName = new ArrayList<>();
-        this.initFucntions = new ArrayList<>();
-        this.endFucntions = new ArrayList<>();
+        this.functionInit = new ArrayList<>();
+        this.functionTest = new ArrayList<>();
+        this.functionItemTest = new ArrayList<>();
+        this.funtionEnd = new ArrayList<>();
     }
 
     public static FunctionConfig getInstance() {
@@ -62,24 +62,27 @@ public class FunctionConfig extends AbsJsonSource<FunctionElement> {
             info = new FunctionElement(baseData.toJson(), modeInfo);
             if (!isNull(info.getFunctionName()) && info.isActive()) {
                 put(info.getFunctionName(), info);
-                addAllFunction(info);
                 switch (type) {
-                    case FuncKeyWord.INIT ->
-                        this.initFucntions.add(info.getFunctionName());
-                    case FuncKeyWord.END ->
-                        this.endFucntions.add(info.getFunctionName());
+                    case FuncKeyWord.INIT -> {
+                        this.functionInit.add(info.getFunctionName());
+                        break;
+                    }
+                    case FuncKeyWord.END -> {
+                        this.funtionEnd.add(info.getFunctionName());
+                        break;
+                    }
+                    default -> {
+                        addAllFunction(info);
+                        break;
+                    }
                 }
             }
         }
     }
 
     private void addAllFunction(FunctionElement info) {
-        this.functionName.add(info.getFunctionName());
-        this.ItemfunctionName.add(info.getItemName());
-    }
-
-    public List<String> getListFunction() {
-        return functionName;
+        this.functionTest.add(info.getFunctionName());
+        this.functionItemTest.add(info.getItemName());
     }
 
     public long getTimeOutTest() {
@@ -90,16 +93,20 @@ public class FunctionConfig extends AbsJsonSource<FunctionElement> {
         return timeout * 1000;
     }
 
-    public List<String> getItemFunctions() {
-        return ItemfunctionName;
+    public List<String> getFunctionInit() {
+        return functionInit;
     }
 
-    public List<String> getInitFunctions() {
-        return initFucntions;
+    public List<String> getFunctionTest() {
+        return functionTest;
     }
 
-    public List<String> getEndFunctions() {
-        return endFucntions;
+    public List<String> getFunctionItemTest() {
+        return functionItemTest;
+    }
+
+    public List<String> getFuntionEnd() {
+        return funtionEnd;
     }
 
 }

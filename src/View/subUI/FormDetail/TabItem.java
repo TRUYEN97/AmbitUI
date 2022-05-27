@@ -173,7 +173,7 @@ public class TabItem extends AbsTabUI {
 
     private void showListFunction() {
         initTable(listFunc);
-        for (String funcName : this.uiStatus.getModeTest().getItemFunctions()) {
+        for (String funcName : this.uiStatus.getModeTest().getFunctionItemTest()) {
             this.tableModel.addRow(new Object[]{this.tableModel.getRowCount(), funcName});
         }
     }
