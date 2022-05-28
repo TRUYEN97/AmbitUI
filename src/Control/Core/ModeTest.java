@@ -64,7 +64,8 @@ public class ModeTest implements IInit {
                 JOptionPane.showMessageDialog(null, mess);
             }
             UiStatus uiStatus = uIManager.getUiStatus(inputData.getIndex());
-            uiStatus.setUnitTest(createCellTest(inputData, uiStatus));
+            uiStatus.setInput(inputData);
+            uiStatus.setUnitTest(createCellTest(uiStatus));
         }
     }
 
@@ -80,11 +81,10 @@ public class ModeTest implements IInit {
         return true;
     }
 
-    private CellTest createCellTest(InputData inputData, UiStatus uiStatus) {
-        CellTest cellTest = new CellTest(inputData, uiStatus);
-        cellTest.setCheckFunction(getCheckFunctions());
-        cellTest.setTestFunction(getTestFunctions(uiStatus));
-        cellTest.setEndFunction(getListEnd());
+    private CellTest createCellTest(UiStatus uiStatus) {
+        CellTest cellTest = new CellTest(uiStatus, getCheckFunctions(),
+                 getTestFunctions(uiStatus),
+                 getListEnd());
         return cellTest;
     }
 
@@ -150,7 +150,7 @@ public class ModeTest implements IInit {
     public List<String> getTestFunction() {
         return this.functionConfig.getFunctionTest();
     }
-    
+
     public List<String> getFunctionItemTest() {
         return this.functionConfig.getFunctionItemTest();
     }
@@ -158,6 +158,7 @@ public class ModeTest implements IInit {
     public List<String> getFunctionInit() {
         return this.functionConfig.getFunctionInit();
     }
+
     public List<String> getFuntionEnd() {
         return this.functionConfig.getFuntionEnd();
     }

@@ -4,7 +4,7 @@
  */
 package Control.Functions.FunctionsTest.GenerateNode;
 import Control.Functions.AbsFunction;
-import View.subUI.UIWarehouse.AbsProxy;
+import View.subUI.UiProxy.AbsProxy;
 
 /**
  *

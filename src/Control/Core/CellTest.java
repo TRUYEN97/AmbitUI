@@ -22,8 +22,7 @@ import javax.swing.Timer;
  * @author 21AK22
  */
 public class CellTest implements Runnable {
-
-    private final InputData InputData;
+    
     private final List<AbsFunction> checks;
     private final List<AbsFunction> tests;
     private final List<AbsFunction> ends;
@@ -34,12 +33,11 @@ public class CellTest implements Runnable {
     private final AbsSubUi subUi;
     private long startTime;
 
-    CellTest(InputData inputData, UiStatus uiStatus) {
-        this.InputData = inputData;
+    CellTest(UiStatus uiStatus, List<AbsFunction> checkFunctions, List<AbsFunction> testFunctions, List<AbsFunction> listEnd) {
         this.process = new Process();
-        this.checks = new ArrayList<>();
-        this.tests = new ArrayList<>();
-        this.ends = new ArrayList<>();
+        this.checks = checkFunctions;
+        this.tests = testFunctions;
+        this.ends = listEnd;
         this.uiStatus = uiStatus;
         this.uiData = uiStatus.getUiData();
         this.subUi = uiStatus.getSubUi();

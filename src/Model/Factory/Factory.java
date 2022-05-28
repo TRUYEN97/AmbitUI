@@ -13,11 +13,11 @@ import Control.Functions.InitPackages.InitProxy.IdPasswordProxy;
 import View.subUI.FormDetail.AbsTabUI;
 import View.subUI.SubUI.AbsSubUi;
 import View.subUI.SubUiKeyWord;
-import View.subUI.UIWarehouse.BigUIProxy;
-import View.subUI.UIWarehouse.SmallProxy;
-import View.subUI.UIWarehouse.TabItemProxy;
-import View.subUI.UIWarehouse.TabLogProxy;
-import View.subUI.UIWarehouse.TabViewProxy;
+import View.subUI.UiProxy.BigUIProxy;
+import View.subUI.UiProxy.SmallProxy;
+import View.subUI.UiProxy.TabItemProxy;
+import View.subUI.UiProxy.TabLogProxy;
+import View.subUI.UiProxy.TabViewProxy;
 import Model.Interface.IFunction;
 
 /**

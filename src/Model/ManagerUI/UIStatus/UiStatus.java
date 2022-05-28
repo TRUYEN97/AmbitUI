@@ -10,6 +10,7 @@ import Control.Core.Core;
 import Control.Core.ModeTest;
 import Control.Core.CellTest;
 import Control.Functions.AbsFunction;
+import Model.DataModeTest.InputData;
 import Model.Interface.IUpdate;
 import View.subUI.SubUI.AbsSubUi;
 import java.util.List;
@@ -26,6 +27,7 @@ public class UiStatus implements IUpdate {
     private final Core core;
     private final UiData uiData;
     private final UITest test;
+    private InputData inputData;
     private ModeTest modeTest;
 
     public UiStatus(AbsSubUi subUi, Core core) {
@@ -96,4 +98,13 @@ public class UiStatus implements IUpdate {
     public List<AbsFunction> getFunctionSelected() {
         return this.uiData.getFunctionSelected();
     }
+
+    public void setInput(InputData inputData) {
+        this.inputData = inputData;
+    }
+
+    public InputData getInputData() {
+        return inputData;
+    }
+    
 }

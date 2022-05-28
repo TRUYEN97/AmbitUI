@@ -65,4 +65,8 @@ public class FunctionElement extends AbsElementInfo {
         return flag != null && flag.equalsIgnoreCase(FuncKeyWord.ON);
     }
 
+    public String getValue(String key) {
+        return warehouse.getString(key);
+    }
+
 }

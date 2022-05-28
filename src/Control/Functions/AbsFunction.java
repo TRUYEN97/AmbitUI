@@ -14,6 +14,7 @@ import View.subUI.SubUI.AbsSubUi;
 import Model.Interface.IFunction;
 import Model.DataModeTest.DataBoxs.DataBox;
 import Model.DataModeTest.ErrorLog;
+import Model.DataModeTest.InputData;
 
 /**
  *
@@ -24,6 +25,7 @@ public abstract class AbsFunction implements IFunction {
     protected final FunctionElement funcConfig;
     protected final Limit limit;
     protected boolean isPass;
+    protected InputData inputData;
     private UiData uIData;
     private DataBox dataBox;
     private ModeTest modeTest;
