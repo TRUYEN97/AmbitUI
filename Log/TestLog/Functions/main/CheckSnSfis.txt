@@ -1,0 +1,6 @@
+2022-05-29 10:52:35 : Item[CHECKSNSFIS]---Function[CHECKSNFORMSFISPROXY]---Mode[PRODUCTION]
+2022-05-29 10:52:35 : Turn 0:
+2022-05-29 10:52:35 : send to url: http://10.90.0.40/sfcapi/api/connect
+2022-05-29 10:52:35 : {"PCNAME":"testPC","SN":"j"}
+2022-05-29 10:52:56 : Send SFIS Exception : Connection timed out: connect
+2022-05-29 10:52:56 : Time[21,094 s]---Result[PASS]

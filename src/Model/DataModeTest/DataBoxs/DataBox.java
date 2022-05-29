@@ -6,8 +6,8 @@ package Model.DataModeTest.DataBoxs;
 
 import Model.DataModeTest.ErrorLog;
 import Model.DataSource.Setting.Setting;
-import Model.ManagerUI.UIStatus.UiStatus;
 import MyLoger.MyLoger;
+import Time.WaitTime.Class.TimeS;
 import java.io.File;
 import java.util.ArrayList;
 import java.util.List;
@@ -21,21 +21,23 @@ public class DataBox {
 
     private final MyLoger loger;
     private final String itemFunction;
+    private final TimeS timeS;
     private final List<ItemTest> itemTests;
+    private ErrorFunctionTest errorFunc;
     private boolean testing;
     private boolean isMultistacking;
     private String resultTest;
-    private long startTime;
     private Double testTime;
 
-    public DataBox(UiStatus uiStatus, String itemFunction) {
+    public DataBox(String subUIName, String itemFunction) {
         this.loger = new MyLoger();
+        this.timeS = new TimeS();
         this.itemTests = new ArrayList<>();
         this.itemFunction = itemFunction;
         this.testing = false;
         String localFunctionsFile = Setting.getInstance().getFunctionsLocalLog();
         String fileLogName = String.format("%s\\%s\\%s.txt",
-                localFunctionsFile, uiStatus.getName(), itemFunction);
+                localFunctionsFile, subUIName, itemFunction);
         if (!this.loger.begin(new File(fileLogName), true, true)) {
             String mess = "can't delete local function log file of " + itemFunction;
             JOptionPane.showMessageDialog(null, mess);
@@ -45,6 +47,14 @@ public class DataBox {
 
     public String getItemFunction() {
         return itemFunction;
+    }
+
+    public boolean setErrorFunc(ErrorFunctionTest errorFunc) {
+        if (errorFunc == null) {
+            return false;
+        }
+        this.errorFunc = errorFunc;
+        return true;
     }
 
     public boolean addItemtest(ItemTest itemTest) {
@@ -80,15 +90,15 @@ public class DataBox {
     }
 
     public void start() {
-        startTime = System.currentTimeMillis();
-        testing = true;
+        this.timeS.start(0);
+        this.testing = true;
     }
 
     public double getRunTime() {
         if (testTime != null) {
             return testTime;
         }
-        return (System.currentTimeMillis() - this.startTime) / 1000.0;
+        return this.timeS.getTime();
     }
 
     public void end() {
@@ -111,7 +121,7 @@ public class DataBox {
     }
 
     public boolean isPass() {
-        throw new UnsupportedOperationException("Not supported yet."); // Generated from nbfs://nbhost/SystemFileSystem/Templates/Classes/Code/GeneratedMethodBody
+        return errorFunc == null;
     }
 
 }

@@ -170,7 +170,6 @@ public class TabItem extends AbsTabUI {
     private javax.swing.JTable tableItem;
     // End of variables declaration//GEN-END:variables
 
-
     private void showListFunction() {
         initTable(listFunc);
         for (String funcName : this.uiStatus.getModeTest().getFunctionItemTest()) {
@@ -213,11 +212,13 @@ public class TabItem extends AbsTabUI {
             if (row > this.tableModel.getRowCount() - 1) {
                 this.tableModel.addRow(new Object[]{this.tableModel.getRowCount()});
                 editRow(dataBox.getItemFunction(), row, ITEM);
-                editRow(dataBox.getRunTime() + " S", row, TIME);
+                editRow(String.format("%.3f S", dataBox.getRunTime()),
+                        row, TIME);
                 editRow(getStatus(dataBox), row, STAUS);
             } else {
                 editRow(dataBox.getItemFunction(), row, ITEM);
-                editRow(dataBox.getRunTime() + " S", row, TIME);
+                editRow(String.format("%.3f S", dataBox.getRunTime()),
+                         row, TIME);
                 editRow(getStatus(dataBox), row, STAUS);
             }
         }

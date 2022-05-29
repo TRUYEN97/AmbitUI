@@ -14,8 +14,7 @@ import View.subUI.FormDetail.TabItem;
 public class TabItemProxy extends AbsProxy<AbsTabUI>{
 
     
-    public TabItemProxy(String type) {
-        super(type);
+    public TabItemProxy() {
     }
 
     @Override

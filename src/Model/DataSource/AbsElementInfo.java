@@ -20,7 +20,7 @@ public abstract class AbsElementInfo {
         this.warehouse = new DataWareHouse();
         this.keys = keys;
         setSetting(base);
-        setSetting(config);
+        this.warehouse.putAll(config);
     }
 
     private void setSetting(JSONObject data) {

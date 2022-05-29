@@ -13,8 +13,7 @@ import View.subUI.FormDetail.Tablog;
  */
 public class TabLogProxy extends AbsProxy<AbsTabUI> {
 
-    public TabLogProxy(String type) {
-        super(type);
+    public TabLogProxy() {
     }
 
     @Override

@@ -4,9 +4,9 @@
  */
 package Model.DataSource.Tool;
 
+import Model.DataModeTest.ErrorLog;
 import Model.Interface.IInit;
 import Model.Interface.ITypeRead;
-import Control.Message;
 import Model.DataSource.DataWareHouse;
 import java.io.BufferedReader;
 import java.io.File;
@@ -38,7 +38,7 @@ public class ReadFileSource implements IInit {
 
     private boolean fileIsExists(String path) {
         if (!new File(path).exists()) {
-            Message.WriteMessger.nameNotAlreadyExistError(path, getAllClassName());
+            ErrorLog.addError(this, path + " not exists");
             return false;
         }
         return true;
@@ -49,7 +49,8 @@ public class ReadFileSource implements IInit {
         if (!readFile(path)) {
             return false;
         }
-        Message.WriteMessger.Console("The name: %s Load ok!\r\n%s", path, getAllClassName(), null);
+        System.out.println(String.format("The name: %s Load ok!\r\n%s",
+                path, getAllClassName()));
         return true;
     }
 
@@ -64,13 +65,11 @@ public class ReadFileSource implements IInit {
         }
         try {
             this.data.clear();
-            this.data.setData(type.readContain(new BufferedReader(new FileReader(file))));
+            this.data.putAll(type.readContain(new BufferedReader(new FileReader(file))));
             return true;
         } catch (Exception ex) {
-            Message.WriteMessger.Console("%s\r\nRead file fail!\r\n%s\r\n%s",
-                    path, getAllClassName(), ex.getMessage());
-            Message.WriteMessger.ConfixErro("%s\r\nRead file fail!\r\n%s",
-                    path, getAllClassName(), null);
+            ex.printStackTrace();
+            ErrorLog.addError(this, ex.getMessage());
             return false;
         }
     }

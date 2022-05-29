@@ -4,7 +4,7 @@
  */
 package Model.DataSource;
 
-import Control.Message;
+import Model.DataModeTest.ErrorLog;
 import com.alibaba.fastjson.JSONArray;
 import com.alibaba.fastjson.JSONObject;
 import java.util.ArrayList;
@@ -25,15 +25,7 @@ public class DataWareHouse {
         this.coreData = new JSONObject();
     }
 
-    protected boolean setData(JSONObject data) {
-        if (isNull(data)) {
-            this.coreData.putAll(data);
-            return true;
-        }
-        return false;
-    }
-
-    public boolean setData(Map data) {
+    public boolean putAll(Map data) {
         if (data != null && !data.isEmpty()) {
             this.coreData.putAll(data);
             return true;
@@ -85,8 +77,10 @@ public class DataWareHouse {
         try {
             return Integer.parseInt(getString(json, key), radix);
         } catch (NumberFormatException e) {
-            Message.WriteMessger.Console("Parse Integer fail!\r\nvalue: %s\r\n%s",
-                    getString(json, key), getAllClassName(this), null);
+            System.err.println(e.getMessage());
+            String mess = String.format("Key: %s\r\nvalue: %s\r\n%s",
+                    key, getString(json, key), e.getMessage());
+            ErrorLog.addError(this,mess);
             return null;
         }
     }
@@ -107,8 +101,10 @@ public class DataWareHouse {
         try {
             return Double.parseDouble(getString(json, key));
         } catch (NumberFormatException e) {
-            Message.WriteMessger.Console("Parse Double fail!\r\nvalue: %s\r\n%s",
-                    getString(json, key), getAllClassName(this), null);
+            System.err.println(e.getMessage());
+            String mess = String.format("Key: %s\r\nvalue: %s\r\n%s",
+                    key, getString(json, key), e.getMessage());
+            ErrorLog.addError(this,mess);
             return null;
         }
     }
@@ -130,8 +126,8 @@ public class DataWareHouse {
         if (value instanceof JSONObject) {
             return (JSONObject) value;
         }
-        Message.WriteMessger.ShowAll("%s json not exists!!\r\n%s",
-                key, getAllClassName(this), null);
+        String mess = String.format("%s json not exists!!", key);
+        ErrorLog.addError(this, mess);
         return null;
     }
 
@@ -193,8 +189,10 @@ public class DataWareHouse {
         try {
             return Long.parseLong(getString(json, key));
         } catch (NumberFormatException e) {
-            Message.WriteMessger.Console("Parse Long fail!\r\nvalue: %s\r\n%s",
-                    getString(json, key), getAllClassName(this), null);
+            System.err.println(e.getMessage());
+            String mess = String.format("Key: %s\r\nvalue: %s\r\n%s",
+                    key, getString(json, key), e.getMessage());
+            ErrorLog.addError(this,mess);
             return null;
         }
     }

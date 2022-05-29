@@ -12,20 +12,24 @@ import com.alibaba.fastjson.JSONObject;
  *
  * @author Administrator
  */
-public class CheckSnFormSFIS extends AbsFunction{
-   private final SfisAPI sfisAPI;
-           
-    public CheckSnFormSFIS( String itemName) {
+public class CheckSnFormSFIS extends AbsFunction {
+    
+    private final SfisAPI sfisAPI;
+    
+    public CheckSnFormSFIS(String itemName) {
         super(itemName);
         this.sfisAPI = new SfisAPI();
-        this.funcConfig.getValue("URL_CHECK_SN");
     }
     
     @Override
     public boolean test() {
         JSONObject command = new JSONObject();
-        command.put("SN", inputData.getInput());
-        command.put("PCNAME", inputData.getInput());
+        command.put("SN", uIData.getInputData().getInput());
+        command.put("PCNAME", uIData.getInputData().getPcName());
+        String url = funcConfig.getValue("URL_CHECK_SN");
+        addLog("send to url: " + url);
+        addLog(command.toJSONString());
+        addLog(this.sfisAPI.sendToSFIS(url,command.toJSONString()));
         return true;
     }
     

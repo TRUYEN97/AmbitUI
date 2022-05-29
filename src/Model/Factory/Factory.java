@@ -5,10 +5,11 @@
 package Model.Factory;
 
 import Control.Functions.AbsFunction;
-import Control.Functions.FunctionKeyWord;
+import Control.Functions.FunctionsTest.CheckSnFormSFIS.CheckSnFormSFISProxy;
 import Control.Functions.FunctionsTest.FixtureAction.FixtureActionProxy;
 import Control.Functions.FunctionsTest.GenerateNode.GenerateNodeProxy;
 import Control.Functions.FunctionsTest.GetMacFromSfis.GetMacFormSfisProxy;
+import Control.Functions.FunctionsTest.SendResultToSfis.SendResuttToSfisProxy;
 import Control.Functions.InitPackages.InitProxy.IdPasswordProxy;
 import View.subUI.FormDetail.AbsTabUI;
 import View.subUI.SubUI.AbsSubUi;
@@ -73,23 +74,25 @@ public class Factory {
     }
     
     private void addSubUI() {
-        this.subUIFactory.addType(new BigUIProxy(SubUiKeyWord.SubUI.BIG_UI));
-        this.subUIFactory.addType(new SmallProxy(SubUiKeyWord.SubUI.SMAIL_UI));
+        this.subUIFactory.addType(new BigUIProxy());
+        this.subUIFactory.addType(new SmallProxy());
     }
     
     private void addTabUI() {
-        this.tabUIFactory.addType(new TabViewProxy(SubUiKeyWord.Detail.VIEW));
-        this.tabUIFactory.addType(new TabItemProxy(SubUiKeyWord.Detail.ITEM));
-        this.tabUIFactory.addType(new TabLogProxy(SubUiKeyWord.Detail.LOG));
+        this.tabUIFactory.addType(new TabViewProxy());
+        this.tabUIFactory.addType(new TabItemProxy());
+        this.tabUIFactory.addType(new TabLogProxy());
     }
     
     private void addInitFunc() {
-        this.initFunctions.addType(new IdPasswordProxy(SubUiKeyWord.Init.PASSWORD));
+        this.initFunctions.addType(new IdPasswordProxy());
     }
 
     private void addFunc() {
-        this.functions.addType(new GenerateNodeProxy(FunctionKeyWord.GENERATE_NODE));
-        this.functions.addType(new GetMacFormSfisProxy(FunctionKeyWord.GET_MAC_FROM_SFIS));
-        this.functions.addType(new FixtureActionProxy(FunctionKeyWord.FIXTURE_ACTION));
+        this.functions.addType(new CheckSnFormSFISProxy());
+        this.functions.addType(new SendResuttToSfisProxy());
+        this.functions.addType(new GenerateNodeProxy());
+        this.functions.addType(new GetMacFormSfisProxy());
+        this.functions.addType(new FixtureActionProxy());
     }
 }

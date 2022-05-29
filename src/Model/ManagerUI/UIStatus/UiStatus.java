@@ -100,11 +100,7 @@ public class UiStatus implements IUpdate {
     }
 
     public void setInput(InputData inputData) {
-        this.inputData = inputData;
-    }
-
-    public InputData getInputData() {
-        return inputData;
+        this.uiData.setInput(inputData);
     }
     
 }

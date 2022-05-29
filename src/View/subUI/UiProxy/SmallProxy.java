@@ -13,8 +13,7 @@ import View.subUI.SubUI.SmallUI;
  */
 public class SmallProxy extends AbsProxy<AbsSubUi>{
 
-    public SmallProxy(String type) {
-        super(type);
+    public SmallProxy() {
     }
 
     @Override

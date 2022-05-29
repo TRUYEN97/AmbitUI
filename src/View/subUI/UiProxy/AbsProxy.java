@@ -15,8 +15,8 @@ public abstract class AbsProxy<T> {
     private final String type;
     private String name;
 
-    public AbsProxy(String type) {
-        this.type = type;
+    public AbsProxy() {
+        this.type = this.getClass().getSimpleName();
     }
 
     public String getName() {

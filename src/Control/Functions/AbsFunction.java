@@ -14,7 +14,6 @@ import View.subUI.SubUI.AbsSubUi;
 import Model.Interface.IFunction;
 import Model.DataModeTest.DataBoxs.DataBox;
 import Model.DataModeTest.ErrorLog;
-import Model.DataModeTest.InputData;
 
 /**
  *
@@ -25,11 +24,10 @@ public abstract class AbsFunction implements IFunction {
     protected final FunctionElement funcConfig;
     protected final Limit limit;
     protected boolean isPass;
-    protected InputData inputData;
-    private UiData uIData;
-    private DataBox dataBox;
-    private ModeTest modeTest;
-    private AbsSubUi subUi;
+    protected UiData uIData;
+    protected DataBox dataBox;
+    protected ModeTest modeTest;
+    protected AbsSubUi subUi;
 
     protected AbsFunction(String itemName) {
         this.funcConfig = FunctionConfig.getInstance().getElement(itemName);
@@ -104,7 +102,7 @@ public abstract class AbsFunction implements IFunction {
     }
 
     void createDataBox() {
-        this.dataBox = getDataBox();
+        this.dataBox = this.uIData.getDataBox(funcConfig.getItemName());
         if (funcConfig.isMutiTasking()) {
             this.dataBox.setMultistacking();
         }
@@ -120,13 +118,6 @@ public abstract class AbsFunction implements IFunction {
             return funcConfig.getRetry();
         }
         return 1;
-    }
-
-    private DataBox getDataBox() {
-        if (this.uIData.getDataBox(funcConfig.getItemName()) == null) {
-            return this.uIData.createDataBox(funcConfig.getItemName());
-        }
-        return this.uIData.getDataBox(funcConfig.getItemName());
     }
 
     private boolean isModeSkip() {

@@ -4,7 +4,6 @@
  */
 package Control.Functions.InitPackages.InitProxy;
 
-import Control.Functions.AbsFunction;
 import Control.Functions.InitPackages.idPassWord;
 import View.subUI.UiProxy.AbsProxy;
 import Model.Interface.IFunction;
@@ -15,8 +14,7 @@ import Model.Interface.IFunction;
  */
 public class IdPasswordProxy extends AbsProxy<IFunction>{
 
-    public IdPasswordProxy(String type) {
-        super(type);
+    public IdPasswordProxy() {
     }
 
     @Override

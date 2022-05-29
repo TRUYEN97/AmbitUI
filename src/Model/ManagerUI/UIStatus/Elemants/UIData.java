@@ -10,6 +10,7 @@ import Model.DataModeTest.DataBoxs.UISignal;
 import Model.DataModeTest.InputData;
 import Model.ManagerUI.UIStatus.UiStatus;
 import java.util.ArrayList;
+import java.util.HashMap;
 import java.util.List;
 
 /**
@@ -21,11 +22,14 @@ public class UiData {
     private final List<DataBox> dataBoxs;
     private final UiStatus uiStatus;
     private final UISignal signal;
+    private final HashMap<String, Object> productInfo;
+    private InputData inputData;
     private String message;
     private boolean isPass;
 
     public UiData(UiStatus uiStatus) {
         this.dataBoxs = new ArrayList<>();
+        this.productInfo = new HashMap<>();
         this.uiStatus = uiStatus;
         this.signal = new UISignal();
     }
@@ -35,13 +39,10 @@ public class UiData {
     }
 
     public void clear() {
-        dataBoxs.clear();
-    }
-
-    public DataBox createDataBox(String itemName) {
-        DataBox dataBox = new DataBox(uiStatus, itemName);
-        this.dataBoxs.add(dataBox);
-        return dataBox;
+        this.message = null;
+        this.isPass = false;
+        this.productInfo.clear();
+        this.dataBoxs.clear();
     }
 
     public DataBox getDataBox(String itemName) {
@@ -50,7 +51,13 @@ public class UiData {
                 return dataBox;
             }
         }
-        return null;
+        return createDataBox(itemName);
+    }
+    
+    private DataBox createDataBox(String itemName) {
+        DataBox dataBox = new DataBox(uiStatus.getName(), itemName);
+        this.dataBoxs.add(dataBox);
+        return dataBox;
     }
 
     public DataBox getDataBox(int index) {
@@ -78,7 +85,7 @@ public class UiData {
     public void setPass(boolean isPass) {
         this.isPass = isPass;
     }
-    
+
     public String getMassage() {
         if (this.message != null) {
             return message;
@@ -89,6 +96,25 @@ public class UiData {
             }
         }
         return "PASS";
+    }
+
+    public void putProductInfo(String key, Object data) {
+        if (key == null || key.isBlank()) {
+            return;
+        }
+        this.productInfo.put(key, data);
+    }
+
+    public Object getProductInfo(String key) {
+        return this.productInfo.get(key);
+    }
+
+    public void setInput(InputData inputData) {
+        this.inputData = inputData;
+    }
+
+    public InputData getInputData() {
+        return inputData;
     }
 
 }

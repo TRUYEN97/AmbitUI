@@ -4,7 +4,6 @@
  */
 package View;
 
-import Control.Message;
 import Control.Core.Core;
 import Control.Core.ModeTest;
 import Control.LoadModelTime.LoadModeTime;
@@ -19,7 +18,6 @@ import javax.swing.DefaultComboBoxModel;
 import javax.swing.DefaultListCellRenderer;
 import javax.swing.JLabel;
 import javax.swing.JList;
-import javax.swing.JPanel;
 import javax.swing.SwingConstants;
 
 /**
@@ -404,7 +402,6 @@ public class UIView extends javax.swing.JFrame {
         modeTime.setLabel(this.lbTimeVN);
         modeTime.setBackground(this.BoardSubUI);
         modeTime.run();
-        Message.ShowWarning.addLbMess(textMess);
     }//GEN-LAST:event_formWindowOpened
 
     private void txtShowKeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_txtShowKeyTyped

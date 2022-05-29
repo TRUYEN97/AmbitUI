@@ -4,11 +4,12 @@
  */
 package Model.DataSource.Tool;
 
+import Model.DataModeTest.ErrorLog;
 import Model.Interface.IInit;
 import Model.DataSource.DataWareHouse;
-import Control.Message;
 import com.alibaba.fastjson.JSONObject;
 import java.io.BufferedReader;
+import java.io.IOException;
 import java.io.InputStreamReader;
 
 /**
@@ -64,42 +65,20 @@ public class InfoBase implements IInit {
             this.path = path;
         } catch (Exception e) {
             e.printStackTrace();
-            Message.WriteMessger.nameNotAlreadyExistError(path, this.getClass().getName());
+            ErrorLog.addError(this, e.getLocalizedMessage());
         }
     }
 
     public String getCommandForLimit() {
-        if (getString("CommandLimit") == null) {
-            showMessagerCommandErro("CommandLimit");
-        }
         return getString("CommandLimit");
     }
 
     private String getValueOf(String key) {
-        if (getString(key) == null) {
-            showMessagerPathErro(key);
-        }
         return getString(key);
     }
 
-    private void showMessagerPathErro(String namePath) {
-        Message.WriteMessger.ConfixErro("Path of %s not realydy!\r\n%s", namePath,
-                this.getClass().getName(), null);
-    }
-
-    private void showMessagerCommandErro(String nameCmd) {
-        Message.WriteMessger.ConfixErro("Command of %s not realydy!\r\n%s", nameCmd,
-                this.getClass().getName(), null);
-    }
-
     private String getString(String key) {
-        String value = this.data.getString(key);
-        if (value == null) {
-            Message.WriteMessger.ConfixErro("key not exists!: %s", key,
-                    this.getClass().getName(), null);
-            return null;
-        }
-        return value;
+        return this.data.getString(key);
     }
 
     private BufferedReader getBuffereReader(String path) {
@@ -120,11 +99,11 @@ public class InfoBase implements IInit {
             while ((line = reader.readLine()) != null) {
                 builder.append(line).append("\r\n");
             }
-            this.data.setData(JSONObject.parseObject(builder.toString()));
+            this.data.putAll(JSONObject.parseObject(builder.toString()));
             return true;
-        } catch (Exception ex) {
+        } catch (IOException ex) {
             ex.printStackTrace();
-            Message.WriteMessger.ConfixErro("%s\r\nConvert String to json fail\r\n%s\r\n%s", path, this.getClass().getName(), ex.toString());
+           ErrorLog.addError(this, ex.getLocalizedMessage());
         }
         return false;
     }

@@ -13,8 +13,7 @@ import View.subUI.UiProxy.AbsProxy;
  */
 public class CheckSnFormSFISProxy extends AbsProxy<AbsFunction>{
 
-    public CheckSnFormSFISProxy(String type) {
-        super(type);
+    public CheckSnFormSFISProxy() {
     }
 
     @Override

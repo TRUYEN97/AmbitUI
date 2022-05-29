@@ -13,8 +13,7 @@ import View.subUI.SubUI.BigUI;
  */
 public class BigUIProxy extends AbsProxy<AbsSubUi> {
 
-    public BigUIProxy(String type) {
-        super(type);
+    public BigUIProxy() {
     }
 
     @Override

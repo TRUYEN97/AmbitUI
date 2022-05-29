@@ -13,8 +13,7 @@ import View.subUI.FormDetail.TabView;
  */
 public class TabViewProxy extends AbsProxy<AbsTabUI> {
 
-    public TabViewProxy(String type) {
-        super(type);
+    public TabViewProxy() {
     }
 
     @Override

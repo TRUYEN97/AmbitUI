@@ -34,9 +34,13 @@ public class FunctionCover extends Thread {
             while (this.thread.isAlive()) {
                 if (isOutTime()) {
                     this.thread.stop();
-                    this.function.addLog("This function has out of run time!");
-                    this.function.addLog(String.format("Time: %s s\r\nSpec: %s s",
-                            function.getRunTime(), timeSpec));
+                    String mess = String.format("""
+                                                This function has out of run time!\r
+                                                Time: %.3f S\r
+                                                Spec: %s S\r
+                                                Try to stop!!""",
+                            function.getRunTime(), timeSpec);
+                    this.function.addLog(mess);
                 }
                 try {
                     this.thread.join(1000);
@@ -76,7 +80,7 @@ public class FunctionCover extends Thread {
     }
 
     private String endFunction() {
-        return String.format("Time[%S s]---Result[%S]",
-                ((double) function.getRunTime()), this.function.isPass() ? "PASS" : "FAILED");
+        return String.format("Time[%.3f s]---Result[%S]",
+                function.getRunTime(), this.function.isPass() ? "PASS" : "FAILED");
     }
 }

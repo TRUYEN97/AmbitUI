@@ -4,7 +4,8 @@
  */
 package Control.LoadModelTime;
 
-import TimeBase.TimeBase;
+import Time.TimeBase;
+
 
 /**
  *
@@ -13,7 +14,7 @@ import TimeBase.TimeBase;
 public abstract class AbsModeTime{
 
    protected TimeBase timeBase = null;
-   private String name;
+   private final String name;
 
     public AbsModeTime(String name) {
         this.name = name;

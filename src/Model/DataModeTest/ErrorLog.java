@@ -5,6 +5,7 @@
 package Model.DataModeTest;
 
 import MyLoger.MyLoger;
+import Time.TimeBase;
 import java.io.File;
 
 /**
@@ -13,23 +14,22 @@ import java.io.File;
  */
 public class ErrorLog {
 
-    private static MyLoger loger;
+    private static final MyLoger loger = new MyLoger();
 
     static {
-        ErrorLog.loger = new MyLoger();
         String filePath = String.format("Log\\ErrorLog\\%s.txt",
-                new TimeBase.TimeBase().getDate());
+                new TimeBase().getDate());
         ErrorLog.loger.begin(new File(filePath), true);
     }
 
     public static void addError(String error) {
-        ErrorLog.loger.addLog(error);
+        ErrorLog.loger.addLog(error + "\r\n//////////////////////////////////////");
     }
 
     public static void addError(Object object, String error) {
-        String mess = String.format("error in %s : %s", 
+        String mess = String.format("error in %s : %s",
                 object.getClass().getName(), error);
-        ErrorLog.loger.addLog(mess);
+        addError(mess);
     }
 
 }

@@ -6,14 +6,14 @@ package Control.Core;
 
 import Control.Functions.AbsFunction;
 import Model.DataModeTest.ErrorLog;
-import Model.DataModeTest.InputData;
 import Model.DataSource.FunctionConfig.FunctionConfig;
 import Model.ManagerUI.UIStatus.Elemants.UiData;
 import Model.ManagerUI.UIStatus.UiStatus;
+import Time.WaitTime.AbsTime;
+import Time.WaitTime.Class.TimeMs;
+import Time.WaitTime.Class.TimeS;
 import View.subUI.SubUI.AbsSubUi;
 import java.awt.event.ActionEvent;
-import java.awt.event.ActionListener;
-import java.util.ArrayList;
 import java.util.List;
 import javax.swing.Timer;
 
@@ -22,7 +22,7 @@ import javax.swing.Timer;
  * @author 21AK22
  */
 public class CellTest implements Runnable {
-    
+
     private final List<AbsFunction> checks;
     private final List<AbsFunction> tests;
     private final List<AbsFunction> ends;
@@ -31,33 +31,32 @@ public class CellTest implements Runnable {
     private final Timer timer;
     private final UiData uiData;
     private final AbsSubUi subUi;
-    private long startTime;
+    private final AbsTime myTimer;
 
     CellTest(UiStatus uiStatus, List<AbsFunction> checkFunctions, List<AbsFunction> testFunctions, List<AbsFunction> listEnd) {
         this.process = new Process();
-        this.checks = checkFunctions;
-        this.tests = testFunctions;
-        this.ends = listEnd;
         this.uiStatus = uiStatus;
         this.uiData = uiStatus.getUiData();
         this.subUi = uiStatus.getSubUi();
-        this.timer = new Timer(1000, new ActionListener() {
-            private final long timeOut = FunctionConfig.getInstance().getTimeOutTest();
-
-            @Override
-            public void actionPerformed(ActionEvent e) {
-                if (System.currentTimeMillis() - startTime >= timeOut) {
-                    String mess = String.format("Out of time: test time < ", (timeOut / 1000));
-                    ErrorLog.addError(mess);
-                    uiData.setMessage(mess);
-                    end();
-                }
+        this.checks = setFuncList(checkFunctions);
+        this.tests = setFuncList(testFunctions);
+        this.ends = setFuncList(listEnd);
+        this.myTimer = new TimeMs();
+        this.timer = new Timer(1000, (ActionEvent e) -> {
+            if (!myTimer.onTime()) {
+                String mess = String.format("Out of time: (test time: %.3f S) > (%s S)",
+                        myTimer.getTime()/1000.0,
+                        FunctionConfig.getInstance().getTimeOutTest()/1000
+                        );
+                ErrorLog.addError(mess);
+                uiData.setMessage(mess);
+                end();
             }
         }) {
             @Override
             public void start() {
-                startTime = System.currentTimeMillis();
                 super.start();
+                myTimer.start(FunctionConfig.getInstance().getTimeOutTest());
             }
 
         };
@@ -85,24 +84,11 @@ public class CellTest implements Runnable {
         this.subUi.startTest();
     }
 
-    void setCheckFunction(List<AbsFunction> checkFunctions) {
-        setFuncList(checks, checkFunctions);
-    }
-
-    void setTestFunction(List<AbsFunction> testFunctions) {
-        setFuncList(tests, testFunctions);
-    }
-
-    void setEndFunction(List<AbsFunction> endFunctions) {
-        setFuncList(ends, endFunctions);
-    }
-
-    private void setFuncList(List<AbsFunction> list, List<AbsFunction> testFunctions) {
-        list.clear();
+    private List<AbsFunction> setFuncList(List<AbsFunction> testFunctions) {
         for (AbsFunction testFunction : testFunctions) {
             testFunction.setUIStatus(this.uiStatus);
         }
-        list.addAll(testFunctions);
+        return testFunctions;
     }
 
     private boolean runFunctions(List<AbsFunction> funcs) {

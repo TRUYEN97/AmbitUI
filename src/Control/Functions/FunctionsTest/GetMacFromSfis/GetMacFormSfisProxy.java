@@ -14,8 +14,7 @@ import View.subUI.UiProxy.AbsProxy;
 public class GetMacFormSfisProxy extends AbsProxy<AbsFunction> {
 
 
-    public GetMacFormSfisProxy(String type) {
-        super(type);
+    public GetMacFormSfisProxy() {
     }
     
     @Override

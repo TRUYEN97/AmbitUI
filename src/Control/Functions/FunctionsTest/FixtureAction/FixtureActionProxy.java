@@ -13,8 +13,7 @@ import View.subUI.UiProxy.AbsProxy;
  */
 public class FixtureActionProxy extends AbsProxy<AbsFunction> {
 
-    public FixtureActionProxy(String type) {
-        super(type);
+    public FixtureActionProxy() {
     }
 
     @Override
