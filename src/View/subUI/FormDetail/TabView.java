@@ -18,9 +18,10 @@ import java.awt.event.KeyEvent;
  */
 public class TabView extends AbsTabUI{
 
-    /** Creates new form PanelTabView */
-    public TabView() {
-        super("View");
+    /** Creates new form PanelTabView
+     * @param name */
+    public TabView(String name) {
+        super(name);
         initComponents();
     }
     

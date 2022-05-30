@@ -6,7 +6,6 @@ package View.subUI.FormDetail;
 
 import Model.DataModeTest.DataBoxs.DataBox;
 import java.awt.event.ActionEvent;
-import java.util.Iterator;
 import java.util.Queue;
 import javax.swing.Timer;
 

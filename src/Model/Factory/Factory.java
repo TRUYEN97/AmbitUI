@@ -13,7 +13,6 @@ import Control.Functions.FunctionsTest.SendResultToSfis.SendResuttToSfisProxy;
 import Control.Functions.InitPackages.InitProxy.IdPasswordProxy;
 import View.subUI.FormDetail.AbsTabUI;
 import View.subUI.SubUI.AbsSubUi;
-import View.subUI.SubUiKeyWord;
 import View.subUI.UiProxy.BigUIProxy;
 import View.subUI.UiProxy.SmallProxy;
 import View.subUI.UiProxy.TabItemProxy;
@@ -61,8 +60,8 @@ public class Factory {
         return this.subUIFactory.takeIt(type, index);
     }
     
-    public AbsTabUI getTabUI(String type) {
-        return this.tabUIFactory.takeIt(type);
+    public AbsTabUI getTabUI(String type, String name) {
+        return this.tabUIFactory.takeIt(type, name);
     }
     
     public IFunction getInitFunc(String type) {

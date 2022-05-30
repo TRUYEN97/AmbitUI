@@ -140,11 +140,11 @@ public class TabDetail extends AbsUI implements IUpdate {
         ModeElement modeInfo = this.uiStatus.getModeTest().getModeInfo();
         Factory factory = Factory.getInstance();
         List<AbsTabUI> tabTemp = new ArrayList();
-        for (String name : modeInfo.getDetail()) {
-            if (tabElements.containsKey(name)) {
-                tabTemp.add(tabElements.get(name));
+        for (String type : modeInfo.getDetail()) {
+            if (tabElements.containsKey(type)) {
+                tabTemp.add(tabElements.get(type));
             } else {
-                tabTemp.add(factory.getTabUI(name));
+                tabTemp.add(factory.getTabUI(type));
             }
         }
         return tabTemp;

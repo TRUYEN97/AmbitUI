@@ -25,10 +25,10 @@ import javax.swing.text.Highlighter;
  */
 public class Tablog extends AbsTabUI {
 
-    private DefaultCaret caret;
+    private final DefaultCaret caret;
 
-    public Tablog() {
-        super("Log");
+    public Tablog(String name) {
+        super(name);
         initComponents();
         this.caret = (DefaultCaret) this.textLog.getCaret();
         autoCrolls();

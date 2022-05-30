@@ -40,8 +40,8 @@ public class TabItem extends AbsTabUI {
     /**
      * Creates new form TagLog
      */
-    public TabItem() {
-        super(ITEM);
+    public TabItem(String name) {
+        super(name);
         initComponents();
         this.testColumn = new Vector<>();
         this.listFunc = new Vector<>();

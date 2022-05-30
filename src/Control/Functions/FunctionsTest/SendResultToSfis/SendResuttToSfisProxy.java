@@ -5,7 +5,6 @@
 package Control.Functions.FunctionsTest.SendResultToSfis;
 
 import Control.Functions.AbsFunction;
-import SfisAPI17.SfisAPI;
 import View.subUI.UiProxy.AbsProxy;
 
 /**

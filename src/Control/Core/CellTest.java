@@ -11,7 +11,6 @@ import Model.ManagerUI.UIStatus.Elemants.UiData;
 import Model.ManagerUI.UIStatus.UiStatus;
 import Time.WaitTime.AbsTime;
 import Time.WaitTime.Class.TimeMs;
-import Time.WaitTime.Class.TimeS;
 import View.subUI.SubUI.AbsSubUi;
 import java.awt.event.ActionEvent;
 import java.util.List;
