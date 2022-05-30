@@ -25,7 +25,6 @@ public class UiData {
     private final HashMap<String, Object> productInfo;
     private InputData inputData;
     private String message;
-    private boolean isPass;
 
     public UiData(UiStatus uiStatus) {
         this.dataBoxs = new ArrayList<>();
@@ -40,7 +39,6 @@ public class UiData {
 
     public void clear() {
         this.message = null;
-        this.isPass = false;
         this.productInfo.clear();
         this.dataBoxs.clear();
     }
@@ -53,7 +51,7 @@ public class UiData {
         }
         return createDataBox(itemName);
     }
-    
+
     private DataBox createDataBox(String itemName) {
         DataBox dataBox = new DataBox(uiStatus.getName(), itemName);
         this.dataBoxs.add(dataBox);
@@ -79,23 +77,27 @@ public class UiData {
     }
 
     public boolean isPass() {
-        return isPass;
+        return getFirstFail() == null;
     }
 
-    public void setPass(boolean isPass) {
-        this.isPass = isPass;
+    public DataBox getFirstFail() {
+        for (DataBox dataBox : dataBoxs) {
+            if (!dataBox.isPass()) {
+                return dataBox;
+            }
+        }
+        return null;
     }
 
     public String getMassage() {
         if (this.message != null) {
             return message;
         }
-        for (DataBox dataBox : dataBoxs) {
-            if (!dataBox.isPass()) {
-                return String.format("FAILED\r\n%s", dataBox.getItemFunction());
-            }
+        DataBox firstFail = getFirstFail();
+        if (firstFail == null) {
+            return "PASS";
         }
-        return "PASS";
+        return String.format("FAILED\r\n%s", firstFail.getItemFunction());
     }
 
     public void putProductInfo(String key, Object data) {

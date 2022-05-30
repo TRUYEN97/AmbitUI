@@ -25,6 +25,7 @@ public class DataBox {
     private final List<ItemTest> itemTests;
     private ErrorFunctionTest errorFunc;
     private boolean testing;
+    private boolean isPass;
     private boolean isMultistacking;
     private String resultTest;
     private Double testTime;
@@ -35,6 +36,7 @@ public class DataBox {
         this.itemTests = new ArrayList<>();
         this.itemFunction = itemFunction;
         this.testing = false;
+        this.isPass = false;
         String localFunctionsFile = Setting.getInstance().getFunctionsLocalLog();
         String fileLogName = String.format("%s\\%s\\%s.txt",
                 localFunctionsFile, subUIName, itemFunction);
@@ -55,6 +57,10 @@ public class DataBox {
         }
         this.errorFunc = errorFunc;
         return true;
+    }
+
+    public ErrorFunctionTest getError() {
+        return errorFunc;
     }
 
     public boolean addItemtest(ItemTest itemTest) {
@@ -121,7 +127,15 @@ public class DataBox {
     }
 
     public boolean isPass() {
-        return errorFunc == null;
+        return isPass;
+    }
+
+    public void setPass() {
+        this.isPass = true;
+    }
+
+    public void setFail() {
+        this.isPass = false;
     }
 
 }

@@ -41,6 +41,7 @@ public class FunctionCover extends Thread {
                                                 Try to stop!!""",
                             function.getRunTime(), timeSpec);
                     this.function.addLog(mess);
+                    this.function.setRsutlt("OutTime");
                 }
                 try {
                     this.thread.join(1000);

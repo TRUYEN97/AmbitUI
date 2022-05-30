@@ -19,7 +19,7 @@ public class TabItemProxy extends AbsProxy<AbsTabUI>{
 
     @Override
     public AbsTabUI takeIt() {
-        return new TabItem(getName());
+        return new TabItem(getTypeName());
     }
     
 }

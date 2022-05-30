@@ -18,7 +18,7 @@ public class TabViewProxy extends AbsProxy<AbsTabUI> {
 
     @Override
     public AbsTabUI takeIt() {
-        return new TabView(getName());
+        return new TabView(getTypeName());
     }
 
 }

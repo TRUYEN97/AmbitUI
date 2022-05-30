@@ -60,8 +60,8 @@ public class Factory {
         return this.subUIFactory.takeIt(type, index);
     }
     
-    public AbsTabUI getTabUI(String type, String name) {
-        return this.tabUIFactory.takeIt(type, name);
+    public AbsTabUI getTabUI(String type) {
+        return this.tabUIFactory.takeIt(type);
     }
     
     public IFunction getInitFunc(String type) {

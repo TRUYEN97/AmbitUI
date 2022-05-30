@@ -10,13 +10,13 @@
     "LOAD_MODE": [
         {
             "NAME": "PRODUCTION", 
-            "TYPE_MODE": "Production",
-            "DETAIL": ["TabItemProxy", "TabLogProxy"]
+            "TYPE_MODE": "Production"
         },
         {
             "NAME": "DEBUG",
             "TYPE_MODE": "Debug",
-            "DISCRETE_TEST": "ON"
+            "DISCRETE_TEST": "ON",
+            "DETAIL": ["TabItemProxy", "TabLogProxy"]
         },
         {
             "NAME": "PRO-DEV", 

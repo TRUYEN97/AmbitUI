@@ -34,7 +34,7 @@ public abstract class AbsUI extends JPanel{
         this.timer.stop();
     }
 
-    protected abstract void updateData();
+    public abstract void updateData();
 
     public void setUiStatus(UiStatus uiStatus) {
         this.uiStatus = uiStatus;

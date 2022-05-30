@@ -61,6 +61,11 @@ public class TabDetail extends AbsUI implements IUpdate {
 
         tabDetail.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
         tabDetail.setName("tabDetail"); // NOI18N
+        tabDetail.addChangeListener(new javax.swing.event.ChangeListener() {
+            public void stateChanged(javax.swing.event.ChangeEvent evt) {
+                tabDetailStateChanged(evt);
+            }
+        });
         tabDetail.addKeyListener(new java.awt.event.KeyAdapter() {
             public void keyTyped(java.awt.event.KeyEvent evt) {
                 tabDetailKeyTyped(evt);
@@ -75,6 +80,15 @@ public class TabDetail extends AbsUI implements IUpdate {
             tabElements.get(name).keyEvent(evt);
         }
     }//GEN-LAST:event_tabDetailKeyTyped
+
+    private void tabDetailStateChanged(javax.swing.event.ChangeEvent evt) {//GEN-FIRST:event_tabDetailStateChanged
+        // TODO add your handling code here:
+        for (String key : tabElements.keySet()) {
+            if (tabElements.get(key).isVisible()) {
+                tabElements.get(key).updateData();
+            }
+        }
+    }//GEN-LAST:event_tabDetailStateChanged
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JTabbedPane tabDetail;
@@ -110,7 +124,7 @@ public class TabDetail extends AbsUI implements IUpdate {
     private void addTab(AbsTabUI tabUI) {
         tabUI.setUiStatus(uiStatus);
         this.tabDetail.addTab(tabUI.getName(), tabUI);
-        this.tabElements.put(tabUI.getName(), tabUI);
+        this.tabElements.put(tabUI.getType(), tabUI);
     }
 
     @Override

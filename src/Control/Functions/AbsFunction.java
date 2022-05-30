@@ -23,7 +23,6 @@ public abstract class AbsFunction implements IFunction {
 
     protected final FunctionElement funcConfig;
     protected final Limit limit;
-    protected boolean isPass;
     protected UiData uIData;
     protected DataBox dataBox;
     protected ModeTest modeTest;
@@ -32,7 +31,6 @@ public abstract class AbsFunction implements IFunction {
     protected AbsFunction(String itemName) {
         this.funcConfig = FunctionConfig.getInstance().getElement(itemName);
         this.limit = Limit.getInstance();
-        this.isPass = false;
     }
 
     public void setUIStatus(UiStatus uiStatus) {
@@ -52,17 +50,17 @@ public abstract class AbsFunction implements IFunction {
                 this.dataBox.addLog("Mode Skip: " + modeTest.toString());
                 this.dataBox.addLog("This function will be canceled because the mode is " + modeTest.toString());
                 this.dataBox.setResult("Canceled");
-                isPass = true;
+                this.dataBox.setPass();
                 return;
             }
             for (int turn = 0; turn < getRetry(); turn++) {
                 this.dataBox.addLog(String.format("Turn %s:", turn));
                 if (test()) {
-                    isPass = true;
+                    this.dataBox.setPass();
                     return;
                 }
             }
-            isPass = false;
+            this.dataBox.setFail();
         } catch (Exception e) {
             ErrorLog.addError(e.getLocalizedMessage());
             this.addLog(e.getMessage());
@@ -82,7 +80,7 @@ public abstract class AbsFunction implements IFunction {
 
     @Override
     public boolean isPass() {
-        return isPass;
+        return dataBox.isPass();
     }
 
     public String getItemName() {

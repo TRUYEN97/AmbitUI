@@ -24,6 +24,7 @@
         <Property name="name" type="java.lang.String" value="tabDetail" noResource="true"/>
       </Properties>
       <Events>
+        <EventHandler event="stateChanged" listener="javax.swing.event.ChangeListener" parameters="javax.swing.event.ChangeEvent" handler="tabDetailStateChanged"/>
         <EventHandler event="keyTyped" listener="java.awt.event.KeyListener" parameters="java.awt.event.KeyEvent" handler="tabDetailKeyTyped"/>
       </Events>
       <Constraints>

@@ -39,9 +39,10 @@ public class TabItem extends AbsTabUI {
 
     /**
      * Creates new form TagLog
+     * @param type
      */
-    public TabItem(String name) {
-        super(name);
+    public TabItem(String type) {
+        super("Item", type);
         initComponents();
         this.testColumn = new Vector<>();
         this.listFunc = new Vector<>();
@@ -218,7 +219,7 @@ public class TabItem extends AbsTabUI {
             } else {
                 editRow(dataBox.getItemFunction(), row, ITEM);
                 editRow(String.format("%.3f S", dataBox.getRunTime()),
-                         row, TIME);
+                        row, TIME);
                 editRow(getStatus(dataBox), row, STAUS);
             }
         }

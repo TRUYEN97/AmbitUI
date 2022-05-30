@@ -21,7 +21,7 @@ public class TabLogProxy extends AbsProxy<AbsTabUI> {
         if (getTypeName() == null) {
             return null;
         }
-        return new Tablog(getName());
+        return new Tablog(getTypeName());
     }
 
 }
