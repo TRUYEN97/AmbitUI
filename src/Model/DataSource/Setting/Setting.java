@@ -35,7 +35,6 @@ public class Setting extends AbsJsonSource<ModeElement> implements IInit {
         return ins;
     }
 
-
     @Override
     protected boolean getData() {
         DataWareHouse wareHouse = readFile.getData();
@@ -48,11 +47,15 @@ public class Setting extends AbsJsonSource<ModeElement> implements IInit {
         }
         return !this.elements.isEmpty();
     }
-    
+
+    public String getGiaiDoan() {
+        return this.readFile.getData().getString(KeyWord.GIAI_DOAN);
+    }
+
     public String getFunctionsLocalLog() {
         return this.readFile.getData().getString(KeyWord.LOCAL_FUNCTION_LOG);
     }
-    
+
     public String getLocalLog() {
         return this.readFile.getData().getString(KeyWord.LOCAL_LOG);
     }

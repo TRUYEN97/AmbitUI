@@ -8,6 +8,7 @@ import Control.Core.Core;
 import Control.Core.ModeTest;
 import Control.LoadModelTime.LoadModeTime;
 import Control.CheckInput;
+import Model.DataSource.PcInformation;
 import View.subUI.SubUI.AbsSubUi;
 import java.awt.Component;
 import java.awt.GridLayout;
@@ -48,6 +49,34 @@ public class UIView extends javax.swing.JFrame {
         }
         initComponents();
         this.comboBoxModel = (DefaultComboBoxModel) this.cbbModeTest.getModel();
+    }
+
+    public void showPcName(String pcName) {
+        if (pcName == null) {
+            return;
+        }
+        this.lbNamePC.setText(pcName);
+    }
+    
+    public void showIp(String ip) {
+        if (ip == null) {
+            return;
+        }
+        this.lbIP.setText(ip);
+    }
+    
+    public void setPnName(String pnName) {
+        if (pnName == null) {
+            return;
+        }
+        this.lbProductname.setText(pnName);
+    }
+    
+    public void showGiaiDoan(String giaiDoan) {
+        if (giaiDoan == null) {
+            return;
+        }
+        this.lbGiaiDoan.setText(giaiDoan);
     }
 
     public void setCheckInput(CheckInput checkInput) {
@@ -112,7 +141,7 @@ public class UIView extends javax.swing.JFrame {
         jPanel4 = new javax.swing.JPanel();
         lbProductname = new javax.swing.JLabel();
         jPanel5 = new javax.swing.JPanel();
-        lbSFIS = new javax.swing.JLabel();
+        lbGiaiDoan = new javax.swing.JLabel();
         lbTimeVN = new javax.swing.JLabel();
         jScrollPane2 = new javax.swing.JScrollPane();
         textMess = new javax.swing.JTextArea();
@@ -160,7 +189,7 @@ public class UIView extends javax.swing.JFrame {
         lbNamePC.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
         lbNamePC.setCursor(new java.awt.Cursor(java.awt.Cursor.DEFAULT_CURSOR));
 
-        lbIP.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
+        lbIP.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
         lbIP.setForeground(new java.awt.Color(255, 255, 255));
         lbIP.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         lbIP.setText("---");
@@ -217,12 +246,12 @@ public class UIView extends javax.swing.JFrame {
         jPanel5.setBackground(new java.awt.Color(102, 102, 255));
         jPanel5.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
 
-        lbSFIS.setBackground(new java.awt.Color(204, 0, 0));
-        lbSFIS.setFont(new java.awt.Font("Arial 14 粗体", 1, 20)); // NOI18N
-        lbSFIS.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        lbSFIS.setText("SFIS");
-        lbSFIS.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
-        lbSFIS.setOpaque(true);
+        lbGiaiDoan.setBackground(new java.awt.Color(153, 153, 255));
+        lbGiaiDoan.setFont(new java.awt.Font("Arial 14 粗体", 1, 20)); // NOI18N
+        lbGiaiDoan.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        lbGiaiDoan.setText("---");
+        lbGiaiDoan.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
+        lbGiaiDoan.setOpaque(true);
 
         lbTimeVN.setFont(new java.awt.Font("Tahoma", 0, 18)); // NOI18N
         lbTimeVN.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
@@ -258,7 +287,7 @@ public class UIView extends javax.swing.JFrame {
                 .addContainerGap()
                 .addGroup(jPanel5Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addComponent(jScrollPane2)
-                    .addComponent(lbSFIS, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addComponent(lbGiaiDoan, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                     .addComponent(lbTimeVN, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                     .addComponent(cbbModeTest, 0, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
                 .addContainerGap())
@@ -267,7 +296,7 @@ public class UIView extends javax.swing.JFrame {
             jPanel5Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel5Layout.createSequentialGroup()
                 .addContainerGap()
-                .addComponent(lbSFIS, javax.swing.GroupLayout.PREFERRED_SIZE, 38, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addComponent(lbGiaiDoan, javax.swing.GroupLayout.PREFERRED_SIZE, 38, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(cbbModeTest, javax.swing.GroupLayout.PREFERRED_SIZE, 39, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
@@ -430,10 +459,10 @@ public class UIView extends javax.swing.JFrame {
     private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JScrollPane jScrollPane2;
     private javax.swing.JScrollPane jScrollPane3;
+    private javax.swing.JLabel lbGiaiDoan;
     private javax.swing.JLabel lbIP;
     private javax.swing.JLabel lbNamePC;
     private javax.swing.JLabel lbProductname;
-    private javax.swing.JLabel lbSFIS;
     private javax.swing.JLabel lbTimeVN;
     private javax.swing.JPanel panelBackground;
     private javax.swing.JTextArea textMess;

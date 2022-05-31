@@ -20,6 +20,7 @@ public class Main {
             Engine core = new Engine();
             core.run();
         } catch (Exception e) {
+            e.printStackTrace();
             ErrorLog.addError(e.getMessage());
         }
     }

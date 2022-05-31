@@ -110,7 +110,13 @@ public class DataBox {
     public void end() {
         this.loger.close();
         this.testing = false;
-        testTime = getRunTime();
+        this.testTime = getRunTime();
+        if (this.itemTests.isEmpty()) {
+            ItemTest itemTest = new ItemTest(itemFunction);
+            itemTest.setValue(getResultTest());
+            itemTest.setIsPass(isPass);
+            addItemtest(itemTest);
+        }
     }
 
     public boolean isMultiStacking() {
@@ -118,7 +124,6 @@ public class DataBox {
     }
 
     public String getLog() {
-
         return this.loger.getLog();
     }
 

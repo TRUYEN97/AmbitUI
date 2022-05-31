@@ -22,6 +22,10 @@ public class ModeElement extends AbsElementInfo {
         return this.warehouse.getString(KeyWord.TYPE_MODE);
     }
     
+    public String getPnName() {
+        return this.warehouse.getString(KeyWord.PN_NAME);
+    }
+    
     public String getModeName() {
         return this.warehouse.getString(KeyWord.NAME);
     }
@@ -32,14 +36,6 @@ public class ModeElement extends AbsElementInfo {
 
     public List<String> getIniFunc() {
         return this.warehouse.cvtArrays2List(this.warehouse.getJSONArray(KeyWord.INIT_FUNC));
-    }
-
-    public List<String> getCheckFunctions() {
-        return this.warehouse.cvtArrays2List(this.warehouse.getJSONArray(KeyWord.PREPARE));
-    }
-
-    public List<String> getEndFunctions() {
-        return this.warehouse.cvtArrays2List(this.warehouse.getJSONArray(KeyWord.END));
     }
 
     public int getRow() {

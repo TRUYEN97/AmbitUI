@@ -8,6 +8,7 @@ import Control.Functions.AbsFunction;
 import Model.DataModeTest.DataBoxs.DataBox;
 import Model.DataModeTest.DataBoxs.UISignal;
 import Model.DataModeTest.InputData;
+import Model.DataSource.DataWareHouse;
 import Model.ManagerUI.UIStatus.UiStatus;
 import java.util.ArrayList;
 import java.util.HashMap;
@@ -97,7 +98,7 @@ public class UiData {
         if (firstFail == null) {
             return "PASS";
         }
-        return String.format("FAILED\r\n%s", firstFail.getItemFunction());
+        return String.format("Failed: %s", firstFail.getItemFunction());
     }
 
     public void putProductInfo(String key, Object data) {

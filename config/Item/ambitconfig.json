@@ -6,7 +6,7 @@
         {
             "FLAG": "on",
             "TIME_OVER": 22,
-            "PN_NAME": "810-00900",
+            "DATA_FORMAT": ["mlbsn", "ethernetmac","pnname", "model", "smode"],
             "URL_CHECK_SN": "http://10.90.0.40/sfcapi/api/connect",
             "ITEM_NAME": "CheckSnSfis",
             "FUNC_NAME": "CheckSnFormSFISProxy"
@@ -53,6 +53,7 @@
         {
             "FLAG": "on",
             "TIME_OVER": 5,
+            "SEND_FORMAT": ["MBLSN", "PCNAME", "STATUS", "ERRORCODE"],
             "URL_SEND_RESULT": "http://10.90.0.40/sfcapi/api/connectfinal",
             "ITEM_NAME": "SendToSfis",
             "FUNC_NAME": "SendResuttToSfisProxy"

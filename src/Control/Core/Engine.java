@@ -5,6 +5,7 @@
 package Control.Core;
 
 import Control.CheckInput;
+import Model.DataSource.PcInformation;
 import Model.DataSource.Setting.Setting;
 import Model.DataSource.Setting.ModeElement;
 import View.UIView;
@@ -22,12 +23,14 @@ public class Engine {
     private final List<ModeTest> modeTests;
     private final CheckInput checkInput;
     private final UIView view;
+    private final PcInformation pcInfor;
 
     public Engine() {
         this.setting = Setting.getInstance();
         this.modeTests = new ArrayList<>();
         this.core = new Core(new UIView());
         this.view = this.core.getView();
+        this.pcInfor = PcInformation.getInstance();
         this.checkInput = new CheckInput(core, view);
         this.view.setCheckInput(checkInput);
     }
@@ -52,6 +55,9 @@ public class Engine {
     }
 
     private void showUI() {
+        this.view.showIp(pcInfor.getIp());
+        this.view.showPcName(pcInfor.getPcName());
+        this.view.showGiaiDoan(setting.getGiaiDoan());
         java.awt.EventQueue.invokeLater(() -> {
             this.view.setVisible(true);
         });

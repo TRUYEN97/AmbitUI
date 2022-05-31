@@ -6,6 +6,7 @@ package Model.DataSource.FunctionConfig;
 
 import Model.DataSource.AbsElementInfo;
 import com.alibaba.fastjson.JSONObject;
+import java.util.List;
 
 /**
  *
@@ -67,6 +68,10 @@ public class FunctionElement extends AbsElementInfo {
 
     public String getValue(String key) {
         return warehouse.getString(key);
+    }
+
+    public List<String> getListString(String key) {
+        return warehouse.getList(key);
     }
 
 }

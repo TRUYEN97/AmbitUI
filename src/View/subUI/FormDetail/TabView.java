@@ -48,6 +48,7 @@ public class TabView extends AbsTabUI {
         lbStatus.setFont(new java.awt.Font("Tahoma", 1, 36)); // NOI18N
         lbStatus.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         lbStatus.setText("READY");
+        lbStatus.setAutoscrolls(true);
         lbStatus.setName("lbStatus"); // NOI18N
         lbStatus.setOpaque(true);
 
@@ -95,7 +96,7 @@ public class TabView extends AbsTabUI {
         if (this.uiStatus.isTesting()) {
             showItemTesting();
         } else {
-            this.lbStatus.setText(this.uiStatus.getUiData().getMassage());
+            this.lbStatus.setText("<html>" + this.uiStatus.getUiData().getMassage() + "</html>");
         }
 
     }

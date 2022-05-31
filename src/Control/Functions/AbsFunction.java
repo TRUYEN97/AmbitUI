@@ -65,7 +65,6 @@ public abstract class AbsFunction implements IFunction {
             ErrorLog.addError(e.getLocalizedMessage());
             this.addLog(e.getMessage());
         }
-
     }
 
     public ModeTest getModeTest() {

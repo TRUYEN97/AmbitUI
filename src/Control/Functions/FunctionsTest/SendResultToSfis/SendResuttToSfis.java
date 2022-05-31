@@ -21,6 +21,7 @@ public class SendResuttToSfis extends AbsFunction{
 
     @Override
     public boolean test() {
+        
         return true;
     }
     

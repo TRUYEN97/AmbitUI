@@ -25,6 +25,10 @@ public class DataWareHouse {
         this.coreData = new JSONObject();
     }
 
+    public DataWareHouse(JSONObject parseObject) {
+        this.coreData = parseObject;
+    }
+
     public boolean putAll(Map data) {
         if (data != null && !data.isEmpty()) {
             this.coreData.putAll(data);
@@ -80,7 +84,7 @@ public class DataWareHouse {
             System.err.println(e.getMessage());
             String mess = String.format("Key: %s\r\nvalue: %s\r\n%s",
                     key, getString(json, key), e.getMessage());
-            ErrorLog.addError(this,mess);
+            ErrorLog.addError(this, mess);
             return null;
         }
     }
@@ -104,7 +108,7 @@ public class DataWareHouse {
             System.err.println(e.getMessage());
             String mess = String.format("Key: %s\r\nvalue: %s\r\n%s",
                     key, getString(json, key), e.getMessage());
-            ErrorLog.addError(this,mess);
+            ErrorLog.addError(this, mess);
             return null;
         }
     }
@@ -192,7 +196,7 @@ public class DataWareHouse {
             System.err.println(e.getMessage());
             String mess = String.format("Key: %s\r\nvalue: %s\r\n%s",
                     key, getString(json, key), e.getMessage());
-            ErrorLog.addError(this,mess);
+            ErrorLog.addError(this, mess);
             return null;
         }
     }

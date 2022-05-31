@@ -1,13 +1,4 @@
-2022-05-30 11:24:57 : Item[GEN_NODE]---Function[GENERATENODEPROXY]---Mode[PRODUCTION]
-2022-05-30 11:24:57 : Turn 0:
-2022-05-30 11:24:57 : 0
-2022-05-30 11:24:57 : 1
-2022-05-30 11:24:58 : 2
-2022-05-30 11:24:58 : 3
-2022-05-30 11:24:59 : 4
-2022-05-30 11:24:59 : 5
-2022-05-30 11:25:00 : This function has out of run time!
-2022-05-30 11:25:00 : Time: 3,031 S
-2022-05-30 11:25:00 : Spec: 3.0 S
-2022-05-30 11:25:00 : Try to stop!!
-2022-05-30 11:25:00 : Time[3,032 s]---Result[FAILED]
+2022-05-31 07:18:10 : Item[GEN_NODE]---Function[GENERATENODEPROXY]---Mode[DEBUG]
+2022-05-31 07:18:10 : Mode Skip: DEBUG
+2022-05-31 07:18:10 : This function will be canceled because the mode is DEBUG
+2022-05-31 07:18:10 : Time[0,005 s]---Result[PASS]

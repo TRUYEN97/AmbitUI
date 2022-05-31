@@ -7,6 +7,7 @@ package Model.DataSource.Tool;
 import Model.DataSource.AbsJsonSource;
 import Model.DataSource.FunctionConfig.FunctionConfig;
 import Model.DataSource.Limit.Limit;
+import Model.DataSource.PcInformation;
 import Model.Interface.IInit;
 import Model.DataSource.Setting.Setting;
 import java.util.ArrayList;
@@ -19,7 +20,7 @@ import java.util.List;
 public class LoadSource implements IInit {
 
     private final InfoBase info;
-    private final List<AbsJsonSource> sources;
+    private final List<IInit> sources;
 
     public LoadSource() {
         this.info = InfoBase.getInstance();
@@ -29,11 +30,12 @@ public class LoadSource implements IInit {
         this.sources.add(Setting.getInstance().setPath(this.info.getPathOfSetting()));
         this.sources.add(FunctionConfig.getInstance().setPath(this.info.getPathOfAmbitconfig()));
         this.sources.add(Limit.getInstance().setPath(this.info.getPathOfLimit()));
+        this.sources.add(PcInformation.getInstance());
     }
 
     @Override
     public boolean init() {
-        for (AbsJsonSource source : sources) {
+        for (IInit source : sources) {
             if (!source.init()) {
                 return false;
             }

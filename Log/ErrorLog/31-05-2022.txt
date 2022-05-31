@@ -1,0 +1,88 @@
+2022-05-31 01:12:26 : error in Model.DataSource.DataWareHouse : Key: RETRY
+2022-05-31 01:12:26 : value: null
+2022-05-31 01:12:26 : Cannot parse null string
+2022-05-31 01:12:26 : //////////////////////////////////////
+2022-05-31 01:12:29 : error in Model.DataSource.DataWareHouse : Key: RETRY
+2022-05-31 01:12:29 : value: null
+2022-05-31 01:12:29 : Cannot parse null string
+2022-05-31 01:12:29 : //////////////////////////////////////
+2022-05-31 01:14:41 : error in Model.DataSource.DataWareHouse : Key: RETRY
+2022-05-31 01:14:41 : value: null
+2022-05-31 01:14:41 : Cannot parse null string
+2022-05-31 01:14:41 : //////////////////////////////////////
+2022-05-31 01:14:44 : error in Model.DataSource.DataWareHouse : Key: RETRY
+2022-05-31 01:14:44 : value: null
+2022-05-31 01:14:44 : Cannot parse null string
+2022-05-31 01:14:44 : //////////////////////////////////////
+2022-05-31 04:13:24 : Cannot invoke "String.isBlank()" because "this.ip" is null
+2022-05-31 04:13:24 : //////////////////////////////////////
+2022-05-31 04:14:30 : Cannot invoke "String.isBlank()" because "this.ip" is null
+2022-05-31 04:14:30 : //////////////////////////////////////
+2022-05-31 04:15:06 : Cannot invoke "String.isBlank()" because "this.ip" is null
+2022-05-31 04:15:06 : //////////////////////////////////////
+2022-05-31 04:16:11 : Cannot invoke "String.isBlank()" because "this.ip" is null
+2022-05-31 04:16:11 : //////////////////////////////////////
+2022-05-31 04:16:27 : Cannot invoke "String.isBlank()" because "this.ip" is null
+2022-05-31 04:16:27 : //////////////////////////////////////
+2022-05-31 06:28:48 : error in Model.DataSource.DataWareHouse : Key: RETRY
+2022-05-31 06:28:48 : value: null
+2022-05-31 06:28:48 : Cannot parse null string
+2022-05-31 06:28:48 : //////////////////////////////////////
+2022-05-31 06:28:51 : error in Model.DataSource.DataWareHouse : Key: RETRY
+2022-05-31 06:28:51 : value: null
+2022-05-31 06:28:51 : Cannot parse null string
+2022-05-31 06:28:51 : //////////////////////////////////////
+2022-05-31 07:11:04 : Cannot invoke "Model.DataSource.PcInformation.getIp()" because "this.pcInfor" is null
+2022-05-31 07:11:04 : //////////////////////////////////////
+2022-05-31 07:17:49 : error in Model.DataSource.DataWareHouse : Key: RETRY
+2022-05-31 07:17:49 : value: null
+2022-05-31 07:17:49 : Cannot parse null string
+2022-05-31 07:17:49 : //////////////////////////////////////
+2022-05-31 07:17:52 : error in Model.DataSource.DataWareHouse : Key: RETRY
+2022-05-31 07:17:52 : value: null
+2022-05-31 07:17:52 : Cannot parse null string
+2022-05-31 07:17:52 : //////////////////////////////////////
+2022-05-31 07:18:10 : error in Model.DataSource.DataWareHouse : Key: RETRY
+2022-05-31 07:18:10 : value: null
+2022-05-31 07:18:10 : Cannot parse null string
+2022-05-31 07:18:10 : //////////////////////////////////////
+2022-05-31 07:18:20 : error in Model.DataSource.DataWareHouse : Key: RETRY
+2022-05-31 07:18:20 : value: null
+2022-05-31 07:18:20 : Cannot parse null string
+2022-05-31 07:18:20 : //////////////////////////////////////
+2022-05-31 10:12:49 : error in Model.DataSource.DataWareHouse : Key: RETRY
+2022-05-31 10:12:49 : value: null
+2022-05-31 10:12:49 : Cannot parse null string
+2022-05-31 10:12:49 : //////////////////////////////////////
+2022-05-31 10:12:49 : Not supported yet.
+2022-05-31 10:12:49 : //////////////////////////////////////
+2022-05-31 10:14:07 : error in Model.DataSource.DataWareHouse : Key: RETRY
+2022-05-31 10:14:07 : value: null
+2022-05-31 10:14:07 : Cannot parse null string
+2022-05-31 10:14:07 : //////////////////////////////////////
+2022-05-31 10:14:07 : Not supported yet.
+2022-05-31 10:14:07 : //////////////////////////////////////
+2022-05-31 10:17:52 : error in Model.DataSource.DataWareHouse : Key: RETRY
+2022-05-31 10:17:52 : value: null
+2022-05-31 10:17:52 : Cannot parse null string
+2022-05-31 10:17:52 : //////////////////////////////////////
+2022-05-31 10:17:52 : error in Model.DataSource.DataWareHouse : Key: RETRY
+2022-05-31 10:17:52 : value: null
+2022-05-31 10:17:52 : Cannot parse null string
+2022-05-31 10:17:52 : //////////////////////////////////////
+2022-05-31 10:22:27 : error in Model.DataSource.DataWareHouse : Key: RETRY
+2022-05-31 10:22:27 : value: null
+2022-05-31 10:22:27 : Cannot parse null string
+2022-05-31 10:22:27 : //////////////////////////////////////
+2022-05-31 10:22:27 : error in Model.DataSource.DataWareHouse : Key: RETRY
+2022-05-31 10:22:27 : value: null
+2022-05-31 10:22:27 : Cannot parse null string
+2022-05-31 10:22:27 : //////////////////////////////////////
+2022-05-31 10:23:47 : error in Model.DataSource.DataWareHouse : Key: RETRY
+2022-05-31 10:23:47 : value: null
+2022-05-31 10:23:47 : Cannot parse null string
+2022-05-31 10:23:47 : //////////////////////////////////////
+2022-05-31 10:23:47 : error in Model.DataSource.DataWareHouse : Key: RETRY
+2022-05-31 10:23:47 : value: null
+2022-05-31 10:23:47 : Cannot parse null string
+2022-05-31 10:23:47 : //////////////////////////////////////

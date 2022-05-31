@@ -1,6 +1,6 @@
-2022-05-30 11:24:36 : Item[CHECKSNSFIS]---Function[CHECKSNFORMSFISPROXY]---Mode[PRODUCTION]
-2022-05-30 11:24:36 : Turn 0:
-2022-05-30 11:24:36 : send to url: http://10.90.0.40/sfcapi/api/connect
-2022-05-30 11:24:36 : {"PCNAME":"testPC","SN":"k"}
-2022-05-30 11:24:57 : Send SFIS Exception : Connection timed out: connect
-2022-05-30 11:24:57 : Time[21,052 s]---Result[PASS]
+2022-05-31 10:23:47 : Item[CHECKSNSFIS]---Function[CHECKSNFORMSFISPROXY]---Mode[PRODUCTION]
+2022-05-31 10:23:47 : Turn 0:
+2022-05-31 10:23:47 : send to url: http://10.90.0.40/sfcapi/api/connect
+2022-05-31 10:23:47 : {"PCNAME":"MBLT-720","SN":"h"}
+2022-05-31 10:23:47 : {"result":"FAIL","message":"Exception: IP(10.90.1.13) HAVE NOT SET IN SFIS YET","data":{}}
+2022-05-31 10:23:47 : Time[0,038 s]---Result[FAILED]

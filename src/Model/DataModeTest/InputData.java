@@ -43,8 +43,4 @@ public class InputData {
         this.index = index;
     }
 
-    public String getPcName() {
-        return "testPC";
-    }
-
 }

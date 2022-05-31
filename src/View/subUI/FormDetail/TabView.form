@@ -41,6 +41,7 @@
         </Property>
         <Property name="horizontalAlignment" type="int" value="0"/>
         <Property name="text" type="java.lang.String" value="READY"/>
+        <Property name="autoscrolls" type="boolean" value="true"/>
         <Property name="name" type="java.lang.String" value="lbStatus" noResource="true"/>
         <Property name="opaque" type="boolean" value="true"/>
       </Properties>
