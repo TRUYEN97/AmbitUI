@@ -5,7 +5,7 @@
 package Control.Functions.FunctionsTest.FixtureAction;
 
 import Control.Functions.AbsFunction;
-import View.subUI.UiProxy.AbsProxy;
+import Model.Factory.AbsProxy;
 
 /**
  *

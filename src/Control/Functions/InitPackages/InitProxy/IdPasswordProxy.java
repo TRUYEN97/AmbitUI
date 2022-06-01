@@ -5,7 +5,7 @@
 package Control.Functions.InitPackages.InitProxy;
 
 import Control.Functions.InitPackages.idPassWord;
-import View.subUI.UiProxy.AbsProxy;
+import Model.Factory.AbsProxy;
 import Model.Interface.IFunction;
 
 /**

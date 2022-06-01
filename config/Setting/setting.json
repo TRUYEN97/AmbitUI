@@ -1,6 +1,6 @@
 {
     "STATION": "RTT",
-    "DHCP": "OFF",
+    "DHCP": false,
     "ROW": 1,
     "COLUMN": 1,
     "PN_NAME": "810-00900",
@@ -17,7 +17,7 @@
         {
             "NAME": "DEBUG",
             "TYPE_MODE": "Debug",
-            "DISCRETE_TEST": "ON",
+            "DISCRETE_TEST": true,
             "DETAIL": ["TabItemProxy", "TabLogProxy"]
         },
         {

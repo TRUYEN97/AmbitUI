@@ -33,8 +33,7 @@ public final class FuncKeyWord {
     public static final String FAIL_CONTNIUE = "FAIL_CONTNIUE";
     public static final List<String> KEYS = Arrays.asList(FAIL_CONTNIUE, UUT_MODEL, STATION_NAME, COM, BAUDRATE, FLAG, CANCEL, TIME_OVER, RETRY,
             ITEM_NAME, FUNC_NAME, LIMIT_UP, LIMIT_DN, MULTI_TASK, TIME_OUT_TEST);
-    
-    public static final String ON = "on";
+   
     public static final String MACTH = "MACTH";
     public static final String LIMIT = "LIMIT";
     public static final String BOOL = "BOOL";

@@ -2,26 +2,27 @@
  * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
  * Click nbfs://nbhost/SystemFileSystem/Templates/Classes/Class.java to edit this template
  */
-package View.subUI.UiProxy;
+package View.subUI.SubUI.BigUI;
 
+import Model.Factory.AbsProxy;
 import View.subUI.SubUI.AbsSubUi;
-import View.subUI.SubUI.SmallUI;
+import View.subUI.SubUI.BigUI.BigUI;
 
 /**
  *
  * @author Administrator
  */
-public class SmallProxy extends AbsProxy<AbsSubUi>{
+public class BigUIProxy extends AbsProxy<AbsSubUi> {
 
-    public SmallProxy() {
+    public BigUIProxy() {
     }
 
     @Override
-    public AbsSubUi takeIt() { 
+    public AbsSubUi takeIt() {
         if (getName() == null) {
             return null;
         }
-       return new SmallUI(getName());
+        return new BigUI(getName());
     }
-    
+
 }

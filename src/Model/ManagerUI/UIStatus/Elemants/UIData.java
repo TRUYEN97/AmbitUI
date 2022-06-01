@@ -8,7 +8,6 @@ import Control.Functions.AbsFunction;
 import Model.DataModeTest.DataBoxs.DataBox;
 import Model.DataModeTest.DataBoxs.UISignal;
 import Model.DataModeTest.InputData;
-import Model.DataSource.DataWareHouse;
 import Model.ManagerUI.UIStatus.UiStatus;
 import java.util.ArrayList;
 import java.util.HashMap;

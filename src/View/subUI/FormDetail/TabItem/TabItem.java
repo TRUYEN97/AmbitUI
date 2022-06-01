@@ -8,9 +8,11 @@
  *
  * Created on Feb 7, 2022, 6:28:13 PM
  */
-package View.subUI.FormDetail;
+package View.subUI.FormDetail.TabItem;
 
 import Model.DataModeTest.DataBoxs.DataBox;
+import View.subUI.FormDetail.AbsTabUI;
+import View.subUI.FormDetail.ItemLog;
 import java.awt.event.KeyEvent;
 import java.util.HashMap;
 import java.util.List;

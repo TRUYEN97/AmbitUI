@@ -67,7 +67,6 @@ public class ModeElement extends AbsElementInfo {
     }
 
     public boolean isDiscreteTest() {
-        String str = this.warehouse.getString(KeyWord.DISCRETE_TEST);
-        return !(str == null || str.equalsIgnoreCase("on"));
+        return this.warehouse.getBoolean(KeyWord.DISCRETE_TEST);
     }
 }

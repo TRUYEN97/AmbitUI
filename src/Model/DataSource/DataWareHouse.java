@@ -82,9 +82,6 @@ public class DataWareHouse {
             return Integer.parseInt(getString(json, key), radix);
         } catch (NumberFormatException e) {
             System.err.println(e.getMessage());
-            String mess = String.format("Key: %s\r\nvalue: %s\r\n%s",
-                    key, getString(json, key), e.getMessage());
-            ErrorLog.addError(this, mess);
             return null;
         }
     }
@@ -106,9 +103,6 @@ public class DataWareHouse {
             return Double.parseDouble(getString(json, key));
         } catch (NumberFormatException e) {
             System.err.println(e.getMessage());
-            String mess = String.format("Key: %s\r\nvalue: %s\r\n%s",
-                    key, getString(json, key), e.getMessage());
-            ErrorLog.addError(this, mess);
             return null;
         }
     }
@@ -194,10 +188,21 @@ public class DataWareHouse {
             return Long.parseLong(getString(json, key));
         } catch (NumberFormatException e) {
             System.err.println(e.getMessage());
-            String mess = String.format("Key: %s\r\nvalue: %s\r\n%s",
-                    key, getString(json, key), e.getMessage());
-            ErrorLog.addError(this, mess);
             return null;
+        }
+    }
+
+    public boolean getBoolean(String key) {
+        return getBoolean(coreData, key);
+    }
+
+    public boolean getBoolean(JSONObject json, String key) {
+        try {
+            return json.getBooleanValue(key);
+        } catch (Exception e) {
+            e.printStackTrace();
+            System.out.println(e.getMessage());
+            return false;
         }
     }
 }

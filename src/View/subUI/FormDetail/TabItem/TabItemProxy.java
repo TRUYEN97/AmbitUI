@@ -2,23 +2,24 @@
  * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
  * Click nbfs://nbhost/SystemFileSystem/Templates/Classes/Class.java to edit this template
  */
-package View.subUI.UiProxy;
+package View.subUI.FormDetail.TabItem;
 
+import Model.Factory.AbsProxy;
 import View.subUI.FormDetail.AbsTabUI;
-import View.subUI.FormDetail.TabView;
 
 /**
  *
  * @author Administrator
  */
-public class TabViewProxy extends AbsProxy<AbsTabUI> {
+public class TabItemProxy extends AbsProxy<AbsTabUI>{
 
-    public TabViewProxy() {
+    
+    public TabItemProxy() {
     }
 
     @Override
     public AbsTabUI takeIt() {
-        return new TabView(getTypeName());
+        return new TabItem(getTypeName());
     }
-
+    
 }

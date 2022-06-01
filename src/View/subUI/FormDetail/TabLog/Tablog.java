@@ -8,8 +8,9 @@
  *
  * Created on Feb 8, 2022, 1:14:15 PM
  */
-package View.subUI.FormDetail;
+package View.subUI.FormDetail.TabLog;
 
+import View.subUI.FormDetail.AbsTabUI;
 import java.awt.event.KeyEvent;
 import java.awt.event.MouseEvent;
 import java.util.regex.Matcher;

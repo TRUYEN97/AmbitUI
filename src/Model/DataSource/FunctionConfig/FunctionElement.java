@@ -27,8 +27,7 @@ public class FunctionElement extends AbsElementInfo {
     }
 
     public boolean isMutiTasking() {
-        String multiTasking = this.warehouse.getString(FuncKeyWord.MULTI_TASK);
-        return !(multiTasking == null || !multiTasking.equalsIgnoreCase(FuncKeyWord.ON));
+        return this.warehouse.getBoolean(FuncKeyWord.MULTI_TASK);
     }
 
     public int getRetry() {
@@ -57,13 +56,11 @@ public class FunctionElement extends AbsElementInfo {
     }
     
     public boolean isSkipFail() {
-        String flag = warehouse.getString(FuncKeyWord.FAIL_CONTNIUE);
-        return flag != null && flag.equals(FuncKeyWord.ON);
+        return warehouse.getBoolean(FuncKeyWord.FAIL_CONTNIUE);
     }
 
     boolean isActive() {
-        String flag =  warehouse.getString(FuncKeyWord.FLAG);
-        return flag != null && flag.equalsIgnoreCase(FuncKeyWord.ON);
+        return  warehouse.getBoolean(FuncKeyWord.FLAG);
     }
 
     public String getValue(String key) {

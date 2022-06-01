@@ -8,9 +8,10 @@
  *
  * Created on Feb 7, 2022, 9:57:51 AM
  */
-package View.subUI.FormDetail;
+package View.subUI.FormDetail.TabView;
 
 import Model.DataModeTest.DataBoxs.DataBox;
+import View.subUI.FormDetail.AbsTabUI;
 import java.awt.Color;
 import java.awt.event.KeyEvent;
 import java.util.List;
@@ -44,11 +45,11 @@ public class TabView extends AbsTabUI {
 
         setBackground(new java.awt.Color(204, 204, 255));
 
-        lbStatus.setBackground(new java.awt.Color(102, 102, 255));
-        lbStatus.setFont(new java.awt.Font("Tahoma", 1, 36)); // NOI18N
+        lbStatus.setBackground(new java.awt.Color(153, 153, 255));
+        lbStatus.setFont(new java.awt.Font("Segoe UI", 1, 48)); // NOI18N
         lbStatus.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        lbStatus.setLabelFor(this);
         lbStatus.setText("READY");
-        lbStatus.setAutoscrolls(true);
         lbStatus.setName("lbStatus"); // NOI18N
         lbStatus.setOpaque(true);
 
@@ -56,11 +57,11 @@ public class TabView extends AbsTabUI {
         this.setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(lbStatus, javax.swing.GroupLayout.DEFAULT_SIZE, 235, Short.MAX_VALUE)
+            .addComponent(lbStatus, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(lbStatus, javax.swing.GroupLayout.DEFAULT_SIZE, 196, Short.MAX_VALUE)
+            .addComponent(lbStatus, javax.swing.GroupLayout.DEFAULT_SIZE, 76, Short.MAX_VALUE)
         );
     }// </editor-fold>//GEN-END:initComponents
     // Variables declaration - do not modify//GEN-BEGIN:variables
@@ -80,7 +81,7 @@ public class TabView extends AbsTabUI {
     @Override
     public void endTest() {
         super.endTest(); // Generated from nbfs://nbhost/SystemFileSystem/Templates/Classes/Code/OverriddenMethodBody
-        this.lbStatus.setText(this.uiStatus.getUiData().getMassage());
+        showMess(this.uiStatus.getUiData().getMassage());
         if (this.uiStatus.getUiData().isPass()) {
             this.lbStatus.setBackground(Color.GREEN);
         } else {
@@ -96,9 +97,14 @@ public class TabView extends AbsTabUI {
         if (this.uiStatus.isTesting()) {
             showItemTesting();
         } else {
-            this.lbStatus.setText("<html>" + this.uiStatus.getUiData().getMassage() + "</html>");
+            showMess(this.uiStatus.getUiData().getMassage());
         }
 
+    }
+
+    private void showMess(String text) {
+        String mess = String.format("<html>%s</html>",text);
+        this.lbStatus.setText(mess);
     }
 
     private void showItemTesting() {

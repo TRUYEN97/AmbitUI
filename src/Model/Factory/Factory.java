@@ -13,12 +13,12 @@ import Control.Functions.FunctionsTest.SendResultToSfis.SendResuttToSfisProxy;
 import Control.Functions.InitPackages.InitProxy.IdPasswordProxy;
 import View.subUI.FormDetail.AbsTabUI;
 import View.subUI.SubUI.AbsSubUi;
-import View.subUI.UiProxy.BigUIProxy;
-import View.subUI.UiProxy.SmallProxy;
-import View.subUI.UiProxy.TabItemProxy;
-import View.subUI.UiProxy.TabLogProxy;
-import View.subUI.UiProxy.TabViewProxy;
+import View.subUI.FormDetail.TabLog.TabLogProxy;
 import Model.Interface.IFunction;
+import View.subUI.FormDetail.TabItem.TabItemProxy;
+import View.subUI.FormDetail.TabView.TabViewProxy;
+import View.subUI.SubUI.BigUI.BigUIProxy;
+import View.subUI.SubUI.SmallUI.SmallProxy;
 
 /**
  *
