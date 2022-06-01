@@ -28,7 +28,6 @@ public class LoadSource implements IInit {
         this.info.init();
         this.sources = new ArrayList<>();
         this.sources.add(Setting.getInstance().setPath(this.info.getPathOfSetting()));
-        this.sources.add(FunctionConfig.getInstance().setPath(this.info.getPathOfAmbitconfig()));
         this.sources.add(Limit.getInstance().setPath(this.info.getPathOfLimit()));
         this.sources.add(PcInformation.getInstance());
     }

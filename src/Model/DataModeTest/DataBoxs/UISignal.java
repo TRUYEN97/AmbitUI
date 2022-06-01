@@ -5,6 +5,7 @@
 package Model.DataModeTest.DataBoxs;
 
 import Control.Functions.AbsFunction;
+import java.util.ArrayList;
 import java.util.List;
 
 /**
@@ -14,7 +15,7 @@ import java.util.List;
 public class UISignal {
 
     public List<AbsFunction> getFunctionSelected() {
-        throw new UnsupportedOperationException("Not supported yet."); // Generated from nbfs://nbhost/SystemFileSystem/Templates/Classes/Code/GeneratedMethodBody
+        return new ArrayList<>();
     }
     
 }

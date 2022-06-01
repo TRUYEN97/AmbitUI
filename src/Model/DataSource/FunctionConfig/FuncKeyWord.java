@@ -31,7 +31,7 @@ public final class FuncKeyWord {
     public static final String MULTI_TASK = "MULTI_TASK";
     public static final String TIME_OUT_TEST = "TIME_OUT_TEST";
     public static final String FAIL_CONTNIUE = "FAIL_CONTNIUE";
-    public static final List<String> KEYS = Arrays.asList(FAIL_CONTNIUE, UUT_MODEL, STATION_NAME, COM, BAUDRATE, FLAG, CANCEL, TIME_OVER, RETRY,
+    public static final List<String> KEYS = Arrays.asList(FAIL_CONTNIUE, UUT_MODEL, COM, BAUDRATE, FLAG, CANCEL, TIME_OVER, RETRY,
             ITEM_NAME, FUNC_NAME, LIMIT_UP, LIMIT_DN, MULTI_TASK, TIME_OUT_TEST);
    
     public static final String MACTH = "MACTH";

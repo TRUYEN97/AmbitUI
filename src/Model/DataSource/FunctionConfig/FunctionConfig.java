@@ -104,6 +104,11 @@ public class FunctionConfig extends AbsJsonSource<FunctionElement> {
     public List<String> getFunctionItemTest() {
         return functionItemTest;
     }
+    
+
+    public String getStationName() {
+        return this.readFile.getData().getString(FuncKeyWord.STATION_NAME);
+    }
 
     public List<String> getFuntionEnd() {
         return funtionEnd;

@@ -5,7 +5,7 @@
     "INIT": [
         {
             "FLAG": true,
-            "TIME_OVER": 22,
+            "TIME_OVER": 10,
             "DATA_FORMAT": ["mlbsn", "ethernetmac","pnname", "model", "smode"],
             "URL_CHECK_SN": "http://10.90.0.40/sfcapi/api/connect",
             "ITEM_NAME": "CheckSnSfis",

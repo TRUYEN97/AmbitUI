@@ -6,6 +6,7 @@ package Model.DataSource.Setting;
 
 import Model.DataSource.AbsElementInfo;
 import com.alibaba.fastjson.JSONObject;
+import java.io.File;
 import java.util.List;
 
 /**
@@ -18,14 +19,26 @@ public class ModeElement extends AbsElementInfo {
         super(KeyWord.MODE_KEY, base, config);
     }
 
+    public String getStationName() {
+        return this.warehouse.getString(KeyWord.STATION);
+    }
+
     public String getModeType() {
         return this.warehouse.getString(KeyWord.TYPE_MODE);
     }
-    
+
     public String getPnName() {
         return this.warehouse.getString(KeyWord.PN_NAME);
     }
-    
+
+    public File getAmbitConfigFile() {
+        String path = this.warehouse.getString(KeyWord.AMBIT_CONFIG);
+        if (path == null || !new File(path).exists()) {
+            return null;
+        }
+        return new File(path);
+    }
+
     public String getModeName() {
         return this.warehouse.getString(KeyWord.NAME);
     }

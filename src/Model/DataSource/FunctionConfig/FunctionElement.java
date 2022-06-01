@@ -54,13 +54,13 @@ public class FunctionElement extends AbsElementInfo {
     public String getModeCancel() {
         return this.warehouse.getString(FuncKeyWord.CANCEL);
     }
-    
+
     public boolean isSkipFail() {
         return warehouse.getBoolean(FuncKeyWord.FAIL_CONTNIUE);
     }
 
     boolean isActive() {
-        return  warehouse.getBoolean(FuncKeyWord.FLAG);
+        return warehouse.getBoolean(FuncKeyWord.FLAG);
     }
 
     public String getValue(String key) {

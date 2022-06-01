@@ -1,6 +1,6 @@
-2022-06-01 01:07:20 : Item[CHECKSNSFIS]---Function[CHECKSNFORMSFISPROXY]---Mode[PRODUCTION]
-2022-06-01 01:07:20 : Turn 0:
-2022-06-01 01:07:20 : send to url: http://10.90.0.40/sfcapi/api/connect
-2022-06-01 01:07:20 : {"PCNAME":"MBLT-720","SN":"j"}
-2022-06-01 01:07:20 : {"result":"FAIL","message":"Exception: IP(10.90.1.13) HAVE NOT SET IN SFIS YET","data":{}}
-2022-06-01 01:07:20 : Time[0,038 s]---Result[FAILED]
+2022-06-01 11:08:44 : Item[CHECKSNSFIS]---Function[CHECKSNFORMSFISPROXY]---Mode[PRODUCTION]
+2022-06-01 11:08:44 : Turn 0:
+2022-06-01 11:08:44 : send to url: http://10.90.0.40/sfcapi/api/connect
+2022-06-01 11:08:44 : {"PCNAME":"Dell-E7280","SN":"k"}
+2022-06-01 11:09:05 : Send SFIS Exception : Connection timed out: connect
+2022-06-01 11:09:05 : Time[21,066 s]---Result[FAILED]

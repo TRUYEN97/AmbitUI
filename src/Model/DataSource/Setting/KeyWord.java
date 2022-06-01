@@ -14,6 +14,7 @@ import java.util.List;
 final class KeyWord {
 
     public static final String STATION = "STATION";
+    public static final String AMBIT_CONFIG = "AMBIT_CONFIG";
     public static final String DHCP = "DHCP";
     public static final String COLUMN = "COLUMN";
     public static final String ROW = "ROW";
@@ -30,7 +31,7 @@ final class KeyWord {
     public static final String GIAI_DOAN = "GIAI_DOAN";
     public static final List<String> MODE_KEY = Arrays.asList(
             STATION, DHCP, COLUMN, ROW, DETAIL, DISCRETE_TEST, TYPE_UI, NAME, TYPE_MODE,
-            INIT_FUNC, PN_NAME, LOCAL_LOG);
+            INIT_FUNC, PN_NAME, LOCAL_LOG, AMBIT_CONFIG);
 
     
 }

@@ -214,3 +214,5 @@
 2022-06-01 12:47:12 : value: null
 2022-06-01 12:47:12 : Cannot parse null string
 2022-06-01 12:47:12 : //////////////////////////////////////
+2022-06-01 10:47:22 : Cannot invoke "Control.Core.ModeTest.getModeInfo()" because "this.currMode" is null
+2022-06-01 10:47:22 : //////////////////////////////////////
