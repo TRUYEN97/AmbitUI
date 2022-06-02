@@ -13,10 +13,10 @@ import View.subUI.AbsUI;
 public abstract class AbsTabUI extends AbsUI {
 
     private TabDetail boss;
-    private String type;
+    private final String type;
 
-    public AbsTabUI(String name, String type) {
-        super(name);
+    public AbsTabUI(String name, String type , int timeUpdate) {
+        super(name, timeUpdate);
         this.type = type;
     }
 

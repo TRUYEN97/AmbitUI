@@ -95,7 +95,7 @@ public class UiStatus implements IUpdate {
         this.test.setUnitTest(unitTest);
     }
 
-    public List<AbsFunction> getFunctionSelected() {
+    public List<String> getFunctionSelected() {
         return this.uiData.getFunctionSelected();
     }
 

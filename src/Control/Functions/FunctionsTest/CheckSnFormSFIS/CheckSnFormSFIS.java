@@ -5,7 +5,7 @@
 package Control.Functions.FunctionsTest.CheckSnFormSFIS;
 
 import Control.Functions.AbsFunction;
-import Model.DataModeTest.DataBoxs.ItemTest;
+import Model.DataModeTest.DataBoxs.ItemTestData;
 import Model.DataModeTest.ErrorLog;
 import Model.DataModeTest.InputData;
 import Model.DataSource.PcInformation;
@@ -18,6 +18,17 @@ import com.alibaba.fastjson.JSONObject;
  */
 public class CheckSnFormSFIS extends AbsFunction {
 
+    public static final String FAIL_PC = "FAILEDPC";
+    public static final String DEBUG_PC = "DEBUGPC";
+    public static final String ERROR_CODE = "ERRORCODE";
+    public static final String ERROR_DES = "ERRORDES";
+    public static final String COUNTTEST = "COUNTTEST";
+    public static final String MODE = "MODE";
+    public static final String SN = "SN";
+    public static final String MLBSN = "MLBSN";
+    public static final String PCNAME = "PCNAME";
+    public static final String STATUS = "STATUS";
+    private static final String RESULT = "result";
     private final SfisAPI sfisAPI;
 
     public CheckSnFormSFIS(String itemName) {
@@ -39,8 +50,8 @@ public class CheckSnFormSFIS extends AbsFunction {
     private String getComand() {
         JSONObject command = new JSONObject();
         InputData inputData = uIData.getInputData();
-        command.put("SN", inputData.getInput());
-        command.put("PCNAME", PcInformation.getInstance().getPcName());
+        command.put(SN, inputData.getInput());
+        command.put(PCNAME, PcInformation.getInstance().getPcName());
         return command.toJSONString();
     }
 
@@ -49,10 +60,10 @@ public class CheckSnFormSFIS extends AbsFunction {
             this.uIData.setMessage(response);
             return false;
         }
-        ItemTest itemTest = new ItemTest(this.getItemName());
+        ItemTestData itemTest = new ItemTestData(this.getItemName());
         try {
             JSONObject res = JSONObject.parseObject(response);
-            if (res.getString("result").equals("PASS")) {
+            if (res.getString(RESULT).equals("PASS")) {
                 JSONObject data = res.getJSONObject("data");
                 for (String key : this.funcConfig.getListString("DATA_FORMAT")) {
                     this.uIData.putProductInfo(key, data.getString(key));

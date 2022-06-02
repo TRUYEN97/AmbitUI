@@ -20,7 +20,7 @@ public class SmallUI extends AbsSubUi {
      * @param indexName
      */
     public SmallUI(String indexName) {
-        super(indexName);
+        super(indexName, -1);
         initComponents();
         this.lbTime.setText(indexName);
         this.formShow = new FormShow();

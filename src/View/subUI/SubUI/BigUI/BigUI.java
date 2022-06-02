@@ -17,7 +17,7 @@ public class BigUI extends AbsSubUi {
      * @param indexName
      */
     public BigUI(String indexName) {
-        super(indexName);
+        super(indexName, -1);
         initComponents();
         this.PanelUp.add(this.tabDetail);
     }
@@ -134,10 +134,11 @@ public class BigUI extends AbsSubUi {
 
     @Override
     public void setText(String txt) {
-        
     }
 
     @Override
     public void updateData() {
     }
+
+   
 }

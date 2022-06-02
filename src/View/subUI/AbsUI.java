@@ -13,23 +13,32 @@ import javax.swing.Timer;
  *
  * @author Administrator
  */
-public abstract class AbsUI extends JPanel{
+public abstract class AbsUI extends JPanel {
 
     private final String name;
     private final Timer timer;
     protected UiStatus uiStatus;
 
-    protected AbsUI(String name) {
+    protected AbsUI(String name, int time) {
         this.name = name;
-        this.timer = new Timer(1000, (ActionEvent e) -> {
+        this.timer = new Timer(time, (ActionEvent e) -> {
             updateData();
-        });
+        }) {
+            @Override
+            public void start() {
+                if (getDelay() < 1) {
+                    return;
+                }
+                super.start();
+            }
+
+        };
     }
 
     public void startTest() {
         this.timer.start();
     }
-    
+
     public void endTest() {
         this.timer.stop();
     }

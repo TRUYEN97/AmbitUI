@@ -17,12 +17,12 @@ import javax.swing.JOptionPane;
  *
  * @author Administrator
  */
-public class DataBox {
+public class FunctionData {
 
     private final MyLoger loger;
     private final String itemFunction;
     private final TimeS timeS;
-    private final List<ItemTest> itemTests;
+    private final List<ItemTestData> itemTests;
     private ErrorFunctionTest errorFunc;
     private boolean testing;
     private boolean isPass;
@@ -30,7 +30,7 @@ public class DataBox {
     private String resultTest;
     private Double testTime;
 
-    public DataBox(String subUIName, String itemFunction) {
+    public FunctionData(String subUIName, String itemFunction) {
         this.loger = new MyLoger();
         this.timeS = new TimeS();
         this.itemTests = new ArrayList<>();
@@ -42,8 +42,8 @@ public class DataBox {
                 localFunctionsFile, subUIName, itemFunction);
         if (!this.loger.begin(new File(fileLogName), true, true)) {
             String mess = "can't delete local function log file of " + itemFunction;
-            JOptionPane.showMessageDialog(null, mess);
             ErrorLog.addError(mess);
+            JOptionPane.showMessageDialog(null, mess);
         }
     }
 
@@ -63,11 +63,11 @@ public class DataBox {
         return errorFunc;
     }
 
-    public boolean addItemtest(ItemTest itemTest) {
+    public boolean addItemtest(ItemTestData itemTest) {
         return this.itemTests.add(itemTest);
     }
 
-    public List<ItemTest> getListItemTest() {
+    public List<ItemTestData> getListItemTest() {
         return new ArrayList<>(itemTests);
     }
 
@@ -112,7 +112,7 @@ public class DataBox {
         this.testing = false;
         this.testTime = getRunTime();
         if (this.itemTests.isEmpty()) {
-            ItemTest itemTest = new ItemTest(itemFunction);
+            ItemTestData itemTest = new ItemTestData(itemFunction);
             itemTest.setValue(getResultTest());
             itemTest.setIsPass(isPass);
             addItemtest(itemTest);

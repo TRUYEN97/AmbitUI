@@ -10,7 +10,7 @@
  */
 package View.subUI.FormDetail.TabView;
 
-import Model.DataModeTest.DataBoxs.DataBox;
+import Model.DataModeTest.DataBoxs.FunctionData;
 import View.subUI.FormDetail.AbsTabUI;
 import java.awt.Color;
 import java.awt.event.KeyEvent;
@@ -28,7 +28,7 @@ public class TabView extends AbsTabUI {
      * @param type
      */
     public TabView(String type) {
-        super("View", type);
+        super("View", type, 1000);
         initComponents();
     }
 
@@ -109,10 +109,10 @@ public class TabView extends AbsTabUI {
 
     private void showItemTesting() {
         StringBuilder mess = new StringBuilder("<html>");
-        List<DataBox> dataBoxs = this.uiStatus.getUiData().getDataBoxs();
-        for (DataBox dataBox : dataBoxs) {
+        List<FunctionData> dataBoxs = this.uiStatus.getUiData().getDataBoxs();
+        for (FunctionData dataBox : dataBoxs) {
             if (dataBox.isTesting()) {
-                mess.append(String.format("<center>%s</center><br>", dataBox.getItemFunction()));
+                mess.append(String.format("<tr><td>%s</td></tr>", dataBox.getItemFunction()));
             }
         }
         mess.append("</html>");

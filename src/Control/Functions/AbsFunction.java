@@ -12,7 +12,7 @@ import Model.ManagerUI.UIStatus.Elemants.UiData;
 import Model.ManagerUI.UIStatus.UiStatus;
 import View.subUI.SubUI.AbsSubUi;
 import Model.Interface.IFunction;
-import Model.DataModeTest.DataBoxs.DataBox;
+import Model.DataModeTest.DataBoxs.FunctionData;
 import Model.DataModeTest.ErrorLog;
 
 /**
@@ -24,7 +24,7 @@ public abstract class AbsFunction implements IFunction {
     protected final FunctionElement funcConfig;
     protected final Limit limit;
     protected UiData uIData;
-    protected DataBox dataBox;
+    protected FunctionData dataBox;
     protected ModeTest modeTest;
     protected AbsSubUi subUi;
 

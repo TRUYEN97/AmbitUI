@@ -36,7 +36,7 @@ public class TabDetail extends AbsUI implements IUpdate {
      * @param boss
      */
     public TabDetail(AbsSubUi boss) {
-        super(boss.getName());
+        super(boss.getName(),-1);
         this.tabElements = new HashMap<>();
         initComponents();
         this.boss = boss;

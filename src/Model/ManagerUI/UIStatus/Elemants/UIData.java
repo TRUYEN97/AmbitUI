@@ -4,13 +4,12 @@
  */
 package Model.ManagerUI.UIStatus.Elemants;
 
-import Control.Functions.AbsFunction;
-import Model.DataModeTest.DataBoxs.DataBox;
-import Model.DataModeTest.DataBoxs.UISignal;
+import Model.DataModeTest.DataBoxs.FunctionData;
+import Model.DataModeTest.DataBoxs.ProcessTestSignal;
 import Model.DataModeTest.InputData;
+import Model.DataSource.DataWareHouse;
 import Model.ManagerUI.UIStatus.UiStatus;
 import java.util.ArrayList;
-import java.util.HashMap;
 import java.util.List;
 
 /**
@@ -18,105 +17,114 @@ import java.util.List;
  * @author 21AK22
  */
 public class UiData {
-
-    private final List<DataBox> dataBoxs;
+    
+    private final List<FunctionData> dataBoxs;
     private final UiStatus uiStatus;
-    private final UISignal signal;
-    private final HashMap<String, Object> productInfo;
+    private final ProcessTestSignal signal;
+    private final DataWareHouse productData;
     private InputData inputData;
     private String message;
-
+    
     public UiData(UiStatus uiStatus) {
         this.dataBoxs = new ArrayList<>();
-        this.productInfo = new HashMap<>();
+        this.signal = new ProcessTestSignal();
+        this.productData = new DataWareHouse();
         this.uiStatus = uiStatus;
-        this.signal = new UISignal();
     }
-
-    public List<DataBox> getDataBoxs() {
+    
+    public List<FunctionData> getDataBoxs() {
         return dataBoxs;
     }
-
+    
     public void clear() {
         this.message = null;
-        this.productInfo.clear();
+        this.signal.clear();
+        this.productData.clear();
         this.dataBoxs.clear();
     }
-
-    public DataBox getDataBox(String itemName) {
-        for (DataBox dataBox : dataBoxs) {
+    
+    public FunctionData getDataBox(String itemName) {
+        for (FunctionData dataBox : dataBoxs) {
             if (dataBox.getItemFunction().equals(itemName)) {
                 return dataBox;
             }
         }
         return createDataBox(itemName);
     }
-
-    private DataBox createDataBox(String itemName) {
-        DataBox dataBox = new DataBox(uiStatus.getName(), itemName);
+    
+    private FunctionData createDataBox(String itemName) {
+        FunctionData dataBox = new FunctionData(uiStatus.getName(), itemName);
         this.dataBoxs.add(dataBox);
         return dataBox;
     }
-
-    public DataBox getDataBox(int index) {
+    
+    public FunctionData getDataBox(int index) {
         if (index >= this.dataBoxs.size()) {
             return null;
         }
         return this.dataBoxs.get(index);
     }
-
-    public List<AbsFunction> getFunctionSelected() {
+    
+    public Object getSignal(String key) {
+        return this.signal.get(key);
+    }
+    
+    public void putToSignal(String key, Object data) {
+        this.signal.put(key, data);
+    }
+    
+    public List<String> getFunctionSelected() {
         return this.signal.getFunctionSelected();
     }
-
+    
     public void setMessage(String message) {
         if (message == null || message.isBlank()) {
             return;
         }
         this.message = message;
     }
-
+    
     public boolean isPass() {
         return getFirstFail() == null;
     }
-
-    public DataBox getFirstFail() {
-        for (DataBox dataBox : dataBoxs) {
+    
+    public FunctionData getFirstFail() {
+        for (FunctionData dataBox : dataBoxs) {
             if (!dataBox.isPass()) {
                 return dataBox;
             }
         }
         return null;
     }
-
+    
     public String getMassage() {
         if (this.message != null) {
             return message;
         }
-        DataBox firstFail = getFirstFail();
+        FunctionData firstFail = getFirstFail();
         if (firstFail == null) {
             return "PASS";
         }
         return String.format("Failed: %s", firstFail.getItemFunction());
     }
-
-    public void putProductInfo(String key, Object data) {
+    
+    public void putProductInfo(String key, String data) {
         if (key == null || key.isBlank()) {
             return;
         }
-        this.productInfo.put(key, data);
+        this.productData.put(key, data);
     }
-
-    public Object getProductInfo(String key) {
-        return this.productInfo.get(key);
+    
+    public String getProductInfo(String key) {
+        return this.productData.getString(key);
     }
-
+    
     public void setInput(InputData inputData) {
         this.inputData = inputData;
     }
-
+    
     public InputData getInputData() {
         return inputData;
     }
-
+    
 }

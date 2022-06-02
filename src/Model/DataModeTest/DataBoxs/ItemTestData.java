@@ -8,7 +8,8 @@ package Model.DataModeTest.DataBoxs;
  *
  * @author 21AK22
  */
-public class ItemTest {
+public class ItemTestData {
+
     private final String itemTestName;
     private double lowLimit;
     private double upLimit;
@@ -16,9 +17,13 @@ public class ItemTest {
     private String spec;
     private boolean isPass;
 
-    public ItemTest(String itemTestName) {
+    public ItemTestData(String itemTestName) {
         this.itemTestName = itemTestName;
         this.isPass = false;
+    }
+
+    public String getItemTestName() {
+        return itemTestName;
     }
 
     public double getLowLimit() {
@@ -60,6 +65,5 @@ public class ItemTest {
     public void setIsPass(boolean isPass) {
         this.isPass = isPass;
     }
-    
-    
+
 }

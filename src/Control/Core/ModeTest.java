@@ -115,8 +115,9 @@ public class ModeTest implements IInit {
 
     private List<AbsFunction> getTestFunctions(UiStatus uiStatus) {
         List<AbsFunction> functions = new ArrayList<>();
-        if (this.modeInfo.isDiscreteTest()) {
-            functions.addAll(uiStatus.getFunctionSelected());
+        List<String> funcSelected = uiStatus.getFunctionSelected();
+        if (this.modeInfo.isDiscreteTest() && funcSelected != null && !funcSelected.isEmpty()) {
+            addFunctions(functions, funcSelected);
         } else {
             addFunctions(functions, getTestFunction());
         }

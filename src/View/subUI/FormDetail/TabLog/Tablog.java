@@ -29,7 +29,7 @@ public class Tablog extends AbsTabUI {
     private final DefaultCaret caret;
 
     public Tablog(String type) {
-        super("Log", type);
+        super("Log", type, 1000);
         initComponents();
         this.caret = (DefaultCaret) this.textLog.getCaret();
         autoCrolls();

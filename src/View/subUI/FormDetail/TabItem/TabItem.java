@@ -10,7 +10,7 @@
  */
 package View.subUI.FormDetail.TabItem;
 
-import Model.DataModeTest.DataBoxs.DataBox;
+import Model.DataModeTest.DataBoxs.FunctionData;
 import View.subUI.FormDetail.AbsTabUI;
 import View.subUI.FormDetail.ItemLog;
 import java.awt.event.KeyEvent;
@@ -36,7 +36,7 @@ public class TabItem extends AbsTabUI {
     private static final String CUS_ERROR_CODE = "Cus error code";
     private final Vector<String> testColumn;
     private final Vector<String> listFunc;
-    private final Map<DataBox, ItemLog> itemLogs;
+    private final Map<FunctionData, ItemLog> itemLogs;
     private DefaultTableModel tableModel;
 
     /**
@@ -44,7 +44,7 @@ public class TabItem extends AbsTabUI {
      * @param type
      */
     public TabItem(String type) {
-        super("Item", type);
+        super("Item", type, 200);
         initComponents();
         this.testColumn = new Vector<>();
         this.listFunc = new Vector<>();
@@ -150,7 +150,7 @@ public class TabItem extends AbsTabUI {
 
     private void showItemLogSelected() {
         for (int row : this.tableItem.getSelectedRows()) {
-            DataBox dataBox = this.uiStatus.getUiData().getDataBox(row);
+            FunctionData dataBox = this.uiStatus.getUiData().getDataBox(row);
             if (itemLogs.containsKey(dataBox)) {
                 itemLogs.get(dataBox).showLog();
             } else {
@@ -164,7 +164,7 @@ public class TabItem extends AbsTabUI {
         }
     }
 
-    public Map<DataBox, ItemLog> getItemLogs() {
+    public Map<FunctionData, ItemLog> getItemLogs() {
         return itemLogs;
     }
 
@@ -209,8 +209,8 @@ public class TabItem extends AbsTabUI {
             this.tableModel.setRowCount(0);
             return;
         }
-        List<DataBox> dataBoxs = this.uiStatus.getUiData().getDataBoxs();
-        for (DataBox dataBox : dataBoxs) {
+        List<FunctionData> dataBoxs = this.uiStatus.getUiData().getDataBoxs();
+        for (FunctionData dataBox : dataBoxs) {
             int row = dataBoxs.indexOf(dataBox);
             if (row > this.tableModel.getRowCount() - 1) {
                 this.tableModel.addRow(new Object[]{this.tableModel.getRowCount()});
@@ -234,7 +234,7 @@ public class TabItem extends AbsTabUI {
         this.tableModel.setValueAt(value, row, this.testColumn.indexOf(colmn));
     }
 
-    private Object getStatus(DataBox dataBox) {
+    private Object getStatus(FunctionData dataBox) {
         if (!dataBox.isTesting()) {
             return dataBox.getResultTest();
         }

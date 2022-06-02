@@ -5,7 +5,7 @@
 package View.subUI.FormDetail;
 
 import View.subUI.FormDetail.TabItem.TabItem;
-import Model.DataModeTest.DataBoxs.DataBox;
+import Model.DataModeTest.DataBoxs.FunctionData;
 import java.awt.event.ActionEvent;
 import java.util.Queue;
 import javax.swing.Timer;
@@ -19,7 +19,7 @@ public class ItemLog extends javax.swing.JFrame {
     /**
      * Creates new form ItemLog
      */
-    private DataBox dataBox;
+    private FunctionData dataBox;
     private Queue<String> queueLog;
     private final Timer timer;
     private final TabItem tabItem;
@@ -128,7 +128,7 @@ public class ItemLog extends javax.swing.JFrame {
     private javax.swing.JTextArea txtLog;
     // End of variables declaration//GEN-END:variables
 
-    public void setDataBox(DataBox dataBox) {
+    public void setDataBox(FunctionData dataBox) {
         this.dataBox = dataBox;
         this.queueLog = dataBox.getLoger().getQueueLog();
     }

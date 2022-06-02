@@ -4,6 +4,7 @@
  */
 package Model.Factory;
 
+import View.subUI.FormDetail.TabFaApi.TabFaApiProxy;
 import Control.Functions.AbsFunction;
 import Control.Functions.FunctionsTest.CheckSnFormSFIS.CheckSnFormSFISProxy;
 import Control.Functions.FunctionsTest.FixtureAction.FixtureActionProxy;
@@ -81,6 +82,7 @@ public class Factory {
         this.tabUIFactory.addType(new TabViewProxy());
         this.tabUIFactory.addType(new TabItemProxy());
         this.tabUIFactory.addType(new TabLogProxy());
+        this.tabUIFactory.addType(new TabFaApiProxy());
     }
     
     private void addInitFunc() {

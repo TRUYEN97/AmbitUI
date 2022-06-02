@@ -13,14 +13,13 @@
     "LOAD_MODE": [
         {
             "NAME": "PRODUCTION", 
-            "TYPE_MODE": "Production"
+            "TYPE_MODE": "Production",
+            "DETAIL": ["TabViewProxy", "TabFaApiProxy", "TabItemProxy"]
         },
         {
             "NAME": "DEBUG",
             "TYPE_MODE": "Debug",
-            "AMBIT_CONFIG": "config\\Item\\ambitconfig1.json",
-            "DISCRETE_TEST": true,
-            "DETAIL": ["TabItemProxy", "TabLogProxy"]
+            "DISCRETE_TEST": true
         },
         {
             "NAME": "PRO-DEV", 
