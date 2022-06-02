@@ -9,7 +9,6 @@ import Model.ManagerUI.UIStatus.Elemants.UITest;
 import Control.Core.Core;
 import Control.Core.ModeTest;
 import Control.Core.CellTest;
-import Control.Functions.AbsFunction;
 import Model.DataModeTest.InputData;
 import Model.Interface.IUpdate;
 import View.subUI.SubUI.AbsSubUi;

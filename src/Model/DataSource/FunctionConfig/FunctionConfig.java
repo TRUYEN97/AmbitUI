@@ -47,6 +47,7 @@ public class FunctionConfig extends AbsJsonSource<FunctionElement> {
     @Override
     protected boolean getData() {
         DataWareHouse wareHouse = readFile.getData();
+        clearAllList();
         getFunctionIn(wareHouse,
                 wareHouse.getListJson(FuncKeyWord.INIT), FuncKeyWord.INIT);
         getFunctionIn(wareHouse,
@@ -112,6 +113,13 @@ public class FunctionConfig extends AbsJsonSource<FunctionElement> {
 
     public List<String> getFuntionEnd() {
         return funtionEnd;
+    }
+
+    private void clearAllList() {
+        this.functionInit.clear();
+        this.functionItemTest.clear();
+        this.functionTest.clear();
+        this.funtionEnd.clear();
     }
 
 }

@@ -1,6 +1,40 @@
-2022-06-02 01:00:50 : Item[CHECKSNSFIS]---Function[CHECKSNFORMSFISPROXY]---Mode[PRODUCTION]
-2022-06-02 01:00:50 : Turn 0:
-2022-06-02 01:00:50 : send to url: http://10.90.0.40/sfcapi/api/connect
-2022-06-02 01:00:50 : {"PCNAME":"MBLT-720","SN":"c"}
-2022-06-02 01:00:50 : {"result":"FAIL","message":"Exception: IP(10.90.1.13) HAVE NOT SET IN SFIS YET","data":{}}
-2022-06-02 01:00:50 : Time[0,039 s]---Result[FAILED]
+2022-06-02 10:06:42 : Item[CHECKSNSFIS]---Function[CHECKSNFORMSFISPROXY]---Mode[DEBUG]
+2022-06-02 10:06:42 : Turn 0:
+2022-06-02 10:06:42 : send to url: http://10.90.0.40/sfcapi/api/connect
+2022-06-02 10:06:42 : {"PCNAME":"Dell-E7280","SN":"s"}
+2022-06-02 10:06:47 : This function has out of run time!
+2022-06-02 10:06:47 : Time: 5,054 S
+2022-06-02 10:06:47 : Spec: 5.0 S
+2022-06-02 10:06:47 : Try to stop!!
+2022-06-02 10:06:48 : This function has out of run time!
+2022-06-02 10:06:48 : Time: 6,057 S
+2022-06-02 10:06:48 : Spec: 5.0 S
+2022-06-02 10:06:48 : Try to stop!!
+2022-06-02 10:06:49 : This function has out of run time!
+2022-06-02 10:06:49 : Time: 7,061 S
+2022-06-02 10:06:49 : Spec: 5.0 S
+2022-06-02 10:06:49 : Try to stop!!
+2022-06-02 10:06:50 : This function has out of run time!
+2022-06-02 10:06:50 : Time: 8,064 S
+2022-06-02 10:06:50 : Spec: 5.0 S
+2022-06-02 10:06:50 : Try to stop!!
+2022-06-02 10:06:51 : This function has out of run time!
+2022-06-02 10:06:51 : Time: 9,076 S
+2022-06-02 10:06:51 : Spec: 5.0 S
+2022-06-02 10:06:51 : Try to stop!!
+2022-06-02 10:06:52 : This function has out of run time!
+2022-06-02 10:06:52 : Time: 10,085 S
+2022-06-02 10:06:52 : Spec: 5.0 S
+2022-06-02 10:06:52 : Try to stop!!
+2022-06-02 10:06:53 : This function has out of run time!
+2022-06-02 10:06:53 : Time: 11,089 S
+2022-06-02 10:06:53 : Spec: 5.0 S
+2022-06-02 10:06:53 : Try to stop!!
+2022-06-02 10:06:54 : This function has out of run time!
+2022-06-02 10:06:54 : Time: 12,091 S
+2022-06-02 10:06:54 : Spec: 5.0 S
+2022-06-02 10:06:54 : Try to stop!!
+2022-06-02 10:06:55 : This function has out of run time!
+2022-06-02 10:06:55 : Time: 13,104 S
+2022-06-02 10:06:55 : Spec: 5.0 S
+2022-06-02 10:06:55 : Try to stop!!
