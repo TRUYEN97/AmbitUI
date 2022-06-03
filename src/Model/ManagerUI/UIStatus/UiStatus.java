@@ -26,7 +26,6 @@ public class UiStatus implements IUpdate {
     private final Core core;
     private final UiData uiData;
     private final UITest test;
-    private InputData inputData;
     private ModeTest modeTest;
 
     public UiStatus(AbsSubUi subUi, Core core) {

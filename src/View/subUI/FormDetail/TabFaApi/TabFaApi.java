@@ -4,7 +4,7 @@
  */
 package View.subUI.FormDetail.TabFaApi;
 
-import Control.Functions.FunctionsTest.CheckSnFormSFIS.CheckSnFormSFIS;
+import Model.DataModeTest.InputData;
 import Model.DataSource.Tool.FileService;
 import View.subUI.FormDetail.AbsTabUI;
 import java.awt.HeadlessException;
@@ -42,11 +42,11 @@ public class TabFaApi extends AbsTabUI {
         initListLocation("listLocation.txt");
         AutoCompleteDecorator.decorate(cbbLocation);
         this.keys = new HashMap<>();
-        this.keys.put("- Fail at", CheckSnFormSFIS.FAIL_PC);
-        this.keys.put("- Debug at", CheckSnFormSFIS.FAIL_PC);
-        this.keys.put("- Error code ", CheckSnFormSFIS.FAIL_PC);
-        this.keys.put("- Error Des ", CheckSnFormSFIS.FAIL_PC);
-        this.keys.put("- Count", CheckSnFormSFIS.FAIL_PC);
+        this.keys.put("- Fail at", InputData.FAIL_PC);
+        this.keys.put("- Debug at", InputData.DEBUG_PC);
+        this.keys.put("- Error code ", InputData.ERROR_CODE);
+        this.keys.put("- Error Des ", InputData.ERROR_DES);
+        this.keys.put("- Count", InputData.COUNTTEST);
     }
 
     private void initListLocation(String path) {
@@ -175,11 +175,22 @@ public class TabFaApi extends AbsTabUI {
     private void btXacNhanActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btXacNhanActionPerformed
         // TODO add your handling code here:
         if (!checkSelectData()) {
+
             return;
         }
-        this.uiStatus.getUiData().putToSignal(MY_KEY, this.formOption.getData());
+        this.formOption.config();
     }//GEN-LAST:event_btXacNhanActionPerformed
-   
+
+    @Override
+    public void startTest() {
+        super.startTest();
+        this.uiStatus.getUiData().putToSignal(MY_KEY, this);
+    }
+
+    public boolean checkDataHasChange() {
+        return this.formOption.hasChange();
+    }
+
     public boolean checkSelectData() throws HeadlessException {
         // TODO add your handling code here:
         if (this.formOption.isEmpty()) {
@@ -224,4 +235,9 @@ public class TabFaApi extends AbsTabUI {
     private javax.swing.JLabel lbInfo;
     private javax.swing.JPanel pnSelectOption;
     // End of variables declaration//GEN-END:variables
+
+    public boolean isTabEmpty() {
+        return this.formOption.isEmpty();
+    }
+
 }

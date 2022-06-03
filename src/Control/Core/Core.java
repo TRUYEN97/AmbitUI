@@ -8,8 +8,6 @@ import Control.DrawBoardUI;
 import Model.DataModeTest.InputData;
 import Model.DataSource.AbsJsonSource;
 import Model.DataSource.FunctionConfig.FunctionConfig;
-import Model.DataSource.Setting.ModeElement;
-import Model.DataSource.Setting.Setting;
 import Model.ManagerUI.UIManager;
 import View.UIView;
 import java.awt.HeadlessException;

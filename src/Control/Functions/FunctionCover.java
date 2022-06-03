@@ -75,13 +75,13 @@ public class FunctionCover extends Thread {
     }
 
     private String startFunction() {
-        return String.format("Item[%S]---Function[%S]---Mode[%s]",
+        return String.format("Item[%s]-Function[%s]-ModeName[%s]-ModeType[%s]",
                 this.function.getItemName(), this.function.getFuncName(),
-                this.function.getModeTest());
+                this.function.getModeTest(),this.function.getModeTest().getModeType());
     }
 
     private String endFunction() {
-        return String.format("Time[%.3f s]---Result[%S]",
+        return String.format("Time[%.3f s]---Result[%s]",
                 function.getRunTime(), this.function.isPass() ? "PASS" : "FAILED");
     }
 }

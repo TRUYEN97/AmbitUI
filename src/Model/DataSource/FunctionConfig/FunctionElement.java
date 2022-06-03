@@ -68,7 +68,7 @@ public class FunctionElement extends AbsElementInfo {
     }
 
     public List<String> getListString(String key) {
-        return warehouse.getList(key);
+        return warehouse.cvtArrays2List(warehouse.getJSONArray(key));
     }
 
 }

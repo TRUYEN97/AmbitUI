@@ -25,7 +25,7 @@ public class FormOption extends javax.swing.JPanel {
      * Creates new form TabOpion
      */
     private final ArrayList<TabOption> listTab;
-    
+
     public FormOption() {
         initComponents();
         this.listTab = new ArrayList<>();
@@ -77,7 +77,16 @@ private void tabPanelKeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_ta
         this.tabPanel.removeAll();
         this.listTab.clear();
     }
-    
+
+    public boolean hasChange() {
+        for (TabOption tabOption : listTab) {
+            if (tabOption.hasChange()) {
+                return true;
+            }
+        }
+        return false;
+    }
+
     public JSONObject getData() {
         JSONObject result = new JSONObject();
         for (TabOption tabOption : listTab) {
@@ -85,7 +94,7 @@ private void tabPanelKeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_ta
         }
         return result;
     }
-    
+
     public void addNewTab(String tabName, TabOption tab) {
         if (this.tabPanel.indexOfTab(tabName) != -1) {
             JOptionPane.showMessageDialog(null,
@@ -98,7 +107,7 @@ private void tabPanelKeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_ta
         this.listTab.add(tab);
         this.updateUI();
     }
-    
+
     public TabOption getTab(String tabName) {
         int indexitem = this.tabPanel.indexOfTab(tabName);
         if (indexitem != -1) {
@@ -106,14 +115,14 @@ private void tabPanelKeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_ta
         }
         return null;
     }
-    
+
     public TabOption getTab(int index) {
         if (index < 0 || index >= this.tabPanel.getTabCount()) {
             return null;
         }
         return this.listTab.get(index);
     }
-    
+
     public boolean isEmpty() {
         if (listTab.isEmpty()) {
             return true;
@@ -124,5 +133,11 @@ private void tabPanelKeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_ta
             }
         }
         return false;
+    }
+
+    void config() {
+        for (TabOption tab : listTab) {
+            tab.config();
+        }
     }
 }

@@ -163,4 +163,8 @@ public class ModeTest implements IInit {
     public List<String> getFuntionEnd() {
         return this.functionConfig.getFuntionEnd();
     }
+
+    public String getModeType() {
+        return this.modeInfo.getModeType();
+    }
 }

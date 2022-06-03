@@ -59,4 +59,8 @@ public class Setting extends AbsJsonSource<ModeElement> implements IInit {
     public String getLocalLog() {
         return this.readFile.getData().getString(KeyWord.LOCAL_LOG);
     }
+
+    public String getFtpHost() {
+        throw new UnsupportedOperationException("Not supported yet."); // Generated from nbfs://nbhost/SystemFileSystem/Templates/Classes/Code/GeneratedMethodBody
+    }
 }

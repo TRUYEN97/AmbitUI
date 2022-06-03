@@ -2,24 +2,25 @@
     "STATION": "RTT",
     "DHCP": false,
     "ROW": 1,
-    "COLUMN": 3,
+    "COLUMN": 1,
     "PN_NAME": "810-00900",
     "GIAI_DOAN": "PVT",
     "LOCAL_FUNCTION_LOG": "Log\\TestLog\\Functions",
     "LOCAL_LOG": "Log\\TestLog",
-    "AMBIT_CONFIG": "config\\Item\\ambitconfig.json",
+    "AMBIT_CONFIG": "config\\Item\\ambitconfig1.json",
     "TYPE_UI": "BigUIProxy",
     "DETAIL": ["TabViewProxy", "TabItemProxy", "TabLogProxy"],
     "LOAD_MODE": [
         {
-            "NAME": "PRODUCTION", 
-            "TYPE_MODE": "Production",
+            "NAME": "Debug RE", 
+            "TYPE_MODE": "Debug",
             "DETAIL": ["TabViewProxy", "TabFaApiProxy", "TabItemProxy"]
         },
         {
-            "NAME": "DEBUG",
-            "TYPE_MODE": "Debug",
-            "DISCRETE_TEST": true
+            "NAME": "Fa API",
+            "TYPE_MODE": "FA_API",
+            "DETAIL": ["TabViewProxy", "TabFaApiProxy", "TabItemProxy"],
+            "AMBIT_CONFIG": "config\\Item\\ambitconfig1_1.json"
         },
         {
             "NAME": "PRO-DEV", 

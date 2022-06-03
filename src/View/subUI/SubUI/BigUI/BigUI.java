@@ -12,6 +12,7 @@ import View.subUI.SubUI.AbsSubUi;
  */
 public class BigUI extends AbsSubUi {
 
+    
     /**
      * Creates new form BigUI
      * @param indexName

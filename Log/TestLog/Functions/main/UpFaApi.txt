@@ -1,0 +1,6 @@
+2022-06-03 01:02:00 : Item[UpFaApi]-Function[UpFaAPIJsonProxy]-ModeName[Fa API]-ModeType[FA_API]
+2022-06-03 01:02:00 : Turn 0:
+2022-06-03 01:02:00 : Check tab FaAPI
+2022-06-03 01:02:00 : Get tab faAPi in Signal!
+2022-06-03 01:02:00 : Wait for user config data!
+2022-06-03 01:02:00 : Time[0,001 s]---Result[PASS]

@@ -15,14 +15,14 @@ import java.util.regex.Pattern;
  *
  * @author Administrator
  */
-public class FileErrroMode implements ITypeRead {
+public class FileErrorMode implements ITypeRead {
 
     private final String LINE_ERRCODE = "^[^\\\\].+,.+$";
     private final String REGEX_NAME = "[a-zA-Z]+[[^\\w,][\\w]+]*";
     private final String REGEX_VALUE = "[0-9]+[[^\\w,][0-9]+]*";
     private JSONObject json;
 
-    public FileErrroMode() {
+    public FileErrorMode() {
         this.json = new JSONObject();
     }
 

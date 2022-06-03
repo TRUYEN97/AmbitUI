@@ -39,7 +39,7 @@ public class TabOption extends javax.swing.JPanel {
         result.put(TabFaApi.ACTION, getAction());
         result.put(TabFaApi.REASON_DES, getReasonDes());
         result.put(TabFaApi.REPAIR_DETAIL, getRepairDetail());
-        hasChange = false;
+        config();
         return result;
     }
 
@@ -58,6 +58,10 @@ public class TabOption extends javax.swing.JPanel {
     @Override
     public String getName() {
         return this.name;
+    }
+
+    public boolean hasChange() {
+        return hasChange;
     }
 
     public boolean isInputEmpty() {
@@ -190,5 +194,9 @@ public class TabOption extends javax.swing.JPanel {
     private javax.swing.JLabel jLabel5;
     private javax.swing.JLabel jLabel6;
     // End of variables declaration//GEN-END:variables
+
+    void config() {
+        hasChange = false;
+    }
 
 }

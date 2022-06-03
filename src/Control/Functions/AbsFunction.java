@@ -125,4 +125,8 @@ public abstract class AbsFunction implements IFunction {
     String getResult() {
         return this.dataBox.getResultTest();
     }
+
+    public UiData getUiData() {
+        return uIData;
+    }
 }

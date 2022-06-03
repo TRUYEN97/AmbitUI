@@ -3,11 +3,12 @@
     <editor-bookmarks xmlns="http://www.netbeans.org/ns/editor-bookmarks/2" lastBookmarkId="1"/>
     <open-files xmlns="http://www.netbeans.org/ns/projectui-open-files/2">
         <group>
-            <file>file:/D:/NetBeans/Projects/AmbitNew/EnginerUI/src/Control/Functions/AbsFunction.java</file>
-            <file>file:/D:/NetBeans/Projects/AmbitNew/EnginerUI/src/Control/Core/Core.java</file>
-            <file>file:/D:/NetBeans/Projects/AmbitNew/EnginerUI/src/Control/Core/CellTest.java</file>
-            <file>file:/D:/NetBeans/Projects/AmbitNew/EnginerUI/config/Setting/setting.json</file>
-            <file>file:/D:/NetBeans/Projects/AmbitNew/EnginerUI/config/Item/ambitconfig.json</file>
+            <file>file:/D:/Ambit-module/EnginerUI/src/View/subUI/FormDetail/TabFaApi/TabFaApi.java</file>
+            <file>file:/D:/Ambit-module/EnginerUI/src/Model/ManagerUI/UIStatus/UiStatus.java</file>
+            <file>file:/D:/Ambit-module/EnginerUI/Log/TestLog/Functions/main/SendToSfis.txt</file>
+            <file>file:/D:/Ambit-module/EnginerUI/config/Item/ambitconfig1_1.json</file>
+            <file>file:/D:/Ambit-module/EnginerUI/src/Control/Functions/FunctionsTest/UpFaAPIJson/UpFaAPIJson.java</file>
+            <file>file:/D:/Ambit-module/EnginerUI/src/Model/DataSource/Tool/FTPManager.java</file>
         </group>
     </open-files>
 </project-private>
