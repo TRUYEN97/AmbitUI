@@ -44,11 +44,11 @@ public class ModeElement extends AbsElementInfo {
     }
 
     public List<String> getDetail() {
-        return this.warehouse.cvtArrays2List(this.warehouse.getJSONArray(KeyWord.DETAIL));
+        return this.warehouse.getListJsonArray(KeyWord.DETAIL);
     }
 
     public List<String> getIniFunc() {
-        return this.warehouse.cvtArrays2List(this.warehouse.getJSONArray(KeyWord.INIT_FUNC));
+        return this.warehouse.getListJsonArray(KeyWord.INIT_FUNC);
     }
 
     public int getRow() {

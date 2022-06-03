@@ -16,14 +16,13 @@ import ftpclient.FtpClient;
 public class FTPManager implements IInit {
 
     private static volatile FTPManager instance;
-    private int count;
     private int port;
     private String user;
     private String host;
     private String passWord;
 
     private FTPManager() {
-        count = 0;
+        port = 21;
     }
 
     public static FTPManager getInstance() {
@@ -41,12 +40,10 @@ public class FTPManager implements IInit {
 
     public FtpClient getNewClieant() {
         try {
-            count++;
             return new FtpClient(host, port, user, passWord);
         } catch (Exception e) {
             e.printStackTrace();
             ErrorLog.addError(this, e.getLocalizedMessage());
-            count--;
             return null;
         }
     }
@@ -55,5 +52,9 @@ public class FTPManager implements IInit {
     public boolean init() {
         Setting setting = Setting.getInstance();
         this.host = setting.getFtpHost();
+        this.port = setting.getFtpPort();
+        this.user = setting.getFtpUser();
+        this.passWord = setting.getFtpPassWord();
+        return getNewClieant() != null && getNewClieant().isConnect();
     }
 }

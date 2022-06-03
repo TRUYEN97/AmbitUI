@@ -61,6 +61,22 @@ public class Setting extends AbsJsonSource<ModeElement> implements IInit {
     }
 
     public String getFtpHost() {
-        throw new UnsupportedOperationException("Not supported yet."); // Generated from nbfs://nbhost/SystemFileSystem/Templates/Classes/Code/GeneratedMethodBody
+        return this.readFile.getData().getString(KeyWord.FTP_HOST);
+    }
+
+    public int getFtpPort() {
+        return this.readFile.getData().getInteger(KeyWord.FTP_PORT);
+    }
+
+    public String getFtpPassWord() {
+        return this.readFile.getData().getString(KeyWord.FTP_PASSWORD);
+    }
+
+    public String getFtpUser() {
+        return this.readFile.getData().getString(KeyWord.FTP_USER);
+    }
+
+    public String getUpdateLimitCommand() {
+        return this.readFile.getData().getString(KeyWord.LIMIT_CMD);
     }
 }

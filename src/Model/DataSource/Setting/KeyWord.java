@@ -29,6 +29,11 @@ final class KeyWord {
     public static final String LOCAL_FUNCTION_LOG = "LOCAL_FUNCTION_LOG";
     public static final String LOCAL_LOG = "LOCAL_LOG";
     public static final String GIAI_DOAN = "GIAI_DOAN";
+    public static final String FTP_USER = "FtpUser";
+    public static final String FTP_PASSWORD = "FtpPassword";
+    public static final String FTP_PORT = "FtpPort";
+    public static final String FTP_HOST = "FtpHost";
+    public static final String LIMIT_CMD = "LimitCMD";
     public static final List<String> MODE_KEY = Arrays.asList(
             STATION, DHCP, COLUMN, ROW, DETAIL, DISCRETE_TEST, TYPE_UI, NAME, TYPE_MODE,
             INIT_FUNC, PN_NAME, LOCAL_LOG, AMBIT_CONFIG);

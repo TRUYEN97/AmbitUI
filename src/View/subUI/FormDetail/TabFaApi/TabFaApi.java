@@ -7,6 +7,7 @@ package View.subUI.FormDetail.TabFaApi;
 import Model.DataModeTest.InputData;
 import Model.DataSource.Tool.FileService;
 import View.subUI.FormDetail.AbsTabUI;
+import com.alibaba.fastjson.JSONObject;
 import java.awt.HeadlessException;
 import java.awt.event.KeyEvent;
 import java.io.File;
@@ -238,6 +239,10 @@ public class TabFaApi extends AbsTabUI {
 
     public boolean isTabEmpty() {
         return this.formOption.isEmpty();
+    }
+
+    public JSONObject getData() {
+        return this.formOption.getData();
     }
 
 }

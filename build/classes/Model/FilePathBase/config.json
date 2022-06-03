@@ -1,8 +1,6 @@
 {
   "limitPath": "config\\dataSource\\limits.json",
   "ErroCodePath": "config\\dataSource\\trieste_errorCode.txt",
-  "ambitconfigPath": "config\\Item\\ambitconfig.json",
-  "CommandLimit": "python \\ eero_api_limits_Trieste_new.py",
   "Sfis": "config\\Sfis\\SFIS.txt",
   "Setting": "config\\Setting\\setting.json"
 }

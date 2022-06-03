@@ -6,7 +6,9 @@ package Control.Functions.FunctionsTest.UpFaAPIJson;
 
 import Control.Functions.AbsFunction;
 import Model.DataModeTest.ErrorLog;
+import Model.DataSource.Tool.FTPManager;
 import View.subUI.FormDetail.TabFaApi.TabFaApi;
+import com.alibaba.fastjson.JSONObject;
 import ftpclient.FtpClient;
 import java.awt.HeadlessException;
 import javax.swing.JOptionPane;
@@ -17,9 +19,11 @@ import javax.swing.JOptionPane;
  */
 public class UpFaAPIJson extends AbsFunction {
 
-    private FtpClient ftpClient;
+    private final FtpClient ftpClient;
+    private TabFaApi faApi;
     public UpFaAPIJson(String itemName) {
         super(itemName);
+        this.ftpClient = FTPManager.getInstance().getNewClieant();
     }
 
     @Override
@@ -38,16 +42,16 @@ public class UpFaAPIJson extends AbsFunction {
                 addLog("User has cancel this time!");
                 return false;
             }
-            addLog("Wait for user config data!");
+            addLog("Waiting for user config data!");
             waitForTabNotNull();
         }
         try {
             addLog("Get tab faAPi in Signal!");
-            TabFaApi faApi = (TabFaApi) this.uIData.getSignal(TabFaApi.MY_KEY);
+            faApi = (TabFaApi) this.uIData.getSignal(TabFaApi.MY_KEY);
             if (!faApi.checkSelectData() && faApi.checkDataHasChange()) {
                 JOptionPane.showMessageDialog(null, "Hãy xác nhận thông tin!");
             }
-            addLog("Wait for user config data!");
+            addLog("Waiting for user config data!");
             waitUntilUserConfig(faApi);
             return true;
         } catch (HeadlessException e) {
@@ -74,10 +78,7 @@ public class UpFaAPIJson extends AbsFunction {
         int result = JOptionPane.showConfirmDialog(null,
                 "Hãy xác nhận thông tin tại tab \"FA API\"",
                 "Thông báo", JOptionPane.OK_CANCEL_OPTION);
-        if (result == JOptionPane.CANCEL_OPTION) {
-            return true;
-        }
-        return false;
+        return result == JOptionPane.CANCEL_OPTION;
     }
 
     private void delay(int time) {
@@ -90,7 +91,13 @@ public class UpFaAPIJson extends AbsFunction {
     }
 
     private boolean upAPI() {
-        
+        addLog("ad");
+        if (this.ftpClient == null) {
+            addLog("FtpClient is null!");
+            return false;
+        }
+        JSONObject data = this.faApi.getData();
+        return true;
     }
 
     private void init() {

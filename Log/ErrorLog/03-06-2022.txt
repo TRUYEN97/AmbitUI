@@ -38,3 +38,7 @@
 2022-06-03 08:52:17 : //////////////////////////////////////
 2022-06-03 09:56:44 : Cannot invoke "Model.ManagerUI.UIStatus.Elemants.UiData.getProductInfo(String)" because "this.uiData" is null
 2022-06-03 09:56:44 : //////////////////////////////////////
+2022-06-03 11:28:09 : Main class! Init files source failed!!!
+2022-06-03 11:28:09 : //////////////////////////////////////
+2022-06-03 11:29:19 : Main class! Init files source failed!!!
+2022-06-03 11:29:19 : //////////////////////////////////////

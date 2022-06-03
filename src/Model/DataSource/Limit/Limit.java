@@ -6,7 +6,12 @@ package Model.DataSource.Limit;
 
 import Model.DataSource.AbsJsonSource;
 import Model.DataSource.DataWareHouse;
+import Model.DataSource.Setting.Setting;
+import Model.Interface.IInit;
+import Time.WaitTime.Class.TimeS;
 import com.alibaba.fastjson.JSONObject;
+import commandprompt.AbstractStream.SubClass.ReadStream;
+import commandprompt.Communicate.Cmd.Cmd;
 import java.util.Arrays;
 import java.util.List;
 import static java.util.Objects.isNull;
@@ -36,6 +41,12 @@ public class Limit extends AbsJsonSource<LimitElement> {
         return ins;
     }
 
+    @Override
+    public boolean init() {
+        update();
+        return super.init();
+    }
+    
     public List<String> getListItemName() {
         return (List<String>) Arrays.asList((String[]) this.mapElemnts.keySet().toArray());
     }
@@ -52,11 +63,25 @@ public class Limit extends AbsJsonSource<LimitElement> {
         if (isNull(limits)) {
             return false;
         }
+        return getAllElemant(limits, wareHouse);
+    }
+
+    private boolean getAllElemant(JSONObject limits, DataWareHouse wareHouse) {
+        LimitElement info;
         for (var itemName : limits.keySet()) {
             info = new LimitElement(itemName, wareHouse.toJson(), limits.getJSONObject(itemName));
             this.mapElemnts.put(itemName, info);
         }
         return !this.mapElemnts.isEmpty();
+    }
+
+    private void update() {
+        String command = Setting.getInstance().getUpdateLimitCommand();
+        Cmd cmd = new Cmd();
+        cmd.sendCommand(command);
+        String response = cmd.readAll(new TimeS(10));
+        System.out.println("Updata Limit ok");
+        System.out.println(response);
     }
 
 }

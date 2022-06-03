@@ -37,6 +37,10 @@ public class DataWareHouse {
         return false;
     }
 
+    public List<String> getListJsonArray(String key) {
+        return cvtArrays2List(getJSONArray(key));
+    }
+
     public List<String> cvtArrays2List(JSONArray array) {
         List<String> result = new ArrayList<>();
         if (isNull(array)) {
@@ -155,11 +159,11 @@ public class DataWareHouse {
         this.coreData.put(key, get);
     }
 
-    public List<String> getList(String key) {
+    public List<String> getListSlip(String key) {
         return Arrays.asList(getArrays(key));
     }
 
-    public List<String> getList(JSONObject json, String key) {
+    public List<String> getListSlip(JSONObject json, String key) {
         return Arrays.asList(getArrays(json, key));
     }
 
