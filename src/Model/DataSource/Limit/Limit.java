@@ -4,17 +4,18 @@
  */
 package Model.DataSource.Limit;
 
+import Model.DataModeTest.ErrorLog;
 import Model.DataSource.AbsJsonSource;
 import Model.DataSource.DataWareHouse;
 import Model.DataSource.Setting.Setting;
-import Model.Interface.IInit;
+import Model.DataSource.Tool.FileService;
 import Time.WaitTime.Class.TimeS;
 import com.alibaba.fastjson.JSONObject;
-import commandprompt.AbstractStream.SubClass.ReadStream;
 import commandprompt.Communicate.Cmd.Cmd;
 import java.util.Arrays;
 import java.util.List;
 import static java.util.Objects.isNull;
+import javax.swing.JOptionPane;
 
 /**
  *
@@ -43,10 +44,14 @@ public class Limit extends AbsJsonSource<LimitElement> {
 
     @Override
     public boolean init() {
-        update();
+        if (update()) {
+            return true;
+        }
+        JOptionPane.showMessageDialog(null,
+                "Update limit file failed!\r\nRead limit in local file.");
         return super.init();
     }
-    
+
     public List<String> getListItemName() {
         return (List<String>) Arrays.asList((String[]) this.mapElemnts.keySet().toArray());
     }
@@ -75,13 +80,50 @@ public class Limit extends AbsJsonSource<LimitElement> {
         return !this.mapElemnts.isEmpty();
     }
 
-    private void update() {
+    private boolean update() {
         String command = Setting.getInstance().getUpdateLimitCommand();
         Cmd cmd = new Cmd();
         cmd.sendCommand(command);
-        String response = cmd.readAll(new TimeS(10));
-        System.out.println("Updata Limit ok");
-        System.out.println(response);
+        String newlimit = getNewLimit(cmd.readAll(new TimeS(10)));
+        System.out.println(newlimit);
+        if (newlimit == null) {
+            return false;
+        }
+        if (!saveToFile(readFile.getPath(), newlimit)) {
+            return false;
+        }
+        return readFile.setData(newlimit) && resetData() && getData();
+    }
+
+    private String getNewLimit(String response) {
+        if (!(response.contains("{") && response.contains("}")
+                && (response.indexOf("{") < response.lastIndexOf("}")))) {
+            return null;
+        }
+        String newLimit = getJsonInString(response);
+        if (isNotJson(newLimit)) {
+            return null;
+        }
+        return newLimit;
+    }
+
+    private String getJsonInString(String response) {
+        return response.substring(response.indexOf("{"),
+                response.lastIndexOf("}") + 1);
+    }
+
+    private boolean isNotJson(String newLimit) {
+        try {
+            return JSONObject.parseObject(newLimit) == null;
+        } catch (Exception e) {
+            e.printStackTrace();
+            ErrorLog.addError(this, e.getMessage());
+            return false;
+        }
+    }
+
+    private boolean saveToFile(String path, String newLimit) {
+        return new FileService().saveFile(path, newLimit);
     }
 
 }

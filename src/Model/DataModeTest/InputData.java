@@ -14,7 +14,7 @@ import java.util.Set;
  */
 public class InputData {
 
-    public static final String FAIL_PC = "failpc";
+    public static final String FAIL_PC = "failedpc";
     public static final String PC_NAME = "pcname";
     public static final String MODE = "mode";
     public static final String DEBUG_PC = "debugpc";
@@ -29,6 +29,10 @@ public class InputData {
     public static final String RESULT = "result";
     public static final String MESSAGE = "message";
     public static final String DATA = "data";
+    public static final String STATION = "station";
+    public static final String VERSION = "version";
+    public static final String START_TIME = "start_time";
+    public static final String FINISH_TIME = "finish_time";
     private final JSONObject data;
 
     public InputData() {

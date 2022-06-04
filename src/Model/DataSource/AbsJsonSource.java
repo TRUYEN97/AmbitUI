@@ -6,6 +6,7 @@ package Model.DataSource;
 
 import Model.DataSource.Tool.ReadFileSource;
 import Control.FileType.FileJson;
+import Model.DataModeTest.ErrorLog;
 import Model.Interface.IInit;
 import java.util.ArrayList;
 import java.util.HashMap;
@@ -61,9 +62,16 @@ public abstract class AbsJsonSource<AbsElementInfo> implements IInit {
         this.mapElemnts.put(name, element);
     }
 
-    private void resetData() {
-        this.elements.clear();
-        this.mapElemnts.clear();
+    protected boolean resetData() {
+        try {
+            this.elements.clear();
+            this.mapElemnts.clear();
+            return true;
+        } catch (Exception e) {
+            e.printStackTrace();
+            ErrorLog.addError(this, e.getMessage());
+            return false;
+        }
     }
 
     public int getCountElement() {

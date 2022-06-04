@@ -1,0 +1,44 @@
+22:27:19.861	Start at 2021/11/19 22:27:19;
+22:27:19.867	Station = RTTS-5550;
+22:27:19.869	DEVICSN =;
+---------------------------------------------------------------
+22:27:19.870	ITEM=ID[1]NAME[gen_node];
+22:27:19.873	SFIS->TE=MLBSN(25)+ETHERNETMAC(12)+PNNAME(13)+PASS;;
+22:27:19.876	TE->SFIS=MLBSN(25)+PCNAME(12)+ERRORCODE(16);;
+22:27:19.878	Item test time: 0.006;
+22:27:19.878	ITEM=ID[1]RESULT[PASS];
+---------------------------------------------------------------
+22:27:19.879	ITEM=ID[2]NAME[nodeproperty_mac];
+22:27:19.880	get mac=;
+22:27:19.880	Item test time: 0.002;
+22:27:19.880	ITEM=ID[2]RESULT[PASS];
+---------------------------------------------------------------
+22:27:19.880	ITEM=ID[3]NAME[nodeproperty_unit_part_number];
+22:27:19.882	get pnNmae=810-01100;
+22:27:19.882	Item test time: 0.002;
+22:27:19.882	ITEM=ID[3]RESULT[PASS];
+---------------------------------------------------------------
+22:27:19.883	ITEM=ID[4]NAME[dut_ping];
+22:27:19.884	[PC] cmd /c  arp -d;
+22:27:19.908	[PC] Pinging 192.168.1.1 with 32 bytes of data:;
+22:27:23.462	[PC] Request timed out.;
+22:27:23.463	[PC] Ping statistics for 192.168.1.1:;
+22:27:23.463	[PC] Packets: Sent = 1, Received = 0, Lost = 1 (100% loss),;
+22:27:24.467	Ping 192.168.1.1 Fail!;
+22:27:24.467	Ping 192.168.1.1 Failed!;
+22:27:24.468	Item test time: 4.585;
+22:27:24.468	****************************************;
+22:27:24.468	11.2	dut_ping;
+22:27:24.469	8	dut_ping;
+22:27:24.469	ITEM=ID[4]RESULT[FAIL];
+---------------------------------------------------------------
+22:27:24.474	ITEM=ID[5]NAME[*fixtureOpen];
+22:27:24.484	Open COM5 115200fail;
+22:27:24.484	Open COM5 115200fail;
+22:27:24.484	Open COM5 115200fail;
+22:27:24.484	Item test time: 0.010;
+22:27:24.485	ITEM=ID[5]RESULT[PASS];
+---------------------------------------------------------------
+22:27:24.503	Total test time:4.625 s;
+22:27:24.504	SFIS=SN[]ETHMAC[]PNNAME[820-01100]RESULT[false];CONTROL=RESULT[false];
+22:27:24.513	LOG API_JSON(python\log\\_RTTS-5550_debug.json)	OK;

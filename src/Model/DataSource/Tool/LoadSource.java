@@ -4,12 +4,14 @@
  */
 package Model.DataSource.Tool;
 
+import Model.DataModeTest.ErrorLog;
 import Model.DataSource.Limit.Limit;
 import Model.DataSource.PcInformation;
 import Model.Interface.IInit;
 import Model.DataSource.Setting.Setting;
 import java.util.ArrayList;
 import java.util.List;
+import javax.swing.JOptionPane;
 
 /**
  *
@@ -33,11 +35,22 @@ public class LoadSource implements IInit {
 
     @Override
     public boolean init() {
+        System.out.println("Init base class....");
         for (IInit source : sources) {
+            System.out.println(String.format("\r\nInit %s class.................!",
+                    source.getClass().getSimpleName()));
             if (!source.init()) {
+                String mess = String.format("Init source file failed! %s",
+                        source.getClass().getSimpleName());
+                ErrorLog.addError(mess);
+                JOptionPane.showMessageDialog(null, mess);
                 return false;
+            } else {
+                System.out.println(String.format("Init %s class.................Ok!",
+                        source.getClass().getSimpleName()));
             }
         }
+        System.out.println("Init base class done!");
         return true;
     }
 

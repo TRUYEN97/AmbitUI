@@ -1,0 +1,36 @@
+08:38:06.359	Start at 2021/11/25 08:38:06;
+08:38:06.361	Station = C02-TE-TEST;
+08:38:06.363	DEVICSN = GGB1UD01127700BA;
+08:38:06.364	HHSN = 1234567;
+---------------------------------------------------------------
+08:38:06.364	ITEM=ID[1]NAME[gen_node];
+08:38:06.366	SFIS->TE=MLBSN(25)+ETHERNETMAC(12)+PNNAME(13)+MODEL(6)+PASS;;
+08:38:06.368	TE->SFIS=MLBSN(25)+PCNAME(12)+ERRORCODE(16);;
+08:38:06.369	Item test time: 0.004;
+08:38:06.369	ITEM=ID[1]RESULT[PASS];
+---------------------------------------------------------------
+08:38:06.370	ITEM=ID[2]NAME[mac];
+08:38:06.370	get mac=64:97:14:00:7d:60;
+08:38:06.370	Item test time: 0.000;
+08:38:06.371	ITEM=ID[2]RESULT[PASS];
+---------------------------------------------------------------
+08:38:06.371	ITEM=ID[3]NAME[fixture_close];
+08:38:06.378	Open COM5 9600fail;
+08:38:06.379	Open COM5 9600fail;
+08:38:06.379	Open COM5 9600fail;
+08:38:06.379	Item test time: 0.008;
+08:38:06.379	****************************************;
+08:38:06.380	15.1	fixture_close;
+08:38:06.380	1.11	fixture_close;
+08:38:06.380	ITEM=ID[3]RESULT[FAIL];
+---------------------------------------------------------------
+08:38:06.382	ITEM=ID[4]NAME[*FixtureOpen];
+08:38:06.383	Open COM5 9600fail;
+08:38:06.383	Open COM5 9600fail;
+08:38:06.383	Open COM5 9600fail;
+08:38:06.384	Item test time: 0.001;
+08:38:06.384	ITEM=ID[4]RESULT[PASS];
+---------------------------------------------------------------
+08:38:06.397	Total test time:0.025 s;
+08:38:06.397	SFIS=SN[1234567]ETHMAC[649714007d60]PNNAME[820-01100]RESULT[false];CONTROL=RESULT[false];
+08:38:06.403	LOG API_JSON(python\log\\GGB1UD01127700BA_C02-TE-TEST_production.json)	OK;

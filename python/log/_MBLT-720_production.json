@@ -1,0 +1,24 @@
+{
+	"mode": "production",
+	"station_name": "MBLT-720",
+	"error_code": "-1",
+	"error_details": "nodeproperty_mac",
+	"position": "",
+	"serial": "",
+	"station_type": "RTT",
+	"test_software_version": "1.1.2",
+	"finish_time": "2022-05-30 06:27:03",
+	"start_time": "2022-05-30 06:27:02",
+	"status": "failed",
+	"tests":[{
+		"upper_limit": "",
+		"lower_limit": "",
+		"status": "passed",
+		"finish_time": "2022-05-30 06:27:02",
+		"test_name": "gen_node",
+		"error_code": "",
+		"start_time": "2022-05-30 06:27:02",
+		"test_value": "PASS",
+		"units": ""
+	}]
+}

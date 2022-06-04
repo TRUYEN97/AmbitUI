@@ -8,6 +8,7 @@ import Model.DataModeTest.ErrorLog;
 import Model.Interface.IInit;
 import Model.Interface.ITypeRead;
 import Model.DataSource.DataWareHouse;
+import com.alibaba.fastjson.JSONObject;
 import java.io.BufferedReader;
 import java.io.File;
 import java.io.FileReader;
@@ -76,6 +77,19 @@ public class ReadFileSource implements IInit {
 
     private String getAllClassName() {
         return this.getClass().getName();
+    }
+
+    public String getPath() {
+        return path;
+    }
+
+    public boolean setData(JSONObject limit) {
+        this.data.clear();
+        return this.data.putAll(limit);
+    }
+
+    public boolean setData(String newlimit) {
+        return setData(JSONObject.parseObject(newlimit));
     }
 
 }

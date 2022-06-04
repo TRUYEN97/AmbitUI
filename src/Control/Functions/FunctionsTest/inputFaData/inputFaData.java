@@ -2,14 +2,12 @@
  * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
  * Click nbfs://nbhost/SystemFileSystem/Templates/Classes/Class.java to edit this template
  */
-package Control.Functions.FunctionsTest.UpFaAPIJson;
+package Control.Functions.FunctionsTest.inputFaData;
 
 import Control.Functions.AbsFunction;
 import Model.DataModeTest.ErrorLog;
-import Model.DataSource.Tool.FTPManager;
 import View.subUI.FormDetail.TabFaApi.TabFaApi;
 import com.alibaba.fastjson.JSONObject;
-import ftpclient.FtpClient;
 import java.awt.HeadlessException;
 import javax.swing.JOptionPane;
 
@@ -17,22 +15,51 @@ import javax.swing.JOptionPane;
  *
  * @author Administrator
  */
-public class UpFaAPIJson extends AbsFunction {
+public class InputFaData extends AbsFunction {
 
-    private final FtpClient ftpClient;
     private TabFaApi faApi;
-    public UpFaAPIJson(String itemName) {
+
+    public InputFaData(String itemName) {
         super(itemName);
-        this.ftpClient = FTPManager.getInstance().getNewClieant();
     }
 
     @Override
     public boolean test() {
-        init();
-        if (waitData()) {
-            return upAPI();
+        if (!waitData()) {
+            return false;
         }
-        return false;
+        try {
+            addLog("Get tab faAPi in Signal!");
+            faApi = (TabFaApi) this.uIData.getSignal(TabFaApi.MY_KEY);
+            if (!faApi.checkSelectData() && faApi.checkDataHasChange()) {
+                JOptionPane.showMessageDialog(null, "Hãy xác nhận thông tin!");
+            }
+            addLog("Waiting for user config data!");
+            waitUntilUserConfig(faApi);
+            addLog("Waiting for user config data done!");
+            return addDataToSignal();
+        } catch (HeadlessException e) {
+            e.printStackTrace();
+            ErrorLog.addError(this, e.getLocalizedMessage());
+            addLog(e.getLocalizedMessage());
+            return false;
+        }
+    }
+
+    private boolean addDataToSignal() {
+        try {
+            addLog("Add select json data to signal!");
+            JSONObject data = faApi.getData();
+            String keyWord = funcConfig.getValue("KEY_WORD");
+            addLog(data.toJSONString());
+            this.uIData.putToSignal(keyWord, faApi.getData());
+            addLog("keyword: " + keyWord);
+            addLog("Add select json data to signal ok!");
+            return true;
+        } catch (Exception e) {
+            e.printStackTrace();
+            return false;
+        }
     }
 
     private boolean waitData() {
@@ -45,21 +72,7 @@ public class UpFaAPIJson extends AbsFunction {
             addLog("Waiting for user config data!");
             waitForTabNotNull();
         }
-        try {
-            addLog("Get tab faAPi in Signal!");
-            faApi = (TabFaApi) this.uIData.getSignal(TabFaApi.MY_KEY);
-            if (!faApi.checkSelectData() && faApi.checkDataHasChange()) {
-                JOptionPane.showMessageDialog(null, "Hãy xác nhận thông tin!");
-            }
-            addLog("Waiting for user config data!");
-            waitUntilUserConfig(faApi);
-            return true;
-        } catch (HeadlessException e) {
-            e.printStackTrace();
-            ErrorLog.addError(this, e.getLocalizedMessage());
-            addLog(e.getLocalizedMessage());
-            return false;
-        }
+        return true;
     }
 
     private void waitUntilUserConfig(TabFaApi faApi) {
@@ -88,19 +101,6 @@ public class UpFaAPIJson extends AbsFunction {
             System.err.println(ex);
             ErrorLog.addError(this, ex.getLocalizedMessage());
         }
-    }
-
-    private boolean upAPI() {
-        addLog("ad");
-        if (this.ftpClient == null) {
-            addLog("FtpClient is null!");
-            return false;
-        }
-        JSONObject data = this.faApi.getData();
-        return true;
-    }
-
-    private void init() {
     }
 
 }

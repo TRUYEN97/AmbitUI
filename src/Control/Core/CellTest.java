@@ -6,9 +6,11 @@ package Control.Core;
 
 import Control.Functions.AbsFunction;
 import Model.DataModeTest.ErrorLog;
+import Model.DataModeTest.InputData;
 import Model.DataSource.FunctionConfig.FunctionConfig;
 import Model.ManagerUI.UIStatus.Elemants.UiData;
 import Model.ManagerUI.UIStatus.UiStatus;
+import Time.TimeBase;
 import Time.WaitTime.AbsTime;
 import Time.WaitTime.Class.TimeMs;
 import View.subUI.SubUI.AbsSubUi;
@@ -100,6 +102,9 @@ public class CellTest implements Runnable {
         if (tests.isEmpty()) {
             return false;
         }
-        return runFunctions(tests);
+        this.uiData.putProductInfo(InputData.START_TIME, new TimeBase().getSimpleDateTime());
+        boolean result = runFunctions(tests);
+        this.uiData.putProductInfo(InputData.FINISH_TIME, new TimeBase().getSimpleDateTime());
+        return result;
     }
 }

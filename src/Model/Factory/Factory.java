@@ -6,12 +6,13 @@ package Model.Factory;
 
 import View.subUI.FormDetail.TabFaApi.TabFaApiProxy;
 import Control.Functions.AbsFunction;
+import Control.Functions.FunctionsTest.CreateFaJson.CreateFaJsonProxy;
 import Control.Functions.FunctionsTest.SFIS.CheckSnFormSFIS.CheckSnFormSFISProxy;
 import Control.Functions.FunctionsTest.FixtureAction.FixtureActionProxy;
 import Control.Functions.FunctionsTest.GenerateNode.GenerateNodeProxy;
 import Control.Functions.FunctionsTest.GetMacFromSfis.GetMacFormSfisProxy;
 import Control.Functions.FunctionsTest.SFIS.SendResultToSfis.SendResuttToSfisProxy;
-import Control.Functions.FunctionsTest.UpFaAPIJson.UpFaAPIJsonProxy;
+import Control.Functions.FunctionsTest.inputFaData.InputFaDataProxy;
 import Control.Functions.InitPackages.InitProxy.IdPasswordProxy;
 import View.subUI.FormDetail.AbsTabUI;
 import View.subUI.SubUI.AbsSubUi;
@@ -96,6 +97,7 @@ public class Factory {
         this.functions.addType(new GenerateNodeProxy());
         this.functions.addType(new GetMacFormSfisProxy());
         this.functions.addType(new FixtureActionProxy());
-        this.functions.addType(new UpFaAPIJsonProxy());
+        this.functions.addType(new InputFaDataProxy());
+        this.functions.addType(new CreateFaJsonProxy());
     }
 }

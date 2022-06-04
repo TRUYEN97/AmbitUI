@@ -41,11 +41,11 @@ public class UiData {
     public void clear() {
         this.message = null;
         this.signal.clear();
-        repareData();
+        mergeData();
         this.dataBoxs.clear();
     }
 
-    private void repareData() {
+    private void mergeData() {
         this.productData.clear();
         if (inputData == null) {
             String mess = "Input = null, can not to test!";

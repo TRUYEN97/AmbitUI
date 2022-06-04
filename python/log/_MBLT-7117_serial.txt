@@ -1,0 +1,48 @@
+07:51:45.750	Start at 2021/09/24 07:51:45
+07:51:45.752	Station = MBLT-7117
+07:51:45.753	DEVICSN =
+---------------------------------------------------------------
+07:51:45.754	ITEM=ID[1]NAME[gen_node]
+07:51:45.756	SFIS->TE=MLBSN(25)+ETHERNETMAC(12)+PNNAME(13)+PASS;
+07:51:45.759	TE->SFIS=MLBSN(25)+PCNAME(12)+ERRORCODE(16);
+07:51:45.759	Item test time: 0.006 S
+07:51:45.759	ITEM=ID[1]RESULT[PASS]
+---------------------------------------------------------------
+07:51:45.760	ITEM=ID[2]NAME[nodeproperty_mac]
+07:51:45.761	get mac=
+07:51:45.762	Item test time: 0.003 S
+07:51:45.762	ITEM=ID[2]RESULT[PASS]
+---------------------------------------------------------------
+07:51:45.762	ITEM=ID[3]NAME[nodeproperty_unit_part_number]
+07:51:45.766	get pnNmae=810-01100
+07:51:45.766	Item test time: 0.004 S
+07:51:45.767	ITEM=ID[3]RESULT[PASS]
+---------------------------------------------------------------
+07:51:45.767	ITEM=ID[4]NAME[fixture_close]
+07:51:45.984	[Fixture]AT+TESTSTART%
+07:52:02.025	cmd AT+TESTSTART%,AT+CC_AON%,AT+VBUS_AON% FAIL!
+07:52:02.025	[Golden]
+07:52:02.029	Item test time: 16.262 S
+07:52:02.029	****************************************
+07:52:02.031	
+07:52:02.031	1.11
+07:52:02.031	fixture_close
+07:52:02.031	PASS,,810-01100,FAIL,
+07:52:02.032	ITEM=ID[4]RESULT[FAIL]
+---------------------------------------------------------------
+07:52:02.033	ITEM=ID[5]NAME[*fixtureOpen]
+07:52:02.236	[Fixture]AT+CC_AOFF%
+07:52:02.446	[Fixture]OK
+07:52:03.451	[Fixture]AT+VBUS_AOFF%
+07:52:03.659	[Fixture]OK
+07:52:03.660	[Fixture]AT+TESTEND%
+07:52:03.871	[Fixture]OK
+07:52:03.874	Item test time: 1.840 S
+07:52:03.874	ITEM=ID[5]RESULT[PASS]
+07:52:03.879	jsonPath:Data/Trieste/json/Debug/820-01100_MBLT/20210924/MBLT-7117/_2021-09-24_07-52-03_FAIL.json
+---------------------------------------------------------------
+07:52:04.294	Total test time:18.129 s
+07:52:04.295	LOG=MAINFOR[,0,Data\Trieste\820-01100_MBLT\20210924\MBLT-7117\FAIL\1.11\_2021-09-24_07-52-03_SFIS_OFF_FAIL.txt,1.1.2,MBLT-7117,18.129,09/24/2021 07:51:45,,]
+07:52:04.298	LOG=CONTENT[09/24/2021,07:52:04,SFIS_OFF,1.11,1,0,PASS,0.006,,0.003,810-01100,0.004,FAIL,16.262,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,]
+07:52:04.298	LOG=ERROR[1.11,fixture_close,PASS,,810-01100,FAIL,16.262|]
+07:52:04.302	SFIS=SN[]ETHMAC[]PNNAME[820-01100]RESULT[false];CONTROL=RESULT[false]

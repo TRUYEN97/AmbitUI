@@ -1,0 +1,13 @@
+{
+	"station_name": "C02-TE-TEST",
+	"tests":[],
+	"error_details": "nodeproperty_mac",
+	"status": "failed",
+	"finish_time": "2021-10-29 20:40:29",
+	"test_software_version": "2.1.26",
+	"start_time": "2021-10-29 20:40:23",
+	"station_type": "MBLT",
+	"error_code": "-1",
+	"serial": "KB780KJTBE17MA95",
+	"mode": "production"
+}

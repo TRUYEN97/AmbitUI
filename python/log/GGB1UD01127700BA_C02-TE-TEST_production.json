@@ -1,0 +1,46 @@
+{
+	"mode": "production",
+	"station_name": "C02-TE-TEST",
+	"error_code": "1.11",
+	"error_details": "fixture_close",
+	"position": "",
+	"serial": "GGB1UD01127700BA",
+	"station_type": "MBFT",
+	"test_software_version": "1.1.2",
+	"finish_time": "2021-11-25 08:38:06",
+	"start_time": "2021-11-25 08:38:06",
+	"status": "failed",
+	"tests":[{
+		"upper_limit": "",
+		"lower_limit": "",
+		"status": "passed",
+		"finish_time": "2021-11-25 08:38:06",
+		"test_name": "gen_node",
+		"error_code": "",
+		"start_time": "2021-11-25 08:38:06",
+		"test_value": "PASS",
+		"units": ""
+	},
+	{
+		"upper_limit": "",
+		"lower_limit": "",
+		"status": "passed",
+		"finish_time": "2021-11-25 08:38:06",
+		"test_name": "mac",
+		"error_code": "",
+		"start_time": "2021-11-25 08:38:06",
+		"test_value": "64:97:14:00:7d:60",
+		"units": ""
+	},
+	{
+		"upper_limit": "",
+		"lower_limit": "",
+		"status": "failed",
+		"finish_time": "2021-11-25 08:38:06",
+		"test_name": "fixture_close",
+		"error_code": "1.11",
+		"start_time": "2021-11-25 08:38:06",
+		"test_value": "FAIL",
+		"units": ""
+	}]
+}

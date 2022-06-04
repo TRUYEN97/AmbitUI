@@ -1,0 +1,23 @@
+{
+	"mode": "debug",
+	"station_name": "RTTS-5550",
+	"error_code": "11.2",
+	"error_details": "dut_ping",
+	"serial": "",
+	"station_type": "MBLT",
+	"test_software_version": "1.1.2",
+	"finish_time": "2021-11-19 22:27:24",
+	"start_time": "2021-11-19 22:27:19",
+	"status": "failed",
+	"tests":[{
+		"upper_limit": "",
+		"lower_limit": "",
+		"status": "passed",
+		"finish_time": "2021-11-19 22:27:19",
+		"test_name": "gen_node",
+		"error_code": "",
+		"start_time": "2021-11-19 22:27:19",
+		"test_value": "PASS",
+		"units": ""
+	}]
+}

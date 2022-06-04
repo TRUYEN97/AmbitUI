@@ -55,6 +55,6 @@ public class FTPManager implements IInit {
         this.port = setting.getFtpPort();
         this.user = setting.getFtpUser();
         this.passWord = setting.getFtpPassWord();
-        return getNewClieant() != null && getNewClieant().isConnect();
+        return getNewClieant() != null;
     }
 }

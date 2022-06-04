@@ -1,0 +1,7 @@
+2022-06-04 10:18:55 : Item[CreateFaJson]-Function[CreateFaJsonProxy]-ModeName[Fa API]-ModeType[FA_API]
+2022-06-04 10:18:55 : Turn 0:
+2022-06-04 10:18:55 : Get FA json data in signal!
+2022-06-04 10:18:55 : Get with key: jsonFa
+2022-06-04 10:18:55 : {"J1":{"Action":"reflow","ReasonDes":"OTHER","RepairDetail":"Further details"},"C1":{"Action":"replace","ReasonDes":"OTHER","RepairDetail":"vendor"}}
+2022-06-04 10:18:55 : Create baseData !
+2022-06-04 10:18:55 : Time[0,016 s]---Result[PASS]
