@@ -14,6 +14,8 @@ import View.subUI.SubUI.AbsSubUi;
 import Model.Interface.IFunction;
 import Model.DataModeTest.DataBoxs.FunctionData;
 import Model.DataModeTest.ErrorLog;
+import Model.DataSource.Setting.Setting;
+import java.io.File;
 
 /**
  *
@@ -23,63 +25,100 @@ public abstract class AbsFunction implements IFunction {
 
     protected final FunctionElement funcConfig;
     protected final Limit limit;
-    protected UiData uIData;
-    protected FunctionData dataBox;
+    protected UiData uiData;
     protected ModeTest modeTest;
     protected AbsSubUi subUi;
+    private FunctionData functionData;
+    private Thread thread;
+    private final double timeSpec;
 
     protected AbsFunction(String itemName) {
-        this.funcConfig = FunctionConfig.getInstance().getElement(itemName);
         this.limit = Limit.getInstance();
+        this.funcConfig = FunctionConfig.getInstance().getElement(itemName);
+        this.timeSpec = this.funcConfig.getTimeOutFunction();
     }
 
     public void setUIStatus(UiStatus uiStatus) {
-        this.uIData = uiStatus.getUiData();
+        this.uiData = uiStatus.getUiData();
         this.subUi = uiStatus.getSubUi();
         this.modeTest = uiStatus.getModeTest();
-    }
-
-    public FunctionElement getFuncConfig() {
-        return funcConfig;
     }
 
     @Override
     public void run() {
         try {
+            this.thread = new Thread() {
+                @Override
+                public void run() {
+                    createFuncData();
+                    runTest();
+                }
+            };
+            this.thread.start();
+            while (this.thread.isAlive()) {
+                try {
+                    this.thread.join(1000);
+                } catch (InterruptedException ex) {
+                    ErrorLog.addError(this, ex.getMessage());
+                }
+                if (isOutTime()) {
+                    this.thread.stop();
+                    String mess = String.format("""
+                                                This function has out of run time!\r
+                                                Time: %.3f S\r
+                                                Spec: %s S\r
+                                                Try to stop!!""",
+                            getRunTime(), timeSpec);
+                    addLog(mess);
+                    setResult("OutTime");
+                }
+            }
+        } catch (Exception e) {
+            e.printStackTrace();
+            ErrorLog.addError(this, e.getMessage());
+        } finally {
+            end();
+        }
+
+    }
+
+    private boolean isOutTime() {
+        return getRunTime() >= timeSpec;
+    }
+
+    private void runTest() {
+        this.functionData.start(createLogPath());
+        try {
             if (isModeSkip()) {
-                this.dataBox.addLog("Mode Skip: " + modeTest.toString());
-                this.dataBox.addLog("This function will be canceled because the mode is " + modeTest.toString());
-                this.dataBox.setResult("Canceled");
-                this.dataBox.setPass();
+                this.functionData.addLog("Mode Skip: " + modeTest.toString());
+                this.functionData.addLog("This function will be canceled because the mode is " + modeTest.toString());
+                this.functionData.setResult("Canceled");
+                this.functionData.setPass();
                 return;
             }
             for (int turn = 0; turn < getRetry(); turn++) {
-                this.dataBox.addLog(String.format("Turn %s:", turn));
+                this.functionData.addLog(String.format("Turn %s:", turn));
                 if (test()) {
-                    this.dataBox.setPass();
+                    this.functionData.setPass();
                     return;
                 }
             }
-            this.dataBox.setFail();
+            this.functionData.setFail();
         } catch (Exception e) {
             ErrorLog.addError(e.getLocalizedMessage());
             this.addLog(e.getMessage());
         }
     }
 
-    public ModeTest getModeTest() {
-        return modeTest;
+    public void setResult(String result) {
+        this.functionData.setResult(result);
     }
 
-    public void setRsutlt(String result) {
-        this.dataBox.setResult(result);
-    }
-
-    public abstract boolean test();
+    protected abstract boolean test();
 
     @Override
     public boolean isPass() {
-        return dataBox.isPass();
+        return functionData.isPass();
     }
 
     public String getItemName() {
@@ -90,24 +129,28 @@ public abstract class AbsFunction implements IFunction {
         return this.funcConfig.getFunctionName();
     }
 
-    public void addLog(Object str) {
-        this.dataBox.addLog(str);
+    protected void addLog(Object str) {
+        this.functionData.addLog(str);
     }
 
-    public double getRunTime() {
-        return dataBox.getRunTime();
+    protected double getRunTime() {
+        return functionData.getRunTime();
     }
 
-    void createDataBox() {
-        this.dataBox = this.uIData.getDataBox(funcConfig.getItemName());
-        if (funcConfig.isMutiTasking()) {
-            this.dataBox.setMultistacking();
+    protected String getResult() {
+        return this.functionData.getResultTest();
+    }
+
+    private void createFuncData() {
+        this.functionData = this.uiData.createFuncData();
+        this.functionData.setFuncconfig(funcConfig);
+    }
+
+    private void end() {
+        if (this.functionData == null) {
+            return;
         }
-        this.dataBox.start();
-    }
-
-    void end() {
-        this.dataBox.end();
+        this.functionData.end();
     }
 
     private int getRetry() {
@@ -122,11 +165,8 @@ public abstract class AbsFunction implements IFunction {
         return modeSkip != null && !modeSkip.isBlank() && modeSkip.equals(modeTest.toString());
     }
 
-    String getResult() {
-        return this.dataBox.getResultTest();
-    }
-
-    public UiData getUiData() {
-        return uIData;
+    private String createLogPath() {
+        String settingPath = Setting.getInstance().getFunctionsLocalLog();
+        return String.format("%s%s%s", settingPath,File.separator, this.subUi.getName());
     }
 }

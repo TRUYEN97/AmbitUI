@@ -27,7 +27,7 @@ public class FixtureAction extends AbsFunction {
                 ex.printStackTrace();
             }
         }
-        this.setRsutlt("PASS");
+        this.setResult("PASS");
         return true;
     }
 

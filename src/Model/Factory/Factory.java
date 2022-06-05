@@ -12,7 +12,7 @@ import Control.Functions.FunctionsTest.FixtureAction.FixtureActionProxy;
 import Control.Functions.FunctionsTest.GenerateNode.GenerateNodeProxy;
 import Control.Functions.FunctionsTest.GetMacFromSfis.GetMacFormSfisProxy;
 import Control.Functions.FunctionsTest.SFIS.SendResultToSfis.SendResuttToSfisProxy;
-import Control.Functions.FunctionsTest.inputFaData.InputFaDataProxy;
+import Control.Functions.FunctionsTest.InputFaData.InputFaDataProxy;
 import Control.Functions.InitPackages.InitProxy.IdPasswordProxy;
 import View.subUI.FormDetail.AbsTabUI;
 import View.subUI.SubUI.AbsSubUi;

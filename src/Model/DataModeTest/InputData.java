@@ -15,7 +15,6 @@ import java.util.Set;
 public class InputData {
 
     public static final String FAIL_PC = "failedpc";
-    public static final String PC_NAME = "pcname";
     public static final String MODE = "mode";
     public static final String DEBUG_PC = "debugpc";
     public static final String ERROR_CODE = "errorcode";
@@ -39,6 +38,7 @@ public class InputData {
         this.data = new JSONObject();
 //        this.data.put(PCNAME, PcInformation.getInstance().getPcName());
         this.data.put(PCNAME, "RTT-5014");
+        this.data.put(VERSION, "1.0.0");
     }
 
     public void setInput(String input) {

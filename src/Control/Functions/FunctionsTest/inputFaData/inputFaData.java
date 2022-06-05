@@ -2,7 +2,7 @@
  * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
  * Click nbfs://nbhost/SystemFileSystem/Templates/Classes/Class.java to edit this template
  */
-package Control.Functions.FunctionsTest.inputFaData;
+package Control.Functions.FunctionsTest.InputFaData;
 
 import Control.Functions.AbsFunction;
 import Model.DataModeTest.ErrorLog;
@@ -30,7 +30,7 @@ public class InputFaData extends AbsFunction {
         }
         try {
             addLog("Get tab faAPi in Signal!");
-            faApi = (TabFaApi) this.uIData.getSignal(TabFaApi.MY_KEY);
+            faApi = (TabFaApi) this.uiData.getSignal(TabFaApi.MY_KEY);
             if (!faApi.checkSelectData() && faApi.checkDataHasChange()) {
                 JOptionPane.showMessageDialog(null, "Hãy xác nhận thông tin!");
             }
@@ -52,7 +52,7 @@ public class InputFaData extends AbsFunction {
             JSONObject data = faApi.getData();
             String keyWord = funcConfig.getValue("KEY_WORD");
             addLog(data.toJSONString());
-            this.uIData.putToSignal(keyWord, faApi.getData());
+            this.uiData.putToSignal(keyWord, faApi.getData());
             addLog("keyword: " + keyWord);
             addLog("Add select json data to signal ok!");
             return true;
@@ -64,7 +64,7 @@ public class InputFaData extends AbsFunction {
 
     private boolean waitData() {
         addLog("Check tab FaAPI");
-        if (this.uIData.getSignal(TabFaApi.MY_KEY) == null) {
+        if (this.uiData.getSignal(TabFaApi.MY_KEY) == null) {
             if (cancelThisTime()) {
                 addLog("User has cancel this time!");
                 return false;
@@ -82,7 +82,7 @@ public class InputFaData extends AbsFunction {
     }
 
     private void waitForTabNotNull() {
-        while (this.uIData.getSignal(TabFaApi.MY_KEY) == null) {
+        while (this.uiData.getSignal(TabFaApi.MY_KEY) == null) {
             delay(500);
         }
     }

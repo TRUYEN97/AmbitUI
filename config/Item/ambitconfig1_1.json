@@ -5,7 +5,7 @@
     "INIT": [
         {
             "FLAG": true,
-            "TIME_OVER": 500,
+            "TIME_OVER": 50,
             "SEND_FORMAT": ["sn", "pcname", "mode"],
             "DATA_FORMAT": ["mlbsn", "ethernetmac", "pnname", "model", "smode", "sn",
                 "failedpc", "debugpc", "errorcode", "errordes", "counttest"],

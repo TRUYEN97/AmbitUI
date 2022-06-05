@@ -41,6 +41,7 @@ public class TabItem extends AbsTabUI {
 
     /**
      * Creates new form TagLog
+     *
      * @param type
      */
     public TabItem(String type) {
@@ -234,14 +235,7 @@ public class TabItem extends AbsTabUI {
         this.tableModel.setValueAt(value, row, this.testColumn.indexOf(colmn));
     }
 
-    private Object getStatus(FunctionData dataBox) {
-        if (!dataBox.isTesting()) {
-            return dataBox.getResultTest();
-        }
-        if (dataBox.isMultiStacking()) {
-            return "Multistacking";
-        } else {
-            return "Testing";
-        }
+    private String getStatus(FunctionData dataBox) {
+        return dataBox.getResultTest();
     }
 }

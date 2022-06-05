@@ -1,0 +1,13 @@
+2022-06-05 11:24:47 : Item[CheckSnSfis]-Function[CheckSnFormSFISProxy]
+2022-06-05 11:24:47 : Turn 0:
+2022-06-05 11:24:47 : send to url: http://10.90.0.40/sfcapi/api/connect
+2022-06-05 11:24:47 : command: {"PCNAME":"RTT-5014","MODE":"Debug","SN":"JJ"}
+2022-06-05 11:25:07 : This function has out of run time!
+2022-06-05 11:25:07 : Time: 20,151 S
+2022-06-05 11:25:07 : Spec: 20.0 S
+2022-06-05 11:25:07 : Try to stop!!
+2022-06-05 11:25:08 : This function has out of run time!
+2022-06-05 11:25:08 : Time: 21,074 S
+2022-06-05 11:25:08 : Spec: 20.0 S
+2022-06-05 11:25:08 : Try to stop!!
+2022-06-05 11:25:08 : Time[21,074 s]---Result[FAILED]

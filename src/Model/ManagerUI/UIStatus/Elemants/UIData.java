@@ -59,19 +59,13 @@ public class UiData {
         this.productData.put(InputData.MODE, this.uiStatus.getModeTest().getModeType());
     }
 
-    public FunctionData getDataBox(String itemName) {
+    public FunctionData getFunctionData(String itemName) {
         for (FunctionData dataBox : dataBoxs) {
             if (dataBox.getItemFunction().equals(itemName)) {
                 return dataBox;
             }
         }
-        return createDataBox(itemName);
-    }
-
-    private FunctionData createDataBox(String itemName) {
-        FunctionData dataBox = new FunctionData(uiStatus.getName(), itemName);
-        this.dataBoxs.add(dataBox);
-        return dataBox;
+        return null;
     }
 
     public FunctionData getDataBox(int index) {
@@ -139,6 +133,12 @@ public class UiData {
 
     public void setInput(InputData inputData) {
         this.inputData = inputData;
+    }
+
+    public FunctionData createFuncData() {
+        FunctionData dataBox = new FunctionData();
+        this.dataBoxs.add(dataBox);
+        return dataBox;
     }
 
 }

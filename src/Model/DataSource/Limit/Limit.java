@@ -63,7 +63,6 @@ public class Limit extends AbsJsonSource<LimitElement> {
     @Override
     protected boolean getData() {
         DataWareHouse wareHouse = readFile.getData();
-        LimitElement info;
         JSONObject limits = wareHouse.getJson(KeyWord.LIMITS);
         if (isNull(limits)) {
             return false;
@@ -84,18 +83,20 @@ public class Limit extends AbsJsonSource<LimitElement> {
         String command = Setting.getInstance().getUpdateLimitCommand();
         Cmd cmd = new Cmd();
         cmd.sendCommand(command);
-        String newlimit = getNewLimit(cmd.readAll(new TimeS(10)));
-        System.out.println(newlimit);
-        if (newlimit == null) {
+        String newLimit = getNewLimit(cmd.readAll(new TimeS(10)));
+        if (newLimit == null) {
             return false;
         }
-        if (!saveToFile(readFile.getPath(), newlimit)) {
+        if (!saveToFile(readFile.getPath(), newLimit)) {
             return false;
         }
-        return readFile.setData(newlimit) && resetData() && getData();
+        return readFile.setData(newLimit) && resetData() && getData();
     }
 
     private String getNewLimit(String response) {
+        if (response == null) {
+            return null;
+        }
         if (!(response.contains("{") && response.contains("}")
                 && (response.indexOf("{") < response.lastIndexOf("}")))) {
             return null;
@@ -123,6 +124,7 @@ public class Limit extends AbsJsonSource<LimitElement> {
     }
 
     private boolean saveToFile(String path, String newLimit) {
+        System.out.println(newLimit);
         return new FileService().saveFile(path, newLimit);
     }
 

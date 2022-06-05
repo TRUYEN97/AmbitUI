@@ -5,7 +5,11 @@
 package Control.Functions.FunctionsTest.SFIS.CheckSnFormSFIS;
 
 import Control.Functions.AbsFunction;
-import Control.Functions.FunctionsTest.SFIS.SfisFunctions;
+import Model.DataModeTest.ErrorLog;
+import Model.DataModeTest.InputData;
+import SfisAPI17.SfisAPI;
+import com.alibaba.fastjson.JSONObject;
+import java.util.List;
 
 /**
  *
@@ -13,26 +17,73 @@ import Control.Functions.FunctionsTest.SFIS.SfisFunctions;
  */
 public class CheckSnFormSFIS extends AbsFunction {
 
-    private SfisFunctions sfis;
+    private final SfisAPI sfisAPI;
 
     public CheckSnFormSFIS(String itemName) {
         super(itemName);
+        this.sfisAPI = new SfisAPI();
     }
 
     @Override
     public boolean test() {
-        this.sfis = new SfisFunctions(this);
         String url = funcConfig.getValue("URL_CHECK_SN");
         addLog("send to url: " + url);
-        String command = this.sfis.createCommand();
+        String command = this.createCommand();
         addLog("command: " + command);
         if (command == null) {
             addLog("command is null ");
             return false;
         }
-        String response = this.sfis.sendToSFIS(url, command);
+        String response = this.sfisAPI.sendToSFIS(url, command);
         addLog(response);
-        return this.sfis.checkResponse(response);
+        return this.checkResponse(response);
+    }
+
+    private String createCommand() {
+        JSONObject command = new JSONObject();
+        List<String> listKey = this.funcConfig.getListString("SEND_FORMAT");
+        if (listKey == null || listKey.isEmpty()) {
+            return null;
+        }
+        for (String key : listKey) {
+            String value = this.uiData.getProductInfo(key);
+            if (value != null) {
+                command.put(key.toUpperCase(), value);
+            } else {
+                return null;
+            }
+        }
+        return command.toJSONString();
+    }
+
+    public boolean checkResponse(String response) {
+        if (response == null) {
+            this.addLog("response is null!");
+            return false;
+        }
+        if (response.contains(SfisAPI.SEND_SFIS__EXCEPTION)) {
+            this.uiData.setMessage(response);
+            return false;
+        }
+        try {
+            JSONObject res = JSONObject.parseObject(response);
+            if (res.getString(InputData.RESULT).equals("PASS")) {
+                JSONObject data = res.getJSONObject(InputData.DATA);
+                for (String key : this.funcConfig.getListString("DATA_FORMAT")) {
+                    this.uiData.putProductInfo(key, data.getString(key));
+                }
+                return true;
+            } else {
+                this.addLog(res.getString("message"));
+                this.uiData.setMessage(res.getString("message"));
+                return false;
+            }
+        } catch (Exception e) {
+            e.printStackTrace();
+            ErrorLog.addError(this, e.getMessage());
+            this.uiData.setMessage(e.getMessage());
+            return false;
+        }
     }
 
 }

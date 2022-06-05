@@ -43,7 +43,6 @@ class Process implements IFunction {
     @Override
     public void run() {
         for (FunctionCover cover : this.functions) {
-            cover.init();
             cover.start();
             multiTasking.add(cover);
             if (!cover.isMutiTasking()) {
@@ -80,7 +79,7 @@ class Process implements IFunction {
         List<FunctionCover> funcRemoves = new ArrayList<>();
         try {
             for (FunctionCover cover : multiTasking) {
-                if (!cover.isAlive() || cover.isOutTime()) {
+                if (!cover.isAlive()) {
                     funcRemoves.add(cover);
                     if (!cover.getFunction().isPass()) {
                         result = false;

@@ -27,7 +27,7 @@ public class GetMacFromSfis extends AbsFunction {
                 ex.printStackTrace();
             }
         }
-        setRsutlt("Pass");
+        setResult("Pass");
         return true;
     }
 

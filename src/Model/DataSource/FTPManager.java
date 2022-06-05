@@ -2,7 +2,7 @@
  * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
  * Click nbfs://nbhost/SystemFileSystem/Templates/Classes/Class.java to edit this template
  */
-package Model.DataSource.Tool;
+package Model.DataSource;
 
 import Model.DataModeTest.ErrorLog;
 import Model.DataSource.Setting.Setting;
@@ -52,9 +52,13 @@ public class FTPManager implements IInit {
     public boolean init() {
         Setting setting = Setting.getInstance();
         this.host = setting.getFtpHost();
+        System.out.println("Host: "+this.host);
         this.port = setting.getFtpPort();
+        System.out.println("Port: "+this.port);
         this.user = setting.getFtpUser();
+        System.out.println("User: "+this.user);
         this.passWord = setting.getFtpPassWord();
+        System.out.println("PassWord: "+this.passWord);
         return getNewClieant() != null;
     }
 }

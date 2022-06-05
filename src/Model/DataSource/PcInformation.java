@@ -42,7 +42,9 @@ public class PcInformation implements IInit {
     @Override
     public boolean init() {
         this.pcName = getComputerName();
+        System.out.println("Pc name:" + this.pcName);
         this.ip = getHostIp();
+        System.out.println("Ip:" + this.ip);
         return !(ip == null || ip.isBlank() || pcName == null || pcName.isBlank());
     }
 

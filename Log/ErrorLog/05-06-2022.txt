@@ -1,0 +1,12 @@
+2022-06-05 11:01:20 : error in Control.Functions.FunctionsTest.SFIS.CheckSnFormSFIS.CheckSnFormSFIS : Cannot invoke "Model.DataModeTest.DataBoxs.FunctionData.getRunTime()" because "this.functionData" is null
+2022-06-05 11:01:20 : //////////////////////////////////////
+2022-06-05 11:01:20 : Cannot invoke "Model.DataSource.FunctionConfig.FunctionElement.getTimeOutFunction()" because "this.funcConfig" is null
+2022-06-05 11:01:20 : //////////////////////////////////////
+2022-06-05 11:03:18 : Cannot invoke "Model.DataSource.FunctionConfig.FunctionElement.getTimeOutFunction()" because "this.funcConfig" is null
+2022-06-05 11:03:18 : //////////////////////////////////////
+2022-06-05 11:07:33 : Cannot invoke "Model.DataSource.FunctionConfig.FunctionElement.getTimeOutFunction()" because "this.funcConfig" is null
+2022-06-05 11:07:33 : //////////////////////////////////////
+2022-06-05 11:09:37 : Cannot invoke "Model.DataSource.FunctionConfig.FunctionElement.getTimeOutFunction()" because "this.funcConfig" is null
+2022-06-05 11:09:37 : //////////////////////////////////////
+2022-06-05 11:11:41 : Cannot invoke "Model.DataSource.FunctionConfig.FunctionElement.getTimeOutFunction()" because "this.funcConfig" is null
+2022-06-05 11:11:41 : //////////////////////////////////////

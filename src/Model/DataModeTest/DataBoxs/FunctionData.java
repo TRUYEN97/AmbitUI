@@ -5,6 +5,8 @@
 package Model.DataModeTest.DataBoxs;
 
 import Model.DataModeTest.ErrorLog;
+import Model.DataSource.FunctionConfig.FunctionConfig;
+import Model.DataSource.FunctionConfig.FunctionElement;
 import Model.DataSource.Setting.Setting;
 import MyLoger.MyLoger;
 import Time.WaitTime.Class.TimeS;
@@ -20,35 +22,30 @@ import javax.swing.JOptionPane;
 public class FunctionData {
 
     private final MyLoger loger;
-    private final String itemFunction;
     private final TimeS timeS;
     private final List<ItemTestData> itemTests;
     private ErrorFunctionTest errorFunc;
+    private FunctionElement funcConfig;
     private boolean testing;
     private boolean isPass;
     private boolean isMultistacking;
     private String resultTest;
     private Double testTime;
 
-    public FunctionData(String subUIName, String itemFunction) {
+    public FunctionData() {
         this.loger = new MyLoger();
         this.timeS = new TimeS();
         this.itemTests = new ArrayList<>();
-        this.itemFunction = itemFunction;
         this.testing = false;
         this.isPass = false;
-        String localFunctionsFile = Setting.getInstance().getFunctionsLocalLog();
-        String fileLogName = String.format("%s\\%s\\%s.txt",
-                localFunctionsFile, subUIName, itemFunction);
-        if (!this.loger.begin(new File(fileLogName), true, true)) {
-            String mess = "can't delete local function log file of " + itemFunction;
-            ErrorLog.addError(mess);
-            JOptionPane.showMessageDialog(null, mess);
-        }
+    }
+
+    public void setFuncconfig(FunctionElement funcConfig) {
+        this.funcConfig = funcConfig;
     }
 
     public String getItemFunction() {
-        return itemFunction;
+        return this.funcConfig.getItemName();
     }
 
     public boolean setErrorFunc(ErrorFunctionTest errorFunc) {
@@ -73,14 +70,9 @@ public class FunctionData {
 
     public void setResult(String resultTest) {
         if (resultTest == null) {
-            this.resultTest = new String();
             return;
         }
         this.resultTest = resultTest;
-    }
-
-    public void setMultistacking() {
-        this.isMultistacking = true;
     }
 
     public void addLog(Object str) {
@@ -88,6 +80,12 @@ public class FunctionData {
     }
 
     public String getResultTest() {
+        if (testing) {
+            return funcConfig.isMutiTasking() ? "multitasking" : "Testing";
+        }
+        if (resultTest == null) {
+            return createDefaultResult();
+        }
         return resultTest;
     }
 
@@ -95,9 +93,21 @@ public class FunctionData {
         return testing;
     }
 
-    public void start() {
+    public void start(String LogPath) {
+        String fileLogName = String.format("%s%s%s_%s.txt",
+                LogPath,File.separator, getItemFunction(), getFunctionName());
+        if (!this.loger.begin(new File(fileLogName), true, true)) {
+            String mess = "can't delete local function log file of " + getItemFunction();
+            ErrorLog.addError(mess);
+            JOptionPane.showMessageDialog(null, mess);
+        }
         this.timeS.start(0);
         this.testing = true;
+        addLog(startFunction());
+    }
+
+    public String getFunctionName() {
+        return this.funcConfig.getFunctionName();
     }
 
     public double getRunTime() {
@@ -108,19 +118,20 @@ public class FunctionData {
     }
 
     public void end() {
-        this.loger.close();
         this.testing = false;
         this.testTime = getRunTime();
         if (this.itemTests.isEmpty()) {
-            ItemTestData itemTest = new ItemTestData(itemFunction);
-            itemTest.setValue(getResultTest());
-            itemTest.setIsPass(isPass);
-            addItemtest(itemTest);
+            createDefaultItem();
         }
+        this.addLog(endFunction());
+        this.loger.close();
     }
 
-    public boolean isMultiStacking() {
-        return isMultistacking;
+    private void createDefaultItem() {
+        ItemTestData itemTest = new ItemTestData(getFunctionName());
+        itemTest.setValue(getResultTest());
+        itemTest.setIsPass(isPass);
+        addItemtest(itemTest);
     }
 
     public String getLog() {
@@ -143,4 +154,17 @@ public class FunctionData {
         this.isPass = false;
     }
 
+    private String startFunction() {
+        return String.format("Item[%s]-Function[%s]",
+                this.getItemFunction(), this.getFunctionName());
+    }
+
+    private String createDefaultResult() {
+        return isPass ? "PASS" : "FAILED";
+    }
+
+    private String endFunction() {
+        return String.format("Time[%.3f s]---Result[%s]",
+                this.testTime, createDefaultResult());
+    }
 }
