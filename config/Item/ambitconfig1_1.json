@@ -7,7 +7,7 @@
             "FLAG": true,
             "TIME_OVER": 50,
             "SEND_FORMAT": ["sn", "pcname", "mode"],
-            "DATA_FORMAT": ["mlbsn", "ethernetmac", "pnname", "model", "smode", "sn",
+            "DATA_FORMAT": ["mlbsn", "ethernetmac", "pnname", "model", "smode",
                 "failedpc", "debugpc", "errorcode", "errordes", "counttest"],
             "URL_CHECK_SN": "http://10.90.0.40/sfcapi/api/connect",
             "ITEM_NAME": "CheckSnSfis",
@@ -44,7 +44,7 @@
         {
             "FLAG": true,
             "TIME_OVER": 5,
-            "SEND_FORMAT": ["sn", "pcname", "status", "mode"],
+            "SEND_FORMAT": ["mlbsn", "pcname", "status", "mode"],
             "URL_SEND_RESULT": "http://10.90.0.40/sfcapi/api/connectfinal",
             "ITEM_NAME": "SendToSfis",
             "FUNC_NAME": "SendResuttToSfisProxy"

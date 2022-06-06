@@ -3,14 +3,11 @@
     <editor-bookmarks xmlns="http://www.netbeans.org/ns/editor-bookmarks/2" lastBookmarkId="1"/>
     <open-files xmlns="http://www.netbeans.org/ns/projectui-open-files/2">
         <group>
-            <file>file:/D:/Ambit-module/EnginerUI/src/Model/DataSource/Tool/FileService.java</file>
             <file>file:/D:/Ambit-module/EnginerUI/config/Setting/setting.json</file>
+            <file>file:/D:/Ambit-module/EnginerUI/Log/TestLog/Functions/main/CheckSnSfis_CheckSnFormSFISProxy.txt</file>
             <file>file:/D:/Ambit-module/EnginerUI/src/Control/Functions/FunctionsTest/CreateFaJson/CreateFaJson.java</file>
-            <file>file:/D:/Ambit-module/EnginerUI/src/Control/Functions/FunctionsTest/inputFaData/InputFaData.java</file>
             <file>file:/D:/Ambit-module/EnginerUI/config/Item/ambitconfig1_1.json</file>
-            <file>file:/D:/Ambit-module/EnginerUI/config/Item/ambitconfig1.json</file>
             <file>file:/D:/Ambit-module/EnginerUI/src/Control/Functions/FunctionsTest/CreateTxtLog/CreateTxtLog.java</file>
-            <file>file:/D:/Ambit-module/EnginerUI/src/Control/Functions/FunctionsTest/SFIS/CheckSnFormSFIS/CheckSnFormSFIS.java</file>
         </group>
     </open-files>
 </project-private>

@@ -46,7 +46,7 @@ public class TabView extends AbsTabUI {
         setBackground(new java.awt.Color(204, 204, 255));
 
         lbStatus.setBackground(new java.awt.Color(153, 153, 255));
-        lbStatus.setFont(new java.awt.Font("Segoe UI", 1, 48)); // NOI18N
+        lbStatus.setFont(new java.awt.Font("Segoe UI", 1, 34)); // NOI18N
         lbStatus.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         lbStatus.setLabelFor(this);
         lbStatus.setText("READY");

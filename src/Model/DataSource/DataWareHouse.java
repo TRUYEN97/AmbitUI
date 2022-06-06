@@ -189,7 +189,6 @@ public class DataWareHouse {
         try {
             return Long.parseLong(getString(json, key));
         } catch (NumberFormatException e) {
-            System.err.println(e.getMessage());
             return null;
         }
     }
@@ -202,8 +201,6 @@ public class DataWareHouse {
         try {
             return json.getBooleanValue(key);
         } catch (Exception e) {
-            e.printStackTrace();
-            System.out.println(e.getMessage());
             return false;
         }
     }

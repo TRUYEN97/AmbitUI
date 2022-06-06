@@ -1,0 +1,63 @@
+2022-06-06 03:26:41 : 2022-06-06 03:26:41 : Item[CheckSnSfis]-Function[CheckSnFormSFISProxy]
+2022-06-06 03:26:41 : 2022-06-06 03:26:41 : Turn 0:
+2022-06-06 03:26:41 : 2022-06-06 03:26:41 : send to url: http://10.90.0.40/sfcapi/api/connect
+2022-06-06 03:26:41 : 2022-06-06 03:26:41 : command: {"PCNAME":"MBLT-5485","MODE":"FA_API","SN":"KC5J0G91"}
+2022-06-06 03:26:41 : 2022-06-06 03:26:41 : {"result":"PASS","message":"OK","data":{"mlbsn":"KC5J0G91C8A48SFD","ethernetmac":"8470D7325300","pnname":"830-00900","model":"","smode":"Production","failedpc":"MBLT-5457","debugpc":"MBLT-5485","errorcode":"35.1.0","errordes":"USB_ASIDE","counttest":"1"}}
+2022-06-06 03:26:41 : 2022-06-06 03:26:41 : add key: mlbsn -- Value: KC5J0G91C8A48SFD
+2022-06-06 03:26:41 : 2022-06-06 03:26:41 : add key: ethernetmac -- Value: 8470D7325300
+2022-06-06 03:26:41 : 2022-06-06 03:26:41 : add key: pnname -- Value: 830-00900
+2022-06-06 03:26:41 : 2022-06-06 03:26:41 : add key: model -- Value:
+2022-06-06 03:26:41 : 2022-06-06 03:26:41 : add key: smode -- Value: Production
+2022-06-06 03:26:41 : 2022-06-06 03:26:41 : add key: failedpc -- Value: MBLT-5457
+2022-06-06 03:26:41 : 2022-06-06 03:26:41 : add key: debugpc -- Value: MBLT-5485
+2022-06-06 03:26:41 : 2022-06-06 03:26:41 : add key: errorcode -- Value: 35.1.0
+2022-06-06 03:26:41 : 2022-06-06 03:26:41 : add key: errordes -- Value: USB_ASIDE
+2022-06-06 03:26:41 : 2022-06-06 03:26:41 : add key: counttest -- Value: 1
+2022-06-06 03:26:41 : 2022-06-06 03:26:41 : Time[0,032 s]---Result[PASS]
+2022-06-06 03:26:41 : /////////////////////////////////////////////
+2022-06-06 03:26:41 : 2022-06-06 03:26:41 : Item[InputFaData]-Function[InputFaDataProxy]
+2022-06-06 03:26:41 : 2022-06-06 03:26:41 : Turn 0:
+2022-06-06 03:26:41 : 2022-06-06 03:26:41 : Check tab FaAPI
+2022-06-06 03:26:41 : 2022-06-06 03:26:41 : Get tab faAPi in Signal!
+2022-06-06 03:26:41 : 2022-06-06 03:26:41 : Waiting for user config data!
+2022-06-06 03:26:41 : 2022-06-06 03:26:41 : Waiting for user config data done!
+2022-06-06 03:26:41 : 2022-06-06 03:26:41 : Add select json data to signal!
+2022-06-06 03:26:41 : 2022-06-06 03:26:41 : {"J1":{"Action":"reflow","ReasonDes":"SOLDER SHORT","Location":"J1","RepairDetail":"Further details"}}
+2022-06-06 03:26:41 : 2022-06-06 03:26:41 : keyword: jsonFa
+2022-06-06 03:26:41 : 2022-06-06 03:26:41 : Add select json data to signal ok!
+2022-06-06 03:26:41 : 2022-06-06 03:26:41 : Time[0,001 s]---Result[PASS]
+2022-06-06 03:26:41 : /////////////////////////////////////////////
+2022-06-06 03:26:41 : 2022-06-06 03:26:41 : Item[CreateFaJson]-Function[CreateFaJsonProxy]
+2022-06-06 03:26:41 : 2022-06-06 03:26:41 : Turn 0:
+2022-06-06 03:26:41 : 2022-06-06 03:26:41 : Get FA json data in signal!
+2022-06-06 03:26:41 : 2022-06-06 03:26:41 : Get with key: jsonFa
+2022-06-06 03:26:41 : 2022-06-06 03:26:41 : {"J1":{"Action":"reflow","ReasonDes":"SOLDER SHORT","Location":"J1","RepairDetail":"Further details"}}
+2022-06-06 03:26:41 : 2022-06-06 03:26:41 : Create base data
+2022-06-06 03:26:41 : 2022-06-06 03:26:41 : - Key: station_name -- Value: MBLT-5485
+2022-06-06 03:26:41 : 2022-06-06 03:26:41 : - Key: error_details -- Value: USB_ASIDE
+2022-06-06 03:26:41 : 2022-06-06 03:26:41 : - Key: error_code -- Value: 35.1.0
+2022-06-06 03:26:41 : 2022-06-06 03:26:41 : - Key: serial -- Value: KC5J0G91C8A48SFD
+2022-06-06 03:26:41 : 2022-06-06 03:26:41 : - Key: status -- Value: PASS
+2022-06-06 03:26:41 : 2022-06-06 03:26:41 : - Key: test_software_version -- Value: 1.0.0
+2022-06-06 03:26:41 : 2022-06-06 03:26:41 : - Key: start_time -- Value: 2022-06-06 03:26:41
+2022-06-06 03:26:41 : 2022-06-06 03:26:41 : - Key: finish_time -- Value: 2022-06-06 03:26:41
+2022-06-06 03:26:41 : 2022-06-06 03:26:41 : - Key: status -- Value: passed
+2022-06-06 03:26:41 : 2022-06-06 03:26:41 : - Key: mode -- Value: debug
+2022-06-06 03:26:41 : 2022-06-06 03:26:41 : Create base data done!
+2022-06-06 03:26:41 : 2022-06-06 03:26:41 : Create function!
+2022-06-06 03:26:41 : 2022-06-06 03:26:41 : Create data for location: J1
+2022-06-06 03:26:41 : 2022-06-06 03:26:41 : - Key: finish_time -- Value: 2022-06-06 03:26:41
+2022-06-06 03:26:41 : 2022-06-06 03:26:41 : - Key: start_time -- Value: 2022-06-06 03:26:41
+2022-06-06 03:26:41 : 2022-06-06 03:26:41 : - Key: debug_station -- Value: MBLT-5485
+2022-06-06 03:26:41 : 2022-06-06 03:26:41 : - Key: failed_station -- Value: MBLT-5457
+2022-06-06 03:26:41 : 2022-06-06 03:26:41 : - Key: further_details -- Value: Further details
+2022-06-06 03:26:41 : 2022-06-06 03:26:41 : - Key: repair_location -- Value: J1
+2022-06-06 03:26:41 : 2022-06-06 03:26:41 : - Key: reason_desc -- Value: SOLDER SHORT
+2022-06-06 03:26:41 : 2022-06-06 03:26:41 : - Key: repair_action -- Value: reflow
+2022-06-06 03:26:41 : 2022-06-06 03:26:41 : - Key: child_unlinked -- Value: False
+2022-06-06 03:26:41 : 2022-06-06 03:26:41 : - Key: failed_station_type -- Value: MBLT
+2022-06-06 03:26:41 : 2022-06-06 03:26:41 : - Key: post_repair_result -- Value: passed
+2022-06-06 03:26:41 : 2022-06-06 03:26:41 : Create function data done!
+2022-06-06 03:26:41 : 2022-06-06 03:26:41 : Save json data at: python\log\KC5J0G91C8A48SFD_MBLT-5485_FA_API.json
+2022-06-06 03:26:41 : 2022-06-06 03:26:41 : Time[0,004 s]---Result[PASS]
+2022-06-06 03:26:41 : /////////////////////////////////////////////

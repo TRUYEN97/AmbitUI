@@ -1,4 +1,12 @@
-2022-06-06 10:09:40 : Item[CreateTxtLog]-Function[CreateTxtLogProxy]
-2022-06-06 10:09:40 : Turn 0:
-2022-06-06 10:09:40 : Cannot invoke "java.io.File.exists()" because the return value of "java.io.File.getParentFile()" is null
-2022-06-06 10:09:40 : Time[0,002 s]---Result[FAILED]
+2022-06-06 03:26:41 : Item[CreateTxtLog]-Function[CreateTxtLogProxy]
+2022-06-06 03:26:41 : Turn 0:
+2022-06-06 03:26:41 : Save file txt!
+2022-06-06 03:26:41 : file path: python\log/KC5J0G91C8A48SFD_MBLT-5485_FA_API_serial.txt
+2022-06-06 03:26:41 : - add item: CheckSnSfis
+2022-06-06 03:26:41 : - add item: InputFaData
+2022-06-06 03:26:41 : - add item: CreateFaJson
+2022-06-06 03:26:41 : Save file txt ok!
+2022-06-06 03:26:41 : Save file zip!
+2022-06-06 03:26:41 : Save zip file path: python\log/KC5J0G91C8A48SFD_MBLT-5485_FA_API_serial.zip
+2022-06-06 03:26:41 : File path: python\log/KC5J0G91C8A48SFD_MBLT-5485_FA_API_serial.txt
+2022-06-06 03:26:41 : Time[0,026 s]---Result[PASS]

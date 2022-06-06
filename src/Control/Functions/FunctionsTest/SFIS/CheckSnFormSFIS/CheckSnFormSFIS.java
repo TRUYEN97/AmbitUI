@@ -75,8 +75,8 @@ public class CheckSnFormSFIS extends AbsFunction {
                         addLog(String.format("add key: %s -- Value: %s", key, value));
                         this.uiData.putProductInfo(key, value);
                     } else {
-                        addLog(String.format("Not have %s in sfis data", key));
-                        break;
+                        addLog(String.format("Not have \"%s\" in sfis data", key));
+                        return false;
                     }
                 }
                 return true;

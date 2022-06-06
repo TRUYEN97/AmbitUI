@@ -17,25 +17,25 @@ import java.io.File;
  * @author Administrator
  */
 public class CreateTxtLog extends AbsFunction {
-
-    private String fileName;
-
+    
+    private String txtFile;
+    
     public CreateTxtLog(String itemName) {
         super(itemName);
     }
-
+    
     @Override
     protected boolean test() {
         return saveTxtFile() && saveFileZip();
     }
-
+    
     private boolean saveTxtFile() {
         addLog("Save file txt!");
         MyLoger loger = new MyLoger();
         try {
-            this.fileName = createNameFile("serial.txt");
-            addLog("file path: " + this.fileName);
-            loger.begin(new File(this.fileName), true, true);
+            this.txtFile = creatFilePath("serial.txt");
+            addLog("file path: " + this.txtFile);
+            loger.begin(new File(this.txtFile), true, true);
             for (FunctionData dataBox : uiData.getDataBoxs()) {
                 if (dataBox.isTesting()) {
                     continue;
@@ -54,29 +54,34 @@ public class CreateTxtLog extends AbsFunction {
             loger.close();
         }
     }
-
+    
+    private String creatFilePath(String hauTo) {
+        String dir = this.funcConfig.getValue("LOCAL_FILE");
+        return String.format("%s/%s", dir, createNameFile(hauTo));
+    }
+    
     private String createNameFile(String hauTo) {
         String serial = uiData.getProductInfo(InputData.MLBSN);
         serial = serial.replace('\\', '_');
         serial = serial.replace('/', '_');
         String pcName = uiData.getProductInfo(InputData.PCNAME);
         String mode = uiData.getProductInfo(InputData.MODE);
-        return String.format("%s_%s_%s%s",
+        return String.format("%s_%s_%s_%s",
                 serial, pcName, mode, hauTo);
     }
-
+    
     private boolean saveFileZip() {
         addLog("Save file zip!");
         try {
-            String zipFile = createNameFile("serial.zip");
+            String zipFile = creatFilePath("serial.zip");
             addLog("Save zip file path: " + zipFile);
-            addLog("File path: " + this.fileName);
-            return new FileService().zipFile(zipFile, new File(this.fileName));
+            addLog("File path: " + this.txtFile);
+            return new FileService().zipFile(zipFile, new File(this.txtFile));
         } catch (Exception e) {
             addLog("Save file zip failed: " + e.getMessage());
             ErrorLog.addError(this, e.getMessage());
             return false;
         }
     }
-
+    
 }
