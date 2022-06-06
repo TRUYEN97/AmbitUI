@@ -70,7 +70,14 @@ public class CheckSnFormSFIS extends AbsFunction {
             if (res.getString(InputData.RESULT).equals("PASS")) {
                 JSONObject data = res.getJSONObject(InputData.DATA);
                 for (String key : this.funcConfig.getListString("DATA_FORMAT")) {
-                    this.uiData.putProductInfo(key, data.getString(key));
+                    if (data.containsKey(key)) {
+                        String value = data.getString(key);
+                        addLog(String.format("add key: %s -- Value: %s", key, value));
+                        this.uiData.putProductInfo(key, value);
+                    } else {
+                        addLog(String.format("Not have %s in sfis data", key));
+                        break;
+                    }
                 }
                 return true;
             } else {

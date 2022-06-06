@@ -85,7 +85,6 @@ public class DataWareHouse {
         try {
             return Integer.parseInt(getString(json, key), radix);
         } catch (NumberFormatException e) {
-            System.err.println(e.getMessage());
             return null;
         }
     }
@@ -106,7 +105,6 @@ public class DataWareHouse {
         try {
             return Double.parseDouble(getString(json, key));
         } catch (NumberFormatException e) {
-            System.err.println(e.getMessage());
             return null;
         }
     }

@@ -1,0 +1,6 @@
+2022-06-06 10:35:16 : Item[SendToSfis]-Function[SendResuttToSfisProxy]
+2022-06-06 10:35:16 : Turn 0:
+2022-06-06 10:35:16 : send to url: http://10.90.0.40/sfcapi/api/connectfinal
+2022-06-06 10:35:16 : command = {"STATUS":"PASS","PCNAME":"MBLT-5485","MODE":"Debug","SN":"KC5A0AB1"}
+2022-06-06 10:35:16 : {"result":"PASS","message":"OK. Go to FA API !","data":""}
+2022-06-06 10:35:16 : Time[0,034 s]---Result[PASS]

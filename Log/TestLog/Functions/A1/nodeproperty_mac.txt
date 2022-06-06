@@ -1,4 +1,0 @@
-2022-06-02 10:20:53 : Item[NODEPROPERTY_MAC]---Function[GETMACFORMSFISPROXY]---Mode[DEBUG]
-2022-06-02 10:20:53 : Mode Skip: DEBUG
-2022-06-02 10:20:53 : This function will be canceled because the mode is DEBUG
-2022-06-02 10:20:53 : Time[0,002 s]---Result[PASS]

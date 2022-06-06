@@ -37,6 +37,7 @@ public class TabOption extends javax.swing.JPanel {
         }
         JSONObject result = new JSONObject();
         result.put(TabFaApi.ACTION, getAction());
+        result.put(TabFaApi.LOCATION, name);
         result.put(TabFaApi.REASON_DES, getReasonDes());
         result.put(TabFaApi.REPAIR_DETAIL, getRepairDetail());
         config();

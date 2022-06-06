@@ -1,0 +1,82 @@
+/*
+ * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
+ * Click nbfs://nbhost/SystemFileSystem/Templates/Classes/Class.java to edit this template
+ */
+package Control.Functions.FunctionsTest.CreateTxtLog;
+
+import Control.Functions.AbsFunction;
+import Model.DataModeTest.DataBoxs.FunctionData;
+import Model.DataModeTest.ErrorLog;
+import Model.DataModeTest.InputData;
+import Model.DataSource.Tool.FileService;
+import MyLoger.MyLoger;
+import java.io.File;
+
+/**
+ *
+ * @author Administrator
+ */
+public class CreateTxtLog extends AbsFunction {
+
+    private String fileName;
+
+    public CreateTxtLog(String itemName) {
+        super(itemName);
+    }
+
+    @Override
+    protected boolean test() {
+        return saveTxtFile() && saveFileZip();
+    }
+
+    private boolean saveTxtFile() {
+        addLog("Save file txt!");
+        MyLoger loger = new MyLoger();
+        try {
+            this.fileName = createNameFile("serial.txt");
+            addLog("file path: " + this.fileName);
+            loger.begin(new File(this.fileName), true, true);
+            for (FunctionData dataBox : uiData.getDataBoxs()) {
+                if (dataBox.isTesting()) {
+                    continue;
+                }
+                addLog(" - add item: " + dataBox.getItemFunction());
+                loger.addLog(dataBox.getLog());
+                loger.addLog("/////////////////////////////////////////////\r\n");
+            }
+            addLog("Save file txt ok!");
+            return true;
+        } catch (Exception e) {
+            addLog("Save file failed: " + e.getMessage());
+            ErrorLog.addError(this, e.getMessage());
+            return false;
+        } finally {
+            loger.close();
+        }
+    }
+
+    private String createNameFile(String hauTo) {
+        String serial = uiData.getProductInfo(InputData.MLBSN);
+        serial = serial.replace('\\', '_');
+        serial = serial.replace('/', '_');
+        String pcName = uiData.getProductInfo(InputData.PCNAME);
+        String mode = uiData.getProductInfo(InputData.MODE);
+        return String.format("%s_%s_%s%s",
+                serial, pcName, mode, hauTo);
+    }
+
+    private boolean saveFileZip() {
+        addLog("Save file zip!");
+        try {
+            String zipFile = createNameFile("serial.zip");
+            addLog("Save zip file path: " + zipFile);
+            addLog("File path: " + this.fileName);
+            return new FileService().zipFile(zipFile, new File(this.fileName));
+        } catch (Exception e) {
+            addLog("Save file zip failed: " + e.getMessage());
+            ErrorLog.addError(this, e.getMessage());
+            return false;
+        }
+    }
+
+}

@@ -69,15 +69,57 @@ public class FileService {
         return str.toString();
     }
 
-    public boolean zipFile(String file, String nameFileZip, String detail) {
+    public boolean zipFile(String file, String zipPath, String detail) {
+        File zipFile = new File(zipPath);
+        if (zipFile.exists() && !zipFile.delete()) {
+            return false;
+        }
         ZipOutputStream out = null;
         try {
-            out = new ZipOutputStream(new FileOutputStream(nameFileZip));
+            out = new ZipOutputStream(new FileOutputStream(zipPath));
             try ( BufferedOutputStream bos = new BufferedOutputStream(out)) {
                 out.putNextEntry(new ZipEntry(file));
                 byte[] buf = detail.getBytes();
                 bos.write(buf);
                 bos.flush();
+            }
+            out.close();
+            return true;
+        } catch (IOException ex) {
+            ex.printStackTrace();
+            ErrorLog.addError(this, ex.getLocalizedMessage());
+            return false;
+        } finally {
+            try {
+                if (out == null) {
+                    out.close();
+                }
+            } catch (IOException ex) {
+                ex.printStackTrace();
+            }
+        }
+    }
+
+    public boolean zipFile(String zipPath, File fileDetail) {
+        if (!fileDetail.exists()) {
+            return false;
+        }
+        File zipFile = new File(zipPath);
+        if (zipFile.exists() && !zipFile.delete()) {
+            return false;
+        }
+        ZipOutputStream out = null;
+        try {
+            out = new ZipOutputStream(new FileOutputStream(zipPath));
+            try ( BufferedOutputStream bos = new BufferedOutputStream(out)) {
+                out.putNextEntry(new ZipEntry(fileDetail.getName()));
+                BufferedReader reader = new BufferedReader(new FileReader(fileDetail));
+                String line;
+                while ((line = reader.readLine()) != null) {
+                    byte[] buf = line.getBytes();
+                    bos.write(buf);
+                    bos.flush();
+                }
             }
             out.close();
             return true;

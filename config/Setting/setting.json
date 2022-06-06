@@ -12,7 +12,6 @@
     "TYPE_UI": "BigUIProxy",
     "LOCAL_LOG": "Log\\TestLog",
     "LOCAL_FUNCTION_LOG": "Log\\TestLog\\Functions",
-    "AMBIT_CONFIG": "config\\Item\\ambitconfig1_1.json",
     "DETAIL": ["TabViewProxy", "TabItemProxy", "TabLogProxy"],
     "LimitCMD": "cd python && eero_api_limits_eden.py RTT",
     "DETAIL": ["TabViewProxy", "TabFaApiProxy", "TabItemProxy"],
@@ -20,11 +19,13 @@
         {
             "NAME": "Debug RE", 
             "TYPE_MODE": "Debug",
+            "AMBIT_CONFIG": "config\\Item\\ambitconfig1.json",
             "DETAIL": ["TabViewProxy", "TabFaApiProxy", "TabItemProxy"]
         },
         {
             "NAME": "Fa API",
             "TYPE_MODE": "FA_API",
+            "AMBIT_CONFIG": "config\\Item\\ambitconfig1_1.json",
             "DETAIL": ["TabViewProxy", "TabFaApiProxy", "TabItemProxy"]
         },
         {

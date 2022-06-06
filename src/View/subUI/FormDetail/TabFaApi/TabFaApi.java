@@ -25,6 +25,7 @@ public class TabFaApi extends AbsTabUI {
 
     public static final String REPAIR_DETAIL = "RepairDetail";
     public static final String REASON_DES = "ReasonDes";
+    public static final String LOCATION = "Location";
     public static final String ACTION = "Action";
     public static final String MY_KEY = "FA_API";
 

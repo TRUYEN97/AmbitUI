@@ -1,0 +1,30 @@
+2022-06-06 10:35:24 : Item[CreateFaJson]-Function[CreateFaJsonProxy]
+2022-06-06 10:35:24 : Turn 0:
+2022-06-06 10:35:24 : Get FA json data in signal!
+2022-06-06 10:35:24 : Get with key: jsonFa
+2022-06-06 10:35:24 : {"J1":{"Action":"reflow","ReasonDes":"SOLDER SHORT","Location":"J1","RepairDetail":"Further details"}}
+2022-06-06 10:35:24 : Create base data
+2022-06-06 10:35:24 : - Key: station_name -- Value: MBLT-5485
+2022-06-06 10:35:24 : - Key: error_details -- Value: The part sticks up high
+2022-06-06 10:35:24 : - Key: error_code -- Value: C002
+2022-06-06 10:35:24 : - Key: serial -- Value: N/A
+2022-06-06 10:35:24 : - Key: status -- Value: PASS
+2022-06-06 10:35:24 : - Key: test_software_version -- Value: 1.0.0
+2022-06-06 10:35:24 : - Key: start_time -- Value: 2022-06-06 10:35:24
+2022-06-06 10:35:24 : - Key: finish_time -- Value: 2022-06-06 10:35:24
+2022-06-06 10:35:24 : - Key: status -- Value: passed
+2022-06-06 10:35:24 : - Key: mode -- Value: debug
+2022-06-06 10:35:24 : Create base data done!
+2022-06-06 10:35:24 : Create function!
+2022-06-06 10:35:24 : Create data for location: J1
+2022-06-06 10:35:24 : - Key: finish_time -- Value: 2022-06-06 10:35:24
+2022-06-06 10:35:24 : - Key: start_time -- Value: 2022-06-06 10:35:24
+2022-06-06 10:35:24 : - Key: debug_station -- Value: MBLT-5485
+2022-06-06 10:35:24 : - Key: failed_station -- Value:
+2022-06-06 10:35:24 : - Key: further_details -- Value: Further details
+2022-06-06 10:35:24 : - Key: repair_location -- Value: J1
+2022-06-06 10:35:24 : - Key: reason_desc -- Value: SOLDER SHORT
+2022-06-06 10:35:24 : - Key: repair_action -- Value: reflow
+2022-06-06 10:35:24 : - Key: child_unlinked -- Value: False
+2022-06-06 10:35:24 : begin 0, end -1, length 0
+2022-06-06 10:35:24 : Time[0,007 s]---Result[FAILED]

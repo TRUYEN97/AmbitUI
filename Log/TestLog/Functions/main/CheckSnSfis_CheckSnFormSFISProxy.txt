@@ -1,13 +1,17 @@
-2022-06-05 11:24:47 : Item[CheckSnSfis]-Function[CheckSnFormSFISProxy]
-2022-06-05 11:24:47 : Turn 0:
-2022-06-05 11:24:47 : send to url: http://10.90.0.40/sfcapi/api/connect
-2022-06-05 11:24:47 : command: {"PCNAME":"RTT-5014","MODE":"Debug","SN":"JJ"}
-2022-06-05 11:25:07 : This function has out of run time!
-2022-06-05 11:25:07 : Time: 20,151 S
-2022-06-05 11:25:07 : Spec: 20.0 S
-2022-06-05 11:25:07 : Try to stop!!
-2022-06-05 11:25:08 : This function has out of run time!
-2022-06-05 11:25:08 : Time: 21,074 S
-2022-06-05 11:25:08 : Spec: 20.0 S
-2022-06-05 11:25:08 : Try to stop!!
-2022-06-05 11:25:08 : Time[21,074 s]---Result[FAILED]
+2022-06-06 10:35:24 : Item[CheckSnSfis]-Function[CheckSnFormSFISProxy]
+2022-06-06 10:35:24 : Turn 0:
+2022-06-06 10:35:24 : send to url: http://10.90.0.40/sfcapi/api/connect
+2022-06-06 10:35:24 : command: {"PCNAME":"MBLT-5485","MODE":"FA_API","SN":"KC5A0AB1"}
+2022-06-06 10:35:24 : {"result":"PASS","message":"OK","data":{"sn":"KC5A0AB1","ethernetmac":"8470D721AF00","pnname":"830-00900","mlbsn":"N/A","model":"","smode":"Production","failedpc":"","debugpc":"MBLT-5485","errorcode":"C002","errordes":"The part sticks up high ","counttest":"0"}}
+2022-06-06 10:35:24 : add key: mlbsn -- Value: N/A
+2022-06-06 10:35:24 : add key: ethernetmac -- Value: 8470D721AF00
+2022-06-06 10:35:24 : add key: pnname -- Value: 830-00900
+2022-06-06 10:35:24 : add key: model -- Value:
+2022-06-06 10:35:24 : add key: smode -- Value: Production
+2022-06-06 10:35:24 : add key: sn -- Value: KC5A0AB1
+2022-06-06 10:35:24 : add key: failedpc -- Value:
+2022-06-06 10:35:24 : add key: debugpc -- Value: MBLT-5485
+2022-06-06 10:35:24 : add key: errorcode -- Value: C002
+2022-06-06 10:35:24 : add key: errordes -- Value: The part sticks up high
+2022-06-06 10:35:24 : add key: counttest -- Value: 0
+2022-06-06 10:35:24 : Time[0,030 s]---Result[PASS]

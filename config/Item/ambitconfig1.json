@@ -5,9 +5,10 @@
     "INIT": [
         {
             "FLAG": true,
-            "TIME_OVER": 500,
+            "TIME_OVER": 50,
             "SEND_FORMAT": ["sn", "pcname", "mode"],
-            "DATA_FORMAT": ["mlbsn", "ethernetmac","pnname", "model", "smode"],
+            "DATA_FORMAT": ["mlbsn", "ethernetmac", "pnname", "model", "smode", "sn",
+                "failedpc", "debugpc", "errorcode", "errordes", "counttest"],
             "URL_CHECK_SN": "http://10.90.0.40/sfcapi/api/connect",
             "ITEM_NAME": "CheckSnSfis",
             "FUNC_NAME": "CheckSnFormSFISProxy"
@@ -19,16 +20,23 @@
             "FAIL_CONTNIUE": false,
             "CANCEL": "DEBUG",
             "TIME_OVER": 300,
-            "RETRY": 5,
-            "ITEM_NAME": "UpFaApi",
-            "FUNC_NAME": "UpFaAPIJsonProxy"
+            "KEY_WORD": "jsonFa",
+            "ITEM_NAME": "InputFaData",
+            "FUNC_NAME": "InputFaDataProxy"
         }
     ],
     "END": [
         {
+            "FLAG": false,
+            "KEY_WORD": "jsonFa",
+            "LOCAL_FILE": "python\\log",
+            "ITEM_NAME": "CreateFaJson",
+            "FUNC_NAME": "CreateFaJsonProxy"
+        },
+        {
             "FLAG": true,
             "TIME_OVER": 5,
-            "SEND_FORMAT": ["sn", "pcname", "status","mode"],
+            "SEND_FORMAT": ["sn", "pcname", "status", "mode"],
             "URL_SEND_RESULT": "http://10.90.0.40/sfcapi/api/connectfinal",
             "ITEM_NAME": "SendToSfis",
             "FUNC_NAME": "SendResuttToSfisProxy"

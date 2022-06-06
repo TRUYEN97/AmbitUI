@@ -1,6 +1,0 @@
-2022-06-04 10:18:55 : Item[SendToSfis]-Function[SendResuttToSfisProxy]-ModeName[Fa API]-ModeType[FA_API]
-2022-06-04 10:18:55 : Turn 0:
-2022-06-04 10:18:55 : send to url: http://10.90.0.40/sfcapi/api/connectfinal
-2022-06-04 10:18:55 : command = {"STATUS":"PASS","PCNAME":"RTT-5014","MODE":"FA_API","SN":"RX21IVS"}
-2022-06-04 10:18:55 : {"result":"PASS","message":"OK. Go to R_RTT !","data":""}
-2022-06-04 10:18:55 : Time[0,018 s]---Result[PASS]

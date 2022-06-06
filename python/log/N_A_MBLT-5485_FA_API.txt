@@ -1,0 +1,65 @@
+2022-06-06 09:31:01 : Item[CheckSnSfis]-Function[CheckSnFormSFISProxy]
+2022-06-06 09:31:01 : Turn 0:
+2022-06-06 09:31:01 : send to url: http://10.90.0.40/sfcapi/api/connect
+2022-06-06 09:31:01 : command: {"PCNAME":"MBLT-5485","MODE":"FA_API","SN":"KC5X018R"}
+2022-06-06 09:31:01 : {"result":"PASS","message":"OK","data":{"sn":"KC5X018R","ethernetmac":"8470D73FD0E0","pnname":"830-00900","mlbsn":"N/A","model":"","smode":"Production","failedpc":"MBLT-5457","debugpc":"MBLT-5485","errorcode":"36.T65.1.2","errordes":"V_TP65_VDD_1V9_TOOHIGH","counttest":"0"}}
+2022-06-06 09:31:01 : Time[0,023 s]---Result[PASS]
+/////////////////////////////////////////////
+2022-06-06 09:31:01 : Item[InputFaData]-Function[InputFaDataProxy]
+2022-06-06 09:31:01 : Turn 0:
+2022-06-06 09:31:01 : Check tab FaAPI
+2022-06-06 09:31:01 : Get tab faAPi in Signal!
+2022-06-06 09:31:01 : Waiting for user config data!
+2022-06-06 09:31:01 : Waiting for user config data done!
+2022-06-06 09:31:01 : Add select json data to signal!
+2022-06-06 09:31:01 : {"J1":{"Action":"replace","ReasonDes":"SOLDER SHORT","Location":"J1","RepairDetail":"Further details"},"J2":{"Action":"replace","ReasonDes":"SOLDER SHORT","Location":"J2","RepairDetail":"Further details"}}
+2022-06-06 09:31:01 : keyword: jsonFa
+2022-06-06 09:31:01 : Add select json data to signal ok!
+2022-06-06 09:31:01 : Time[0,019 s]---Result[PASS]
+/////////////////////////////////////////////
+2022-06-06 09:31:01 : Item[CreateFaJson]-Function[CreateFaJsonProxy]
+2022-06-06 09:31:01 : Turn 0:
+2022-06-06 09:31:01 : Get FA json data in signal!
+2022-06-06 09:31:01 : Get with key: jsonFa
+2022-06-06 09:31:01 : {"J1":{"Action":"replace","ReasonDes":"SOLDER SHORT","Location":"J1","RepairDetail":"Further details"},"J2":{"Action":"replace","ReasonDes":"SOLDER SHORT","Location":"J2","RepairDetail":"Further details"}}
+2022-06-06 09:31:01 : Create base data
+2022-06-06 09:31:01 : - Key: station_name -- Value: MBLT-5485
+2022-06-06 09:31:01 : - Key: error_details -- Value: V_TP65_VDD_1V9_TOOHIGH
+2022-06-06 09:31:01 : - Key: error_code -- Value: 36.T65.1.2
+2022-06-06 09:31:01 : - Key: serial -- Value: N/A
+2022-06-06 09:31:01 : - Key: status -- Value: PASS
+2022-06-06 09:31:01 : - Key: test_software_version -- Value: 1.0.0
+2022-06-06 09:31:01 : - Key: start_time -- Value: 2022-06-06 09:31:01
+2022-06-06 09:31:01 : - Key: finish_time -- Value: 2022-06-06 09:31:01
+2022-06-06 09:31:01 : - Key: status -- Value: passed
+2022-06-06 09:31:01 : - Key: mode -- Value: debug
+2022-06-06 09:31:01 : Create base data done!
+2022-06-06 09:31:01 : Create function!
+2022-06-06 09:31:01 : Create data for location: J1
+2022-06-06 09:31:01 : - Key: finish_time -- Value: 2022-06-06 09:31:01
+2022-06-06 09:31:01 : - Key: start_time -- Value: 2022-06-06 09:31:01
+2022-06-06 09:31:01 : - Key: debug_station -- Value: MBLT-5485
+2022-06-06 09:31:01 : - Key: failed_station -- Value: MBLT-5457
+2022-06-06 09:31:01 : - Key: further_details -- Value: Further details
+2022-06-06 09:31:01 : - Key: repair_location -- Value: J1
+2022-06-06 09:31:01 : - Key: reason_desc -- Value: SOLDER SHORT
+2022-06-06 09:31:01 : - Key: repair_action -- Value: replace
+2022-06-06 09:31:01 : - Key: child_unlinked -- Value: False
+2022-06-06 09:31:01 : - Key: failed_station_type -- Value: MBLT
+2022-06-06 09:31:01 : - Key: post_repair_result -- Value: passed
+2022-06-06 09:31:01 : Create data for location: J2
+2022-06-06 09:31:01 : - Key: finish_time -- Value: 2022-06-06 09:31:01
+2022-06-06 09:31:01 : - Key: start_time -- Value: 2022-06-06 09:31:01
+2022-06-06 09:31:01 : - Key: debug_station -- Value: MBLT-5485
+2022-06-06 09:31:01 : - Key: failed_station -- Value: MBLT-5457
+2022-06-06 09:31:01 : - Key: further_details -- Value: Further details
+2022-06-06 09:31:01 : - Key: repair_location -- Value: J2
+2022-06-06 09:31:01 : - Key: reason_desc -- Value: SOLDER SHORT
+2022-06-06 09:31:01 : - Key: repair_action -- Value: replace
+2022-06-06 09:31:01 : - Key: child_unlinked -- Value: False
+2022-06-06 09:31:01 : - Key: failed_station_type -- Value: MBLT
+2022-06-06 09:31:01 : - Key: post_repair_result -- Value: passed
+2022-06-06 09:31:01 : Create function data done!
+2022-06-06 09:31:01 : Save json data at: python\log\N_A_MBLT-5485_FA_API.json
+2022-06-06 09:31:01 : Time[0,073 s]---Result[PASS]
+/////////////////////////////////////////////

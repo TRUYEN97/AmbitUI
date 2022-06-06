@@ -1,0 +1,57 @@
+{
+"station_name":"MBLT-5485",
+"mode":"debug",
+"start_time":"2022-06-06 10:09:06",
+"tests":[
+{
+"repair_action":"replace",
+"start_time":"2022-06-06 10:09:06",
+"post_repair_result":"passed",
+"debug_count":0,
+"further_details":"Further details",
+"reason_desc":"SOLDER SHORT",
+"repair_location":"C140",
+"failed_station_type":"MBLT",
+"finish_time":"2022-06-06 10:09:40",
+"debug_station":"MBLT-5485",
+"failed_station":"MBLT-5457",
+"child_unlinked":"False"
+},
+
+{
+"repair_action":"replace",
+"start_time":"2022-06-06 10:09:06",
+"post_repair_result":"passed",
+"debug_count":0,
+"further_details":"Further details",
+"reason_desc":"SOLDER SHORT",
+"repair_location":"J1",
+"failed_station_type":"MBLT",
+"finish_time":"2022-06-06 10:09:40",
+"debug_station":"MBLT-5485",
+"failed_station":"MBLT-5457",
+"child_unlinked":"False"
+},
+
+{
+"repair_action":"replace",
+"start_time":"2022-06-06 10:09:06",
+"post_repair_result":"passed",
+"debug_count":0,
+"further_details":"Further details",
+"reason_desc":"SOLDER SHORT",
+"repair_location":"C557",
+"failed_station_type":"MBLT",
+"finish_time":"2022-06-06 10:09:40",
+"debug_station":"MBLT-5485",
+"failed_station":"MBLT-5457",
+"child_unlinked":"False"
+}
+],
+"error_details":"V_TP65_VDD_1V9_TOOHIGH",
+"serial":"N/A",
+"error_code":"36.T65.1.2",
+"finish_time":"2022-06-06 10:09:40",
+"status":"passed",
+"test_software_version":"1.0.0"
+}

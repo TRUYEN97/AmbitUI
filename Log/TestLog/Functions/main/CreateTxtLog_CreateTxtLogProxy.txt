@@ -1,0 +1,4 @@
+2022-06-06 10:09:40 : Item[CreateTxtLog]-Function[CreateTxtLogProxy]
+2022-06-06 10:09:40 : Turn 0:
+2022-06-06 10:09:40 : Cannot invoke "java.io.File.exists()" because the return value of "java.io.File.getParentFile()" is null
+2022-06-06 10:09:40 : Time[0,002 s]---Result[FAILED]

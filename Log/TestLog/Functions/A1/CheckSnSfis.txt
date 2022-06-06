@@ -1,6 +1,0 @@
-2022-06-02 10:21:11 : Item[CHECKSNSFIS]---Function[CHECKSNFORMSFISPROXY]---Mode[PRODUCTION]
-2022-06-02 10:21:11 : Turn 0:
-2022-06-02 10:21:11 : send to url: http://10.90.0.40/sfcapi/api/connect
-2022-06-02 10:21:11 : {"PCNAME":"Dell-E7280","SN":"A"}
-2022-06-02 10:21:32 : Send SFIS Exception : Connection timed out: connect
-2022-06-02 10:21:32 : Time[21,081 s]---Result[FAILED]

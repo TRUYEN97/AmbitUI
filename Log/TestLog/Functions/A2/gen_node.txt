@@ -1,4 +1,0 @@
-2022-06-02 10:21:43 : Item[GEN_NODE]---Function[GENERATENODEPROXY]---Mode[DEBUG]
-2022-06-02 10:21:43 : Mode Skip: DEBUG
-2022-06-02 10:21:43 : This function will be canceled because the mode is DEBUG
-2022-06-02 10:21:43 : Time[0,001 s]---Result[PASS]
