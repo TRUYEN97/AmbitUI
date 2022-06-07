@@ -1,0 +1,13 @@
+2022-06-07 12:57:59 : Item[UpTeFTP]-Function[UpFTPProxy]
+2022-06-07 12:57:59 : Turn 0:
+2022-06-07 12:57:59 : Connect to ftp!!
+2022-06-07 12:57:59 : User: oper
+2022-06-07 12:57:59 : PassWord: mfg-oper
+2022-06-07 12:57:59 : Host: 10.90.1.168
+2022-06-07 12:57:59 : Port: 21
+2022-06-07 12:57:59 : Connect success.!
+2022-06-07 12:57:59 : Get filePath in Signal with key: txt file
+2022-06-07 12:57:59 : filePath: python\log/KC5X09PXZK11RBPF_REPAIR-7801_FA_API_serial.txt
+2022-06-07 12:57:59 : Ftp: TE_PRO/SQT/LogTest/KC5X09PXZK11RBPF_REPAIR-7801_FA_API_serial.txt
+2022-06-07 12:57:59 : Up file to FTP faied!
+2022-06-07 12:57:59 : Time[0,069 s]---Result[FAILED]

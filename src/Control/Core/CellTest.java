@@ -34,7 +34,7 @@ public class CellTest implements Runnable {
     private final AbsSubUi subUi;
     private final AbsTime myTimer;
 
-    CellTest(UiStatus uiStatus, List<AbsFunction> checkFunctions, List<AbsFunction> testFunctions, List<AbsFunction> listEnd) {
+    public CellTest(UiStatus uiStatus, List<AbsFunction> checkFunctions, List<AbsFunction> testFunctions, List<AbsFunction> listEnd) {
         this.process = new Process();
         this.uiStatus = uiStatus;
         this.uiData = uiStatus.getUiData();
@@ -46,9 +46,9 @@ public class CellTest implements Runnable {
         this.timer = new Timer(1000, (ActionEvent e) -> {
             if (!myTimer.onTime()) {
                 String mess = String.format("Out of time: (test time: %.3f S) > (%s S)",
-                        myTimer.getTime()/1000.0,
-                        FunctionConfig.getInstance().getTimeOutTest()/1000
-                        );
+                        myTimer.getTime() / 1000.0,
+                        FunctionConfig.getInstance().getTimeOutTest() / 1000
+                );
                 ErrorLog.addError(mess);
                 uiData.setMessage(mess);
                 end();
@@ -71,6 +71,10 @@ public class CellTest implements Runnable {
             runFunctions(ends);
         }
         end();
+    }
+
+    public double getTestTime() {
+        return myTimer.getTime();
     }
 
     private void end() {

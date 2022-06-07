@@ -4,7 +4,6 @@
  */
 package Model.DataModeTest;
 
-import Model.DataSource.PcInformation;
 import com.alibaba.fastjson.JSONObject;
 import java.util.Set;
 
@@ -37,7 +36,8 @@ public class InputData {
     public InputData() {
         this.data = new JSONObject();
 //        this.data.put(PCNAME, PcInformation.getInstance().getPcName());
-        this.data.put(PCNAME, "MBLT-5485");
+        this.data.put(PCNAME, "REPAIR-7801");
+        this.data.put(STATION, "REPAIR");
         this.data.put(VERSION, "1.0.0");
     }
 

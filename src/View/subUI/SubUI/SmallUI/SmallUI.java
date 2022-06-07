@@ -12,15 +12,16 @@ import View.subUI.SubUI.AbsSubUi;
  * @author Administrator
  */
 public class SmallUI extends AbsSubUi {
-
+    
     private final FormShow formShow;
+
     /**
      * Creates new form SmallUI
      *
      * @param indexName
      */
     public SmallUI(String indexName) {
-        super(indexName, -1);
+        super(indexName, 500);
         initComponents();
         this.lbTime.setText(indexName);
         this.formShow = new FormShow();
@@ -68,8 +69,9 @@ public class SmallUI extends AbsSubUi {
     public void setText(String txt) {
         this.lbTime.setText(txt);
     }
-
+    
     @Override
     public void updateData() {
+        lbTime.setText(getTestTime());
     }
 }

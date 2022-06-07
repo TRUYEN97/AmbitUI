@@ -17,18 +17,18 @@ import java.io.File;
  * @author Administrator
  */
 public class CreateTxtLog extends AbsFunction {
-    
+
     private String txtFile;
-    
+
     public CreateTxtLog(String itemName) {
         super(itemName);
     }
-    
+
     @Override
     protected boolean test() {
         return saveTxtFile() && saveFileZip();
     }
-    
+
     private boolean saveTxtFile() {
         addLog("Save file txt!");
         MyLoger loger = new MyLoger();
@@ -45,6 +45,9 @@ public class CreateTxtLog extends AbsFunction {
                 loger.addLog("/////////////////////////////////////////////\r\n");
             }
             addLog("Save file txt ok!");
+            String keyOfFilePath = funcConfig.getValue("FileTxt");
+            addLog("Key of filePath in Signal: " + keyOfFilePath);
+            uiData.putToSignal(keyOfFilePath, this.txtFile);
             return true;
         } catch (Exception e) {
             addLog("Save file failed: " + e.getMessage());
@@ -54,12 +57,12 @@ public class CreateTxtLog extends AbsFunction {
             loger.close();
         }
     }
-    
+
     private String creatFilePath(String hauTo) {
         String dir = this.funcConfig.getValue("LOCAL_FILE");
         return String.format("%s/%s", dir, createNameFile(hauTo));
     }
-    
+
     private String createNameFile(String hauTo) {
         String serial = uiData.getProductInfo(InputData.MLBSN);
         serial = serial.replace('\\', '_');
@@ -69,7 +72,7 @@ public class CreateTxtLog extends AbsFunction {
         return String.format("%s_%s_%s_%s",
                 serial, pcName, mode, hauTo);
     }
-    
+
     private boolean saveFileZip() {
         addLog("Save file zip!");
         try {
@@ -83,5 +86,5 @@ public class CreateTxtLog extends AbsFunction {
             return false;
         }
     }
-    
+
 }

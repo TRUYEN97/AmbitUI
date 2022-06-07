@@ -1,12 +1,13 @@
-2022-06-06 03:26:41 : Item[CreateTxtLog]-Function[CreateTxtLogProxy]
-2022-06-06 03:26:41 : Turn 0:
-2022-06-06 03:26:41 : Save file txt!
-2022-06-06 03:26:41 : file path: python\log/KC5J0G91C8A48SFD_MBLT-5485_FA_API_serial.txt
-2022-06-06 03:26:41 : - add item: CheckSnSfis
-2022-06-06 03:26:41 : - add item: InputFaData
-2022-06-06 03:26:41 : - add item: CreateFaJson
-2022-06-06 03:26:41 : Save file txt ok!
-2022-06-06 03:26:41 : Save file zip!
-2022-06-06 03:26:41 : Save zip file path: python\log/KC5J0G91C8A48SFD_MBLT-5485_FA_API_serial.zip
-2022-06-06 03:26:41 : File path: python\log/KC5J0G91C8A48SFD_MBLT-5485_FA_API_serial.txt
-2022-06-06 03:26:41 : Time[0,026 s]---Result[PASS]
+2022-06-07 08:29:50 : Item[CreateTxtLog]-Function[CreateTxtLogProxy]
+2022-06-07 08:29:50 : Turn 0:
+2022-06-07 08:29:50 : Save file txt!
+2022-06-07 08:29:50 : file path: python\log/KC5X09PXZK11RBPF_REPAIR-7801_FA_API_serial.txt
+2022-06-07 08:29:50 : - add item: CheckSnSfis
+2022-06-07 08:29:50 : - add item: InputFaData
+2022-06-07 08:29:50 : - add item: CreateFaJson
+2022-06-07 08:29:50 : Save file txt ok!
+2022-06-07 08:29:50 : Key of filePath in Signal: txt file
+2022-06-07 08:29:50 : Save file zip!
+2022-06-07 08:29:50 : Save zip file path: python\log/KC5X09PXZK11RBPF_REPAIR-7801_FA_API_serial.zip
+2022-06-07 08:29:50 : File path: python\log/KC5X09PXZK11RBPF_REPAIR-7801_FA_API_serial.txt
+2022-06-07 08:29:50 : Time[0.072 s]---Result[PASS]

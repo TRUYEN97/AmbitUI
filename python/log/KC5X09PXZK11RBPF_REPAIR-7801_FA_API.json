@@ -1,0 +1,28 @@
+{
+"station_name":"REPAIR-7801",
+"mode":"debug",
+"start_time":"2022-06-07 08:29:42",
+"tests":[
+{
+"repair_action":"reflow",
+"start_time":"2022-06-07 08:29:42",
+"post_repair_result":"passed",
+"debug_count":1,
+"further_details":"Further details",
+"reason_desc":"SOLDER SHORT",
+"repair_location":"J1",
+"failed_station_type":"MBLT",
+"finish_time":"2022-06-07 08:29:50",
+"debug_station":"REPAIR-7801",
+"failed_station":"MBLT-5453",
+"child_unlinked":"False"
+}
+],
+"error_details":"USB_ASIDE",
+"serial":"KC5X09PXZK11RBPF",
+"error_code":"35.1.0",
+"station_type":"REPAIR",
+"finish_time":"2022-06-07 08:29:50",
+"status":"passed",
+"test_software_version":"1.0.0"
+}

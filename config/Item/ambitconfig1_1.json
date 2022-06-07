@@ -26,10 +26,10 @@
         }
     ],
     "END": [
-
         {
             "FLAG": true,
             "KEY_WORD": "jsonFa",
+            "JsonPathKey": "FileJsonPath",
             "jsonResultKey": "jsonResult",
             "LOCAL_FILE": "python\\log",
             "ITEM_NAME": "CreateFaJson",
@@ -38,11 +38,31 @@
         {
             "FLAG": true,
             "LOCAL_FILE": "python\\log",
+            "FileTxt": "txt file",
             "ITEM_NAME": "CreateTxtLog",
             "FUNC_NAME": "CreateTxtLogProxy"
         },
         {
             "FLAG": true,
+            "keyWord": "FileJsonPath",
+            "CmdCommand": "cd python && eero_API.py log/",
+            "ITEM_NAME": "UpAPI",
+            "FUNC_NAME": "UpAPIProxy"
+        },
+        {
+            "FLAG": true,
+            "FtpPort": 21,
+            "FtpUser": "oper",
+            "FtpHost": "10.90.1.168",
+            "FtpPassword": "mfg-oper",
+            "FileTxt": "txt file",
+            "dirFtp": "TE_PRO/SQT/LogTest",
+            "LOCAL_FILE": "python\\log",
+            "ITEM_NAME": "UpTeFTP",
+            "FUNC_NAME": "UpFTPProxy"
+        },
+        {
+            "FLAG": false,
             "TIME_OVER": 5,
             "SEND_FORMAT": ["mlbsn", "pcname", "status", "mode"],
             "URL_SEND_RESULT": "http://10.90.0.40/sfcapi/api/connectfinal",

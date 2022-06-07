@@ -18,7 +18,7 @@ public class BigUI extends AbsSubUi {
      * @param indexName
      */
     public BigUI(String indexName) {
-        super(indexName, -1);
+        super(indexName, 500);
         initComponents();
         this.PanelUp.add(this.tabDetail);
     }
@@ -38,8 +38,6 @@ public class BigUI extends AbsSubUi {
         lbItemName = new javax.swing.JLabel();
         btTest = new javax.swing.JButton();
         lbTime = new javax.swing.JLabel();
-        jScrollPane1 = new javax.swing.JScrollPane();
-        jTextPane1 = new javax.swing.JTextPane();
 
         PanelUp.setLayout(new java.awt.BorderLayout());
 
@@ -62,10 +60,6 @@ public class BigUI extends AbsSubUi {
         lbTime.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         lbTime.setText("00:00");
 
-        jTextPane1.setEditable(false);
-        jTextPane1.setFont(new java.awt.Font("Tahoma", 0, 12)); // NOI18N
-        jScrollPane1.setViewportView(jTextPane1);
-
         javax.swing.GroupLayout panelDownLayout = new javax.swing.GroupLayout(panelDown);
         panelDown.setLayout(panelDownLayout);
         panelDownLayout.setHorizontalGroup(
@@ -73,31 +67,28 @@ public class BigUI extends AbsSubUi {
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, panelDownLayout.createSequentialGroup()
                 .addContainerGap()
                 .addGroup(panelDownLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                    .addComponent(jScrollPane1)
+                    .addComponent(lbItemName, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addComponent(Process, javax.swing.GroupLayout.DEFAULT_SIZE, 287, Short.MAX_VALUE))
+                .addGap(18, 18, 18)
+                .addGroup(panelDownLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(panelDownLayout.createSequentialGroup()
-                        .addGroup(panelDownLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                            .addComponent(lbItemName, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                            .addComponent(Process, javax.swing.GroupLayout.DEFAULT_SIZE, 287, Short.MAX_VALUE))
-                        .addGap(18, 18, 18)
-                        .addGroup(panelDownLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(lbTime, javax.swing.GroupLayout.PREFERRED_SIZE, 77, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(btTest, javax.swing.GroupLayout.PREFERRED_SIZE, 76, javax.swing.GroupLayout.PREFERRED_SIZE))))
+                        .addComponent(btTest, javax.swing.GroupLayout.DEFAULT_SIZE, 76, Short.MAX_VALUE)
+                        .addGap(1, 1, 1))
+                    .addComponent(lbTime, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
                 .addContainerGap())
         );
         panelDownLayout.setVerticalGroup(
             panelDownLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, panelDownLayout.createSequentialGroup()
-                .addContainerGap()
-                .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 115, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+            .addGroup(panelDownLayout.createSequentialGroup()
+                .addGap(15, 15, 15)
                 .addGroup(panelDownLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(lbItemName)
                     .addComponent(lbTime, javax.swing.GroupLayout.PREFERRED_SIZE, 32, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addGroup(panelDownLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(btTest)
-                    .addComponent(Process, javax.swing.GroupLayout.PREFERRED_SIZE, 20, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(21, 21, 21))
+                .addGroup(panelDownLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                    .addComponent(btTest, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addComponent(Process, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                .addContainerGap(20, Short.MAX_VALUE))
         );
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(this);
@@ -126,8 +117,6 @@ public class BigUI extends AbsSubUi {
     private javax.swing.JPanel PanelUp;
     private javax.swing.JProgressBar Process;
     private javax.swing.JButton btTest;
-    private javax.swing.JScrollPane jScrollPane1;
-    private javax.swing.JTextPane jTextPane1;
     private javax.swing.JLabel lbItemName;
     private javax.swing.JLabel lbTime;
     private javax.swing.JPanel panelDown;
@@ -139,6 +128,7 @@ public class BigUI extends AbsSubUi {
 
     @Override
     public void updateData() {
+        lbTime.setText(getTestTime());
     }
 
    

@@ -1,0 +1,23 @@
+2022-06-07 08:29:50 : Item[UpAPI]-Function[UpAPIProxy]
+2022-06-07 08:29:50 : Turn 0:
+2022-06-07 08:29:50 : Get filePath from signal!
+2022-06-07 08:29:50 : -With keyWord: FileJsonPath
+2022-06-07 08:29:50 : File path is:
+2022-06-07 08:29:50 : Get cmd command. KeyWord:CmdCommand
+2022-06-07 08:29:50 : Cmd comand : cd python && eero_API.py log/KC5X09PXZK11RBPF_REPAIR-7801_FA_API
+2022-06-07 08:29:50 : Up api.....
+2022-06-07 08:29:50 : log/KC5X09PXZK11RBPF_REPAIR-7801_FA_API_serial.txt
+2022-06-07 08:29:50 : Connected
+2022-06-07 08:29:50 : 
+2022-06-07 08:29:50 : INFO: Input text is valid JSON.
+2022-06-07 08:29:50 : INFO: JSON schema validation successful.
+2022-06-07 08:29:50 : ERROR: Failed to validate test run time: Test run finish time was 2022-06-07 08:29:50 UTC and it is now 2022-06-07 13:30:07 UTC.
+2022-06-07 08:29:50 : 
+2022-06-07 08:29:50 : Please check computer time and timezone!
+2022-06-07 08:29:50 : 
+2022-06-07 08:29:50 : 
+2022-06-07 08:29:50 : INFO: Found 1 file, not saved.
+2022-06-07 08:29:50 : INFO: Saved failed JSON to /home/eero/data/_invalid/2022-06-07/2022-06-07T133007.json.
+2022-06-07 08:29:50 : 
+2022-06-07 08:29:50 : 400
+2022-06-07 08:29:50 : Time[0.220 s]---Result[FAILED]

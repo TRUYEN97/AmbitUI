@@ -4,7 +4,6 @@
  */
 package Model.DataSource.Tool;
 
-import Model.DataSource.FTPManager;
 import Model.DataModeTest.ErrorLog;
 import Model.DataSource.Limit.Limit;
 import Model.DataSource.PcInformation;
@@ -29,7 +28,6 @@ public class LoadSource implements IInit {
         this.info.init();
         this.sources = new ArrayList<>();
         this.sources.add(Setting.getInstance().setPath(this.info.getPathOfSetting()));
-        this.sources.add(FTPManager.getInstance());
         this.sources.add(Limit.getInstance().setPath(this.info.getPathOfLimit()));
         this.sources.add(PcInformation.getInstance());
     }

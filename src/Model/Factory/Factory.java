@@ -7,7 +7,6 @@ package Model.Factory;
 import View.subUI.FormDetail.TabFaApi.TabFaApiProxy;
 import Control.Functions.AbsFunction;
 import Control.Functions.FunctionsTest.CreateFaJson.CreateFaJsonProxy;
-import Control.Functions.FunctionsTest.CreateTxtLog.CreateTxtLog;
 import Control.Functions.FunctionsTest.CreateTxtLog.CreateTxtLogProxy;
 import Control.Functions.FunctionsTest.SFIS.CheckSnFormSFIS.CheckSnFormSFISProxy;
 import Control.Functions.FunctionsTest.FixtureAction.FixtureActionProxy;
@@ -15,6 +14,8 @@ import Control.Functions.FunctionsTest.GenerateNode.GenerateNodeProxy;
 import Control.Functions.FunctionsTest.GetMacFromSfis.GetMacFormSfisProxy;
 import Control.Functions.FunctionsTest.SFIS.SendResultToSfis.SendResuttToSfisProxy;
 import Control.Functions.FunctionsTest.InputFaData.InputFaDataProxy;
+import Control.Functions.FunctionsTest.UpFTP.UpFTPProxy;
+import Control.Functions.FunctionsTest.UpJsonAPI.UpAPIProxy;
 import Control.Functions.InitPackages.InitProxy.IdPasswordProxy;
 import View.subUI.FormDetail.AbsTabUI;
 import View.subUI.SubUI.AbsSubUi;
@@ -102,5 +103,7 @@ public class Factory {
         this.functions.addType(new InputFaDataProxy());
         this.functions.addType(new CreateFaJsonProxy());
         this.functions.addType(new CreateTxtLogProxy());
+        this.functions.addType(new UpAPIProxy());
+        this.functions.addType(new UpFTPProxy());
     }
 }

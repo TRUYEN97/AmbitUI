@@ -5,7 +5,6 @@
 package Model.ManagerUI.UIStatus;
 
 import Model.ManagerUI.UIStatus.Elemants.UiData;
-import Model.ManagerUI.UIStatus.Elemants.UITest;
 import Control.Core.Core;
 import Control.Core.ModeTest;
 import Control.Core.CellTest;
@@ -25,7 +24,8 @@ public class UiStatus implements IUpdate {
     private final String name;
     private final Core core;
     private final UiData uiData;
-    private final UITest test;
+    private Thread test;
+    private CellTest cellTest;
     private ModeTest modeTest;
 
     public UiStatus(AbsSubUi subUi, Core core) {
@@ -33,7 +33,6 @@ public class UiStatus implements IUpdate {
         this.name = subUi.getName();
         this.core = core;
         this.uiData = new UiData(this);
-        this.test = new UITest(this);
     }
 
     public UiData getUiData() {
@@ -44,16 +43,16 @@ public class UiStatus implements IUpdate {
         return subUi;
     }
 
-    public Core getCore() {
-        return core;
-    }
-    
     public ModeTest getModeTest() {
         return this.modeTest;
     }
 
+    public CellTest getCellTest() {
+        return cellTest;
+    }
+
     public boolean isTesting() {
-        return this.test.isTesting();
+        return this.test != null && this.test.isAlive();
     }
 
     @Override
@@ -90,7 +89,9 @@ public class UiStatus implements IUpdate {
     }
 
     public void setUnitTest(CellTest unitTest) {
-        this.test.setUnitTest(unitTest);
+        this.cellTest = unitTest;
+        this.test = new Thread(unitTest);
+        this.test.start();
     }
 
     public List<String> getFunctionSelected() {
@@ -100,5 +101,5 @@ public class UiStatus implements IUpdate {
     public void setInput(InputData inputData) {
         this.uiData.setInput(inputData);
     }
-    
+
 }

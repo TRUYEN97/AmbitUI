@@ -60,4 +60,11 @@ public abstract class AbsSubUi extends AbsUI implements IUpdate {
         this.view = view;
     }
 
+    protected String getTestTime() {
+        if (uiStatus.getCellTest() == null) {
+            return null;
+        }
+        long time = (long) (uiStatus.getCellTest().getTestTime() / 1000);
+        return String.format("%d:%d", time / 60, time % 60);
+    }
 }

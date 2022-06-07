@@ -30,17 +30,33 @@ public class CreateFaJson extends AbsFunction {
         addLog(data.toJSONString());
         JSONObject baseData = createBaseData();
         baseData.put("tests", createFunctionData(data));
-        saveToFile(baseData);
-        return true;
+        return saveToFile(baseData);
     }
 
     private boolean saveToFile(JSONObject baseData) {
         String filePath = funcConfig.getValue("LOCAL_FILE");
-        String NameFile = createNameFile();
-        return saveFile(filePath, NameFile, baseData.toJSONString());
+        String nameFile = createNameFile();
+        if (saveFile(filePath, nameFile, baseData.toJSONString())) {
+            addLog(String.format("Save json file at %s done!", nameFile));
+            return putNameFileToSignal(nameFile);
+        }
+        addLog(String.format("Save json file at %s failed", nameFile));
+        return false;
     }
 
-     private String createNameFile() {
+    private boolean putNameFileToSignal(String nameFile) {
+        String keywowk = this.funcConfig.getValue("JsonPathKey");
+        if (keywowk == null) {
+            addLog("Key of FilePath is null!");
+            return false;
+        }
+        this.uiData.putToSignal(keywowk, nameFile);
+        addLog(String.format("put \"%s\" with \"%s\" key to signal",
+                nameFile, keywowk));
+        return true;
+    }
+
+    private String createNameFile() {
         String serial = uiData.getProductInfo(InputData.MLBSN);
         serial = serial.replace('\\', '_');
         serial = serial.replace('/', '_');

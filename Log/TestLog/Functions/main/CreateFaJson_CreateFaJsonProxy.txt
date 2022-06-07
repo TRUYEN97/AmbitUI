@@ -1,33 +1,36 @@
-2022-06-06 03:26:41 : Item[CreateFaJson]-Function[CreateFaJsonProxy]
-2022-06-06 03:26:41 : Turn 0:
-2022-06-06 03:26:41 : Get FA json data in signal!
-2022-06-06 03:26:41 : Get with key: jsonFa
-2022-06-06 03:26:41 : {"J1":{"Action":"reflow","ReasonDes":"SOLDER SHORT","Location":"J1","RepairDetail":"Further details"}}
-2022-06-06 03:26:41 : Create base data
-2022-06-06 03:26:41 : - Key: station_name -- Value: MBLT-5485
-2022-06-06 03:26:41 : - Key: error_details -- Value: USB_ASIDE
-2022-06-06 03:26:41 : - Key: error_code -- Value: 35.1.0
-2022-06-06 03:26:41 : - Key: serial -- Value: KC5J0G91C8A48SFD
-2022-06-06 03:26:41 : - Key: status -- Value: PASS
-2022-06-06 03:26:41 : - Key: test_software_version -- Value: 1.0.0
-2022-06-06 03:26:41 : - Key: start_time -- Value: 2022-06-06 03:26:41
-2022-06-06 03:26:41 : - Key: finish_time -- Value: 2022-06-06 03:26:41
-2022-06-06 03:26:41 : - Key: status -- Value: passed
-2022-06-06 03:26:41 : - Key: mode -- Value: debug
-2022-06-06 03:26:41 : Create base data done!
-2022-06-06 03:26:41 : Create function!
-2022-06-06 03:26:41 : Create data for location: J1
-2022-06-06 03:26:41 : - Key: finish_time -- Value: 2022-06-06 03:26:41
-2022-06-06 03:26:41 : - Key: start_time -- Value: 2022-06-06 03:26:41
-2022-06-06 03:26:41 : - Key: debug_station -- Value: MBLT-5485
-2022-06-06 03:26:41 : - Key: failed_station -- Value: MBLT-5457
-2022-06-06 03:26:41 : - Key: further_details -- Value: Further details
-2022-06-06 03:26:41 : - Key: repair_location -- Value: J1
-2022-06-06 03:26:41 : - Key: reason_desc -- Value: SOLDER SHORT
-2022-06-06 03:26:41 : - Key: repair_action -- Value: reflow
-2022-06-06 03:26:41 : - Key: child_unlinked -- Value: False
-2022-06-06 03:26:41 : - Key: failed_station_type -- Value: MBLT
-2022-06-06 03:26:41 : - Key: post_repair_result -- Value: passed
-2022-06-06 03:26:41 : Create function data done!
-2022-06-06 03:26:41 : Save json data at: python\log\KC5J0G91C8A48SFD_MBLT-5485_FA_API.json
-2022-06-06 03:26:41 : Time[0,004 s]---Result[PASS]
+2022-06-07 08:29:50 : Item[CreateFaJson]-Function[CreateFaJsonProxy]
+2022-06-07 08:29:50 : Turn 0:
+2022-06-07 08:29:50 : Get FA json data in signal!
+2022-06-07 08:29:50 : Get with key: jsonFa
+2022-06-07 08:29:50 : {"J1":{"Action":"reflow","ReasonDes":"SOLDER SHORT","Location":"J1","RepairDetail":"Further details"}}
+2022-06-07 08:29:50 : Create base data
+2022-06-07 08:29:50 : - Key: station_name -- Value: REPAIR-7801
+2022-06-07 08:29:50 : - Key: station_type -- Value: REPAIR
+2022-06-07 08:29:50 : - Key: error_details -- Value: USB_ASIDE
+2022-06-07 08:29:50 : - Key: error_code -- Value: 35.1.0
+2022-06-07 08:29:50 : - Key: serial -- Value: KC5X09PXZK11RBPF
+2022-06-07 08:29:50 : - Key: status -- Value: PASS
+2022-06-07 08:29:50 : - Key: test_software_version -- Value: 1.0.0
+2022-06-07 08:29:50 : - Key: start_time -- Value: 2022-06-07 08:29:42
+2022-06-07 08:29:50 : - Key: finish_time -- Value: 2022-06-07 08:29:50
+2022-06-07 08:29:50 : - Key: status -- Value: passed
+2022-06-07 08:29:50 : - Key: mode -- Value: debug
+2022-06-07 08:29:50 : Create base data done!
+2022-06-07 08:29:50 : Create function!
+2022-06-07 08:29:50 : Create data for location: J1
+2022-06-07 08:29:50 : - Key: finish_time -- Value: 2022-06-07 08:29:50
+2022-06-07 08:29:50 : - Key: start_time -- Value: 2022-06-07 08:29:42
+2022-06-07 08:29:50 : - Key: debug_station -- Value: REPAIR-7801
+2022-06-07 08:29:50 : - Key: failed_station -- Value: MBLT-5453
+2022-06-07 08:29:50 : - Key: further_details -- Value: Further details
+2022-06-07 08:29:50 : - Key: repair_location -- Value: J1
+2022-06-07 08:29:50 : - Key: reason_desc -- Value: SOLDER SHORT
+2022-06-07 08:29:50 : - Key: repair_action -- Value: reflow
+2022-06-07 08:29:50 : - Key: child_unlinked -- Value: False
+2022-06-07 08:29:50 : - Key: failed_station_type -- Value: MBLT
+2022-06-07 08:29:50 : - Key: post_repair_result -- Value: passed
+2022-06-07 08:29:50 : Create function data done!
+2022-06-07 08:29:50 : Save json data at: python\log\KC5X09PXZK11RBPF_REPAIR-7801_FA_API.json
+2022-06-07 08:29:50 : Save json file at KC5X09PXZK11RBPF_REPAIR-7801_FA_API done!
+2022-06-07 08:29:50 : put "KC5X09PXZK11RBPF_REPAIR-7801_FA_API" with "FileJsonPath" key to signal
+2022-06-07 08:29:50 : Time[0.031 s]---Result[PASS]

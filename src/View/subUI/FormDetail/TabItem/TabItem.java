@@ -45,7 +45,7 @@ public class TabItem extends AbsTabUI {
      * @param type
      */
     public TabItem(String type) {
-        super("Item", type, 200);
+        super("Item", type, 1000);
         initComponents();
         this.testColumn = new Vector<>();
         this.listFunc = new Vector<>();

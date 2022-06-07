@@ -1,0 +1,28 @@
+{
+"station_name":"MBLT-5485",
+"mode":"debug",
+"start_time":"2022-06-07 03:29:55",
+"tests":[
+{
+"repair_action":"replace",
+"start_time":"2022-06-07 03:29:55",
+"post_repair_result":"passed",
+"debug_count":1,
+"further_details":"D/C",
+"reason_desc":"SOLDER SHORT",
+"repair_location":"J1",
+"failed_station_type":"MBLT",
+"finish_time":"2022-06-07 03:30:03",
+"debug_station":"MBLT-5485",
+"failed_station":"MBLT-5453",
+"child_unlinked":"False"
+}
+],
+"error_details":"USB_ASIDE",
+"serial":"KC5X09PXZK11RBPF",
+"error_code":"35.1.0",
+"station_type":"REPAIR",
+"finish_time":"2022-06-07 03:30:03",
+"status":"passed",
+"test_software_version":"1.0.0"
+}
