@@ -31,6 +31,7 @@ public class InputData {
     public static final String VERSION = "version";
     public static final String START_TIME = "start_time";
     public static final String FINISH_TIME = "finish_time";
+    public static final String CYCLE_TIME = "cyctime";
     private final JSONObject data;
 
     public InputData() {

@@ -25,23 +25,23 @@ public class FunctionData {
     private final TimeS timeS;
     private final List<ItemTestData> itemTests;
     private ErrorFunctionTest errorFunc;
-    private FunctionElement funcConfig;
+    private final FunctionElement funcConfig;
     private boolean testing;
     private boolean isPass;
-    private boolean isMultistacking;
     private String resultTest;
     private Double testTime;
 
-    public FunctionData() {
+    public FunctionData(FunctionElement funcConfig) {
         this.loger = new MyLoger();
         this.timeS = new TimeS();
         this.itemTests = new ArrayList<>();
+        this.funcConfig = funcConfig;
         this.testing = false;
         this.isPass = false;
     }
 
-    public void setFuncconfig(FunctionElement funcConfig) {
-        this.funcConfig = funcConfig;
+    public FunctionElement getFunctionConfig() {
+        return this.funcConfig;
     }
 
     public String getItemFunction() {
@@ -95,7 +95,7 @@ public class FunctionData {
 
     public void start(String LogPath) {
         String fileLogName = String.format("%s%s%s_%s.txt",
-                LogPath,File.separator, getItemFunction(), getFunctionName());
+                LogPath, File.separator, getItemFunction(), getFunctionName());
         if (!this.loger.begin(new File(fileLogName), true, true)) {
             String mess = "can't delete local function log file of " + getItemFunction();
             ErrorLog.addError(mess);
@@ -123,6 +123,7 @@ public class FunctionData {
         if (this.itemTests.isEmpty()) {
             createDefaultItem();
         }
+        this.addLog("Result: " + getResultTest());
         this.addLog(endFunction());
         this.loger.close();
     }
@@ -155,7 +156,7 @@ public class FunctionData {
     }
 
     private String startFunction() {
-        return String.format("Item[%s]-Function[%s]",
+        return String.format("Item[%s] - Function[%s]",
                 this.getItemFunction(), this.getFunctionName());
     }
 
@@ -164,7 +165,7 @@ public class FunctionData {
     }
 
     private String endFunction() {
-        return String.format("Time[%.3f s]---Result[%s]",
+        return String.format("Time[%.3f s] - Status[%s]",
                 this.testTime, createDefaultResult());
     }
 }

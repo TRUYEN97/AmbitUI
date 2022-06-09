@@ -4,10 +4,9 @@
  */
 package Control.Core;
 
-import Control.Functions.AbsFunction;
 import Model.DataTest.ErrorLog;
 import Model.DataTest.InputData;
-import Model.DataSource.ModeTest.FunctionConfig.FunctionConfig;
+import Model.DataSource.ModeTest.ModeTestSource;
 import Model.ManagerUI.UIStatus.Elemants.UiData;
 import Model.ManagerUI.UIStatus.UiStatus;
 import Time.TimeBase;
@@ -22,65 +21,61 @@ import javax.swing.Timer;
  *
  * @author 21AK22
  */
-public class CellTest implements Runnable {
+public class CellTest extends Thread {
 
-    private final List<AbsFunction> checks;
-    private final List<AbsFunction> tests;
-    private final List<AbsFunction> ends;
     private final Process process;
-    private final UiStatus uiStatus;
     private final Timer timer;
     private final UiData uiData;
     private final AbsSubUi subUi;
     private final AbsTime myTimer;
+    private final ModeTestSource testSource;
 
-    public CellTest(UiStatus uiStatus, List<AbsFunction> checkFunctions, List<AbsFunction> testFunctions, List<AbsFunction> listEnd) {
-        this.process = new Process();
-        this.uiStatus = uiStatus;
-        this.uiData = uiStatus.getUiData();
+    public CellTest(UiStatus uiStatus, InputData inputData, ModeTestSource testSource) {
+        this.process = new Process(uiStatus);
         this.subUi = uiStatus.getSubUi();
-        this.checks = setFuncList(checkFunctions);
-        this.tests = setFuncList(testFunctions);
-        this.ends = setFuncList(listEnd);
+        this.uiData = uiStatus.getUiData();
+        this.uiData.setInput(inputData);
         this.myTimer = new TimeMs();
+        this.testSource = testSource;
         this.timer = new Timer(1000, (ActionEvent e) -> {
             if (!myTimer.onTime()) {
-                String mess = String.format("Out of time: (test time: %.3f S) > (%s S)",
+                String mess = String.format("out of time: (Test time: %.3f S) > (%s S)",
                         myTimer.getTime() / 1000.0,
-                        FunctionConfig.getInstance().getTimeOutTest() / 1000
+                        this.testSource.getTimeOutTest() / 1000
                 );
                 ErrorLog.addError(mess);
                 uiData.setMessage(mess);
-                end();
+                end(mess);
             }
         }) {
             @Override
             public void start() {
                 super.start();
-                myTimer.start(FunctionConfig.getInstance().getTimeOutTest());
+                myTimer.start(testSource.getTimeOutTest());
             }
-
         };
     }
 
     @Override
     public void run() {
         prepare();
-        if (runFunctions(checks)) {
-            runItemFunctions();
-            runFunctions(ends);
+        if (runFunctions(this.testSource.getCheckFunctions())) {
+            if (runItemFunctions()) {
+                runFunctions(this.testSource.getEndFunctions());
+            }
         }
-        end();
+        end(null);
     }
 
     public double getTestTime() {
         return myTimer.getTime();
     }
 
-    private void end() {
+    private void end(String mess) {
         this.timer.stop();
-        this.process.stop();
+        this.process.stop(mess);
         this.subUi.endTest();
+        this.stop();
     }
 
     private void prepare() {
@@ -89,26 +84,28 @@ public class CellTest implements Runnable {
         this.subUi.startTest();
     }
 
-    private List<AbsFunction> setFuncList(List<AbsFunction> testFunctions) {
-        for (AbsFunction testFunction : testFunctions) {
-            testFunction.setUIStatus(this.uiStatus);
-        }
-        return testFunctions;
-    }
-
-    private boolean runFunctions(List<AbsFunction> funcs) {
-        process.setListFunc(funcs);
+    private boolean runFunctions(List<String> functions) {
+        process.setListFunc(functions);
         process.run();
         return process.isPass();
     }
 
     private boolean runItemFunctions() {
-        if (tests.isEmpty()) {
+        List<String> testFunctions = getTestFuntions();
+        if (testFunctions.isEmpty()) {
             return false;
         }
         this.uiData.putProductInfo(InputData.START_TIME, new TimeBase().getSimpleDateTime());
-        boolean result = runFunctions(tests);
+        boolean result = runFunctions(testFunctions);
         this.uiData.putProductInfo(InputData.FINISH_TIME, new TimeBase().getSimpleDateTime());
+        this.uiData.putProductInfo(InputData.CYCLE_TIME, String.valueOf(myTimer.getTime()));
         return result;
+    }
+
+    private List<String> getTestFuntions() {
+        if (this.uiData.getFunctionSelected() != null) {
+            return this.uiData.getFunctionSelected();
+        }
+        return this.testSource.getTestFunctions();
     }
 }

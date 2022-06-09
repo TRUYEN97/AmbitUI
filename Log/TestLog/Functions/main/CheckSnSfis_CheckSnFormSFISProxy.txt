@@ -1,16 +1,7 @@
-2022-08-06 07:00:47 : Item[CheckSnSfis]-Function[CheckSnFormSFISProxy]
-2022-08-06 07:00:47 : Turn 0:
-2022-08-06 07:00:47 : send to url: http://10.90.0.40/sfcapi/api/connect
-2022-08-06 07:00:47 : command: {"PCNAME":"REPAIR-7801","MODE":"FA_API","SN":"GGB1UD2222141D07"}
-2022-08-06 07:00:47 : {"result":"PASS","message":"OK","data":{"mlbsn":"GGB1UD2222141D07","ethernetmac":"9C57BC84A2C0","pnname":"820-01100","model":"","smode":"Production","failedpc":"MBLT-7101","debugpc":"REPAIR-7801","errorcode":"35.2.0","errordes":"USB_BSIDE","counttest":"1"}}
-2022-08-06 07:00:47 : add key: mlbsn -- Value: GGB1UD2222141D07
-2022-08-06 07:00:47 : add key: ethernetmac -- Value: 9C57BC84A2C0
-2022-08-06 07:00:47 : add key: pnname -- Value: 820-01100
-2022-08-06 07:00:47 : add key: model -- Value:
-2022-08-06 07:00:47 : add key: smode -- Value: Production
-2022-08-06 07:00:47 : add key: failedpc -- Value: MBLT-7101
-2022-08-06 07:00:47 : add key: debugpc -- Value: REPAIR-7801
-2022-08-06 07:00:47 : add key: errorcode -- Value: 35.2.0
-2022-08-06 07:00:47 : add key: errordes -- Value: USB_BSIDE
-2022-08-06 07:00:47 : add key: counttest -- Value: 1
-2022-08-06 07:00:47 : Time[0.035 s]---Result[PASS]
+2022-06-09 04:16:07 : Item[CheckSnSfis]-Function[CheckSnFormSFISProxy]
+2022-06-09 04:16:07 : Turn 0:
+2022-06-09 04:16:07 : send to url: http://10.90.0.40/sfcapi/api/connect
+2022-06-09 04:16:07 : command: {"PCNAME":"REPAIR-7801","MODE":"Debug","SN":"DFDFD"}
+2022-06-09 04:16:07 : {"result":"FAIL","message":"DEVICE_SN Length error!DFDFD","data":""}
+2022-06-09 04:16:07 : DEVICE_SN Length error!DFDFD
+2022-06-09 04:16:07 : Time[0.096 s]---Result[FAILED]

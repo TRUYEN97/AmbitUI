@@ -20,7 +20,7 @@ public class UpAPI extends AbsFunction {
     }
 
     @Override
-    protected boolean test() {
+    public boolean test() {
         addLog("Get filePath from signal!");
         String keyword = funcConfig.getValue("keyWord");
         addLog(" -With keyWord: " + keyword);

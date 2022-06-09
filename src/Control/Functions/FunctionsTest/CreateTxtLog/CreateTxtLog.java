@@ -25,7 +25,7 @@ public class CreateTxtLog extends AbsFunction {
     }
 
     @Override
-    protected boolean test() {
+    public boolean test() {
         return saveTxtFile() && saveFileZip();
     }
 

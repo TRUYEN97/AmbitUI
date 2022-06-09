@@ -21,7 +21,7 @@ public class UpFTP extends AbsFunction {
     }
 
     @Override
-    protected boolean test() {
+    public boolean test() {
         if (!initFtp()) {
             addLog("Connect failed!!!");
         }

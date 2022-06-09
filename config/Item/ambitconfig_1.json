@@ -1,7 +1,7 @@
 {
     "UUT_MODEL": "Trieste",
     "STATION_NAME": "RTT",
-    "TIME_OUT_TEST": 100,
+    "TIME_OUT_TEST": 60,
     "INIT": [
         {
             "FLAG": false,
@@ -41,7 +41,7 @@
         },
         {
             "FLAG": true,
-            "TIME_OVER": 20,
+            "TIME_OVER": 2,
             "MULTI_TASK": false,
             "RETRY": 1,
             "TYPE": "MACTH",

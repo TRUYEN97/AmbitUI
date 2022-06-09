@@ -15,13 +15,13 @@
         {
             "NAME": "Debug RE", 
             "TYPE_MODE": "Debug",
-            "AMBIT_CONFIG": "config\\Item\\ambitconfig1.json",
+            "AMBIT_CONFIG": "config\\Item\\ambitconfig.json",
             "DETAIL": ["TabViewProxy", "TabFaApiProxy", "TabItemProxy"]
         },
         {
             "NAME": "Fa API",
             "TYPE_MODE": "FA_API",
-            "AMBIT_CONFIG": "config\\Item\\ambitconfig1_1.json",
+            "AMBIT_CONFIG": "config\\Item\\ambitconfig_1.json",
             "DETAIL": ["TabViewProxy", "TabFaApiProxy", "TabItemProxy"]
         },
         {

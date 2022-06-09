@@ -33,7 +33,7 @@ public class UIView extends javax.swing.JFrame {
     private final LoadModeTime modeTime;
     private final DefaultComboBoxModel comboBoxModel;
     private CheckInput checkInput;
-    private Core loadMode;
+    private Core core;
 
     public UIView() {
         this.modeTime = new LoadModeTime();
@@ -94,12 +94,12 @@ public class UIView extends javax.swing.JFrame {
         this.BoardSubUI.updateUI();
     }
 
-    public void setCore(Core loadMode) {
-        this.loadMode = loadMode;
+    public void setCore(Core core) {
+        this.core = core;
     }
 
     public Core getCore() {
-        return loadMode;
+        return core;
     }
 
     public void setMode(List<ModeTest> modeTests) {
@@ -441,7 +441,7 @@ public class UIView extends javax.swing.JFrame {
         // TODO add your handling code here:
         if (evt.getStateChange() == ItemEvent.SELECTED) {
             ModeTest item = (ModeTest) evt.getItem();
-            this.loadMode.setCurrMode(item);
+            this.core.setCurrMode(item);
         }
     }//GEN-LAST:event_cbbModeTestItemStateChanged
 

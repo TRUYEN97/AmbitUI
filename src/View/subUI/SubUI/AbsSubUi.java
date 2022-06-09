@@ -65,6 +65,6 @@ public abstract class AbsSubUi extends AbsUI implements IUpdate {
             return null;
         }
         long time = (long) (uiStatus.getCellTest().getTestTime() / 1000);
-        return String.format("%d:%d", time / 60, time % 60);
+        return String.format("%02d:%02d", time / 60, time % 60);
     }
 }

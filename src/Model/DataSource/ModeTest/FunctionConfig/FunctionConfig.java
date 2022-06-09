@@ -17,31 +17,17 @@ import static java.util.Objects.isNull;
  */
 public class FunctionConfig extends AbsJsonSource<FunctionElement> {
 
-    private static volatile FunctionConfig instaince;
     private final List<String> functionInit;
     private final List<String> functionTest;
     private final List<String> functionItemTest;
     private final List<String> funtionEnd;
 
-    private FunctionConfig() {
+    public FunctionConfig() {
         super();
         this.functionInit = new ArrayList<>();
         this.functionTest = new ArrayList<>();
         this.functionItemTest = new ArrayList<>();
         this.funtionEnd = new ArrayList<>();
-    }
-
-    public static FunctionConfig getInstance() {
-        FunctionConfig ins = FunctionConfig.instaince;
-        if (ins == null) {
-            synchronized (FunctionConfig.class) {
-                ins = FunctionConfig.instaince;
-                if (ins == null) {
-                    FunctionConfig.instaince = ins = new FunctionConfig();
-                }
-            }
-        }
-        return ins;
     }
 
     @Override
@@ -94,15 +80,15 @@ public class FunctionConfig extends AbsJsonSource<FunctionElement> {
         return timeout * 1000;
     }
 
-    public List<String> getFunctionInit() {
+    public List<String> getCheckFunctions() {
         return functionInit;
     }
 
-    public List<String> getFunctionTest() {
+    public List<String> getTestFunctions() {
         return functionTest;
     }
 
-    public List<String> getFunctionItemTest() {
+    public List<String> getItemTestFunctions() {
         return functionItemTest;
     }
     
@@ -111,7 +97,7 @@ public class FunctionConfig extends AbsJsonSource<FunctionElement> {
         return this.readFile.getData().getString(FuncKeyWord.STATION_NAME);
     }
 
-    public List<String> getFuntionEnd() {
+    public List<String> getEndFuntions() {
         return funtionEnd;
     }
 

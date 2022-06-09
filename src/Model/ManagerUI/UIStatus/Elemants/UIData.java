@@ -9,6 +9,7 @@ import Model.DataTest.DataBoxs.ProcessTestSignal;
 import Model.DataTest.ErrorLog;
 import Model.DataTest.InputData;
 import Model.DataSource.DataWareHouse;
+import Model.DataSource.ModeTest.FunctionConfig.FunctionElement;
 import Model.ManagerUI.UIStatus.UiStatus;
 import java.util.ArrayList;
 import java.util.List;
@@ -135,8 +136,8 @@ public class UiData {
         this.inputData = inputData;
     }
 
-    public FunctionData createFuncData() {
-        FunctionData dataBox = new FunctionData();
+    public FunctionData createFuncData(FunctionElement funcConfig) {
+        FunctionData dataBox = new FunctionData(funcConfig);
         this.dataBoxs.add(dataBox);
         return dataBox;
     }

@@ -7,7 +7,9 @@ package Control.Core;
 import Control.Functions.FunctionCover;
 import Control.Functions.AbsFunction;
 import Model.DataTest.ErrorLog;
+import Model.Factory.Factory;
 import Model.Interface.IFunction;
+import Model.ManagerUI.UIStatus.UiStatus;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -16,38 +18,47 @@ import java.util.List;
  * @author Administrator
  */
 class Process implements IFunction {
-    
+
     private final List<FunctionCover> multiTasking;
-    private final List<FunctionCover> functions;
+    private final List<String> functions;
+    private final Factory factory;
+    private final UiStatus uiStatus;
     private boolean result;
-    
-    public Process() {
+
+    public Process(UiStatus uiStatus) {
         this.multiTasking = new ArrayList<>();
         this.functions = new ArrayList<>();
+        this.factory = Factory.getInstance();
+        this.uiStatus = uiStatus;
         this.result = true;
     }
-    
-    public void setListFunc(List<AbsFunction> functions) {
+
+    public void setListFunc(List<String> functions) {
         this.functions.clear();
-        this.result = true;
-        for (AbsFunction function : functions) {
-            this.functions.add(new FunctionCover(function));
-        }
+        this.functions.addAll(functions);
     }
-    
+
+    private FunctionCover createFuncCover(String function) {
+        FunctionCover func = new FunctionCover(
+                this.factory.getFunc(function, function), uiStatus);
+        multiTasking.add(func);
+        return func;
+    }
+
     @Override
     public boolean isPass() {
         return result;
     }
-    
+
     @Override
     public void run() {
-        for (FunctionCover cover : this.functions) {
-            cover.start();
-            multiTasking.add(cover);
-            if (!cover.isMutiTasking()) {
+        FunctionCover funcCover;
+        for (String function : functions) {
+            funcCover = createFuncCover(function);
+            funcCover.start();
+            if (!funcCover.isMutiTasking()) {
                 try {
-                    cover.join();
+                    funcCover.join();
                     if (hasTaskFailed()) {
                         break;
                     }
@@ -68,13 +79,18 @@ class Process implements IFunction {
             }
         }
     }
-    
-    void stop() {
+
+    void stop(String mess) {
+        functions.clear();
+        if (multiTasking.isEmpty()) {
+            return;
+        }
+        result = false;
         for (FunctionCover functionCover : multiTasking) {
-            functionCover.stop();
+            functionCover.stopTest(mess);
         }
     }
-    
+
     private boolean hasTaskFailed() {
         List<FunctionCover> funcRemoves = new ArrayList<>();
         try {

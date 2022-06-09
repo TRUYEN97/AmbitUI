@@ -8,10 +8,10 @@ import Model.ManagerUI.UIStatus.Elemants.UiData;
 import Control.Core.Core;
 import Control.Core.ModeTest;
 import Control.Core.CellTest;
+import Model.DataSource.ModeTest.ModeTestSource;
 import Model.DataTest.InputData;
 import Model.Interface.IUpdate;
 import View.subUI.SubUI.AbsSubUi;
-import java.util.List;
 import static java.util.Objects.isNull;
 
 /**
@@ -24,14 +24,13 @@ public class UiStatus implements IUpdate {
     private final String name;
     private final Core core;
     private final UiData uiData;
-    private Thread test;
     private CellTest cellTest;
     private ModeTest modeTest;
 
     public UiStatus(AbsSubUi subUi, Core core) {
+        this.core = core;
         this.subUi = subUi;
         this.name = subUi.getName();
-        this.core = core;
         this.uiData = new UiData(this);
     }
 
@@ -52,7 +51,7 @@ public class UiStatus implements IUpdate {
     }
 
     public boolean isTesting() {
-        return this.test != null && this.test.isAlive();
+        return this.cellTest != null && this.cellTest.isAlive();
     }
 
     @Override
@@ -88,18 +87,8 @@ public class UiStatus implements IUpdate {
         return name;
     }
 
-    public void setUnitTest(CellTest unitTest) {
-        this.cellTest = unitTest;
-        this.test = new Thread(unitTest);
-        this.test.start();
+    public void startTest(InputData inputData, ModeTestSource testSource) {
+        this.cellTest = new CellTest(this, inputData, testSource);
+        this.cellTest.start();
     }
-
-    public List<String> getFunctionSelected() {
-        return this.uiData.getFunctionSelected();
-    }
-
-    public void setInput(InputData inputData) {
-        this.uiData.setInput(inputData);
-    }
-
 }

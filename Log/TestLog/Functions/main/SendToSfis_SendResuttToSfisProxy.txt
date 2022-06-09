@@ -1,6 +1,6 @@
-2022-08-06 07:00:14 : Item[SendToSfis]-Function[SendResuttToSfisProxy]
-2022-08-06 07:00:14 : Turn 0:
-2022-08-06 07:00:14 : send to url: http://10.90.0.40/sfcapi/api/connectfinal
-2022-08-06 07:00:14 : command = {"STATUS":"PASS","PCNAME":"REPAIR-7801","MODE":"Debug","MLBSN":"GGB1UD2222141D07"}
-2022-08-06 07:00:14 : {"result":"PASS","message":"OK. Go to FA API !","data":""}
-2022-08-06 07:00:14 : Time[0.036 s]---Result[PASS]
+2022-06-09 13:24:52 : Item[SendToSfis] - Function[SendResuttToSfisProxy]
+2022-06-09 13:24:52 : Turn 0:
+2022-06-09 13:24:52 : send to url: http://10.90.0.40/sfcapi/api/connectfinal
+2022-06-09 13:24:52 : command = null
+2022-06-09 13:24:52 : Result: FAILED
+2022-06-09 13:24:52 : Time[0.003 s] - Status[FAILED]
