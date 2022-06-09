@@ -1,11 +1,11 @@
 {
     "UUT_MODEL": "Trieste",
     "STATION_NAME": "RTT",
-    "TIME_OUT_TEST": 100,
+    "TIME_OUT_TEST": 10,
     "INIT": [
         {
-            "FLAG": false,
-            "TIME_OVER": 10,
+            "FLAG": true,
+            "TIME_OVER": 30,
             "SEND_FORMAT": ["sn", "pcname", "mode"],
             "DATA_FORMAT": ["mlbsn", "ethernetmac", "pnname", "model", "smode"],
             "URL_CHECK_SN": "http://10.90.0.40/sfcapi/api/connect",

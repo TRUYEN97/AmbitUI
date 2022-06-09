@@ -1,7 +1,7 @@
-2022-06-09 04:16:07 : Item[CheckSnSfis]-Function[CheckSnFormSFISProxy]
-2022-06-09 04:16:07 : Turn 0:
-2022-06-09 04:16:07 : send to url: http://10.90.0.40/sfcapi/api/connect
-2022-06-09 04:16:07 : command: {"PCNAME":"REPAIR-7801","MODE":"Debug","SN":"DFDFD"}
-2022-06-09 04:16:07 : {"result":"FAIL","message":"DEVICE_SN Length error!DFDFD","data":""}
-2022-06-09 04:16:07 : DEVICE_SN Length error!DFDFD
-2022-06-09 04:16:07 : Time[0.096 s]---Result[FAILED]
+2022-06-09 22:37:27 : Item[CheckSnSfis] - Function[CheckSnFormSFISProxy]
+2022-06-09 22:37:27 : Turn 0:
+2022-06-09 22:37:27 : send to url: http://10.90.0.40/sfcapi/api/connect
+2022-06-09 22:37:27 : command: {"PCNAME":"REPAIR-7801","MODE":"Debug","SN":"JJ"}
+2022-06-09 22:37:37 : This function will be stop! Because out of time: (Test time: 10.110 S) > (10 S)
+2022-06-09 22:37:37 : Result: FAILED
+2022-06-09 22:37:37 : Time[10.108 s] - Status[FAILED]

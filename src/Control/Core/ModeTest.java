@@ -78,13 +78,13 @@ public class ModeTest implements IInit, IUpdate {
     private boolean checkIndex(InputData inputData) {
         if (isIndexEmpty(inputData)) {
             if (this.testSource.isMultiThread()) {
-                return getIndex(inputData);
+                getIndex(inputData);
             } else {
                 inputData.setIndex("main");
-                return true;
             }
         }
-        return true;
+        return this.uIManager.isIndexFree(inputData.getIndex());
+
     }
 
     public ModeElement getModeConfig() {
@@ -93,7 +93,7 @@ public class ModeTest implements IInit, IUpdate {
 
     private boolean isIndexEmpty(InputData inputData) {
         String index = inputData.getIndex();
-        return index == null || index.isBlank() || !uIManager.isIndexFree(index);
+        return index == null || index.isBlank();
     }
 
     private boolean getIndex(InputData inputData) throws HeadlessException {
