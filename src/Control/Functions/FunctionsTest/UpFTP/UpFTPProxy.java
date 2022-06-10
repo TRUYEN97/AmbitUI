@@ -15,7 +15,7 @@ public class UpFTPProxy extends AbsProxy<AbsFunction>{
 
     @Override
     public AbsFunction takeIt() {
-        return new UpFTP(getName());
+        return new UpFTP(getTypeName());
     }
     
 }

@@ -15,7 +15,7 @@ public class InputFaDataProxy extends AbsProxy<AbsFunction>{
 
     @Override
     public AbsFunction takeIt() {
-        return new InputFaData(getName());
+        return new InputFaData(getTypeName());
     }
     
 }

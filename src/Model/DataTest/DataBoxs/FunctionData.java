@@ -5,9 +5,6 @@
 package Model.DataTest.DataBoxs;
 
 import Model.DataTest.ErrorLog;
-import Model.DataSource.ModeTest.FunctionConfig.FunctionConfig;
-import Model.DataSource.ModeTest.FunctionConfig.FunctionElement;
-import Model.DataSource.Setting.Setting;
 import MyLoger.MyLoger;
 import Time.WaitTime.Class.TimeS;
 import java.io.File;
@@ -25,27 +22,25 @@ public class FunctionData {
     private final TimeS timeS;
     private final List<ItemTestData> itemTests;
     private ErrorFunctionTest errorFunc;
-    private final FunctionElement funcConfig;
     private boolean testing;
     private boolean isPass;
     private String resultTest;
     private Double testTime;
+    private final String itemName;
+    private final String funcName;
 
-    public FunctionData(FunctionElement funcConfig) {
+    public FunctionData(String itemName, String funcName) {
         this.loger = new MyLoger();
         this.timeS = new TimeS();
         this.itemTests = new ArrayList<>();
-        this.funcConfig = funcConfig;
+        this.itemName = itemName;
+        this.funcName = funcName;
         this.testing = false;
         this.isPass = false;
     }
 
-    public FunctionElement getFunctionConfig() {
-        return this.funcConfig;
-    }
-
     public String getItemFunction() {
-        return this.funcConfig.getItemName();
+        return this.itemName;
     }
 
     public boolean setErrorFunc(ErrorFunctionTest errorFunc) {
@@ -80,12 +75,6 @@ public class FunctionData {
     }
 
     public String getResultTest() {
-        if (testing) {
-            return funcConfig.isMutiTasking() ? "multitasking" : "Testing";
-        }
-        if (resultTest == null) {
-            return createDefaultResult();
-        }
         return resultTest;
     }
 
@@ -107,7 +96,7 @@ public class FunctionData {
     }
 
     public String getFunctionName() {
-        return this.funcConfig.getFunctionName();
+        return this.funcName;
     }
 
     public double getRunTime() {
@@ -147,12 +136,12 @@ public class FunctionData {
         return isPass;
     }
 
-    public void setPass() {
-        this.isPass = true;
+    public void setStatus(boolean stt) {
+        this.isPass = stt;
     }
 
-    public void setFail() {
-        this.isPass = false;
+    public String createDefaultResult() {
+        return isPass ? "PASS" : "FAILED";
     }
 
     private String startFunction() {
@@ -160,12 +149,15 @@ public class FunctionData {
                 this.getItemFunction(), this.getFunctionName());
     }
 
-    private String createDefaultResult() {
-        return isPass ? "PASS" : "FAILED";
-    }
-
     private String endFunction() {
         return String.format("Time[%.3f s] - Status[%s]",
                 this.testTime, createDefaultResult());
+    }
+
+    public String getStaus() {
+        if (testing) {
+            return "Testing";
+        }
+        return createDefaultResult();
     }
 }

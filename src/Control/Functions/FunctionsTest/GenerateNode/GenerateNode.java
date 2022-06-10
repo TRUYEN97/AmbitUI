@@ -20,7 +20,7 @@ public class GenerateNode extends AbsFunction{
     public boolean test() {
         for (int i = 0; i < 10; i++) {
             try {
-                System.out.println(getItemName() + i);
+                System.out.println(getFuntionName() + i);
                 this.addLog(i);
                 Thread.sleep(500);
             } catch (InterruptedException ex) {

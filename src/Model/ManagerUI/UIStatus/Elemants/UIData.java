@@ -136,8 +136,8 @@ public class UiData {
         this.inputData = inputData;
     }
 
-    public FunctionData createFuncData(FunctionElement funcConfig) {
-        FunctionData dataBox = new FunctionData(funcConfig);
+    public FunctionData createFuncData(String itemName, String funcName) {
+        FunctionData dataBox = new FunctionData(itemName, funcName);
         this.dataBoxs.add(dataBox);
         return dataBox;
     }

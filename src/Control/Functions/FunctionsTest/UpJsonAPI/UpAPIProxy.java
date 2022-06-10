@@ -15,7 +15,7 @@ public class UpAPIProxy extends AbsProxy<AbsFunction>{
 
     @Override
     public AbsFunction takeIt() {
-        return new UpAPI(getName());
+        return new UpAPI(getTypeName());
     }
     
 }

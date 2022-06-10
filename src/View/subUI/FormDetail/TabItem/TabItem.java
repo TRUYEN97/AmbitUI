@@ -236,6 +236,6 @@ public class TabItem extends AbsTabUI {
     }
 
     private String getStatus(FunctionData dataBox) {
-        return dataBox.getResultTest();
+        return dataBox.getStaus();
     }
 }

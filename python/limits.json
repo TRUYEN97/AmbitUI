@@ -1,7 +1,7 @@
 {
   "model": "eden",
   "station_type": "rtt",
-  "timestamp": "2022-06-09 12:54:49",
+  "timestamp": "2022-06-10 09:18:49",
   "limits_validation": "passed",
   "limits": {
     "ap_bringup_2g": {

@@ -22,7 +22,7 @@ public class UpAPI extends AbsFunction {
     @Override
     public boolean test() {
         addLog("Get filePath from signal!");
-        String keyword = funcConfig.getValue("keyWord");
+        String keyword = this.allConfig.getString("keyWord");
         addLog(" -With keyWord: " + keyword);
         if (getFilePath(keyword)) {
             return upAPI();
@@ -64,11 +64,11 @@ public class UpAPI extends AbsFunction {
     }
 
     private String getCmdComand(final String keyWord) {
-        if (funcConfig.getValue(keyWord) == null) {
+        if (this.allConfig.getString(keyWord) == null) {
             addLog(String.format("function config missing \"%s\" key", keyWord));
             return null;
         }
-        String command = String.format("%s%s", funcConfig.getValue(keyWord), this.filePath);
+        String command = String.format("%s%s", this.allConfig.getString(keyWord), this.filePath);
         addLog("Cmd comand : " + command);
         return command;
     }

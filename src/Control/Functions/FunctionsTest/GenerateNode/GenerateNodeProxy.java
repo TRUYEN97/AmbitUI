@@ -17,7 +17,7 @@ public class GenerateNodeProxy extends AbsProxy<AbsFunction>{
 
     @Override
     public GenerateNode takeIt() {
-        return new GenerateNode(getName());
+        return new GenerateNode(getTypeName());
     }
     
 }

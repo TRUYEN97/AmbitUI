@@ -5,7 +5,6 @@
 package Control.Core;
 
 import Control.Functions.FunctionCover;
-import Control.Functions.AbsFunction;
 import Model.DataTest.ErrorLog;
 import Model.Factory.Factory;
 import Model.Interface.IFunction;
@@ -40,7 +39,7 @@ class Process implements IFunction {
 
     private FunctionCover createFuncCover(String function) {
         FunctionCover func = new FunctionCover(
-                this.factory.getFunc(function, function), uiStatus);
+                this.factory.getFunc(function), uiStatus);
         multiTasking.add(func);
         return func;
     }

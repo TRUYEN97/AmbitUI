@@ -34,7 +34,7 @@ public class CreateFaJson extends AbsFunction {
     }
 
     private boolean saveToFile(JSONObject baseData) {
-        String filePath = funcConfig.getValue("LOCAL_FILE");
+        String filePath = this.allConfig.getString("LOCAL_FILE");
         String nameFile = createNameFile();
         if (saveFile(filePath, nameFile, baseData.toJSONString())) {
             addLog(String.format("Save json file at %s done!", nameFile));
@@ -45,7 +45,7 @@ public class CreateFaJson extends AbsFunction {
     }
 
     private boolean putNameFileToSignal(String nameFile) {
-        String keywowk = this.funcConfig.getValue("JsonPathKey");
+        String keywowk = this.allConfig.getString("JsonPathKey");
         if (keywowk == null) {
             addLog("Key of FilePath is null!");
             return false;
@@ -66,7 +66,7 @@ public class CreateFaJson extends AbsFunction {
     }
 
     private JSONObject getFaJsonData() {
-        String key = this.funcConfig.getValue("KEY_WORD");
+        String key = this.allConfig.getString("KEY_WORD");
         addLog("Get FA json data in signal!");
         addLog("Get with key: " + key);
         var data = this.uiData.getSignal(key);

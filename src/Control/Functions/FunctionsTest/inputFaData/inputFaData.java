@@ -50,7 +50,7 @@ public class InputFaData extends AbsFunction {
         try {
             addLog("Add select json data to signal!");
             JSONObject data = faApi.getData();
-            String keyWord = funcConfig.getValue("KEY_WORD");
+            String keyWord = this.allConfig.getString("KEY_WORD");
             addLog(data.toJSONString());
             this.uiData.putToSignal(keyWord, faApi.getData());
             addLog("keyword: " + keyWord);

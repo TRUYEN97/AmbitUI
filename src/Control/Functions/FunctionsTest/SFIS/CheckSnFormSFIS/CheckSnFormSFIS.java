@@ -26,7 +26,7 @@ public class CheckSnFormSFIS extends AbsFunction {
 
     @Override
     public boolean test() {
-        String url = funcConfig.getValue("URL_CHECK_SN");
+        String url = this.allConfig.getString("URL_CHECK_SN");
         addLog("send to url: " + url);
         String command = this.createCommand();
         addLog("command: " + command);
@@ -41,7 +41,7 @@ public class CheckSnFormSFIS extends AbsFunction {
 
     private String createCommand() {
         JSONObject command = new JSONObject();
-        List<String> listKey = this.funcConfig.getListString("SEND_FORMAT");
+        List<String> listKey = this.allConfig.getListString("SEND_FORMAT");
         if (listKey == null || listKey.isEmpty()) {
             return null;
         }
@@ -69,7 +69,7 @@ public class CheckSnFormSFIS extends AbsFunction {
             JSONObject res = JSONObject.parseObject(response);
             if (res.getString(InputData.RESULT).equals("PASS")) {
                 JSONObject data = res.getJSONObject(InputData.DATA);
-                for (String key : this.funcConfig.getListString("DATA_FORMAT")) {
+                for (String key : this.allConfig.getListString("DATA_FORMAT")) {
                     if (data.containsKey(key)) {
                         String value = data.getString(key);
                         addLog(String.format("add key: %s -- Value: %s", key, value));

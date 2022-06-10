@@ -20,7 +20,7 @@ public class FixtureAction extends AbsFunction {
     public boolean test() {
         for (int i = 0; i < 10; i++) {
             try {
-                System.out.println(getItemName() + i);
+                System.out.println(getFuntionName() + i);
                 Thread.sleep(1000);
                 addLog(i);
             } catch (InterruptedException ex) {

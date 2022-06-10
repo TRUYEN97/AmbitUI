@@ -5,7 +5,10 @@
 package Model.DataSource.ModeTest.Limit;
 
 import Model.DataSource.AbsElementInfo;
+import Model.DataSource.DataWareHouse;
 import com.alibaba.fastjson.JSONObject;
+import java.util.List;
+import java.util.Set;
 
 /**
  *
@@ -24,4 +27,16 @@ public class LimitElement extends AbsElementInfo {
         return itemName;
     }
 
+    public Set<String> getListItem() {
+        return warehouse.toJson().keySet();
+    }
+
+    public String getString(String key, String defaultValue) {
+        String value = warehouse.getString(key);
+        return value == null ? defaultValue : value;
+    }
+
+    public String getString(String key) {
+        return warehouse.getString(key);
+    }
 }

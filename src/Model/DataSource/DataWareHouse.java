@@ -204,4 +204,8 @@ public class DataWareHouse {
             return false;
         }
     }
+
+    public Object get(String key) {
+        return coreData.get(key);
+    }
 }

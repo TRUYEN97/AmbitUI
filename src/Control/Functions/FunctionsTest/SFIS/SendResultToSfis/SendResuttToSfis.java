@@ -26,7 +26,7 @@ public class SendResuttToSfis extends AbsFunction {
 
     @Override
     public boolean test() {
-        String url = funcConfig.getValue("URL_SEND_RESULT");
+        String url = this.allConfig.getString("URL_SEND_RESULT");
         addLog("send to url: " + url);
         String command = createCommand();
         addLog("command = " + command);
@@ -40,7 +40,7 @@ public class SendResuttToSfis extends AbsFunction {
 
     private String createCommand() {
         JSONObject command = new JSONObject();
-        List<String> listKey = this.funcConfig.getListString("SEND_FORMAT");
+        List<String> listKey = this.allConfig.getListString("SEND_FORMAT");
         if (listKey == null || listKey.isEmpty()) {
             return null;
         }

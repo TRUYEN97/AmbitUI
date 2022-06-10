@@ -45,7 +45,7 @@ public class CreateTxtLog extends AbsFunction {
                 loger.addLog("/////////////////////////////////////////////\r\n");
             }
             addLog("Save file txt ok!");
-            String keyOfFilePath = funcConfig.getValue("FileTxt");
+            String keyOfFilePath = this.allConfig.getString("FileTxt");
             addLog("Key of filePath in Signal: " + keyOfFilePath);
             uiData.putToSignal(keyOfFilePath, this.txtFile);
             return true;
@@ -59,7 +59,7 @@ public class CreateTxtLog extends AbsFunction {
     }
 
     private String creatFilePath(String hauTo) {
-        String dir = this.funcConfig.getValue("LOCAL_FILE");
+        String dir = this.allConfig.getString("LOCAL_FILE");
         return String.format("%s/%s", dir, createNameFile(hauTo));
     }
 

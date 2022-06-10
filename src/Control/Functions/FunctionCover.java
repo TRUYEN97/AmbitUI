@@ -21,7 +21,6 @@ public class FunctionCover extends Thread {
 
     private final AbsFunction function;
     private final FunctionData functionData;
-    private final double timeSpec;
     private final FunctionElement funcConfig;
     private final ModeTest modeTest;
     private final AbsSubUi subUi;
@@ -31,10 +30,10 @@ public class FunctionCover extends Thread {
         this.function = function;
         this.modeTest = uiStatus.getModeTest();
         this.subUi = uiStatus.getSubUi();
-        this.funcConfig = this.modeTest.getModeTestSource().getFunctionsConfig(this.function.getItemName());
-        this.timeSpec = this.funcConfig.getTimeOutFunction();
-        this.functionData = uiStatus.getUiData().createFuncData(this.funcConfig);
-        this.function.setUIStatus(uiStatus, functionData);
+        this.funcConfig = this.modeTest.getModeTestSource().getFunctionsConfig(this.function.getFuntionName());
+        this.functionData = uiStatus.getUiData().
+                createFuncData(this.funcConfig.getItemName(),this.funcConfig.getFunctionName());
+        this.function.setUIStatus(uiStatus, functionData, this.funcConfig);
     }
 
     @Override
@@ -57,6 +56,7 @@ public class FunctionCover extends Thread {
     }
 
     private void checkOutTime() {
+        final double timeSpec = this.funcConfig.getTimeOutFunction();
         while (this.thread.isAlive()) {
             try {
                 this.thread.join(1000);
@@ -89,17 +89,13 @@ public class FunctionCover extends Thread {
                 this.functionData.addLog("Mode Skip: " + modeTest.toString());
                 this.functionData.addLog("This function will be canceled because the mode is " + modeTest.toString());
                 this.functionData.setResult("Canceled");
-                this.functionData.setPass();
+                this.functionData.setStatus(true);
                 return;
             }
             for (int turn = 0; turn < getRetry(); turn++) {
                 this.functionData.addLog(String.format("Turn %s:", turn));
-                if (this.function.test()) {
-                    this.functionData.setPass();
-                    return;
-                }
+                this.function.run();
             }
-            this.functionData.setFail();
         } catch (Exception e) {
             ErrorLog.addError(e.getLocalizedMessage());
             this.functionData.addLog(e.getMessage());

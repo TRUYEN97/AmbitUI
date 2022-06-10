@@ -6,7 +6,6 @@ package View.subUI.SubUI.BigUI;
 
 import Model.Factory.AbsProxy;
 import View.subUI.SubUI.AbsSubUi;
-import View.subUI.SubUI.BigUI.BigUI;
 
 /**
  *

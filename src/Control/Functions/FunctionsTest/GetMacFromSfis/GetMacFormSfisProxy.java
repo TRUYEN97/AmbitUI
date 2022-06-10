@@ -19,7 +19,7 @@ public class GetMacFormSfisProxy extends AbsProxy<AbsFunction> {
     
     @Override
     public GetMacFromSfis takeIt() {
-        return new GetMacFromSfis(this.getName());
+        return new GetMacFromSfis(getTypeName());
     }
 
 }

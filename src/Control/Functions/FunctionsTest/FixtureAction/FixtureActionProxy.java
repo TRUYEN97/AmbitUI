@@ -18,7 +18,7 @@ public class FixtureActionProxy extends AbsProxy<AbsFunction> {
 
     @Override
     public AbsFunction takeIt() {
-        return new FixtureAction(getName());
+        return new FixtureAction(getTypeName());
     }
 
 }

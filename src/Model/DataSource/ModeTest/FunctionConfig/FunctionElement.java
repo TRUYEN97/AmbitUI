@@ -7,6 +7,7 @@ package Model.DataSource.ModeTest.FunctionConfig;
 import Model.DataSource.AbsElementInfo;
 import com.alibaba.fastjson.JSONObject;
 import java.util.List;
+import java.util.Set;
 
 /**
  *
@@ -63,12 +64,16 @@ public class FunctionElement extends AbsElementInfo {
         return warehouse.getBoolean(FuncKeyWord.FLAG);
     }
 
-    public String getValue(String key) {
+    public String getString(String key) {
         return warehouse.getString(key);
     }
 
     public List<String> getListString(String key) {
         return warehouse.getListJsonArray(key);
+    }
+
+    public Set<String> getListItem() {
+        return warehouse.toJson().keySet();
     }
 
 }

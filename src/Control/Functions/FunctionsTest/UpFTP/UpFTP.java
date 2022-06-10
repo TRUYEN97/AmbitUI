@@ -36,20 +36,20 @@ public class UpFTP extends AbsFunction {
 
     private boolean initFtp() {
         addLog("Connect to ftp!!");
-        String user = funcConfig.getValue("FtpUser");
+        String user = this.allConfig.getString("FtpUser");
         addLog("User: " + user);
-        String passWord = funcConfig.getValue("FtpPassword");
+        String passWord = this.allConfig.getString("FtpPassword");
         addLog("PassWord: " + passWord);
-        String host = funcConfig.getValue("FtpHost");
+        String host = this.allConfig.getString("FtpHost");
         addLog("Host: " + host);
-        int port = Integer.valueOf(funcConfig.getValue("FtpPort"));
+        int port = Integer.valueOf(this.allConfig.getString("FtpPort"));
         addLog("Port: " + port);
         ftp = new FtpClient(host, port, user, passWord);
         return ftp.connect();
     }
 
     private String getFilePathFormSignal(String configKey) {
-        String key = funcConfig.getValue(configKey);
+        String key = this.allConfig.getString(configKey);
         addLog("Get filePath in Signal with key: " + key);
         String filePath = uiData.getSignal(key).toString();
         addLog("filePath: " + filePath);
@@ -62,7 +62,7 @@ public class UpFTP extends AbsFunction {
             addLog(String.format("File \"%s\" not exists! ", filePath));
             return false;
         }
-        String dirFtp = funcConfig.getValue("dirFtp");
+        String dirFtp = this.allConfig.getString("dirFtp");
         if (dirFtp == null) {
             addLog("Directory of FTP is null with key: dirFtp");
         }

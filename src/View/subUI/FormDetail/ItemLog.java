@@ -89,7 +89,7 @@ public class ItemLog extends javax.swing.JFrame {
 
         txtLog.setEditable(false);
         txtLog.setColumns(20);
-        txtLog.setFont(new java.awt.Font("Segoe UI", 0, 16)); // NOI18N
+        txtLog.setFont(new java.awt.Font("Arial", 0, 14)); // NOI18N
         txtLog.setRows(5);
         jScrollPane2.setViewportView(txtLog);
 
