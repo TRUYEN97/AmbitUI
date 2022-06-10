@@ -65,11 +65,11 @@ public class DataWareHouse {
         return null;
     }
 
-    public String[] getArrays(String key) {
-        return getArrays(coreData, key);
+    public String[] getArrays(String key, String regex) {
+        return getArrays(coreData, key, regex);
     }
 
-    public String[] getArrays(JSONObject json, String key) {
+    public String[] getArrays(JSONObject json, String key, String regex) {
         if (json.containsKey(key)) {
             String[] arr = json.getString(key).split(",");
             String[] newArr = new String[arr.length];
@@ -81,28 +81,28 @@ public class DataWareHouse {
         return null;
     }
 
-    public Integer getIntege(JSONObject json, String key, int radix) {
+    public Integer getInteger(JSONObject json, String key) {
         try {
-            return Integer.parseInt(getString(json, key), radix);
+            Integer value = json.getInteger(key);
+            if (value != null) {
+                return value;
+            }
+            return Integer.parseInt(getString(json, key));
         } catch (NumberFormatException e) {
             return null;
         }
     }
 
-    public Integer getIntege(String key, int radix) {
-        return getIntege(coreData, key, radix);
-    }
-
-    public Integer getIntege(JSONObject json, String key) {
-        return getIntege(json, key, 10);
-    }
-
     public Integer getInteger(String key) {
-        return getIntege(coreData, key, 10);
+        return getInteger(coreData, key);
     }
 
     public Double getDouble(JSONObject json, String key) {
         try {
+            Double value = json.getDouble(key);
+            if (value != null) {
+                return value;
+            }
             return Double.parseDouble(getString(json, key));
         } catch (NumberFormatException e) {
             return null;
@@ -110,7 +110,7 @@ public class DataWareHouse {
     }
 
     public Double getDouble(String key) {
-        return getDouble(coreData, key);
+        return DataWareHouse.this.getDouble(coreData, key);
     }
 
     public JSONObject getJson(JSONObject jsono, String key) {
@@ -157,12 +157,12 @@ public class DataWareHouse {
         this.coreData.put(key, get);
     }
 
-    public List<String> getListSlip(String key) {
-        return Arrays.asList(getArrays(key));
+    public List<String> getListSlip(String key, String regex) {
+        return Arrays.asList(getArrays(key, regex));
     }
 
-    public List<String> getListSlip(JSONObject json, String key) {
-        return Arrays.asList(getArrays(json, key));
+    public List<String> getListSlip(JSONObject json, String key, String regex) {
+        return Arrays.asList(getArrays(json, key, regex));
     }
 
     public List<JSONObject> getListJson(String key) {
@@ -187,6 +187,10 @@ public class DataWareHouse {
 
     public Long getLong(JSONObject json, String key) {
         try {
+            Long value = json.getLong(key);
+            if (value != null) {
+                return value;
+            }
             return Long.parseLong(getString(json, key));
         } catch (NumberFormatException e) {
             return null;

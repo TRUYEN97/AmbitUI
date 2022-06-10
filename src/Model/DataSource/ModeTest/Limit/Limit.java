@@ -63,7 +63,7 @@ public class Limit extends AbsJsonSource<LimitElement> {
     @Override
     protected boolean getData() {
         DataWareHouse wareHouse = readFile.getData();
-        JSONObject limits = wareHouse.getJson(KeyWord.LIMITS);
+        JSONObject limits = wareHouse.getJson(LimitKeyWord.LIMITS);
         if (isNull(limits)) {
             return false;
         }

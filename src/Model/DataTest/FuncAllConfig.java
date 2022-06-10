@@ -7,6 +7,7 @@ package Model.DataTest;
 import Model.DataSource.DataWareHouse;
 import Model.DataSource.ModeTest.FunctionConfig.FunctionElement;
 import Model.DataSource.ModeTest.Limit.LimitElement;
+import Model.DataSource.ModeTest.Limit.LimitKeyWord;
 import Model.ManagerUI.UIStatus.UiStatus;
 import java.util.List;
 
@@ -27,7 +28,7 @@ public class FuncAllConfig {
         this.functionName = functionName;
     }
 
-    public void setUIStatus(UiStatus uiStatus, FunctionElement functionConfig) {
+    public void setResuorces(UiStatus uiStatus, FunctionElement functionConfig) {
         this.uiStatus = uiStatus;
         this.functionConfig = functionConfig;
         this.limitElement = uiStatus.getModeTest().
@@ -66,8 +67,23 @@ public class FuncAllConfig {
     public List<String> getListString(String key) {
         return wareHouse.getListJsonArray(key);
     }
+    
+    public List<String> getListSlip(String key, String regex) {
+        return wareHouse.getListSlip(key, regex);
+    }
 
-    public Integer getTestType() {
-        return wareHouse.getInteger("limit_type");
+    public String getTestType() {
+        return wareHouse.getString(LimitKeyWord.LIMIT_TYPE);
+    }
+    
+    public boolean limitFileAvailable() {
+        return this.limitElement != null &&
+                this.limitElement.getInteger(LimitKeyWord.REQUIRED) != null &&
+                this.limitElement.getInteger(LimitKeyWord.REQUIRED) > 0;
+    }
+    
+    public boolean funcConfigAvailable() {
+        return this.functionConfig != null && 
+                this.functionConfig.getString(LimitKeyWord.LIMIT_TYPE) != null;
     }
 }

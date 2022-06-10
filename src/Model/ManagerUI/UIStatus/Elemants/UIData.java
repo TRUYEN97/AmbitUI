@@ -9,7 +9,6 @@ import Model.DataTest.DataBoxs.ProcessTestSignal;
 import Model.DataTest.ErrorLog;
 import Model.DataTest.InputData;
 import Model.DataSource.DataWareHouse;
-import Model.DataSource.ModeTest.FunctionConfig.FunctionElement;
 import Model.ManagerUI.UIStatus.UiStatus;
 import java.util.ArrayList;
 import java.util.List;

@@ -11,7 +11,7 @@ import java.util.List;
  *
  * @author Administrator
  */
-class KeyWord {
+public class LimitKeyWord {
 
     public static final String MODEL = "model";
     public static final String STATION = "station_type";

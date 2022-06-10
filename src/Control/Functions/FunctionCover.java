@@ -33,7 +33,7 @@ public class FunctionCover extends Thread {
         this.funcConfig = this.modeTest.getModeTestSource().getFunctionsConfig(this.function.getFuntionName());
         this.functionData = uiStatus.getUiData().
                 createFuncData(this.funcConfig.getItemName(),this.funcConfig.getFunctionName());
-        this.function.setUIStatus(uiStatus, functionData, this.funcConfig);
+        this.function.setResuorces(uiStatus, functionData, this.funcConfig);
     }
 
     @Override
@@ -92,7 +92,7 @@ public class FunctionCover extends Thread {
                 this.functionData.setStatus(true);
                 return;
             }
-            for (int turn = 0; turn < getRetry(); turn++) {
+            for (int turn = 0; turn < getRetry() && !function.isPass(); turn++) {
                 this.functionData.addLog(String.format("Turn %s:", turn));
                 this.function.run();
             }

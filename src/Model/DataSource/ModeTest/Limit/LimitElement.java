@@ -5,9 +5,7 @@
 package Model.DataSource.ModeTest.Limit;
 
 import Model.DataSource.AbsElementInfo;
-import Model.DataSource.DataWareHouse;
 import com.alibaba.fastjson.JSONObject;
-import java.util.List;
 import java.util.Set;
 
 /**
@@ -19,7 +17,7 @@ public class LimitElement extends AbsElementInfo {
     private final String itemName;
 
     LimitElement(String itemName, JSONObject base, JSONObject element) {
-        super(KeyWord.KEYS, base, base);
+        super(LimitKeyWord.KEYS, base, element);
         this.itemName = itemName;
     }
 
@@ -38,5 +36,9 @@ public class LimitElement extends AbsElementInfo {
 
     public String getString(String key) {
         return warehouse.getString(key);
+    }
+
+    public Integer getInteger(String key) {
+        return warehouse.getInteger(key);
     }
 }

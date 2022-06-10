@@ -194,8 +194,8 @@ public class TabItem extends AbsTabUI {
 
     @Override
     public void startTest() {
-        super.startTest();
         initTable(testColumn);
+        super.startTest();
     }
 
     @Override
