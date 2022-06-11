@@ -1,6 +1,6 @@
 {
     "UUT_MODEL": "Trieste",
-    "STATION_NAME": "RTT",
+    "station_type": "RTT",
     "TIME_OUT_TEST": 100,
     "INIT": [
         {
@@ -18,11 +18,10 @@
             "FLAG": true,
             "FAIL_CONTNIUE": false,
             "CANCEL": "DEBUG",
-            "TIME_OVER": 300,
+            "TIME_OVER": 30,
             "RETRY": 5,
             "MULTI_TASK": false,
-            "TYPE": "BOOL",
-            "SPEC": "sqt",
+            "limit_type": "BOOL",
             "ITEM_NAME": "gen_node",
             "FUNC_NAME": "GenerateNodeProxy"
         },
@@ -33,9 +32,6 @@
             "TIME_OVER": 700,
             "MULTI_TASK": false,
             "RETRY": 1,
-            "TYPE": "LIMIT",
-            "LIMIT_UP": "2",
-            "LIMIT_DN": "0",
             "ITEM_NAME": "nodeproperty_mac",
             "FUNC_NAME": "GetMacFormSfisProxy"
         },
@@ -44,8 +40,7 @@
             "TIME_OVER": 200,
             "MULTI_TASK": false,
             "RETRY": 1,
-            "TYPE": "MACTH",
-            "SPEC": "spec",
+            "limit_type": "MACTH",
             "ITEM_NAME": "fixture_close",
             "FUNC_NAME": "FixtureActionProxy"
         }

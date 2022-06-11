@@ -4,16 +4,15 @@
  */
 package Control.Functions;
 
+import Model.AllKeyWord;
 import Model.DataSource.ModeTest.FunctionConfig.FunctionElement;
-import Model.DataSource.ModeTest.Limit.LimitKeyWord;
 import Model.ManagerUI.UIStatus.Elemants.UiData;
 import Model.ManagerUI.UIStatus.UiStatus;
 import View.subUI.SubUI.AbsSubUi;
 import Model.Interface.IFunction;
 import Model.DataTest.DataBoxs.FunctionData;
-import Model.DataTest.ErrorLog;
+import Model.DataTest.DataBoxs.ItemTestData;
 import Model.DataTest.FuncAllConfig;
-import java.util.List;
 
 /**
  *
@@ -22,30 +21,30 @@ import java.util.List;
 public abstract class AbsFunction implements IFunction {
 
     protected final FuncAllConfig allConfig;
+    private final ItemTestData itemTestData;
+    private final AnalysisResult analysisResult;
     private FunctionData functionData;
     protected UiData uiData;
     protected AbsSubUi subUi;
 
     protected AbsFunction(String functionName) {
         this.allConfig = new FuncAllConfig(functionName);
+        this.itemTestData = new ItemTestData(functionName, allConfig);
+        this.analysisResult = new AnalysisResult(itemTestData, allConfig);
     }
 
-    public void setResuorces(UiStatus uiStatus, FunctionData functionData, FunctionElement funcConfig) {
-        this.allConfig.setResuorces(uiStatus, funcConfig);
+    public void setResources(UiStatus uiStatus, FunctionData functionData, FunctionElement funcConfig) {
         this.functionData = functionData;
+        this.allConfig.setResources(uiStatus, funcConfig);
         this.uiData = uiStatus.getUiData();
         this.subUi = uiStatus.getSubUi();
+        this.functionData.addItemtest(itemTestData);
+        this.itemTestData.start();
     }
 
     @Override
     public void run() {
-        boolean status = test();
-        if (isResultAvailable() && isLimitAvailable()) {
-            checkResultWithLimits(getResult());
-        } else {
-            this.functionData.setStatus(status);
-            setResult(this.functionData.createDefaultResult());
-        }
+        this.analysisResult.checkResult(test(), getResult());
     }
 
     protected abstract boolean test();
@@ -54,22 +53,13 @@ public abstract class AbsFunction implements IFunction {
         this.functionData.addLog(str);
     }
 
-    private boolean isLimitAvailable() {
-        return allConfig.limitFileAvailable()
-                || allConfig.funcConfigAvailable();
-    }
-
-    private boolean isResultAvailable() {
-        return getResult() != null && !getResult().isBlank();
-    }
-
     @Override
     public boolean isPass() {
-        return functionData.isPass();
+        return itemTestData.isPass();
     }
 
     protected void setResult(String result) {
-        this.functionData.setResult(result);
+        this.itemTestData.setResult(result);
     }
 
     public String getFuntionName() {
@@ -80,43 +70,8 @@ public abstract class AbsFunction implements IFunction {
         return this.functionData.getResultTest();
     }
 
-    private void checkResultWithLimits(String result) {
-        String type = allConfig.getTestType();
-        if (type.equals("BOOL")) {
-            checkBoolType(result);
-        }
-    }
-
-    private void checkBoolType(String result) {
-        try {
-            if (getMatch(result, LimitKeyWord.LOWER_LIMIT)) {
-                this.functionData.setStatus(true);
-                return;
-            }
-            if (getMatch(result, LimitKeyWord.UPPER_LIMIT)) {
-                this.functionData.setStatus(true);
-                return;
-            }
-            this.functionData.setStatus(false);
-        } catch (Exception e) {
-            e.printStackTrace();
-            ErrorLog.addError(this, e.getMessage());
-            this.functionData.setStatus(false);
-        }
-
-    }
-
-    private boolean getMatch(String result, String key) {
-        List<String> limits = allConfig.getListSlip(key, "\\|");
-        if (limits != null && !limits.isEmpty()) {
-            for (String spec : limits) {
-                if (!spec.equals(result)) {
-                    return false;
-                }
-            }
-            return true;
-        }
-        return false;
+    void end() {
+        this.itemTestData.end();
     }
 
 }

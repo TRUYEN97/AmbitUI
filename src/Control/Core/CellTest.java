@@ -4,6 +4,7 @@
  */
 package Control.Core;
 
+import Model.AllKeyWord;
 import Model.DataTest.ErrorLog;
 import Model.DataTest.InputData;
 import Model.DataSource.ModeTest.ModeTestSource;
@@ -95,10 +96,10 @@ public class CellTest extends Thread {
         if (testFunctions.isEmpty()) {
             return false;
         }
-        this.uiData.putProductInfo(InputData.START_TIME, new TimeBase().getSimpleDateTime());
+        this.uiData.putProductInfo(AllKeyWord.START_TIME, new TimeBase().getSimpleDateTime());
         boolean result = runFunctions(testFunctions);
-        this.uiData.putProductInfo(InputData.FINISH_TIME, new TimeBase().getSimpleDateTime());
-        this.uiData.putProductInfo(InputData.CYCLE_TIME, String.valueOf(myTimer.getTime()));
+        this.uiData.putProductInfo(AllKeyWord.FINISH_TIME, new TimeBase().getSimpleDateTime());
+        this.uiData.putProductInfo(AllKeyWord.CYCLE_TIME, String.valueOf(myTimer.getTime()));
         return result;
     }
 

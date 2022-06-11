@@ -4,6 +4,7 @@
  */
 package Model.ManagerUI.UIStatus.Elemants;
 
+import Model.AllKeyWord;
 import Model.DataTest.DataBoxs.FunctionData;
 import Model.DataTest.DataBoxs.ProcessTestSignal;
 import Model.DataTest.ErrorLog;
@@ -56,7 +57,7 @@ public class UiData {
         for (String key : inputData.getkeySet()) {
             this.productData.put(key, inputData.getValue(key).toUpperCase());
         }
-        this.productData.put(InputData.MODE, this.uiStatus.getModeTest().getModeType());
+        this.productData.put(AllKeyWord.MODE, this.uiStatus.getModeTest().getModeType());
     }
 
     public FunctionData getFunctionData(String itemName) {
@@ -125,7 +126,7 @@ public class UiData {
     }
 
     public String getProductInfo(String key) {
-        if (key.equals(InputData.STATUS)) {
+        if (key.equals(AllKeyWord.STATUS)) {
             return isPass() ? "PASS" : "FAIL";
         }
         return this.productData.getString(key);

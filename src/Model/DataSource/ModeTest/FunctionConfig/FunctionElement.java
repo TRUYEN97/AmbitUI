@@ -4,6 +4,7 @@
  */
 package Model.DataSource.ModeTest.FunctionConfig;
 
+import Model.AllKeyWord;
 import Model.DataSource.AbsElementInfo;
 import com.alibaba.fastjson.JSONObject;
 import java.util.List;
@@ -16,52 +17,52 @@ import java.util.Set;
 public class FunctionElement extends AbsElementInfo {
 
     public FunctionElement(JSONObject base, JSONObject config) {
-        super(FuncKeyWord.KEYS, base, config);
+        super(AllKeyWord.FUNC_KEYS, base, config);
     }
 
     public String getFunctionName() {
-        return this.warehouse.getString(FuncKeyWord.FUNC_NAME);
+        return this.warehouse.getString(AllKeyWord.FUNC_NAME);
     }
 
     public String getItemName() {
-        return this.warehouse.getString(FuncKeyWord.ITEM_NAME);
+        return this.warehouse.getString(AllKeyWord.ITEM_NAME);
     }
 
     public boolean isMutiTasking() {
-        return this.warehouse.getBoolean(FuncKeyWord.MULTI_TASK);
+        return this.warehouse.getBoolean(AllKeyWord.MULTI_TASK);
     }
 
     public int getRetry() {
-        if (this.warehouse.getInteger(FuncKeyWord.RETRY) == null) {
+        if (this.warehouse.getInteger(AllKeyWord.RETRY) == null) {
             return 1;
         }
-        return this.warehouse.getInteger(FuncKeyWord.RETRY);
+        return this.warehouse.getInteger(AllKeyWord.RETRY);
     }
 
     public long getTimeOutFunction() {
-        if (this.warehouse.getLong(FuncKeyWord.TIME_OVER) == null) {
+        if (this.warehouse.getLong(AllKeyWord.TIME_OVER) == null) {
             return Long.MAX_VALUE;
         }
-        return this.warehouse.getLong(FuncKeyWord.TIME_OVER);
+        return this.warehouse.getLong(AllKeyWord.TIME_OVER);
     }
 
     public long getTimeOutTest() {
-        if (this.warehouse.getLong(FuncKeyWord.TIME_OUT_TEST) == null) {
+        if (this.warehouse.getLong(AllKeyWord.TIME_OUT_TEST) == null) {
             return Long.MAX_VALUE;
         }
-        return this.warehouse.getLong(FuncKeyWord.TIME_OUT_TEST) * 1000;
+        return this.warehouse.getLong(AllKeyWord.TIME_OUT_TEST) * 1000;
     }
 
     public String getModeCancel() {
-        return this.warehouse.getString(FuncKeyWord.CANCEL);
+        return this.warehouse.getString(AllKeyWord.CANCEL);
     }
 
     public boolean isSkipFail() {
-        return warehouse.getBoolean(FuncKeyWord.FAIL_CONTNIUE);
+        return warehouse.getBoolean(AllKeyWord.FAIL_CONTNIUE);
     }
 
     boolean isActive() {
-        return warehouse.getBoolean(FuncKeyWord.FLAG);
+        return warehouse.getBoolean(AllKeyWord.FLAG);
     }
 
     public String getString(String key) {

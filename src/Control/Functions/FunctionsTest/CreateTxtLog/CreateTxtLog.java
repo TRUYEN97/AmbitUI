@@ -5,6 +5,7 @@
 package Control.Functions.FunctionsTest.CreateTxtLog;
 
 import Control.Functions.AbsFunction;
+import Model.AllKeyWord;
 import Model.DataTest.DataBoxs.FunctionData;
 import Model.DataTest.ErrorLog;
 import Model.DataTest.InputData;
@@ -64,11 +65,11 @@ public class CreateTxtLog extends AbsFunction {
     }
 
     private String createNameFile(String hauTo) {
-        String serial = uiData.getProductInfo(InputData.MLBSN);
+        String serial = uiData.getProductInfo(AllKeyWord.MLBSN);
         serial = serial.replace('\\', '_');
         serial = serial.replace('/', '_');
-        String pcName = uiData.getProductInfo(InputData.PCNAME);
-        String mode = uiData.getProductInfo(InputData.MODE);
+        String pcName = uiData.getProductInfo(AllKeyWord.PCNAME);
+        String mode = uiData.getProductInfo(AllKeyWord.MODE);
         return String.format("%s_%s_%s_%s",
                 serial, pcName, mode, hauTo);
     }

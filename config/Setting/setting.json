@@ -1,5 +1,5 @@
 {
-    "STATION": "RTT",
+    "station_type": "RTT",
     "DHCP": false,
     "ROW": 1,
     "COLUMN": 1,

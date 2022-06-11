@@ -4,10 +4,10 @@
  */
 package Model.DataTest;
 
+import Model.AllKeyWord;
 import Model.DataSource.DataWareHouse;
 import Model.DataSource.ModeTest.FunctionConfig.FunctionElement;
 import Model.DataSource.ModeTest.Limit.LimitElement;
-import Model.DataSource.ModeTest.Limit.LimitKeyWord;
 import Model.ManagerUI.UIStatus.UiStatus;
 import java.util.List;
 
@@ -28,7 +28,7 @@ public class FuncAllConfig {
         this.functionName = functionName;
     }
 
-    public void setResuorces(UiStatus uiStatus, FunctionElement functionConfig) {
+    public void setResources(UiStatus uiStatus, FunctionElement functionConfig) {
         this.uiStatus = uiStatus;
         this.functionConfig = functionConfig;
         this.limitElement = uiStatus.getModeTest().
@@ -73,17 +73,17 @@ public class FuncAllConfig {
     }
 
     public String getTestType() {
-        return wareHouse.getString(LimitKeyWord.LIMIT_TYPE);
+        return wareHouse.getString(AllKeyWord.LIMIT_TYPE);
     }
     
     public boolean limitFileAvailable() {
         return this.limitElement != null &&
-                this.limitElement.getInteger(LimitKeyWord.REQUIRED) != null &&
-                this.limitElement.getInteger(LimitKeyWord.REQUIRED) > 0;
+                this.limitElement.getInteger(AllKeyWord.REQUIRED) != null &&
+                this.limitElement.getInteger(AllKeyWord.REQUIRED) > 0;
     }
     
     public boolean funcConfigAvailable() {
         return this.functionConfig != null && 
-                this.functionConfig.getString(LimitKeyWord.LIMIT_TYPE) != null;
+                this.functionConfig.getString(AllKeyWord.LIMIT_TYPE) != null;
     }
 }

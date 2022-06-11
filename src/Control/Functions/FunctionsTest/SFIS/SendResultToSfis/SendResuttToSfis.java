@@ -5,6 +5,7 @@
 package Control.Functions.FunctionsTest.SFIS.SendResultToSfis;
 
 import Control.Functions.AbsFunction;
+import Model.AllKeyWord;
 import Model.DataTest.ErrorLog;
 import Model.DataTest.InputData;
 import SfisAPI17.SfisAPI;
@@ -65,8 +66,8 @@ public class SendResuttToSfis extends AbsFunction {
         }
         try {
             JSONObject res = JSONObject.parseObject(response);
-            this.uiData.setMessage(res.getString(InputData.MESSAGE));
-            return res.getString(InputData.RESULT).equals("PASS");
+            this.uiData.setMessage(res.getString(AllKeyWord.MESSAGE));
+            return res.getString(AllKeyWord.RESULT).equals("PASS");
         } catch (Exception e) {
             e.printStackTrace();
             ErrorLog.addError(this, e.getMessage());

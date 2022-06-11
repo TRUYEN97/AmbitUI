@@ -4,6 +4,7 @@
  */
 package Control.Functions.FunctionsTest.CreateFaJson;
 
+import Model.AllKeyWord;
 import Model.DataTest.InputData;
 import View.subUI.FormDetail.TabFaApi.TabFaApi;
 
@@ -14,15 +15,15 @@ import View.subUI.FormDetail.TabFaApi.TabFaApi;
 public class KeyWordFaAPI {
 
     public static enum BASE_KEY {
-        station_name(InputData.PCNAME),
-        station_type(InputData.STATION),
-        error_details(InputData.ERROR_DES),
-        error_code(InputData.ERROR_CODE),
-        serial(InputData.MLBSN),
-        status(InputData.STATUS),
-        test_software_version(InputData.VERSION),
-        start_time(InputData.START_TIME),
-        finish_time(InputData.FINISH_TIME);
+        station_name(AllKeyWord.PCNAME),
+        station_type(AllKeyWord.STATION),
+        error_details(AllKeyWord.ERROR_DES),
+        error_code(AllKeyWord.ERROR_CODE),
+        serial(AllKeyWord.MLBSN),
+        status(AllKeyWord.STATUS),
+        test_software_version(AllKeyWord.VERSION),
+        start_time(AllKeyWord.START_TIME),
+        finish_time(AllKeyWord.FINISH_TIME);
         private final String inputKey;
 
         BASE_KEY(String inputKey) {
@@ -42,12 +43,12 @@ public class KeyWordFaAPI {
 
     public static enum FUNC_KEY {
         further_details(TabFaApi.REPAIR_DETAIL),
-        finish_time(InputData.FINISH_TIME),
+        finish_time(AllKeyWord.FINISH_TIME),
         repair_location(TabFaApi.LOCATION),
         reason_desc(TabFaApi.REASON_DES),
-        start_time(InputData.START_TIME),
-        debug_station(InputData.DEBUG_PC),
-        failed_station(InputData.FAIL_PC),
+        start_time(AllKeyWord.START_TIME),
+        debug_station(AllKeyWord.DEBUG_PC),
+        failed_station(AllKeyWord.FAIL_PC),
         repair_action(TabFaApi.ACTION);
         private final String inputKey;
         

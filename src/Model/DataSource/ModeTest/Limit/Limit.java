@@ -4,6 +4,7 @@
  */
 package Model.DataSource.ModeTest.Limit;
 
+import Model.AllKeyWord;
 import Model.DataTest.ErrorLog;
 import Model.DataSource.AbsJsonSource;
 import Model.DataSource.DataWareHouse;
@@ -63,7 +64,7 @@ public class Limit extends AbsJsonSource<LimitElement> {
     @Override
     protected boolean getData() {
         DataWareHouse wareHouse = readFile.getData();
-        JSONObject limits = wareHouse.getJson(LimitKeyWord.LIMITS);
+        JSONObject limits = wareHouse.getJson(AllKeyWord.LIMITS);
         if (isNull(limits)) {
             return false;
         }

@@ -1,6 +1,6 @@
 {
     "UUT_MODEL": "Trieste",
-    "STATION_NAME": "RTT",
+    "station_type": "RTT",
     "TIME_OUT_TEST": 60,
     "INIT": [
         {

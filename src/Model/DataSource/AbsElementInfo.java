@@ -14,18 +14,16 @@ import java.util.List;
 public abstract class AbsElementInfo {
 
     protected final DataWareHouse warehouse;
-    private final List<String> keys;
 
     protected AbsElementInfo(List<String> keys, JSONObject base, JSONObject config) {
         this.warehouse = new DataWareHouse();
-        this.keys = keys;
-        setSetting(base);
+        setSetting(keys,  base);
         this.warehouse.putAll(config);
     }
 
-    private void setSetting(JSONObject data) {
+    private void setSetting(List<String> keys,JSONObject data) {
         for (String key : data.keySet()) {
-            if (this.keys.contains(key)) {
+            if (keys.contains(key)) {
                 this.warehouse.put(key, data.get(key));
             }
         }

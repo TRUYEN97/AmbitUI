@@ -19,44 +19,33 @@ import javax.swing.JOptionPane;
 public class FunctionData {
 
     private final MyLoger loger;
-    private final TimeS timeS;
     private final List<ItemTestData> itemTests;
-    private ErrorFunctionTest errorFunc;
-    private boolean testing;
-    private boolean isPass;
-    private String resultTest;
-    private Double testTime;
     private final String itemName;
     private final String funcName;
 
     public FunctionData(String itemName, String funcName) {
         this.loger = new MyLoger();
-        this.timeS = new TimeS();
         this.itemTests = new ArrayList<>();
         this.itemName = itemName;
         this.funcName = funcName;
-        this.testing = false;
-        this.isPass = false;
     }
 
     public String getItemFunction() {
         return this.itemName;
     }
 
-    public boolean setErrorFunc(ErrorFunctionTest errorFunc) {
-        if (errorFunc == null) {
-            return false;
-        }
-        this.errorFunc = errorFunc;
-        return true;
-    }
-
-    public ErrorFunctionTest getError() {
-        return errorFunc;
-    }
-
     public boolean addItemtest(ItemTestData itemTest) {
+        itemTest.setLoger(this.loger);
         return this.itemTests.add(itemTest);
+    }
+
+    public ItemTestData getItemTest(String itemName) {
+        for (ItemTestData itemTest : itemTests) {
+            if (itemTest.getItemTestName().equals(itemName)) {
+                return itemTest;
+            }
+        }
+        return null;
     }
 
     public List<ItemTestData> getListItemTest() {
@@ -67,7 +56,11 @@ public class FunctionData {
         if (resultTest == null) {
             return;
         }
-        this.resultTest = resultTest;
+        getItemFirst().setResult(resultTest);
+    }
+
+    private ItemTestData getItemFirst() {
+        return this.itemTests.get(0);
     }
 
     public void addLog(Object str) {
@@ -75,11 +68,16 @@ public class FunctionData {
     }
 
     public String getResultTest() {
-        return resultTest;
+        return getItemFirst().getResultTest();
     }
 
     public boolean isTesting() {
-        return testing;
+        for (ItemTestData itemTest : itemTests) {
+            if (itemTest.isTest()) {
+                return true;
+            }
+        }
+        return false;
     }
 
     public void start(String LogPath) {
@@ -90,8 +88,6 @@ public class FunctionData {
             ErrorLog.addError(mess);
             JOptionPane.showMessageDialog(null, mess);
         }
-        this.timeS.start(0);
-        this.testing = true;
         addLog(startFunction());
     }
 
@@ -100,28 +96,12 @@ public class FunctionData {
     }
 
     public double getRunTime() {
-        if (testTime != null) {
-            return testTime;
-        }
-        return this.timeS.getTime();
+        return getItemFirst().getRunTime();
     }
 
     public void end() {
-        this.testing = false;
-        this.testTime = getRunTime();
-        if (this.itemTests.isEmpty()) {
-            createDefaultItem();
-        }
-        this.addLog("Result: " + getResultTest());
         this.addLog(endFunction());
         this.loger.close();
-    }
-
-    private void createDefaultItem() {
-        ItemTestData itemTest = new ItemTestData(getFunctionName());
-        itemTest.setValue(getResultTest());
-        itemTest.setIsPass(isPass);
-        addItemtest(itemTest);
     }
 
     public String getLog() {
@@ -133,15 +113,15 @@ public class FunctionData {
     }
 
     public boolean isPass() {
-        return isPass;
+        return getItemFirst().isPass();
     }
 
     public void setStatus(boolean stt) {
-        this.isPass = stt;
+        this.getItemFirst().setPass(stt);
     }
 
     public String createDefaultResult() {
-        return isPass ? "PASS" : "FAILED";
+        return isPass() ? "PASS" : "FAILED";
     }
 
     private String startFunction() {
@@ -151,11 +131,11 @@ public class FunctionData {
 
     private String endFunction() {
         return String.format("Time[%.3f s] - Status[%s]",
-                this.testTime, createDefaultResult());
+                this.getRunTime(), createDefaultResult());
     }
 
     public String getStaus() {
-        if (testing) {
+        if (isTesting()) {
             return "Testing";
         }
         return createDefaultResult();

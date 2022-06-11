@@ -4,6 +4,7 @@
  */
 package Model.DataSource.ModeTest.FunctionConfig;
 
+import Model.AllKeyWord;
 import Model.DataSource.AbsJsonSource;
 import Model.DataSource.DataWareHouse;
 import com.alibaba.fastjson.JSONObject;
@@ -35,11 +36,11 @@ public class FunctionConfig extends AbsJsonSource<FunctionElement> {
         DataWareHouse wareHouse = readFile.getData();
         clearAllList();
         getFunctionIn(wareHouse,
-                wareHouse.getListJson(FuncKeyWord.INIT), FuncKeyWord.INIT);
+                wareHouse.getListJson(AllKeyWord.INIT), AllKeyWord.INIT);
         getFunctionIn(wareHouse,
-                wareHouse.getListJson(FuncKeyWord.FUNCTIONS), FuncKeyWord.FUNCTIONS);
+                wareHouse.getListJson(AllKeyWord.FUNCTIONS), AllKeyWord.FUNCTIONS);
         getFunctionIn(wareHouse,
-                wareHouse.getListJson(FuncKeyWord.END), FuncKeyWord.END);
+                wareHouse.getListJson(AllKeyWord.END), AllKeyWord.END);
         return !this.elements.isEmpty();
     }
 
@@ -50,11 +51,11 @@ public class FunctionConfig extends AbsJsonSource<FunctionElement> {
             if (!isNull(info.getFunctionName()) && info.isActive()) {
                 put(info.getFunctionName(), info);
                 switch (type) {
-                    case FuncKeyWord.INIT -> {
+                    case AllKeyWord.INIT -> {
                         this.functionInit.add(info.getFunctionName());
                         break;
                     }
-                    case FuncKeyWord.END -> {
+                    case AllKeyWord.END -> {
                         this.funtionEnd.add(info.getFunctionName());
                         break;
                     }
@@ -73,7 +74,7 @@ public class FunctionConfig extends AbsJsonSource<FunctionElement> {
     }
 
     public long getTimeOutTest() {
-        Long timeout = this.readFile.getData().getLong(FuncKeyWord.TIME_OUT_TEST);
+        Long timeout = this.readFile.getData().getLong(AllKeyWord.TIME_OUT_TEST);
         if (timeout == null) {
             return Long.MAX_VALUE;
         }
@@ -94,7 +95,7 @@ public class FunctionConfig extends AbsJsonSource<FunctionElement> {
     
 
     public String getStationName() {
-        return this.readFile.getData().getString(FuncKeyWord.STATION_NAME);
+        return this.readFile.getData().getString(AllKeyWord.STATION);
     }
 
     public List<String> getEndFuntions() {

@@ -4,6 +4,7 @@
  */
 package Model.DataSource.Setting;
 
+import Model.AllKeyWord;
 import Model.DataSource.AbsElementInfo;
 import com.alibaba.fastjson.JSONObject;
 import java.io.File;
@@ -16,23 +17,23 @@ import java.util.List;
 public class ModeElement extends AbsElementInfo {
 
     public ModeElement(JSONObject base, JSONObject config) {
-        super(KeyWord.MODE_KEY, base, config);
+        super(AllKeyWord.MODE_KEY, base, config);
     }
 
     public String getStationName() {
-        return this.warehouse.getString(KeyWord.STATION);
+        return this.warehouse.getString(AllKeyWord.STATION);
     }
 
     public String getModeType() {
-        return this.warehouse.getString(KeyWord.TYPE_MODE);
+        return this.warehouse.getString(AllKeyWord.TYPE_MODE);
     }
 
     public String getPnName() {
-        return this.warehouse.getString(KeyWord.PN_NAME);
+        return this.warehouse.getString(AllKeyWord.PN_NAME);
     }
 
     public String getAmbitConfigPath() {
-        String path = this.warehouse.getString(KeyWord.AMBIT_CONFIG);
+        String path = this.warehouse.getString(AllKeyWord.AMBIT_CONFIG);
         if (path == null || !new File(path).exists()) {
             return null;
         }
@@ -40,19 +41,19 @@ public class ModeElement extends AbsElementInfo {
     }
 
     public String getModeName() {
-        return this.warehouse.getString(KeyWord.NAME);
+        return this.warehouse.getString(AllKeyWord.NAME);
     }
 
     public List<String> getDetail() {
-        return this.warehouse.getListJsonArray(KeyWord.DETAIL);
+        return this.warehouse.getListJsonArray(AllKeyWord.DETAIL);
     }
 
     public List<String> getIniFunc() {
-        return this.warehouse.getListJsonArray(KeyWord.INIT_FUNC);
+        return this.warehouse.getListJsonArray(AllKeyWord.INIT_FUNC);
     }
 
     public int getRow() {
-        Integer mun = this.warehouse.getInteger(KeyWord.ROW);
+        Integer mun = this.warehouse.getInteger(AllKeyWord.ROW);
         if (mun == null) {
             return 1;
         }
@@ -60,7 +61,7 @@ public class ModeElement extends AbsElementInfo {
     }
 
     public int getColumn() {
-        Integer mun = this.warehouse.getInteger(KeyWord.COLUMN);
+        Integer mun = this.warehouse.getInteger(AllKeyWord.COLUMN);
         if (mun == null) {
             return 1;
         }
@@ -68,7 +69,7 @@ public class ModeElement extends AbsElementInfo {
     }
 
     public String getTypeUI() {
-        return this.warehouse.getString(KeyWord.TYPE_UI);
+        return this.warehouse.getString(AllKeyWord.TYPE_UI);
     }
 
     public JSONObject toJson() {
@@ -80,6 +81,6 @@ public class ModeElement extends AbsElementInfo {
     }
 
     public boolean isDiscreteTest() {
-        return this.warehouse.getBoolean(KeyWord.DISCRETE_TEST);
+        return this.warehouse.getBoolean(AllKeyWord.DISCRETE_TEST);
     }
 }

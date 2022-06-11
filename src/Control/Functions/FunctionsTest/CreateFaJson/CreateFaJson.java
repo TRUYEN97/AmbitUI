@@ -6,6 +6,7 @@ package Control.Functions.FunctionsTest.CreateFaJson;
 
 import Control.Functions.AbsFunction;
 import Control.Functions.FunctionsTest.CreateFaJson.KeyWordFaAPI.FUNC_KEY;
+import Model.AllKeyWord;
 import Model.DataTest.InputData;
 import Model.DataSource.Tool.FileService;
 import com.alibaba.fastjson.JSONArray;
@@ -57,11 +58,11 @@ public class CreateFaJson extends AbsFunction {
     }
 
     private String createNameFile() {
-        String serial = uiData.getProductInfo(InputData.MLBSN);
+        String serial = uiData.getProductInfo(AllKeyWord.MLBSN);
         serial = serial.replace('\\', '_');
         serial = serial.replace('/', '_');
-        String pcName = uiData.getProductInfo(InputData.PCNAME);
-        String mode = uiData.getProductInfo(InputData.MODE);
+        String pcName = uiData.getProductInfo(AllKeyWord.PCNAME);
+        String mode = uiData.getProductInfo(AllKeyWord.MODE);
         return String.format("%s_%s_%s", serial, pcName, mode);
     }
 
@@ -110,7 +111,7 @@ public class CreateFaJson extends AbsFunction {
         getDataOfLocation(data.getJSONObject(location), localtionData);
         localtionData.put("child_unlinked", "False");
         addToKeyValueLog("child_unlinked", "False");
-        String stationType = getStionType(uiData.getProductInfo(InputData.FAIL_PC));
+        String stationType = getStionType(uiData.getProductInfo(AllKeyWord.FAIL_PC));
         localtionData.put("failed_station_type", stationType);
         addToKeyValueLog("failed_station_type", stationType);
         String result = getResult(localtionData);
@@ -142,7 +143,7 @@ public class CreateFaJson extends AbsFunction {
             String value = this.uiData.getProductInfo(key.getInputKey());
             addTo(value, funcData, key.toString());
         }
-        String count = this.uiData.getProductInfo(InputData.COUNTTEST);
+        String count = this.uiData.getProductInfo(AllKeyWord.COUNTTEST);
         funcData.put("debug_count", Integer.valueOf(count));
 
     }

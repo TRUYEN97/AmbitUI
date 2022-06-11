@@ -4,6 +4,7 @@
  */
 package View.subUI.FormDetail.TabFaApi;
 
+import Model.AllKeyWord;
 import Model.DataTest.InputData;
 import Model.DataSource.Tool.FileService;
 import View.subUI.FormDetail.AbsTabUI;
@@ -44,11 +45,11 @@ public class TabFaApi extends AbsTabUI {
         initListLocation("listLocation.txt");
         AutoCompleteDecorator.decorate(cbbLocation);
         this.keys = new HashMap<>();
-        this.keys.put("- Fail at", InputData.FAIL_PC);
-        this.keys.put("- Debug at", InputData.DEBUG_PC);
-        this.keys.put("- Error code ", InputData.ERROR_CODE);
-        this.keys.put("- Error Des ", InputData.ERROR_DES);
-        this.keys.put("- Count", InputData.COUNTTEST);
+        this.keys.put("- Fail at", AllKeyWord.FAIL_PC);
+        this.keys.put("- Debug at", AllKeyWord.DEBUG_PC);
+        this.keys.put("- Error code ", AllKeyWord.ERROR_CODE);
+        this.keys.put("- Error Des ", AllKeyWord.ERROR_DES);
+        this.keys.put("- Count", AllKeyWord.COUNTTEST);
     }
 
     private void initListLocation(String path) {

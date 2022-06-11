@@ -5,6 +5,7 @@
 package Control.Functions.FunctionsTest.SFIS.CheckSnFormSFIS;
 
 import Control.Functions.AbsFunction;
+import Model.AllKeyWord;
 import Model.DataTest.ErrorLog;
 import Model.DataTest.InputData;
 import SfisAPI17.SfisAPI;
@@ -67,8 +68,8 @@ public class CheckSnFormSFIS extends AbsFunction {
         }
         try {
             JSONObject res = JSONObject.parseObject(response);
-            if (res.getString(InputData.RESULT).equals("PASS")) {
-                JSONObject data = res.getJSONObject(InputData.DATA);
+            if (res.getString(AllKeyWord.RESULT).equals("PASS")) {
+                JSONObject data = res.getJSONObject(AllKeyWord.DATA);
                 for (String key : this.allConfig.getListString("DATA_FORMAT")) {
                     if (data.containsKey(key)) {
                         String value = data.getString(key);

@@ -1,5 +1,6 @@
 package Model.DataSource.Setting;
 
+import Model.AllKeyWord;
 import Model.DataSource.AbsJsonSource;
 import Model.Interface.IInit;
 import Model.DataSource.DataWareHouse;
@@ -39,7 +40,7 @@ public class Setting extends AbsJsonSource<ModeElement> implements IInit {
     protected boolean getData() {
         DataWareHouse wareHouse = readFile.getData();
         ModeElement info;
-        for (JSONObject modeInfo : wareHouse.getListJson(KeyWord.LOAD_MODE)) {
+        for (JSONObject modeInfo : wareHouse.getListJson(AllKeyWord.LOAD_MODE)) {
             info = new ModeElement(wareHouse.toJson(), modeInfo);
             if (!isNull(info.getModeName())) {
                 this.elements.add(info);
@@ -49,34 +50,34 @@ public class Setting extends AbsJsonSource<ModeElement> implements IInit {
     }
 
     public String getGiaiDoan() {
-        return this.readFile.getData().getString(KeyWord.GIAI_DOAN);
+        return this.readFile.getData().getString(AllKeyWord.GIAI_DOAN);
     }
 
     public String getFunctionsLocalLog() {
-        return this.readFile.getData().getString(KeyWord.LOCAL_FUNCTION_LOG);
+        return this.readFile.getData().getString(AllKeyWord.LOCAL_FUNCTION_LOG);
     }
 
     public String getLocalLog() {
-        return this.readFile.getData().getString(KeyWord.LOCAL_LOG);
+        return this.readFile.getData().getString(AllKeyWord.LOCAL_LOG);
     }
 
     public String getFtpHost() {
-        return this.readFile.getData().getString(KeyWord.FTP_HOST);
+        return this.readFile.getData().getString(AllKeyWord.FTP_HOST);
     }
 
     public int getFtpPort() {
-        return this.readFile.getData().getInteger(KeyWord.FTP_PORT);
+        return this.readFile.getData().getInteger(AllKeyWord.FTP_PORT);
     }
 
     public String getFtpPassWord() {
-        return this.readFile.getData().getString(KeyWord.FTP_PASSWORD);
+        return this.readFile.getData().getString(AllKeyWord.FTP_PASSWORD);
     }
 
     public String getFtpUser() {
-        return this.readFile.getData().getString(KeyWord.FTP_USER);
+        return this.readFile.getData().getString(AllKeyWord.FTP_USER);
     }
 
     public String getUpdateLimitCommand() {
-        return this.readFile.getData().getString(KeyWord.LIMIT_CMD);
+        return this.readFile.getData().getString(AllKeyWord.LIMIT_CMD);
     }
 }

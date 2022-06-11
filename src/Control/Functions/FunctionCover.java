@@ -32,12 +32,13 @@ public class FunctionCover extends Thread {
         this.subUi = uiStatus.getSubUi();
         this.funcConfig = this.modeTest.getModeTestSource().getFunctionsConfig(this.function.getFuntionName());
         this.functionData = uiStatus.getUiData().
-                createFuncData(this.funcConfig.getItemName(),this.funcConfig.getFunctionName());
-        this.function.setResuorces(uiStatus, functionData, this.funcConfig);
+                createFuncData(this.funcConfig.getItemName(), this.funcConfig.getFunctionName());
+        this.function.setResources(uiStatus, functionData, this.funcConfig);
     }
 
     @Override
     public void run() {
+        this.functionData.start(createLogPath());
         try {
             this.thread = new Thread() {
                 @Override
@@ -83,7 +84,6 @@ public class FunctionCover extends Thread {
     }
 
     private void runTest() {
-        this.functionData.start(createLogPath());
         try {
             if (isModeSkip()) {
                 this.functionData.addLog("Mode Skip: " + modeTest.toString());
@@ -118,6 +118,7 @@ public class FunctionCover extends Thread {
         if (this.functionData == null || !this.functionData.isTesting()) {
             return;
         }
+        this.function.end();
         this.functionData.end();
         this.thread.stop();
     }

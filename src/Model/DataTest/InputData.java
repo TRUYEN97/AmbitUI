@@ -4,6 +4,7 @@
  */
 package Model.DataTest;
 
+import Model.AllKeyWord;
 import com.alibaba.fastjson.JSONObject;
 import java.util.Set;
 
@@ -13,49 +14,31 @@ import java.util.Set;
  */
 public class InputData {
 
-    public static final String FAIL_PC = "failedpc";
-    public static final String MODE = "mode";
-    public static final String DEBUG_PC = "debugpc";
-    public static final String ERROR_CODE = "errorcode";
-    public static final String ERROR_DES = "errordes";
-    public static final String COUNTTEST = "counttest";
-    public static final String SN = "sn";
-    public static final String MLBSN = "mlbsn";
-    public static final String PCNAME = "pcname";
-    public static final String STATUS = "status";
-    public static final String INDEX = "index";
-    public static final String RESULT = "result";
-    public static final String MESSAGE = "message";
-    public static final String DATA = "data";
-    public static final String STATION = "station";
-    public static final String VERSION = "version";
-    public static final String START_TIME = "start_time";
-    public static final String FINISH_TIME = "finish_time";
-    public static final String CYCLE_TIME = "cyctime";
+   
     private final JSONObject data;
 
     public InputData() {
         this.data = new JSONObject();
 //        this.data.put(PCNAME, PcInformation.getInstance().getPcName());
-        this.data.put(PCNAME, "REPAIR-7801");
-        this.data.put(STATION, "REPAIR");
-        this.data.put(VERSION, "1.0.0");
+        this.data.put(AllKeyWord.PCNAME, "REPAIR-7801");
+        this.data.put(AllKeyWord.STATION, "REPAIR");
+        this.data.put(AllKeyWord.VERSION, "1.0.0");
     }
 
     public void setInput(String input) {
-        this.data.put(SN, input);
+        this.data.put(AllKeyWord.SN, input);
     }
 
     public String getInput() {
-        return this.data.getString(SN);
+        return this.data.getString(AllKeyWord.SN);
     }
 
     public String getIndex() {
-        return this.data.getString(INDEX);
+        return this.data.getString(AllKeyWord.INDEX);
     }
 
     public void setIndex(String index) {
-        this.data.put(INDEX, index);
+        this.data.put(AllKeyWord.INDEX, index);
     }
     
     public String getValue(String key)
