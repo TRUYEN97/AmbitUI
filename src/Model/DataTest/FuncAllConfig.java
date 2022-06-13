@@ -67,7 +67,7 @@ public class FuncAllConfig {
     public List<String> getListString(String key) {
         return wareHouse.getListJsonArray(key);
     }
-    
+
     public List<String> getListSlip(String key, String regex) {
         return wareHouse.getListSlip(key, regex);
     }
@@ -75,15 +75,23 @@ public class FuncAllConfig {
     public String getTestType() {
         return wareHouse.getString(AllKeyWord.LIMIT_TYPE);
     }
-    
-    public boolean limitFileAvailable() {
-        return this.limitElement != null &&
-                this.limitElement.getInteger(AllKeyWord.REQUIRED) != null &&
-                this.limitElement.getInteger(AllKeyWord.REQUIRED) > 0;
+
+    public boolean isLimitAvailable() {
+        return limitFileAvailable() || funcConfigAvailable();
     }
-    
-    public boolean funcConfigAvailable() {
-        return this.functionConfig != null && 
-                this.functionConfig.getString(AllKeyWord.LIMIT_TYPE) != null;
+
+    private boolean limitFileAvailable() {
+        return this.limitElement != null
+                && this.limitElement.getInteger(AllKeyWord.REQUIRED) != null
+                && this.limitElement.getInteger(AllKeyWord.REQUIRED) > 0
+                && (!this.limitElement.getString(AllKeyWord.LOWER_LIMIT).isBlank()
+                || !this.limitElement.getString(AllKeyWord.UPPER_LIMIT).isBlank());
+    }
+
+    private boolean funcConfigAvailable() {
+        return this.functionConfig != null
+                && this.functionConfig.getString(AllKeyWord.LIMIT_TYPE) != null
+                && (!this.functionConfig.getString(AllKeyWord.LOWER_LIMIT).isBlank()
+                || !this.functionConfig.getString(AllKeyWord.UPPER_LIMIT).isBlank());
     }
 }

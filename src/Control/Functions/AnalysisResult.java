@@ -25,47 +25,41 @@ public class AnalysisResult {
     }
 
     public void checkResult(boolean status, String result) {
-        if (isResultAvailable(result) && isLimitAvailable()) {
+        if (!status) {
+            this.itemTestData.setPass(false);
+        }
+        if (isResultAvailable(result) && this.allConfig.isLimitAvailable()) {
             checkResultWithLimits(result);
         } else {
             this.itemTestData.setPass(status);
         }
     }
 
-    private boolean isLimitAvailable() {
-        return allConfig.limitFileAvailable()
-                || allConfig.funcConfigAvailable();
-    }
-
     private boolean isResultAvailable(String result) {
         return result != null && !result.isBlank();
     }
-    
 
     private void checkResultWithLimits(String result) {
-        String type = allConfig.getTestType();
-        if (type.equals(AllKeyWord.MACTH)) {
-            checkMatchType(result);
-        }else if(type.equals(AllKeyWord.LIMIT)){
-            checkLimitType(result);
+        switch (allConfig.getTestType()) {
+            case AllKeyWord.MACTH ->
+                this.itemTestData.setPass(checkMatchType(result));
+            case AllKeyWord.LIMIT ->
+                this.itemTestData.setPass(checkLimitType(result));
+            default ->
+                this.itemTestData.setPass(false);
         }
     }
 
-    private void checkMatchType(String result) {
+    private boolean checkMatchType(String result) {
         try {
             if (getMatch(result, AllKeyWord.LOWER_LIMIT)) {
-                this.itemTestData.setPass(true);
-                return;
+                return true;
             }
-            if (getMatch(result, AllKeyWord.UPPER_LIMIT)) {
-                this.itemTestData.setPass(true);
-                return;
-            }
-            this.itemTestData.setPass(false);
+            return getMatch(result, AllKeyWord.UPPER_LIMIT);
         } catch (Exception e) {
             e.printStackTrace();
             ErrorLog.addError(this, e.getMessage());
-            this.itemTestData.setPass(false);
+            return false;
         }
 
     }
@@ -83,7 +77,38 @@ public class AnalysisResult {
         return false;
     }
 
-    private void checkLimitType(String result) {
-        
+    private Double cvtString2Num(String value) {
+        if (value == null || value.isBlank()) {
+            return null;
+        }
+        try {
+            return Double.parseDouble(value);
+        } catch (NumberFormatException e) {
+            e.printStackTrace();
+            return null;
+        }
+    }
+
+    private boolean checkLimitType(String result) {
+        String upString = allConfig.getString(AllKeyWord.UPPER_LIMIT);
+        String lowString = allConfig.getString(AllKeyWord.LOWER_LIMIT);
+        Double upper = cvtString2Num(upString);
+        Double lower = cvtString2Num(lowString);
+        Double value = cvtString2Num(result);
+        if ((upper == null && lower == null) || value == null) {
+            return false;
+        }
+        if (lower == null) {
+            return aGreatThanB(upper, value);
+        }
+        if (upper == null) {
+            return aGreatThanB(value, lower);
+        }
+        return aGreatThanB(value, lower) && aGreatThanB(upper, value);
+
+    }
+
+    private static boolean aGreatThanB(Double a, Double b) {
+        return Double.max(a, b) == a;
     }
 }

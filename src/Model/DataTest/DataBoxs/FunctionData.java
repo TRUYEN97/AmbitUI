@@ -6,7 +6,6 @@ package Model.DataTest.DataBoxs;
 
 import Model.DataTest.ErrorLog;
 import MyLoger.MyLoger;
-import Time.WaitTime.Class.TimeS;
 import java.io.File;
 import java.util.ArrayList;
 import java.util.List;
@@ -56,10 +55,10 @@ public class FunctionData {
         if (resultTest == null) {
             return;
         }
-        getItemFirst().setResult(resultTest);
+        getFirstItem().setResult(resultTest);
     }
 
-    private ItemTestData getItemFirst() {
+    private ItemTestData getFirstItem() {
         return this.itemTests.get(0);
     }
 
@@ -68,7 +67,7 @@ public class FunctionData {
     }
 
     public String getResultTest() {
-        return getItemFirst().getResultTest();
+        return getFirstItem().getResultTest();
     }
 
     public boolean isTesting() {
@@ -96,7 +95,7 @@ public class FunctionData {
     }
 
     public double getRunTime() {
-        return getItemFirst().getRunTime();
+        return getFirstItem().getRunTime();
     }
 
     public void end() {
@@ -113,11 +112,11 @@ public class FunctionData {
     }
 
     public boolean isPass() {
-        return getItemFirst().isPass();
+        return getFirstItem().isPass();
     }
 
     public void setStatus(boolean stt) {
-        this.getItemFirst().setPass(stt);
+        this.getFirstItem().setPass(stt);
     }
 
     public String createDefaultResult() {
