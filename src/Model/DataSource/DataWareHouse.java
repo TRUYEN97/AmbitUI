@@ -71,7 +71,7 @@ public class DataWareHouse {
 
     public String[] getArrays(JSONObject json, String key, String regex) {
         if (json.containsKey(key)) {
-            String[] arr = json.getString(key).split(",");
+            String[] arr = json.getString(key).split(regex);
             String[] newArr = new String[arr.length];
             for (int index = 0; index < arr.length; index++) {
                 newArr[index] = arr[index].trim();

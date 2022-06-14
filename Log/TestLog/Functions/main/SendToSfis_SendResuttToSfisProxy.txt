@@ -1,9 +1,9 @@
-2022-06-13 04:04:44 : Item[SendToSfis] - Function[SendResuttToSfisProxy]
-2022-06-13 04:04:44 : Turn 0:
-2022-06-13 04:04:44 : send to url: http://10.90.0.40/sfcapi/api/connectfinal
-2022-06-13 04:04:44 : class java.lang.String cannot be cast to class com.alibaba.fastjson.JSONArray (java.lang.String is in module java.base of loader 'bootstrap'; com.alibaba.fastjson.JSONArray is in unnamed module of loader 'app')
-2022-06-13 04:04:44 : Upper limit: null
-2022-06-13 04:04:44 : Lower limit: null
-2022-06-13 04:04:44 : Value      : FAIL
-2022-06-13 04:04:44 : Item Name  : SendResuttToSfisProxy
-2022-06-13 04:04:44 : Time[0.006 s] - Status[FAILED]
+2022-06-14 06:50:17 : Item[SendToSfis] - Function[SendResuttToSfisProxy]
+2022-06-14 06:50:17 : Turn 0:
+2022-06-14 06:50:17 : send to url: http://10.90.0.40/sfcapi/api/connectfinal
+2022-06-14 06:50:17 : class java.lang.String cannot be cast to class com.alibaba.fastjson.JSONArray (java.lang.String is in module java.base of loader 'bootstrap'; com.alibaba.fastjson.JSONArray is in unnamed module of loader 'app')
+2022-06-14 06:50:17 : Upper limit: null
+2022-06-14 06:50:17 : Lower limit: null
+2022-06-14 06:50:17 : Value      : FAIL
+2022-06-14 06:50:17 : Item Name  : SendToSfis
+2022-06-14 06:50:17 : Time[0.008 s] - Status[FAILED]

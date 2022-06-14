@@ -21,21 +21,21 @@ import Model.DataTest.FuncAllConfig;
 public abstract class AbsFunction implements IFunction {
 
     protected final FuncAllConfig allConfig;
-    private final ItemTestData itemTestData;
-    private final AnalysisResult analysisResult;
-    private FunctionData functionData;
     protected UiData uiData;
     protected AbsSubUi subUi;
+    private ItemTestData itemTestData;
+    private AnalysisResult analysisResult;
+    private FunctionData functionData;
 
     protected AbsFunction(String functionName) {
         this.allConfig = new FuncAllConfig(functionName);
-        this.itemTestData = new ItemTestData(functionName, allConfig);
-        this.analysisResult = new AnalysisResult(itemTestData, allConfig);
     }
 
     public void setResources(UiStatus uiStatus, FunctionData functionData, FunctionElement funcConfig) {
         this.functionData = functionData;
         this.allConfig.setResources(uiStatus, funcConfig);
+        this.itemTestData = new ItemTestData(allConfig);
+        this.analysisResult = new AnalysisResult(itemTestData, allConfig);
         this.uiData = uiStatus.getUiData();
         this.subUi = uiStatus.getSubUi();
         this.functionData.addItemtest(itemTestData);
@@ -45,6 +45,7 @@ public abstract class AbsFunction implements IFunction {
     @Override
     public void run() {
         this.analysisResult.checkResult(test(), getResult());
+        this.itemTestData.endThisTurn();
     }
 
     protected abstract boolean test();

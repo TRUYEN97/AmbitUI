@@ -10,6 +10,8 @@ import MyLoger.MyLoger;
 import Time.TimeBase;
 import Time.WaitTime.Class.TimeS;
 import com.alibaba.fastjson.JSONObject;
+import java.util.Arrays;
+import java.util.List;
 
 /**
  *
@@ -21,14 +23,18 @@ public class ItemTestData {
     private final FuncAllConfig allConfig;
     private final JSONObject data;
     private final TimeS timeS;
+    private final List<String> keys;
     private MyLoger loger;
-    private String result;
     private boolean isPass;
     private boolean testing;
 
-    public ItemTestData(String itemTestName, FuncAllConfig allConfig) {
-        this.itemTestName = itemTestName;
+    public ItemTestData(FuncAllConfig allConfig) {
+        this.itemTestName = allConfig.getItemName();
         this.allConfig = allConfig;
+        this.keys = Arrays.asList(AllKeyWord.TEST_NAME,
+                AllKeyWord.LOWER_LIMIT,
+                AllKeyWord.UPPER_LIMIT,
+                AllKeyWord.UNITS);
         this.data = new JSONObject();
         this.timeS = new TimeS();
         this.isPass = false;
@@ -37,8 +43,10 @@ public class ItemTestData {
     public void start() {
         this.timeS.start(0);
         this.testing = true;
-        this.data.put(AllKeyWord.TEST_NAME, this.itemTestName);
         this.data.put(AllKeyWord.START_TIME, new TimeBase().getSimpleDateTime());
+        for (String key : keys) {
+            this.data.put(key, allConfig.getString(key));
+        }
     }
 
     public void put(String key, String value) {
@@ -61,24 +69,32 @@ public class ItemTestData {
         this.isPass = isPass;
     }
 
+    public void endThisTurn() {
+        String limitType = allConfig.getString(AllKeyWord.LIMIT_TYPE);
+        String uperLimit = allConfig.getString(AllKeyWord.UPPER_LIMIT);
+        String lowerLimit = allConfig.getString(AllKeyWord.LOWER_LIMIT);
+        this.loger.addLog(String.format("Limit type: \"%s\"", limitType));
+        this.loger.addLog(String.format("Uper limit: \"%s\"", uperLimit));
+        this.loger.addLog(String.format("Lowet limit: \"%s\"", lowerLimit));
+        this.loger.addLog(String.format("Value: \"%s\"", getResultTest()));
+    }
+
     public void end() {
         if (!this.isPass()) {
             addErrorCode();
         }
         addResult();
-        this.data.put(AllKeyWord.STATUS, isPass ? "passed" : "failed");
-        this.data.put(AllKeyWord.CYCLE_TIME, String.format("%.3f", timeS.getTime()));
-        this.data.put(AllKeyWord.FINISH_TIME, new TimeBase().getSimpleDateTime());
         logEnd();
         this.testing = false;
     }
 
     private void addResult() {
-        if (result == null) {
+        if (getResultTest() == null) {
             this.data.put(AllKeyWord.TEST_VALUE, isPass ? "PASS" : "FAIL");
-        } else {
-            this.data.put(AllKeyWord.TEST_VALUE, result);
         }
+        this.data.put(AllKeyWord.STATUS, isPass ? "passed" : "failed");
+        this.data.put(AllKeyWord.CYCLE_TIME, String.format("%.3f", timeS.getTime()));
+        this.data.put(AllKeyWord.FINISH_TIME, new TimeBase().getSimpleDateTime());
     }
 
     private void addErrorCode() {
@@ -92,7 +108,7 @@ public class ItemTestData {
     }
 
     public void setResult(String result) {
-        this.result = result;
+        this.data.put(AllKeyWord.TEST_VALUE, result);
     }
 
     public String getResultTest() {
@@ -115,19 +131,12 @@ public class ItemTestData {
     }
 
     private void logEnd() {
-        String upperLimit = this.data.getString(AllKeyWord.UPPER_LIMIT);
-        String lowerLimit = this.data.getString(AllKeyWord.LOWER_LIMIT);
-        String value = this.data.getString(AllKeyWord.TEST_VALUE);
-        String mess = String.format("""
-                                            Upper limit: %s\r
-                                            Lower limit: %s\r
-                                            Value      : %s\r
-                                            Item Name  : %s
-                                            """, upperLimit,
-                lowerLimit,
-                value, itemTestName
-        );
-        this.loger.addLog(mess);
+        String error = this.data.getString(AllKeyWord.ERROR_CODE);
+        if (error != null) {
+            this.loger.addLog("ErrorCode: " + error);
+        }
+        String item = this.data.getString(AllKeyWord.TEST_NAME);
+        this.loger.addLog("Item name: " + item);
     }
 
 }

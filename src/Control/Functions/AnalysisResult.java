@@ -41,7 +41,7 @@ public class AnalysisResult {
 
     private void checkResultWithLimits(String result) {
         switch (allConfig.getTestType()) {
-            case AllKeyWord.MACTH ->
+            case AllKeyWord.MATCH ->
                 this.itemTestData.setPass(checkMatchType(result));
             case AllKeyWord.LIMIT ->
                 this.itemTestData.setPass(checkLimitType(result));
@@ -66,13 +66,14 @@ public class AnalysisResult {
 
     private boolean getMatch(String result, String key) {
         List<String> limits = allConfig.getListSlip(key, "\\|");
+        System.out.println(limits);
         if (limits != null && !limits.isEmpty()) {
             for (String spec : limits) {
-                if (!spec.equals(result)) {
-                    return false;
+                if (spec.equals(result)) {
+                    return true;
                 }
             }
-            return true;
+            return false;
         }
         return false;
     }

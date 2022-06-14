@@ -19,7 +19,6 @@ public class FuncAllConfig {
 
     private final DataWareHouse wareHouse;
     private final String functionName;
-    private UiStatus uiStatus;
     private FunctionElement functionConfig;
     private LimitElement limitElement;
 
@@ -29,7 +28,6 @@ public class FuncAllConfig {
     }
 
     public void setResources(UiStatus uiStatus, FunctionElement functionConfig) {
-        this.uiStatus = uiStatus;
         this.functionConfig = functionConfig;
         this.limitElement = uiStatus.getModeTest().
                 getModeTestSource().getLimit().getElement(this.functionConfig.getItemName());
@@ -93,5 +91,9 @@ public class FuncAllConfig {
                 && this.functionConfig.getString(AllKeyWord.LIMIT_TYPE) != null
                 && (!this.functionConfig.getString(AllKeyWord.LOWER_LIMIT).isBlank()
                 || !this.functionConfig.getString(AllKeyWord.UPPER_LIMIT).isBlank());
+    }
+
+    public String getItemName() {
+        return this.functionConfig.getItemName();
     }
 }

@@ -27,6 +27,7 @@ public class GenerateNode extends AbsFunction{
                 ex.printStackTrace();
             }
         }
+        setResult("base 02fa 3.0.0 app 6e62 2.1.1");
         return true;
     }
 

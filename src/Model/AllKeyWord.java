@@ -44,7 +44,7 @@ public class AllKeyWord {
     public static final String MULTI_TASK = "MULTI_TASK";
     public static final String TIME_OUT_TEST = "TIME_OUT_TEST";
     public static final String FAIL_CONTNIUE = "FAIL_CONTNIUE";
-    public static final String MACTH = "MACTH";
+    public static final String MATCH = "MATCH";
     public static final String LIMIT = "LIMIT";
     public static final String BOOL = "BOOL";
     public static final String FAIL_PC = "failedpc";

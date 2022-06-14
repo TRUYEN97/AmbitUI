@@ -22,7 +22,7 @@
             "RETRY": 5,
             "MULTI_TASK": false,
             "limit_type": "BOOL",
-            "ITEM_NAME": "CCG_FIRMWARE",
+            "ITEM_NAME": "ccg_firmware",
             "FUNC_NAME": "GenerateNodeProxy"
         },
         {
@@ -39,9 +39,11 @@
             "FLAG": true,
             "TIME_OVER": 200,
             "MULTI_TASK": false,
-            "RETRY": 1,
-            "limit_type": "MACTH",
+            "RETRY": 2,
             "ITEM_NAME": "temp_cpu_0",
+            "limit_type": "LIMIT",
+            "lower_limit": "25",
+            "upper_limit": "55",
             "FUNC_NAME": "FixtureActionProxy"
         }
     ],
