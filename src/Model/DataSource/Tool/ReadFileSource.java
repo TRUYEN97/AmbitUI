@@ -22,7 +22,7 @@ public class ReadFileSource implements IInit {
     protected static final String NEW_LINE = "\r\n";
     private String path;
     private final ITypeRead type;
-    private final DataWareHouse data;
+    protected final DataWareHouse data;
 
     public ReadFileSource(ITypeRead typeRead) {
         this.type = typeRead;

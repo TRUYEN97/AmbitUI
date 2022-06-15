@@ -4,6 +4,8 @@
  */
 package Model.DataSource.ModeTest;
 
+import Control.FileType.FileErrorMode;
+import Model.DataSource.ModeTest.ErrorCode.ErrorCode;
 import Model.DataSource.ModeTest.FunctionConfig.FunctionConfig;
 import Model.DataSource.ModeTest.FunctionConfig.FunctionElement;
 import Model.DataSource.ModeTest.Limit.Limit;
@@ -20,11 +22,13 @@ public class ModeTestSource {
 
     private Limit limit;
     private final FunctionConfig functionConfig;
+    private final ErrorCode errorCode;
     private final ModeElement modeConfig;
 
     public ModeTestSource(ModeElement modeInfo) {
         this.modeConfig = modeInfo;
         this.functionConfig = new FunctionConfig();
+        this.errorCode = new ErrorCode(new FileErrorMode());
     }
 
     public ModeElement getModeConfig() {

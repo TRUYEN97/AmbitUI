@@ -80,7 +80,7 @@ public class ItemTestData {
     }
 
     public void end() {
-        if (!this.isPass()) {
+        if (!isPass) {
             addErrorCode();
         }
         addResult();
