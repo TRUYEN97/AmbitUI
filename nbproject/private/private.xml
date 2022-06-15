@@ -3,13 +3,13 @@
     <editor-bookmarks xmlns="http://www.netbeans.org/ns/editor-bookmarks/2" lastBookmarkId="1"/>
     <open-files xmlns="http://www.netbeans.org/ns/projectui-open-files/2">
         <group>
-            <file>file:/D:/Ambit-module/EnginerUI/config/dataSource/limits.json</file>
-            <file>file:/D:/Ambit-module/EnginerUI/src/Model/DataTest/DataBoxs/ItemTestData.java</file>
-            <file>file:/D:/Ambit-module/EnginerUI/src/Model/DataTest/FuncAllConfig.java</file>
-            <file>file:/D:/Ambit-module/EnginerUI/src/Model/DataTest/DataBoxs/FunctionData.java</file>
-            <file>file:/D:/Ambit-module/EnginerUI/src/Control/Functions/FunctionCover.java</file>
-            <file>file:/D:/Ambit-module/EnginerUI/src/Control/Functions/AbsFunction.java</file>
-            <file>file:/D:/Ambit-module/EnginerUI/config/Item/ambitconfig.json</file>
+            <file>file:/D:/NetBeans/Projects/AmbitNew/EnginerUI/src/Control/Functions/AbsFunction.java</file>
+            <file>file:/D:/NetBeans/Projects/AmbitNew/EnginerUI/src/Model/DataSource/ModeTest/ErrorCode/ErrorCode.java</file>
+            <file>file:/D:/NetBeans/Projects/AmbitNew/EnginerUI/src/Model/DataSource/ModeTest/ModeTestSource.java</file>
+            <file>file:/D:/NetBeans/Projects/AmbitNew/EnginerUI/src/Model/DataTest/FuncAllConfig.java</file>
+            <file>file:/D:/NetBeans/Projects/AmbitNew/EnginerUI/src/Control/Core/ModeTest.java</file>
+            <file>file:/D:/NetBeans/Projects/AmbitNew/EnginerUI/src/Control/Core/CellTest.java</file>
+            <file>file:/D:/NetBeans/Projects/AmbitNew/EnginerUI/src/Model/ManagerUI/UIStatus/UiStatus.java</file>
         </group>
     </open-files>
 </project-private>

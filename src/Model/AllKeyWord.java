@@ -84,6 +84,8 @@ public class AllKeyWord {
     public static final String FTP_PORT = "FtpPort";
     public static final String FTP_HOST = "FtpHost";
     public static final String LIMIT_CMD = "LimitCMD";
+    public static final String LOCAL_ERROR_CODE = "LocalErrorCode";
+    public static final String LOCAL_ERROR_DES = "LocalErrorDes";
 
     public static final List<String> MODE_KEY = Arrays.asList(
             STATION, DHCP, COLUMN, ROW, DETAIL, DISCRETE_TEST, TYPE_UI, NAME, TYPE_MODE,

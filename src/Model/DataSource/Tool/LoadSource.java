@@ -4,6 +4,7 @@
  */
 package Model.DataSource.Tool;
 
+import Model.DataSource.ModeTest.ErrorCode.ErrorCode;
 import Model.DataTest.ErrorLog;
 import Model.DataSource.ModeTest.Limit.Limit;
 import Model.DataSource.PcInformation;
@@ -29,6 +30,8 @@ public class LoadSource implements IInit {
         this.sources = new ArrayList<>();
         this.sources.add(Setting.getInstance().setPath(this.info.getPathOfSetting()));
         this.sources.add(Limit.getInstance().setPath(this.info.getPathOfLimit()));
+        ErrorCode.getInstance().setPath(this.info.getPathOfErroCode());
+        this.sources.add(ErrorCode.getInstance());
         this.sources.add(PcInformation.getInstance());
     }
 

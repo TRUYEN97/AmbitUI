@@ -4,7 +4,6 @@
  */
 package Model.DataSource.ModeTest;
 
-import Control.FileType.FileErrorMode;
 import Model.DataSource.ModeTest.ErrorCode.ErrorCode;
 import Model.DataSource.ModeTest.FunctionConfig.FunctionConfig;
 import Model.DataSource.ModeTest.FunctionConfig.FunctionElement;
@@ -21,14 +20,13 @@ import javax.swing.JOptionPane;
 public class ModeTestSource {
 
     private Limit limit;
+    private ErrorCode errorCode;
     private final FunctionConfig functionConfig;
-    private final ErrorCode errorCode;
     private final ModeElement modeConfig;
 
     public ModeTestSource(ModeElement modeInfo) {
         this.modeConfig = modeInfo;
         this.functionConfig = new FunctionConfig();
-        this.errorCode = new ErrorCode(new FileErrorMode());
     }
 
     public ModeElement getModeConfig() {
@@ -86,6 +84,7 @@ public class ModeTestSource {
             return false;
         }
         this.limit = Limit.getInstance();
+        this.errorCode = ErrorCode.getInstance();
         return true;
     }
 
@@ -109,5 +108,9 @@ public class ModeTestSource {
 
     public Limit getLimit() {
         return limit;
+    }
+
+    public ErrorCode getErrorCodeSource() {
+        return errorCode;
     }
 }

@@ -6,6 +6,7 @@ package Model.DataTest;
 
 import Model.AllKeyWord;
 import Model.DataSource.DataWareHouse;
+import Model.DataSource.ModeTest.ErrorCode.ErrorCode;
 import Model.DataSource.ModeTest.FunctionConfig.FunctionElement;
 import Model.DataSource.ModeTest.Limit.LimitElement;
 import Model.ManagerUI.UIStatus.UiStatus;
@@ -21,6 +22,7 @@ public class FuncAllConfig {
     private final String functionName;
     private FunctionElement functionConfig;
     private LimitElement limitElement;
+    private ErrorCode errorCode;
 
     public FuncAllConfig(String functionName) {
         this.wareHouse = new DataWareHouse();
@@ -31,8 +33,11 @@ public class FuncAllConfig {
         this.functionConfig = functionConfig;
         this.limitElement = uiStatus.getModeTest().
                 getModeTestSource().getLimit().getElement(this.functionConfig.getItemName());
+        this.errorCode = uiStatus.getModeTest().
+                getModeTestSource().getErrorCodeSource();
         getAllValueOfConfig();
         getAllValueOfLimit();
+        getErrorCode();
     }
 
     private void getAllValueOfLimit() {
@@ -95,5 +100,10 @@ public class FuncAllConfig {
 
     public String getItemName() {
         return this.functionConfig.getItemName();
+    }
+
+    private void getErrorCode() {
+        this.wareHouse.put(AllKeyWord.LOCAL_ERROR_CODE, this.errorCode.);
+        this.wareHouse.put(AllKeyWord.LOCAL_ERROR_DES, this);
     }
 }

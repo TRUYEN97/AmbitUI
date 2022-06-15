@@ -4,8 +4,8 @@
  */
 package Model.DataSource.ModeTest.ErrorCode;
 
+import Control.FileType.FileErrorMode;
 import Model.DataSource.Tool.ReadFileSource;
-import Model.Interface.ITypeRead;
 
 /**
  *
@@ -13,10 +13,25 @@ import Model.Interface.ITypeRead;
  */
 public class ErrorCode extends ReadFileSource {
 
-    public ErrorCode(ITypeRead typeRead) {
-        super(typeRead);
+    private static volatile ErrorCode errorCode;
+
+    private ErrorCode() {
+        super(new FileErrorMode());
     }
-    
+
+    public static ErrorCode getInstance() {
+        ErrorCode ins = ErrorCode.errorCode;
+        if (ins == null) {
+            synchronized (ErrorCode.class) {
+                ins = ErrorCode.errorCode;
+                if (ins == null) {
+                    ErrorCode.errorCode = ins = new ErrorCode();
+                }
+            }
+        }
+        return ins;
+    }
+
     public String getErrorCode(String errorDes) {
         return this.data.getString(errorDes);
     }
