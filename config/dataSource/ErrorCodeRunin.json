@@ -1,0 +1,291 @@
+{
+    "ccg_firmware":
+            {
+                "simple": {
+                    "local_error_code": "8.3.1",
+                    "local_error_des": "ccg_firmware"
+                }
+            },
+    "ccg_model": 
+            {
+                "simple": {
+                    "local_error_code": "8.2.0",
+                    "local_error_des": "ccg_model"
+                }
+            },
+    "cpu_stress": 
+            {
+                "simple": {
+                    "local_error_code": "9.1.0",
+                    "local_error_des": "cpu_stress"
+                }
+            },
+    "dut_ping": 
+            {
+                "simple": {
+                    "local_error_code": "10.1.0",
+                    "local_error_des": "dut_ping"
+                }
+            },
+    "dut_telnet": 
+            {
+                "simple": {
+                    "local_error_code": "10.2.0",
+                    "local_error_des": "dut_telnet"
+                }
+            },
+    "emmc_badblocks": 
+            {
+                "simple": {
+                    "local_error_code": "11.1.0",
+                    "local_error_des": "emmc_badblocks"
+                }
+            },
+    "gen_node": 
+            {
+                "simple": {
+                    "local_error_code": "15.1.0",
+                    "local_error_des": "gen_node"
+                }
+            },
+    "humidity_env": 
+            {
+                "simple": {
+                    "local_error_code": "15.4.0",
+                    "local_error_des": "humidity_env"
+                }
+            },
+    "led_vendor": 
+            {
+                "simple": {
+                    "local_error_code": "18.7.0",
+                    "local_error_des": "led_vendor"
+                }
+            },
+    "mac": 
+            {
+                "simple": {
+                    "local_error_code": "19.0.0",
+                    "local_error_des": "mac"
+                }
+            },
+    "mac_ok": 
+            {
+                "simple": {
+                    "local_error_code": "19.3.0",
+                    "local_error_des": "mac_ok"
+                }
+            },
+    "mmc_model": 
+            {
+                "simple": {
+                    "local_error_code": "20.1.0",
+                    "local_error_des": "mmc_model"
+                }
+            },
+    "ort_type": 
+            {
+                "simple": {
+                    "local_error_code": "36.1.0",
+                    "local_error_des": "ort_type"
+                }
+            },
+    "phy_model": 
+            {
+                "simple": {
+                    "local_error_code": "23.1.0",
+                    "local_error_des": "phy_model"
+                }
+            },
+    "phy_status": 
+            {
+                "simple": {
+                    "local_error_code": "23.2.0",
+                    "local_error_des": "phy_status"
+                }
+            },
+    "power_cycle": 
+            {
+                "simple": {
+                    "local_error_code": "22.1.0",
+                    "local_error_des": "power_cycle"
+                }
+            },
+    "ram_stress": 
+            {
+                "simple": {
+                    "local_error_code": "25.1.0",
+                    "local_error_des": "ram_stress"
+                }
+            },
+    "sn_ok": 
+            {
+                "simple": {
+                    "local_error_code": "30.1.0",
+                    "local_error_des": "sn_ok"
+                }
+            },
+    "usb_fw": 
+            {
+                "simple": {
+                    "local_error_code": "35.4.0",
+                    "local_error_des": "usb_fw"
+                }
+            },
+    "usb_model": 
+            {
+                "simple": {
+                    "local_error_code": "35.5.3",
+                    "local_error_des": "usb_model"
+                }
+            },
+    "wifi_start": 
+            {
+                "simple": {
+                    "local_error_code": "38.20.0",
+                    "local_error_des": "wifi_start"
+                }
+            },
+    "wps_ok": 
+            {
+                "simple": {
+                    "local_error_code": "39.3.0",
+                    "local_error_des": "wps_ok"
+                }
+            },
+    "temp_cpu": 
+            {
+                "simple": {
+                    "local_error_code": "32.3.0",
+                    "local_error_des": "temp_cpu"
+                },
+                "low": {
+                    "local_error_code": "32.3.1",
+                    "local_error_des": "temp_cpu_tooLow"
+                },
+                "high": {
+                    "local_error_code": "32.3.2",
+                    "local_error_des": "temp_cpu_tooHigh"
+                }
+            },
+    "temp_cpu_0": 
+            {
+                "simple": {
+                    "local_error_code": "32.3.3",
+                    "local_error_des": "temp_cpu_0"
+                },
+                "low": {
+                    "local_error_code": "32.3.3.1",
+                    "local_error_des": "temp_cpu_0_tooLow"
+                },
+                "high": {
+                    "local_error_code": "32.3.3.2",
+                    "local_error_des": "temp_cpu_0_tooHigh"
+                }
+            },
+    "temp_cpu_1": 
+            {
+                "simple": {
+                    "local_error_code": "32.3.4",
+                    "local_error_des": "temp_cpu_1"
+                },
+                "low": {
+                    "local_error_code": "32.3.4.1",
+                    "local_error_des": "temp_cpu_1_tooLow"
+                },
+                "high": {
+                    "local_error_code": "32.3.4.2",
+                    "local_error_des": "temp_cpu_1_tooHigh"
+                }
+            },
+    "temp_cpu_2": 
+            {
+                "simple": {
+                    "local_error_code": "32.3.5",
+                    "local_error_des": "temp_cpu_2"
+                },
+                "low": {
+                    "local_error_code": "32.3.5.1",
+                    "local_error_des": "temp_cpu_2_tooLow"
+                },
+                "high": {
+                    "local_error_code": "32.3.5.2",
+                    "local_error_des": "temp_cpu_2_tooHigh"
+                }
+            },
+    "temp_cpu_3": 
+            {
+                "simple": {
+                    "local_error_code": "32.3.6",
+                    "local_error_des": "temp_cpu_3"
+                },
+                "low": {
+                    "local_error_code": "32.3.6.1",
+                    "local_error_des": "temp_cpu_3_tooLow"
+                },
+                "high": {
+                    "local_error_code": "32.3.6.2",
+                    "local_error_des": "temp_cpu_3_tooHigh"
+                }
+            },
+    "temp_cpu_4": 
+            {
+                "simple": {
+                    "local_error_code": "32.3.7",
+                    "local_error_des": "temp_cpu_4"
+                },
+                "low": {
+                    "local_error_code": "32.3.7.1",
+                    "local_error_des": "temp_cpu_4_tooLow"
+                },
+                "high": {
+                    "local_error_code": "32.3.7.2",
+                    "local_error_des": "temp_cpu_4_tooHigh"
+                }
+            },
+    "temp_env": 
+            {
+                "simple": {
+                    "local_error_code": "32.3.9",
+                    "local_error_des": "temp_env"
+                },
+                "low": {
+                    "local_error_code": "32.3.9.1",
+                    "local_error_des": "temp_env_tooLow"
+                },
+                "high": {
+                    "local_error_code": "32.3.9.2",
+                    "local_error_des": "temp_env_tooHigh"
+                }
+            },
+    "emmc_speed_read": 
+            {
+                "simple": {
+                    "local_error_code": "11.2.1",
+                    "local_error_des": "emmc_speed_read"
+                },
+                "low": {
+                    "local_error_code": "11.2.1.1",
+                    "local_error_des": "emmc_speed_read_tooLow"
+                },
+                "high": {
+                    "local_error_code": "11.2.1.2",
+                    "local_error_des": "emmc_speed_read_tooHigh"
+                }
+            },
+    "emmc_speed_write": 
+            {
+                "simple": {
+                    "local_error_code": "11.2.2",
+                    "local_error_des": "emmc_speed_write"
+                },
+                "low": {
+                    "local_error_code": "11.2.2.1",
+                    "local_error_des": "emmc_speed_write_tooLow"
+                },
+                "high": {
+                    "local_error_code": "11.2.2.2",
+                    "local_error_des": "emmc_speed_write_tooHigh"
+                }
+            }
+}

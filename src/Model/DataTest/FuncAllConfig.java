@@ -6,11 +6,13 @@ package Model.DataTest;
 
 import Model.AllKeyWord;
 import Model.DataSource.DataWareHouse;
-import Model.DataSource.ModeTest.ErrorCode.ErrorCode;
+import Model.DataSource.ModeTest.ErrorCode.ErrorCodeElement;
 import Model.DataSource.ModeTest.FunctionConfig.FunctionElement;
 import Model.DataSource.ModeTest.Limit.LimitElement;
 import Model.ManagerUI.UIStatus.UiStatus;
+import com.alibaba.fastjson.JSONObject;
 import java.util.List;
+import javax.swing.JOptionPane;
 
 /**
  *
@@ -22,7 +24,7 @@ public class FuncAllConfig {
     private final String functionName;
     private FunctionElement functionConfig;
     private LimitElement limitElement;
-    private ErrorCode errorCode;
+    private ErrorCodeElement localErrorCode;
 
     public FuncAllConfig(String functionName) {
         this.wareHouse = new DataWareHouse();
@@ -33,11 +35,21 @@ public class FuncAllConfig {
         this.functionConfig = functionConfig;
         this.limitElement = uiStatus.getModeTest().
                 getModeTestSource().getLimit().getElement(this.functionConfig.getItemName());
-        this.errorCode = uiStatus.getModeTest().
-                getModeTestSource().getErrorCodeSource();
+        this.localErrorCode = uiStatus.getModeTest().
+                getModeTestSource().getErrorCodeSource().getElement(this.functionConfig.getItemName());
         getAllValueOfConfig();
         getAllValueOfLimit();
-        getErrorCode();
+    }
+
+    public JSONObject getLocalErrorCode(String type) {
+        if (localErrorCode == null) {
+            String mess = String.format("Missing error code of %s - %s type !!",
+                    this.functionConfig.getItemName(), type);
+            JOptionPane.showMessageDialog(null, mess);
+            ErrorLog.addError(this, mess);
+            return null;
+        }
+        return this.localErrorCode.getErrorType(type);
     }
 
     private void getAllValueOfLimit() {
@@ -102,8 +114,7 @@ public class FuncAllConfig {
         return this.functionConfig.getItemName();
     }
 
-    private void getErrorCode() {
-        this.wareHouse.put(AllKeyWord.LOCAL_ERROR_CODE, this.errorCode.);
-        this.wareHouse.put(AllKeyWord.LOCAL_ERROR_DES, this);
+    public Integer getInteger(String key) {
+        return this.wareHouse.getInteger(key);
     }
 }

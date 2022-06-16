@@ -33,11 +33,11 @@ public abstract class AbsFunction implements IFunction {
     public void setResources(UiStatus uiStatus, FunctionData functionData, FunctionElement funcConfig) {
         this.functionData = functionData;
         this.allConfig.setResources(uiStatus, funcConfig);
-        this.itemTestData = new ItemTestData(allConfig);
+        this.itemTestData = new ItemTestData( allConfig);
+        this.functionData.addItemtest(itemTestData);
         this.analysisResult = new AnalysisResult(itemTestData, allConfig);
         this.uiData = uiStatus.getUiData();
         this.subUi = uiStatus.getSubUi();
-        this.functionData.addItemtest(itemTestData);
         this.itemTestData.start();
     }
 

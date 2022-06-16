@@ -5,6 +5,8 @@
 package Model.DataTest.DataBoxs;
 
 import Model.AllKeyWord;
+import Model.DataSource.ModeTest.ErrorCode.ErrorCodeElement;
+import Model.DataTest.ErrorLog;
 import Model.DataTest.FuncAllConfig;
 import MyLoger.MyLoger;
 import Time.TimeBase;
@@ -12,6 +14,7 @@ import Time.WaitTime.Class.TimeS;
 import com.alibaba.fastjson.JSONObject;
 import java.util.Arrays;
 import java.util.List;
+import javax.swing.JOptionPane;
 
 /**
  *
@@ -22,6 +25,7 @@ public class ItemTestData {
     private final String itemTestName;
     private final FuncAllConfig allConfig;
     private final JSONObject data;
+    private final JSONObject error;
     private final TimeS timeS;
     private final List<String> keys;
     private MyLoger loger;
@@ -36,6 +40,7 @@ public class ItemTestData {
                 AllKeyWord.UPPER_LIMIT,
                 AllKeyWord.UNITS);
         this.data = new JSONObject();
+        this.error = new JSONObject();
         this.timeS = new TimeS();
         this.isPass = false;
     }
@@ -43,6 +48,7 @@ public class ItemTestData {
     public void start() {
         this.timeS.start(0);
         this.testing = true;
+        isErrorCodeAvailable();
         this.data.put(AllKeyWord.START_TIME, new TimeBase().getSimpleDateTime());
         for (String key : keys) {
             this.data.put(key, allConfig.getString(key));
@@ -79,10 +85,11 @@ public class ItemTestData {
         this.loger.addLog(String.format("Value: \"%s\"", getResultTest()));
     }
 
+    public void clearError() {
+        this.error.clear();
+    }
+
     public void end() {
-        if (!isPass) {
-            addErrorCode();
-        }
         addResult();
         logEnd();
         this.testing = false;
@@ -92,18 +99,32 @@ public class ItemTestData {
         if (getResultTest() == null) {
             this.data.put(AllKeyWord.TEST_VALUE, isPass ? "PASS" : "FAIL");
         }
+        this.data.putAll(this.error);
         this.data.put(AllKeyWord.STATUS, isPass ? "passed" : "failed");
         this.data.put(AllKeyWord.CYCLE_TIME, String.format("%.3f", timeS.getTime()));
         this.data.put(AllKeyWord.FINISH_TIME, new TimeBase().getSimpleDateTime());
     }
 
-    private void addErrorCode() {
+    public void setErrorCode() {
         String errorCode = allConfig.getString(AllKeyWord.ERROR_CODE);
-        this.data.put(AllKeyWord.ERROR_DES, itemTestName);
+        this.error.put(AllKeyWord.ERROR_DES, itemTestName);
         if (errorCode != null && !errorCode.isBlank()) {
-            this.data.put(AllKeyWord.ERROR_CODE, errorCode);
+            this.error.put(AllKeyWord.ERROR_CODE, errorCode);
         } else {
-            this.data.put(AllKeyWord.ERROR_CODE, "-1");
+            this.error.put(AllKeyWord.ERROR_CODE, "-1");
+        }
+    }
+
+    public void setLocalErrorCode(String type) {
+        JSONObject errorCode = this.allConfig.getLocalErrorCode(type);
+        if (errorCode == null) {
+            errorCode = this.allConfig.getLocalErrorCode(ErrorCodeElement.SIMPLE);
+            if (errorCode == null) {
+                return;
+            }
+        }
+        for (String key : errorCode.keySet()) {
+            this.error.put(key, errorCode.getString(key));
         }
     }
 
@@ -131,12 +152,24 @@ public class ItemTestData {
     }
 
     private void logEnd() {
-        String error = this.data.getString(AllKeyWord.ERROR_CODE);
-        if (error != null) {
-            this.loger.addLog("ErrorCode: " + error);
+        if (!isPass) {
+            String errorCode = this.data.getString(AllKeyWord.ERROR_CODE);
+            String localErrorCode = this.data.getString(AllKeyWord.LOCAL_ERROR_CODE);
+            String localErrorDes = this.data.getString(AllKeyWord.LOCAL_ERROR_DES);
+            this.loger.addLog("Error code: " + errorCode);
+            this.loger.addLog("Local error code: " + localErrorCode);
+            this.loger.addLog("Local error des: " + localErrorDes);
         }
         String item = this.data.getString(AllKeyWord.TEST_NAME);
         this.loger.addLog("Item name: " + item);
+    }
+
+    public void clearErrorCode() {
+        this.error.clear();
+    }
+
+    private boolean isErrorCodeAvailable() {
+        return this.allConfig.getLocalErrorCode(ErrorCodeElement.SIMPLE) != null;
     }
 
 }

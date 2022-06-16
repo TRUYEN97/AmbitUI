@@ -4,7 +4,7 @@
  */
 package Model.DataSource.ModeTest;
 
-import Model.DataSource.ModeTest.ErrorCode.ErrorCode;
+import Model.DataSource.ModeTest.ErrorCode.ErrorCodeSource;
 import Model.DataSource.ModeTest.FunctionConfig.FunctionConfig;
 import Model.DataSource.ModeTest.FunctionConfig.FunctionElement;
 import Model.DataSource.ModeTest.Limit.Limit;
@@ -20,7 +20,7 @@ import javax.swing.JOptionPane;
 public class ModeTestSource {
 
     private Limit limit;
-    private ErrorCode errorCode;
+    private ErrorCodeSource errorCode;
     private final FunctionConfig functionConfig;
     private final ModeElement modeConfig;
 
@@ -84,7 +84,7 @@ public class ModeTestSource {
             return false;
         }
         this.limit = Limit.getInstance();
-        this.errorCode = ErrorCode.getInstance();
+        this.errorCode = ErrorCodeSource.getInstance();
         return true;
     }
 
@@ -110,7 +110,7 @@ public class ModeTestSource {
         return limit;
     }
 
-    public ErrorCode getErrorCodeSource() {
+    public ErrorCodeSource getErrorCodeSource() {
         return errorCode;
     }
 }

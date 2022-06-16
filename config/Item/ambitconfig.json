@@ -1,6 +1,6 @@
 {
-    "UUT_MODEL": "Trieste",
-    "station_type": "RTT",
+    "UUT_MODEL": "eden",
+    "station_type": "Runin",
     "TIME_OUT_TEST": 100,
     "INIT": [
         {
@@ -16,7 +16,7 @@
     "Functions": [
         {
             "FLAG": true,
-            "FAIL_CONTNIUE": false,
+            "FAIL_CONTNIUE": true,
             "CANCEL": "DEBUG",
             "TIME_OVER": 30,
             "RETRY": 5,
@@ -28,7 +28,7 @@
         {
             "FLAG": true,
             "CANCEL": "DEBUG",
-            "FAIL_CONTNIUE": false,
+            "FAIL_CONTNIUE": true,
             "TIME_OVER": 700,
             "MULTI_TASK": false,
             "RETRY": 1,

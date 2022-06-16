@@ -17,16 +17,19 @@ public abstract class AbsElementInfo {
 
     protected AbsElementInfo(List<String> keys, JSONObject base, JSONObject config) {
         this.warehouse = new DataWareHouse();
-        setSetting(keys,  base);
+        setSetting(keys, base);
         this.warehouse.putAll(config);
     }
 
-    private void setSetting(List<String> keys,JSONObject data) {
+    private void setSetting(List<String> keys, JSONObject data) {
+        if (keys == null || data == null) {
+            return;
+        }
         for (String key : data.keySet()) {
             if (keys.contains(key)) {
                 this.warehouse.put(key, data.get(key));
             }
         }
     }
-    
+
 }

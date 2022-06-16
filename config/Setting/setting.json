@@ -1,5 +1,5 @@
 {
-    "station_type": "RTT",
+    "station_type": "RUNIN",
     "DHCP": false,
     "ROW": 1,
     "COLUMN": 1,
@@ -9,7 +9,7 @@
     "LOCAL_LOG": "Log\\TestLog",
     "LOCAL_FUNCTION_LOG": "Log\\TestLog\\Functions",
     "DETAIL": ["TabViewProxy", "TabItemProxy", "TabLogProxy"],
-    "LimitCMD": "cd python && eero_api_limits_eden.py RTT",
+    "LimitCMD": "cd python && eero_api_limits_eden.py Runin",
     "DETAIL": ["TabViewProxy", "TabFaApiProxy", "TabItemProxy"],
     "LOAD_MODE": [
         {

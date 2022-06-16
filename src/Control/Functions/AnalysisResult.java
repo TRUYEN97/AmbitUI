@@ -5,6 +5,7 @@
 package Control.Functions;
 
 import Model.AllKeyWord;
+import Model.DataSource.ModeTest.ErrorCode.ErrorCodeElement;
 import Model.DataTest.DataBoxs.ItemTestData;
 import Model.DataTest.ErrorLog;
 import Model.DataTest.FuncAllConfig;
@@ -26,7 +27,7 @@ public class AnalysisResult {
 
     public void checkResult(boolean status, String result) {
         if (!status) {
-            this.itemTestData.setPass(false);
+            setFail(ErrorCodeElement.SIMPLE);
         }
         if (isResultAvailable(result) && this.allConfig.isLimitAvailable()) {
             checkResultWithLimits(result);
@@ -39,15 +40,38 @@ public class AnalysisResult {
         return result != null && !result.isBlank();
     }
 
-    private void checkResultWithLimits(String result) {
+    private void checkResultWithLimits(String StringResult) {
         switch (allConfig.getTestType()) {
-            case AllKeyWord.MATCH ->
-                this.itemTestData.setPass(checkMatchType(result));
-            case AllKeyWord.LIMIT ->
-                this.itemTestData.setPass(checkLimitType(result));
-            default ->
-                this.itemTestData.setPass(false);
+            case AllKeyWord.MATCH -> {
+                if (checkMatchType(StringResult)) {
+                    setPass();
+                } else {
+                    setFail(ErrorCodeElement.SIMPLE);
+                }
+            }
+            case AllKeyWord.LIMIT -> {
+                String errorType = checkLimitType(StringResult);
+                if (errorType == null) {
+                    setPass();
+                } else {
+                    setFail(errorType);
+                }
+            }
+            default -> {
+                setFail(ErrorCodeElement.SIMPLE);
+            }
         }
+    }
+
+    private void setPass() {
+        this.itemTestData.clearError();
+        this.itemTestData.setPass(true);
+    }
+
+    private void setFail(String errorType) {
+        this.itemTestData.setErrorCode();
+        this.itemTestData.setLocalErrorCode(errorType);
+        this.itemTestData.setPass(false);
     }
 
     private boolean checkMatchType(String result) {
@@ -90,23 +114,36 @@ public class AnalysisResult {
         }
     }
 
-    private boolean checkLimitType(String result) {
+    private String checkLimitType(String result) {
+        if (isRequired(2)) {
+            return null;
+        }
         String upString = allConfig.getString(AllKeyWord.UPPER_LIMIT);
         String lowString = allConfig.getString(AllKeyWord.LOWER_LIMIT);
         Double upper = cvtString2Num(upString);
         Double lower = cvtString2Num(lowString);
         Double value = cvtString2Num(result);
         if ((upper == null && lower == null) || value == null) {
-            return false;
+            return ErrorCodeElement.SIMPLE;
         }
         if (lower == null) {
-            return aGreatThanB(upper, value);
+            return aGreatThanB(upper, value) ? null : ErrorCodeElement.HIGH;
+        } else if (upper == null) {
+            return aGreatThanB(value, lower) ? null : ErrorCodeElement.LOW;
+        } else {
+            if (!aGreatThanB(upper, value)) {
+                return ErrorCodeElement.HIGH;
+            }
+            if (!aGreatThanB(value, lower)) {
+                return ErrorCodeElement.LOW;
+            }
+            return null;
         }
-        if (upper == null) {
-            return aGreatThanB(value, lower);
-        }
-        return aGreatThanB(value, lower) && aGreatThanB(upper, value);
+    }
 
+    private boolean isRequired(int num) {
+        Integer required = allConfig.getInteger(AllKeyWord.REQUIRED);
+        return required != null && required == num;
     }
 
     private static boolean aGreatThanB(Double a, Double b) {
