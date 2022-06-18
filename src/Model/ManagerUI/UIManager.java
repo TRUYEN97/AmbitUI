@@ -80,6 +80,17 @@ public class UIManager implements IUpdate {
         return true;
     }
 
+    public int getIndexOf(String index) {
+        return this.getIndexOf(getUiStatus(index));
+    }
+
+    public int getIndexOf(UiStatus uiStatus) {
+        if (isNull(uiStatus)) {
+            return -1;
+        }
+        return this.uiStatuses.indexOf(uiStatus);
+    }
+
     public boolean isIndexFree(String index) {
         UiStatus status = getUiStatus(index);
         if (isNull(status)) {
