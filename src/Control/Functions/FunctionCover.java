@@ -136,7 +136,7 @@ public class FunctionCover extends Thread {
     }
 
     private String createLogPath() {
-        String settingPath = Setting.getInstance().getFunctionsLocalLog();
+        String settingPath = Setting.getInstance().getFunctionsLocalLogPath();
         return String.format("%s%s%s", settingPath, File.separator, this.subUi.getName());
     }
 

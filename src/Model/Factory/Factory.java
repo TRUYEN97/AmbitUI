@@ -9,7 +9,6 @@ import Control.Functions.AbsFunction;
 import Control.Functions.FunctionsTest.CreateFaJson.CreateFaJsonProxy;
 import Control.Functions.FunctionsTest.CreateTxtLog.CreateTxtLogProxy;
 import Control.Functions.FunctionsTest.SFIS.CheckSnFormSFIS.CheckSnFormSFISProxy;
-import Control.Functions.FunctionsTest.FixtureAction.FixtureActionProxy;
 import Control.Functions.FunctionsTest.GenerateNode.GenerateNodeProxy;
 import Control.Functions.FunctionsTest.GetMacFromSfis.GetMacFormSfisProxy;
 import Control.Functions.FunctionsTest.SFIS.SendResultToSfis.SendResuttToSfisProxy;
@@ -99,7 +98,6 @@ public class Factory {
         this.functions.addType(new SendResuttToSfisProxy());
         this.functions.addType(new GenerateNodeProxy());
         this.functions.addType(new GetMacFormSfisProxy());
-        this.functions.addType(new FixtureActionProxy());
         this.functions.addType(new InputFaDataProxy());
         this.functions.addType(new CreateFaJsonProxy());
         this.functions.addType(new CreateTxtLogProxy());

@@ -10,26 +10,23 @@ import Control.Functions.AbsFunction;
  *
  * @author 21AK22
  */
-public class GenerateNode extends AbsFunction{
-
+public class GenerateNode extends AbsFunction {
+    
     public GenerateNode(String FunctionName) {
         super(FunctionName);
     }
-
+    
     @Override
     public boolean test() {
-        for (int i = 0; i < 10; i++) {
-            try {
-                System.out.println(getFuntionName() + i);
-                this.addLog(i);
-                Thread.sleep(500);
-            } catch (InterruptedException ex) {
-                ex.printStackTrace();
-            }
+        String send = this.allConfig.getString("SEND_FORMAT");
+        String read = this.allConfig.getString("DATA_FORMAT");
+        if (send == null || send.isBlank() || read == null || read.isBlank()) {
+            addLog("config missing \"SEND_FORMAT\" and \"DATA_FORMAT\"");
+            return false;
         }
-        setResult("base 02fa 3.0.0 app 6e62 2.1.11");
+        addLog("UI->SFIS:" + send);
+        addLog("SFIS -> UI:" + read);
         return true;
     }
-
     
 }

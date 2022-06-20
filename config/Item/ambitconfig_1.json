@@ -1,6 +1,6 @@
 {
     "UUT_MODEL": "Trieste",
-    "station_type": "RTT",
+    "station_type": "RUNIN",
     "TIME_OUT_TEST": 60,
     "INIT": [
         {

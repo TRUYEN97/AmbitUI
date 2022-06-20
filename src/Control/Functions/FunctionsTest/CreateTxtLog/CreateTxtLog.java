@@ -5,11 +5,10 @@
 package Control.Functions.FunctionsTest.CreateTxtLog;
 
 import Control.Functions.AbsFunction;
+import FileTool.FileService;
 import Model.AllKeyWord;
 import Model.DataTest.DataBoxs.FunctionData;
 import Model.DataTest.ErrorLog;
-import Model.DataTest.InputData;
-import Model.DataSource.Tool.FileService;
 import MyLoger.MyLoger;
 import java.io.File;
 

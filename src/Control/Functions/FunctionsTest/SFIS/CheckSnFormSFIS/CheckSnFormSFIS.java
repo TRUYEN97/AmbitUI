@@ -7,7 +7,6 @@ package Control.Functions.FunctionsTest.SFIS.CheckSnFormSFIS;
 import Control.Functions.AbsFunction;
 import Model.AllKeyWord;
 import Model.DataTest.ErrorLog;
-import Model.DataTest.InputData;
 import SfisAPI17.SfisAPI;
 import com.alibaba.fastjson.JSONObject;
 import java.util.List;
@@ -20,8 +19,8 @@ public class CheckSnFormSFIS extends AbsFunction {
 
     private final SfisAPI sfisAPI;
 
-    public CheckSnFormSFIS(String itemName) {
-        super(itemName);
+    public CheckSnFormSFIS(String functionName) {
+        super(functionName);
         this.sfisAPI = new SfisAPI();
     }
 

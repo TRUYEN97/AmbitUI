@@ -118,7 +118,7 @@ public class UIView extends javax.swing.JFrame {
         this.txtShow.setText(mess);
     }
 
-    public void setMessageText(String mess) {
+    public void showMessager(String mess) {
         this.textMess.setText(mess);
     }
 

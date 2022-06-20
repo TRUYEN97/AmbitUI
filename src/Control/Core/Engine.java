@@ -24,6 +24,7 @@ public class Engine {
     private final CheckInput checkInput;
     private final UIView view;
     private final PcInformation pcInfor;
+    private final DHCP dhcp;
 
     public Engine() {
         this.setting = Setting.getInstance();
@@ -33,9 +34,11 @@ public class Engine {
         this.pcInfor = PcInformation.getInstance();
         this.checkInput = new CheckInput(core, view);
         this.view.setCheckInput(checkInput);
+        this.dhcp = DHCP.getInstance();
     }
 
     public void run() {
+        initDHCP();
         getAllMode();
         setMode();
         showUI();
@@ -61,6 +64,18 @@ public class Engine {
         java.awt.EventQueue.invokeLater(() -> {
             this.view.setVisible(true);
         });
+    }
+
+    private void initDHCP() {
+        String netIP = setting.getDhcpNetIP();
+        if (netIP == null) {
+            return;
+        }
+        this.view.showMessager("////DHCP//////\r\nSet net IP: " + netIP);
+        this.dhcp.setView(view);
+        if (this.dhcp.setNetIP(netIP)) {
+            new Thread(this.dhcp).start();
+        }
     }
 
 }

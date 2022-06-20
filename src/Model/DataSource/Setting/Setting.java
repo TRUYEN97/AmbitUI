@@ -48,16 +48,21 @@ public class Setting extends AbsJsonSource<ModeElement> implements IInit {
         }
         return !this.elements.isEmpty();
     }
+    
+
+    public String getDhcpNetIP() {
+        return this.readFile.getData().getString(AllKeyWord.DHCP);
+    }
 
     public String getGiaiDoan() {
         return this.readFile.getData().getString(AllKeyWord.GIAI_DOAN);
     }
 
-    public String getFunctionsLocalLog() {
+    public String getFunctionsLocalLogPath() {
         return this.readFile.getData().getString(AllKeyWord.LOCAL_FUNCTION_LOG);
     }
 
-    public String getLocalLog() {
+    public String getLocalLogPath() {
         return this.readFile.getData().getString(AllKeyWord.LOCAL_LOG);
     }
 

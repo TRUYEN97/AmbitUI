@@ -5,6 +5,7 @@
 package Control.Functions.FunctionsTest.GetMacFromSfis;
 
 import Control.Functions.AbsFunction;
+import Model.AllKeyWord;
 
 /**
  *
@@ -18,17 +19,17 @@ public class GetMacFromSfis extends AbsFunction {
 
     @Override
     public boolean test() {
-        for (int i = 0; i < 10; i++) {
-            try {
-                System.out.println(getFuntionName() + i);
-                Thread.sleep(500);
-                addLog(i);
-            } catch (InterruptedException ex) {
-                ex.printStackTrace();
+        try {
+            String mac = this.uiData.getProductInfo(AllKeyWord.MAC);
+            if (mac == null || mac.length() != 12) {
+                addLog("MAC is invalid: " + mac);
+                return false;
             }
+            addLog("Get mac= " + mac);
+            return true;
+        } finally {
+            addLog("MAC range 100000000000-ffffffffffff");
         }
-        setResult("M04A11");
-        return true;
     }
 
 }
