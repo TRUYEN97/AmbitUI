@@ -4,12 +4,12 @@
     "TIME_OUT_TEST": 100,
     "INIT": [
         {
-            "FLAG": false,
+            "FLAG": true,
             "TIME_OVER": 30,
-            "SEND_FORMAT": ["sn", "pcname", "mode"],
-            "DATA_FORMAT": ["mlbsn", "ethernetmac", "pnname", "model", "smode"],
+            "SEND_FORMAT": "sn| pcname| mode",
+            "DATA_FORMAT": "mlbsn| ethernetmac| pnname| model| smode",
             "URL_CHECK_SN": "http://10.90.0.40/sfcapi/api/connect",
-            "ITEM_NAME": "CheckSnSfis", 
+            "test_name": "CheckSnSfis", 
             "FUNC_NAME": "CheckSnFormSFISProxy"
         }
     ],
@@ -19,9 +19,9 @@
             "FAIL_CONTNIUE": true,
             "CANCEL": "DEBUG",
             "TIME_OVER": 1,
-            "SEND_FORMAT": ["sn", "pcname", "mode"],
-            "DATA_FORMAT": ["mlbsn", "ethernetmac", "pnname", "model", "smode"],
-            "ITEM_NAME": "gen_node",
+            "SEND_FORMAT": "sn| pcname| mode",
+            "DATA_FORMAT": "mlbsn| ethernetmac| pnname| model| smode",
+            "test_name": "gen_node",
             "FUNC_NAME": "GenerateNodeProxy"
         },
         {
@@ -31,11 +31,11 @@
             "TIME_OVER": 1,
             "MULTI_TASK": false,
             "RETRY": 1,
-            "ITEM_NAME": "mac",
+            "test_name": "mac",
             "FUNC_NAME": "GetMacFormSfisProxy"
         },
         {
-            "FLAG": true,
+            "FLAG": false,
             "TIME_OVER": 20,
             "MULTI_TASK": false,
             "RETRY": 2,
@@ -43,7 +43,7 @@
             "user": "admin",
             "password": "1234",
             "Times": 1,
-            "ITEM_NAME": "wps_ok",
+            "test_name": "wps_ok",
             "FUNC_NAME": "PowerSwitchProxy"
         }
     ],
@@ -51,9 +51,9 @@
         {
             "FLAG": true,
             "TIME_OVER": 5,
-            "SEND_FORMAT": ["MBLSN", "PCNAME", "STATUS", "ERRORCODE"],
+            "SEND_FORMAT": "mlbsn| pcname| status| mode",
             "URL_SEND_RESULT": "http://10.90.0.40/sfcapi/api/connectfinal",
-            "ITEM_NAME": "SendToSfis",
+            "test_name": "SendToSfis",
             "FUNC_NAME": "SendResuttToSfisProxy"
         }
 

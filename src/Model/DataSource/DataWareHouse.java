@@ -115,16 +115,16 @@ public class DataWareHouse {
 
     public JSONObject getJson(JSONObject jsono, String key) {
         Object value = jsono.get(key);
-        if (value instanceof JSONObject) {
-            return (JSONObject) value;
+        if (value instanceof JSONObject jSONObject) {
+            return jSONObject;
         }
         return null;
     }
 
     public JSONObject getJson(String key) {
         Object value = getJson(coreData, key);
-        if (value instanceof JSONObject) {
-            return (JSONObject) value;
+        if (value instanceof JSONObject jSONObject) {
+            return jSONObject;
         }
         String mess = String.format("%s json not exists!!", key);
         ErrorLog.addError(this, mess);
@@ -135,22 +135,12 @@ public class DataWareHouse {
         return (JSONObject) coreData.clone();
     }
 
-    public String getClassName(Object object) {
-        return object.getClass().getSimpleName();
-    }
-
-    public String getAllClassName(Object object) {
-        return object.getClass().getName();
-    }
-
     public JSONArray getJSONArray(JSONObject jsono, String key) {
-        JSONArray listModeSetting = jsono.getJSONArray(key);
-        return listModeSetting;
+        return  jsono.getJSONArray(key);
     }
 
     public JSONArray getJSONArray(String key) {
-        JSONArray listModeSetting = this.coreData.getJSONArray(key);
-        return listModeSetting;
+       return getJSONArray(coreData, key);
     }
 
     public void put(String key, Object get) {

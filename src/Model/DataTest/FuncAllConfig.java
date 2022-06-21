@@ -79,7 +79,7 @@ public class FuncAllConfig {
         return wareHouse.get(key);
     }
 
-    public List<String> getListString(String key) {
+    public List<String> getListJsonArray(String key) {
         return wareHouse.getListJsonArray(key);
     }
 

@@ -41,7 +41,7 @@ public class CheckSnFormSFIS extends AbsFunction {
 
     private String createCommand() {
         JSONObject command = new JSONObject();
-        List<String> listKey = this.allConfig.getListString("SEND_FORMAT");
+        List<String> listKey = this.allConfig.getListSlip("SEND_FORMAT","\\|");
         if (listKey == null || listKey.isEmpty()) {
             return null;
         }
@@ -69,7 +69,7 @@ public class CheckSnFormSFIS extends AbsFunction {
             JSONObject res = JSONObject.parseObject(response);
             if (res.getString(AllKeyWord.RESULT).equals("PASS")) {
                 JSONObject data = res.getJSONObject(AllKeyWord.DATA);
-                for (String key : this.allConfig.getListString("DATA_FORMAT")) {
+                for (String key : this.allConfig.getListJsonArray("DATA_FORMAT")) {
                     if (data.containsKey(key)) {
                         String value = data.getString(key);
                         addLog(String.format("add key: %s -- Value: %s", key, value));

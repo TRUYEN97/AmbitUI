@@ -1,6 +1,6 @@
 {
     "station_type": "RUNIN",
-    "DHCP": "192.168.1.254",
+    //"DHCP": "192.168.1.254",
     "ROW": 1,
     "COLUMN": 1,
     "GIAI_DOAN": "PVT",
@@ -16,12 +16,12 @@
             "NAME": "Debug RE", 
             "TYPE_MODE": "Debug",
             "AMBIT_CONFIG": "config\\Item\\ambitconfig.json",
-            "DETAIL": ["TabViewProxy", "TabFaApiProxy", "TabItemProxy"]
+            "DETAIL": ["TabViewProxy", "TabItemProxy"]
         },
         {
             "NAME": "Fa API",
             "TYPE_MODE": "FA_API",
-            "AMBIT_CONFIG": "config\\Item\\ambitconfig_1.json",
+            "AMBIT_CONFIG": "config\\Item\\FaConfig.json",
             "DETAIL": ["TabViewProxy", "TabFaApiProxy", "TabItemProxy"]
         },
         {

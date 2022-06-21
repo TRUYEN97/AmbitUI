@@ -1,8 +1,15 @@
-2022-06-10 01:08:14 : Item[CheckSnSfis] - Function[CheckSnFormSFISProxy]
-2022-06-10 01:08:14 : Turn 0:
-2022-06-10 01:08:14 : send to url: http://10.90.0.40/sfcapi/api/connect
-2022-06-10 01:08:14 : command: {"PCNAME":"REPAIR-7801","MODE":"Debug","SN":"KK"}
-2022-06-10 01:08:14 : {"result":"FAIL","message":"DEVICE_SN Length error!KK","data":""}
-2022-06-10 01:08:14 : DEVICE_SN Length error!KK
-2022-06-10 01:08:14 : Result: FAILED
-2022-06-10 01:08:14 : Time[0.015 s] - Status[FAILED]
+2022-06-21 12:22:41 : Item[CheckSnSfis] - Function[CheckSnFormSFISProxy]
+2022-06-21 12:22:41 : Turn 0:
+2022-06-21 12:22:41 : send to url: http://10.90.0.40/sfcapi/api/connect
+2022-06-21 12:22:41 : command: {"PCNAME":"REPAIR-7801","MODE":"Debug","SN":"DDSD"}
+2022-06-21 12:22:41 : {"result":"FAIL","message":"Exception: IP(10.90.0.246) HAVE NOT SET IN SFIS YET","data":{}}
+2022-06-21 12:22:41 : Exception: IP(10.90.0.246) HAVE NOT SET IN SFIS YET
+2022-06-21 12:22:43 : Value: "FAIL"
+2022-06-21 12:22:43 : .....................................................
+2022-06-21 12:22:43 : //////////////////////////////////////////////////////
+2022-06-21 12:22:43 : Error code: null
+2022-06-21 12:22:43 : Local error code: null
+2022-06-21 12:22:43 : Local error des: null
+2022-06-21 12:22:43 : Item name: CheckSnSfis
+2022-06-21 12:22:43 : //////////////////////////////////////////////////////
+2022-06-21 12:22:43 : Time[2.511 s] - Status[FAILED]

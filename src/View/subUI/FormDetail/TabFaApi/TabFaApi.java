@@ -26,8 +26,10 @@ public class TabFaApi extends AbsTabUI {
     public static final String REPAIR_DETAIL = "RepairDetail";
     public static final String REASON_DES = "ReasonDes";
     public static final String LOCATION = "Location";
+    public static final String RESON_CODE = "resonCode";
     public static final String ACTION = "Action";
     public static final String MY_KEY = "FA_API";
+    private String[] listResonCode ;
 
     private final FormOption formOption;
     private final Map<String, String> keys;
@@ -42,6 +44,7 @@ public class TabFaApi extends AbsTabUI {
         this.formOption = new FormOption();
         initComponents();
         initListLocation("listLocation.txt");
+        initListResonCode("resonCode.txt");
         AutoCompleteDecorator.decorate(cbbLocation);
         this.keys = new HashMap<>();
         this.keys.put("- Fail at", AllKeyWord.FAIL_PC);
@@ -150,9 +153,9 @@ public class TabFaApi extends AbsTabUI {
                 .addGap(13, 13, 13)
                 .addComponent(jPanel4, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(pnSelectOption, javax.swing.GroupLayout.PREFERRED_SIZE, 184, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addComponent(pnSelectOption, javax.swing.GroupLayout.DEFAULT_SIZE, 91, Short.MAX_VALUE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(lbInfo, javax.swing.GroupLayout.DEFAULT_SIZE, 145, Short.MAX_VALUE)
+                .addComponent(lbInfo, javax.swing.GroupLayout.DEFAULT_SIZE, 238, Short.MAX_VALUE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(btXacNhan)
                 .addGap(14, 14, 14))
@@ -166,7 +169,9 @@ public class TabFaApi extends AbsTabUI {
         if (item == null) {
             return;
         }
-        this.formOption.addNewTab(item.toString(), new TabOption(item.toString()));
+        TabOption tabOption = new TabOption(item.toString());
+        tabOption.setListResonCode(listResonCode);
+        this.formOption.addNewTab(item.toString(), tabOption);
     }
 
     private void btAddAreaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btAddAreaActionPerformed
@@ -177,7 +182,6 @@ public class TabFaApi extends AbsTabUI {
     private void btXacNhanActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btXacNhanActionPerformed
         // TODO add your handling code here:
         if (!checkSelectData()) {
-
             return;
         }
         this.formOption.config();
@@ -244,6 +248,19 @@ public class TabFaApi extends AbsTabUI {
 
     public JSONObject getData() {
         return this.formOption.getData();
+    }
+
+    private void initListResonCode(String path) {
+        File file = new File(path);
+        if (!file.exists()) {
+            JOptionPane.showMessageDialog(null, String.format("%s not exists!", path));
+        }
+        String data = new FileService().readFile(file);
+        if (data == null) {
+            JOptionPane.showMessageDialog(null, String.format("%s is null!", path));
+            return;
+        }
+        this.listResonCode = data.split("\r\n");
     }
 
 }

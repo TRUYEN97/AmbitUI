@@ -7,7 +7,6 @@ package Control.Functions.FunctionsTest.SFIS.SendResultToSfis;
 import Control.Functions.AbsFunction;
 import Model.AllKeyWord;
 import Model.DataTest.ErrorLog;
-import Model.DataTest.InputData;
 import SfisAPI17.SfisAPI;
 import com.alibaba.fastjson.JSONObject;
 import java.util.List;
@@ -41,7 +40,7 @@ public class SendResuttToSfis extends AbsFunction {
 
     private String createCommand() {
         JSONObject command = new JSONObject();
-        List<String> listKey = this.allConfig.getListString("SEND_FORMAT");
+        List<String> listKey = this.allConfig.getListSlip("SEND_FORMAT","\\|");
         if (listKey == null || listKey.isEmpty()) {
             return null;
         }

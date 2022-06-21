@@ -97,6 +97,7 @@ public class FunctionCover extends Thread {
                 this.function.run();
             }
         } catch (Exception e) {
+            e.printStackTrace();
             ErrorLog.addError(e.getLocalizedMessage());
             this.functionData.addLog(e.getMessage());
         }

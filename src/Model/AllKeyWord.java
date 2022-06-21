@@ -39,7 +39,6 @@ public class AllKeyWord {
     public static final String CANCEL = "CANCEL";
     public static final String TIME_OVER = "TIME_OVER";
     public static final String RETRY = "RETRY";
-    public static final String ITEM_NAME = "ITEM_NAME";
     public static final String FUNC_NAME = "FUNC_NAME";
     public static final String MULTI_TASK = "MULTI_TASK";
     public static final String TIME_OUT_TEST = "TIME_OUT_TEST";
@@ -94,7 +93,7 @@ public class AllKeyWord {
 
     public static final List<String> FUNC_KEYS = Arrays.asList(FAIL_CONTNIUE,
             UUT_MODEL, COM, BAUDRATE, FLAG, CANCEL, TIME_OVER,
-            RETRY, ITEM_NAME, FUNC_NAME, UPPER_LIMIT, LOWER_LIMIT,
+            RETRY, TEST_NAME, FUNC_NAME, UPPER_LIMIT, LOWER_LIMIT,
             MULTI_TASK, LIMIT_TYPE, TIME_OUT_TEST);
 
     public static final List<String> LIMIT_KEYS = Arrays.asList(MODEL, TIME_STAMP,

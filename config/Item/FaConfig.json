@@ -6,11 +6,10 @@
         {
             "FLAG": true,
             "TIME_OVER": 50,
-            "SEND_FORMAT": ["sn", "pcname", "mode"],
-            "DATA_FORMAT": ["mlbsn", "ethernetmac", "pnname", "model", "smode",
-                "failedpc", "debugpc", "errorcode", "errordes", "counttest"],
+            "SEND_FORMAT": "sn| pcname| mode",
+            "DATA_FORMAT": "mlbsn| ethernetmac| pnname| model| smode| failedpc| debugpc| errorcode| errordes| counttest",
             "URL_CHECK_SN": "http://10.90.0.40/sfcapi/api/connect",
-            "ITEM_NAME": "CheckSnSfis",
+            "test_name": "CheckSnSfis",
             "FUNC_NAME": "CheckSnFormSFISProxy"
         }
     ],
@@ -21,7 +20,7 @@
             "CANCEL": "DEBUG",
             "TIME_OVER": 300,
             "KEY_WORD": "jsonFa",
-            "ITEM_NAME": "InputFaData",
+            "test_name": "InputFaData",
             "FUNC_NAME": "InputFaDataProxy"
         }
     ],
@@ -31,23 +30,23 @@
             "KEY_WORD": "jsonFa",
             "JsonPathKey": "FileJsonPath",
             "jsonResultKey": "jsonResult",
-            "FilePath":"json file",
+            "FilePath": "json file",
             "LOCAL_FILE": "python/log",
-            "ITEM_NAME": "CreateFaJson",
+            "test_name": "CreateFaJson",
             "FUNC_NAME": "CreateFaJsonProxy"
         }, 
         {
             "FLAG": true,
             "LOCAL_FILE": "python/log",
             "FilePath": "txt file",
-            "ITEM_NAME": "CreateTxtLog",
+            "test_name": "CreateTxtLog",
             "FUNC_NAME": "CreateTxtLogProxy"
         },
         {
             "FLAG": true,
             "keyWord": "FileJsonPath",
             "CmdCommand": "cd python && eero_API.py log/",
-            "ITEM_NAME": "UpAPI",
+            "test_name": "UpAPI",
             "FUNC_NAME": "UpAPIProxy"
         },
         {
@@ -59,7 +58,7 @@
             "FileTxt": "txt file",
             "dirFtp": "temp/TE_PRO/SQT/LogTest",
             "LOCAL_FILE": "python/log",
-            "ITEM_NAME": "UpTeFTP",
+            "test_name": "UpTeFTP",
             "FUNC_NAME": "UpFTPProxy"
         }, {
             "FLAG": true,
@@ -70,15 +69,15 @@
             "FileTxt": "json file",
             "dirFtp": "temp/TE_PRO/SQT/LogTest",
             "LOCAL_FILE": "python/log",
-            "ITEM_NAME": "UpTeFTP",
+            "test_name": "UpTeFTP",
             "FUNC_NAME": "UpFTPProxy"
         },
         {
             "FLAG": false,
             "TIME_OVER": 5,
-            "SEND_FORMAT": ["mlbsn", "pcname", "status", "mode"],
+            "SEND_FORMAT": "mlbsn| pcname| status| mode",
             "URL_SEND_RESULT": "http://10.90.0.40/sfcapi/api/connectfinal",
-            "ITEM_NAME": "SendToSfis",
+            "test_name": "SendToSfis",
             "FUNC_NAME": "SendResuttToSfisProxy"
         }
 

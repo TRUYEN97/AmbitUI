@@ -13,6 +13,7 @@ import Control.Functions.FunctionsTest.GenerateNode.GenerateNodeProxy;
 import Control.Functions.FunctionsTest.GetMacFromSfis.GetMacFormSfisProxy;
 import Control.Functions.FunctionsTest.SFIS.SendResultToSfis.SendResuttToSfisProxy;
 import Control.Functions.FunctionsTest.InputFaData.InputFaDataProxy;
+import Control.Functions.FunctionsTest.PowerSwitch.PowerSwitchProxy;
 import Control.Functions.FunctionsTest.UpFTP.UpFTPProxy;
 import Control.Functions.FunctionsTest.UpJsonAPI.UpAPIProxy;
 import Control.Functions.InitPackages.InitProxy.IdPasswordProxy;
@@ -103,5 +104,6 @@ public class Factory {
         this.functions.addType(new CreateTxtLogProxy());
         this.functions.addType(new UpAPIProxy());
         this.functions.addType(new UpFTPProxy());
+        this.functions.addType(new PowerSwitchProxy());
     }
 }

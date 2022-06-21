@@ -12,6 +12,8 @@ package View.subUI.FormDetail.TabFaApi;
 
 import com.alibaba.fastjson.JSONObject;
 import java.awt.event.ItemEvent;
+import javax.swing.DefaultComboBoxModel;
+import org.jdesktop.swingx.autocomplete.AutoCompleteDecorator;
 
 /**
  *
@@ -27,6 +29,7 @@ public class TabOption extends javax.swing.JPanel {
 
     public TabOption(String name) {
         initComponents();
+        AutoCompleteDecorator.decorate(cbbResonCode);
         this.hasChange = true;
         this.name = name;
     }
@@ -40,9 +43,11 @@ public class TabOption extends javax.swing.JPanel {
         result.put(TabFaApi.LOCATION, name);
         result.put(TabFaApi.REASON_DES, getReasonDes());
         result.put(TabFaApi.REPAIR_DETAIL, getRepairDetail());
+        result.put(TabFaApi.RESON_CODE, getResonCode());
         config();
         return result;
     }
+    
 
     public String getAction() {
         return this.cbbRepairAction.getSelectedItem().toString();
@@ -54,6 +59,10 @@ public class TabOption extends javax.swing.JPanel {
 
     public String getRepairDetail() {
         return this.cbbRepairDetails.getSelectedItem().toString();
+    }
+    
+    public String getResonCode() {
+        return this.cbbResonCode.getSelectedItem().toString();
     }
 
     @Override
@@ -68,6 +77,7 @@ public class TabOption extends javax.swing.JPanel {
     public boolean isInputEmpty() {
         return this.cbbReasonDescription.getSelectedItem().toString().isEmpty()
                 || this.cbbRepairAction.getSelectedItem().toString().isEmpty()
+                || this.cbbResonCode.getSelectedItem().toString().isEmpty()
                 || this.cbbRepairDetails.getSelectedItem().toString().isEmpty();
     }
 
@@ -86,6 +96,8 @@ public class TabOption extends javax.swing.JPanel {
         cbbRepairDetails = new javax.swing.JComboBox();
         cbbReasonDescription = new javax.swing.JComboBox();
         jLabel6 = new javax.swing.JLabel();
+        cbbResonCode = new javax.swing.JComboBox();
+        jLabel7 = new javax.swing.JLabel();
 
         cbbRepairAction.setFont(new java.awt.Font("Tahoma", 1, 18)); // NOI18N
         cbbRepairAction.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "","replace", "reflow", "clean", "scrap" }));
@@ -120,6 +132,17 @@ public class TabOption extends javax.swing.JPanel {
         jLabel6.setFont(new java.awt.Font("Tahoma 14 14", 1, 14)); // NOI18N
         jLabel6.setText("Reason description");
 
+        cbbResonCode.setFont(new java.awt.Font("Tahoma 18 12", 1, 18)); // NOI18N
+        cbbResonCode.setModel(new javax.swing.DefaultComboBoxModel(new Object[]{}));
+        cbbResonCode.addItemListener(new java.awt.event.ItemListener() {
+            public void itemStateChanged(java.awt.event.ItemEvent evt) {
+                cbbResonCodeItemStateChanged(evt);
+            }
+        });
+
+        jLabel7.setFont(new java.awt.Font("Tahoma 14 14", 1, 14)); // NOI18N
+        jLabel7.setText("Reason code");
+
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(this);
         this.setLayout(layout);
         layout.setHorizontalGroup(
@@ -127,43 +150,51 @@ public class TabOption extends javax.swing.JPanel {
             .addGroup(layout.createSequentialGroup()
                 .addContainerGap()
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(layout.createSequentialGroup()
-                        .addComponent(cbbRepairAction, 0, 143, Short.MAX_VALUE)
-                        .addGap(18, 18, 18)
-                        .addComponent(jLabel4, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                        .addGap(57, 57, 57))
-                    .addGroup(layout.createSequentialGroup()
-                        .addComponent(cbbRepairDetails, 0, 143, Short.MAX_VALUE)
-                        .addGap(18, 18, 18)
-                        .addComponent(jLabel5, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                        .addGap(50, 50, 50))
-                    .addGroup(layout.createSequentialGroup()
-                        .addComponent(cbbReasonDescription, 0, 143, Short.MAX_VALUE)
-                        .addGap(18, 18, 18)
-                        .addComponent(jLabel6, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                        .addContainerGap())))
+                    .addComponent(cbbRepairDetails, 0, 90, Short.MAX_VALUE)
+                    .addComponent(cbbRepairAction, 0, 90, Short.MAX_VALUE))
+                .addGap(18, 18, 18)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(jLabel5, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addComponent(jLabel4, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                .addGap(24, 24, 24)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(cbbResonCode, 0, 93, Short.MAX_VALUE)
+                    .addComponent(cbbReasonDescription, 0, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                .addGap(18, 18, 18)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(jLabel6, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addComponent(jLabel7, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                .addContainerGap())
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
-                .addContainerGap()
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(layout.createSequentialGroup()
+                        .addGap(4, 4, 4)
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                            .addGroup(layout.createSequentialGroup()
+                                .addGap(4, 4, 4)
+                                .addComponent(cbbReasonDescription))
+                            .addGroup(layout.createSequentialGroup()
+                                .addGap(4, 4, 4)
+                                .addComponent(jLabel6, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))))
+                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
                         .addGap(8, 8, 8)
-                        .addComponent(jLabel4, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-                    .addComponent(cbbRepairAction, javax.swing.GroupLayout.PREFERRED_SIZE, 0, Short.MAX_VALUE))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                        .addComponent(cbbRepairAction))
                     .addGroup(layout.createSequentialGroup()
-                        .addGap(4, 4, 4)
-                        .addComponent(jLabel5, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-                    .addComponent(cbbRepairDetails, javax.swing.GroupLayout.PREFERRED_SIZE, 0, Short.MAX_VALUE))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                        .addContainerGap()
+                        .addComponent(jLabel4, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                        .addGap(2, 2, 2)))
+                .addGap(12, 12, 12)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(jLabel7, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                     .addGroup(layout.createSequentialGroup()
-                        .addGap(4, 4, 4)
-                        .addComponent(jLabel6, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-                    .addComponent(cbbReasonDescription, javax.swing.GroupLayout.PREFERRED_SIZE, 0, Short.MAX_VALUE))
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                            .addComponent(cbbResonCode, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.PREFERRED_SIZE, 0, Short.MAX_VALUE)
+                            .addComponent(cbbRepairDetails, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.PREFERRED_SIZE, 0, Short.MAX_VALUE)
+                            .addComponent(jLabel5, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, 32, Short.MAX_VALUE))
+                        .addGap(1, 1, 1)))
                 .addContainerGap())
         );
     }// </editor-fold>//GEN-END:initComponents
@@ -182,6 +213,10 @@ public class TabOption extends javax.swing.JPanel {
         checkChang(evt);
     }//GEN-LAST:event_cbbReasonDescriptionItemStateChanged
 
+    private void cbbResonCodeItemStateChanged(java.awt.event.ItemEvent evt) {//GEN-FIRST:event_cbbResonCodeItemStateChanged
+        // TODO add your handling code here:
+    }//GEN-LAST:event_cbbResonCodeItemStateChanged
+
     private void checkChang(ItemEvent evt) {
         // TODO add your handling code here:
         hasChange = evt.getStateChange() == ItemEvent.SELECTED;
@@ -191,13 +226,19 @@ public class TabOption extends javax.swing.JPanel {
     private javax.swing.JComboBox cbbReasonDescription;
     private javax.swing.JComboBox cbbRepairAction;
     private javax.swing.JComboBox cbbRepairDetails;
+    private javax.swing.JComboBox cbbResonCode;
     private javax.swing.JLabel jLabel4;
     private javax.swing.JLabel jLabel5;
     private javax.swing.JLabel jLabel6;
+    private javax.swing.JLabel jLabel7;
     // End of variables declaration//GEN-END:variables
 
     void config() {
         hasChange = false;
+    }
+
+    void setListResonCode(String[] listResonCode) {
+        this.cbbResonCode.setModel(new DefaultComboBoxModel(listResonCode));
     }
 
 }

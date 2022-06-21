@@ -4,16 +4,18 @@
  */
 package Control.Functions.FunctionsTest.PowerSwitch;
 
+import Control.Functions.AbsFunction;
 import Model.Factory.AbsProxy;
 
 /**
  *
  * @author Administrator
  */
-public class PowerSwitchProxy extends AbsProxy<PowerSwitchFunc>{
+public class PowerSwitchProxy extends AbsProxy<AbsFunction>{
+
 
     @Override
-    public PowerSwitchFunc takeIt() {
+    public AbsFunction takeIt() {
         return new PowerSwitchFunc(getTypeName());
     }
     

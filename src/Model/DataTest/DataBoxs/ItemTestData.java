@@ -6,7 +6,6 @@ package Model.DataTest.DataBoxs;
 
 import Model.AllKeyWord;
 import Model.DataSource.ModeTest.ErrorCode.ErrorCodeElement;
-import Model.DataTest.ErrorLog;
 import Model.DataTest.FuncAllConfig;
 import MyLoger.MyLoger;
 import Time.TimeBase;
@@ -14,7 +13,6 @@ import Time.WaitTime.Class.TimeS;
 import com.alibaba.fastjson.JSONObject;
 import java.util.Arrays;
 import java.util.List;
-import javax.swing.JOptionPane;
 
 /**
  *
@@ -22,7 +20,6 @@ import javax.swing.JOptionPane;
  */
 public class ItemTestData {
 
-    private final String itemTestName;
     private final FuncAllConfig allConfig;
     private final JSONObject data;
     private final JSONObject error;
@@ -33,7 +30,6 @@ public class ItemTestData {
     private boolean testing;
 
     public ItemTestData(FuncAllConfig allConfig) {
-        this.itemTestName = allConfig.getItemName();
         this.allConfig = allConfig;
         this.keys = Arrays.asList(AllKeyWord.TEST_NAME,
                 AllKeyWord.LOWER_LIMIT,
@@ -64,7 +60,7 @@ public class ItemTestData {
     }
 
     public String getItemTestName() {
-        return itemTestName;
+        return this.allConfig.getItemName();
     }
 
     public boolean isPass() {
@@ -76,13 +72,24 @@ public class ItemTestData {
     }
 
     public void endThisTurn() {
+        addLimitData();
+        if (getResultTest() == null) {
+            this.data.put(AllKeyWord.TEST_VALUE, isPass ? "PASS" : "FAIL");
+        }
+        this.loger.addLog(String.format("Value: \"%s\"", getResultTest()));
+        this.loger.addLog(".....................................................");
+    }
+
+    private void addLimitData() {
+        if (allConfig.getString(AllKeyWord.LIMIT_TYPE) == null) {
+            return;
+        }
         String limitType = allConfig.getString(AllKeyWord.LIMIT_TYPE);
         String uperLimit = allConfig.getString(AllKeyWord.UPPER_LIMIT);
         String lowerLimit = allConfig.getString(AllKeyWord.LOWER_LIMIT);
         this.loger.addLog(String.format("Limit type: \"%s\"", limitType));
         this.loger.addLog(String.format("Uper limit: \"%s\"", uperLimit));
         this.loger.addLog(String.format("Lowet limit: \"%s\"", lowerLimit));
-        this.loger.addLog(String.format("Value: \"%s\"", getResultTest()));
     }
 
     public void clearError() {
@@ -90,24 +97,13 @@ public class ItemTestData {
     }
 
     public void end() {
-        addResult();
         logEnd();
         this.testing = false;
     }
 
-    private void addResult() {
-        if (getResultTest() == null) {
-            this.data.put(AllKeyWord.TEST_VALUE, isPass ? "PASS" : "FAIL");
-        }
-        this.data.putAll(this.error);
-        this.data.put(AllKeyWord.STATUS, isPass ? "passed" : "failed");
-        this.data.put(AllKeyWord.CYCLE_TIME, String.format("%.3f", timeS.getTime()));
-        this.data.put(AllKeyWord.FINISH_TIME, new TimeBase().getSimpleDateTime());
-    }
-
     public void setErrorCode() {
         String errorCode = allConfig.getString(AllKeyWord.ERROR_CODE);
-        this.error.put(AllKeyWord.ERROR_DES, itemTestName);
+        this.error.put(AllKeyWord.ERROR_DES, this.allConfig.getItemName());
         if (errorCode != null && !errorCode.isBlank()) {
             this.error.put(AllKeyWord.ERROR_CODE, errorCode);
         } else {
@@ -160,8 +156,12 @@ public class ItemTestData {
             this.loger.addLog("Local error code: " + localErrorCode);
             this.loger.addLog("Local error des: " + localErrorDes);
         }
-        String item = this.data.getString(AllKeyWord.TEST_NAME);
-        this.loger.addLog("Item name: " + item);
+        this.loger.addLog("Item name: " + this.data.getString(AllKeyWord.TEST_NAME));
+        this.loger.addLog("=====================================================");
+        this.data.putAll(this.error);
+        this.data.put(AllKeyWord.STATUS, isPass ? "passed" : "failed");
+        this.data.put(AllKeyWord.CYCLE_TIME, String.format("%.3f", timeS.getTime()));
+        this.data.put(AllKeyWord.FINISH_TIME, new TimeBase().getSimpleDateTime());
     }
 
     public void clearErrorCode() {
