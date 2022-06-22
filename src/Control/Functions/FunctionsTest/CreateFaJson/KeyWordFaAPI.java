@@ -5,7 +5,6 @@
 package Control.Functions.FunctionsTest.CreateFaJson;
 
 import Model.AllKeyWord;
-import Model.DataTest.InputData;
 import View.subUI.FormDetail.TabFaApi.TabFaApi;
 
 /**
@@ -18,7 +17,7 @@ public class KeyWordFaAPI {
         station_name(AllKeyWord.PCNAME),
         station_type(AllKeyWord.STATION),
         error_details(AllKeyWord.ERROR_DES),
-        error_code(AllKeyWord.ERROR_CODE),
+        error_code(AllKeyWord.FA_ERROR_CODE),
         serial(AllKeyWord.MLBSN),
         status(AllKeyWord.STATUS),
         test_software_version(AllKeyWord.VERSION),

@@ -44,3 +44,9 @@
 2022-06-21 12:22:42 : //////////////////////////////////////
 2022-06-21 12:22:43 : error in Model.DataTest.FuncAllConfig : Missing error code of CheckSnSfis - simple type !!
 2022-06-21 12:22:43 : //////////////////////////////////////
+2022-06-21 12:29:18 : error in Model.DataTest.FuncAllConfig : Missing error code of CheckSnSfis - simple type !!
+2022-06-21 12:29:18 : //////////////////////////////////////
+2022-06-21 12:29:19 : error in Model.DataTest.FuncAllConfig : Missing error code of CheckSnSfis - simple type !!
+2022-06-21 12:29:19 : //////////////////////////////////////
+2022-06-21 12:29:20 : error in Model.DataTest.FuncAllConfig : Missing error code of CheckSnSfis - simple type !!
+2022-06-21 12:29:20 : //////////////////////////////////////

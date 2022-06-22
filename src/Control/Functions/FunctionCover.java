@@ -30,7 +30,7 @@ public class FunctionCover extends Thread {
         this.function = function;
         this.modeTest = uiStatus.getModeTest();
         this.subUi = uiStatus.getSubUi();
-        this.funcConfig = this.modeTest.getModeTestSource().getFunctionsConfig(this.function.getFuntionName());
+        this.funcConfig = this.modeTest.getModeTestSource().getFunctionsConfig(this.function.getItemName());
         this.functionData = uiStatus.getUiData().
                 createFuncData(this.funcConfig.getItemName(), this.funcConfig.getFunctionName());
         this.function.setResources(uiStatus, functionData, this.funcConfig);

@@ -49,7 +49,7 @@ public class TabFaApi extends AbsTabUI {
         this.keys = new HashMap<>();
         this.keys.put("- Fail at", AllKeyWord.FAIL_PC);
         this.keys.put("- Debug at", AllKeyWord.DEBUG_PC);
-        this.keys.put("- Error code ", AllKeyWord.ERROR_CODE);
+        this.keys.put("- Error code ", AllKeyWord.FA_ERROR_CODE);
         this.keys.put("- Error Des ", AllKeyWord.ERROR_DES);
         this.keys.put("- Count", AllKeyWord.COUNTTEST);
     }

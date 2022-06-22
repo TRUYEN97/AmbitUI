@@ -27,6 +27,7 @@ public class AllKeyWord {
     public static final String UPPER_LIMIT = "upper_limit";
     public static final String UNITS = "units";
     public static final String ERROR_CODE = "error_code";
+    public static final String FA_ERROR_CODE = "errorcode";
     public static final String ERROR_DES = "errordes";
     public static final String LOCKED = "locked";
     public static final String UUT_MODEL = "UUT_MODEL";

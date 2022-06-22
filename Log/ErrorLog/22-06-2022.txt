@@ -1,0 +1,224 @@
+2022-06-22 01:18:09 : error in Model.DataTest.FuncAllConfig : Missing error code of CheckSnSfis - simple type !!
+2022-06-22 01:18:09 : //////////////////////////////////////
+2022-06-22 01:18:10 : error in Model.DataTest.FuncAllConfig : Missing error code of CheckSnSfis - simple type !!
+2022-06-22 01:18:10 : //////////////////////////////////////
+2022-06-22 01:18:11 : error in Model.DataTest.FuncAllConfig : Missing error code of CheckSnSfis - simple type !!
+2022-06-22 01:18:11 : //////////////////////////////////////
+2022-06-22 01:28:10 : error in Model.DataTest.FuncAllConfig : Missing error code of CheckSnSfis - simple type !!
+2022-06-22 01:28:10 : //////////////////////////////////////
+2022-06-22 01:28:10 : error in Model.DataTest.FuncAllConfig : Missing error code of CheckSnSfis - simple type !!
+2022-06-22 01:28:10 : //////////////////////////////////////
+2022-06-22 01:28:11 : error in Model.DataTest.FuncAllConfig : Missing error code of CheckSnSfis - simple type !!
+2022-06-22 01:28:11 : //////////////////////////////////////
+2022-06-22 01:33:03 : error in Model.DataTest.FuncAllConfig : Missing error code of CheckSnSfis - simple type !!
+2022-06-22 01:33:03 : //////////////////////////////////////
+2022-06-22 01:33:04 : error in Model.DataTest.FuncAllConfig : Missing error code of CheckSnSfis - simple type !!
+2022-06-22 01:33:04 : //////////////////////////////////////
+2022-06-22 01:33:04 : error in Model.DataTest.FuncAllConfig : Missing error code of CheckSnSfis - simple type !!
+2022-06-22 01:33:04 : //////////////////////////////////////
+2022-06-22 01:59:19 : error in Model.DataTest.FuncAllConfig : Missing error code of CheckSnSfis - simple type !!
+2022-06-22 01:59:19 : //////////////////////////////////////
+2022-06-22 01:59:19 : error in Model.DataTest.FuncAllConfig : Missing error code of CheckSnSfis - simple type !!
+2022-06-22 01:59:19 : //////////////////////////////////////
+2022-06-22 01:59:20 : error in Model.DataTest.FuncAllConfig : Missing error code of CheckSnSfis - simple type !!
+2022-06-22 01:59:20 : //////////////////////////////////////
+2022-06-22 02:44:49 : error in Model.DataTest.FuncAllConfig : Missing error code of CheckSnSfis - simple type !!
+2022-06-22 02:44:49 : //////////////////////////////////////
+2022-06-22 02:44:49 : error in Control.Functions.FunctionsTest.SFIS.CheckSnFormSFIS.CheckSnFormSFIS : class java.lang.String cannot be cast to class com.alibaba.fastjson.JSONArray (java.lang.String is in module java.base of loader 'bootstrap'; com.alibaba.fastjson.JSONArray is in unnamed module of loader 'app')
+2022-06-22 02:44:49 : //////////////////////////////////////
+2022-06-22 02:44:49 : error in Model.DataTest.FuncAllConfig : Missing error code of CheckSnSfis - simple type !!
+2022-06-22 02:44:49 : //////////////////////////////////////
+2022-06-22 02:44:49 : error in Model.DataTest.FuncAllConfig : Missing error code of CheckSnSfis - simple type !!
+2022-06-22 02:44:49 : //////////////////////////////////////
+2022-06-22 02:48:39 : error in Model.DataTest.FuncAllConfig : Missing error code of CheckSnSfis - simple type !!
+2022-06-22 02:48:39 : //////////////////////////////////////
+2022-06-22 02:48:39 : error in Model.DataTest.FuncAllConfig : Missing error code of SendToSfis - simple type !!
+2022-06-22 02:48:39 : //////////////////////////////////////
+2022-06-22 03:13:41 : error in Model.DataTest.FuncAllConfig : Missing error code of CheckSnSfis - simple type !!
+2022-06-22 03:13:41 : //////////////////////////////////////
+2022-06-22 03:13:43 : error in Model.DataTest.FuncAllConfig : Missing error code of SendToSfis - simple type !!
+2022-06-22 03:13:43 : //////////////////////////////////////
+2022-06-22 06:11:39 : error in Model.DataTest.FuncAllConfig : Missing error code of CheckSnSfis - simple type !!
+2022-06-22 06:11:39 : //////////////////////////////////////
+2022-06-22 06:11:39 : error in Model.DataTest.FuncAllConfig : Missing error code of InputFaData - simple type !!
+2022-06-22 06:11:39 : //////////////////////////////////////
+2022-06-22 06:12:12 : error in Model.DataTest.FuncAllConfig : Missing error code of CreateFaJson - simple type !!
+2022-06-22 06:12:12 : //////////////////////////////////////
+2022-06-22 06:12:16 : error in Model.DataTest.FuncAllConfig : Missing error code of CreateTxtLog - simple type !!
+2022-06-22 06:12:16 : //////////////////////////////////////
+2022-06-22 06:12:17 : error in Model.DataTest.FuncAllConfig : Missing error code of UpAPI - simple type !!
+2022-06-22 06:12:17 : //////////////////////////////////////
+2022-06-22 06:12:18 : error in Model.DataTest.FuncAllConfig : Missing error code of UpAPI - simple type !!
+2022-06-22 06:12:18 : //////////////////////////////////////
+2022-06-22 06:12:18 : error in Model.DataTest.FuncAllConfig : Missing error code of UpAPI - simple type !!
+2022-06-22 06:12:18 : //////////////////////////////////////
+2022-06-22 06:13:55 : error in Model.DataTest.FuncAllConfig : Missing error code of CheckSnSfis - simple type !!
+2022-06-22 06:13:55 : //////////////////////////////////////
+2022-06-22 06:13:56 : error in Model.DataTest.FuncAllConfig : Missing error code of InputFaData - simple type !!
+2022-06-22 06:13:56 : //////////////////////////////////////
+2022-06-22 06:13:57 : error in Model.DataTest.FuncAllConfig : Missing error code of CreateFaJson - simple type !!
+2022-06-22 06:13:57 : //////////////////////////////////////
+2022-06-22 06:13:58 : error in Model.DataTest.FuncAllConfig : Missing error code of CreateTxtLog - simple type !!
+2022-06-22 06:13:58 : //////////////////////////////////////
+2022-06-22 06:13:59 : error in Model.DataTest.FuncAllConfig : Missing error code of UpAPI - simple type !!
+2022-06-22 06:13:59 : //////////////////////////////////////
+2022-06-22 06:14:00 : error in Model.DataTest.FuncAllConfig : Missing error code of UpAPI - simple type !!
+2022-06-22 06:14:00 : //////////////////////////////////////
+2022-06-22 06:14:01 : error in Model.DataTest.FuncAllConfig : Missing error code of UpAPI - simple type !!
+2022-06-22 06:14:01 : //////////////////////////////////////
+2022-06-22 12:16:54 : error in Model.DataTest.FuncAllConfig : Missing error code of CheckSnSfis - simple type !!
+2022-06-22 12:16:54 : //////////////////////////////////////
+2022-06-22 12:17:12 : error in Model.DataTest.FuncAllConfig : Missing error code of InputFaData - simple type !!
+2022-06-22 12:17:12 : //////////////////////////////////////
+2022-06-22 12:17:46 : out of time: (Test time: 60.471 S) > (60 S)
+2022-06-22 12:17:46 : //////////////////////////////////////
+2022-06-22 12:19:31 : error in Model.DataTest.FuncAllConfig : Missing error code of CheckSnSfis - simple type !!
+2022-06-22 12:19:31 : //////////////////////////////////////
+2022-06-22 12:19:32 : error in Model.DataTest.FuncAllConfig : Missing error code of SendToSfis - simple type !!
+2022-06-22 12:19:32 : //////////////////////////////////////
+2022-06-22 12:19:41 : error in Model.DataTest.FuncAllConfig : Missing error code of CheckSnSfis - simple type !!
+2022-06-22 12:19:41 : //////////////////////////////////////
+2022-06-22 12:19:41 : error in Model.DataTest.FuncAllConfig : Missing error code of InputFaData - simple type !!
+2022-06-22 12:19:41 : //////////////////////////////////////
+2022-06-22 12:19:54 : error in Model.DataTest.FuncAllConfig : Missing error code of CreateFaJson - simple type !!
+2022-06-22 12:19:54 : //////////////////////////////////////
+2022-06-22 12:19:55 : error in Model.DataTest.FuncAllConfig : Missing error code of CreateTxtLog - simple type !!
+2022-06-22 12:19:55 : //////////////////////////////////////
+2022-06-22 12:19:56 : error in Model.DataTest.FuncAllConfig : Missing error code of UpAPI - simple type !!
+2022-06-22 12:19:56 : //////////////////////////////////////
+2022-06-22 12:19:57 : error in Model.DataTest.FuncAllConfig : Missing error code of UpAPI - simple type !!
+2022-06-22 12:19:57 : //////////////////////////////////////
+2022-06-22 12:19:57 : error in Model.DataTest.FuncAllConfig : Missing error code of UpAPI - simple type !!
+2022-06-22 12:19:57 : //////////////////////////////////////
+2022-06-22 12:23:35 : error in Model.DataTest.FuncAllConfig : Missing error code of CheckSnSfis - simple type !!
+2022-06-22 12:23:35 : //////////////////////////////////////
+2022-06-22 12:23:36 : error in Model.DataTest.FuncAllConfig : Missing error code of InputFaData - simple type !!
+2022-06-22 12:23:36 : //////////////////////////////////////
+2022-06-22 12:23:46 : error in Model.DataTest.FuncAllConfig : Missing error code of CreateFaJson - simple type !!
+2022-06-22 12:23:46 : //////////////////////////////////////
+2022-06-22 12:23:47 : error in Model.DataTest.FuncAllConfig : Missing error code of CreateTxtLog - simple type !!
+2022-06-22 12:23:47 : //////////////////////////////////////
+2022-06-22 12:23:47 : error in Model.DataTest.FuncAllConfig : Missing error code of UpAPI - simple type !!
+2022-06-22 12:23:47 : //////////////////////////////////////
+2022-06-22 12:23:48 : error in Model.DataTest.FuncAllConfig : Missing error code of UpAPI - simple type !!
+2022-06-22 12:23:48 : //////////////////////////////////////
+2022-06-22 12:23:49 : error in Model.DataTest.FuncAllConfig : Missing error code of UpAPI - simple type !!
+2022-06-22 12:23:49 : //////////////////////////////////////
+2022-06-22 12:28:25 : error in Model.DataTest.FuncAllConfig : Missing error code of CheckSnSfis - simple type !!
+2022-06-22 12:28:25 : //////////////////////////////////////
+2022-06-22 12:28:26 : error in Model.DataTest.FuncAllConfig : Missing error code of InputFaData - simple type !!
+2022-06-22 12:28:26 : //////////////////////////////////////
+2022-06-22 12:28:41 : error in Model.DataTest.FuncAllConfig : Missing error code of CreateFaJson - simple type !!
+2022-06-22 12:28:41 : //////////////////////////////////////
+2022-06-22 12:28:42 : error in Model.DataTest.FuncAllConfig : Missing error code of CreateTxtLog - simple type !!
+2022-06-22 12:28:42 : //////////////////////////////////////
+2022-06-22 12:28:43 : error in Model.DataTest.FuncAllConfig : Missing error code of UpAPI - simple type !!
+2022-06-22 12:28:43 : //////////////////////////////////////
+2022-06-22 12:28:44 : error in Model.DataTest.FuncAllConfig : Missing error code of UpTeFTP - simple type !!
+2022-06-22 12:28:44 : //////////////////////////////////////
+2022-06-22 12:28:45 : error in Model.DataTest.FuncAllConfig : Missing error code of UpTeFTP - simple type !!
+2022-06-22 12:28:45 : //////////////////////////////////////
+2022-06-22 12:51:54 : error in Model.DataTest.FuncAllConfig : Missing error code of CheckSnSfis - simple type !!
+2022-06-22 12:51:54 : //////////////////////////////////////
+2022-06-22 12:51:54 : error in Model.DataTest.FuncAllConfig : Missing error code of SendToSfis - simple type !!
+2022-06-22 12:51:54 : //////////////////////////////////////
+2022-06-22 12:52:01 : error in Model.DataTest.FuncAllConfig : Missing error code of CheckSnSfis - simple type !!
+2022-06-22 12:52:01 : //////////////////////////////////////
+2022-06-22 12:52:02 : error in Model.DataTest.FuncAllConfig : Missing error code of InputFaData - simple type !!
+2022-06-22 12:52:02 : //////////////////////////////////////
+2022-06-22 12:52:12 : error in Model.DataTest.FuncAllConfig : Missing error code of CreateFaJson - simple type !!
+2022-06-22 12:52:12 : //////////////////////////////////////
+2022-06-22 12:52:13 : error in Model.DataTest.FuncAllConfig : Missing error code of CreateTxtLog - simple type !!
+2022-06-22 12:52:13 : //////////////////////////////////////
+2022-06-22 12:52:14 : error in Model.DataTest.FuncAllConfig : Missing error code of UpAPI - simple type !!
+2022-06-22 12:52:14 : //////////////////////////////////////
+2022-06-22 12:52:17 : error in Model.DataTest.FuncAllConfig : Missing error code of UpJsonToFTP - simple type !!
+2022-06-22 12:52:17 : //////////////////////////////////////
+2022-06-22 12:52:17 : Cannot invoke "Object.toString()" because the return value of "Model.ManagerUI.UIStatus.Elemants.UiData.getSignal(String)" is null
+2022-06-22 12:52:17 : //////////////////////////////////////
+2022-06-22 12:58:37 : error in Model.DataTest.FuncAllConfig : Missing error code of CheckSnSfis - simple type !!
+2022-06-22 12:58:37 : //////////////////////////////////////
+2022-06-22 12:58:37 : error in Model.DataTest.FuncAllConfig : Missing error code of InputFaData - simple type !!
+2022-06-22 12:58:37 : //////////////////////////////////////
+2022-06-22 12:58:41 : error in Model.DataTest.FuncAllConfig : Missing error code of CreateFaJson - simple type !!
+2022-06-22 12:58:41 : //////////////////////////////////////
+2022-06-22 12:58:42 : error in Model.DataTest.FuncAllConfig : Missing error code of CreateTxtLog - simple type !!
+2022-06-22 12:58:42 : //////////////////////////////////////
+2022-06-22 12:58:42 : error in Model.DataTest.FuncAllConfig : Missing error code of UpAPI - simple type !!
+2022-06-22 12:58:42 : //////////////////////////////////////
+2022-06-22 12:58:44 : error in Model.DataTest.FuncAllConfig : Missing error code of UpJsonToFTP - simple type !!
+2022-06-22 12:58:44 : //////////////////////////////////////
+2022-06-22 12:58:44 : Cannot invoke "Object.toString()" because the return value of "Model.ManagerUI.UIStatus.Elemants.UiData.getSignal(String)" is null
+2022-06-22 12:58:44 : //////////////////////////////////////
+2022-06-22 12:59:47 : error in Model.DataTest.FuncAllConfig : Missing error code of CheckSnSfis - simple type !!
+2022-06-22 12:59:47 : //////////////////////////////////////
+2022-06-22 12:59:47 : error in Model.DataTest.FuncAllConfig : Missing error code of InputFaData - simple type !!
+2022-06-22 12:59:47 : //////////////////////////////////////
+2022-06-22 12:59:57 : error in Model.DataTest.FuncAllConfig : Missing error code of CreateFaJson - simple type !!
+2022-06-22 12:59:57 : //////////////////////////////////////
+2022-06-22 12:59:58 : error in Model.DataTest.FuncAllConfig : Missing error code of CreateTxtLog - simple type !!
+2022-06-22 12:59:58 : //////////////////////////////////////
+2022-06-22 12:59:59 : error in Model.DataTest.FuncAllConfig : Missing error code of UpAPI - simple type !!
+2022-06-22 12:59:59 : //////////////////////////////////////
+2022-06-22 13:00:00 : error in Model.DataTest.FuncAllConfig : Missing error code of UpJsonToFTP - simple type !!
+2022-06-22 13:00:00 : //////////////////////////////////////
+2022-06-22 13:00:01 : error in Model.DataTest.FuncAllConfig : Missing error code of UpJsonToFTP - simple type !!
+2022-06-22 13:00:01 : //////////////////////////////////////
+2022-06-22 13:00:02 : error in Model.DataTest.FuncAllConfig : Missing error code of UpJsonToFTP - simple type !!
+2022-06-22 13:00:02 : //////////////////////////////////////
+2022-06-22 13:02:53 : error in Model.DataTest.FuncAllConfig : Missing error code of CheckSnSfis - simple type !!
+2022-06-22 13:02:53 : //////////////////////////////////////
+2022-06-22 13:02:53 : error in Model.DataTest.FuncAllConfig : Missing error code of InputFaData - simple type !!
+2022-06-22 13:02:53 : //////////////////////////////////////
+2022-06-22 13:03:03 : error in Model.DataTest.FuncAllConfig : Missing error code of CreateFaJson - simple type !!
+2022-06-22 13:03:03 : //////////////////////////////////////
+2022-06-22 13:03:04 : error in Model.DataTest.FuncAllConfig : Missing error code of CreateTxtLog - simple type !!
+2022-06-22 13:03:04 : //////////////////////////////////////
+2022-06-22 13:03:04 : error in Model.DataTest.FuncAllConfig : Missing error code of UpAPI - simple type !!
+2022-06-22 13:03:04 : //////////////////////////////////////
+2022-06-22 13:03:06 : error in Model.DataTest.FuncAllConfig : Missing error code of UpJsonToFTP - simple type !!
+2022-06-22 13:03:06 : //////////////////////////////////////
+2022-06-22 13:03:07 : error in Model.DataTest.FuncAllConfig : Missing error code of UpJsonToFTP - simple type !!
+2022-06-22 13:03:07 : //////////////////////////////////////
+2022-06-22 13:03:10 : error in Model.DataTest.FuncAllConfig : Missing error code of UpJsonToFTP - simple type !!
+2022-06-22 13:03:10 : //////////////////////////////////////
+2022-06-22 13:04:00 : error in Model.DataTest.FuncAllConfig : Missing error code of CheckSnSfis - simple type !!
+2022-06-22 13:04:00 : //////////////////////////////////////
+2022-06-22 13:04:01 : error in Model.DataTest.FuncAllConfig : Missing error code of SendToSfis - simple type !!
+2022-06-22 13:04:01 : //////////////////////////////////////
+2022-06-22 13:04:06 : error in Model.DataTest.FuncAllConfig : Missing error code of CheckSnSfis - simple type !!
+2022-06-22 13:04:06 : //////////////////////////////////////
+2022-06-22 13:04:06 : error in Model.DataTest.FuncAllConfig : Missing error code of InputFaData - simple type !!
+2022-06-22 13:04:06 : //////////////////////////////////////
+2022-06-22 13:04:15 : error in Model.DataTest.FuncAllConfig : Missing error code of CreateFaJson - simple type !!
+2022-06-22 13:04:15 : //////////////////////////////////////
+2022-06-22 13:04:16 : error in Model.DataTest.FuncAllConfig : Missing error code of CreateTxtLog - simple type !!
+2022-06-22 13:04:16 : //////////////////////////////////////
+2022-06-22 13:04:16 : error in Model.DataTest.FuncAllConfig : Missing error code of UpAPI - simple type !!
+2022-06-22 13:04:16 : //////////////////////////////////////
+2022-06-22 13:04:18 : error in Model.DataTest.FuncAllConfig : Missing error code of UpTxtLogFTP - simple type !!
+2022-06-22 13:04:18 : //////////////////////////////////////
+2022-06-22 13:04:20 : error in Model.DataTest.FuncAllConfig : Missing error code of UpTxtLogFTP - simple type !!
+2022-06-22 13:04:20 : //////////////////////////////////////
+2022-06-22 13:04:21 : error in Model.DataTest.FuncAllConfig : Missing error code of UpTxtLogFTP - simple type !!
+2022-06-22 13:04:21 : //////////////////////////////////////
+2022-06-22 13:06:12 : error in Model.DataTest.FuncAllConfig : Missing error code of CheckSnSfis - simple type !!
+2022-06-22 13:06:12 : //////////////////////////////////////
+2022-06-22 13:06:12 : error in Model.DataTest.FuncAllConfig : Missing error code of InputFaData - simple type !!
+2022-06-22 13:06:12 : //////////////////////////////////////
+2022-06-22 13:06:23 : error in Model.DataTest.FuncAllConfig : Missing error code of CreateFaJson - simple type !!
+2022-06-22 13:06:23 : //////////////////////////////////////
+2022-06-22 13:06:23 : error in Model.DataTest.FuncAllConfig : Missing error code of CreateTxtLog - simple type !!
+2022-06-22 13:06:23 : //////////////////////////////////////
+2022-06-22 13:06:24 : error in Model.DataTest.FuncAllConfig : Missing error code of UpAPI - simple type !!
+2022-06-22 13:06:24 : //////////////////////////////////////
+2022-06-22 13:06:26 : error in Model.DataTest.FuncAllConfig : Missing error code of UpJsonToFTP - simple type !!
+2022-06-22 13:06:26 : //////////////////////////////////////
+2022-06-22 13:06:27 : error in Model.DataTest.FuncAllConfig : Missing error code of UpJsonToFTP - simple type !!
+2022-06-22 13:06:27 : //////////////////////////////////////
+2022-06-22 13:06:28 : error in Model.DataTest.FuncAllConfig : Missing error code of UpJsonToFTP - simple type !!
+2022-06-22 13:06:28 : //////////////////////////////////////
+2022-06-22 13:11:21 : out of time: (Test time: 60.450 S) > (60 S)
+2022-06-22 13:11:21 : //////////////////////////////////////
+2022-06-22 13:14:20 : out of time: (Test time: 60.541 S) > (60 S)
+2022-06-22 13:14:20 : //////////////////////////////////////

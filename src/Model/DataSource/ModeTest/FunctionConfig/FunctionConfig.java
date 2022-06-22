@@ -48,15 +48,15 @@ public class FunctionConfig extends AbsJsonSource<FunctionElement> {
         FunctionElement info;
         for (JSONObject modeInfo : listInfo) {
             info = new FunctionElement(baseData.toJson(), modeInfo);
-            if (!isNull(info.getFunctionName()) && info.isActive()) {
-                put(info.getFunctionName(), info);
+            if (!isNull(info.getItemName()) && info.isActive()) {
+                put(info.getItemName(), info);
                 switch (type) {
                     case AllKeyWord.INIT -> {
-                        this.functionInit.add(info.getFunctionName());
+                        this.functionInit.add(info.getItemName());
                         break;
                     }
                     case AllKeyWord.END -> {
-                        this.funtionEnd.add(info.getFunctionName());
+                        this.funtionEnd.add(info.getItemName());
                         break;
                     }
                     default -> {

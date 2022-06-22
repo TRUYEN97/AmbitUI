@@ -1,0 +1,26 @@
+2022-06-22 13:06:24 : Item[UpAPI] - Function[UpAPIProxy]
+2022-06-22 13:06:24 : Turn 0:
+2022-06-22 13:06:24 : Get filePath from signal!
+2022-06-22 13:06:24 : -With keyWord: FileJsonPath
+2022-06-22 13:06:24 : File path is:
+2022-06-22 13:06:24 : Get cmd command. KeyWord:CmdCommand
+2022-06-22 13:06:24 : Cmd comand : cd python && eero_API.py log/KC660GTYJB2YA0TJ_REPAIR-7801_FA_API
+2022-06-22 13:06:24 : Up api.....
+2022-06-22 13:06:25 : log/KC660GTYJB2YA0TJ_REPAIR-7801_FA_API_serial.txt
+2022-06-22 13:06:25 : Connected
+2022-06-22 13:06:25 : 
+2022-06-22 13:06:25 : INFO: Input text is valid JSON.
+2022-06-22 13:06:25 : INFO: JSON schema validation successful.
+2022-06-22 13:06:25 : INFO: Created testrun 33779616 entry in database.
+2022-06-22 13:06:25 : INFO: Inserted 1 rows in repairresult database table.
+2022-06-22 13:06:25 : INFO: No node property found in test results.
+2022-06-22 13:06:25 : INFO: Data ingestion successful.
+2022-06-22 13:06:25 : INFO: Saved 1 file.
+2022-06-22 13:06:25 : 
+2022-06-22 13:06:25 : 200
+2022-06-22 13:06:25 : ****************************************************
+2022-06-22 13:06:25 : Test Value: "PASS"
+2022-06-22 13:06:25 : ****************************************************
+2022-06-22 13:06:25 : Item name: UpAPI
+2022-06-22 13:06:25 : =====================================================
+2022-06-22 13:06:25 : Time[1.718 s] - Status[PASS]

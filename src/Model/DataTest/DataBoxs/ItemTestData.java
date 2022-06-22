@@ -72,12 +72,13 @@ public class ItemTestData {
     }
 
     public void endThisTurn() {
+        this.loger.addLog("****************************************************");
         addLimitData();
         if (getResultTest() == null) {
             this.data.put(AllKeyWord.TEST_VALUE, isPass ? "PASS" : "FAIL");
         }
-        this.loger.addLog(String.format("Value: \"%s\"", getResultTest()));
-        this.loger.addLog(".....................................................");
+        this.loger.addLog(String.format("Test Value: \"%s\"", getResultTest()));
+        this.loger.addLog("****************************************************");
     }
 
     private void addLimitData() {

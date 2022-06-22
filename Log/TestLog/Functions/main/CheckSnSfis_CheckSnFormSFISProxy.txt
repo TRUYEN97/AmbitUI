@@ -1,15 +1,21 @@
-2022-06-21 12:22:41 : Item[CheckSnSfis] - Function[CheckSnFormSFISProxy]
-2022-06-21 12:22:41 : Turn 0:
-2022-06-21 12:22:41 : send to url: http://10.90.0.40/sfcapi/api/connect
-2022-06-21 12:22:41 : command: {"PCNAME":"REPAIR-7801","MODE":"Debug","SN":"DDSD"}
-2022-06-21 12:22:41 : {"result":"FAIL","message":"Exception: IP(10.90.0.246) HAVE NOT SET IN SFIS YET","data":{}}
-2022-06-21 12:22:41 : Exception: IP(10.90.0.246) HAVE NOT SET IN SFIS YET
-2022-06-21 12:22:43 : Value: "FAIL"
-2022-06-21 12:22:43 : .....................................................
-2022-06-21 12:22:43 : //////////////////////////////////////////////////////
-2022-06-21 12:22:43 : Error code: null
-2022-06-21 12:22:43 : Local error code: null
-2022-06-21 12:22:43 : Local error des: null
-2022-06-21 12:22:43 : Item name: CheckSnSfis
-2022-06-21 12:22:43 : //////////////////////////////////////////////////////
-2022-06-21 12:22:43 : Time[2.511 s] - Status[FAILED]
+2022-06-22 13:06:12 : Item[CheckSnSfis] - Function[CheckSnFormSFISProxy]
+2022-06-22 13:06:12 : Turn 0:
+2022-06-22 13:06:12 : send to url: http://10.90.0.40/sfcapi/api/connect
+2022-06-22 13:06:12 : command: {"PCNAME":"REPAIR-7801","MODE":"FA_API","SN":"KC660GTY"}
+2022-06-22 13:06:12 : {"result":"PASS","message":"OK","data":{"mlbsn":"KC660GTYJB2YA0TJ","ethernetmac":"8470D7515DA0","pnname":"830-00900","model":"","smode":"Production","failedpc":"MBLT-5457","debugpc":"REPAIR-7801","errorcode":"12.2.2","errordes":"ETH0_SPEED_TX","counttest":"3"}}
+2022-06-22 13:06:12 : add key: mlbsn -- Value: KC660GTYJB2YA0TJ
+2022-06-22 13:06:12 : add key: ethernetmac -- Value: 8470D7515DA0
+2022-06-22 13:06:12 : add key: pnname -- Value: 830-00900
+2022-06-22 13:06:12 : add key: model -- Value:
+2022-06-22 13:06:12 : add key: smode -- Value: Production
+2022-06-22 13:06:12 : add key: failedpc -- Value: MBLT-5457
+2022-06-22 13:06:12 : add key: debugpc -- Value: REPAIR-7801
+2022-06-22 13:06:12 : add key: errorcode -- Value: 12.2.2
+2022-06-22 13:06:12 : add key: errordes -- Value: ETH0_SPEED_TX
+2022-06-22 13:06:12 : add key: counttest -- Value: 3
+2022-06-22 13:06:12 : ****************************************************
+2022-06-22 13:06:12 : Test Value: "PASS"
+2022-06-22 13:06:12 : ****************************************************
+2022-06-22 13:06:12 : Item name: CheckSnSfis
+2022-06-22 13:06:12 : =====================================================
+2022-06-22 13:06:12 : Time[0.699 s] - Status[PASS]

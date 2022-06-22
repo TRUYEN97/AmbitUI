@@ -38,7 +38,7 @@
         {
             "FLAG": true,
             "LOCAL_FILE": "python/log",
-            "FilePath": "txt file",
+            "keyWord": "txt file",
             "test_name": "CreateTxtLog",
             "FUNC_NAME": "CreateTxtLogProxy"
         },
@@ -55,21 +55,22 @@
             "FtpUser": "oper",
             "FtpHost": "10.90.1.168",
             "FtpPassword": "mfg-oper",
-            "FileTxt": "txt file",
+            "FilePath": "txt file",
             "dirFtp": "temp/TE_PRO/SQT/LogTest",
             "LOCAL_FILE": "python/log",
-            "test_name": "UpTeFTP",
+            "test_name": "UpTxtLogFTP",
             "FUNC_NAME": "UpFTPProxy"
-        }, {
+        },
+        {
             "FLAG": true,
             "FtpPort": 21,
             "FtpUser": "oper",
             "FtpHost": "10.90.1.168",
             "FtpPassword": "mfg-oper",
-            "FileTxt": "json file",
+            "FilePath": "FileJsonPath",
             "dirFtp": "temp/TE_PRO/SQT/LogTest",
             "LOCAL_FILE": "python/log",
-            "test_name": "UpTeFTP",
+            "test_name": "UpJsonToFTP",
             "FUNC_NAME": "UpFTPProxy"
         },
         {

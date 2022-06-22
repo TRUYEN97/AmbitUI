@@ -78,4 +78,8 @@ public abstract class AbsFunction implements IFunction {
         this.itemTestData.end();
     }
 
+    String getItemName() {
+        return this.allConfig.getItemName();
+    }
+
 }

@@ -1,0 +1,18 @@
+2022-06-22 13:06:23 : Item[CreateTxtLog] - Function[CreateTxtLogProxy]
+2022-06-22 13:06:23 : Turn 0:
+2022-06-22 13:06:23 : Save file txt!
+2022-06-22 13:06:23 : file path: python/log/KC660GTYJB2YA0TJ_REPAIR-7801_FA_API_serial.txt
+2022-06-22 13:06:23 : - add item: CheckSnSfis
+2022-06-22 13:06:23 : - add item: InputFaData
+2022-06-22 13:06:23 : - add item: CreateFaJson
+2022-06-22 13:06:23 : Save file txt ok!
+2022-06-22 13:06:23 : Key of filePath in Signal: null
+2022-06-22 13:06:23 : Save file zip!
+2022-06-22 13:06:23 : Save zip file path: python/log/KC660GTYJB2YA0TJ_REPAIR-7801_FA_API_serial.zip
+2022-06-22 13:06:23 : File path: python/log/KC660GTYJB2YA0TJ_REPAIR-7801_FA_API_serial.txt
+2022-06-22 13:06:23 : ****************************************************
+2022-06-22 13:06:23 : Test Value: "PASS"
+2022-06-22 13:06:23 : ****************************************************
+2022-06-22 13:06:23 : Item name: CreateTxtLog
+2022-06-22 13:06:23 : =====================================================
+2022-06-22 13:06:23 : Time[0.561 s] - Status[PASS]

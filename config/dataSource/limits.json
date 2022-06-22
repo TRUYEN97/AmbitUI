@@ -1,7 +1,7 @@
 {
   "model": "eden",
   "station_type": "runin",
-  "timestamp": "2022-06-21 11:34:21",
+  "timestamp": "2022-06-22 12:23:24",
   "limits_validation": "passed",
   "limits": {
     "ccg_firmware": {

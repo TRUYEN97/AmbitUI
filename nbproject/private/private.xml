@@ -3,11 +3,16 @@
     <editor-bookmarks xmlns="http://www.netbeans.org/ns/editor-bookmarks/2" lastBookmarkId="1"/>
     <open-files xmlns="http://www.netbeans.org/ns/projectui-open-files/2">
         <group>
-            <file>file:/D:/Ambit-module/EnginerUI/src/Model/Factory/Factory.java</file>
-            <file>file:/D:/Ambit-module/EnginerUI/src/Control/Functions/FunctionsTest/PowerSwitch/PowerSwitchFunc.java</file>
-            <file>file:/D:/Ambit-module/EnginerUI/config/Item/ambitconfig.json</file>
-            <file>file:/D:/Ambit-module/EnginerUI/src/Control/Functions/FunctionsTest/SFIS/CheckSnFormSFIS/CheckSnFormSFIS.java</file>
-            <file>file:/D:/Ambit-module/EnginerUI/src/Control/Functions/FunctionsTest/PowerSwitch/PowerSwitchProxy.java</file>
+            <file>file:/D:/Ambit-module/EnginerUI/src/Control/Functions/FunctionsTest/CreateFaJson/KeyWordFaAPI.java</file>
+            <file>file:/D:/Ambit-module/EnginerUI/Log/TestLog/Functions/main/CheckSnSfis_CheckSnFormSFISProxy.txt</file>
+            <file>file:/D:/Ambit-module/EnginerUI/config/Item/FaConfig.json</file>
+            <file>file:/D:/Ambit-module/EnginerUI/src/Control/Core/CellTest.java</file>
+            <file>file:/D:/Ambit-module/EnginerUI/src/Control/Functions/FunctionsTest/CreateFaJson/CreateFaJson.java</file>
+            <file>file:/D:/Ambit-module/EnginerUI/src/Model/DataSource/ModeTest/FunctionConfig/FunctionConfig.java</file>
+            <file>file:/D:/Ambit-module/EnginerUI/src/Model/AllKeyWord.java</file>
+            <file>file:/D:/Ambit-module/EnginerUI/src/Model/DataSource/ModeTest/ModeTestSource.java</file>
+            <file>file:/D:/Ambit-module/EnginerUI/src/Control/Functions/FunctionCover.java</file>
+            <file>file:/D:/Ambit-module/EnginerUI/src/Control/Functions/FunctionsTest/UpFTP/UpFTP.java</file>
         </group>
     </open-files>
 </project-private>

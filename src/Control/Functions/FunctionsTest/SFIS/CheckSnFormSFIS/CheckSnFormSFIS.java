@@ -41,7 +41,7 @@ public class CheckSnFormSFIS extends AbsFunction {
 
     private String createCommand() {
         JSONObject command = new JSONObject();
-        List<String> listKey = this.allConfig.getListSlip("SEND_FORMAT","\\|");
+        List<String> listKey = this.allConfig.getListSlip("SEND_FORMAT", "\\|");
         if (listKey == null || listKey.isEmpty()) {
             return null;
         }
@@ -65,30 +65,23 @@ public class CheckSnFormSFIS extends AbsFunction {
             this.uiData.setMessage(response);
             return false;
         }
-        try {
-            JSONObject res = JSONObject.parseObject(response);
-            if (res.getString(AllKeyWord.RESULT).equals("PASS")) {
-                JSONObject data = res.getJSONObject(AllKeyWord.DATA);
-                for (String key : this.allConfig.getListJsonArray("DATA_FORMAT")) {
-                    if (data.containsKey(key)) {
-                        String value = data.getString(key);
-                        addLog(String.format("add key: %s -- Value: %s", key, value));
-                        this.uiData.putProductInfo(key, value);
-                    } else {
-                        addLog(String.format("Not have \"%s\" in sfis data", key));
-                        return false;
-                    }
+        JSONObject res = JSONObject.parseObject(response);
+        if (res.getString(AllKeyWord.RESULT).equals("PASS")) {
+            JSONObject data = res.getJSONObject(AllKeyWord.DATA);
+            for (String key : this.allConfig.getListSlip("DATA_FORMAT", "\\|")) {
+                if (data.containsKey(key)) {
+                    String value = data.getString(key);
+                    addLog(String.format("add key: %s -- Value: %s", key, value));
+                    this.uiData.putProductInfo(key, value);
+                } else {
+                    addLog(String.format("Not have \"%s\" in sfis data", key));
+                    return false;
                 }
-                return true;
-            } else {
-                this.addLog(res.getString("message"));
-                this.uiData.setMessage(res.getString("message"));
-                return false;
             }
-        } catch (Exception e) {
-            e.printStackTrace();
-            ErrorLog.addError(this, e.getMessage());
-            this.uiData.setMessage(e.getMessage());
+            return true;
+        } else {
+            this.addLog(res.getString("message"));
+            this.uiData.setMessage(res.getString("message"));
             return false;
         }
     }
