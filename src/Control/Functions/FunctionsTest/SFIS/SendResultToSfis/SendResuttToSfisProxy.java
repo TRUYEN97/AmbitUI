@@ -19,7 +19,7 @@ public class SendResuttToSfisProxy extends AbsProxy<AbsFunction> {
 
     @Override
     public AbsFunction takeIt() {
-        return new SendResuttToSfis(getTypeName());
+        return new SendResuttToSfis(getName());
     }
 
 }

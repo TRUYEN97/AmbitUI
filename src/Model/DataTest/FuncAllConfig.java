@@ -21,18 +21,18 @@ import javax.swing.JOptionPane;
 public class FuncAllConfig {
 
     private final DataWareHouse wareHouse;
-    private final String functionName;
+    private final String itemName;
     private FunctionElement functionConfig;
     private LimitElement limitElement;
     private ErrorCodeElement localErrorCode;
 
-    public FuncAllConfig(String functionName) {
+    public FuncAllConfig(String itemName) {
         this.wareHouse = new DataWareHouse();
-        this.functionName = functionName;
+        this.itemName = itemName;
     }
 
-    public void setResources(UiStatus uiStatus, FunctionElement functionConfig) {
-        this.functionConfig = functionConfig;
+    public void setResources(UiStatus uiStatus) {
+        this.functionConfig = uiStatus.getModeTest().getModeTestSource().getFunctionsConfig(itemName);
         this.limitElement = uiStatus.getModeTest().
                 getModeTestSource().getLimit().getElement(this.functionConfig.getItemName());
         this.localErrorCode = uiStatus.getModeTest().
@@ -68,7 +68,7 @@ public class FuncAllConfig {
     }
 
     public String getFunctionName() {
-        return functionName;
+        return this.functionConfig.getFunctionName();
     }
 
     public String getString(String key) {

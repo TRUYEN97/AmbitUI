@@ -16,7 +16,7 @@ public class PowerSwitchProxy extends AbsProxy<AbsFunction>{
 
     @Override
     public AbsFunction takeIt() {
-        return new PowerSwitchFunc(getTypeName());
+        return new PowerSwitchFunc(getName());
     }
     
 }

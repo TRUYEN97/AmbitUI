@@ -6,7 +6,6 @@ package Control.Functions.FunctionsTest.SFIS.CheckSnFormSFIS;
 
 import Control.Functions.AbsFunction;
 import Model.AllKeyWord;
-import Model.DataTest.ErrorLog;
 import SfisAPI17.SfisAPI;
 import com.alibaba.fastjson.JSONObject;
 import java.util.List;

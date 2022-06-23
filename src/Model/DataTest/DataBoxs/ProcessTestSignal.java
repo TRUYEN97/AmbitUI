@@ -4,6 +4,7 @@
  */
 package Model.DataTest.DataBoxs;
 
+import Model.DataSource.ModeTest.FunctionConfig.FunctionName;
 import Model.DataTest.ErrorLog;
 import java.util.HashMap;
 import java.util.List;
@@ -33,11 +34,11 @@ public class ProcessTestSignal {
         this.signal.clear();
     }
 
-    public List<String> getFunctionSelected() {
+    public List<FunctionName> getFunctionSelected() {
         try {
             var list = this.signal.get(FUNC_SELECTED);
             if (list != null && list instanceof List) {
-                return (List<String>) list;
+                return (List<FunctionName>) list;
             }
             return null;
         } catch (Exception e) {

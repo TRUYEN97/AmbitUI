@@ -18,16 +18,14 @@ import static java.util.Objects.isNull;
  */
 public class FunctionConfig extends AbsJsonSource<FunctionElement> {
 
-    private final List<String> functionInit;
-    private final List<String> functionTest;
-    private final List<String> functionItemTest;
-    private final List<String> funtionEnd;
+    private final List<FunctionName> functionInit;
+    private final List<FunctionName> functionTest;
+    private final List<FunctionName> funtionEnd;
 
     public FunctionConfig() {
         super();
         this.functionInit = new ArrayList<>();
         this.functionTest = new ArrayList<>();
-        this.functionItemTest = new ArrayList<>();
         this.funtionEnd = new ArrayList<>();
     }
 
@@ -36,41 +34,23 @@ public class FunctionConfig extends AbsJsonSource<FunctionElement> {
         DataWareHouse wareHouse = readFile.getData();
         clearAllList();
         getFunctionIn(wareHouse,
-                wareHouse.getListJson(AllKeyWord.INIT), AllKeyWord.INIT);
+                wareHouse.getListJson(AllKeyWord.INIT), functionInit);
         getFunctionIn(wareHouse,
-                wareHouse.getListJson(AllKeyWord.FUNCTIONS), AllKeyWord.FUNCTIONS);
+                wareHouse.getListJson(AllKeyWord.FUNCTIONS), functionTest);
         getFunctionIn(wareHouse,
-                wareHouse.getListJson(AllKeyWord.END), AllKeyWord.END);
+                wareHouse.getListJson(AllKeyWord.END), funtionEnd);
         return !this.elements.isEmpty();
     }
 
-    private void getFunctionIn(DataWareHouse baseData, List<JSONObject> listInfo, String type) {
+    private void getFunctionIn(DataWareHouse baseData, List<JSONObject> listInfo, List<FunctionName> list) {
         FunctionElement info;
         for (JSONObject modeInfo : listInfo) {
             info = new FunctionElement(baseData.toJson(), modeInfo);
             if (!isNull(info.getItemName()) && info.isActive()) {
                 put(info.getItemName(), info);
-                switch (type) {
-                    case AllKeyWord.INIT -> {
-                        this.functionInit.add(info.getItemName());
-                        break;
-                    }
-                    case AllKeyWord.END -> {
-                        this.funtionEnd.add(info.getItemName());
-                        break;
-                    }
-                    default -> {
-                        addAllFunction(info);
-                        break;
-                    }
-                }
+                list.add(new FunctionName(info.getItemName(), info.getFunctionName()));
             }
         }
-    }
-
-    private void addAllFunction(FunctionElement info) {
-        this.functionTest.add(info.getFunctionName());
-        this.functionItemTest.add(info.getItemName());
     }
 
     public long getTimeOutTest() {
@@ -81,30 +61,32 @@ public class FunctionConfig extends AbsJsonSource<FunctionElement> {
         return timeout * 1000;
     }
 
-    public List<String> getCheckFunctions() {
+    public List<FunctionName> getCheckFunctions() {
         return functionInit;
     }
 
-    public List<String> getTestFunctions() {
+    public List<FunctionName> getTestFunctions() {
         return functionTest;
     }
 
     public List<String> getItemTestFunctions() {
-        return functionItemTest;
+        List<String> itemTest = new ArrayList<>();
+        for (FunctionName funcName : this.functionTest) {
+            itemTest.add(funcName.getItemName());
+        }
+        return itemTest;
     }
-    
 
     public String getStationName() {
         return this.readFile.getData().getString(AllKeyWord.STATION);
     }
 
-    public List<String> getEndFuntions() {
+    public List<FunctionName> getEndFuntions() {
         return funtionEnd;
     }
 
     private void clearAllList() {
         this.functionInit.clear();
-        this.functionItemTest.clear();
         this.functionTest.clear();
         this.funtionEnd.clear();
     }

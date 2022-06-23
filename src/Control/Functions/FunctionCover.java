@@ -30,15 +30,15 @@ public class FunctionCover extends Thread {
         this.function = function;
         this.modeTest = uiStatus.getModeTest();
         this.subUi = uiStatus.getSubUi();
-        this.funcConfig = this.modeTest.getModeTestSource().getFunctionsConfig(this.function.getItemName());
         this.functionData = uiStatus.getUiData().
-                createFuncData(this.funcConfig.getItemName(), this.funcConfig.getFunctionName());
-        this.function.setResources(uiStatus, functionData, this.funcConfig);
+                createFuncData(function.getItemName());
+        this.function.setResources(uiStatus, functionData);
+        this.funcConfig = modeTest.getModeTestSource().getFunctionsConfig(function.getItemName());
     }
 
     @Override
     public void run() {
-        this.functionData.start(createLogPath());
+        this.functionData.start(createLogPtah(), this.function.getFunctionName());
         try {
             this.thread = new Thread() {
                 @Override
@@ -54,6 +54,13 @@ public class FunctionCover extends Thread {
         } finally {
             end();
         }
+    }
+
+    private String createLogPtah() {
+        return String.format("%s%s%s_%s.txt",
+                createLogPath(), File.separator,
+                 this.function.getItemName(),
+                 this.function.getFunctionName());
     }
 
     private void checkOutTime() {

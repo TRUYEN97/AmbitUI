@@ -28,6 +28,7 @@ public class FactoryType<T> {
     public T takeIt(String type, String name) {
         if (!this.type.containsKey(type)) {
             JOptionPane.showMessageDialog(null, String.format("Not have: %s in factory !", type));
+            System.exit(1);
             return null;
         }
         AbsProxy<T> proxy = this.type.get(type);

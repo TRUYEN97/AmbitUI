@@ -4,7 +4,6 @@
  */
 package Control.Functions;
 
-import Model.DataSource.ModeTest.FunctionConfig.FunctionElement;
 import Model.ManagerUI.UIStatus.Elemants.UiData;
 import Model.ManagerUI.UIStatus.UiStatus;
 import View.subUI.SubUI.AbsSubUi;
@@ -20,24 +19,26 @@ import Model.DataTest.FuncAllConfig;
 public abstract class AbsFunction implements IFunction {
 
     protected final FuncAllConfig allConfig;
+    private final String itemName;
     protected UiData uiData;
     protected AbsSubUi subUi;
     private ItemTestData itemTestData;
     private AnalysisResult analysisResult;
     private FunctionData functionData;
 
-    protected AbsFunction(String functionName) {
-        this.allConfig = new FuncAllConfig(functionName);
+    protected AbsFunction(String itemName) {
+        this.allConfig = new FuncAllConfig(itemName);
+        this.itemName = itemName;
     }
 
-    public void setResources(UiStatus uiStatus, FunctionData functionData, FunctionElement funcConfig) {
+    public void setResources(UiStatus uiStatus, FunctionData functionData) {
+        this.uiData = uiStatus.getUiData();
+        this.subUi = uiStatus.getSubUi();
+        this.allConfig.setResources(uiStatus);
         this.functionData = functionData;
-        this.allConfig.setResources(uiStatus, funcConfig);
         this.itemTestData = new ItemTestData(allConfig);
         this.functionData.addItemtest(itemTestData);
         this.analysisResult = new AnalysisResult(itemTestData, allConfig);
-        this.uiData = uiStatus.getUiData();
-        this.subUi = uiStatus.getSubUi();
         this.itemTestData.start();
     }
 
@@ -66,7 +67,7 @@ public abstract class AbsFunction implements IFunction {
         this.itemTestData.setResult(result);
     }
 
-    public String getFuntionName() {
+    public String getFunctionName() {
         return this.allConfig.getFunctionName();
     }
 
@@ -79,7 +80,7 @@ public abstract class AbsFunction implements IFunction {
     }
 
     String getItemName() {
-        return this.allConfig.getItemName();
+        return this.itemName;
     }
 
 }

@@ -19,7 +19,7 @@ public class CreateFaJsonProxy extends AbsProxy<AbsFunction>{
     
     @Override
     public AbsFunction takeIt() {
-        return new CreateFaJson(getTypeName());
+        return new CreateFaJson(getName());
     }
     
 }

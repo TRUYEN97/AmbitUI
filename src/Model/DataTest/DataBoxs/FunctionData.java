@@ -20,13 +20,11 @@ public class FunctionData {
     private final MyLoger loger;
     private final List<ItemTestData> itemTests;
     private final String itemName;
-    private final String funcName;
 
-    public FunctionData(String itemName, String funcName) {
+    public FunctionData(String itemName) {
         this.loger = new MyLoger();
         this.itemTests = new ArrayList<>();
         this.itemName = itemName;
-        this.funcName = funcName;
     }
 
     public String getItemFunction() {
@@ -79,19 +77,13 @@ public class FunctionData {
         return false;
     }
 
-    public void start(String LogPath) {
-        String fileLogName = String.format("%s%s%s_%s.txt",
-                LogPath, File.separator, getItemFunction(), getFunctionName());
-        if (!this.loger.begin(new File(fileLogName), true, true)) {
+    public void start(String logPath, String funcName) {
+        if (!this.loger.begin(new File(logPath), true, true)) {
             String mess = "can't delete local function log file of " + getItemFunction();
             ErrorLog.addError(mess);
             JOptionPane.showMessageDialog(null, mess);
         }
-        addLog(startFunction());
-    }
-
-    public String getFunctionName() {
-        return this.funcName;
+        addLog(startFunction(funcName));
     }
 
     public double getRunTime() {
@@ -123,9 +115,9 @@ public class FunctionData {
         return isPass() ? "PASS" : "FAILED";
     }
 
-    private String startFunction() {
+    private String startFunction(String funcName) {
         return String.format("Item[%s] - Function[%s]",
-                this.getItemFunction(), this.getFunctionName());
+                this.getItemFunction(), funcName);
     }
 
     private String endFunction() {

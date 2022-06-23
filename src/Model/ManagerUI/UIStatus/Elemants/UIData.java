@@ -10,6 +10,7 @@ import Model.DataTest.DataBoxs.ProcessTestSignal;
 import Model.DataTest.ErrorLog;
 import Model.DataTest.InputData;
 import Model.DataSource.DataWareHouse;
+import Model.DataSource.ModeTest.FunctionConfig.FunctionName;
 import Model.ManagerUI.UIStatus.UiStatus;
 import java.util.ArrayList;
 import java.util.List;
@@ -84,7 +85,7 @@ public class UiData {
         this.signal.put(key, data);
     }
 
-    public List<String> getFunctionSelected() {
+    public List<FunctionName> getFunctionSelected() {
         return this.signal.getFunctionSelected();
     }
 
@@ -136,8 +137,8 @@ public class UiData {
         this.inputData = inputData;
     }
 
-    public FunctionData createFuncData(String itemName, String funcName) {
-        FunctionData dataBox = new FunctionData(itemName, funcName);
+    public FunctionData createFuncData(String itemName) {
+        FunctionData dataBox = new FunctionData(itemName);
         this.dataBoxs.add(dataBox);
         return dataBox;
     }

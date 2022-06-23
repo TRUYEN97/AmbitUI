@@ -5,6 +5,7 @@
 package Control.Core;
 
 import Control.Functions.FunctionCover;
+import Model.DataSource.ModeTest.FunctionConfig.FunctionName;
 import Model.DataTest.ErrorLog;
 import Model.Factory.Factory;
 import Model.Interface.IFunction;
@@ -19,7 +20,7 @@ import java.util.List;
 class Process implements IFunction {
 
     private final List<FunctionCover> multiTasking;
-    private final List<String> functions;
+    private final List<FunctionName> functions;
     private final Factory factory;
     private final UiStatus uiStatus;
     private boolean result;
@@ -32,14 +33,15 @@ class Process implements IFunction {
         this.result = true;
     }
 
-    public void setListFunc(List<String> functions) {
+    public void setListFunc(List<FunctionName> functions) {
         this.functions.clear();
         this.functions.addAll(functions);
     }
 
-    private FunctionCover createFuncCover(String function) {
+    private FunctionCover createFuncCover(FunctionName function) {
         FunctionCover func = new FunctionCover(
-                this.factory.getFunc(function), uiStatus);
+                this.factory.getFunc(function.getFunctions()
+                        ,function.getItemName()), uiStatus);
         multiTasking.add(func);
         return func;
     }
@@ -52,8 +54,8 @@ class Process implements IFunction {
     @Override
     public void run() {
         FunctionCover funcCover;
-        for (String function : functions) {
-            funcCover = createFuncCover(function);
+        for (FunctionName functionName : functions) {
+            funcCover = createFuncCover(functionName);
             funcCover.start();
             if (!funcCover.isMutiTasking()) {
                 try {

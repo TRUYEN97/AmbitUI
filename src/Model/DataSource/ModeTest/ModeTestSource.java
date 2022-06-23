@@ -7,6 +7,7 @@ package Model.DataSource.ModeTest;
 import Model.DataSource.ModeTest.ErrorCode.ErrorCodeSource;
 import Model.DataSource.ModeTest.FunctionConfig.FunctionConfig;
 import Model.DataSource.ModeTest.FunctionConfig.FunctionElement;
+import Model.DataSource.ModeTest.FunctionConfig.FunctionName;
 import Model.DataSource.ModeTest.Limit.Limit;
 import Model.DataSource.Setting.ModeElement;
 import java.awt.HeadlessException;
@@ -53,15 +54,15 @@ public class ModeTestSource {
         return functionConfig.getTimeOutTest();
     }
 
-    public List<String> getTestFunctions() {
+    public List<FunctionName> getTestFunctions() {
         return this.functionConfig.getTestFunctions();
     }
 
-    public List<String> getCheckFunctions() {
+    public List<FunctionName> getCheckFunctions() {
         return this.functionConfig.getCheckFunctions();
     }
 
-    public List<String> getEndFunctions() {
+    public List<FunctionName> getEndFunctions() {
         return this.functionConfig.getEndFuntions();
     }
 

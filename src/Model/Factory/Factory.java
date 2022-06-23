@@ -74,8 +74,8 @@ public class Factory {
         return this.initFunctions.takeIt(type);
     }
     
-    public AbsFunction getFunc(String type) {
-        return this.functions.takeIt(type);
+    public AbsFunction getFunc(String functionName, String itemName) {
+        return this.functions.takeIt(functionName, itemName);
     }
     
     private void addSubUI() {

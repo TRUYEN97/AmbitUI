@@ -15,7 +15,7 @@ public class CreateTxtLogProxy extends AbsProxy<AbsFunction> {
 
     @Override
     public AbsFunction takeIt() {
-        return new CreateTxtLog(getTypeName());
+        return new CreateTxtLog(getName());
     }
 
 }

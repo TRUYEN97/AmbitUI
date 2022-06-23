@@ -5,6 +5,7 @@
 package Control.Core;
 
 import Model.AllKeyWord;
+import Model.DataSource.ModeTest.FunctionConfig.FunctionName;
 import Model.DataTest.ErrorLog;
 import Model.DataTest.InputData;
 import Model.DataSource.ModeTest.ModeTestSource;
@@ -85,14 +86,14 @@ public class CellTest extends Thread {
         this.subUi.startTest();
     }
 
-    private boolean runFunctions(List<String> functions) {
+    private boolean runFunctions(List<FunctionName> functions) {
         process.setListFunc(functions);
         process.run();
         return process.isPass();
     }
 
     private boolean runItemFunctions() {
-        List<String> testFunctions = getTestFuntions();
+        List<FunctionName> testFunctions = getTestFuntions();
         if (testFunctions.isEmpty()) {
             return false;
         }
@@ -103,7 +104,7 @@ public class CellTest extends Thread {
         return result;
     }
 
-    private List<String> getTestFuntions() {
+    private List<FunctionName> getTestFuntions() {
         if (this.uiData.getFunctionSelected() != null) {
             return this.uiData.getFunctionSelected();
         }
