@@ -149,6 +149,7 @@ public class ItemTestData {
     }
 
     private void logEnd() {
+        this.loger.addLog("=====================================================");
         if (!isPass) {
             String errorCode = this.data.getString(AllKeyWord.ERROR_CODE);
             String localErrorCode = this.data.getString(AllKeyWord.LOCAL_ERROR_CODE);

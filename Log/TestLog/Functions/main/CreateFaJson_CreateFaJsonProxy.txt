@@ -1,41 +1,26 @@
-2022-06-22 13:06:23 : Item[CreateFaJson] - Function[CreateFaJsonProxy]
-2022-06-22 13:06:23 : Turn 0:
-2022-06-22 13:06:23 : Get FA json data in signal!
-2022-06-22 13:06:23 : Get with key: jsonFa
-2022-06-22 13:06:23 : {"J1":{"Action":"replace","ReasonDes":"OTHER","resonCode":"A001","Location":"J1","RepairDetail":"Further details"}}
-2022-06-22 13:06:23 : Create base data
-2022-06-22 13:06:23 : - Key: station_name -- Value: REPAIR-7801
-2022-06-22 13:06:23 : - Key: station_type -- Value: REPAIR
-2022-06-22 13:06:23 : - Key: error_details -- Value: ETH0_SPEED_TX
-2022-06-22 13:06:23 : - Key: error_code -- Value: 12.2.2
-2022-06-22 13:06:23 : - Key: serial -- Value: KC660GTYJB2YA0TJ
-2022-06-22 13:06:23 : - Key: status -- Value: PASS
-2022-06-22 13:06:23 : - Key: test_software_version -- Value: 1.0.0
-2022-06-22 13:06:23 : - Key: start_time -- Value: 2022-06-22 13:06:12
-2022-06-22 13:06:23 : - Key: finish_time -- Value: 2022-06-22 13:06:21
-2022-06-22 13:06:23 : - Key: status -- Value: passed
-2022-06-22 13:06:23 : - Key: mode -- Value: debug
-2022-06-22 13:06:23 : Create base data done!
-2022-06-22 13:06:23 : Create function!
-2022-06-22 13:06:23 : Create data for location: J1
-2022-06-22 13:06:23 : - Key: finish_time -- Value: 2022-06-22 13:06:21
-2022-06-22 13:06:23 : - Key: start_time -- Value: 2022-06-22 13:06:12
-2022-06-22 13:06:23 : - Key: debug_station -- Value: REPAIR-7801
-2022-06-22 13:06:23 : - Key: failed_station -- Value: MBLT-5457
-2022-06-22 13:06:23 : - Key: further_details -- Value: Further details
-2022-06-22 13:06:23 : - Key: repair_location -- Value: J1
-2022-06-22 13:06:23 : - Key: reason_desc -- Value: OTHER
-2022-06-22 13:06:23 : - Key: repair_action -- Value: replace
-2022-06-22 13:06:23 : - Key: child_unlinked -- Value: False
-2022-06-22 13:06:23 : - Key: failed_station_type -- Value: MBLT
-2022-06-22 13:06:23 : - Key: post_repair_result -- Value: passed
-2022-06-22 13:06:23 : Create function data done!
-2022-06-22 13:06:23 : Save json data at: python/log\KC660GTYJB2YA0TJ_REPAIR-7801_FA_API.json
-2022-06-22 13:06:23 : Save json file at KC660GTYJB2YA0TJ_REPAIR-7801_FA_API done!
-2022-06-22 13:06:23 : put "KC660GTYJB2YA0TJ_REPAIR-7801_FA_API" with "FileJsonPath" key to signal
-2022-06-22 13:06:23 : ****************************************************
-2022-06-22 13:06:23 : Test Value: "PASS"
-2022-06-22 13:06:23 : ****************************************************
-2022-06-22 13:06:23 : Item name: CreateFaJson
-2022-06-22 13:06:23 : =====================================================
-2022-06-22 13:06:23 : Time[1.097 s] - Status[PASS]
+2022-06-23 20:46:52:   Item[CreateFaJson] - Function[CreateFaJsonProxy]
+2022-06-23 20:46:52:   Turn 0:
+2022-06-23 20:46:53:   Get FA json data in signal!
+2022-06-23 20:46:53:   Get with key: jsonFa
+2022-06-23 20:46:53:   {"J1":{"Action":"replace","ReasonDes":"SOLDER SHORT","resonCode":"A001","Location":"J1","RepairDetail":"Further details"}}
+2022-06-23 20:46:53:   Create base data
+2022-06-23 20:46:53:   - Key: station_name -- Value: REPAIR-7801
+2022-06-23 20:46:53:   - Key: station_type -- Value: REPAIR
+2022-06-23 20:46:53:   - Key: status -- Value: PASS
+2022-06-23 20:46:53:   - Key: test_software_version -- Value: 1.0.0
+2022-06-23 20:46:53:   - Key: start_time -- Value: 2022-06-23 20:46:42
+2022-06-23 20:46:53:   - Key: finish_time -- Value: 2022-06-23 20:46:52
+2022-06-23 20:46:53:   - Key: status -- Value: passed
+2022-06-23 20:46:53:   - Key: mode -- Value: debug
+2022-06-23 20:46:53:   Create base data done!
+2022-06-23 20:46:53:   Create function!
+2022-06-23 20:46:53:   Create data for location: J1
+2022-06-23 20:46:53:   - Key: finish_time -- Value: 2022-06-23 20:46:52
+2022-06-23 20:46:53:   - Key: start_time -- Value: 2022-06-23 20:46:42
+2022-06-23 20:46:53:   Cannot parse null string
+2022-06-23 20:46:53:   Error code: null
+2022-06-23 20:46:53:   Local error code: null
+2022-06-23 20:46:53:   Local error des: null
+2022-06-23 20:46:53:   Item name: CreateFaJson
+2022-06-23 20:46:53:   =====================================================
+2022-06-23 20:46:53:   Time[1.031 s] - Status[FAILED]

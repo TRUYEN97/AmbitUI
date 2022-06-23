@@ -111,7 +111,7 @@ public class FuncAllConfig {
     }
 
     public String getItemName() {
-        return this.functionConfig.getItemName();
+        return itemName;
     }
 
     public Integer getInteger(String key) {

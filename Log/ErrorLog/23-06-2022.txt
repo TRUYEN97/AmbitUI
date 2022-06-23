@@ -1,2 +1,20 @@
 2022-06-23 09:26:38 : out of time: (Test time: 100.766 S) > (100 S)
 2022-06-23 09:26:38 : //////////////////////////////////////
+2022-06-23 20:45:01:   error in Model.DataTest.FuncAllConfig : Missing error code of CheckSnSfis - simple type !!
+2022-06-23 20:45:01:   //////////////////////////////////////
+2022-06-23 20:45:26:   error in Model.DataTest.FuncAllConfig : Missing error code of CheckSnSfis - simple type !!
+2022-06-23 20:45:26:   //////////////////////////////////////
+2022-06-23 20:46:43:   error in Model.DataTest.FuncAllConfig : Missing error code of InputFaData - simple type !!
+2022-06-23 20:46:43:   //////////////////////////////////////
+2022-06-23 20:46:53:   error in Model.DataTest.FuncAllConfig : Missing error code of CreateFaJson - simple type !!
+2022-06-23 20:46:53:   //////////////////////////////////////
+2022-06-23 20:46:53:   Cannot parse null string
+2022-06-23 20:46:53:   //////////////////////////////////////
+2022-06-23 21:18:46:   error in Model.DataTest.FuncAllConfig : Missing error code of CheckSnSfis - simple type !!
+2022-06-23 21:18:46:   //////////////////////////////////////
+2022-06-23 21:19:32:   error in Model.DataTest.FuncAllConfig : Missing error code of CheckSnSfis - simple type !!
+2022-06-23 21:19:32:   //////////////////////////////////////
+2022-06-23 21:19:55:   error in Model.DataTest.FuncAllConfig : Missing error code of CheckSnSfis - simple type !!
+2022-06-23 21:19:55:   //////////////////////////////////////
+2022-06-23 21:19:56:   error in Model.DataTest.FuncAllConfig : Missing error code of CheckSnSfis - simple type !!
+2022-06-23 21:19:56:   //////////////////////////////////////

@@ -19,7 +19,6 @@ import Model.DataTest.FuncAllConfig;
 public abstract class AbsFunction implements IFunction {
 
     protected final FuncAllConfig allConfig;
-    private final String itemName;
     protected UiData uiData;
     protected AbsSubUi subUi;
     private ItemTestData itemTestData;
@@ -28,7 +27,6 @@ public abstract class AbsFunction implements IFunction {
 
     protected AbsFunction(String itemName) {
         this.allConfig = new FuncAllConfig(itemName);
-        this.itemName = itemName;
     }
 
     public void setResources(UiStatus uiStatus, FunctionData functionData) {
@@ -39,11 +37,11 @@ public abstract class AbsFunction implements IFunction {
         this.itemTestData = new ItemTestData(allConfig);
         this.functionData.addItemtest(itemTestData);
         this.analysisResult = new AnalysisResult(itemTestData, allConfig);
-        this.itemTestData.start();
     }
 
     @Override
     public void run() {
+        this.itemTestData.start();
         this.analysisResult.checkResult(test(), getResult());
         this.itemTestData.endThisTurn();
     }
@@ -80,7 +78,7 @@ public abstract class AbsFunction implements IFunction {
     }
 
     String getItemName() {
-        return this.itemName;
+        return this.allConfig.getItemName();
     }
 
 }

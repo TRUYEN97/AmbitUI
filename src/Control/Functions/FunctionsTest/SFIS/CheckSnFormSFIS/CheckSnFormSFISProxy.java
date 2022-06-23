@@ -18,7 +18,7 @@ public class CheckSnFormSFISProxy extends AbsProxy<AbsFunction>{
 
     @Override
     public AbsFunction takeIt() {
-        return new CheckSnFormSFIS(getTypeName());
+        return new CheckSnFormSFIS(getName());
     }
     
 }
