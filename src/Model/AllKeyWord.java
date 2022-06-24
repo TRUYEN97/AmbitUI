@@ -41,7 +41,8 @@ public class AllKeyWord {
     public static final String TIME_OVER = "TIME_OVER";
     public static final String RETRY = "RETRY";
     public static final String FUNC_NAME = "FUNC_NAME";
-    public static final String MULTI_TASK = "MULTI_TASK";
+    public static final String WAIT_MULTI_DONE = "WAIT_MULTI_DONE";
+    public static final String MULTI_TASK = "MULTI";
     public static final String TIME_OUT_TEST = "TIME_OUT_TEST";
     public static final String FAIL_CONTNIUE = "FAIL_CONTNIUE";
     public static final String MATCH = "MATCH";
@@ -65,6 +66,7 @@ public class AllKeyWord {
     public static final String FINISH_TIME = "finish_time";
     public static final String CYCLE_TIME = "cyctime";
     public static final String TEST_VALUE = "test_value";
+    public static final String LOOP_TEST = "LOOP_TEST";
     public static final String AMBIT_CONFIG = "AMBIT_CONFIG";
     public static final String DHCP = "DHCP";
     public static final String COLUMN = "COLUMN";
@@ -90,12 +92,12 @@ public class AllKeyWord {
 
     public static final List<String> MODE_KEY = Arrays.asList(
             STATION, DHCP, COLUMN, ROW, DETAIL, DISCRETE_TEST, TYPE_UI, NAME, TYPE_MODE,
-            INIT_FUNC, PN_NAME, LOCAL_LOG, AMBIT_CONFIG);
+            INIT_FUNC, PN_NAME, LOOP_TEST, LOCAL_LOG, AMBIT_CONFIG);
 
     public static final List<String> FUNC_KEYS = Arrays.asList(FAIL_CONTNIUE,
             UUT_MODEL, COM, BAUDRATE, FLAG, CANCEL, TIME_OVER,
             RETRY, TEST_NAME, FUNC_NAME, UPPER_LIMIT, LOWER_LIMIT,
-            MULTI_TASK, LIMIT_TYPE, TIME_OUT_TEST);
+            MULTI_TASK, LIMIT_TYPE,WAIT_MULTI_DONE, TIME_OUT_TEST);
 
     public static final List<String> LIMIT_KEYS = Arrays.asList(MODEL, TIME_STAMP,
             LIMITS_VALIDATION, ID, TEST_NAME, LIMIT_TYPE, REQUIRED,

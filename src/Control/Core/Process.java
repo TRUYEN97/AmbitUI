@@ -40,8 +40,8 @@ class Process implements IFunction {
 
     private FunctionCover createFuncCover(FunctionName function) {
         FunctionCover func = new FunctionCover(
-                this.factory.getFunc(function.getFunctions()
-                        ,function.getItemName()), uiStatus);
+                this.factory.getFunc(function.getFunctions(),
+                        function.getItemName()), uiStatus);
         multiTasking.add(func);
         return func;
     }
@@ -56,19 +56,28 @@ class Process implements IFunction {
         FunctionCover funcCover;
         for (FunctionName functionName : functions) {
             funcCover = createFuncCover(functionName);
+            if (funcCover.isWaitUntilMultiDone()) {
+                waitUntilMultiTaskDone();
+            }
+            System.out.println(funcCover.getFunction().getFunctionName());
             funcCover.start();
-            if (!funcCover.isMutiTasking()) {
-                try {
-                    funcCover.join();
-                    if (hasTaskFailed()) {
-                        break;
-                    }
-                } catch (InterruptedException ex) {
-                    ErrorLog.addError(this, ex.getMessage());
+            if (funcCover.isMutiTasking()) {
+                continue;
+            }
+            try {
+                funcCover.join();
+                if (hasTaskFailed()) {
                     break;
                 }
+            } catch (InterruptedException ex) {
+                ErrorLog.addError(this, ex.getMessage());
+                break;
             }
         }
+        waitUntilMultiTaskDone();
+    }
+
+    private void waitUntilMultiTaskDone() {
         while (!multiTasking.isEmpty()) {
             try {
                 if (hasTaskFailed()) {
@@ -76,6 +85,7 @@ class Process implements IFunction {
                 }
                 Thread.sleep(100);
             } catch (InterruptedException ex) {
+                ErrorLog.addError(this, ex.getMessage());
                 break;
             }
         }

@@ -38,12 +38,13 @@
         {
             "FLAG": true,
             "LOCAL_FILE": "python/log",
-            "keyWord": "txt file",
+            "FileTxt": "txt file",
             "test_name": "CreateTxtLog",
             "FUNC_NAME": "CreateTxtLogProxy"
         },
         {
             "FLAG": true,
+            "MULTI": true,
             "keyWord": "FileJsonPath",
             "CmdCommand": "cd python && eero_API.py log/",
             "test_name": "UpAPI",
@@ -51,6 +52,7 @@
         },
         {
             "FLAG": true,
+            "MULTI": true,
             "FtpPort": 21,
             "FtpUser": "oper",
             "FtpHost": "10.90.1.168",
@@ -63,6 +65,8 @@
         },
         {
             "FLAG": true,
+            "MULTI": true,
+            "WAIT_MULTI_DONE": true,
             "FtpPort": 21,
             "FtpUser": "oper",
             "FtpHost": "10.90.1.168",
@@ -74,8 +78,9 @@
             "FUNC_NAME": "UpFTPProxy"
         },
         {
-            "FLAG": false,
+            "FLAG": true,
             "TIME_OVER": 5,
+            "WAIT_MULTI_DONE": true,
             "SEND_FORMAT": "mlbsn| pcname| status| mode",
             "URL_SEND_RESULT": "http://10.90.0.40/sfcapi/api/connectfinal",
             "test_name": "SendToSfis",

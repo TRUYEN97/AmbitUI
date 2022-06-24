@@ -1,0 +1,64 @@
+{
+    "CheckSnSfis": {
+        "simple": {
+            "local_error_code": "SFIS00",
+            "local_error_des": "SFIS_CHECK_ERROR"
+        }
+    },
+    "mac": 
+            {
+                "simple": {
+                    "local_error_code": "19.0.0",
+                    "local_error_des": "mac"
+                }
+            },
+    "gen_node": 
+            {
+                "simple": {
+                    "local_error_code": "15.1.0",
+                    "local_error_des": "gen_node"
+                }
+            },
+    "InputFaData": {
+        "simple": {
+            "local_error_code": "1.0.0",
+            "local_error_des": "InputFaData"
+        }
+    },
+    "CreateFaJson": {
+        "simple": {
+            "local_error_code": "JSON00",
+            "local_error_des": "CreateFaJsonError"
+        }
+    },
+    "CreateTxtLog": {
+        "simple": {
+            "local_error_code": "TXT00",
+            "local_error_des": "CreateTxtLogError"
+        }
+    },
+    "UpAPI": {
+        "simple": {
+            "local_error_code": "API00",
+            "local_error_des": "UP_API_ERROR"
+        }
+    },
+    "UpTxtLogFTP": {
+        "simple": {
+            "local_error_code": "FTP00",
+            "local_error_des": "UP_TXT_LOG_FTP"
+        }
+    },
+    "UpJsonToFTP": {
+        "simple": {
+            "local_error_code": "FTP01",
+            "local_error_des": "UP_JSON_LOG_FTP"
+        }
+    },
+    "SendToSfis": {
+        "simple": {
+            "local_error_code": "SFIS01",
+            "local_error_des": "SFIS_SEND_ERROR"
+        }
+    }
+}

@@ -1,4 +1,16 @@
 {
+    "CheckSnSfis": {
+        "simple": {
+            "local_error_code": "SFIS00",
+            "local_error_des": "SFIS_CHECK_ERROR"
+        }
+    },
+    "SendToSfis": {
+        "simple": {
+            "local_error_code": "SFIS01",
+            "local_error_des": "SFIS_SEND_ERROR"
+        }
+    },
     "ccg_firmware":
             {
                 "simple": {

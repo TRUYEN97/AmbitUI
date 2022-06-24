@@ -78,6 +78,7 @@ public class ItemTestData {
             this.data.put(AllKeyWord.TEST_VALUE, isPass ? "PASS" : "FAIL");
         }
         this.loger.addLog(String.format("Test Value: \"%s\"", getResultTest()));
+        this.loger.addLog("Item name: " + this.data.getString(AllKeyWord.TEST_NAME));
         this.loger.addLog("****************************************************");
     }
 
@@ -149,7 +150,6 @@ public class ItemTestData {
     }
 
     private void logEnd() {
-        this.loger.addLog("=====================================================");
         if (!isPass) {
             String errorCode = this.data.getString(AllKeyWord.ERROR_CODE);
             String localErrorCode = this.data.getString(AllKeyWord.LOCAL_ERROR_CODE);
@@ -158,8 +158,6 @@ public class ItemTestData {
             this.loger.addLog("Local error code: " + localErrorCode);
             this.loger.addLog("Local error des: " + localErrorDes);
         }
-        this.loger.addLog("Item name: " + this.data.getString(AllKeyWord.TEST_NAME));
-        this.loger.addLog("=====================================================");
         this.data.putAll(this.error);
         this.data.put(AllKeyWord.STATUS, isPass ? "passed" : "failed");
         this.data.put(AllKeyWord.CYCLE_TIME, String.format("%.3f", timeS.getTime()));

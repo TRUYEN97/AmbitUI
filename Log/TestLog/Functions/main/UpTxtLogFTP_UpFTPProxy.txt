@@ -1,21 +1,17 @@
-2022-06-22 13:04:18 : Item[UpTxtLogFTP] - Function[UpFTPProxy]
-2022-06-22 13:04:18 : Turn 0:
-2022-06-22 13:04:18 : Connect to ftp!!
-2022-06-22 13:04:18 : User: oper
-2022-06-22 13:04:18 : PassWord: mfg-oper
-2022-06-22 13:04:18 : Host: 10.90.1.168
-2022-06-22 13:04:18 : Port: 21
-2022-06-22 13:04:18 : Connect success.!
-2022-06-22 13:04:18 : Get filePath in Signal with key: FileJsonPath
-2022-06-22 13:04:18 : filePath: KC660GTYJB2YA0TJ_REPAIR-7801_FA_API
-2022-06-22 13:04:18 : File "KC660GTYJB2YA0TJ_REPAIR-7801_FA_API" not exists!
-2022-06-22 13:04:18 : Up file to FTP faied!
-2022-06-22 13:04:21 : ****************************************************
-2022-06-22 13:04:21 : Test Value: "FAIL"
-2022-06-22 13:04:21 : ****************************************************
-2022-06-22 13:04:21 : Error code: null
-2022-06-22 13:04:21 : Local error code: null
-2022-06-22 13:04:21 : Local error des: null
-2022-06-22 13:04:21 : Item name: UpTxtLogFTP
-2022-06-22 13:04:21 : =====================================================
-2022-06-22 13:04:21 : Time[4.456 s] - Status[FAILED]
+2022-06-24 10:45:14.847:   Item[UpTxtLogFTP] - Function[UpFTPProxy]
+2022-06-24 10:45:14.847:   Turn 0:
+2022-06-24 10:45:14.847:   Connect to ftp!!
+2022-06-24 10:45:14.847:   User: oper
+2022-06-24 10:45:14.847:   PassWord: mfg-oper
+2022-06-24 10:45:14.847:   Host: 10.90.1.168
+2022-06-24 10:45:14.847:   Port: 21
+2022-06-24 10:45:14.901:   Connect success.!
+2022-06-24 10:45:14.901:   Get filePath in Signal with key: txt file
+2022-06-24 10:45:14.901:   filePath: python/log/KC6N01EN9NJHBMQ1_REPAIR-7801_FA_API_serial.txt
+2022-06-24 10:45:14.901:   Ftp: temp/TE_PRO/SQT/LogTest/KC6N01EN9NJHBMQ1_REPAIR-7801_FA_API_serial.txt
+2022-06-24 10:45:14.901:   Up file to FTP done!
+2022-06-24 10:45:14.901:   ****************************************************
+2022-06-24 10:45:14.901:   Test Value: "PASS"
+2022-06-24 10:45:14.901:   Item name: UpTxtLogFTP
+2022-06-24 10:45:14.901:   ****************************************************
+2022-06-24 10:45:14.901:   Time[0.054 s] - Status[PASS]

@@ -30,8 +30,7 @@ public class FunctionCover extends Thread {
         this.function = function;
         this.modeTest = uiStatus.getModeTest();
         this.subUi = uiStatus.getSubUi();
-        this.functionData = uiStatus.getUiData().
-                createFuncData(function.getItemName());
+        this.functionData = uiStatus.getUiData().createFuncData(function.getItemName());
         this.function.setResources(uiStatus, functionData);
         this.funcConfig = modeTest.getModeTestSource().getFunctionsConfig(function.getItemName());
     }
@@ -100,7 +99,7 @@ public class FunctionCover extends Thread {
                 return;
             }
             for (int turn = 0; turn < getRetry() && !function.isPass(); turn++) {
-                this.functionData.addLog(String.format("Turn %s:", turn));
+                this.functionData.addLog(String.format("Turn %s: ", turn));
                 this.function.run();
             }
         } catch (Exception e) {
@@ -155,5 +154,9 @@ public class FunctionCover extends Thread {
             }
             end();
         }
+    }
+
+    public boolean isWaitUntilMultiDone() {
+        return funcConfig.isUntilMultiDone();
     }
 }

@@ -62,7 +62,9 @@ public class CellTest extends Thread {
     public void run() {
         prepare();
         if (runFunctions(this.testSource.getCheckFunctions())) {
-            if (runItemFunctions()) {
+            int loopTest = this.testSource.getLoopTest();
+            for (int i = 0; i < loopTest; i++) {
+                runItemFunctions();
                 runFunctions(this.testSource.getEndFunctions());
             }
         }
@@ -100,7 +102,6 @@ public class CellTest extends Thread {
         this.uiData.putProductInfo(AllKeyWord.START_TIME, new TimeBase().getSimpleDateTime());
         boolean result = runFunctions(testFunctions);
         this.uiData.putProductInfo(AllKeyWord.FINISH_TIME, new TimeBase().getSimpleDateTime());
-        this.uiData.putProductInfo(AllKeyWord.CYCLE_TIME, String.valueOf(myTimer.getTime()));
         return result;
     }
 

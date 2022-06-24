@@ -77,4 +77,8 @@ public class FunctionElement extends AbsElementInfo {
         return warehouse.toJson().keySet();
     }
 
+    public boolean isUntilMultiDone() {
+        return warehouse.getBoolean(AllKeyWord.WAIT_MULTI_DONE);
+    }
+
 }

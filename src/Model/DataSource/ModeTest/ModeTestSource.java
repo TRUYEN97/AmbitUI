@@ -114,4 +114,8 @@ public class ModeTestSource {
     public ErrorCodeSource getErrorCodeSource() {
         return errorCode;
     }
+
+    public int getLoopTest() {
+        return modeConfig.getLoopTest();
+    }
 }

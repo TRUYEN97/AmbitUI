@@ -41,12 +41,12 @@ public class CreateTxtLog extends AbsFunction {
                     continue;
                 }
                 addLog(" - add item: " + dataBox.getItemFunction());
-                loger.addLog(dataBox.getLog());
-                loger.addLog("/////////////////////////////////////////////\r\n");
+                loger.add(dataBox.getLog());
+                loger.add("//////////////////////////////////////////////////////////////////\r\n");
             }
             addLog("Save file txt ok!");
             String keyOfFilePath = this.allConfig.getString("FileTxt");
-            addLog("Key of filePath in Signal: " + keyOfFilePath);
+            addLog("Key of file in Signal: " + keyOfFilePath);
             uiData.putToSignal(keyOfFilePath, this.txtFile);
             return true;
         } catch (Exception e) {

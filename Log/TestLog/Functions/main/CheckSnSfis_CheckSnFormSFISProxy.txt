@@ -1,15 +1,20 @@
-2022-06-23 21:19:30:   Item[CheckSnSfis] - Function[CheckSnFormSFISProxy]
-2022-06-23 21:19:30:   Turn 0:
-2022-06-23 21:19:32:   send to url: http://10.90.0.40/sfcapi/api/connect
-2022-06-23 21:19:32:   command: {"PCNAME":"REPAIR-7801","MODE":"FA_API","SN":"LL"}
-2022-06-23 21:19:53:   Send SFIS Exception : Connection timed out: connect
-2022-06-23 21:19:56:   ****************************************************
-2022-06-23 21:19:56:   Test Value: "FAIL"
-2022-06-23 21:19:56:   ****************************************************
-2022-06-23 21:19:56:   =====================================================
-2022-06-23 21:19:56:   Error code: null
-2022-06-23 21:19:56:   Local error code: null
-2022-06-23 21:19:56:   Local error des: null
-2022-06-23 21:19:56:   Item name: CheckSnSfis
-2022-06-23 21:19:56:   =====================================================
-2022-06-23 21:19:56:   Time[26.251 s] - Status[FAILED]
+2022-06-24 10:45:06.799:   Item[CheckSnSfis] - Function[CheckSnFormSFISProxy]
+2022-06-24 10:45:06.800:   Turn 0:
+2022-06-24 10:45:06.800:   send to url: http://10.90.0.40/sfcapi/api/connect
+2022-06-24 10:45:06.809:   command: {"PCNAME":"REPAIR-7801","MODE":"FA_API","SN":"KC6N01EN"}
+2022-06-24 10:45:06.848:   {"result":"PASS","message":"OK","data":{"mlbsn":"KC6N01EN9NJHBMQ1","ethernetmac":"8470D7890D80","pnname":"830-00910","model":"","smode":"Production","failedpc":"MBLT-5465","debugpc":"REPAIR-7801","errorcode":"18.5.4.1","errordes":"LED_R_R_TOOLOW","counttest":"1"}}
+2022-06-24 10:45:06.849:   add key: mlbsn -- Value: KC6N01EN9NJHBMQ1
+2022-06-24 10:45:06.849:   add key: ethernetmac -- Value: 8470D7890D80
+2022-06-24 10:45:06.849:   add key: pnname -- Value: 830-00910
+2022-06-24 10:45:06.849:   add key: model -- Value:
+2022-06-24 10:45:06.850:   add key: smode -- Value: Production
+2022-06-24 10:45:06.850:   add key: failedpc -- Value: MBLT-5465
+2022-06-24 10:45:06.850:   add key: debugpc -- Value: REPAIR-7801
+2022-06-24 10:45:06.850:   add key: errorcode -- Value: 18.5.4.1
+2022-06-24 10:45:06.850:   add key: errordes -- Value: LED_R_R_TOOLOW
+2022-06-24 10:45:06.851:   add key: counttest -- Value: 1
+2022-06-24 10:45:06.851:   ****************************************************
+2022-06-24 10:45:06.851:   Test Value: "PASS"
+2022-06-24 10:45:06.851:   Item name: CheckSnSfis
+2022-06-24 10:45:06.851:   ****************************************************
+2022-06-24 10:45:06.853:   Time[0.051 s] - Status[PASS]

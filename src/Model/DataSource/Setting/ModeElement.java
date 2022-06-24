@@ -83,4 +83,9 @@ public class ModeElement extends AbsElementInfo {
     public boolean isDiscreteTest() {
         return this.warehouse.getBoolean(AllKeyWord.DISCRETE_TEST);
     }
+
+    public int getLoopTest() {
+        Integer value = this.warehouse.getInteger(AllKeyWord.LOOP_TEST);
+        return value == null || value < 1 ? 1 : value;
+    }
 }
