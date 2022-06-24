@@ -1,17 +1,17 @@
-2022-06-24 10:45:14.847:   Item[UpTxtLogFTP] - Function[UpFTPProxy]
-2022-06-24 10:45:14.847:   Turn 0:
-2022-06-24 10:45:14.847:   Connect to ftp!!
-2022-06-24 10:45:14.847:   User: oper
-2022-06-24 10:45:14.847:   PassWord: mfg-oper
-2022-06-24 10:45:14.847:   Host: 10.90.1.168
-2022-06-24 10:45:14.847:   Port: 21
-2022-06-24 10:45:14.901:   Connect success.!
-2022-06-24 10:45:14.901:   Get filePath in Signal with key: txt file
-2022-06-24 10:45:14.901:   filePath: python/log/KC6N01EN9NJHBMQ1_REPAIR-7801_FA_API_serial.txt
-2022-06-24 10:45:14.901:   Ftp: temp/TE_PRO/SQT/LogTest/KC6N01EN9NJHBMQ1_REPAIR-7801_FA_API_serial.txt
-2022-06-24 10:45:14.901:   Up file to FTP done!
-2022-06-24 10:45:14.901:   ****************************************************
-2022-06-24 10:45:14.901:   Test Value: "PASS"
-2022-06-24 10:45:14.901:   Item name: UpTxtLogFTP
-2022-06-24 10:45:14.901:   ****************************************************
-2022-06-24 10:45:14.901:   Time[0.054 s] - Status[PASS]
+2022-06-24 11:52:32.493:   Item[UpTxtLogFTP] - Function[UpFTPProxy]
+2022-06-24 11:52:32.493:   Turn 0:
+2022-06-24 11:52:32.494:   Connect to ftp!!
+2022-06-24 11:52:32.494:   User: oper
+2022-06-24 11:52:32.494:   PassWord: mfg-oper
+2022-06-24 11:52:32.494:   Host: 10.90.1.168
+2022-06-24 11:52:32.494:   Port: 21
+2022-06-24 11:52:32.547:   Connect success.!
+2022-06-24 11:52:33.557:   Get filePath in Signal with key: txt file
+2022-06-24 11:52:33.557:   filePath: python/log/KC6N01EN9NJHBMQ1_REPAIR-7801_FA_API_serial.txt
+2022-06-24 11:52:33.557:   Ftp: temp/TE_PRO/SQT/LogTest/KC6N01EN9NJHBMQ1_REPAIR-7801_FA_API_serial.txt
+2022-06-24 11:52:33.572:   Up file to FTP done!
+2022-06-24 11:52:33.572:   ****************************************************
+2022-06-24 11:52:33.572:   Test Value: "PASS"
+2022-06-24 11:52:33.572:   Item name: UpTxtLogFTP
+2022-06-24 11:52:33.572:   ****************************************************
+2022-06-24 11:52:33.572:   Time[1.079 s] - Status[PASS]

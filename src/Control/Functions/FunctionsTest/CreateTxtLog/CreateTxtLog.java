@@ -5,12 +5,15 @@
 package Control.Functions.FunctionsTest.CreateTxtLog;
 
 import Control.Functions.AbsFunction;
+import Control.Functions.FunctionsTest.CreateFaJson.CreateFaJson;
 import FileTool.FileService;
 import Model.AllKeyWord;
 import Model.DataTest.DataBoxs.FunctionData;
 import Model.DataTest.ErrorLog;
 import MyLoger.MyLoger;
 import java.io.File;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 
 /**
  *
@@ -25,7 +28,7 @@ public class CreateTxtLog extends AbsFunction {
     }
 
     @Override
-    public boolean test() {
+    public boolean test() { 
         return saveTxtFile() && saveFileZip();
     }
 

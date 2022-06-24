@@ -1,78 +1,78 @@
-2022-06-24 10:45:06.799:   Item[CheckSnSfis] - Function[CheckSnFormSFISProxy]
-2022-06-24 10:45:06.800:   Turn 0:
-2022-06-24 10:45:06.800:   send to url: http://10.90.0.40/sfcapi/api/connect
-2022-06-24 10:45:06.809:   command: {"PCNAME":"REPAIR-7801","MODE":"FA_API","SN":"KC6N01EN"}
-2022-06-24 10:45:06.848:   {"result":"PASS","message":"OK","data":{"mlbsn":"KC6N01EN9NJHBMQ1","ethernetmac":"8470D7890D80","pnname":"830-00910","model":"","smode":"Production","failedpc":"MBLT-5465","debugpc":"REPAIR-7801","errorcode":"18.5.4.1","errordes":"LED_R_R_TOOLOW","counttest":"1"}}
-2022-06-24 10:45:06.849:   add key: mlbsn -- Value: KC6N01EN9NJHBMQ1
-2022-06-24 10:45:06.849:   add key: ethernetmac -- Value: 8470D7890D80
-2022-06-24 10:45:06.849:   add key: pnname -- Value: 830-00910
-2022-06-24 10:45:06.849:   add key: model -- Value:
-2022-06-24 10:45:06.850:   add key: smode -- Value: Production
-2022-06-24 10:45:06.850:   add key: failedpc -- Value: MBLT-5465
-2022-06-24 10:45:06.850:   add key: debugpc -- Value: REPAIR-7801
-2022-06-24 10:45:06.850:   add key: errorcode -- Value: 18.5.4.1
-2022-06-24 10:45:06.850:   add key: errordes -- Value: LED_R_R_TOOLOW
-2022-06-24 10:45:06.851:   add key: counttest -- Value: 1
-2022-06-24 10:45:06.851:   ****************************************************
-2022-06-24 10:45:06.851:   Test Value: "PASS"
-2022-06-24 10:45:06.851:   Item name: CheckSnSfis
-2022-06-24 10:45:06.851:   ****************************************************
-2022-06-24 10:45:06.853:   Time[0.051 s] - Status[PASS]
+2022-06-24 11:54:49.486:   Item[CheckSnSfis] - Function[CheckSnFormSFISProxy]
+2022-06-24 11:54:49.486:   Turn 0:
+2022-06-24 11:54:50.169:   send to url: http://10.90.0.40/sfcapi/api/connect
+2022-06-24 11:54:51.137:   command: {"PCNAME":"REPAIR-7801","MODE":"FA_API","SN":"KC6N01EN"}
+2022-06-24 11:54:51.321:   {"result":"PASS","message":"OK","data":{"mlbsn":"KC6N01EN9NJHBMQ1","ethernetmac":"8470D7890D80","pnname":"830-00910","model":"","smode":"Production","failedpc":"MBLT-5465","debugpc":"REPAIR-7801","errorcode":"18.5.4.1","errordes":"LED_R_R_TOOLOW","counttest":"1"}}
+2022-06-24 11:54:51.961:   add key: mlbsn -- Value: KC6N01EN9NJHBMQ1
+2022-06-24 11:54:52.155:   add key: ethernetmac -- Value: 8470D7890D80
+2022-06-24 11:54:52.666:   add key: pnname -- Value: 830-00910
+2022-06-24 11:54:53.101:   add key: model -- Value:
+2022-06-24 11:54:53.682:   add key: smode -- Value: Production
+2022-06-24 11:54:54.014:   add key: failedpc -- Value: MBLT-5465
+2022-06-24 11:54:54.162:   add key: debugpc -- Value: REPAIR-7801
+2022-06-24 11:54:54.457:   add key: errorcode -- Value: 18.5.4.1
+2022-06-24 11:54:54.600:   add key: errordes -- Value: LED_R_R_TOOLOW
+2022-06-24 11:54:54.796:   add key: counttest -- Value: 1
+2022-06-24 11:54:54.957:   ****************************************************
+2022-06-24 11:54:54.957:   Test Value: "PASS"
+2022-06-24 11:54:54.957:   Item name: CheckSnSfis
+2022-06-24 11:54:54.957:   ****************************************************
+2022-06-24 11:54:54.957:   Time[5.471 s] - Status[PASS]
 //////////////////////////////////////////////////////////////////
-2022-06-24 10:45:06.854:   Item[InputFaData] - Function[InputFaDataProxy]
-2022-06-24 10:45:06.854:   Turn 0:
-2022-06-24 10:45:06.854:   Check tab FaAPI
-2022-06-24 10:45:06.854:   Get tab faAPi in Signal!
-2022-06-24 10:45:07.742:   Waiting for user config data!
-2022-06-24 10:45:14.756:   Waiting for user config data done!
-2022-06-24 10:45:14.756:   Add select json data to signal!
-2022-06-24 10:45:14.757:   {"J1":{"Action":"replace","ReasonDes":"SOLDER SHORT","resonCode":"A002","Location":"J1","RepairDetail":"Further details"}}
-2022-06-24 10:45:14.758:   keyword: jsonFa
-2022-06-24 10:45:14.760:   Add select json data to signal ok!
-2022-06-24 10:45:14.760:   ****************************************************
-2022-06-24 10:45:14.761:   Test Value: "PASS"
-2022-06-24 10:45:14.761:   Item name: InputFaData
-2022-06-24 10:45:14.762:   ****************************************************
-2022-06-24 10:45:14.764:   Time[7.909 s] - Status[PASS]
+2022-06-24 11:54:59.879:   Item[InputFaData] - Function[InputFaDataProxy]
+2022-06-24 11:54:59.883:   Turn 0:
+2022-06-24 11:55:00.574:   Check tab FaAPI
+2022-06-24 11:55:01.996:   Get tab faAPi in Signal!
+2022-06-24 11:55:17.986:   Waiting for user config data!
+2022-06-24 11:55:18.773:   Waiting for user config data done!
+2022-06-24 11:55:19.212:   Add select json data to signal!
+2022-06-24 11:55:20.098:   {"J1":{"Action":"replace","ReasonDes":"SOLDER SHORT","resonCode":"A002","Location":"J1","RepairDetail":"Further details"}}
+2022-06-24 11:55:20.435:   keyword: jsonFa
+2022-06-24 11:55:20.763:   Add select json data to signal ok!
+2022-06-24 11:55:21.781:   ****************************************************
+2022-06-24 11:55:21.781:   Test Value: "PASS"
+2022-06-24 11:55:21.781:   Item name: InputFaData
+2022-06-24 11:55:21.781:   ****************************************************
+2022-06-24 11:55:21.781:   Time[21.896 s] - Status[PASS]
 //////////////////////////////////////////////////////////////////
-2022-06-24 10:45:14.766:   Item[CreateFaJson] - Function[CreateFaJsonProxy]
-2022-06-24 10:45:14.766:   Turn 0:
-2022-06-24 10:45:14.766:   Get FA json data in signal!
-2022-06-24 10:45:14.766:   Get with key: jsonFa
-2022-06-24 10:45:14.766:   {"J1":{"Action":"replace","ReasonDes":"SOLDER SHORT","resonCode":"A002","Location":"J1","RepairDetail":"Further details"}}
-2022-06-24 10:45:14.766:   Create base data
-2022-06-24 10:45:14.766:   - Key: station_name -- Value: REPAIR-7801
-2022-06-24 10:45:14.766:   - Key: station_type -- Value: REPAIR
-2022-06-24 10:45:14.766:   - Key: error_details -- Value: LED_R_R_TOOLOW
-2022-06-24 10:45:14.766:   - Key: error_code -- Value: 18.5.4.1
-2022-06-24 10:45:14.766:   - Key: serial -- Value: KC6N01EN9NJHBMQ1
-2022-06-24 10:45:14.766:   - Key: status -- Value: PASS
-2022-06-24 10:45:14.766:   - Key: test_software_version -- Value: 1.0.0
-2022-06-24 10:45:14.766:   - Key: start_time -- Value: 2022-06-24 10:45:06
-2022-06-24 10:45:14.766:   - Key: finish_time -- Value: 2022-06-24 10:45:14
-2022-06-24 10:45:14.766:   - Key: status -- Value: passed
-2022-06-24 10:45:14.766:   - Key: mode -- Value: debug
-2022-06-24 10:45:14.766:   Create base data done!
-2022-06-24 10:45:14.766:   Create function!
-2022-06-24 10:45:14.782:   Create data for location: J1
-2022-06-24 10:45:14.782:   - Key: finish_time -- Value: 2022-06-24 10:45:14
-2022-06-24 10:45:14.782:   - Key: start_time -- Value: 2022-06-24 10:45:06
-2022-06-24 10:45:14.782:   - Key: debug_station -- Value: REPAIR-7801
-2022-06-24 10:45:14.782:   - Key: failed_station -- Value: MBLT-5465
-2022-06-24 10:45:14.782:   - Key: further_details -- Value: Further details
-2022-06-24 10:45:14.782:   - Key: repair_location -- Value: J1
-2022-06-24 10:45:14.782:   - Key: reason_desc -- Value: SOLDER SHORT
-2022-06-24 10:45:14.782:   - Key: repair_action -- Value: replace
-2022-06-24 10:45:14.782:   - Key: child_unlinked -- Value: False
-2022-06-24 10:45:14.782:   - Key: failed_station_type -- Value: MBLT
-2022-06-24 10:45:14.782:   - Key: post_repair_result -- Value: passed
-2022-06-24 10:45:14.782:   Create function data done!
-2022-06-24 10:45:14.782:   Save json data at: python/log\KC6N01EN9NJHBMQ1_REPAIR-7801_FA_API.json
-2022-06-24 10:45:14.782:   Save json file at KC6N01EN9NJHBMQ1_REPAIR-7801_FA_API done!
-2022-06-24 10:45:14.782:   put "KC6N01EN9NJHBMQ1_REPAIR-7801_FA_API" with "FileJsonPath" key to signal
-2022-06-24 10:45:14.782:   ****************************************************
-2022-06-24 10:45:14.782:   Test Value: "PASS"
-2022-06-24 10:45:14.782:   Item name: CreateFaJson
-2022-06-24 10:45:14.782:   ****************************************************
-2022-06-24 10:45:14.782:   Time[0.016 s] - Status[PASS]
+2022-06-24 11:55:32.213:   Item[CreateFaJson] - Function[CreateFaJsonProxy]
+2022-06-24 11:55:32.215:   Turn 0:
+2022-06-24 11:55:32.217:   Get FA json data in signal!
+2022-06-24 11:55:32.219:   Get with key: jsonFa
+2022-06-24 11:55:32.220:   {"J1":{"Action":"replace","ReasonDes":"SOLDER SHORT","resonCode":"A002","Location":"J1","RepairDetail":"Further details"}}
+2022-06-24 11:55:32.222:   Create base data
+2022-06-24 11:55:32.229:   - Key: station_name -- Value: REPAIR-7801
+2022-06-24 11:55:32.231:   - Key: station_type -- Value: REPAIR
+2022-06-24 11:55:32.231:   - Key: error_details -- Value: LED_R_R_TOOLOW
+2022-06-24 11:55:32.231:   - Key: error_code -- Value: 18.5.4.1
+2022-06-24 11:55:32.231:   - Key: serial -- Value: KC6N01EN9NJHBMQ1
+2022-06-24 11:55:32.231:   - Key: status -- Value: PASS
+2022-06-24 11:55:32.231:   - Key: test_software_version -- Value: 1.0.0
+2022-06-24 11:55:32.231:   - Key: start_time -- Value: 2022-06-24 11:54:54
+2022-06-24 11:55:32.231:   - Key: finish_time -- Value: 2022-06-24 11:55:21
+2022-06-24 11:55:32.231:   - Key: status -- Value: passed
+2022-06-24 11:55:32.231:   - Key: mode -- Value: debug
+2022-06-24 11:55:32.231:   Create base data done!
+2022-06-24 11:55:32.231:   Create function!
+2022-06-24 11:55:32.246:   Create data for location: J1
+2022-06-24 11:55:32.246:   - Key: finish_time -- Value: 2022-06-24 11:55:21
+2022-06-24 11:55:32.246:   - Key: start_time -- Value: 2022-06-24 11:54:54
+2022-06-24 11:55:32.246:   - Key: debug_station -- Value: REPAIR-7801
+2022-06-24 11:55:32.246:   - Key: failed_station -- Value: MBLT-5465
+2022-06-24 11:55:32.246:   - Key: further_details -- Value: Further details
+2022-06-24 11:55:32.246:   - Key: repair_location -- Value: J1
+2022-06-24 11:55:32.246:   - Key: reason_desc -- Value: SOLDER SHORT
+2022-06-24 11:55:32.246:   - Key: repair_action -- Value: replace
+2022-06-24 11:55:32.246:   - Key: child_unlinked -- Value: False
+2022-06-24 11:55:32.246:   - Key: failed_station_type -- Value: MBLT
+2022-06-24 11:55:32.246:   - Key: post_repair_result -- Value: passed
+2022-06-24 11:55:32.246:   Create function data done!
+2022-06-24 11:55:32.246:   Save json data at: python/log\KC6N01EN9NJHBMQ1_REPAIR-7801_FA_API.json
+2022-06-24 11:55:32.266:   Save json file at KC6N01EN9NJHBMQ1_REPAIR-7801_FA_API done!
+2022-06-24 11:55:32.267:   put "KC6N01EN9NJHBMQ1_REPAIR-7801_FA_API" with "FileJsonPath" key to signal
+2022-06-24 11:55:32.267:   ****************************************************
+2022-06-24 11:55:32.268:   Test Value: "PASS"
+2022-06-24 11:55:32.268:   Item name: CreateFaJson
+2022-06-24 11:55:32.269:   ****************************************************
+2022-06-24 11:55:32.270:   Time[0.053 s] - Status[PASS]
 //////////////////////////////////////////////////////////////////

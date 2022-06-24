@@ -1,17 +1,17 @@
-2022-06-24 10:45:14.797:   Item[CreateTxtLog] - Function[CreateTxtLogProxy]
-2022-06-24 10:45:14.797:   Turn 0:
-2022-06-24 10:45:14.797:   Save file txt!
-2022-06-24 10:45:14.797:   file path: python/log/KC6N01EN9NJHBMQ1_REPAIR-7801_FA_API_serial.txt
-2022-06-24 10:45:14.797:   - add item: CheckSnSfis
-2022-06-24 10:45:14.797:   - add item: InputFaData
-2022-06-24 10:45:14.813:   - add item: CreateFaJson
-2022-06-24 10:45:14.813:   Save file txt ok!
-2022-06-24 10:45:14.813:   Key of file in Signal: txt file
-2022-06-24 10:45:14.813:   Save file zip!
-2022-06-24 10:45:14.813:   Save zip file path: python/log/KC6N01EN9NJHBMQ1_REPAIR-7801_FA_API_serial.zip
-2022-06-24 10:45:14.813:   File path: python/log/KC6N01EN9NJHBMQ1_REPAIR-7801_FA_API_serial.txt
-2022-06-24 10:45:14.844:   ****************************************************
-2022-06-24 10:45:14.844:   Test Value: "PASS"
-2022-06-24 10:45:14.844:   Item name: CreateTxtLog
-2022-06-24 10:45:14.844:   ****************************************************
-2022-06-24 10:45:14.844:   Time[0.047 s] - Status[PASS]
+2022-06-24 11:55:40.236:   Item[CreateTxtLog] - Function[CreateTxtLogProxy]
+2022-06-24 11:55:40.236:   Turn 0:
+2022-06-24 11:55:40.236:   Save file txt!
+2022-06-24 11:55:40.236:   file path: python/log/KC6N01EN9NJHBMQ1_REPAIR-7801_FA_API_serial.txt
+2022-06-24 11:55:40.252:   - add item: CheckSnSfis
+2022-06-24 11:55:40.264:   - add item: InputFaData
+2022-06-24 11:55:40.296:   - add item: CreateFaJson
+2022-06-24 11:55:40.319:   Save file txt ok!
+2022-06-24 11:55:40.320:   Key of file in Signal: txt file
+2022-06-24 11:55:40.320:   Save file zip!
+2022-06-24 11:55:40.321:   Save zip file path: python/log/KC6N01EN9NJHBMQ1_REPAIR-7801_FA_API_serial.zip
+2022-06-24 11:55:40.322:   File path: python/log/KC6N01EN9NJHBMQ1_REPAIR-7801_FA_API_serial.txt
+2022-06-24 11:55:40.358:   ****************************************************
+2022-06-24 11:55:40.359:   Test Value: "PASS"
+2022-06-24 11:55:40.359:   Item name: CreateTxtLog
+2022-06-24 11:55:40.361:   ****************************************************
+2022-06-24 11:55:40.362:   Time[0.125 s] - Status[PASS]

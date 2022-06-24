@@ -5,8 +5,11 @@
 package Control.Functions.FunctionsTest.UpFTP;
 
 import Control.Functions.AbsFunction;
+import Control.Functions.FunctionsTest.CreateFaJson.CreateFaJson;
 import ftpclient.FtpClient;
 import java.io.File;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 
 /**
  *
@@ -26,6 +29,11 @@ public class UpFTP extends AbsFunction {
             addLog("Connect failed!!!");
         }
         addLog("Connect success.!");
+         try {
+            Thread.sleep(20000);
+        } catch (InterruptedException ex) {
+            Logger.getLogger(CreateFaJson.class.getName()).log(Level.SEVERE, null, ex);
+        }
         if (upFile(getFilePathFormSignal("FilePath"))) {
             addLog("Up file to FTP done!");
             return true;

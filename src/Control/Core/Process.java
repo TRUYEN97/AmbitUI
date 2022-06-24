@@ -59,7 +59,6 @@ class Process implements IFunction {
             if (funcCover.isWaitUntilMultiDone()) {
                 waitUntilMultiTaskDone();
             }
-            System.out.println(funcCover.getFunction().getFunctionName());
             funcCover.start();
             if (funcCover.isMutiTasking()) {
                 continue;
@@ -70,8 +69,8 @@ class Process implements IFunction {
                     break;
                 }
             } catch (InterruptedException ex) {
+                ex.printStackTrace();
                 ErrorLog.addError(this, ex.getMessage());
-                break;
             }
         }
         waitUntilMultiTaskDone();
@@ -85,8 +84,8 @@ class Process implements IFunction {
                 }
                 Thread.sleep(100);
             } catch (InterruptedException ex) {
+                ex.printStackTrace();
                 ErrorLog.addError(this, ex.getMessage());
-                break;
             }
         }
     }

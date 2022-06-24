@@ -122,7 +122,8 @@ public class ItemTestData {
             }
         }
         for (String key : errorCode.keySet()) {
-            this.error.put(key, errorCode.getString(key));
+            String error = errorCode.getString(key);
+            this.error.put(key, error == null ? error : "");
         }
     }
 

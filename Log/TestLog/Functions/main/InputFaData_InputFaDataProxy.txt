@@ -1,15 +1,15 @@
-2022-06-24 10:45:06.854:   Item[InputFaData] - Function[InputFaDataProxy]
-2022-06-24 10:45:06.854:   Turn 0:
-2022-06-24 10:45:06.854:   Check tab FaAPI
-2022-06-24 10:45:06.854:   Get tab faAPi in Signal!
-2022-06-24 10:45:07.742:   Waiting for user config data!
-2022-06-24 10:45:14.756:   Waiting for user config data done!
-2022-06-24 10:45:14.756:   Add select json data to signal!
-2022-06-24 10:45:14.757:   {"J1":{"Action":"replace","ReasonDes":"SOLDER SHORT","resonCode":"A002","Location":"J1","RepairDetail":"Further details"}}
-2022-06-24 10:45:14.758:   keyword: jsonFa
-2022-06-24 10:45:14.760:   Add select json data to signal ok!
-2022-06-24 10:45:14.760:   ****************************************************
-2022-06-24 10:45:14.761:   Test Value: "PASS"
-2022-06-24 10:45:14.761:   Item name: InputFaData
-2022-06-24 10:45:14.762:   ****************************************************
-2022-06-24 10:45:14.764:   Time[7.909 s] - Status[PASS]
+2022-06-24 11:54:59.879:   Item[InputFaData] - Function[InputFaDataProxy]
+2022-06-24 11:54:59.883:   Turn 0:
+2022-06-24 11:55:00.574:   Check tab FaAPI
+2022-06-24 11:55:01.996:   Get tab faAPi in Signal!
+2022-06-24 11:55:17.986:   Waiting for user config data!
+2022-06-24 11:55:18.773:   Waiting for user config data done!
+2022-06-24 11:55:19.212:   Add select json data to signal!
+2022-06-24 11:55:20.098:   {"J1":{"Action":"replace","ReasonDes":"SOLDER SHORT","resonCode":"A002","Location":"J1","RepairDetail":"Further details"}}
+2022-06-24 11:55:20.435:   keyword: jsonFa
+2022-06-24 11:55:20.763:   Add select json data to signal ok!
+2022-06-24 11:55:21.781:   ****************************************************
+2022-06-24 11:55:21.781:   Test Value: "PASS"
+2022-06-24 11:55:21.781:   Item name: InputFaData
+2022-06-24 11:55:21.781:   ****************************************************
+2022-06-24 11:55:21.781:   Time[21.896 s] - Status[PASS]

@@ -1,40 +1,40 @@
-2022-06-24 10:45:14.766:   Item[CreateFaJson] - Function[CreateFaJsonProxy]
-2022-06-24 10:45:14.766:   Turn 0:
-2022-06-24 10:45:14.766:   Get FA json data in signal!
-2022-06-24 10:45:14.766:   Get with key: jsonFa
-2022-06-24 10:45:14.766:   {"J1":{"Action":"replace","ReasonDes":"SOLDER SHORT","resonCode":"A002","Location":"J1","RepairDetail":"Further details"}}
-2022-06-24 10:45:14.766:   Create base data
-2022-06-24 10:45:14.766:   - Key: station_name -- Value: REPAIR-7801
-2022-06-24 10:45:14.766:   - Key: station_type -- Value: REPAIR
-2022-06-24 10:45:14.766:   - Key: error_details -- Value: LED_R_R_TOOLOW
-2022-06-24 10:45:14.766:   - Key: error_code -- Value: 18.5.4.1
-2022-06-24 10:45:14.766:   - Key: serial -- Value: KC6N01EN9NJHBMQ1
-2022-06-24 10:45:14.766:   - Key: status -- Value: PASS
-2022-06-24 10:45:14.766:   - Key: test_software_version -- Value: 1.0.0
-2022-06-24 10:45:14.766:   - Key: start_time -- Value: 2022-06-24 10:45:06
-2022-06-24 10:45:14.766:   - Key: finish_time -- Value: 2022-06-24 10:45:14
-2022-06-24 10:45:14.766:   - Key: status -- Value: passed
-2022-06-24 10:45:14.766:   - Key: mode -- Value: debug
-2022-06-24 10:45:14.766:   Create base data done!
-2022-06-24 10:45:14.766:   Create function!
-2022-06-24 10:45:14.782:   Create data for location: J1
-2022-06-24 10:45:14.782:   - Key: finish_time -- Value: 2022-06-24 10:45:14
-2022-06-24 10:45:14.782:   - Key: start_time -- Value: 2022-06-24 10:45:06
-2022-06-24 10:45:14.782:   - Key: debug_station -- Value: REPAIR-7801
-2022-06-24 10:45:14.782:   - Key: failed_station -- Value: MBLT-5465
-2022-06-24 10:45:14.782:   - Key: further_details -- Value: Further details
-2022-06-24 10:45:14.782:   - Key: repair_location -- Value: J1
-2022-06-24 10:45:14.782:   - Key: reason_desc -- Value: SOLDER SHORT
-2022-06-24 10:45:14.782:   - Key: repair_action -- Value: replace
-2022-06-24 10:45:14.782:   - Key: child_unlinked -- Value: False
-2022-06-24 10:45:14.782:   - Key: failed_station_type -- Value: MBLT
-2022-06-24 10:45:14.782:   - Key: post_repair_result -- Value: passed
-2022-06-24 10:45:14.782:   Create function data done!
-2022-06-24 10:45:14.782:   Save json data at: python/log\KC6N01EN9NJHBMQ1_REPAIR-7801_FA_API.json
-2022-06-24 10:45:14.782:   Save json file at KC6N01EN9NJHBMQ1_REPAIR-7801_FA_API done!
-2022-06-24 10:45:14.782:   put "KC6N01EN9NJHBMQ1_REPAIR-7801_FA_API" with "FileJsonPath" key to signal
-2022-06-24 10:45:14.782:   ****************************************************
-2022-06-24 10:45:14.782:   Test Value: "PASS"
-2022-06-24 10:45:14.782:   Item name: CreateFaJson
-2022-06-24 10:45:14.782:   ****************************************************
-2022-06-24 10:45:14.782:   Time[0.016 s] - Status[PASS]
+2022-06-24 11:55:32.213:   Item[CreateFaJson] - Function[CreateFaJsonProxy]
+2022-06-24 11:55:32.215:   Turn 0:
+2022-06-24 11:55:32.217:   Get FA json data in signal!
+2022-06-24 11:55:32.219:   Get with key: jsonFa
+2022-06-24 11:55:32.220:   {"J1":{"Action":"replace","ReasonDes":"SOLDER SHORT","resonCode":"A002","Location":"J1","RepairDetail":"Further details"}}
+2022-06-24 11:55:32.222:   Create base data
+2022-06-24 11:55:32.229:   - Key: station_name -- Value: REPAIR-7801
+2022-06-24 11:55:32.231:   - Key: station_type -- Value: REPAIR
+2022-06-24 11:55:32.231:   - Key: error_details -- Value: LED_R_R_TOOLOW
+2022-06-24 11:55:32.231:   - Key: error_code -- Value: 18.5.4.1
+2022-06-24 11:55:32.231:   - Key: serial -- Value: KC6N01EN9NJHBMQ1
+2022-06-24 11:55:32.231:   - Key: status -- Value: PASS
+2022-06-24 11:55:32.231:   - Key: test_software_version -- Value: 1.0.0
+2022-06-24 11:55:32.231:   - Key: start_time -- Value: 2022-06-24 11:54:54
+2022-06-24 11:55:32.231:   - Key: finish_time -- Value: 2022-06-24 11:55:21
+2022-06-24 11:55:32.231:   - Key: status -- Value: passed
+2022-06-24 11:55:32.231:   - Key: mode -- Value: debug
+2022-06-24 11:55:32.231:   Create base data done!
+2022-06-24 11:55:32.231:   Create function!
+2022-06-24 11:55:32.246:   Create data for location: J1
+2022-06-24 11:55:32.246:   - Key: finish_time -- Value: 2022-06-24 11:55:21
+2022-06-24 11:55:32.246:   - Key: start_time -- Value: 2022-06-24 11:54:54
+2022-06-24 11:55:32.246:   - Key: debug_station -- Value: REPAIR-7801
+2022-06-24 11:55:32.246:   - Key: failed_station -- Value: MBLT-5465
+2022-06-24 11:55:32.246:   - Key: further_details -- Value: Further details
+2022-06-24 11:55:32.246:   - Key: repair_location -- Value: J1
+2022-06-24 11:55:32.246:   - Key: reason_desc -- Value: SOLDER SHORT
+2022-06-24 11:55:32.246:   - Key: repair_action -- Value: replace
+2022-06-24 11:55:32.246:   - Key: child_unlinked -- Value: False
+2022-06-24 11:55:32.246:   - Key: failed_station_type -- Value: MBLT
+2022-06-24 11:55:32.246:   - Key: post_repair_result -- Value: passed
+2022-06-24 11:55:32.246:   Create function data done!
+2022-06-24 11:55:32.246:   Save json data at: python/log\KC6N01EN9NJHBMQ1_REPAIR-7801_FA_API.json
+2022-06-24 11:55:32.266:   Save json file at KC6N01EN9NJHBMQ1_REPAIR-7801_FA_API done!
+2022-06-24 11:55:32.267:   put "KC6N01EN9NJHBMQ1_REPAIR-7801_FA_API" with "FileJsonPath" key to signal
+2022-06-24 11:55:32.267:   ****************************************************
+2022-06-24 11:55:32.268:   Test Value: "PASS"
+2022-06-24 11:55:32.268:   Item name: CreateFaJson
+2022-06-24 11:55:32.269:   ****************************************************
+2022-06-24 11:55:32.270:   Time[0.053 s] - Status[PASS]
