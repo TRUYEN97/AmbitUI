@@ -52,32 +52,6 @@
         },
         {
             "FLAG": true,
-            "MULTI": true,
-            "FtpPort": 21,
-            "FtpUser": "oper",
-            "FtpHost": "10.90.1.168",
-            "FtpPassword": "mfg-oper",
-            "FilePath": "txt file",
-            "dirFtp": "temp/TE_PRO/SQT/LogTest",
-            "LOCAL_FILE": "python/log",
-            "test_name": "UpTxtLogFTP",
-            "FUNC_NAME": "UpFTPProxy"
-        },
-        {
-            "FLAG": true,
-            "MULTI": true,
-            "FtpPort": 21,
-            "FtpUser": "oper",
-            "FtpHost": "10.90.1.168",
-            "FtpPassword": "mfg-oper",
-            "FilePath": "FileJsonPath",
-            "dirFtp": "temp/TE_PRO/SQT/LogTest",
-            "LOCAL_FILE": "python/log",
-            "test_name": "UpJsonToFTP",
-            "FUNC_NAME": "UpFTPProxy"
-        },
-        {
-            "FLAG": true,
             "TIME_OVER": 5,
             "WAIT_MULTI_DONE": true,
             "SEND_FORMAT": "mlbsn| pcname| status| mode",

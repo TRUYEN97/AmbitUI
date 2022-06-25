@@ -1,20 +1,20 @@
-2022-06-24 11:54:49.486:   Item[CheckSnSfis] - Function[CheckSnFormSFISProxy]
-2022-06-24 11:54:49.486:   Turn 0:
-2022-06-24 11:54:50.169:   send to url: http://10.90.0.40/sfcapi/api/connect
-2022-06-24 11:54:51.137:   command: {"PCNAME":"REPAIR-7801","MODE":"FA_API","SN":"KC6N01EN"}
-2022-06-24 11:54:51.321:   {"result":"PASS","message":"OK","data":{"mlbsn":"KC6N01EN9NJHBMQ1","ethernetmac":"8470D7890D80","pnname":"830-00910","model":"","smode":"Production","failedpc":"MBLT-5465","debugpc":"REPAIR-7801","errorcode":"18.5.4.1","errordes":"LED_R_R_TOOLOW","counttest":"1"}}
-2022-06-24 11:54:51.961:   add key: mlbsn -- Value: KC6N01EN9NJHBMQ1
-2022-06-24 11:54:52.155:   add key: ethernetmac -- Value: 8470D7890D80
-2022-06-24 11:54:52.666:   add key: pnname -- Value: 830-00910
-2022-06-24 11:54:53.101:   add key: model -- Value:
-2022-06-24 11:54:53.682:   add key: smode -- Value: Production
-2022-06-24 11:54:54.014:   add key: failedpc -- Value: MBLT-5465
-2022-06-24 11:54:54.162:   add key: debugpc -- Value: REPAIR-7801
-2022-06-24 11:54:54.457:   add key: errorcode -- Value: 18.5.4.1
-2022-06-24 11:54:54.600:   add key: errordes -- Value: LED_R_R_TOOLOW
-2022-06-24 11:54:54.796:   add key: counttest -- Value: 1
-2022-06-24 11:54:54.957:   ****************************************************
-2022-06-24 11:54:54.957:   Test Value: "PASS"
-2022-06-24 11:54:54.957:   Item name: CheckSnSfis
-2022-06-24 11:54:54.957:   ****************************************************
-2022-06-24 11:54:54.957:   Time[5.471 s] - Status[PASS]
+2022-06-25 02:52:11.277:   Item[CheckSnSfis] - Function[CheckSnFormSFISProxy]
+2022-06-25 02:52:11.277:   Turn 0:
+2022-06-25 02:52:11.277:   send to url: http://10.90.0.40/sfcapi/api/connect
+2022-06-25 02:52:11.278:   command: {"PCNAME":"REPAIR-7801","MODE":"FA_API","SN":"KC6E0K5C"}
+2022-06-25 02:52:11.320:   {"result":"PASS","message":"OK","data":{"mlbsn":"KC6E0K5CA6VBHG3D","ethernetmac":"8470D7749C60","pnname":"830-00910","model":"","smode":"Production","failedpc":"MBLT-5465","debugpc":"REPAIR-7801","errorcode":"35.3.0","errordes":"USB_DETECT","counttest":"1"}}
+2022-06-25 02:52:11.322:   add key: mlbsn -- Value: KC6E0K5CA6VBHG3D
+2022-06-25 02:52:11.322:   add key: ethernetmac -- Value: 8470D7749C60
+2022-06-25 02:52:11.322:   add key: pnname -- Value: 830-00910
+2022-06-25 02:52:11.322:   add key: model -- Value:
+2022-06-25 02:52:11.322:   add key: smode -- Value: Production
+2022-06-25 02:52:11.322:   add key: failedpc -- Value: MBLT-5465
+2022-06-25 02:52:11.322:   add key: debugpc -- Value: REPAIR-7801
+2022-06-25 02:52:11.322:   add key: errorcode -- Value: 35.3.0
+2022-06-25 02:52:11.322:   add key: errordes -- Value: USB_DETECT
+2022-06-25 02:52:11.322:   add key: counttest -- Value: 1
+2022-06-25 02:52:11.322:   ****************************************************
+2022-06-25 02:52:11.322:   Test Value: "PASS"
+2022-06-25 02:52:11.322:   Item name: CheckSnSfis
+2022-06-25 02:52:11.322:   ****************************************************
+2022-06-25 02:52:11.323:   Time[0.046 s] - Status[PASS]

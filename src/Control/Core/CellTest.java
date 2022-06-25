@@ -9,7 +9,7 @@ import Model.DataSource.ModeTest.FunctionConfig.FunctionName;
 import Model.DataTest.ErrorLog;
 import Model.DataTest.InputData;
 import Model.DataSource.ModeTest.ModeTestSource;
-import Model.ManagerUI.UIStatus.Elemants.UiData;
+import Model.DataTest.DataBoxs.UiData;
 import Model.ManagerUI.UIStatus.UiStatus;
 import Time.TimeBase;
 import Time.WaitTime.AbsTime;

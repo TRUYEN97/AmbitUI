@@ -4,7 +4,7 @@
  */
 package Control.Functions;
 
-import Model.ManagerUI.UIStatus.Elemants.UiData;
+import Model.DataTest.DataBoxs.UiData;
 import Model.ManagerUI.UIStatus.UiStatus;
 import View.subUI.SubUI.AbsSubUi;
 import Model.Interface.IFunction;

@@ -224,6 +224,8 @@ public class TabItem extends AbsTabUI {
                 editRow(String.format("%.3f S", dataBox.getRunTime()),
                         row, TIME);
                 editRow(getStatus(dataBox), row, STAUS);
+                editRow(dataBox.getErrorCode(), row, ERROR_CODE);
+                editRow(dataBox.getCusErrorCode(), row, CUS_ERROR_CODE);
             }
         }
     }

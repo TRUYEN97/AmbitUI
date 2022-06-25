@@ -2,11 +2,9 @@
  * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
  * Click nbfs://nbhost/SystemFileSystem/Templates/Classes/Class.java to edit this template
  */
-package Model.ManagerUI.UIStatus.Elemants;
+package Model.DataTest.DataBoxs;
 
 import Model.AllKeyWord;
-import Model.DataTest.DataBoxs.FunctionData;
-import Model.DataTest.DataBoxs.ProcessTestSignal;
 import Model.DataTest.ErrorLog;
 import Model.DataTest.InputData;
 import Model.DataSource.DataWareHouse;

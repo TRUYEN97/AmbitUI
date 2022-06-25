@@ -1,25 +1,25 @@
-2022-06-24 11:52:32.493:   Item[UpAPI] - Function[UpAPIProxy]
-2022-06-24 11:52:32.493:   Turn 0:
-2022-06-24 11:52:32.493:   Get filePath from signal!
-2022-06-24 11:52:32.494:   -With keyWord: FileJsonPath
-2022-06-24 11:52:32.494:   File path is:
-2022-06-24 11:52:32.494:   Get cmd command. KeyWord:CmdCommand
-2022-06-24 11:52:32.494:   Cmd comand : cd python && eero_API.py log/KC6N01EN9NJHBMQ1_REPAIR-7801_FA_API
-2022-06-24 11:52:32.494:   Up api.....
-2022-06-24 11:52:32.851:   log/KC6N01EN9NJHBMQ1_REPAIR-7801_FA_API_serial.txt
-2022-06-24 11:52:32.851:   Connected
-2022-06-24 11:52:32.851:   
-2022-06-24 11:52:32.852:   INFO: Input text is valid JSON.
-2022-06-24 11:52:32.852:   INFO: JSON schema validation successful.
-2022-06-24 11:52:32.852:   INFO: Created testrun 34038676 entry in database.
-2022-06-24 11:52:32.852:   INFO: Inserted 1 rows in repairresult database table.
-2022-06-24 11:52:32.852:   INFO: No node property found in test results.
-2022-06-24 11:52:32.853:   INFO: Data ingestion successful.
-2022-06-24 11:52:32.853:   INFO: Saved 1 file.
-2022-06-24 11:52:32.853:   
-2022-06-24 11:52:32.853:   200
-2022-06-24 11:52:32.853:   ****************************************************
-2022-06-24 11:52:32.853:   Test Value: "PASS"
-2022-06-24 11:52:32.854:   Item name: UpAPI
-2022-06-24 11:52:32.854:   ****************************************************
-2022-06-24 11:52:32.854:   Time[0.361 s] - Status[PASS]
+2022-06-25 02:52:16.266:   Item[UpAPI] - Function[UpAPIProxy]
+2022-06-25 02:52:16.266:   Turn 0:
+2022-06-25 02:52:16.266:   Get filePath from signal!
+2022-06-25 02:52:16.266:   -With keyWord: FileJsonPath
+2022-06-25 02:52:16.266:   File path is:
+2022-06-25 02:52:16.266:   Get cmd command. KeyWord:CmdCommand
+2022-06-25 02:52:16.266:   Cmd comand : cd python && eero_API.py log/KC6E0K5CA6VBHG3D_REPAIR-7801_FA_API
+2022-06-25 02:52:16.266:   Up api.....
+2022-06-25 02:52:17.333:   log/KC6E0K5CA6VBHG3D_REPAIR-7801_FA_API_serial.txt
+2022-06-25 02:52:17.333:   Connected
+2022-06-25 02:52:17.333:   
+2022-06-25 02:52:17.334:   INFO: Input text is valid JSON.
+2022-06-25 02:52:17.334:   INFO: JSON schema validation successful.
+2022-06-25 02:52:17.334:   INFO: Created testrun 34117680 entry in database.
+2022-06-25 02:52:17.334:   INFO: Inserted 1 rows in repairresult database table.
+2022-06-25 02:52:17.334:   INFO: No node property found in test results.
+2022-06-25 02:52:17.334:   INFO: Data ingestion successful.
+2022-06-25 02:52:17.334:   INFO: Saved 1 file.
+2022-06-25 02:52:17.334:   
+2022-06-25 02:52:17.334:   200
+2022-06-25 02:52:17.334:   ****************************************************
+2022-06-25 02:52:17.334:   Test Value: "PASS"
+2022-06-25 02:52:17.334:   Item name: UpAPI
+2022-06-25 02:52:17.334:   ****************************************************
+2022-06-25 02:52:17.334:   Time[1.068 s] - Status[PASS]

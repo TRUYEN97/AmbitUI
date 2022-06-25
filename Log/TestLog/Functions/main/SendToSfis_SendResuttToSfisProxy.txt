@@ -1,10 +1,10 @@
-2022-06-24 11:54:01.763:   Item[SendToSfis] - Function[SendResuttToSfisProxy]
-2022-06-24 11:54:01.764:   Turn 0:
-2022-06-24 11:54:01.764:   send to url: http://10.90.0.40/sfcapi/api/connectfinal
-2022-06-24 11:54:01.765:   command = {"STATUS":"PASS","PCNAME":"REPAIR-7801","MODE":"Debug","MLBSN":"KC6N01EN9NJHBMQ1"}
-2022-06-24 11:54:01.787:   {"result":"PASS","message":"OK. Go to FA API !","data":""}
-2022-06-24 11:54:01.787:   ****************************************************
-2022-06-24 11:54:01.787:   Test Value: "PASS"
-2022-06-24 11:54:01.787:   Item name: SendToSfis
-2022-06-24 11:54:01.789:   ****************************************************
-2022-06-24 11:54:01.789:   Time[0.025 s] - Status[PASS]
+2022-06-25 02:52:16.266:   Item[SendToSfis] - Function[SendResuttToSfisProxy]
+2022-06-25 02:52:16.266:   Turn 0:
+2022-06-25 02:52:16.266:   send to url: http://10.90.0.40/sfcapi/api/connectfinal
+2022-06-25 02:52:16.266:   command = {"STATUS":"PASS","PCNAME":"REPAIR-7801","MODE":"FA_API","MLBSN":"KC6E0K5CA6VBHG3D"}
+2022-06-25 02:52:16.299:   {"result":"PASS","message":"OK. Go to Repair !","data":""}
+2022-06-25 02:52:16.299:   ****************************************************
+2022-06-25 02:52:16.299:   Test Value: "PASS"
+2022-06-25 02:52:16.299:   Item name: SendToSfis
+2022-06-25 02:52:16.300:   ****************************************************
+2022-06-25 02:52:16.300:   Time[0.034 s] - Status[PASS]

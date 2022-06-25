@@ -4,7 +4,7 @@
  */
 package Model.ManagerUI.UIStatus;
 
-import Model.ManagerUI.UIStatus.Elemants.UiData;
+import Model.DataTest.DataBoxs.UiData;
 import Control.Core.Core;
 import Control.Core.ModeTest;
 import Control.Core.CellTest;

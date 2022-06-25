@@ -4,6 +4,7 @@
  */
 package Model.DataTest.DataBoxs;
 
+import Model.AllKeyWord;
 import Model.DataTest.ErrorLog;
 import MyLoger.MyLoger;
 import java.io.File;
@@ -130,5 +131,19 @@ public class FunctionData {
             return "Testing";
         }
         return createDefaultResult();
+    }
+
+    public String getErrorCode() {
+        if (getFirstItem() == null && (getFirstItem().isTest() || getFirstItem().isPass())) {
+            return null;
+        }
+        return getFirstItem().getString(AllKeyWord.ERROR_CODE);
+    }
+
+    public String getCusErrorCode() {
+        if (getFirstItem() == null && (getFirstItem().isTest() || getFirstItem().isPass())) {
+            return null;
+        }
+        return getFirstItem().getString(AllKeyWord.LOCAL_ERROR_CODE);
     }
 }
