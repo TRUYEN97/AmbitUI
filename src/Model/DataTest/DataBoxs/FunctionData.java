@@ -20,16 +20,14 @@ public class FunctionData {
 
     private final MyLoger loger;
     private final List<ItemTestData> itemTests;
-    private final String itemName;
 
-    public FunctionData(String itemName) {
+    public FunctionData() {
         this.loger = new MyLoger();
         this.itemTests = new ArrayList<>();
-        this.itemName = itemName;
     }
 
     public String getItemFunction() {
-        return this.itemName;
+        return this.getFirstItem().getItemTestName();
     }
 
     public boolean addItemtest(ItemTestData itemTest) {
@@ -134,7 +132,7 @@ public class FunctionData {
     }
 
     public String getErrorCode() {
-        if (getFirstItem() == null && (getFirstItem().isTest() || getFirstItem().isPass())) {
+        if (getFirstItem() == null) {
             return null;
         }
         return getFirstItem().getString(AllKeyWord.ERROR_CODE);

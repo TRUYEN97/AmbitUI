@@ -6,16 +6,15 @@ package Model.Factory;
 
 import View.subUI.FormDetail.TabFaApi.TabFaApiProxy;
 import Control.Functions.AbsFunction;
-import Control.Functions.FunctionsTest.CreateFaJson.CreateFaJsonProxy;
-import Control.Functions.FunctionsTest.CreateTxtLog.CreateTxtLogProxy;
-import Control.Functions.FunctionsTest.SFIS.CheckSnFormSFIS.CheckSnFormSFISProxy;
-import Control.Functions.FunctionsTest.GenerateNode.GenerateNodeProxy;
-import Control.Functions.FunctionsTest.GetMacFromSfis.GetMacFormSfisProxy;
-import Control.Functions.FunctionsTest.SFIS.SendResultToSfis.SendResuttToSfisProxy;
-import Control.Functions.FunctionsTest.InputFaData.InputFaDataProxy;
-import Control.Functions.FunctionsTest.PowerSwitch.PowerSwitchProxy;
-import Control.Functions.FunctionsTest.UpFTP.UpFTPProxy;
-import Control.Functions.FunctionsTest.UpJsonAPI.UpAPIProxy;
+import Control.Functions.FunctionsTest.Base.CreateFaJson.CreateFaJsonProxy;
+import Control.Functions.FunctionsTest.Base.CreateTxtLog.CreateTxtLogProxy;
+import Control.Functions.FunctionsTest.Base.GenerateNode.GenerateNodeProxy;
+import Control.Functions.FunctionsTest.Base.GetMacFromSfis.GetMacFormSfisProxy;
+import Control.Functions.FunctionsTest.Base.SFIS.SfisFunctionProxy;
+import Control.Functions.FunctionsTest.FaAPI.inputFaData.InputFaDataProxy;
+import Control.Functions.FunctionsTest.Runin.PowerSwitch.PowerSwitchProxy;
+import Control.Functions.FunctionsTest.Base.UpFTP.UpFTPProxy;
+import Control.Functions.FunctionsTest.FaAPI.UpJsonAPI.UpAPIProxy;
 import Control.Functions.InitPackages.InitProxy.IdPasswordProxy;
 import View.subUI.FormDetail.AbsTabUI;
 import View.subUI.SubUI.AbsSubUi;
@@ -95,8 +94,7 @@ public class Factory {
     }
 
     private void addFunc() {
-        this.functions.addType(new CheckSnFormSFISProxy());
-        this.functions.addType(new SendResuttToSfisProxy());
+        this.functions.addType(new SfisFunctionProxy());
         this.functions.addType(new GenerateNodeProxy());
         this.functions.addType(new GetMacFormSfisProxy());
         this.functions.addType(new InputFaDataProxy());

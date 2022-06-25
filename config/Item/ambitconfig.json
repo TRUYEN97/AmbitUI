@@ -5,24 +5,12 @@
     "INIT": [
         {
             "FLAG": true,
-            "TIME_OVER": 30,
+            "TIME_OVER": 50,
             "SEND_FORMAT": "sn| pcname| mode",
             "DATA_FORMAT": "mlbsn| ethernetmac| pnname| model| smode",
             "URL_CHECK_SN": "http://10.90.0.40/sfcapi/api/connect",
-            "test_name": "CheckSnSfis", 
-            "FUNC_NAME": "CheckSnFormSFISProxy"
-        }
-    ],
-    "Functions": [
-        {
-            "FLAG": true,
-            "FAIL_CONTNIUE": true,
-            "CANCEL": "DEBUG",
-            "TIME_OVER": 1,
-            "SEND_FORMAT": "sn| pcname| mode",
-            "DATA_FORMAT": "mlbsn| ethernetmac| pnname| model| smode",
             "test_name": "gen_node",
-            "FUNC_NAME": "GenerateNodeProxy"
+            "FUNC_NAME": "SfisFunctionProxy"
         },
         {
             "FLAG": true,
@@ -33,7 +21,9 @@
             "RETRY": 1,
             "test_name": "mac",
             "FUNC_NAME": "GetMacFormSfisProxy"
-        },
+        }
+    ],
+    "Functions": [
         {
             "FLAG": false,
             "TIME_OVER": 20,
@@ -51,11 +41,12 @@
         {
             "FLAG": true,
             "TIME_OVER": 5,
+            "WAIT_MULTI_DONE": true,
             "SEND_FORMAT": "mlbsn| pcname| status| mode",
             "URL_SEND_RESULT": "http://10.90.0.40/sfcapi/api/connectfinal",
+            "SFIS_TYPE": "SendResult",
             "test_name": "SendToSfis",
-            "FUNC_NAME": "SendResuttToSfisProxy"
+            "FUNC_NAME": "SfisFunctionProxy"
         }
-
     ]
 }

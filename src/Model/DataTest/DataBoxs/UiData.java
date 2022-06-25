@@ -135,10 +135,11 @@ public class UiData {
         this.inputData = inputData;
     }
 
-    public FunctionData createFuncData(String itemName) {
-        FunctionData dataBox = new FunctionData(itemName);
+    public void addFunctionData(FunctionData dataBox) {
+        if (dataBox == null || this.dataBoxs.contains(dataBox)) {
+            return;
+        }
         this.dataBoxs.add(dataBox);
-        return dataBox;
     }
 
 }

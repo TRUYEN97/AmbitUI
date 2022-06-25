@@ -30,7 +30,7 @@ public class FunctionCover extends Thread {
         this.function = function;
         this.modeTest = uiStatus.getModeTest();
         this.subUi = uiStatus.getSubUi();
-        this.functionData = uiStatus.getUiData().createFuncData(function.getItemName());
+        this.functionData = new FunctionData();
         this.function.setResources(uiStatus, functionData);
         this.funcConfig = modeTest.getModeTestSource().getFunctionsConfig(function.getItemName());
     }
@@ -58,8 +58,8 @@ public class FunctionCover extends Thread {
     private String createLogPtah() {
         return String.format("%s%s%s_%s.txt",
                 createLogPath(), File.separator,
-                 this.function.getItemName(),
-                 this.function.getFunctionName());
+                this.function.getItemName(),
+                this.function.getFunctionName());
     }
 
     private void checkOutTime() {
@@ -91,6 +91,7 @@ public class FunctionCover extends Thread {
 
     private void runTest() {
         try {
+            this.function.start();
             if (isModeSkip()) {
                 this.functionData.addLog("Mode Skip: " + modeTest.toString());
                 this.functionData.addLog("This function will be canceled because the mode is " + modeTest.toString());

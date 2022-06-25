@@ -1,0 +1,18 @@
+2022-06-25 23:38:27.879:   Item[gen_node] - Function[SfisFunctionProxy]
+2022-06-25 23:38:27.880:   Turn 0:
+2022-06-25 23:38:27.880:   Check SN....
+2022-06-25 23:38:27.880:   send to url: http://10.90.0.40/sfcapi/api/connect
+2022-06-25 23:38:27.881:   [SEND_FORMAT] [sn, pcname, mode]
+2022-06-25 23:38:27.881:   command: {"PCNAME":"REPAIR-7801","MODE":"Debug","SN":"K"}
+2022-06-25 23:38:48.923:   Response is: Send SFIS Exception : Connection timed out: connect
+2022-06-25 23:38:48.923:   ****************************************************
+2022-06-25 23:38:48.923:   Limit type: "BOOL"
+2022-06-25 23:38:48.923:   Uper limit: ""
+2022-06-25 23:38:48.923:   Lowet limit: ""
+2022-06-25 23:38:48.924:   Test Value: "null"
+2022-06-25 23:38:48.924:   Item name: GEN_NODE
+2022-06-25 23:38:48.924:   ****************************************************
+2022-06-25 23:38:48.924:   Error code: 9
+2022-06-25 23:38:48.924:   Local error code: 15.1.0
+2022-06-25 23:38:48.924:   Local error des: gen_node
+2022-06-25 23:38:48.925:   Time[21.044 s] - Status[FAILED]

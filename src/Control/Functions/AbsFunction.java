@@ -30,20 +30,32 @@ public abstract class AbsFunction implements IFunction {
     }
 
     public void setResources(UiStatus uiStatus, FunctionData functionData) {
+        this.functionData = functionData;
         this.uiData = uiStatus.getUiData();
         this.subUi = uiStatus.getSubUi();
         this.allConfig.setResources(uiStatus);
-        this.functionData = functionData;
         this.itemTestData = new ItemTestData(allConfig);
         this.functionData.addItemtest(itemTestData);
+        this.uiData.addFunctionData(functionData);
         this.analysisResult = new AnalysisResult(itemTestData, allConfig);
+    }
+
+    void start() {
+        this.itemTestData.start();
     }
 
     @Override
     public void run() {
-        this.itemTestData.start();
         this.analysisResult.checkResult(test(), getResult());
         this.itemTestData.endThisTurn();
+    }
+
+    void end() {
+        this.itemTestData.end();
+    }
+
+    String getItemName() {
+        return this.allConfig.getItemName();
     }
 
     protected abstract boolean test();
@@ -71,14 +83,6 @@ public abstract class AbsFunction implements IFunction {
 
     protected String getResult() {
         return this.functionData.getResultTest();
-    }
-
-    void end() {
-        this.itemTestData.end();
-    }
-
-    String getItemName() {
-        return this.allConfig.getItemName();
     }
 
 }

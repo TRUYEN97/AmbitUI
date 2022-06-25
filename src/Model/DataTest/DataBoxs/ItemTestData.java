@@ -20,13 +20,14 @@ import java.util.List;
  */
 public class ItemTestData {
 
+    private static final String FAIL = "failed";
+    private static final String PASS = "passed";
     private final FuncAllConfig allConfig;
     private final JSONObject data;
     private final JSONObject error;
     private final TimeS timeS;
     private final List<String> keys;
     private MyLoger loger;
-    private boolean isPass;
     private boolean testing;
 
     public ItemTestData(FuncAllConfig allConfig) {
@@ -38,7 +39,6 @@ public class ItemTestData {
         this.data = new JSONObject();
         this.error = new JSONObject();
         this.timeS = new TimeS();
-        this.isPass = false;
     }
 
     public void start() {
@@ -64,19 +64,20 @@ public class ItemTestData {
     }
 
     public boolean isPass() {
-        return isPass;
+        String stt = this.data.getString(AllKeyWord.STATUS);
+        return (stt != null && stt.equals(PASS));
     }
 
     public void setPass(boolean isPass) {
-        this.isPass = isPass;
+        this.data.put(AllKeyWord.STATUS, isPass ? PASS : FAIL);
+        if (getResultTest() == null) {
+            this.data.put(AllKeyWord.RESULT, isPass ? "passed" : "failed");
+        }
     }
 
     public void endThisTurn() {
         this.loger.addLog("****************************************************");
         addLimitData();
-        if (getResultTest() == null) {
-            this.data.put(AllKeyWord.TEST_VALUE, isPass ? "PASS" : "FAIL");
-        }
         this.loger.addLog(String.format("Test Value: \"%s\"", getResultTest()));
         this.loger.addLog("Item name: " + this.data.getString(AllKeyWord.TEST_NAME));
         this.loger.addLog("****************************************************");
@@ -121,10 +122,7 @@ public class ItemTestData {
                 return;
             }
         }
-        for (String key : errorCode.keySet()) {
-            String error = errorCode.getString(key);
-            this.error.put(key, error == null ? error : "");
-        }
+        this.error.putAll(errorCode);
     }
 
     public void setResult(String result) {
@@ -151,7 +149,8 @@ public class ItemTestData {
     }
 
     private void logEnd() {
-        if (!isPass) {
+        if (!isPass()) {
+            this.data.putAll(this.error);
             String errorCode = this.data.getString(AllKeyWord.ERROR_CODE);
             String localErrorCode = this.data.getString(AllKeyWord.LOCAL_ERROR_CODE);
             String localErrorDes = this.data.getString(AllKeyWord.LOCAL_ERROR_DES);
@@ -159,8 +158,6 @@ public class ItemTestData {
             this.loger.addLog("Local error code: " + localErrorCode);
             this.loger.addLog("Local error des: " + localErrorDes);
         }
-        this.data.putAll(this.error);
-        this.data.put(AllKeyWord.STATUS, isPass ? "passed" : "failed");
         this.data.put(AllKeyWord.CYCLE_TIME, String.format("%.3f", timeS.getTime()));
         this.data.put(AllKeyWord.FINISH_TIME, new TimeBase().getSimpleDateTime());
     }
