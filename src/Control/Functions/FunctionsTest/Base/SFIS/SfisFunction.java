@@ -64,7 +64,7 @@ public class SfisFunction extends AbsFunction {
             return null;
         }
         for (String key : listKey) {
-            String value = this.uiData.getProductInfo(key);
+            String value = productData.getString(key);
             if (value != null) {
                 command.put(key.toUpperCase(), value);
             } else {
@@ -97,7 +97,7 @@ public class SfisFunction extends AbsFunction {
                 if (data.containsKey(key)) {
                     String value = data.getString(key);
                     addLog(String.format("add key: %s -- Value: %s", key, value));
-                    this.uiData.putProductInfo(key, value);
+                    this.productData.put(key, value);
                 } else {
                     addLog(String.format("Not have \"%s\" in sfis data", key));
                     return false;

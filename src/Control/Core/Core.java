@@ -6,9 +6,13 @@ package Control.Core;
 
 import Control.DrawBoardUI;
 import Model.DataTest.InputData;
+import Model.ErrorLog;
 import Model.ManagerUI.UIManager;
+import Model.ManagerUI.UIStatus.UiStatus;
 import View.UIView;
+import java.awt.HeadlessException;
 import static java.util.Objects.isNull;
+import javax.swing.JOptionPane;
 
 /**
  *
@@ -27,8 +31,17 @@ public class Core {
         this.drawBoardUI = new DrawBoardUI(this);
     }
 
-    public void checkInput(InputData inputDate) {
-        currMode.runTest(inputDate);
+    public void checkInput(InputData inputData) {
+        if (inputData != null && checkIndex(inputData)) {
+            UiStatus uiStatus = uIManager.getUiStatus(inputData.getIndex());
+            if (uiStatus.update()) {
+                uiStatus.startTest(inputData);
+            } else {
+                String mess = String.format("%s update mode fail!", inputData.getIndex());
+                ErrorLog.addError(this, mess);
+                JOptionPane.showMessageDialog(null, mess);
+            }
+        }
     }
 
     public UIView getView() {
@@ -70,7 +83,33 @@ public class Core {
         return false;
     }
 
-   
+    private boolean checkIndex(InputData inputData) {
+        if (isIndexEmpty(inputData)) {
+            if (this.currMode.getModeTestSource().isMultiThread()) {
+                getIndex(inputData);
+            } else {
+                inputData.setIndex("main");
+            }
+        }
+        return this.uIManager.isIndexFree(inputData.getIndex());
+
+    }
+
+    private boolean isIndexEmpty(InputData inputData) {
+        String index = inputData.getIndex();
+        return index == null || index.isBlank();
+    }
+
+    private boolean getIndex(InputData inputData) throws HeadlessException {
+        String index = JOptionPane.showInputDialog(null,
+                String.format("Input index for \"%s\"", inputData.getInput()));
+        if (uIManager.isIndexFree(index)) {
+            inputData.setIndex(index);
+            return true;
+        }
+        return false;
+    }
+
     private boolean isCurrentMode(ModeTest item) {
         return this.getCurrMode() != null && getCurrMode().equals(item);
     }
@@ -78,5 +117,5 @@ public class Core {
     private void backUpMode() {
         this.view.setSelectMode(getCurrMode());
     }
-  
+
 }

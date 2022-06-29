@@ -4,19 +4,13 @@
  */
 package Control.Core;
 
-import Model.ErrorLog;
-import Model.DataTest.InputData;
 import Model.DataSource.ModeTest.ModeTestSource;
 import Model.Interface.IInit;
 import Model.DataSource.Setting.ModeElement;
 import Model.Factory.Factory;
 import Model.Interface.IFunction;
 import Model.Interface.IUpdate;
-import Model.ManagerUI.UIManager;
-import Model.ManagerUI.UIStatus.UiStatus;
-import java.awt.HeadlessException;
 import java.util.List;
-import javax.swing.JOptionPane;
 
 /**
  *
@@ -25,12 +19,10 @@ import javax.swing.JOptionPane;
 public class ModeTest implements IInit, IUpdate {
 
     private final List<String> inits;
-    private final UIManager uIManager;
     private final ModeTestSource testSource;
 
-    public ModeTest(ModeElement modeInfo, Core core) {
+    public ModeTest(ModeElement modeInfo) {
         this.inits = modeInfo.getIniFunc();
-        this.uIManager = core.getUiManager();
         this.testSource = new ModeTestSource(modeInfo);
     }
 
@@ -63,46 +55,8 @@ public class ModeTest implements IInit, IUpdate {
         return true;
     }
 
-    public void runTest(InputData inputData) {
-        if (inputData != null && checkIndex(inputData)) {
-            if (!uIManager.getUiStatus(inputData.getIndex()).update()) {
-                String mess = String.format("%s update mode fail!", inputData.getIndex());
-                ErrorLog.addError(this, mess);
-                JOptionPane.showMessageDialog(null, mess);
-            }
-            UiStatus uiStatus = uIManager.getUiStatus(inputData.getIndex());
-            uiStatus.startTest(inputData, this.testSource);
-        }
-    }
-
-    private boolean checkIndex(InputData inputData) {
-        if (isIndexEmpty(inputData)) {
-            if (this.testSource.isMultiThread()) {
-                getIndex(inputData);
-            } else {
-                inputData.setIndex("main");
-            }
-        }
-        return this.uIManager.isIndexFree(inputData.getIndex());
-
-    }
-
     public ModeElement getModeConfig() {
         return this.testSource.getModeConfig();
-    }
-
-    private boolean isIndexEmpty(InputData inputData) {
-        String index = inputData.getIndex();
-        return index == null || index.isBlank();
-    }
-
-    private boolean getIndex(InputData inputData) throws HeadlessException {
-        String index = JOptionPane.showInputDialog("Nhập vị trí");
-        if (uIManager.isIndexFree(index)) {
-            inputData.setIndex(index);
-            return true;
-        }
-        return false;
     }
 
     @Override

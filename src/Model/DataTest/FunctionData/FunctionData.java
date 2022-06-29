@@ -8,8 +8,8 @@ import Model.AllKeyWord;
 import Model.ErrorLog;
 import MyLoger.MyLoger;
 import java.io.File;
-import java.util.ArrayList;
-import java.util.List;
+import java.util.HashMap;
+import java.util.Map;
 import javax.swing.JOptionPane;
 
 /**
@@ -19,44 +19,43 @@ import javax.swing.JOptionPane;
 public class FunctionData {
 
     private final MyLoger loger;
-    private final List<ItemTestData> itemTests;
+    private final Map<String, ItemTestData> itemTests;
+    private ItemTestData thisItem;
+    private Map<String, ItemTestData> finalItemTests;
 
     public FunctionData() {
         this.loger = new MyLoger();
-        this.itemTests = new ArrayList<>();
+        this.itemTests = new HashMap<>();
     }
 
-    public String getItemFunction() {
-        return this.getFirstItem().getItemTestName();
+    public Map<String, ItemTestData> getitemTests() {
+        return itemTests;
     }
 
-    public boolean addItemtest(ItemTestData itemTest) {
+    public String getItemFunctionName() {
+        return this.thisItem.getItemTestName();
+    }
+
+    public void addItemtest(ItemTestData itemTest) {
         itemTest.setLoger(this.loger);
-        return this.itemTests.add(itemTest);
+        if (this.itemTests.isEmpty()) {
+            this.thisItem = itemTest;
+        }
+        this.itemTests.put(itemTest.getItemTestName(), itemTest);
     }
 
     public ItemTestData getItemTest(String itemName) {
-        for (ItemTestData itemTest : itemTests) {
-            if (itemTest.getItemTestName().equals(itemName)) {
-                return itemTest;
-            }
+        if (this.itemTests.containsKey(itemName)) {
+            return this.itemTests.get(itemName);
         }
         return null;
-    }
-
-    public List<ItemTestData> getListItemTest() {
-        return new ArrayList<>(itemTests);
     }
 
     public void setResult(String resultTest) {
         if (resultTest == null) {
             return;
         }
-        getFirstItem().setResult(resultTest);
-    }
-
-    private ItemTestData getFirstItem() {
-        return this.itemTests.get(0);
+        thisItem.setResult(resultTest);
     }
 
     public void addLog(Object str) {
@@ -64,34 +63,32 @@ public class FunctionData {
     }
 
     public String getResultTest() {
-        return getFirstItem().getResultTest();
+        return thisItem.getResultTest();
     }
 
     public boolean isTesting() {
-        for (ItemTestData itemTest : itemTests) {
-            if (itemTest.isTest()) {
-                return true;
-            }
-        }
-        return false;
+        return thisItem.isTest();
     }
 
     public void start(String logPath, String funcName) {
         if (!this.loger.begin(new File(logPath), true, true)) {
-            String mess = "can't delete local function log file of " + getItemFunction();
+            String mess = "can't delete local function log file of " + getItemFunctionName();
             ErrorLog.addError(mess);
             JOptionPane.showMessageDialog(null, mess);
         }
-        addLog(startFunction(funcName));
+        addLog(String.format("Item[%s] - Function[%s]",
+                this.getItemFunctionName(), funcName));
     }
 
     public double getRunTime() {
-        return getFirstItem().getRunTime();
+        return thisItem.getRunTime();
     }
 
     public void end() {
-        this.addLog(endFunction());
+        this.addLog(String.format("Time[%.3f s] - Status[%s]",
+                this.getRunTime(), getResultTest()));
         this.loger.close();
+        this.finalItemTests.putAll(itemTests);
     }
 
     public String getLog() {
@@ -103,21 +100,11 @@ public class FunctionData {
     }
 
     public boolean isPass() {
-        return getFirstItem().isPass();
+        return thisItem.isPass();
     }
 
     public void setStatus(boolean stt) {
-        this.getFirstItem().setPass(stt);
-    }
-
-    private String startFunction(String funcName) {
-        return String.format("Item[%s] - Function[%s]",
-                this.getItemFunction(), funcName);
-    }
-
-    private String endFunction() {
-        return String.format("Time[%.3f s] - Status[%s]",
-                this.getRunTime(), getResultTest());
+        this.thisItem.setPass(stt);
     }
 
     public String getStaus() {
@@ -128,16 +115,20 @@ public class FunctionData {
     }
 
     public String getErrorCode() {
-        if (getFirstItem() == null) {
+        if (thisItem == null) {
             return null;
         }
-        return getFirstItem().getString(AllKeyWord.ERROR_CODE);
+        return thisItem.getString(AllKeyWord.ERROR_CODE);
     }
 
     public String getCusErrorCode() {
-        if (getFirstItem() == null && (getFirstItem().isTest() || getFirstItem().isPass())) {
+        if (isTesting() || isPass()) {
             return null;
         }
-        return getFirstItem().getString(AllKeyWord.LOCAL_ERROR_CODE);
+        return thisItem.getString(AllKeyWord.LOCAL_ERROR_CODE);
+    }
+
+    public void setFinalMapItems(Map<String, ItemTestData> mapfunctionData) {
+        this.finalItemTests = mapfunctionData;
     }
 }

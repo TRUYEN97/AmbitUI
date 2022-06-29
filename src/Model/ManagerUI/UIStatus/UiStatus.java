@@ -8,7 +8,6 @@ import Model.DataTest.ProcessTest.ProcessData;
 import Control.Core.Core;
 import Control.Core.ModeTest;
 import Control.Core.CellTest;
-import Model.DataSource.ModeTest.ModeTestSource;
 import Model.DataTest.InputData;
 import Model.DataTest.ProcessTestSignal;
 import Model.DataTest.ProductData;
@@ -24,20 +23,27 @@ public class UiStatus implements IUpdate {
 
     private final AbsSubUi subUi;
     private final String name;
+    private final int id;
+    private final int row;
+    private final int column;
     private final Core core;
     private final ProcessData processData;
     private final ProcessTestSignal signal;
     private final ProductData productData;
-    private CellTest cellTest;
+    private final CellTest cellTest;
     private ModeTest modeTest;
 
-    public UiStatus(AbsSubUi subUi, Core core) {
-        this.core = core;
+    public UiStatus(AbsSubUi subUi, Core core, int id, int row, int column) {
         this.subUi = subUi;
         this.name = subUi.getName();
+        this.id = id;
+        this.row = row;
+        this.column = column;
+        this.core = core;
         this.processData = new ProcessData(this);
         this.signal = new ProcessTestSignal();
         this.productData = new ProductData();
+        this.cellTest = new CellTest(this);
     }
 
     public ProcessData getProcessData() {
@@ -57,8 +63,21 @@ public class UiStatus implements IUpdate {
     }
 
     public boolean isTesting() {
-        return this.cellTest != null && this.cellTest.isAlive();
+        return cellTest.isTesting();
     }
+
+    public int getId() {
+        return id;
+    }
+
+    public int getRow() {
+        return row;
+    }
+
+    public int getColumn() {
+        return column;
+    }
+    
 
     @Override
     public boolean update() {
@@ -93,9 +112,8 @@ public class UiStatus implements IUpdate {
         return name;
     }
 
-    public void startTest(InputData inputData, ModeTestSource testSource) {
-        this.productData.setInputData(inputData);/
-        this.cellTest = new CellTest(this, inputData, testSource);
+    public void startTest(InputData inputData) {
+        this.productData.setInputData(inputData);
         this.cellTest.start();
     }
 

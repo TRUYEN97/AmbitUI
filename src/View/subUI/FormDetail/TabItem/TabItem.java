@@ -215,12 +215,12 @@ public class TabItem extends AbsTabUI {
             int row = dataBoxs.indexOf(dataBox);
             if (row > this.tableModel.getRowCount() - 1) {
                 this.tableModel.addRow(new Object[]{this.tableModel.getRowCount()});
-                editRow(dataBox.getItemFunction(), row, ITEM);
+                editRow(dataBox.getItemFunctionName(), row, ITEM);
                 editRow(String.format("%.3f S", dataBox.getRunTime()),
                         row, TIME);
                 editRow(getStatus(dataBox), row, STAUS);
             } else {
-                editRow(dataBox.getItemFunction(), row, ITEM);
+                editRow(dataBox.getItemFunctionName(), row, ITEM);
                 editRow(String.format("%.3f S", dataBox.getRunTime()),
                         row, TIME);
                 editRow(getStatus(dataBox), row, STAUS);

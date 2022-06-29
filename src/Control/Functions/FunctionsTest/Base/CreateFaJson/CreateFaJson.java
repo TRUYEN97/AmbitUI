@@ -57,11 +57,11 @@ public class CreateFaJson extends AbsFunction {
     }
 
     private String createNameFile() {
-        String serial = uiData.getProductInfo(AllKeyWord.MLBSN);
+        String serial = productData.getString(AllKeyWord.MLBSN);
         serial = serial.replace('\\', '_');
         serial = serial.replace('/', '_');
-        String pcName = uiData.getProductInfo(AllKeyWord.PCNAME);
-        String mode = uiData.getProductInfo(AllKeyWord.MODE);
+        String pcName = productData.getString(AllKeyWord.PCNAME);
+        String mode = productData.getString(AllKeyWord.MODE);
         return String.format("%s_%s_%s", serial, pcName, mode);
     }
 
@@ -81,7 +81,7 @@ public class CreateFaJson extends AbsFunction {
         JSONObject baseData = new JSONObject();
         addLog("Create base data ");
         for (var key : KeyWordFaAPI.BASE_KEY.values()) {
-            String value = this.uiData.getProductInfo(key.getInputKey());
+            String value = productData.getString(key.getInputKey());
             addTo(value, baseData, key.toString());
         }
         baseData.put("status", "passed");
@@ -110,7 +110,7 @@ public class CreateFaJson extends AbsFunction {
         getDataOfLocation(data.getJSONObject(location), localtionData);
         localtionData.put("child_unlinked", "False");
         addToKeyValueLog("child_unlinked", "False");
-        String stationType = getStionType(uiData.getProductInfo(AllKeyWord.FAIL_PC));
+        String stationType = getStionType(productData.getString(AllKeyWord.FAIL_PC));
         localtionData.put("failed_station_type", stationType);
         addToKeyValueLog("failed_station_type", stationType);
         String result = getResult(localtionData);
@@ -139,10 +139,10 @@ public class CreateFaJson extends AbsFunction {
 
     private void getValueOfProductData(JSONObject funcData) {
         for (var key : FUNC_KEY.values()) {
-            String value = this.uiData.getProductInfo(key.getInputKey());
+            String value = this.productData.getString(key.getInputKey());
             addTo(value, funcData, key.toString());
         }
-        String count = this.uiData.getProductInfo(AllKeyWord.COUNTTEST);
+        String count = this.productData.getString(AllKeyWord.COUNTTEST);
         funcData.put("debug_count", Integer.valueOf(count));
 
     }

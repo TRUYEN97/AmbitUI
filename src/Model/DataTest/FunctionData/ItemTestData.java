@@ -20,8 +20,8 @@ import java.util.List;
  */
 public class ItemTestData {
 
-    private static final String FAIL = "failed";
-    private static final String PASS = "passed";
+    private static final String FAIL = "FAIL";
+    private static final String PASS = "PASS";
     private final FuncAllConfig allConfig;
     private final JSONObject data;
     private final JSONObject error;
@@ -41,6 +41,18 @@ public class ItemTestData {
         this.timeS = new TimeS();
     }
 
+    public JSONObject getData(List<String> keys) {
+        if (keys == null) {
+            return data;
+        }
+        JSONObject newData = new JSONObject();
+        for (String key : keys) {
+            var value = this.data.get(key);
+            newData.put(key, value == null ? "" : value);
+        }
+        return newData;
+    }
+
     public void start() {
         this.timeS.start(0);
         this.testing = true;
@@ -49,6 +61,10 @@ public class ItemTestData {
         for (String key : keys) {
             this.data.put(key, allConfig.getString(key));
         }
+    }
+
+    private boolean isErrorCodeAvailable() {
+        return this.allConfig.getLocalErrorCode(ErrorCodeElement.SIMPLE) != null;
     }
 
     public void put(String key, String value) {
@@ -71,7 +87,7 @@ public class ItemTestData {
     public void setPass(boolean isPass) {
         this.data.put(AllKeyWord.STATUS, isPass ? PASS : FAIL);
         if (getResultTest() == null) {
-            this.data.put(AllKeyWord.RESULT, isPass ? "passed" : "failed");
+            this.data.put(AllKeyWord.TEST_VALUE, isPass ? "passed" : "failed");
         }
     }
 
@@ -130,7 +146,7 @@ public class ItemTestData {
     }
 
     public String getResultTest() {
-        return this.data.getString(AllKeyWord.TEST_VALUE);
+        return this.data.getString(AllKeyWord.STATUS);
     }
 
     public boolean isTest() {
@@ -160,14 +176,6 @@ public class ItemTestData {
         }
         this.data.put(AllKeyWord.CYCLE_TIME, String.format("%.3f", timeS.getTime()));
         this.data.put(AllKeyWord.FINISH_TIME, new TimeBase().getSimpleDateTime());
-    }
-
-    public void clearErrorCode() {
-        this.error.clear();
-    }
-
-    private boolean isErrorCodeAvailable() {
-        return this.allConfig.getLocalErrorCode(ErrorCodeElement.SIMPLE) != null;
     }
 
 }

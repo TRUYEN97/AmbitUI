@@ -40,7 +40,7 @@ public class CreateTxtLog extends AbsFunction {
                 if (dataBox.isTesting()) {
                     continue;
                 }
-                addLog(" - add item: " + dataBox.getItemFunction());
+                addLog(" - add item: " + dataBox.getItemFunctionName());
                 loger.add(dataBox.getLog());
                 loger.add("//////////////////////////////////////////////////////////////////\r\n");
             }
@@ -64,11 +64,11 @@ public class CreateTxtLog extends AbsFunction {
     }
 
     private String createNameFile(String hauTo) {
-        String serial = uiData.getProductInfo(AllKeyWord.MLBSN);
+        String serial = productData.getString(AllKeyWord.MLBSN);
         serial = serial.replace('\\', '_');
         serial = serial.replace('/', '_');
-        String pcName = uiData.getProductInfo(AllKeyWord.PCNAME);
-        String mode = uiData.getProductInfo(AllKeyWord.MODE);
+        String pcName = productData.getString(AllKeyWord.PCNAME);
+        String mode = productData.getString(AllKeyWord.MODE);
         return String.format("%s_%s_%s_%s",
                 serial, pcName, mode, hauTo);
     }

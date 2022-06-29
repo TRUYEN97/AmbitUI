@@ -46,7 +46,7 @@ public class Engine {
 
     private void getAllMode() {
         for (ModeElement modeInfo : setting.getElments()) {
-            this.modeTests.add(new ModeTest(modeInfo, this.core));
+            this.modeTests.add(new ModeTest(modeInfo));
         }
     }
 

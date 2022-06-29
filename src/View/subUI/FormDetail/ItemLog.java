@@ -59,7 +59,7 @@ public class ItemLog extends javax.swing.JFrame {
     }
 
     public void showLog() {
-        this.setTitle(dataBox.getItemFunction());
+        this.setTitle(dataBox.getItemFunctionName());
         setVisible(true);
         if (dataBox.isTesting()) {
             this.timer.start();

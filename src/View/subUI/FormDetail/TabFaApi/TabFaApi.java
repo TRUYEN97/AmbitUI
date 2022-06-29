@@ -221,7 +221,7 @@ public class TabFaApi extends AbsTabUI {
     public void updateData() {
         StringBuilder data = new StringBuilder("<html>");
         for (String key : keys.keySet()) {
-            String value = this.uiStatus.getProcessData().getProductInfo(keys.get(key));
+            String value = this.uiStatus.getProductData().getString(keys.get(key));
             if (value != null) {
                 data.append(String.format("<tr><td>%s</td><td>: %s</td></tr>", key, value));
             }

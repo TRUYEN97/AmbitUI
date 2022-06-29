@@ -44,13 +44,14 @@ public class DrawBoardUI {
         this.uImanager.clear();
         this.view.setBoardSubUISize(rowSize, colSize);
         if (isMultiThread()) {
-            for (int row = 0; row < rowSize; row++) {
+            for (int row = 1; row <= rowSize; row++) {
                 for (int col = 1; col <= colSize; col++) {
-                    drawOne(String.format("%s%s", (char) ('A' + row), col));
+                    drawOne(String.format("%s%s", (char) ('A' + row - 1), col),
+                            row, col);
                 }
             }
         } else {
-            drawOne("main");
+            drawOne("main", 1, 1);
         }
     }
 
@@ -62,14 +63,13 @@ public class DrawBoardUI {
         return value < 1 || value / 2 >= Integer.MAX_VALUE / 2;
     }
 
-    private void drawOne(String indexName) {
+    private void drawOne(String indexName, int row, int column) {
         if (indexName == null || indexName.isBlank()) {
             return;
         }
         AbsSubUi subUi = Factory.getInstance().getSubUI(this.typeUI, indexName);
-        if (subUi != null) {
+        if (subUi != null && this.uImanager.addUI(subUi, row, column)) {
             this.view.addSubUi(subUi);
-            this.uImanager.addUI(subUi);
         }
     }
 

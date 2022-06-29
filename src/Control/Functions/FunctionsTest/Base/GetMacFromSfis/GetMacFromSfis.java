@@ -20,7 +20,7 @@ public class GetMacFromSfis extends AbsFunction {
     @Override
     public boolean test() {
         try {
-            String mac = this.uiData.getProductInfo(AllKeyWord.MAC);
+            String mac = this.productData.getString(AllKeyWord.MAC);
             if (mac == null || mac.length() != 12) {
                 addLog("MAC is invalid: " + mac);
                 return false;

@@ -29,7 +29,7 @@ public class ProductData {
             ErrorLog.addError(mess);
             System.exit(1);
         }
-        this.wareHouse.clear();
+        this.clear();
         return wareHouse.putAll(inputData.toJson());
     }
 
@@ -46,6 +46,10 @@ public class ProductData {
 
     public String getString(String key) {
         return this.wareHouse.getString(key);
+    }
+
+    public void clear() {
+        wareHouse.clear();
     }
 
 }

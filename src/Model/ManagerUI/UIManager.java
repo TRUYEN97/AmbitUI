@@ -47,11 +47,11 @@ public class UIManager implements IUpdate {
         return false;
     }
 
-    public boolean addUI(AbsSubUi subUi) {
+    public boolean addUI(AbsSubUi subUi, int row, int column) {
         if (isNull(subUi) || containUI(subUi)) {
             return false;
         }
-        UiStatus uiStatus = new UiStatus(subUi, core);
+        UiStatus uiStatus = new UiStatus(subUi, core, this.uiStatuses.size(), row, column);
         subUi.setUiStatus(uiStatus);
         uiStatus.update();
         return this.uiStatuses.add(uiStatus);

@@ -4,20 +4,16 @@
  */
 package Control.Core;
 
-import Model.AllKeyWord;
 import Model.DataSource.ModeTest.FunctionConfig.FunctionName;
-import Model.ErrorLog;
-import Model.DataTest.InputData;
 import Model.DataSource.ModeTest.ModeTestSource;
 import Model.DataTest.ProcessTest.ProcessData;
 import Model.DataTest.ProcessTestSignal;
 import Model.DataTest.ProductData;
+import Model.ErrorLog;
 import Model.ManagerUI.UIStatus.UiStatus;
-import Time.TimeBase;
 import Time.WaitTime.AbsTime;
 import Time.WaitTime.Class.TimeMs;
 import View.subUI.SubUI.AbsSubUi;
-import java.awt.event.ActionEvent;
 import java.util.List;
 import javax.swing.Timer;
 
@@ -25,78 +21,58 @@ import javax.swing.Timer;
  *
  * @author 21AK22
  */
-public class CellTest extends Thread {
+public class CellTest {
 
     private final Process process;
-    private final Timer timer;
     private final ProcessData processData;
     private final ProcessTestSignal testSignal;
     private final ProductData productData;
     private final AbsSubUi subUi;
-    private final AbsTime myTimer;
-    private final ModeTestSource testSource;
+    private final MyTime myTime;
+    private final UiStatus uiStatus;
+    private ModeTestSource testSource;
+    private Runner runner;
 
-    public CellTest(UiStatus uiStatus, InputData inputData, ModeTestSource testSource) {
+    public CellTest(UiStatus uiStatus) {
+        this.uiStatus = uiStatus;
         this.process = new Process(uiStatus);
         this.subUi = uiStatus.getSubUi();
         this.processData = uiStatus.getProcessData();
         this.testSignal = uiStatus.getSignal();
-        this.productData = uiStatus.getProductData();/
-        this.myTimer = new TimeMs();
-        this.testSource = testSource;
-        this.timer = new Timer(1000, (ActionEvent e) -> {
-            if (!myTimer.onTime()) {
-                String mess = String.format("out of time: (Test time: %.3f S) > (%s S)",
-                        myTimer.getTime() / 1000.0,
-                        this.testSource.getTimeOutTest() / 1000
-                );
-                ErrorLog.addError(mess);
-                processData.setMessage(mess);
-                end(mess);
-            }
-        }) {
-            @Override
-            public void start() {
-                super.start();
-                myTimer.start(testSource.getTimeOutTest());
-            }
-        };
+        this.productData = uiStatus.getProductData();
+        this.myTime = new MyTime();
     }
 
-    @Override
-    public void run() {
+    public void start() {
         prepare();
-        this.processData.setStartTime(new TimeBase().getSimpleDateTime());
-        if (runFunctions(this.testSource.getCheckFunctions())) {
-            try {
-                int loopTest = this.testSource.getLoopTest();
-                for (int i = 0; i < loopTest; i++) {
-                    runItemFunctions();
-                    runFunctions(this.testSource.getEndFunctions());
-                }
-            } finally {
-                this.processData.setFinishTime(new TimeBase().getSimpleDateTime());
-            }
+        runner = new Runner();
+        runner.start();
+    }
+
+    public void stopRun(String mess) {
+        if (isTesting()) {
+            end(mess);
+            runner.stop();
         }
-        end(null);
     }
 
     public double getTestTime() {
-        return myTimer.getTime();
+        return myTime.getTime();
     }
 
     private void end(String mess) {
-        this.timer.stop();
         this.process.stop(mess);
         this.subUi.endTest();
         this.testSignal.clear();
-        this.stop();
+        this.productData.clear();
+        this.myTime.stopCheck();
     }
 
     private void prepare() {
-        this.processData.clear();
-        this.timer.start();
-        this.subUi.startTest();
+        this.testSource = this.uiStatus.getModeTest().getModeTestSource();
+        myTime.startCheck();
+        processData.setStartTime();
+        subUi.startTest();
     }
 
     private boolean runFunctions(List<FunctionName> functions) {
@@ -118,5 +94,67 @@ public class CellTest extends Thread {
             return this.testSignal.getFunctionSelected();
         }
         return this.testSource.getTestFunctions();
+    }
+
+    public boolean isTesting() {
+        return runner != null && runner.isAlive();
+    }
+
+    private class Runner extends Thread {
+
+        @Override
+        public void run() {
+            try {
+                if (runFunctions(testSource.getCheckFunctions())) {
+                    int loopTest = testSource.getLoopTest();
+                    for (int i = 0; i < loopTest; i++) {
+                        try {
+                            runItemFunctions();
+                        } finally {
+                            processData.setFinishTime();
+                        }
+                        runFunctions(testSource.getEndFunctions());
+                    }
+                }
+            } finally {
+                end(null);
+            }
+        }
+
+    }
+
+    private class MyTime {
+
+        private final Timer timer;
+        private final AbsTime myTimer;
+
+        private MyTime() {
+            this.myTimer = new TimeMs();
+            this.timer = new Timer(1000, (e) -> {
+                if (!myTimer.onTime()) {
+                    String mess = String.format("out of time: (Test time: %.3f S) > (%s S)",
+                            myTimer.getTime() / 1000.0,
+                            testSource.getTimeOutTest() / 1000
+                    );
+                    ErrorLog.addError(mess);
+                    processData.setMessage(mess);
+                    stopRun(mess);
+                }
+            });
+        }
+
+        private void startCheck() {
+            this.timer.start();
+            this.myTimer.start(testSource.getTimeOutTest());
+        }
+
+        private void stopCheck() {
+            this.timer.stop();
+        }
+
+        private double getTime() {
+            return this.myTimer.getTime();
+        }
+
     }
 }

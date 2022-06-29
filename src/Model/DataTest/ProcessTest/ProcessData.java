@@ -4,12 +4,17 @@
  */
 package Model.DataTest.ProcessTest;
 
+import Model.AllKeyWord;
 import Model.DataSource.DataWareHouse;
 import Model.DataTest.FunctionData.FunctionData;
-import Model.DataTest.InputData;
+import Model.DataTest.FunctionData.ItemTestData;
 import Model.ManagerUI.UIStatus.UiStatus;
+import Time.TimeBase;
+import com.alibaba.fastjson.JSONObject;
 import java.util.ArrayList;
+import java.util.HashMap;
 import java.util.List;
+import java.util.Map;
 
 /**
  *
@@ -17,40 +22,48 @@ import java.util.List;
  */
 public class ProcessData {
 
-    private final List<FunctionData> dataBoxs;
+    private final List<FunctionData> functionData;
+    private final Map<String, ItemTestData> mapfunctionData;
     private final UiStatus uiStatus;
     private final DataWareHouse data;
+    private final TimeBase timeBase;
     private String message;
 
     public ProcessData(UiStatus uiStatus) {
-        this.dataBoxs = new ArrayList<>();
+        this.functionData = new ArrayList<>();
+        this.mapfunctionData = new HashMap<>();
         this.uiStatus = uiStatus;
         this.data = new DataWareHouse();
+        this.timeBase = new TimeBase();
     }
 
     public List<FunctionData> getDataBoxs() {
-        return dataBoxs;
+        return functionData;
     }
 
-    public void clear() {
-        this.message = null;
-        this.dataBoxs.clear();
+    public JSONObject getBaseData() {
+        return this.data.toJson();
     }
 
-    public FunctionData getFunctionData(String itemName) {
-        for (FunctionData dataBox : dataBoxs) {
-            if (dataBox.getItemFunction().equals(itemName)) {
-                return dataBox;
-            }
+    public JSONObject getItemData(String itemName, List<String> keys) {
+        if (getItemTestData(itemName) == null) {
+            return null;
+        }
+        return getItemTestData(itemName).getData(keys);
+    }
+
+    public ItemTestData getItemTestData(String itemName) {
+        if (this.mapfunctionData.containsKey(itemName)) {
+            return this.mapfunctionData.get(itemName);
         }
         return null;
     }
 
     public FunctionData getDataBox(int index) {
-        if (index >= this.dataBoxs.size()) {
+        if (index >= this.functionData.size()) {
             return null;
         }
-        return this.dataBoxs.get(index);
+        return this.functionData.get(index);
     }
 
     public void setMessage(String message) {
@@ -65,7 +78,7 @@ public class ProcessData {
     }
 
     public FunctionData getFirstFail() {
-        for (FunctionData dataBox : dataBoxs) {
+        for (FunctionData dataBox : functionData) {
             if (!dataBox.isPass() && !dataBox.isTesting()) {
                 return dataBox;
             }
@@ -80,23 +93,28 @@ public class ProcessData {
         if (isPass()) {
             return "PASS";
         }
-        return String.format("Failed: %s", getFirstFail().getItemFunction());
+        return String.format("Failed: %s", getFirstFail().getItemFunctionName());
     }
 
-
-    public void addFunctionData(FunctionData dataBox) {
-        if (dataBox == null || this.dataBoxs.contains(dataBox)) {
+    public void addFunctionData(FunctionData functionData) {
+        if (functionData == null || this.functionData.contains(functionData)) {
             return;
         }
-        this.dataBoxs.add(dataBox);
+        functionData.setFinalMapItems(mapfunctionData);
+        this.functionData.add(functionData);
     }
 
-    public void setFinishTime(String simpleDateTime) {
-        throw new UnsupportedOperationException("Not supported yet."); // Generated from nbfs://nbhost/SystemFileSystem/Templates/Classes/Code/GeneratedMethodBody
+    public void setFinishTime() {
+        this.data.put(AllKeyWord.FINISH_TIME, timeBase.getSimpleDateTime());
     }
 
-    public void setStartTime(String simpleDateTime) {
-        this.
+    public void setStartTime() {
+        reset();
+        this.data.put(AllKeyWord.START_TIME, timeBase.getSimpleDateTime());
     }
 
+    private void reset() {
+        this.message = null;
+        this.functionData.clear();
+    }
 }
