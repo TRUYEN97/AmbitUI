@@ -2,10 +2,10 @@
  * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
  * Click nbfs://nbhost/SystemFileSystem/Templates/Classes/Class.java to edit this template
  */
-package Model.DataTest.DataBoxs;
+package Model.DataTest.FunctionData;
 
 import Model.AllKeyWord;
-import Model.DataTest.ErrorLog;
+import Model.ErrorLog;
 import MyLoger.MyLoger;
 import java.io.File;
 import java.util.ArrayList;
@@ -110,10 +110,6 @@ public class FunctionData {
         this.getFirstItem().setPass(stt);
     }
 
-    public String createDefaultResult() {
-        return isPass() ? "PASS" : "FAILED";
-    }
-
     private String startFunction(String funcName) {
         return String.format("Item[%s] - Function[%s]",
                 this.getItemFunction(), funcName);
@@ -121,14 +117,14 @@ public class FunctionData {
 
     private String endFunction() {
         return String.format("Time[%.3f s] - Status[%s]",
-                this.getRunTime(), createDefaultResult());
+                this.getRunTime(), getResultTest());
     }
 
     public String getStaus() {
         if (isTesting()) {
             return "Testing";
         }
-        return createDefaultResult();
+        return getResultTest();
     }
 
     public String getErrorCode() {

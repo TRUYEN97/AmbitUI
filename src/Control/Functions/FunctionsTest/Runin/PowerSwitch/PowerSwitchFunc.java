@@ -5,7 +5,7 @@
 package Control.Functions.FunctionsTest.Runin.PowerSwitch;
 
 import Control.Functions.AbsFunction;
-import Model.DataTest.ErrorLog;
+import Model.ErrorLog;
 import commandprompt.Communicate.PowerSwitch.PowerSwitch;
 import java.util.logging.Level;
 import java.util.logging.Logger;

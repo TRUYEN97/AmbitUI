@@ -10,8 +10,6 @@ import FileTool.FileService;
 import Model.AllKeyWord;
 import com.alibaba.fastjson.JSONArray;
 import com.alibaba.fastjson.JSONObject;
-import java.util.logging.Level;
-import java.util.logging.Logger;
 
 /**
  *
@@ -52,7 +50,7 @@ public class CreateFaJson extends AbsFunction {
             addLog("Key of FilePath is null!");
             return false;
         }
-        this.uiData.putToSignal(keywowk, nameFile);
+        this.testSignal.put(keywowk, nameFile);
         addLog(String.format("put \"%s\" with \"%s\" key to signal",
                 nameFile, keywowk));
         return true;
@@ -71,7 +69,7 @@ public class CreateFaJson extends AbsFunction {
         String key = this.allConfig.getString("KEY_WORD");
         addLog("Get FA json data in signal!");
         addLog("Get with key: " + key);
-        var data = this.uiData.getSignal(key);
+        var data = this.testSignal.get(key);
         if (data == null) {
             addLog("FA json data == null!");
             return null;

@@ -14,7 +14,6 @@ import java.util.Set;
  */
 public class InputData {
 
-   
     private final JSONObject data;
 
     public InputData() {
@@ -40,10 +39,13 @@ public class InputData {
     public void setIndex(String index) {
         this.data.put(AllKeyWord.INDEX, index);
     }
-    
-    public String getValue(String key)
-    {
+
+    public String getValue(String key) {
         return this.data.getString(key);
+    }
+
+    public JSONObject toJson() {
+        return data;
     }
 
     public Set<String> getkeySet() {

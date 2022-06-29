@@ -4,6 +4,7 @@
  */
 package Model.DataTest;
 
+import Model.ErrorLog;
 import java.util.HashMap;
 import java.util.Map;
 

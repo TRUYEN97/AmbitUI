@@ -2,11 +2,11 @@
  * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
  * Click nbfs://nbhost/SystemFileSystem/Templates/Classes/Class.java to edit this template
  */
-package Model.DataTest.DataBoxs;
+package Model.DataTest.FunctionData;
 
 import Model.AllKeyWord;
 import Model.DataSource.ModeTest.ErrorCode.ErrorCodeElement;
-import Model.DataTest.FuncAllConfig;
+import Model.DataSource.ModeTest.FunctionConfig.FuncAllConfig;
 import MyLoger.MyLoger;
 import Time.TimeBase;
 import Time.WaitTime.Class.TimeS;

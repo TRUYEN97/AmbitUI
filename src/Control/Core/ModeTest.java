@@ -4,7 +4,7 @@
  */
 package Control.Core;
 
-import Model.DataTest.ErrorLog;
+import Model.ErrorLog;
 import Model.DataTest.InputData;
 import Model.DataSource.ModeTest.ModeTestSource;
 import Model.Interface.IInit;

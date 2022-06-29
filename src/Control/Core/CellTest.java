@@ -6,10 +6,12 @@ package Control.Core;
 
 import Model.AllKeyWord;
 import Model.DataSource.ModeTest.FunctionConfig.FunctionName;
-import Model.DataTest.ErrorLog;
+import Model.ErrorLog;
 import Model.DataTest.InputData;
 import Model.DataSource.ModeTest.ModeTestSource;
-import Model.DataTest.DataBoxs.UiData;
+import Model.DataTest.ProcessTest.ProcessData;
+import Model.DataTest.ProcessTestSignal;
+import Model.DataTest.ProductData;
 import Model.ManagerUI.UIStatus.UiStatus;
 import Time.TimeBase;
 import Time.WaitTime.AbsTime;
@@ -27,7 +29,9 @@ public class CellTest extends Thread {
 
     private final Process process;
     private final Timer timer;
-    private final UiData uiData;
+    private final ProcessData processData;
+    private final ProcessTestSignal testSignal;
+    private final ProductData productData;
     private final AbsSubUi subUi;
     private final AbsTime myTimer;
     private final ModeTestSource testSource;
@@ -35,8 +39,9 @@ public class CellTest extends Thread {
     public CellTest(UiStatus uiStatus, InputData inputData, ModeTestSource testSource) {
         this.process = new Process(uiStatus);
         this.subUi = uiStatus.getSubUi();
-        this.uiData = uiStatus.getUiData();
-        this.uiData.setInput(inputData);
+        this.processData = uiStatus.getProcessData();
+        this.testSignal = uiStatus.getSignal();
+        this.productData = uiStatus.getProductData();/
         this.myTimer = new TimeMs();
         this.testSource = testSource;
         this.timer = new Timer(1000, (ActionEvent e) -> {
@@ -46,7 +51,7 @@ public class CellTest extends Thread {
                         this.testSource.getTimeOutTest() / 1000
                 );
                 ErrorLog.addError(mess);
-                uiData.setMessage(mess);
+                processData.setMessage(mess);
                 end(mess);
             }
         }) {
@@ -61,11 +66,16 @@ public class CellTest extends Thread {
     @Override
     public void run() {
         prepare();
+        this.processData.setStartTime(new TimeBase().getSimpleDateTime());
         if (runFunctions(this.testSource.getCheckFunctions())) {
-            int loopTest = this.testSource.getLoopTest();
-            for (int i = 0; i < loopTest; i++) {
-                runItemFunctions();
-                runFunctions(this.testSource.getEndFunctions());
+            try {
+                int loopTest = this.testSource.getLoopTest();
+                for (int i = 0; i < loopTest; i++) {
+                    runItemFunctions();
+                    runFunctions(this.testSource.getEndFunctions());
+                }
+            } finally {
+                this.processData.setFinishTime(new TimeBase().getSimpleDateTime());
             }
         }
         end(null);
@@ -79,11 +89,12 @@ public class CellTest extends Thread {
         this.timer.stop();
         this.process.stop(mess);
         this.subUi.endTest();
+        this.testSignal.clear();
         this.stop();
     }
 
     private void prepare() {
-        this.uiData.clear();
+        this.processData.clear();
         this.timer.start();
         this.subUi.startTest();
     }
@@ -99,15 +110,12 @@ public class CellTest extends Thread {
         if (testFunctions.isEmpty()) {
             return false;
         }
-        this.uiData.putProductInfo(AllKeyWord.START_TIME, new TimeBase().getSimpleDateTime());
-        boolean result = runFunctions(testFunctions);
-        this.uiData.putProductInfo(AllKeyWord.FINISH_TIME, new TimeBase().getSimpleDateTime());
-        return result;
+        return runFunctions(testFunctions);
     }
 
     private List<FunctionName> getTestFuntions() {
-        if (this.uiData.getFunctionSelected() != null) {
-            return this.uiData.getFunctionSelected();
+        if (this.testSignal.getFunctionSelected() != null) {
+            return this.testSignal.getFunctionSelected();
         }
         return this.testSource.getTestFunctions();
     }

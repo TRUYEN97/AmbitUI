@@ -6,7 +6,7 @@ package Control.Functions.FunctionsTest.Base.SFIS;
 
 import Control.Functions.AbsFunction;
 import Model.AllKeyWord;
-import Model.DataTest.ErrorLog;
+import Model.ErrorLog;
 import SfisAPI17.SfisAPI;
 import com.alibaba.fastjson.JSONObject;
 import java.util.List;

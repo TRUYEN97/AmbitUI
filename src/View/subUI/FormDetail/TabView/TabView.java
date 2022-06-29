@@ -10,7 +10,7 @@
  */
 package View.subUI.FormDetail.TabView;
 
-import Model.DataTest.DataBoxs.FunctionData;
+import Model.DataTest.FunctionData.FunctionData;
 import View.subUI.FormDetail.AbsTabUI;
 import java.awt.Color;
 import java.awt.event.KeyEvent;
@@ -81,8 +81,8 @@ public class TabView extends AbsTabUI {
     @Override
     public void endTest() {
         super.endTest(); // Generated from nbfs://nbhost/SystemFileSystem/Templates/Classes/Code/OverriddenMethodBody
-        showMess(this.uiStatus.getUiData().getMassage());
-        if (this.uiStatus.getUiData().isPass()) {
+        showMess(this.uiStatus.getProcessData().getMassage());
+        if (this.uiStatus.getProcessData().isPass()) {
             this.lbStatus.setBackground(Color.GREEN);
         } else {
             this.lbStatus.setBackground(Color.red);
@@ -97,7 +97,7 @@ public class TabView extends AbsTabUI {
         if (this.uiStatus.isTesting()) {
             showItemTesting();
         } else {
-            showMess(this.uiStatus.getUiData().getMassage());
+            showMess(this.uiStatus.getProcessData().getMassage());
         }
 
     }
@@ -109,7 +109,7 @@ public class TabView extends AbsTabUI {
 
     private void showItemTesting() {
         StringBuilder mess = new StringBuilder("<html>");
-        List<FunctionData> dataBoxs = this.uiStatus.getUiData().getDataBoxs();
+        List<FunctionData> dataBoxs = this.uiStatus.getProcessData().getDataBoxs();
         for (FunctionData dataBox : dataBoxs) {
             if (dataBox.isTesting()) {
                 mess.append(String.format("<tr><td>%s</td></tr>", dataBox.getItemFunction()));

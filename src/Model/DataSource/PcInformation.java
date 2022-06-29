@@ -4,7 +4,7 @@
  */
 package Model.DataSource;
 
-import Model.DataTest.ErrorLog;
+import Model.ErrorLog;
 import Model.Interface.IInit;
 import java.io.BufferedReader;
 import java.io.IOException;

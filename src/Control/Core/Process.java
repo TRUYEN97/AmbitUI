@@ -6,7 +6,7 @@ package Control.Core;
 
 import Control.Functions.FunctionCover;
 import Model.DataSource.ModeTest.FunctionConfig.FunctionName;
-import Model.DataTest.ErrorLog;
+import Model.ErrorLog;
 import Model.Factory.Factory;
 import Model.Interface.IFunction;
 import Model.ManagerUI.UIStatus.UiStatus;

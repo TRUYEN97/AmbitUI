@@ -10,7 +10,7 @@
  */
 package View.subUI.FormDetail.TabItem;
 
-import Model.DataTest.DataBoxs.FunctionData;
+import Model.DataTest.FunctionData.FunctionData;
 import View.subUI.FormDetail.AbsTabUI;
 import View.subUI.FormDetail.ItemLog;
 import java.awt.event.KeyEvent;
@@ -151,7 +151,7 @@ public class TabItem extends AbsTabUI {
 
     private void showItemLogSelected() {
         for (int row : this.tableItem.getSelectedRows()) {
-            FunctionData dataBox = this.uiStatus.getUiData().getDataBox(row);
+            FunctionData dataBox = this.uiStatus.getProcessData().getDataBox(row);
             if (itemLogs.containsKey(dataBox)) {
                 itemLogs.get(dataBox).showLog();
             } else {
@@ -210,7 +210,7 @@ public class TabItem extends AbsTabUI {
             this.tableModel.setRowCount(0);
             return;
         }
-        List<FunctionData> dataBoxs = this.uiStatus.getUiData().getDataBoxs();
+        List<FunctionData> dataBoxs = this.uiStatus.getProcessData().getDataBoxs();
         for (FunctionData dataBox : dataBoxs) {
             int row = dataBoxs.indexOf(dataBox);
             if (row > this.tableModel.getRowCount() - 1) {

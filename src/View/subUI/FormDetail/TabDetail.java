@@ -10,7 +10,7 @@
  */
 package View.subUI.FormDetail;
 
-import Model.DataTest.ErrorLog;
+import Model.ErrorLog;
 import Model.DataSource.Setting.ModeElement;
 import Model.Factory.Factory;
 import Model.Interface.IUpdate;

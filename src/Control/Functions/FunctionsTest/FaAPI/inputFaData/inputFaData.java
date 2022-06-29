@@ -5,7 +5,7 @@
 package Control.Functions.FunctionsTest.FaAPI.inputFaData;
 
 import Control.Functions.AbsFunction;
-import Model.DataTest.ErrorLog;
+import Model.ErrorLog;
 import View.subUI.FormDetail.TabFaApi.TabFaApi;
 import com.alibaba.fastjson.JSONObject;
 import java.awt.HeadlessException;
@@ -30,7 +30,7 @@ public class InputFaData extends AbsFunction {
         }
         try {
             addLog("Get tab faAPi in Signal!");
-            faApi = (TabFaApi) this.uiData.getSignal(TabFaApi.MY_KEY);
+            faApi = (TabFaApi) this.testSignal.get(TabFaApi.MY_KEY);
             if (!faApi.checkSelectData() && faApi.checkDataHasChange()) {
                 JOptionPane.showMessageDialog(null, "Hãy xác nhận thông tin!");
             }
@@ -52,7 +52,7 @@ public class InputFaData extends AbsFunction {
             JSONObject data = faApi.getData();
             String keyWord = this.allConfig.getString("KEY_WORD");
             addLog(data.toJSONString());
-            this.uiData.putToSignal(keyWord, faApi.getData());
+            this.testSignal.put(keyWord, faApi.getData());
             addLog("keyword: " + keyWord);
             addLog("Add select json data to signal ok!");
             return true;
@@ -64,7 +64,7 @@ public class InputFaData extends AbsFunction {
 
     private boolean waitData() {
         addLog("Check tab FaAPI");
-        if (this.uiData.getSignal(TabFaApi.MY_KEY) == null) {
+        if (this.testSignal.get(TabFaApi.MY_KEY) == null) {
             if (cancelThisTime()) {
                 addLog("User has cancel this time!");
                 return false;
@@ -82,7 +82,7 @@ public class InputFaData extends AbsFunction {
     }
 
     private void waitForTabNotNull() {
-        while (this.uiData.getSignal(TabFaApi.MY_KEY) == null) {
+        while (this.testSignal.get(TabFaApi.MY_KEY) == null) {
             delay(500);
         }
     }

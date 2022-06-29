@@ -6,7 +6,7 @@ package Control.Core;
 
 import Model.DataSource.Setting.Setting;
 import Model.DataTest.DhcpData;
-import Model.DataTest.ErrorLog;
+import Model.ErrorLog;
 import MyLoger.MyLoger;
 import Time.TimeBase;
 import View.UIView;

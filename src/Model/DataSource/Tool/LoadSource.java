@@ -5,7 +5,7 @@
 package Model.DataSource.Tool;
 
 import Model.DataSource.ModeTest.ErrorCode.ErrorCodeSource;
-import Model.DataTest.ErrorLog;
+import Model.ErrorLog;
 import Model.DataSource.ModeTest.Limit.Limit;
 import Model.DataSource.PcInformation;
 import Model.Interface.IInit;

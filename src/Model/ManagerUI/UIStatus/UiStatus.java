@@ -4,12 +4,14 @@
  */
 package Model.ManagerUI.UIStatus;
 
-import Model.DataTest.DataBoxs.UiData;
+import Model.DataTest.ProcessTest.ProcessData;
 import Control.Core.Core;
 import Control.Core.ModeTest;
 import Control.Core.CellTest;
 import Model.DataSource.ModeTest.ModeTestSource;
 import Model.DataTest.InputData;
+import Model.DataTest.ProcessTestSignal;
+import Model.DataTest.ProductData;
 import Model.Interface.IUpdate;
 import View.subUI.SubUI.AbsSubUi;
 import static java.util.Objects.isNull;
@@ -23,7 +25,9 @@ public class UiStatus implements IUpdate {
     private final AbsSubUi subUi;
     private final String name;
     private final Core core;
-    private final UiData uiData;
+    private final ProcessData processData;
+    private final ProcessTestSignal signal;
+    private final ProductData productData;
     private CellTest cellTest;
     private ModeTest modeTest;
 
@@ -31,11 +35,13 @@ public class UiStatus implements IUpdate {
         this.core = core;
         this.subUi = subUi;
         this.name = subUi.getName();
-        this.uiData = new UiData(this);
+        this.processData = new ProcessData(this);
+        this.signal = new ProcessTestSignal();
+        this.productData = new ProductData();
     }
 
-    public UiData getUiData() {
-        return uiData;
+    public ProcessData getProcessData() {
+        return processData;
     }
 
     public AbsSubUi getSubUi() {
@@ -88,7 +94,16 @@ public class UiStatus implements IUpdate {
     }
 
     public void startTest(InputData inputData, ModeTestSource testSource) {
+        this.productData.setInputData(inputData);/
         this.cellTest = new CellTest(this, inputData, testSource);
         this.cellTest.start();
+    }
+
+    public ProcessTestSignal getSignal() {
+        return signal;
+    }
+
+    public ProductData getProductData() {
+        return productData;
     }
 }

@@ -6,7 +6,7 @@ package Model.DataSource.ModeTest.Limit;
 
 import FileTool.FileService;
 import Model.AllKeyWord;
-import Model.DataTest.ErrorLog;
+import Model.ErrorLog;
 import Model.DataSource.AbsJsonSource;
 import Model.DataSource.DataWareHouse;
 import Model.DataSource.Setting.Setting;

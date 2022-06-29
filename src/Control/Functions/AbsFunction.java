@@ -4,13 +4,15 @@
  */
 package Control.Functions;
 
-import Model.DataTest.DataBoxs.UiData;
+import Model.DataTest.ProcessTest.ProcessData;
 import Model.ManagerUI.UIStatus.UiStatus;
 import View.subUI.SubUI.AbsSubUi;
 import Model.Interface.IFunction;
-import Model.DataTest.DataBoxs.FunctionData;
-import Model.DataTest.DataBoxs.ItemTestData;
-import Model.DataTest.FuncAllConfig;
+import Model.DataTest.FunctionData.FunctionData;
+import Model.DataTest.FunctionData.ItemTestData;
+import Model.DataSource.ModeTest.FunctionConfig.FuncAllConfig;
+import Model.DataTest.ProcessTestSignal;
+import Model.DataTest.ProductData;
 
 /**
  *
@@ -19,8 +21,10 @@ import Model.DataTest.FuncAllConfig;
 public abstract class AbsFunction implements IFunction {
 
     protected final FuncAllConfig allConfig;
-    protected UiData uiData;
+    protected ProcessData uiData;
     protected AbsSubUi subUi;
+    protected ProcessTestSignal testSignal;
+    protected ProductData productData;
     private ItemTestData itemTestData;
     private AnalysisResult analysisResult;
     private FunctionData functionData;
@@ -31,7 +35,9 @@ public abstract class AbsFunction implements IFunction {
 
     public void setResources(UiStatus uiStatus, FunctionData functionData) {
         this.functionData = functionData;
-        this.uiData = uiStatus.getUiData();
+        this.uiData = uiStatus.getProcessData();
+        this.testSignal = uiStatus.getSignal();
+        this.productData = uiStatus.getProductData();
         this.subUi = uiStatus.getSubUi();
         this.allConfig.setResources(uiStatus);
         this.itemTestData = new ItemTestData(allConfig);

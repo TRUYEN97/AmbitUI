@@ -5,15 +5,12 @@
 package Control.Functions.FunctionsTest.Base.CreateTxtLog;
 
 import Control.Functions.AbsFunction;
-import Control.Functions.FunctionsTest.Base.CreateFaJson.CreateFaJson;
 import FileTool.FileService;
 import Model.AllKeyWord;
-import Model.DataTest.DataBoxs.FunctionData;
-import Model.DataTest.ErrorLog;
+import Model.DataTest.FunctionData.FunctionData;
+import Model.ErrorLog;
 import MyLoger.MyLoger;
 import java.io.File;
-import java.util.logging.Level;
-import java.util.logging.Logger;
 
 /**
  *
@@ -50,7 +47,7 @@ public class CreateTxtLog extends AbsFunction {
             addLog("Save file txt ok!");
             String keyOfFilePath = this.allConfig.getString("FileTxt");
             addLog("Key of file in Signal: " + keyOfFilePath);
-            uiData.putToSignal(keyOfFilePath, this.txtFile);
+            this.testSignal.put(keyOfFilePath, this.txtFile);
             return true;
         } catch (Exception e) {
             addLog("Save file failed: " + e.getMessage());

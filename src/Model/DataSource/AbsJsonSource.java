@@ -6,7 +6,7 @@ package Model.DataSource;
 
 import Model.DataSource.Tool.ReadFileSource;
 import Control.FileType.FileJson;
-import Model.DataTest.ErrorLog;
+import Model.ErrorLog;
 import Model.Interface.IInit;
 import java.util.ArrayList;
 import java.util.HashMap;

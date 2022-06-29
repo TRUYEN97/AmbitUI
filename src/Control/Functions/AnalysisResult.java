@@ -6,9 +6,9 @@ package Control.Functions;
 
 import Model.AllKeyWord;
 import Model.DataSource.ModeTest.ErrorCode.ErrorCodeElement;
-import Model.DataTest.DataBoxs.ItemTestData;
-import Model.DataTest.ErrorLog;
-import Model.DataTest.FuncAllConfig;
+import Model.DataTest.FunctionData.ItemTestData;
+import Model.ErrorLog;
+import Model.DataSource.ModeTest.FunctionConfig.FuncAllConfig;
 import java.util.List;
 
 /**

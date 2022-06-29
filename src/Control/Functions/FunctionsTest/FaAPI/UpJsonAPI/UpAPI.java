@@ -31,7 +31,7 @@ public class UpAPI extends AbsFunction {
     }
 
     private boolean getFilePath(String keyword) {
-        var path = uiData.getSignal(keyword);
+        var path = testSignal.get(keyword);
         if (path == null) {
             addLog(String.format("keyWord: %s not avaiable!", keyword));
             return false;

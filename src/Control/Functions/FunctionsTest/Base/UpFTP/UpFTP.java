@@ -59,11 +59,11 @@ public class UpFTP extends AbsFunction {
     private String getFilePathFormSignal(String configKey) {
         String key = this.allConfig.getString(configKey);
         addLog("Get filePath in Signal with key: " + key);
-        if (uiData.getSignal(key) == null) {
+        if (testSignal.get(key) == null) {
             addLog("Get filePath in Signal with key: " + key + " failed!");
             return null;
         }
-        String filePath = uiData.getSignal(key).toString();
+        String filePath = testSignal.get(key).toString();
         addLog("filePath: " + filePath);
         return filePath;
     }
