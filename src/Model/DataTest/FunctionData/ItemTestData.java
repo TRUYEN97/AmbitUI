@@ -20,8 +20,8 @@ import java.util.List;
  */
 public class ItemTestData {
 
-    private static final String FAIL = "FAIL";
-    private static final String PASS = "PASS";
+    private static final String FAIL = "failed";
+    private static final String PASS = "passed";
     private final FuncAllConfig allConfig;
     private final JSONObject data;
     private final JSONObject error;
@@ -87,7 +87,7 @@ public class ItemTestData {
     public void setPass(boolean isPass) {
         this.data.put(AllKeyWord.STATUS, isPass ? PASS : FAIL);
         if (getResultTest() == null) {
-            this.data.put(AllKeyWord.TEST_VALUE, isPass ? "passed" : "failed");
+            this.data.put(AllKeyWord.TEST_VALUE, isPass ? PASS : FAIL);
         }
     }
 
@@ -146,6 +146,10 @@ public class ItemTestData {
     }
 
     public String getResultTest() {
+        return this.data.getString(AllKeyWord.TEST_VALUE);
+    }
+    
+    public String getStatusTest() {
         return this.data.getString(AllKeyWord.STATUS);
     }
 

@@ -8,6 +8,7 @@ import Model.DataTest.ProcessTest.ProcessData;
 import Control.Core.Core;
 import Control.Core.ModeTest;
 import Control.Core.CellTest;
+import Model.AllKeyWord;
 import Model.DataTest.InputData;
 import Model.DataTest.ProcessTestSignal;
 import Model.DataTest.ProductData;
@@ -77,7 +78,6 @@ public class UiStatus implements IUpdate {
     public int getColumn() {
         return column;
     }
-    
 
     @Override
     public boolean update() {
@@ -113,6 +113,7 @@ public class UiStatus implements IUpdate {
     }
 
     public void startTest(InputData inputData) {
+        inputData.put(AllKeyWord.MODE, this.modeTest.getModeType());
         this.productData.setInputData(inputData);
         this.cellTest.start();
     }

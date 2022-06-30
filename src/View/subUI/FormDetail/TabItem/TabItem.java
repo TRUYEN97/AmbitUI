@@ -237,7 +237,10 @@ public class TabItem extends AbsTabUI {
         this.tableModel.setValueAt(value, row, this.testColumn.indexOf(colmn));
     }
 
-    private String getStatus(FunctionData dataBox) {
-        return dataBox.getStaus();
+    private String getStatus(FunctionData functionData) {
+        if (functionData.isTesting()) {
+            return "Testing";
+        }
+        return functionData.getStausTest();
     }
 }

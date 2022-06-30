@@ -4,11 +4,15 @@
     <open-files xmlns="http://www.netbeans.org/ns/projectui-open-files/2">
         <group>
             <file>file:/D:/NetBeans/Projects/AmbitNew/EnginerUI/src/Model/DataTest/FunctionData/FunctionData.java</file>
+            <file>file:/D:/NetBeans/Projects/AmbitNew/EnginerUI/src/Model/DataTest/InputData.java</file>
             <file>file:/D:/NetBeans/Projects/AmbitNew/EnginerUI/src/View/subUI/FormDetail/TabItem/TabItem.java</file>
+            <file>file:/D:/NetBeans/Projects/AmbitNew/EnginerUI/src/Control/Core/Core.java</file>
             <file>file:/D:/NetBeans/Projects/AmbitNew/EnginerUI/src/Model/DataTest/ProcessTest/ProcessData.java</file>
             <file>file:/D:/NetBeans/Projects/AmbitNew/EnginerUI/src/Control/Core/CellTest.java</file>
+            <file>file:/D:/NetBeans/Projects/AmbitNew/EnginerUI/src/Control/Functions/FunctionsTest/Base/SFIS/SfisFunction.java</file>
             <file>file:/D:/NetBeans/Projects/AmbitNew/EnginerUI/src/Model/DataTest/FunctionData/ItemTestData.java</file>
             <file>file:/D:/NetBeans/Projects/AmbitNew/EnginerUI/src/Model/ManagerUI/UIStatus/UiStatus.java</file>
+            <file>file:/D:/NetBeans/Projects/AmbitNew/EnginerUI/src/Model/DataTest/ProductData.java</file>
         </group>
     </open-files>
 </project-private>

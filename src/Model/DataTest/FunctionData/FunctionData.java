@@ -65,6 +65,10 @@ public class FunctionData {
     public String getResultTest() {
         return thisItem.getResultTest();
     }
+    
+    public String getStausTest() {
+        return thisItem.getStatusTest();
+    }
 
     public boolean isTesting() {
         return thisItem.isTest();
@@ -72,11 +76,11 @@ public class FunctionData {
 
     public void start(String logPath, String funcName) {
         if (!this.loger.begin(new File(logPath), true, true)) {
-            String mess = "can't delete local function log file of " + getItemFunctionName();
+            String mess = "can't delete local function log file of ".concat(getItemFunctionName());
             ErrorLog.addError(mess);
             JOptionPane.showMessageDialog(null, mess);
         }
-        addLog(String.format("Item[%s] - Function[%s]",
+        addLog(String.format("ITEM[%s] - FUNCTION[%s]",
                 this.getItemFunctionName(), funcName));
     }
 
@@ -85,8 +89,8 @@ public class FunctionData {
     }
 
     public void end() {
-        this.addLog(String.format("Time[%.3f s] - Status[%s]",
-                this.getRunTime(), getResultTest()));
+        this.addLog(String.format("TIME[%.3f s] - STATUS[%S]",
+                this.getRunTime(), getStausTest()));
         this.loger.close();
         this.finalItemTests.putAll(itemTests);
     }
@@ -105,13 +109,6 @@ public class FunctionData {
 
     public void setStatus(boolean stt) {
         this.thisItem.setPass(stt);
-    }
-
-    public String getStaus() {
-        if (isTesting()) {
-            return "Testing";
-        }
-        return getResultTest();
     }
 
     public String getErrorCode() {

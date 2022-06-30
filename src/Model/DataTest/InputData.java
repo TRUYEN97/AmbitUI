@@ -52,4 +52,8 @@ public class InputData {
         return this.data.keySet();
     }
 
+    public void put(String key, String value) {
+        this.data.put(key, value);
+    }
+
 }

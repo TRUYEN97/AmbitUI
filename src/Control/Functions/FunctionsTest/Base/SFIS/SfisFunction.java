@@ -36,7 +36,7 @@ public class SfisFunction extends AbsFunction {
         }
         if (type == null || type.isBlank()) {
             addLog("Check SN....");
-        }else{
+        } else {
             addLog("Send test result to sfis");
         }
         addLog("send to url: " + url);
@@ -65,10 +65,13 @@ public class SfisFunction extends AbsFunction {
         }
         for (String key : listKey) {
             String value = productData.getString(key);
+            addLog("key: " + key);
             if (value != null) {
+                addLog("----value: " + value);
                 command.put(key.toUpperCase(), value);
             } else {
-                return null;
+                addLog("----value: empty");
+                command.put(key.toUpperCase(), "");
             }
         }
         return command.toJSONString();
@@ -122,7 +125,7 @@ public class SfisFunction extends AbsFunction {
         try {
             JSONObject res = JSONObject.parseObject(response);
             this.uiData.setMessage(res.getString(AllKeyWord.MESSAGE));
-            return res.getString(AllKeyWord.RESULT).equals("PASS");
+            return res.getString(AllKeyWord.RESULT).equals(PASS);
         } catch (Exception e) {
             e.printStackTrace();
             ErrorLog.addError(this, e.getMessage());
@@ -130,4 +133,5 @@ public class SfisFunction extends AbsFunction {
             return false;
         }
     }
+    private static final String PASS = "PASS";
 }

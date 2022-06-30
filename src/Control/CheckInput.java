@@ -43,7 +43,6 @@ public class CheckInput {
                 if (!data.isEmpty()) {
                     inputData = new InputData();
                     inputData.setInput(this.data.toString());
-                    inputData.setIndex("");
                     core.checkInput(inputData);
                     clear();
                 }
