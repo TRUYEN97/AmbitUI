@@ -1,6 +1,6 @@
 {
     "station_type": "RUNIN",
-    //"DHCP": "192.168.1.254",
+    "DHCP": "192.168.0.254",
     "ROW": 1,
     "COLUMN": 1,
     "LOOP_TEST": 1,
@@ -16,7 +16,7 @@
         {
             "NAME": "Debug RE", 
             "TYPE_MODE": "Debug",
-            "AMBIT_CONFIG": "config\\Item\\ambitconfig.json",
+            "AMBIT_CONFIG": "config\\Item\\runinItemConfig.json",
             "DETAIL": ["TabViewProxy", "TabItemProxy"]
         },
         {

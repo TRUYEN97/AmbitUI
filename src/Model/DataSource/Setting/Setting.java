@@ -48,7 +48,6 @@ public class Setting extends AbsJsonSource<ModeElement> implements IInit {
         }
         return !this.elements.isEmpty();
     }
-    
 
     public String getDhcpNetIP() {
         return this.readFile.getData().getString(AllKeyWord.DHCP);
@@ -84,5 +83,9 @@ public class Setting extends AbsJsonSource<ModeElement> implements IInit {
 
     public String getUpdateLimitCommand() {
         return this.readFile.getData().getString(AllKeyWord.LIMIT_CMD);
+    }
+
+    public boolean isOnDHCP() {
+        return getDhcpNetIP() != null;
     }
 }

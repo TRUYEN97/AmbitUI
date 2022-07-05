@@ -8,8 +8,8 @@ import View.subUI.FormDetail.TabFaApi.TabFaApiProxy;
 import Control.Functions.AbsFunction;
 import Control.Functions.FunctionsTest.Base.CreateFaJson.CreateFaJsonProxy;
 import Control.Functions.FunctionsTest.Base.CreateTxtLog.CreateTxtLogProxy;
-import Control.Functions.FunctionsTest.Base.GenerateNode.GenerateNodeProxy;
 import Control.Functions.FunctionsTest.Base.GetMacFromSfis.GetMacFormSfisProxy;
+import Control.Functions.FunctionsTest.Base.PingIP.PingIpProxy;
 import Control.Functions.FunctionsTest.Base.SFIS.SfisFunctionProxy;
 import Control.Functions.FunctionsTest.FaAPI.inputFaData.InputFaDataProxy;
 import Control.Functions.FunctionsTest.Runin.PowerSwitch.PowerSwitchProxy;
@@ -95,7 +95,6 @@ public class Factory {
 
     private void addFunc() {
         this.functions.addType(new SfisFunctionProxy());
-        this.functions.addType(new GenerateNodeProxy());
         this.functions.addType(new GetMacFormSfisProxy());
         this.functions.addType(new InputFaDataProxy());
         this.functions.addType(new CreateFaJsonProxy());
@@ -103,5 +102,6 @@ public class Factory {
         this.functions.addType(new UpAPIProxy());
         this.functions.addType(new UpFTPProxy());
         this.functions.addType(new PowerSwitchProxy());
+        this.functions.addType(new PingIpProxy());
     }
 }

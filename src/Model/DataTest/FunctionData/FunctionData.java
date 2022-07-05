@@ -110,6 +110,10 @@ public class FunctionData {
     public void setStatus(boolean stt) {
         this.thisItem.setPass(stt);
     }
+    
+    public void setFail(String errorType) {
+       this.thisItem.setFail(errorType);
+    }
 
     public String getErrorCode() {
         if (thisItem == null) {

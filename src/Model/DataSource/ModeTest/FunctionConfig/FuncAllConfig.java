@@ -33,13 +33,26 @@ public class FuncAllConfig {
 
     public void setResources(UiStatus uiStatus) {
         this.functionConfig = uiStatus.getModeTest().getModeTestSource().getFunctionsConfig(itemName);
-        this.limitElement = uiStatus.getModeTest().
-                getModeTestSource().getLimit().getElement(this.functionConfig.getItemName());
+        this.limitElement = findLimit(uiStatus, itemName);
         this.localErrorCode = uiStatus.getModeTest().
-                getModeTestSource().getErrorCodeSource().getElement(this.functionConfig.getItemName());
+                getModeTestSource().getErrorCodeSource().getElement(itemName);
         getAllValueOfConfig();
         getAllValueOfLimit();
     }
+
+    private LimitElement findLimit(UiStatus uiStatus, String itemName) {
+        if (itemName.matches(CHECK) && getLimit(uiStatus, itemName) == null) {
+            String newItemName = itemName.substring(0, itemName.lastIndexOf("_"));
+            return getLimit(uiStatus, newItemName);
+        }
+        return getLimit(uiStatus, itemName);
+    }
+
+    private LimitElement getLimit(UiStatus uiStatus, String nameItem) {
+        return uiStatus.getModeTest().
+                getModeTestSource().getLimit().getElement(nameItem);
+    }
+    private static final String CHECK = ".+_[0-9]+$";
 
     public JSONObject getLocalErrorCode(String type) {
         if (localErrorCode == null) {

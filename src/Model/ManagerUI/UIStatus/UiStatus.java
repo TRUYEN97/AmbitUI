@@ -41,7 +41,7 @@ public class UiStatus implements IUpdate {
         this.row = row;
         this.column = column;
         this.core = core;
-        this.processData = new ProcessData(this);
+        this.processData = new ProcessData();
         this.signal = new ProcessTestSignal();
         this.productData = new ProductData();
         this.cellTest = new CellTest(this);

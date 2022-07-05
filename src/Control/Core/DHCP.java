@@ -32,9 +32,8 @@ import org.dhcp4java.DHCPResponseFactory;
  *
  * @author Administrator
  */
-public class DHCP implements Runnable{
+public class DHCP implements Runnable {
 
-    private static volatile DHCP instance;
     private final MyLoger loger;
     private final DhcpData dhcpData;
     private String dhcpHost;
@@ -42,22 +41,9 @@ public class DHCP implements Runnable{
     private InetAddress host_Address;
     private DHCPOption[] commonOptions;
 
-    private DHCP() {
+    public DHCP() {
         this.loger = new MyLoger();
         this.dhcpData = DhcpData.getInstance();
-    }
-
-    public static DHCP getInstance() {
-        DHCP ins = DHCP.instance;
-        if (ins == null) {
-            synchronized (DHCP.class) {
-                ins = DHCP.instance;
-                if (ins == null) {
-                    DHCP.instance = ins = new DHCP();
-                }
-            }
-        }
-        return ins;
     }
 
     public void setView(UIView view) {
@@ -143,7 +129,11 @@ public class DHCP implements Runnable{
                 switch (rev) {
                     case DHCPConstants.DHCPDISCOVER -> {
                         DatagramPacket dp;
-                        dp = replyPort(dhcp, ip, socket);
+                        DHCPPacket d;
+                        d = DHCPResponseFactory.makeDHCPOffer(dhcp, InetAddress.getByName(ip), 3600 * 24 * 7, host_Address, "", commonOptions);
+                        byte[] res = d.serialize();
+                        dp = new DatagramPacket(res, res.length, InetAddress.getByName("255.255.255.255"), DHCPConstants.BOOTP_REPLY_PORT);
+                        socket.send(dp);
                         loger.addLog("///////////////////////////////////////");
                         loger.addLog("dhcp discover");
                         loger.addLog(host_Address.getHostAddress());
@@ -155,7 +145,12 @@ public class DHCP implements Runnable{
                         loger.addLog("---------end--------------");
                     }
                     case DHCPConstants.DHCPREQUEST -> {
-                        replyPort(dhcp, ip, socket);
+                        DHCPPacket d;
+                        DatagramPacket dp;
+                        d = DHCPResponseFactory.makeDHCPAck(dhcp, InetAddress.getByName(ip), 3600 * 24 * 7, host_Address, "", commonOptions);
+                        byte[] res = d.serialize();
+                        dp = new DatagramPacket(res, res.length, InetAddress.getByName("255.255.255.255"), DHCPConstants.BOOTP_REPLY_PORT);
+                        socket.send(dp);
                         loger.addLog("dhcp request");
                         loger.addLog(ip + " OK");
                     }
@@ -167,16 +162,6 @@ public class DHCP implements Runnable{
             JOptionPane.showMessageDialog(null, e.toString(), "Tip", JOptionPane.WARNING_MESSAGE);
             System.exit(0);
         }
-    }
-
-    private DatagramPacket replyPort(DHCPPacket dhcp, String ip, DatagramSocket socket) throws IOException, UnknownHostException {
-        DHCPPacket d;
-        DatagramPacket dp;
-        d = DHCPResponseFactory.makeDHCPOffer(dhcp, InetAddress.getByName(ip), 3600 * 24 * 7, host_Address, "", commonOptions);
-        byte[] res = d.serialize();
-        dp = new DatagramPacket(res, res.length, InetAddress.getByName("255.255.255.255"), DHCPConstants.BOOTP_REPLY_PORT);
-        socket.send(dp);
-        return dp;
     }
 
     private String bytesToHex(byte[] bytes) {

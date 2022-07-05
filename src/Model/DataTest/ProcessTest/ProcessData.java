@@ -9,6 +9,7 @@ import Model.DataSource.DataWareHouse;
 import Model.DataTest.FunctionData.FunctionData;
 import Model.DataTest.FunctionData.ItemTestData;
 import Model.ManagerUI.UIStatus.UiStatus;
+import MyLoger.MyLoger;
 import Time.TimeBase;
 import com.alibaba.fastjson.JSONObject;
 import java.util.ArrayList;
@@ -22,23 +23,23 @@ import java.util.Map;
  */
 public class ProcessData {
 
-    private final List<FunctionData> functionData;
-    private final Map<String, ItemTestData> mapfunctionData;
-    private final UiStatus uiStatus;
+    private final List<FunctionData> listFunctionData;
+    private final Map<String, ItemTestData> mapFunctionData;
     private final DataWareHouse data;
     private final TimeBase timeBase;
+    private final MyLoger loger;
     private String message;
 
-    public ProcessData(UiStatus uiStatus) {
-        this.functionData = new ArrayList<>();
-        this.mapfunctionData = new HashMap<>();
-        this.uiStatus = uiStatus;
+    public ProcessData() {
+        this.listFunctionData = new ArrayList<>();
+        this.mapFunctionData = new HashMap<>();
         this.data = new DataWareHouse();
         this.timeBase = new TimeBase();
+        this.loger = new MyLoger();
     }
 
     public List<FunctionData> getDataBoxs() {
-        return functionData;
+        return listFunctionData;
     }
 
     public JSONObject getBaseData() {
@@ -53,17 +54,17 @@ public class ProcessData {
     }
 
     public ItemTestData getItemTestData(String itemName) {
-        if (this.mapfunctionData.containsKey(itemName)) {
-            return this.mapfunctionData.get(itemName);
+        if (this.mapFunctionData.containsKey(itemName)) {
+            return this.mapFunctionData.get(itemName);
         }
         return null;
     }
 
     public FunctionData getDataBox(int index) {
-        if (index >= this.functionData.size()) {
+        if (index >= this.listFunctionData.size()) {
             return null;
         }
-        return this.functionData.get(index);
+        return this.listFunctionData.get(index);
     }
 
     public void setMessage(String message) {
@@ -78,7 +79,7 @@ public class ProcessData {
     }
 
     public FunctionData getFirstFail() {
-        for (FunctionData dataBox : functionData) {
+        for (FunctionData dataBox : listFunctionData) {
             if (!dataBox.isPass() && !dataBox.isTesting()) {
                 return dataBox;
             }
@@ -97,11 +98,11 @@ public class ProcessData {
     }
 
     public void addFunctionData(FunctionData functionData) {
-        if (functionData == null || this.functionData.contains(functionData)) {
+        if (functionData == null || this.listFunctionData.contains(functionData)) {
             return;
         }
-        functionData.setFinalMapItems(mapfunctionData);
-        this.functionData.add(functionData);
+        functionData.setFinalMapItems(mapFunctionData);
+        this.listFunctionData.add(functionData);
     }
 
     public void setFinishTime() {
@@ -113,8 +114,9 @@ public class ProcessData {
         this.data.put(AllKeyWord.START_TIME, timeBase.getSimpleDateTime());
     }
 
-    private void reset() {
+    public void reset() {
         this.message = null;
-        this.functionData.clear();
+        this.listFunctionData.clear();
+        this.mapFunctionData.clear();
     }
 }

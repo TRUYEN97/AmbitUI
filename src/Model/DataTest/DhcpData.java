@@ -20,6 +20,7 @@ public class DhcpData {
 
     private DhcpData() {
         this.idMac = new HashMap<>();
+        this.idMac.put("649714048d60", "192.168.0.0");
     }
 
     public static DhcpData getInstance() {

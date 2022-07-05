@@ -34,7 +34,7 @@ public class Engine {
         this.pcInfor = PcInformation.getInstance();
         this.checkInput = new CheckInput(core, view);
         this.view.setCheckInput(checkInput);
-        this.dhcp = DHCP.getInstance();
+        this.dhcp = new DHCP();
     }
 
     public void run() {
@@ -67,10 +67,10 @@ public class Engine {
     }
 
     private void initDHCP() {
-        String netIP = setting.getDhcpNetIP();
-        if (netIP == null) {
+        if (!setting.isOnDHCP()) {
             return;
         }
+        String netIP = setting.getDhcpNetIP();
         this.view.showMessager("////DHCP//////\r\nSet net IP: " + netIP);
         this.dhcp.setView(view);
         if (this.dhcp.setNetIP(netIP)) {

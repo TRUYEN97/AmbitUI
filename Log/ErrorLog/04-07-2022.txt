@@ -1,0 +1,10 @@
+2022-07-04 04:22:12.299:   error in Model.DataSource.ModeTest.FunctionConfig.FuncAllConfig : Missing error code of dut_ping - simple type !!
+2022-07-04 04:22:12.299:   //////////////////////////////////////
+2022-07-04 04:22:41.369:   error in Model.DataSource.ModeTest.FunctionConfig.FuncAllConfig : Missing error code of dut_ping - simple type !!
+2022-07-04 04:22:41.369:   //////////////////////////////////////
+2022-07-04 08:32:13.355:   error in Control.Functions.FunctionsTest.Runin.PowerSwitch.PowerSwitchFunc : Cannot invoke "java.lang.StringBuilder.append(String)" because "this.result" is null
+2022-07-04 08:32:13.355:   //////////////////////////////////////
+2022-07-04 08:32:13.358:   error in Control.Functions.FunctionsTest.Runin.PowerSwitch.PowerSwitchFunc : Cannot invoke "java.lang.StringBuilder.append(String)" because "this.result" is null
+2022-07-04 08:32:13.358:   //////////////////////////////////////
+2022-07-04 14:38:59.260:   out of time: (Test time: 10.111 S) > (10 S)
+2022-07-04 14:38:59.261:   //////////////////////////////////////

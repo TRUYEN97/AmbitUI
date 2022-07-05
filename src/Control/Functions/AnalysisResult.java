@@ -69,9 +69,7 @@ public class AnalysisResult {
     }
 
     private void setFail(String errorType) {
-        this.itemTestData.setErrorCode();
-        this.itemTestData.setLocalErrorCode(errorType);
-        this.itemTestData.setPass(false);
+        this.itemTestData.setFail(errorType);
     }
 
     private boolean checkMatchType(String result) {

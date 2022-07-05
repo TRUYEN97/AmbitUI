@@ -84,7 +84,7 @@ public class Limit extends AbsJsonSource<LimitElement> {
         String command = Setting.getInstance().getUpdateLimitCommand();
         Cmd cmd = new Cmd();
         cmd.sendCommand(command);
-        String newLimit = getNewLimit(cmd.readAll(new TimeS(10)));
+        String newLimit = getNewLimit(cmd.readAll(new TimeS(5)));
         if (newLimit == null) {
             return false;
         }

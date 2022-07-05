@@ -24,6 +24,7 @@ public abstract class AbsFunction implements IFunction {
     protected ProcessData uiData;
     protected AbsSubUi subUi;
     protected ProcessTestSignal testSignal;
+    protected UiStatus uiStatus;
     protected ProductData productData;
     private ItemTestData itemTestData;
     private AnalysisResult analysisResult;
@@ -35,6 +36,7 @@ public abstract class AbsFunction implements IFunction {
 
     public void setResources(UiStatus uiStatus, FunctionData functionData) {
         this.functionData = functionData;
+        this.uiStatus = uiStatus;
         this.uiData = uiStatus.getProcessData();
         this.testSignal = uiStatus.getSignal();
         this.productData = uiStatus.getProductData();

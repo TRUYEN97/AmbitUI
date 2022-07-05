@@ -6,6 +6,8 @@ package Control.Functions.FunctionsTest.Base.SFIS;
 
 import Control.Functions.AbsFunction;
 import Model.AllKeyWord;
+import Model.DataSource.Setting.Setting;
+import Model.DataTest.DhcpData;
 import Model.ErrorLog;
 import SfisAPI17.SfisAPI;
 import com.alibaba.fastjson.JSONObject;
@@ -28,7 +30,7 @@ public class SfisFunction extends AbsFunction {
 
     @Override
     public boolean test() {
-        String url = this.allConfig.getString("URL_CHECK_SN");
+        String url = this.allConfig.getString("URL");
         String type = this.allConfig.getString("SFIS_TYPE");
         if (url == null || url.isBlank()) {
             addLog("URL_CHECK_SN is null or emtpty!");
@@ -88,30 +90,43 @@ public class SfisFunction extends AbsFunction {
         }
         JSONObject res = JSONObject.parseObject(response);
         if (res.getString(AllKeyWord.RESULT).equals("PASS")) {
-            JSONObject data = res.getJSONObject(AllKeyWord.DATA);
             List<String> listKey = this.allConfig.getListSlip(DATA_FORMAT, "\\|");
             addLog(DATA_FORMAT, listKey);
             if (listKey == null || listKey.isEmpty()) {
                 addLog(DATA_FORMAT + " is null or empty!");
                 return false;
             }
-            addLog("add data to production info");
-            for (String key : listKey) {
-                if (data.containsKey(key)) {
-                    String value = data.getString(key);
-                    addLog(String.format("add key: %s -- Value: %s", key, value));
-                    this.productData.put(key, value);
-                } else {
-                    addLog(String.format("Not have \"%s\" in sfis data", key));
-                    return false;
-                }
+            JSONObject data = res.getJSONObject(AllKeyWord.DATA);
+            if (Setting.getInstance().isOnDHCP()) {
+                putMacDHCP(data);
             }
-            return true;
+            addLog("add data to production info");
+            return getDataToProductInfo(listKey, data);
         } else {
             this.addLog(res.getString("message"));
             this.uiData.setMessage(res.getString("message"));
             return false;
         }
+    }
+
+    private boolean getDataToProductInfo(List<String> listKey, JSONObject data) {
+        for (String key : listKey) {
+            if (data.containsKey(key)) {
+                String value = data.getString(key);
+                addLog(String.format("add key: %s -- Value: %s", key, value));
+                this.productData.put(key, value);
+            } else {
+                addLog(String.format("Not have \"%s\" in sfis data", key));
+                return false;
+            }
+        }
+        return true;
+    }
+
+    private void putMacDHCP(JSONObject data) {
+        String mac = data.getString(AllKeyWord.MAC);
+        addLog(String.format("add Mac: %s -- Ip: %s to DHCP data", mac, uiStatus.getId()));
+        DhcpData.getInstance().put(mac, uiStatus.getId());
     }
 
     private boolean checkFinalResponse(String response) {

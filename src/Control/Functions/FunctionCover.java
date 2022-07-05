@@ -5,6 +5,7 @@
 package Control.Functions;
 
 import Control.Core.ModeTest;
+import Model.DataSource.ModeTest.ErrorCode.ErrorCodeElement;
 import Model.DataSource.ModeTest.FunctionConfig.FunctionElement;
 import Model.DataSource.Setting.Setting;
 import Model.DataTest.FunctionData.FunctionData;
@@ -37,7 +38,7 @@ public class FunctionCover extends Thread {
 
     @Override
     public void run() {
-        this.functionData.start(createLogPtah(), this.function.getFunctionName());
+        this.functionData.start(createLogPath(), this.function.getFunctionName());
         try {
             this.thread = new Thread() {
                 @Override
@@ -55,11 +56,12 @@ public class FunctionCover extends Thread {
         }
     }
 
-    private String createLogPtah() {
-        return String.format("%s%s%s_%s.txt",
-                createLogPath(), File.separator,
-                this.function.getItemName(),
-                this.function.getFunctionName());
+    private String createLogPath() {
+        String settingPath = Setting.getInstance().getFunctionsLocalLogPath();
+        return String.format("%s%s%s%s%s_%s.txt",
+                settingPath, File.separator,
+                this.subUi.getName(), File.separator,
+                this.function.getItemName(),this.function.getFunctionName());
     }
 
     private void checkOutTime() {
@@ -80,7 +82,7 @@ public class FunctionCover extends Thread {
                                                                 Try to stop!!""",
                         getRunTime(), timeSpec);
                 this.functionData.addLog(mess);
-                this.functionData.setResult("OutTime");
+                this.functionData.setFail(ErrorCodeElement.SIMPLE);
             }
         }
     }
@@ -143,16 +145,12 @@ public class FunctionCover extends Thread {
         return modeSkip != null && !modeSkip.isBlank() && modeSkip.equals(modeTest.toString());
     }
 
-    private String createLogPath() {
-        String settingPath = Setting.getInstance().getFunctionsLocalLogPath();
-        return String.format("%s%s%s", settingPath, File.separator, this.subUi.getName());
-    }
-
     public void stopTest(String mess) {
         if (this.thread != null && this.thread.isAlive()) {
             if (mess != null) {
                 this.functionData.addLog("This function will be stop! Because " + mess);
             }
+            this.functionData.setFail(ErrorCodeElement.SIMPLE);
             end();
         }
     }

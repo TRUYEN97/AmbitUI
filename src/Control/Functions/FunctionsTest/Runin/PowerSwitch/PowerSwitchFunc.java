@@ -7,16 +7,12 @@ package Control.Functions.FunctionsTest.Runin.PowerSwitch;
 import Control.Functions.AbsFunction;
 import Model.ErrorLog;
 import commandprompt.Communicate.PowerSwitch.PowerSwitch;
-import java.util.logging.Level;
-import java.util.logging.Logger;
 
 /**
  *
  * @author Administrator
  */
 public class PowerSwitchFunc extends AbsFunction {
-
-    private PowerSwitch powerSwitch;
 
     public PowerSwitchFunc(String functionName) {
         super(functionName);
@@ -25,12 +21,23 @@ public class PowerSwitchFunc extends AbsFunction {
     @Override
     protected boolean test() {
         try {
-            this.powerSwitch = new PowerSwitch(this.allConfig.getString("host"),
-                    this.allConfig.getString("user"), this.allConfig.getString("password"));
+            String host = getHost();
+            addLog("CONFIG", "host: " + host);
+            String user = this.allConfig.getString("user");
+            addLog("CONFIG", "user: " + user);
+            String pass = this.allConfig.getString("password");
+            addLog("CONFIG", "passWord: " + pass);
             int times = this.allConfig.getInteger("Times");
-            for (int i = 0; i < times; i++) {
-            addLog(String.format("cycleTime: %d - %d ",i, times));
-                if(onOff(1,1000)){
+            addLog("CONFIG", "Times: " + times);
+            int index = this.uiStatus.getColumn();
+            addLog("CONFIG", "index of switch: " + index);
+            int delay = this.allConfig.getInteger("Delay");
+            addLog("CONFIG", "Delay time: " + delay);
+            PowerSwitch powerSwitch;
+            for (int i = 1; i <= times; i++) {
+                powerSwitch = new PowerSwitch(host, user, pass);
+                addLog(String.format("cycle Times: %d - %d ", i, times));
+                if (!onOff(powerSwitch, index, delay)) {
                     return false;
                 }
             }
@@ -44,26 +51,58 @@ public class PowerSwitchFunc extends AbsFunction {
 
     }
 
-    private boolean onOff(int index, int delay) {
+    private String getHost() {
+        if (isNotIP()) {
+            return null;
+        }
+        return createNewIp();
+    }
+
+    private boolean onOff(PowerSwitch powerSwitch, int index, int delayS) {
         try {
-            if (!this.powerSwitch.setOff(index)) {
-                addLog(this.powerSwitch.getResult());
-                return false;
+            try {
+                if (!powerSwitch.setOff(index)) {
+                    return false;
+                }
+            } finally {
+                addLog("POWER_SWITCH", powerSwitch.getResult());
+                Thread.sleep(1000);
             }
-            addLog(this.powerSwitch.getResult());
-            Thread.sleep(delay);
-            if (!this.powerSwitch.setOn(index)) {
-                addLog(this.powerSwitch.getResult());
-                return false;
+            try {
+                if (!powerSwitch.setOn(index)) {
+                    return false;
+                }
+            } finally {
+                addLog("POWER_SWITCH", powerSwitch.getResult());
+                Thread.sleep(delayS * 1000);
             }
-            addLog(this.powerSwitch.getResult());
-            Thread.sleep(delay);
             return true;
         } catch (InterruptedException ex) {
             ex.printStackTrace();
             addLog(ex.getMessage());
             return false;
         }
+    }
+
+    private String createNewIp() throws NumberFormatException {
+        Integer oldIp = Integer.valueOf(getIP());
+        Integer row = uiStatus.getRow();
+        return String.format("%s.%s", getNetIp(), oldIp + row - 1);
+    }
+
+    private String getIP() {
+        String ipDefault = this.allConfig.getString("host");
+        return ipDefault.substring(ipDefault.lastIndexOf(".") + 1, ipDefault.length());
+    }
+
+    private String getNetIp() {
+        String ipDefault = this.allConfig.getString("host");
+        return ipDefault.substring(0, ipDefault.lastIndexOf("."));
+    }
+
+    private boolean isNotIP() {
+        String ip = this.allConfig.getString("host");
+        return ip == null || !ip.matches("\\b((25[0-5]|2[0-4][0-9]|[01]?[0-9][0-9]?)(\\.|$)){4}\\b");
     }
 
 }

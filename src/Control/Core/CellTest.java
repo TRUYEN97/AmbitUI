@@ -44,7 +44,7 @@ public class CellTest {
     }
 
     public void start() {
-        prepare();
+        testSource = this.uiStatus.getModeTest().getModeTestSource();
         runner = new Runner();
         runner.start();
     }
@@ -69,7 +69,6 @@ public class CellTest {
     }
 
     private void prepare() {
-        this.testSource = this.uiStatus.getModeTest().getModeTestSource();
         myTime.startCheck();
         processData.setStartTime();
         subUi.startTest();
@@ -104,10 +103,11 @@ public class CellTest {
 
         @Override
         public void run() {
-            try {
-                if (runFunctions(testSource.getCheckFunctions())) {
-                    int loopTest = testSource.getLoopTest();
-                    for (int i = 0; i < loopTest; i++) {
+            int loopTest = testSource.getLoopTest();
+            for (int i = 0; i < loopTest; i++) {
+                try {
+                    prepare();
+                    if (runFunctions(testSource.getCheckFunctions())) {
                         try {
                             runItemFunctions();
                         } finally {
@@ -115,9 +115,9 @@ public class CellTest {
                         }
                         runFunctions(testSource.getEndFunctions());
                     }
+                } finally {
+                    end(null);
                 }
-            } finally {
-                end(null);
             }
         }
 

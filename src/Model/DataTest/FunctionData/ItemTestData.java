@@ -57,10 +57,10 @@ public class ItemTestData {
         this.timeS.start(0);
         this.testing = true;
         isErrorCodeAvailable();
-        this.data.put(AllKeyWord.START_TIME, new TimeBase().getSimpleDateTime());
         for (String key : keys) {
             this.data.put(key, allConfig.getString(key));
         }
+        this.data.put(AllKeyWord.START_TIME, new TimeBase().getSimpleDateTime());
     }
 
     private boolean isErrorCodeAvailable() {
@@ -120,7 +120,7 @@ public class ItemTestData {
         this.testing = false;
     }
 
-    public void setErrorCode() {
+    private void setErrorCode() {
         String errorCode = allConfig.getString(AllKeyWord.ERROR_CODE);
         this.error.put(AllKeyWord.ERROR_DES, this.allConfig.getItemName());
         if (errorCode != null && !errorCode.isBlank()) {
@@ -130,7 +130,7 @@ public class ItemTestData {
         }
     }
 
-    public void setLocalErrorCode(String type) {
+    private void setLocalErrorCode(String type) {
         JSONObject errorCode = this.allConfig.getLocalErrorCode(type);
         if (errorCode == null) {
             errorCode = this.allConfig.getLocalErrorCode(ErrorCodeElement.SIMPLE);
@@ -139,6 +139,12 @@ public class ItemTestData {
             }
         }
         this.error.putAll(errorCode);
+    }
+    
+    public void setFail(String errorType) {
+        this.setErrorCode();
+        this.setLocalErrorCode(errorType);
+        this.setPass(false);
     }
 
     public void setResult(String result) {
