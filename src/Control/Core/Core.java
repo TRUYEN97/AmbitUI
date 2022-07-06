@@ -5,7 +5,7 @@
 package Control.Core;
 
 import Control.DrawBoardUI;
-import Model.DataTest.InputData;
+import Model.DataTest.ProcessTest.InputData;
 import Model.ErrorLog;
 import Model.ManagerUI.UIManager;
 import Model.ManagerUI.UIStatus.UiStatus;

@@ -66,7 +66,7 @@ public class SfisFunction extends AbsFunction {
             return null;
         }
         for (String key : listKey) {
-            String value = productData.getString(key);
+            String value = this.processData.getString(key);
             addLog("key: " + key);
             if (value != null) {
                 addLog("----value: " + value);
@@ -97,8 +97,9 @@ public class SfisFunction extends AbsFunction {
                 return false;
             }
             JSONObject data = res.getJSONObject(AllKeyWord.DATA);
-            if (Setting.getInstance().isOnDHCP()) {
-                putMacDHCP(data);
+            if (Setting.getInstance().isOnDHCP() && !putMacDHCP(data)) {
+                addLog("Get MAC from SFIS for DHCP failed!");
+                return false;
             }
             addLog("add data to production info");
             return getDataToProductInfo(listKey, data);
@@ -110,9 +111,14 @@ public class SfisFunction extends AbsFunction {
     }
 
     private boolean getDataToProductInfo(List<String> listKey, JSONObject data) {
+        String value;
         for (String key : listKey) {
             if (data.containsKey(key)) {
-                String value = data.getString(key);
+                if (key.equals(AllKeyWord.MAC)) {
+                    value = createTrueMac(getValueInData(data, key));
+                } else {
+                    value = getValueInData(data, key);
+                }
                 addLog(String.format("add key: %s -- Value: %s", key, value));
                 this.productData.put(key, value);
             } else {
@@ -123,10 +129,37 @@ public class SfisFunction extends AbsFunction {
         return true;
     }
 
-    private void putMacDHCP(JSONObject data) {
+    private String createTrueMac(String value) {
+        StringBuilder builder = new StringBuilder();
+        int index = 0;
+        for (char kitu : value.toCharArray()) {
+            if (index != 0 && index % 2 == 0) {
+                builder.append(':');
+            } else {
+                builder.append(kitu);
+            }
+            index++;
+        }
+        return builder.toString();
+    }
+
+    private String getValueInData(JSONObject data, String key) {
+        String value = data.getString(key);
+        if (value == null) {
+            value = "";
+        }
+        return value;
+    }
+
+    private boolean putMacDHCP(JSONObject data) {
         String mac = data.getString(AllKeyWord.MAC);
-        addLog(String.format("add Mac: %s -- Ip: %s to DHCP data", mac, uiStatus.getId()));
-        DhcpData.getInstance().put(mac, uiStatus.getId());
+        if (mac == null || mac.isBlank()) {
+            return false;
+        }
+        DhcpData.getInstance().put(mac, uIInfo.getID());
+        addLog(String.format("add Mac: %s -- Ip: %s to DHCP data",
+                mac, DhcpData.getInstance().getIP(mac)));
+        return true;
     }
 
     private boolean checkFinalResponse(String response) {

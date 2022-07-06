@@ -5,7 +5,7 @@
 package Control.Functions.FunctionsTest.Base.UpFTP;
 
 import Control.Functions.AbsFunction;
-import Control.Functions.FunctionsTest.Base.CreateFaJson.CreateFaJson;
+import Control.Functions.FunctionsTest.FaAPI.CreateFaJson.CreateFaJson;
 import ftpclient.FtpClient;
 import java.io.File;
 import java.util.logging.Level;

@@ -5,7 +5,7 @@
 package Control;
 
 import Control.Core.Core;
-import Model.DataTest.InputData;
+import Model.DataTest.ProcessTest.InputData;
 import View.UIView;
 import java.awt.HeadlessException;
 import java.awt.Toolkit;

@@ -2,10 +2,10 @@
  * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
  * Click nbfs://nbhost/SystemFileSystem/Templates/Classes/Class.java to edit this template
  */
-package Control.Functions.FunctionsTest.Base.CreateFaJson;
+package Control.Functions.FunctionsTest.FaAPI.CreateFaJson;
 
 import Control.Functions.AbsFunction;
-import Control.Functions.FunctionsTest.Base.CreateFaJson.KeyWordFaAPI.FUNC_KEY;
+import Control.Functions.FunctionsTest.FaAPI.CreateFaJson.KeyWordFaAPI.FUNC_KEY;
 import FileTool.FileService;
 import Model.AllKeyWord;
 import com.alibaba.fastjson.JSONArray;

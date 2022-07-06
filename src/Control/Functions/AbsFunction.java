@@ -11,8 +11,9 @@ import Model.Interface.IFunction;
 import Model.DataTest.FunctionData.FunctionData;
 import Model.DataTest.FunctionData.ItemTestData;
 import Model.DataSource.ModeTest.FunctionConfig.FuncAllConfig;
-import Model.DataTest.ProcessTestSignal;
-import Model.DataTest.ProductData;
+import Model.DataTest.ProcessTest.ProcessTestSignal;
+import Model.DataTest.ProcessTest.ProductData;
+import Model.DataTest.ProcessTest.UiInformartion;
 
 /**
  *
@@ -24,8 +25,8 @@ public abstract class AbsFunction implements IFunction {
     protected ProcessData processData;
     protected AbsSubUi subUi;
     protected ProcessTestSignal testSignal;
-    protected UiStatus uiStatus;
     protected ProductData productData;
+    protected UiInformartion uIInfo;
     private ItemTestData itemTestData;
     private AnalysisResult analysisResult;
     private FunctionData functionData;
@@ -36,7 +37,7 @@ public abstract class AbsFunction implements IFunction {
 
     public void setResources(UiStatus uiStatus, FunctionData functionData) {
         this.functionData = functionData;
-        this.uiStatus = uiStatus;
+        this.uIInfo = uiStatus.getInfo();
         this.processData = uiStatus.getProcessData();
         this.testSignal = this.processData.getSignal();
         this.productData = this.processData.getProductData();
@@ -66,6 +67,10 @@ public abstract class AbsFunction implements IFunction {
         return this.allConfig.getItemName();
     }
 
+    String getFunctionName() {
+        return this.allConfig.getFunctionName();
+    }
+
     protected abstract boolean test();
 
     protected void addLog(Object str) {
@@ -73,7 +78,7 @@ public abstract class AbsFunction implements IFunction {
     }
 
     protected void addLog(String key, Object str) {
-        addLog(String.format("[%s] %s", key, str));
+        this.functionData.addLog(key, str);
     }
 
     @Override
@@ -83,10 +88,6 @@ public abstract class AbsFunction implements IFunction {
 
     protected void setResult(String result) {
         this.itemTestData.setResult(result);
-    }
-
-    public String getFunctionName() {
-        return this.allConfig.getFunctionName();
     }
 
     protected String getResult() {

@@ -190,7 +190,7 @@ public class TabFaApi extends AbsTabUI {
     @Override
     public void startTest() {
         super.startTest();
-        this.uiStatus.getSignal().put(MY_KEY, this);
+        this.uiStatus.getProcessData().getSignal().put(MY_KEY, this);
     }
 
     public boolean checkDataHasChange() {
@@ -221,7 +221,7 @@ public class TabFaApi extends AbsTabUI {
     public void updateData() {
         StringBuilder data = new StringBuilder("<html>");
         for (String key : keys.keySet()) {
-            String value = this.uiStatus.getProductData().getString(keys.get(key));
+            String value = this.uiStatus.getProcessData().getProductData().getString(keys.get(key));
             if (value != null) {
                 data.append(String.format("<tr><td>%s</td><td>: %s</td></tr>", key, value));
             }

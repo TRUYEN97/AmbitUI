@@ -9,10 +9,8 @@ import Control.Core.Core;
 import Control.Core.ModeTest;
 import Control.Core.CellTest;
 import Model.AllKeyWord;
-import Model.DataSource.DataWareHouse;
-import Model.DataTest.InputData;
-import Model.DataTest.ProcessTestSignal;
-import Model.DataTest.ProductData;
+import Model.DataTest.ProcessTest.InputData;
+import Model.DataTest.ProcessTest.UiInformartion;
 import Model.Interface.IUpdate;
 import View.subUI.SubUI.AbsSubUi;
 import static java.util.Objects.isNull;
@@ -23,21 +21,17 @@ import static java.util.Objects.isNull;
  */
 public class UiStatus implements IUpdate {
 
+    private final UiInformartion informartion;
     private final AbsSubUi subUi;
-    private final String name;
     private final Core core;
-    private final DataWareHouse info;
     private final ProcessData processData;
     private final CellTest cellTest;
     private ModeTest modeTest;
 
     public UiStatus(AbsSubUi subUi, Core core, int id, int row, int column) {
+        this.informartion = new UiInformartion(subUi.getName(), column, row, id);
         this.subUi = subUi;
-        this.name = subUi.getName();
-        this.info = new DataWareHouse();
-        this.info.put("ID", id);
-        this.info.put("row", id);
-        this.info.put("ID", id);
+        this.core = core;
         this.processData = new ProcessData();
         this.cellTest = new CellTest(this);
     }
@@ -61,17 +55,10 @@ public class UiStatus implements IUpdate {
     public boolean isTesting() {
         return cellTest.isTesting();
     }
-
-    public int getId() {
-        return id;
-    }
-
-    public int getRow() {
-        return row;
-    }
-
-    public int getColumn() {
-        return column;
+    
+    public UiInformartion getInfo()
+    {
+        return informartion;
     }
 
     @Override
@@ -89,7 +76,7 @@ public class UiStatus implements IUpdate {
         if (isNull(name)) {
             return false;
         }
-        return this.name.equals(name);
+        return getName().equals(name);
     }
 
     public boolean isUI(AbsSubUi ui) {
@@ -104,7 +91,7 @@ public class UiStatus implements IUpdate {
     }
 
     public String getName() {
-        return name;
+        return this.informartion.getName();
     }
 
     public void startTest(InputData inputData) {

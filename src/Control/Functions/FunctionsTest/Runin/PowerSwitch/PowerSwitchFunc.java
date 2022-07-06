@@ -29,7 +29,7 @@ public class PowerSwitchFunc extends AbsFunction {
             addLog("CONFIG", "passWord: " + pass);
             int times = this.allConfig.getInteger("Times");
             addLog("CONFIG", "Times: " + times);
-            int index = this.uiStatus.getColumn();
+            int index = this.uIInfo.getCOLUMN();
             addLog("CONFIG", "index of switch: " + index);
             int delay = this.allConfig.getInteger("Delay");
             addLog("CONFIG", "Delay time: " + delay);
@@ -86,7 +86,7 @@ public class PowerSwitchFunc extends AbsFunction {
 
     private String createNewIp() throws NumberFormatException {
         Integer oldIp = Integer.valueOf(getIP());
-        Integer row = uiStatus.getRow();
+        Integer row = uIInfo.getROW();
         return String.format("%s.%s", getNetIp(), oldIp + row - 1);
     }
 

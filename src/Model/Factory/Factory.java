@@ -6,8 +6,8 @@ package Model.Factory;
 
 import View.subUI.FormDetail.TabFaApi.TabFaApiProxy;
 import Control.Functions.AbsFunction;
-import Control.Functions.FunctionsTest.Base.CreateFaJson.CreateFaJsonProxy;
-import Control.Functions.FunctionsTest.Base.CreateTxtLog.CreateTxtLogProxy;
+import Control.Functions.FunctionsTest.FaAPI.CreateFaJson.CreateFaJsonProxy;
+import Control.Functions.FunctionsTest.FaAPI.CreateTxtLog.CreateTxtLogProxy;
 import Control.Functions.FunctionsTest.Base.GetMacFromSfis.GetMacFormSfisProxy;
 import Control.Functions.FunctionsTest.Base.PingIP.PingIpProxy;
 import Control.Functions.FunctionsTest.Base.SFIS.SfisFunctionProxy;

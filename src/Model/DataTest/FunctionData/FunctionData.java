@@ -62,10 +62,14 @@ public class FunctionData {
         this.loger.addLog(str);
     }
 
+    public void addLog(String key, Object str) {
+        this.loger.addLog(key, str);
+    }
+
     public String getResultTest() {
         return thisItem.getResultTest();
     }
-    
+
     public String getStausTest() {
         return thisItem.getStatusTest();
     }
@@ -110,9 +114,9 @@ public class FunctionData {
     public void setStatus(boolean stt) {
         this.thisItem.setPass(stt);
     }
-    
+
     public void setFail(String errorType) {
-       this.thisItem.setFail(errorType);
+        this.thisItem.setFail(errorType);
     }
 
     public String getErrorCode() {

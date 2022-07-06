@@ -8,9 +8,6 @@ import Model.AllKeyWord;
 import Model.DataSource.DataWareHouse;
 import Model.DataTest.FunctionData.FunctionData;
 import Model.DataTest.FunctionData.ItemTestData;
-import Model.DataTest.ProcessTestSignal;
-import Model.DataTest.ProductData;
-import MyLoger.MyLoger;
 import Time.TimeBase;
 import com.alibaba.fastjson.JSONObject;
 import java.util.ArrayList;
@@ -44,11 +41,7 @@ public class ProcessData {
     public List<FunctionData> getDataBoxs() {
         return listFunctionData;
     }
-
-    public JSONObject getBaseData() {
-        return this.data.toJson();
-    }
-
+    
     public JSONObject getItemData(String itemName, List<String> keys) {
         if (getItemTestData(itemName) == null) {
             return null;
@@ -130,5 +123,18 @@ public class ProcessData {
 
     public ProductData getProductData() {
         return productData;
+    }
+
+    public String getString(String key) {
+        if (this.data.getString(key) != null) {
+            return this.data.getString(key);
+        }
+        if (this.productData.getString(key) != null) {
+            return this.productData.getString(key);
+        }
+        if (this.signal.getString(key) != null) {
+            return this.signal.getString(key);
+        }
+        return null;
     }
 }
