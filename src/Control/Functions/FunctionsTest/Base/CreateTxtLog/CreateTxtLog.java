@@ -36,7 +36,7 @@ public class CreateTxtLog extends AbsFunction {
             this.txtFile = creatFilePath("serial.txt");
             addLog("file path: " + this.txtFile);
             loger.begin(new File(this.txtFile), true, true);
-            for (FunctionData dataBox : uiData.getDataBoxs()) {
+            for (FunctionData dataBox : processData.getDataBoxs()) {
                 if (dataBox.isTesting()) {
                     continue;
                 }

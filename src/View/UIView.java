@@ -19,6 +19,7 @@ import javax.swing.DefaultComboBoxModel;
 import javax.swing.DefaultListCellRenderer;
 import javax.swing.JLabel;
 import javax.swing.JList;
+import javax.swing.JTextArea;
 import javax.swing.SwingConstants;
 
 /**
@@ -121,6 +122,11 @@ public class UIView extends javax.swing.JFrame {
     public void showMessager(String mess) {
         this.textMess.setText(mess);
     }
+
+    public JTextArea getTextMess() {
+        return textMess;
+    }
+    
 
     /**
      * This method is called from within the constructor to initialize the form.

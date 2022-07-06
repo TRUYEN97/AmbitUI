@@ -8,7 +8,10 @@ import Control.CheckInput;
 import Model.DataSource.PcInformation;
 import Model.DataSource.Setting.Setting;
 import Model.DataSource.Setting.ModeElement;
+import Time.TimeBase;
 import View.UIView;
+import commandprompt.Communicate.DHCP.DHCP;
+import java.io.File;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -70,12 +73,17 @@ public class Engine {
         if (!setting.isOnDHCP()) {
             return;
         }
-        String netIP = setting.getDhcpNetIP();
+        String netIP = this.setting.getDhcpNetIP();
         this.view.showMessager("////DHCP//////\r\nSet net IP: " + netIP);
-        this.dhcp.setView(view);
-        if (this.dhcp.setNetIP(netIP)) {
+        this.dhcp.setView(this.view.getTextMess());
+        if (this.dhcp.init(createFilePath()) && this.dhcp.setNetIP(netIP)) {
             new Thread(this.dhcp).start();
         }
     }
 
+    private File createFilePath() {
+        String localLog = Setting.getInstance().getLocalLogPath();
+        return new File(String.format("%s/DHCP/%s.txt",
+                localLog, new TimeBase().getDate()));
+    }
 }

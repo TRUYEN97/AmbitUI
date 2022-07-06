@@ -38,8 +38,8 @@ public class CellTest {
         this.process = new Process(uiStatus);
         this.subUi = uiStatus.getSubUi();
         this.processData = uiStatus.getProcessData();
-        this.testSignal = uiStatus.getSignal();
-        this.productData = uiStatus.getProductData();
+        this.testSignal = this.processData.getSignal();
+        this.productData = this.processData.getProductData();
         this.myTime = new MyTime();
     }
 

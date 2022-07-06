@@ -7,10 +7,10 @@ package Control.Functions.FunctionsTest.Base.SFIS;
 import Control.Functions.AbsFunction;
 import Model.AllKeyWord;
 import Model.DataSource.Setting.Setting;
-import Model.DataTest.DhcpData;
 import Model.ErrorLog;
 import SfisAPI17.SfisAPI;
 import com.alibaba.fastjson.JSONObject;
+import commandprompt.Communicate.DHCP.DhcpData;
 import java.util.List;
 
 /**
@@ -85,7 +85,7 @@ public class SfisFunction extends AbsFunction {
             return false;
         }
         if (response.contains(SfisAPI.SEND_SFIS__EXCEPTION)) {
-            this.uiData.setMessage(response);
+            this.processData.setMessage(response);
             return false;
         }
         JSONObject res = JSONObject.parseObject(response);
@@ -104,7 +104,7 @@ public class SfisFunction extends AbsFunction {
             return getDataToProductInfo(listKey, data);
         } else {
             this.addLog(res.getString("message"));
-            this.uiData.setMessage(res.getString("message"));
+            this.processData.setMessage(res.getString("message"));
             return false;
         }
     }
@@ -134,17 +134,17 @@ public class SfisFunction extends AbsFunction {
             return false;
         }
         if (response.contains(SfisAPI.SEND_SFIS__EXCEPTION)) {
-            this.uiData.setMessage(response);
+            this.processData.setMessage(response);
             return false;
         }
         try {
             JSONObject res = JSONObject.parseObject(response);
-            this.uiData.setMessage(res.getString(AllKeyWord.MESSAGE));
+            this.processData.setMessage(res.getString(AllKeyWord.MESSAGE));
             return res.getString(AllKeyWord.RESULT).equals(PASS);
         } catch (Exception e) {
             e.printStackTrace();
             ErrorLog.addError(this, e.getMessage());
-            this.uiData.setMessage(e.getMessage());
+            this.processData.setMessage(e.getMessage());
             return false;
         }
     }

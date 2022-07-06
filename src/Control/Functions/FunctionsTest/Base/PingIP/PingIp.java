@@ -5,10 +5,9 @@
 package Control.Functions.FunctionsTest.Base.PingIP;
 
 import Control.Functions.AbsFunction;
-import Model.AllKeyWord;
 import Model.DataSource.Setting.Setting;
-import Model.DataTest.DhcpData;
 import commandprompt.Communicate.Cmd.Cmd;
+import commandprompt.Communicate.DHCP.DhcpData;
 
 /**
  *

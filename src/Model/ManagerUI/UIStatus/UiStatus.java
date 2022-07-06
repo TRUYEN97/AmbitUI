@@ -9,6 +9,7 @@ import Control.Core.Core;
 import Control.Core.ModeTest;
 import Control.Core.CellTest;
 import Model.AllKeyWord;
+import Model.DataSource.DataWareHouse;
 import Model.DataTest.InputData;
 import Model.DataTest.ProcessTestSignal;
 import Model.DataTest.ProductData;
@@ -24,26 +25,20 @@ public class UiStatus implements IUpdate {
 
     private final AbsSubUi subUi;
     private final String name;
-    private final int id;
-    private final int row;
-    private final int column;
     private final Core core;
+    private final DataWareHouse info;
     private final ProcessData processData;
-    private final ProcessTestSignal signal;
-    private final ProductData productData;
     private final CellTest cellTest;
     private ModeTest modeTest;
 
     public UiStatus(AbsSubUi subUi, Core core, int id, int row, int column) {
         this.subUi = subUi;
         this.name = subUi.getName();
-        this.id = id;
-        this.row = row;
-        this.column = column;
-        this.core = core;
+        this.info = new DataWareHouse();
+        this.info.put("ID", id);
+        this.info.put("row", id);
+        this.info.put("ID", id);
         this.processData = new ProcessData();
-        this.signal = new ProcessTestSignal();
-        this.productData = new ProductData();
         this.cellTest = new CellTest(this);
     }
 
@@ -114,15 +109,7 @@ public class UiStatus implements IUpdate {
 
     public void startTest(InputData inputData) {
         inputData.put(AllKeyWord.MODE, this.modeTest.getModeType());
-        this.productData.setInputData(inputData);
+        this.processData.getProductData().setInputData(inputData);
         this.cellTest.start();
-    }
-
-    public ProcessTestSignal getSignal() {
-        return signal;
-    }
-
-    public ProductData getProductData() {
-        return productData;
     }
 }

@@ -21,7 +21,7 @@ import Model.DataTest.ProductData;
 public abstract class AbsFunction implements IFunction {
 
     protected final FuncAllConfig allConfig;
-    protected ProcessData uiData;
+    protected ProcessData processData;
     protected AbsSubUi subUi;
     protected ProcessTestSignal testSignal;
     protected UiStatus uiStatus;
@@ -37,14 +37,14 @@ public abstract class AbsFunction implements IFunction {
     public void setResources(UiStatus uiStatus, FunctionData functionData) {
         this.functionData = functionData;
         this.uiStatus = uiStatus;
-        this.uiData = uiStatus.getProcessData();
-        this.testSignal = uiStatus.getSignal();
-        this.productData = uiStatus.getProductData();
+        this.processData = uiStatus.getProcessData();
+        this.testSignal = this.processData.getSignal();
+        this.productData = this.processData.getProductData();
         this.subUi = uiStatus.getSubUi();
         this.allConfig.setResources(uiStatus);
         this.itemTestData = new ItemTestData(allConfig);
         this.functionData.addItemtest(itemTestData);
-        this.uiData.addFunctionData(functionData);
+        this.processData.addFunctionData(functionData);
         this.analysisResult = new AnalysisResult(itemTestData, allConfig);
     }
 

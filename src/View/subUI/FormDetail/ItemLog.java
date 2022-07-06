@@ -113,7 +113,6 @@ public class ItemLog extends javax.swing.JFrame {
     private void formWindowClosed(java.awt.event.WindowEvent evt) {//GEN-FIRST:event_formWindowClosed
         // TODO add your handling code here:
         stopTimer();
-        this.tabItem.getItemLogs().remove(dataBox);
     }//GEN-LAST:event_formWindowClosed
 
     /**

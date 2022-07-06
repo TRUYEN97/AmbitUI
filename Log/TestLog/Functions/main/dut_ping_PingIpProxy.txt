@@ -1,25 +1,36 @@
-2022-07-05 10:39:45.276:   ITEM[dut_ping] - FUNCTION[PingIpProxy]
-2022-07-05 10:39:45.277:   Turn 0:
-2022-07-05 10:39:45.277:   Get IP!
-2022-07-05 10:39:45.278:   IP: 192.168.0.0
-2022-07-05 10:39:45.278:   command: ping 192.168.0.0 -n 200
-2022-07-05 10:39:45.307:   [PING]
-2022-07-05 10:39:45.307:   [PING] Pinging 192.168.0.0 with 32 bytes of data:
-2022-07-05 10:39:49.264:   [PING] Request timed out.
-2022-07-05 10:39:54.259:   [PING] Request timed out.
-2022-07-05 10:39:59.253:   [PING] Request timed out.
-2022-07-05 10:40:04.254:   [PING] Request timed out.
-2022-07-05 10:40:09.266:   [PING] Request timed out.
-2022-07-05 10:40:14.255:   [PING] Request timed out.
-2022-07-05 10:40:19.257:   [PING] Request timed out.
-2022-07-05 10:40:24.255:   [PING] Request timed out.
-2022-07-05 10:40:29.264:   [PING] Request timed out.
-2022-07-05 10:40:30.281:   [PING] Reply from 192.168.0.0: bytes=32 time=2ms TTL=64
-2022-07-05 10:40:30.282:   ****************************************************
-2022-07-05 10:40:30.282:   Limit type: "BOOL"
-2022-07-05 10:40:30.283:   Uper limit: ""
-2022-07-05 10:40:30.283:   Lowet limit: ""
-2022-07-05 10:40:30.283:   Test Value: "passed"
-2022-07-05 10:40:30.284:   Item name: DUT_PING
-2022-07-05 10:40:30.285:   ****************************************************
-2022-07-05 10:40:30.287:   TIME[45.008 s] - STATUS[PASSED]
+2022-07-06 06:32:41.517:   ITEM[dut_ping] - FUNCTION[PingIpProxy]
+2022-07-06 06:32:41.518:   Turn 0:
+2022-07-06 06:32:41.518:   Get IP!
+2022-07-06 06:32:41.520:   IP: 192.168.0.0
+2022-07-06 06:32:41.520:   command: ping 192.168.0.0 -n 200
+2022-07-06 06:32:41.536:   [PING]
+2022-07-06 06:32:41.536:   [PING] Pinging 192.168.0.0 with 32 bytes of data:
+2022-07-06 06:32:45.263:   [PING] Request timed out.
+2022-07-06 06:32:50.267:   [PING] Request timed out.
+2022-07-06 06:32:55.258:   [PING] Request timed out.
+2022-07-06 06:33:00.258:   [PING] Request timed out.
+2022-07-06 06:33:05.268:   [PING] Request timed out.
+2022-07-06 06:33:10.259:   [PING] Request timed out.
+2022-07-06 06:33:15.261:   [PING] Request timed out.
+2022-07-06 06:33:20.268:   [PING] Request timed out.
+2022-07-06 06:33:25.268:   [PING] Request timed out.
+2022-07-06 06:33:30.269:   [PING] Request timed out.
+2022-07-06 06:33:35.267:   [PING] Request timed out.
+2022-07-06 06:33:40.258:   [PING] Request timed out.
+2022-07-06 06:33:45.259:   [PING] Request timed out.
+2022-07-06 06:33:50.259:   [PING] Request timed out.
+2022-07-06 06:33:55.260:   [PING] Request timed out.
+2022-07-06 06:34:00.260:   [PING] Request timed out.
+2022-07-06 06:34:05.262:   [PING] Request timed out.
+2022-07-06 06:34:10.268:   [PING] Request timed out.
+2022-07-06 06:34:15.256:   [PING] Request timed out.
+2022-07-06 06:34:20.257:   [PING] Request timed out.
+2022-07-06 06:34:22.199:   This function has out of run time!
+2022-07-06 06:34:22.200:   Time: 100.681 S
+2022-07-06 06:34:22.200:   Spec: 100.0 S
+2022-07-06 06:34:22.200:   Try to stop!!
+2022-07-06 06:34:22.203:   This function will be stop! Because out of time: (Test time: 100.692 S) > (100 S)
+2022-07-06 06:34:22.204:   Error code: 8
+2022-07-06 06:34:22.204:   Local error code: 10.1.0
+2022-07-06 06:34:22.205:   Local error des: dut_ping
+2022-07-06 06:34:22.206:   TIME[100.687 s] - STATUS[FAILED]

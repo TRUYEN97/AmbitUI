@@ -8,7 +8,8 @@ import Model.AllKeyWord;
 import Model.DataSource.DataWareHouse;
 import Model.DataTest.FunctionData.FunctionData;
 import Model.DataTest.FunctionData.ItemTestData;
-import Model.ManagerUI.UIStatus.UiStatus;
+import Model.DataTest.ProcessTestSignal;
+import Model.DataTest.ProductData;
 import MyLoger.MyLoger;
 import Time.TimeBase;
 import com.alibaba.fastjson.JSONObject;
@@ -27,15 +28,17 @@ public class ProcessData {
     private final Map<String, ItemTestData> mapFunctionData;
     private final DataWareHouse data;
     private final TimeBase timeBase;
-    private final MyLoger loger;
+    private final ProcessTestSignal signal;
+    private final ProductData productData;
     private String message;
 
     public ProcessData() {
         this.listFunctionData = new ArrayList<>();
         this.mapFunctionData = new HashMap<>();
         this.data = new DataWareHouse();
+        this.signal = new ProcessTestSignal();
+        this.productData = new ProductData();
         this.timeBase = new TimeBase();
-        this.loger = new MyLoger();
     }
 
     public List<FunctionData> getDataBoxs() {
@@ -118,5 +121,14 @@ public class ProcessData {
         this.message = null;
         this.listFunctionData.clear();
         this.mapFunctionData.clear();
+        this.data.clear();
+    }
+
+    public ProcessTestSignal getSignal() {
+        return signal;
+    }
+
+    public ProductData getProductData() {
+        return productData;
     }
 }

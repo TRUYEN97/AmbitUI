@@ -165,10 +165,6 @@ public class TabItem extends AbsTabUI {
         }
     }
 
-    public Map<FunctionData, ItemLog> getItemLogs() {
-        return itemLogs;
-    }
-
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JTable tableItem;
@@ -194,6 +190,7 @@ public class TabItem extends AbsTabUI {
 
     @Override
     public void startTest() {
+        this.itemLogs.clear();
         initTable(testColumn);
         super.startTest();
     }
@@ -207,7 +204,6 @@ public class TabItem extends AbsTabUI {
     @Override
     public void updateData() {
         if (!this.isVisible()) {
-            this.tableModel.setRowCount(0);
             return;
         }
         List<FunctionData> dataBoxs = this.uiStatus.getProcessData().getDataBoxs();
