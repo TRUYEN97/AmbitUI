@@ -6,15 +6,18 @@ package Model.Factory;
 
 import View.subUI.FormDetail.TabFaApi.TabFaApiProxy;
 import Control.Functions.AbsFunction;
+import Control.Functions.FunctionsTest.Base.CheckDutInfo.CheckDutInfoProxy;
 import Control.Functions.FunctionsTest.FaAPI.CreateFaJson.CreateFaJsonProxy;
 import Control.Functions.FunctionsTest.FaAPI.CreateTxtLog.CreateTxtLogProxy;
 import Control.Functions.FunctionsTest.Base.GetMacFromSfis.GetMacFormSfisProxy;
-import Control.Functions.FunctionsTest.Base.PingIP.PingIpProxy;
+import Control.Functions.FunctionsTest.Base.DutPing.DutPingProxy;
+import Control.Functions.FunctionsTest.Base.DutTelnet.DutTelnetProxy;
 import Control.Functions.FunctionsTest.Base.SFIS.SfisFunctionProxy;
 import Control.Functions.FunctionsTest.FaAPI.inputFaData.InputFaDataProxy;
 import Control.Functions.FunctionsTest.Runin.PowerSwitch.PowerSwitchProxy;
 import Control.Functions.FunctionsTest.Base.UpFTP.UpFTPProxy;
 import Control.Functions.FunctionsTest.FaAPI.UpJsonAPI.UpAPIProxy;
+import Control.Functions.FunctionsTest.Runin.SendCommand.SendCommandProxy;
 import Control.Functions.InitPackages.InitProxy.IdPasswordProxy;
 import View.subUI.FormDetail.AbsTabUI;
 import View.subUI.SubUI.AbsSubUi;
@@ -102,6 +105,9 @@ public class Factory {
         this.functions.addType(new UpAPIProxy());
         this.functions.addType(new UpFTPProxy());
         this.functions.addType(new PowerSwitchProxy());
-        this.functions.addType(new PingIpProxy());
+        this.functions.addType(new DutPingProxy());
+        this.functions.addType(new DutTelnetProxy());
+        this.functions.addType(new CheckDutInfoProxy());
+        this.functions.addType(new SendCommandProxy());
     }
 }

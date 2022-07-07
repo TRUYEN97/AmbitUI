@@ -76,7 +76,7 @@ public class Engine {
         String netIP = this.setting.getDhcpNetIP();
         this.view.showMessager("////DHCP//////\r\nSet net IP: " + netIP);
         this.dhcp.setView(this.view.getTextMess());
-        if (this.dhcp.init(createFilePath()) && this.dhcp.setNetIP(netIP)) {
+        if ( this.dhcp.setNetIP(netIP) && this.dhcp.init(createFilePath())) {
             new Thread(this.dhcp).start();
         }
     }

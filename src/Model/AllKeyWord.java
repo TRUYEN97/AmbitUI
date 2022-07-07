@@ -54,6 +54,7 @@ public class AllKeyWord {
     public static final String COUNTTEST = "counttest";
     public static final String SN = "sn";
     public static final String MLBSN = "mlbsn";
+    public static final String IP = "Ip";
     public static final String MAC = "ethernetmac";
     public static final String PCNAME = "pcname";
     public static final String STATUS = "status";

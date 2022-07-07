@@ -1,7 +1,7 @@
 {
     "UUT_MODEL": "eden",
     "station_type": "RUNIN",
-    "TIME_OUT_TEST": 100,
+    "TIME_OUT_TEST": 500,
     "INIT": [
         {
             "FLAG": false,
@@ -17,34 +17,72 @@
             "CANCEL": "DEBUG",
             "FAIL_CONTNIUE": true,
             "TIME_OVER": 1,
-            "MULTI_TASK": false,
-            "RETRY": 1,
+            "MULTI_TASK": true,
             "test_name": "mac",
             "FUNC_NAME": "GetMacFormSfisProxy"
+        },
+        {
+            "FLAG": false,
+            "TIME_OVER": 30,
+            "MULTI_TASK": false,
+            "host": "192.168.0.10",
+            "user": "admin",
+            "password": "1234",
+            "Times": 1,
+            "Delay": 3,
+            "test_name": "wps_ok",
+            "FUNC_NAME": "PowerSwitchProxy"
         }
     ],
     "Functions": [
         {
-            "FLAG": false,
-            "TIME_OVER": 70,
-            "MULTI_TASK": false,
-            "RETRY": 2,
-            "host": "192.168.0.10",
-            "user": "admin",
-            "password": "1234",
-            "Times": 10,
-            "Delay": 3,
-            "test_name": "wps_ok",
-            "FUNC_NAME": "PowerSwitchProxy"
-        },
-        {
             "FLAG": true,
-            "TIME_OVER": 100,
+            "TIME_OVER": 10,
             "MULTI_TASK": false,
             "IP": "192.168.1.1",
             "test_name": "dut_ping",
-            "FUNC_NAME": "PingIpProxy"
+            "FUNC_NAME": "DutPingProxy"
+        },
+        {
+            "FLAG": true,
+            "TIME_OVER": 10,
+            "MULTI_TASK": false,
+            "IP": "192.168.1.1",
+            "test_name": "dut_telnet",
+            "FUNC_NAME": "DutTelnetProxy"
+        },
+        {
+            "FLAG": true,
+            "TIME_OVER": 10,
+            "MULTI_TASK": false,
+            "IP": "192.168.1.1",
+            "command": "fw_printenv  serial",
+            "keyWord": "serial",
+            "compareWith": "mblsn",
+            "test_name": "sn_ok",
+            "FUNC_NAME": "CheckDutInfoProxy"
+        },
+        {
+            "FLAG": true,
+            "TIME_OVER": 10,
+            "MULTI_TASK": false,
+            "IP": "192.168.1.1",
+            "command": "fw_printenv  mac",
+            "keyWord": "mac",
+            "compare": "ethernetmac",
+            "test_name": "mac_ok",
+            "FUNC_NAME": "CheckDutInfoProxy"
+        },
+        {
+            "FLAG": true,
+            "TIME_OVER": 10,
+            "MULTI_TASK": false,
+            "IP": "192.168.1.1",
+            "command": "cat /sys/bus/i2c/devices/0-0030/name1",
+            "test_name": "led_vendor",
+            "FUNC_NAME": "SendCommandProxy"
         }
+
     ],
     "END": [
         {

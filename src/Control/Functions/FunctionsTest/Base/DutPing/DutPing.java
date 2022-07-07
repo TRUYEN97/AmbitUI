@@ -2,7 +2,7 @@
  * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
  * Click nbfs://nbhost/SystemFileSystem/Templates/Classes/Class.java to edit this template
  */
-package Control.Functions.FunctionsTest.Base.PingIP;
+package Control.Functions.FunctionsTest.Base.DutPing;
 
 import Control.Functions.AbsFunction;
 import Model.DataSource.Setting.Setting;
@@ -13,9 +13,9 @@ import commandprompt.Communicate.DHCP.DhcpData;
  *
  * @author Administrator
  */
-public class PingIp extends AbsFunction {
+public class DutPing extends AbsFunction {
 
-    public PingIp(String itemName) {
+    public DutPing(String itemName) {
         super(itemName);
     }
 

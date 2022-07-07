@@ -21,11 +21,12 @@ public class GetMacFromSfis extends AbsFunction {
     public boolean test() {
         try {
             String mac = this.productData.getString(AllKeyWord.MAC);
-            if (mac == null || mac.length() != 17) {
+            if (mac == null || mac.length() != 17 || mac.length() != 12) {
                 addLog("MAC is invalid: " + mac);
                 return false;
             }
             addLog("Get mac= " + mac);
+            setResult(mac);
             return true;
         } finally {
             addLog("MAC range 100000000000-ffffffffffff");
