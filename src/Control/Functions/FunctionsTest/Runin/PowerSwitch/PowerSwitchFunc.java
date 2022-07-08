@@ -7,6 +7,7 @@ package Control.Functions.FunctionsTest.Runin.PowerSwitch;
 import Control.Functions.AbsFunction;
 import Model.ErrorLog;
 import commandprompt.Communicate.PowerSwitch.PowerSwitch;
+import java.util.List;
 
 /**
  *
@@ -32,12 +33,12 @@ public class PowerSwitchFunc extends AbsFunction {
             int index = this.uIInfo.getCOLUMN();
             addLog("CONFIG", "index of switch: " + index);
             int delay = this.allConfig.getInteger("Delay");
-            addLog("CONFIG", "Delay time: " + delay);
+            addLog("CONFIG", "Delay time: " + delay +" s");
             PowerSwitch powerSwitch;
             for (int i = 1; i <= times; i++) {
                 powerSwitch = new PowerSwitch(host, user, pass);
                 addLog(String.format("cycle Times: %d - %d ", i, times));
-                if (!onOff(powerSwitch, index, delay)) {
+                if (!run(powerSwitch, index, delay)) {
                     return false;
                 }
             }
@@ -58,23 +59,28 @@ public class PowerSwitchFunc extends AbsFunction {
         return createNewIp();
     }
 
-    private boolean onOff(PowerSwitch powerSwitch, int index, int delayS) {
+    private boolean run(PowerSwitch powerSwitch, int index, int delayS) {
         try {
-            try {
-                if (!powerSwitch.setOff(index)) {
-                    return false;
+            List<String> commands = allConfig.getListSlip("Command", ",");
+            for (String command : commands) {
+                try {
+                    if (command.equalsIgnoreCase("on")) {
+                        if (!powerSwitch.setOn(index)) {
+                            return false;
+                        }
+                    } else if (command.equalsIgnoreCase("off")) {
+                        if (!powerSwitch.setOff(index)) {
+                            return false;
+                        }
+                    } else if (command.equalsIgnoreCase("cycle")) {
+                        if (!powerSwitch.setCycle(index)) {
+                            return false;
+                        }
+                    }
+                } finally {
+                    addLog("POWER_SWITCH", powerSwitch.getResult());
+                    Thread.sleep(delayS * 1000);
                 }
-            } finally {
-                addLog("POWER_SWITCH", powerSwitch.getResult());
-                Thread.sleep(1000);
-            }
-            try {
-                if (!powerSwitch.setOn(index)) {
-                    return false;
-                }
-            } finally {
-                addLog("POWER_SWITCH", powerSwitch.getResult());
-                Thread.sleep(delayS * 1000);
             }
             return true;
         } catch (InterruptedException ex) {

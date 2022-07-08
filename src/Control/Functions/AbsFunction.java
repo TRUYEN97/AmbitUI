@@ -27,9 +27,9 @@ public abstract class AbsFunction implements IFunction {
     protected ProcessTestSignal testSignal;
     protected ProductData productData;
     protected UiInformartion uIInfo;
+    private  FunctionData functionData;
     private ItemTestData itemTestData;
     private AnalysisResult analysisResult;
-    private FunctionData functionData;
 
     protected AbsFunction(String itemName) {
         this.allConfig = new FuncAllConfig(itemName);

@@ -75,7 +75,6 @@ public class CellTest {
     }
 
     private boolean runFunctions(List<FunctionName> functions) {
-        System.out.println(functions);
         process.setListFunc(functions);
         process.run();
         return process.isPass();

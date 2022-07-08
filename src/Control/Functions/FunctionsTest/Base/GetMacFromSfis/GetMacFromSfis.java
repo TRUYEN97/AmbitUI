@@ -5,7 +5,10 @@
 package Control.Functions.FunctionsTest.Base.GetMacFromSfis;
 
 import Control.Functions.AbsFunction;
+import Control.Functions.FunctionsTest.Base.BaseFunction;
 import Model.AllKeyWord;
+import Model.DataTest.FunctionData.FunctionData;
+import Model.ManagerUI.UIStatus.UiStatus;
 
 /**
  *
@@ -13,19 +16,26 @@ import Model.AllKeyWord;
  */
 public class GetMacFromSfis extends AbsFunction {
 
-    public GetMacFromSfis(String FunctionName) {
-        super(FunctionName);
+    private final BaseFunction baseFunc;
+
+    public GetMacFromSfis(String itemName) {
+        super(itemName);
+        this.baseFunc = new BaseFunction(itemName);
+    }
+
+    @Override
+    public void setResources(UiStatus uiStatus, FunctionData functionData) {
+        super.setResources(uiStatus, functionData); // Generated from nbfs://nbhost/SystemFileSystem/Templates/Classes/Code/OverriddenMethodBody
+        this.baseFunc.setResources(uiStatus, functionData);
     }
 
     @Override
     public boolean test() {
         try {
-            String mac = this.productData.getString(AllKeyWord.MAC);
-            if (mac == null || mac.length() != 17 || mac.length() != 12) {
-                addLog("MAC is invalid: " + mac);
+            String mac = this.baseFunc.getMac();
+            if (mac == null) {
                 return false;
             }
-            addLog("Get mac= " + mac);
             setResult(mac);
             return true;
         } finally {

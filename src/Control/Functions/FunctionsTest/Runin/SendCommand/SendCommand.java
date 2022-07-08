@@ -5,7 +5,10 @@
 package Control.Functions.FunctionsTest.Runin.SendCommand;
 
 import Control.Functions.AbsFunction;
+import Control.Functions.FunctionsTest.Base.BaseFunction;
 import Model.DataSource.Setting.Setting;
+import Model.DataTest.FunctionData.FunctionData;
+import Model.ManagerUI.UIStatus.UiStatus;
 import Time.WaitTime.Class.TimeMs;
 import commandprompt.Communicate.DHCP.DhcpData;
 import commandprompt.Communicate.Telnet.Telnet;
@@ -16,40 +19,25 @@ import commandprompt.Communicate.Telnet.Telnet;
  */
 public class SendCommand extends AbsFunction {
 
+    private final BaseFunction baseFunc;
+
     public SendCommand(String itemName) {
         super(itemName);
+        this.baseFunc = new BaseFunction(itemName);
+    }
+
+    @Override
+    public void setResources(UiStatus uiStatus, FunctionData functionData) {
+        super.setResources(uiStatus, functionData); // Generated from nbfs://nbhost/SystemFileSystem/Templates/Classes/Code/OverriddenMethodBody
+        this.baseFunc.setResources(uiStatus, functionData);
     }
 
     @Override
     protected boolean test() {
-        addLog("Get IP!");
-        String ip = getIp();
-        addLog("IP: " + ip);
-        if (ip == null) {
-            return false;
-        }
-        return sendCommand(ip);
-    }
-
-    private String getIp() {
-        if (Setting.getInstance().isOnDHCP()) {
-            return getFromDHCP();
-        }
-        return allConfig.getString("IP");
-    }
-
-    private String getFromDHCP() {
-        //            String mac = productData.getString(AllKeyWord.MAC);
-        String mac = "649714048d60";
-        if (mac == null) {
-            return null;
-        }
-        return DhcpData.getInstance().getIP(mac);
-    }
-
-    private boolean sendCommand(String ip) {
-        Telnet telnet = new Telnet();
-        if (!connect(ip, telnet) || !sendCommand(telnet)) {
+        String ip = this.baseFunc.getIp();
+        Telnet telnet;
+        if (ip == null || (telnet = this.baseFunc.getTelnet(ip, 23)) == null
+                || !this.baseFunc.sendCommand(telnet, allConfig.getString("command"))) {
             return false;
         }
         String value = getValue(telnet);
@@ -61,21 +49,8 @@ public class SendCommand extends AbsFunction {
         return true;
     }
 
-    private boolean connect(String ip, Telnet telnet) {
-        addLog("CONFIG", "Connect to host: " + ip);
-        addLog("CONFIG", "Connect to port: " + 23);
-        if (!telnet.connect(ip, 23)) {
-            addLog("Telnet", "Connect failed!");
-            return false;
-        }
-        addLog("Telnet", telnet.readAll(new TimeMs(200)));
-        return true;
-    }
-
     private String getValue(Telnet telnet) {
-        String key = allConfig.getString("keyWord");
-        addLog("CONFIG", "key word: " + key);
-        String response = telnet.readAll(new TimeMs(100));
+        String response = telnet.readAll(new TimeMs(300));
         addLog("Telnet", response);
         String[] lines = response.split("\r\n");
         if (lines.length != 3) {
@@ -84,13 +59,4 @@ public class SendCommand extends AbsFunction {
         return lines[1].trim();
     }
 
-    private boolean sendCommand(Telnet telnet) {
-        String command = allConfig.getString("command");
-        addLog("PC", "Send command: " + command);
-        if (!telnet.sendCommand(command)) {
-            addLog("PC", "send command \" " + command + "\" failed!");
-            return false;
-        }
-        return true;
-    }
 }
