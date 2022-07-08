@@ -6,7 +6,6 @@ package Control.Functions.FunctionsTest.Runin.SendCommand;
 
 import Control.Functions.AbsFunction;
 import Model.DataSource.Setting.Setting;
-import Time.WaitTime.Class.TimeMM;
 import Time.WaitTime.Class.TimeMs;
 import commandprompt.Communicate.DHCP.DhcpData;
 import commandprompt.Communicate.Telnet.Telnet;

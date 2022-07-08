@@ -75,17 +75,10 @@ public class CellTest {
     }
 
     private boolean runFunctions(List<FunctionName> functions) {
+        System.out.println(functions);
         process.setListFunc(functions);
         process.run();
         return process.isPass();
-    }
-
-    private boolean runItemFunctions() {
-        List<FunctionName> testFunctions = getTestFuntions();
-        if (testFunctions.isEmpty()) {
-            return false;
-        }
-        return runFunctions(testFunctions);
     }
 
     private List<FunctionName> getTestFuntions() {
@@ -109,7 +102,7 @@ public class CellTest {
                     prepare();
                     if (runFunctions(testSource.getCheckFunctions())) {
                         try {
-                            runItemFunctions();
+                            runFunctions(getTestFuntions());
                         } finally {
                             processData.setFinishTime();
                         }

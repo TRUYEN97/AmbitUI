@@ -30,11 +30,11 @@ class Process implements IFunction {
         this.functions = new ArrayList<>();
         this.factory = Factory.getInstance();
         this.uiStatus = uiStatus;
-        this.result = true;
     }
 
     public void setListFunc(List<FunctionName> functions) {
         this.functions.clear();
+        this.result = true;
         this.functions.addAll(functions);
     }
 
