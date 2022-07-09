@@ -10,7 +10,7 @@
     "LOCAL_LOG": "Log\\TestLog",
     "LOCAL_FUNCTION_LOG": "Log\\TestLog\\Functions",
     "DETAIL": ["TabViewProxy", "TabItemProxy", "TabLogProxy"],
-    "LimitCMD": "cd python && eero_api_limits_eden.py Runin",
+    "LimitCMD": "cd python && eero_api_limits_Trieste.py Runin",
     "DETAIL": ["TabViewProxy", "TabFaApiProxy", "TabItemProxy"],
     "LOAD_MODE": [
         {

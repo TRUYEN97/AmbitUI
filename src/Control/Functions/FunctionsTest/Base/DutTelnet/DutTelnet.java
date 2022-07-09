@@ -6,12 +6,8 @@ package Control.Functions.FunctionsTest.Base.DutTelnet;
 
 import Control.Functions.AbsFunction;
 import Control.Functions.FunctionsTest.Base.BaseFunction;
-import Model.DataSource.Setting.Setting;
 import Model.DataTest.FunctionData.FunctionData;
 import Model.ManagerUI.UIStatus.UiStatus;
-import Time.WaitTime.Class.TimeMs;
-import commandprompt.Communicate.DHCP.DhcpData;
-import commandprompt.Communicate.Telnet.Telnet;
 
 /**
  *
@@ -36,7 +32,7 @@ public class DutTelnet extends AbsFunction {
     protected boolean test() {
         String ip = this.baseFunc.getIp();
         addLog("IP: " + ip);
-        if (ip == null || !this.baseFunc.pingTo(ip)) {
+        if (ip == null) {
             return false;
         }
         return this.baseFunc.getTelnet(ip, 23) != null;

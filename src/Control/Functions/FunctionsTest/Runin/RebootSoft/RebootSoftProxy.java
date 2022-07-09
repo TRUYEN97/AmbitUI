@@ -2,7 +2,7 @@
  * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
  * Click nbfs://nbhost/SystemFileSystem/Templates/Classes/Class.java to edit this template
  */
-package Control.Functions.FunctionsTest.Base.CheckDutInfo;
+package Control.Functions.FunctionsTest.Runin.RebootSoft;
 
 import Control.Functions.AbsFunction;
 import Model.Factory.AbsProxy;
@@ -11,11 +11,11 @@ import Model.Factory.AbsProxy;
  *
  * @author Administrator
  */
-public class CheckDutInfoProxy extends AbsProxy<AbsFunction> {
+public class RebootSoftProxy extends AbsProxy<AbsFunction>{
 
     @Override
     public AbsFunction takeIt() {
-        return new CheckDutInfo(getName());
+        return new RebootSoft(getName());
     }
-
+    
 }

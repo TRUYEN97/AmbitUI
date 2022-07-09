@@ -1,0 +1,1 @@
+2022-07-09 11:01:52.944:   ITEM[test_image_version] - FUNCTION[CheckCommandTelnetProxy]

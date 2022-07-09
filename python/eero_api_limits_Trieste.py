@@ -61,6 +61,6 @@ if __name__ == "__main__":
     request_url = "http://ambit:bento@10.90.0.15:8101/api/1/limits"
     # request_url = "http://ambit:bento@10.90.0.15:8101/api/1/debug"
 
-    data = {'station_type': station_info, "model": "EDEN"}
+    data = {'station_type': station_info, "model": "TRIESTE"}
 
     request_json_to_server(request_url, account, data)

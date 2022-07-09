@@ -43,16 +43,66 @@ public class BaseFunction extends AbsFunction {
         return allConfig.getString("IP");
     }
 
+    public String getValue(Telnet telnet) {
+        String line;
+        String startkey = allConfig.getString("Startkey");
+        addLog("CONFIG", String.format("Startkey: \"%s\"", startkey));
+        String endkey = allConfig.getString("Endkey");
+        addLog("CONFIG", String.format("Endkey: \"%s\"", endkey));
+        while ((line = telnet.readLine(new TimeMs(100))) != null) {
+            addLog("Telnet", line);
+            String value = subString(line, startkey, endkey);
+            if (value != null) {
+                return value;
+            }
+        }
+        return null;
+    }
+
+    public String subString(String line, String startkey, String endkey) {
+        if (!stringAvailable(startkey) && !stringAvailable(endkey)) {
+            return line.trim();
+        } else if (stringAvailable(startkey) && line.contains(startkey)
+                && !stringAvailable(endkey)) {
+            int index = line.indexOf(startkey) + startkey.length();
+            return line.substring(index).trim();
+        } else if (stringAvailable(endkey) && line.contains(endkey)
+                && !stringAvailable(startkey)) {
+            int index = line.indexOf(endkey);
+            return line.substring(0, index).trim();
+        } else if (stringAvailable(startkey) && line.contains(startkey)
+                && !stringAvailable(endkey) && line.contains(endkey)) {
+            int start = line.indexOf(startkey) + startkey.length();
+            int end = line.lastIndexOf(endkey);
+            return line.substring(start, end).trim();
+        }
+        return null;
+    }
+
+    private static boolean stringAvailable(String str) {
+        return str != null && !str.isBlank();
+    }
+
     public Telnet getTelnet(String ip, int port) {
         Telnet telnet = new Telnet();
         addLog("Telnet", "Connect to host: " + ip);
         addLog("Telnet", "Port is: " + port);
-        if (!telnet.connect(ip, port)) {
+        if (!pingTo(ip, 4) || !telnet.connect(ip, port)) {
             addLog("Telnet", "Connect failed!");
             return null;
         }
         addLog("Telnet", telnet.readAll(new TimeMs(300)));
         return telnet;
+    }
+
+    public boolean rebootSoft(Telnet telnet) {
+        addLog("Telnet", "send reboot...");
+        if (!sendCommand(telnet, "reboot") || telnet.isConnect()) {
+            addLog("Telnet", "send reboot failed!");
+            return false;
+        }
+        addLog("Telnet", "send reboot ok!");
+        return true;
     }
 
     public String getMac() {
@@ -71,6 +121,7 @@ public class BaseFunction extends AbsFunction {
             addLog("Telnet", "send command \" " + command + "\" failed!");
             return false;
         }
+        telnet.readLine(new TimeMs(100));
         return true;
     }
 
@@ -83,11 +134,11 @@ public class BaseFunction extends AbsFunction {
         return true;
     }
 
-    public boolean pingTo(String ip) {
+    public boolean pingTo(String ip, int times) {
         Cmd cmd = new Cmd();
         String command = String.format("arp -d %s", ip);
         String command1 = String.format("ping %s -n 1", ip);
-        for (int i = 0; i < 200; i++) {
+        for (int i = 0; i < times; i++) {
             if (sendCommand(cmd, command) && sendCommand(cmd, command1)) {
                 String response = cmd.readAll().trim();
                 addLog("Cmd", response);

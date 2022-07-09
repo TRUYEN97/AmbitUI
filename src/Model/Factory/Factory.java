@@ -17,7 +17,8 @@ import Control.Functions.FunctionsTest.FaAPI.inputFaData.InputFaDataProxy;
 import Control.Functions.FunctionsTest.Runin.PowerSwitch.PowerSwitchProxy;
 import Control.Functions.FunctionsTest.Base.UpFTP.UpFTPProxy;
 import Control.Functions.FunctionsTest.FaAPI.UpJsonAPI.UpAPIProxy;
-import Control.Functions.FunctionsTest.Runin.SendCommand.SendCommandProxy;
+import Control.Functions.FunctionsTest.Runin.CheckCommandTelnet.CheckCommandTelnetProxy;
+import Control.Functions.FunctionsTest.Runin.RebootSoft.RebootSoftProxy;
 import Control.Functions.InitPackages.InitProxy.IdPasswordProxy;
 import View.subUI.FormDetail.AbsTabUI;
 import View.subUI.SubUI.AbsSubUi;
@@ -107,7 +108,8 @@ public class Factory {
         this.functions.addType(new PowerSwitchProxy());
         this.functions.addType(new DutPingProxy());
         this.functions.addType(new DutTelnetProxy());
+        this.functions.addType(new CheckCommandTelnetProxy());
         this.functions.addType(new CheckDutInfoProxy());
-        this.functions.addType(new SendCommandProxy());
+        this.functions.addType(new RebootSoftProxy());
     }
 }

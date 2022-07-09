@@ -32,11 +32,8 @@ if __name__ == "__main__":
     #results = read_file(path)
     get_url = "http://10.90.0.15:8101/api/1/ping"  # Connected successfully
 
-    if os.path.exists(filename+"_debug.json"):
-        results = read_file(filename+"_debug.json")
-        post_url = "http://ambit:bento@10.90.0.15:8101/api/1/results"
-    elif os.path.exists(filename+"_production.json"):
-        results = read_file(filename+"_production.json")
+    if os.path.exists(filename+".json"):
+        results = read_file(filename+".json")
         post_url = "http://ambit:bento@10.90.0.15:8101/api/1/results"
     else:
         print("must have a json file")

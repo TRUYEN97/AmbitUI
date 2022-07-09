@@ -8,7 +8,6 @@ import Control.Functions.AbsFunction;
 import Control.Functions.FunctionsTest.Base.BaseFunction;
 import Model.DataTest.FunctionData.FunctionData;
 import Model.ManagerUI.UIStatus.UiStatus;
-import Time.WaitTime.Class.TimeMs;
 import commandprompt.Communicate.Telnet.Telnet;
 
 /**
@@ -34,7 +33,7 @@ public class CheckDutInfo extends AbsFunction {
     protected boolean test() {
         String ip = this.baseFunc.getIp();
         addLog("IP: " + ip);
-        if (ip == null || !this.baseFunc.pingTo(ip)) {
+        if (ip == null) {
             return false;
         }
         return check(ip);
@@ -45,7 +44,7 @@ public class CheckDutInfo extends AbsFunction {
         if (telnet == null || !this.baseFunc.sendCommand(telnet, allConfig.getString("command"))) {
             return false;
         }
-        return checkValue(getValue(telnet));
+        return checkValue(this.baseFunc.getValue(telnet));
     }
 
     private boolean checkValue(String value) {
@@ -56,21 +55,7 @@ public class CheckDutInfo extends AbsFunction {
             setResult(value);
             return true;
         }
-        return true;
+        return false;
     }
 
-
-    private String getValue(Telnet telnet) {
-        String key = allConfig.getString("keyWord");
-        addLog("CONFIG", "keyWord: " + key);
-        String line;
-        while ((line = telnet.readLine(new TimeMs(100))) != null) {
-            line = line.trim();
-            addLog("Telnet", line);
-            if (line.startsWith(key + "=") && line.contains("=")) {
-                return line.substring(line.lastIndexOf("=") + 1).trim();
-            }
-        }
-        return null;
-    }
 }

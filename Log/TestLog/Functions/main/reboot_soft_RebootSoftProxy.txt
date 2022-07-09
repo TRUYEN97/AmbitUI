@@ -1,0 +1,117 @@
+2022-07-09 11:00:04.033:   ITEM[reboot_soft] - FUNCTION[RebootSoftProxy]
+2022-07-09 11:00:05.349:   Turn 0:
+2022-07-09 11:00:05.349:   Get IP from the DHCP with MAC is "649714048d60"
+2022-07-09 11:00:05.349:   IP: 172.168.1.0
+2022-07-09 11:00:05.349:   [CONFIG] Times: 2
+2022-07-09 11:00:05.349:   cycle Times: 0 - 2
+2022-07-09 11:00:05.349:   [Telnet] Connect to host: 172.168.1.0
+2022-07-09 11:00:05.350:   [Telnet] Port is: 23
+2022-07-09 11:00:05.350:   [Cmd] Send command: arp -d 172.168.1.0
+2022-07-09 11:00:05.352:   [Cmd] Send command: ping 172.168.1.0 -n 1
+2022-07-09 11:00:05.386:   [Cmd] Pinging 172.168.1.0 with 32 bytes of data:
+2022-07-09 11:00:05.386:   [Cmd] Reply from 172.168.1.0: bytes=32 time<1ms TTL=64
+2022-07-09 11:00:05.386:   [Cmd] 
+2022-07-09 11:00:05.386:   [Cmd] Ping statistics for 172.168.1.0:
+2022-07-09 11:00:05.386:   [Cmd] Packets: Sent = 1, Received = 1, Lost = 0 (0% loss),
+2022-07-09 11:00:05.386:   [Cmd] Approximate round trip times in milli-seconds:
+2022-07-09 11:00:05.386:   [Cmd] Minimum = 0ms, Maximum = 0ms, Average = 0ms
+2022-07-09 11:00:05.386:   [Cmd] ------------------------------------
+2022-07-09 11:00:05.687:   [Telnet] 
+2022-07-09 11:00:05.687:   [Telnet] === IMPORTANT ============================
+2022-07-09 11:00:05.687:   [Telnet] Use 'passwd' to set your login password!
+2022-07-09 11:00:05.687:   [Telnet] ------------------------------------------
+2022-07-09 11:00:05.687:   [Telnet] 
+2022-07-09 11:00:05.687:   [Telnet] 
+2022-07-09 11:00:05.687:   [Telnet] BusyBox v1.30.1 () built-in shell (ash)
+2022-07-09 11:00:05.687:   [Telnet] 
+2022-07-09 11:00:05.687:   [Telnet] MM           NM                    MMMMMMM          M       M
+2022-07-09 11:00:05.687:   [Telnet] $MMMMM        MMMMM                MMMMMMMMMMM      MMM     MMM
+2022-07-09 11:00:05.687:   [Telnet] MMMMMMMM     MM MMMMM.              MMMMM:MMMMMM:   MMMM   MMMMM
+2022-07-09 11:00:05.687:   [Telnet] MMMM= MMMMMM  MMM   MMMM       MMMMM   MMMM  MMMMMM   MMMM  MMMMM'
+2022-07-09 11:00:05.687:   [Telnet] MMMM=  MMMMM MMMM    MM       MMMMM    MMMM    MMMM   MMMMNMMMMM
+2022-07-09 11:00:05.687:   [Telnet] MMMM=   MMMM  MMMMM          MMMMM     MMMM    MMMM   MMMMMMMM
+2022-07-09 11:00:05.687:   [Telnet] MMMM=   MMMM   MMMMMM       MMMMM      MMMM    MMMM   MMMMMMMMM
+2022-07-09 11:00:05.687:   [Telnet] MMMM=   MMMM     MMMMM,    NMMMMMMMM   MMMM    MMMM   MMMMMMMMMMM
+2022-07-09 11:00:05.687:   [Telnet] MMMM=   MMMM      MMMMMM   MMMMMMMM    MMMM    MMMM   MMMM  MMMMMM
+2022-07-09 11:00:05.687:   [Telnet] MMMM=   MMMM   MM    MMMM    MMMM      MMMM    MMMM   MMMM    MMMM
+2022-07-09 11:00:05.687:   [Telnet] MMMM$ ,MMMMM  MMMMM  MMMM    MMM       MMMM   MMMMM   MMMM    MMMM
+2022-07-09 11:00:05.687:   [Telnet] MMMMMMM:      MMMMMMM     M         MMMMMMMMMMMM  MMMMMMM MMMMMMM
+2022-07-09 11:00:05.687:   [Telnet] MMMMMM       MMMMN     M           MMMMMMMMM      MMMM    MMMM
+2022-07-09 11:00:05.687:   [Telnet] MMMM          M                    MMMMMMM        M       M
+2022-07-09 11:00:05.687:   [Telnet] M
+2022-07-09 11:00:05.687:   [Telnet] ---------------------------------------------------------------
+2022-07-09 11:00:05.687:   [Telnet] For those about to rock... (Chaos Calmer, unknown)
+2022-07-09 11:00:05.687:   [Telnet] ---------------------------------------------------------------
+2022-07-09 11:00:05.687:   [Telnet] root@eero-test:/#
+2022-07-09 11:00:05.687:   [Telnet] send reboot...
+2022-07-09 11:00:05.687:   [Telnet] send reboot failed!
+2022-07-09 11:00:05.687:   [Cmd] Send command: arp -d 172.168.1.0
+2022-07-09 11:00:05.690:   [Cmd] Send command: ping 172.168.1.0 -n 1
+2022-07-09 11:00:05.716:   [Cmd] Pinging 172.168.1.0 with 32 bytes of data:
+2022-07-09 11:00:05.716:   [Cmd] Reply from 172.168.1.0: bytes=32 time<1ms TTL=64
+2022-07-09 11:00:05.716:   [Cmd] 
+2022-07-09 11:00:05.716:   [Cmd] Ping statistics for 172.168.1.0:
+2022-07-09 11:00:05.716:   [Cmd] Packets: Sent = 1, Received = 1, Lost = 0 (0% loss),
+2022-07-09 11:00:05.716:   [Cmd] Approximate round trip times in milli-seconds:
+2022-07-09 11:00:05.716:   [Cmd] Minimum = 0ms, Maximum = 0ms, Average = 0ms
+2022-07-09 11:00:05.716:   [Cmd] ------------------------------------
+2022-07-09 11:00:05.716:   cycle Times: 1 - 2
+2022-07-09 11:00:05.716:   [Telnet] Connect to host: 172.168.1.0
+2022-07-09 11:00:05.716:   [Telnet] Port is: 23
+2022-07-09 11:00:05.716:   [Cmd] Send command: arp -d 172.168.1.0
+2022-07-09 11:00:05.719:   [Cmd] Send command: ping 172.168.1.0 -n 1
+2022-07-09 11:00:05.745:   [Cmd] Pinging 172.168.1.0 with 32 bytes of data:
+2022-07-09 11:00:05.745:   [Cmd] Reply from 172.168.1.0: bytes=32 time<1ms TTL=64
+2022-07-09 11:00:05.745:   [Cmd] 
+2022-07-09 11:00:05.745:   [Cmd] Ping statistics for 172.168.1.0:
+2022-07-09 11:00:05.745:   [Cmd] Packets: Sent = 1, Received = 1, Lost = 0 (0% loss),
+2022-07-09 11:00:05.745:   [Cmd] Approximate round trip times in milli-seconds:
+2022-07-09 11:00:05.745:   [Cmd] Minimum = 0ms, Maximum = 0ms, Average = 0ms
+2022-07-09 11:00:05.745:   [Cmd] ------------------------------------
+2022-07-09 11:00:06.046:   [Telnet] 
+2022-07-09 11:00:06.046:   [Telnet] === IMPORTANT ============================
+2022-07-09 11:00:06.046:   [Telnet] Use 'passwd' to set your login password!
+2022-07-09 11:00:06.046:   [Telnet] ------------------------------------------
+2022-07-09 11:00:06.046:   [Telnet] 
+2022-07-09 11:00:06.046:   [Telnet] 
+2022-07-09 11:00:06.046:   [Telnet] BusyBox v1.30.1 () built-in shell (ash)
+2022-07-09 11:00:06.046:   [Telnet] 
+2022-07-09 11:00:06.046:   [Telnet] MM           NM                    MMMMMMM          M       M
+2022-07-09 11:00:06.046:   [Telnet] $MMMMM        MMMMM                MMMMMMMMMMM      MMM     MMM
+2022-07-09 11:00:06.046:   [Telnet] MMMMMMMM     MM MMMMM.              MMMMM:MMMMMM:   MMMM   MMMMM
+2022-07-09 11:00:06.046:   [Telnet] MMMM= MMMMMM  MMM   MMMM       MMMMM   MMMM  MMMMMM   MMMM  MMMMM'
+2022-07-09 11:00:06.046:   [Telnet] MMMM=  MMMMM MMMM    MM       MMMMM    MMMM    MMMM   MMMMNMMMMM
+2022-07-09 11:00:06.046:   [Telnet] MMMM=   MMMM  MMMMM          MMMMM     MMMM    MMMM   MMMMMMMM
+2022-07-09 11:00:06.046:   [Telnet] MMMM=   MMMM   MMMMMM       MMMMM      MMMM    MMMM   MMMMMMMMM
+2022-07-09 11:00:06.046:   [Telnet] MMMM=   MMMM     MMMMM,    NMMMMMMMM   MMMM    MMMM   MMMMMMMMMMM
+2022-07-09 11:00:06.046:   [Telnet] MMMM=   MMMM      MMMMMM   MMMMMMMM    MMMM    MMMM   MMMM  MMMMMM
+2022-07-09 11:00:06.046:   [Telnet] MMMM=   MMMM   MM    MMMM    MMMM      MMMM    MMMM   MMMM    MMMM
+2022-07-09 11:00:06.046:   [Telnet] MMMM$ ,MMMMM  MMMMM  MMMM    MMM       MMMM   MMMMM   MMMM    MMMM
+2022-07-09 11:00:06.046:   [Telnet] MMMMMMM:      MMMMMMM     M         MMMMMMMMMMMM  MMMMMMM MMMMMMM
+2022-07-09 11:00:06.046:   [Telnet] MMMMMM       MMMMN     M           MMMMMMMMM      MMMM    MMMM
+2022-07-09 11:00:06.046:   [Telnet] MMMM          M                    MMMMMMM        M       M
+2022-07-09 11:00:06.046:   [Telnet] M
+2022-07-09 11:00:06.046:   [Telnet] ---------------------------------------------------------------
+2022-07-09 11:00:06.046:   [Telnet] For those about to rock... (Chaos Calmer, unknown)
+2022-07-09 11:00:06.046:   [Telnet] ---------------------------------------------------------------
+2022-07-09 11:00:06.046:   [Telnet] root@eero-test:/#
+2022-07-09 11:00:06.046:   [Telnet] send reboot...
+2022-07-09 11:00:06.046:   [Telnet] send reboot failed!
+2022-07-09 11:00:06.046:   [Cmd] Send command: arp -d 172.168.1.0
+2022-07-09 11:00:06.048:   [Cmd] Send command: ping 172.168.1.0 -n 1
+2022-07-09 11:00:06.075:   [Cmd] Pinging 172.168.1.0 with 32 bytes of data:
+2022-07-09 11:00:06.075:   [Cmd] Reply from 172.168.1.0: bytes=32 time<1ms TTL=64
+2022-07-09 11:00:06.075:   [Cmd] 
+2022-07-09 11:00:06.076:   [Cmd] Ping statistics for 172.168.1.0:
+2022-07-09 11:00:06.076:   [Cmd] Packets: Sent = 1, Received = 1, Lost = 0 (0% loss),
+2022-07-09 11:00:06.076:   [Cmd] Approximate round trip times in milli-seconds:
+2022-07-09 11:00:06.076:   [Cmd] Minimum = 0ms, Maximum = 0ms, Average = 0ms
+2022-07-09 11:00:06.076:   [Cmd] ------------------------------------
+2022-07-09 11:00:06.076:   ****************************************************
+2022-07-09 11:00:06.076:   Limit type: "BOOL"
+2022-07-09 11:00:06.076:   Uper limit: ""
+2022-07-09 11:00:06.076:   Lowet limit: ""
+2022-07-09 11:00:06.076:   Test Value: "passed"
+2022-07-09 11:00:06.076:   Item name: REBOOT_SOFT
+2022-07-09 11:00:06.076:   ****************************************************
+2022-07-09 11:00:06.076:   TIME[2.042 s] - STATUS[PASSED]
