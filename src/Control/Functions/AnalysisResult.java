@@ -29,7 +29,7 @@ public class AnalysisResult {
         if (!status) {
             setFail(ErrorCodeElement.SIMPLE);
         }
-        if (isResultAvailable(result) && this.allConfig.isLimitAvailable()) {
+        if (isResultAvailable(result) || this.allConfig.isLimitAvailable()) {
             checkResultWithLimits(result);
         } else {
             this.itemTestData.setPass(status);
@@ -41,6 +41,9 @@ public class AnalysisResult {
     }
 
     private void checkResultWithLimits(String StringResult) {
+        if (StringResult == null) {
+            setFail(ErrorCodeElement.SIMPLE);
+        }
         switch (allConfig.getTestType()) {
             case AllKeyWord.MATCH -> {
                 if (checkMatchType(StringResult)) {
@@ -88,7 +91,6 @@ public class AnalysisResult {
 
     private boolean getMatch(String result, String key) {
         List<String> limits = allConfig.getListSlip(key, "\\|");
-        System.out.println(limits);
         if (limits != null && !limits.isEmpty()) {
             for (String spec : limits) {
                 if (spec.equals(result)) {

@@ -1,0 +1,61 @@
+2022-07-09 17:32:50.540:   ITEM[emmc_badblocks] - FUNCTION[CheckCommandTelnetProxy]
+2022-07-09 17:32:50.540:   Turn 0:
+2022-07-09 17:32:50.540:   Get IP from the DHCP with MAC is "649714048d60"
+2022-07-09 17:32:50.540:   [Telnet] Connect to host: 172.168.1.0
+2022-07-09 17:32:50.541:   [Telnet] Port is: 23
+2022-07-09 17:32:50.541:   [Cmd] Send command: arp -d 172.168.1.0
+2022-07-09 17:32:50.542:   [Cmd] Send command: ping 172.168.1.0 -n 1
+2022-07-09 17:32:50.565:   [Cmd] Pinging 172.168.1.0 with 32 bytes of data:
+2022-07-09 17:32:50.565:   [Cmd] Reply from 172.168.1.0: bytes=32 time<1ms TTL=64
+2022-07-09 17:32:50.566:   [Cmd] 
+2022-07-09 17:32:50.566:   [Cmd] Ping statistics for 172.168.1.0:
+2022-07-09 17:32:50.566:   [Cmd] Packets: Sent = 1, Received = 1, Lost = 0 (0% loss),
+2022-07-09 17:32:50.566:   [Cmd] Approximate round trip times in milli-seconds:
+2022-07-09 17:32:50.566:   [Cmd] Minimum = 0ms, Maximum = 0ms, Average = 0ms
+2022-07-09 17:32:50.566:   [Cmd] ------------------------------------
+2022-07-09 17:32:50.867:   [Telnet] 
+2022-07-09 17:32:50.867:   [Telnet] === IMPORTANT ============================
+2022-07-09 17:32:50.867:   [Telnet] Use 'passwd' to set your login password!
+2022-07-09 17:32:50.867:   [Telnet] ------------------------------------------
+2022-07-09 17:32:50.867:   [Telnet] 
+2022-07-09 17:32:50.867:   [Telnet] 
+2022-07-09 17:32:50.867:   [Telnet] BusyBox v1.30.1 () built-in shell (ash)
+2022-07-09 17:32:50.867:   [Telnet] 
+2022-07-09 17:32:50.867:   [Telnet] MM           NM                    MMMMMMM          M       M
+2022-07-09 17:32:50.867:   [Telnet] $MMMMM        MMMMM                MMMMMMMMMMM      MMM     MMM
+2022-07-09 17:32:50.867:   [Telnet] MMMMMMMM     MM MMMMM.              MMMMM:MMMMMM:   MMMM   MMMMM
+2022-07-09 17:32:50.867:   [Telnet] MMMM= MMMMMM  MMM   MMMM       MMMMM   MMMM  MMMMMM   MMMM  MMMMM'
+2022-07-09 17:32:50.867:   [Telnet] MMMM=  MMMMM MMMM    MM       MMMMM    MMMM    MMMM   MMMMNMMMMM
+2022-07-09 17:32:50.867:   [Telnet] MMMM=   MMMM  MMMMM          MMMMM     MMMM    MMMM   MMMMMMMM
+2022-07-09 17:32:50.867:   [Telnet] MMMM=   MMMM   MMMMMM       MMMMM      MMMM    MMMM   MMMMMMMMM
+2022-07-09 17:32:50.867:   [Telnet] MMMM=   MMMM     MMMMM,    NMMMMMMMM   MMMM    MMMM   MMMMMMMMMMM
+2022-07-09 17:32:50.867:   [Telnet] MMMM=   MMMM      MMMMMM   MMMMMMMM    MMMM    MMMM   MMMM  MMMMMM
+2022-07-09 17:32:50.867:   [Telnet] MMMM=   MMMM   MM    MMMM    MMMM      MMMM    MMMM   MMMM    MMMM
+2022-07-09 17:32:50.867:   [Telnet] MMMM$ ,MMMMM  MMMMM  MMMM    MMM       MMMM   MMMMM   MMMM    MMMM
+2022-07-09 17:32:50.867:   [Telnet] MMMMMMM:      MMMMMMM     M         MMMMMMMMMMMM  MMMMMMM MMMMMMM
+2022-07-09 17:32:50.867:   [Telnet] MMMMMM       MMMMN     M           MMMMMMMMM      MMMM    MMMM
+2022-07-09 17:32:50.867:   [Telnet] MMMM          M                    MMMMMMM        M       M
+2022-07-09 17:32:50.867:   [Telnet] M
+2022-07-09 17:32:50.867:   [Telnet] ---------------------------------------------------------------
+2022-07-09 17:32:50.867:   [Telnet] For those about to rock... (Chaos Calmer, unknown)
+2022-07-09 17:32:50.867:   [Telnet] ---------------------------------------------------------------
+2022-07-09 17:32:50.867:   [Telnet] root@eero-test:/#
+2022-07-09 17:32:50.867:   [Telnet] Send command: badblocks -svw /dev/mmcblk0p17
+2022-07-09 17:32:50.924:   [Telnet] Checking for bad blocks in read-write mode
+2022-07-09 17:32:50.924:   [Telnet] From block 0 to 770047
+2022-07-09 17:32:51.024:   [Telnet] Testing with pattern 0xaa:   0.00% done, 0:00 elapsed. (0/0/0 errors)
+2022-07-09 17:32:51.024:   [CONFIG] Startkey: "Pass completed,"
+2022-07-09 17:32:51.024:   [CONFIG] Endkey: "bad blocks found"
+2022-07-09 17:32:51.024:   [PC] Value is: "null"
+2022-07-09 17:32:51.024:   [Telnet] Value is: null
+2022-07-09 17:32:51.024:   ****************************************************
+2022-07-09 17:32:51.024:   Limit type: "LIMIT"
+2022-07-09 17:32:51.024:   Uper limit: "0"
+2022-07-09 17:32:51.024:   Lowet limit: "0"
+2022-07-09 17:32:51.024:   Test Value: "failed"
+2022-07-09 17:32:51.024:   Item name: EMMC_BADBLOCKS
+2022-07-09 17:32:51.024:   ****************************************************
+2022-07-09 17:32:51.024:   Error code: 3.1
+2022-07-09 17:32:51.024:   Local error code: 11.1.0
+2022-07-09 17:32:51.024:   Local error des: emmc_badblocks
+2022-07-09 17:32:51.024:   TIME[0.484 s] - STATUS[FAILED]

@@ -38,8 +38,7 @@ public class CheckCommandTelnet extends AbsFunction {
                 || !this.baseFunc.sendCommand(telnet, allConfig.getString("command"))) {
             return false;
         }
-        String value = this.baseFunc.getValue(telnet);
-        addLog("Telnet", "Value is: " + value);
+        String value = this.baseFunc.getValue(telnet, new TimeMs(100));
         if (value == null) {
             return false;
         }

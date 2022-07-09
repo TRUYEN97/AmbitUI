@@ -22,7 +22,8 @@ import java.util.Map;
 public class ProcessData {
 
     private final List<FunctionData> listFunctionData;
-    private final Map<String, ItemTestData> mapFunctionData;
+    private final Map<String, FunctionData> mapFunctionData;
+    private final Map<String, ItemTestData> mapItemTestData;
     private final DataWareHouse data;
     private final TimeBase timeBase;
     private final ProcessTestSignal signal;
@@ -31,6 +32,7 @@ public class ProcessData {
 
     public ProcessData() {
         this.listFunctionData = new ArrayList<>();
+        this.mapItemTestData = new HashMap<>();
         this.mapFunctionData = new HashMap<>();
         this.data = new DataWareHouse();
         this.signal = new ProcessTestSignal();
@@ -41,7 +43,7 @@ public class ProcessData {
     public List<FunctionData> getDataBoxs() {
         return listFunctionData;
     }
-    
+
     public JSONObject getItemData(String itemName, List<String> keys) {
         if (getItemTestData(itemName) == null) {
             return null;
@@ -50,8 +52,8 @@ public class ProcessData {
     }
 
     public ItemTestData getItemTestData(String itemName) {
-        if (this.mapFunctionData.containsKey(itemName)) {
-            return this.mapFunctionData.get(itemName);
+        if (this.mapItemTestData.containsKey(itemName)) {
+            return this.mapItemTestData.get(itemName);
         }
         return null;
     }
@@ -61,6 +63,10 @@ public class ProcessData {
             return null;
         }
         return this.listFunctionData.get(index);
+    }
+
+    public FunctionData getDataBox(String item) {
+        return mapFunctionData.get(item);
     }
 
     public void setMessage(String message) {
@@ -97,8 +103,9 @@ public class ProcessData {
         if (functionData == null || this.listFunctionData.contains(functionData)) {
             return;
         }
-        functionData.setFinalMapItems(mapFunctionData);
+        functionData.setFinalMapItems(mapItemTestData);
         this.listFunctionData.add(functionData);
+        this.mapFunctionData.put(functionData.getItemFunctionName(), functionData);
     }
 
     public void setFinishTime() {
@@ -113,6 +120,7 @@ public class ProcessData {
     public void reset() {
         this.message = null;
         this.listFunctionData.clear();
+        this.mapItemTestData.clear();
         this.mapFunctionData.clear();
         this.data.clear();
     }

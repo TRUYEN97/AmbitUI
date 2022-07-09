@@ -151,16 +151,17 @@ public class TabItem extends AbsTabUI {
 
     private void showItemLogSelected() {
         for (int row : this.tableItem.getSelectedRows()) {
-            FunctionData dataBox = this.uiStatus.getProcessData().getDataBox(row);
+            FunctionData dataBox = this.uiStatus.getProcessData().getDataBox(getNameITem(row));
+            if (dataBox == null) {
+                return;
+            }
             if (itemLogs.containsKey(dataBox)) {
                 itemLogs.get(dataBox).showLog();
             } else {
-                if (dataBox != null) {
-                    ItemLog itemLog = new ItemLog(this);
-                    itemLog.setDataBox(dataBox);
-                    itemLog.showLog();
-                    itemLogs.put(dataBox, itemLog);
-                }
+                ItemLog itemLog = new ItemLog(this);
+                itemLog.setDataBox(dataBox);
+                itemLog.showLog();
+                itemLogs.put(dataBox, itemLog);
             }
         }
     }
@@ -238,5 +239,9 @@ public class TabItem extends AbsTabUI {
             return "Testing";
         }
         return functionData.getStausTest();
+    }
+
+    private String getNameITem(int row) {
+        return this.tableModel.getValueAt(row, this.listFunc.indexOf(ITEM)).toString();
     }
 }

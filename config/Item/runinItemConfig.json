@@ -127,12 +127,44 @@
             "FUNC_NAME": "CheckCommandTelnetProxy"
         },
         {
-            "FLAG": true,
-            "TIME_OVER": 30,
+            "FLAG": false,
+            "TIME_OVER": 300,
             "MULTI_TASK": true,
-            "Times": 2,
+            "Times": 1,
             "test_name": "reboot_soft",
             "FUNC_NAME": "RebootSoftProxy"
+        },
+        {
+            "FLAG": false,
+            "TIME_OVER": 300,
+            "MULTI_TASK": true,
+            "host": "192.168.1.10",
+            "user": "admin",
+            "password": "1234",
+            "Times": 10,
+            "Delay": 3,
+            "Command": "off,on",
+            "test_name": "power_cycle",
+            "FUNC_NAME": "PowerSwitchProxy"
+        },
+        {
+            "FLAG": true,
+            "TIME_OVER": 120,
+            "MULTI_TASK": true,
+            "IP": "192.168.1.1",
+            "test_name": "dut_ping",
+            "FUNC_NAME": "DutPingProxy"
+        },
+        {
+            "FLAG": true,
+            "TIME_OVER": 1200,
+            "MULTI_TASK": true,
+            "IP": "192.168.1.1",
+            "command": "badblocks -svw /dev/mmcblk0p17",
+            "Startkey": "Pass completed,",
+            "Endkey": "bad blocks found",
+            "test_name": "emmc_badblocks",
+            "FUNC_NAME": "MMC_BadBlockProxy"
         }
 
     ],

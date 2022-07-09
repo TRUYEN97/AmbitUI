@@ -8,7 +8,6 @@ import Control.Functions.AbsFunction;
 import Control.Functions.FunctionsTest.Base.BaseFunction;
 import Model.DataTest.FunctionData.FunctionData;
 import Model.ManagerUI.UIStatus.UiStatus;
-import commandprompt.Communicate.Telnet.Telnet;
 
 /**
  *
@@ -42,12 +41,9 @@ public class RebootSoft extends AbsFunction {
     private boolean cycleReboot(String ip) {
         int times = this.allConfig.getInteger("Times");
         addLog("CONFIG", "Times: " + times);
-        Telnet telnet;
-        for (int i = 0; i < times; i++) {
+        for (int i = 1; i <= times; i++) {
             addLog(String.format("cycle Times: %d - %d ", i, times));
-            telnet = this.baseFunc.getTelnet(ip, 23);
-            if (telnet == null || !this.baseFunc.rebootSoft(telnet) 
-                    || !this.baseFunc.pingTo(ip, 200)) {
+            if (!this.baseFunc.rebootSoft(ip) || !this.baseFunc.pingTo(ip, 200)) {
                 return false;
             }
         }

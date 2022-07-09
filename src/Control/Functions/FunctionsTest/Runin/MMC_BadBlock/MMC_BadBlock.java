@@ -2,7 +2,7 @@
  * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
  * Click nbfs://nbhost/SystemFileSystem/Templates/Classes/Class.java to edit this template
  */
-package Control.Functions.FunctionsTest.Base.CheckDutInfo;
+package Control.Functions.FunctionsTest.Runin.MMC_BadBlock;
 
 import Control.Functions.AbsFunction;
 import Control.Functions.FunctionsTest.Base.BaseFunction;
@@ -15,11 +15,12 @@ import commandprompt.Communicate.Telnet.Telnet;
  *
  * @author Administrator
  */
-public class CheckDutInfo extends AbsFunction {
+public class MMC_BadBlock extends AbsFunction {
 
     private final BaseFunction baseFunc;
+    private String command;
 
-    public CheckDutInfo(String itemName) {
+    public MMC_BadBlock(String itemName) {
         super(itemName);
         this.baseFunc = new BaseFunction(itemName);
     }
@@ -40,20 +41,21 @@ public class CheckDutInfo extends AbsFunction {
         return check(ip);
     }
 
-    private boolean check(String ip) {
-        Telnet telnet = this.baseFunc.getTelnet(ip, 23);
-        if (telnet == null || !this.baseFunc.sendCommand(telnet, allConfig.getString("command"))) {
-            return false;
-        }
-        return checkValue(this.baseFunc.getValue(telnet, new TimeMs(100)));
+    public void setConfig(String command, String spec) {
+        this.command = command;
     }
 
-    private boolean checkValue(String value) {
-        addLog("Value is: " + value);
-        String spec = productData.getString("compareWith");
-        addLog("Spec is: " + spec);
-        if (spec != null && value != null && spec.equals(value)) {
-            setResult(value);
+    private boolean check(String ip) {
+        Telnet telnet = this.baseFunc.getTelnet(ip, 23);
+        if (command == null) {
+            command = this.allConfig.getString("command");
+        }
+        if (!telnet.sendCommand(command)) {
+            return false;
+        }
+        String result = this.baseFunc.getValue(telnet);
+        if (this.baseFunc.isMun(result)) {
+            setResult(result);
             return true;
         }
         return false;

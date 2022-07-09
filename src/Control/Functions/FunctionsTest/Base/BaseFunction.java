@@ -7,7 +7,9 @@ package Control.Functions.FunctionsTest.Base;
 import Control.Functions.AbsFunction;
 import Model.AllKeyWord;
 import Model.DataSource.Setting.Setting;
+import Time.WaitTime.AbsTime;
 import Time.WaitTime.Class.TimeMs;
+import commandprompt.AbstractStream.SubClass.ReadStreamOverTime;
 import commandprompt.Communicate.Cmd.Cmd;
 import commandprompt.Communicate.DHCP.DhcpData;
 import commandprompt.Communicate.Telnet.Telnet;
@@ -43,20 +45,38 @@ public class BaseFunction extends AbsFunction {
         return allConfig.getString("IP");
     }
 
-    public String getValue(Telnet telnet) {
+    public String getValue(Telnet telnet, AbsTime time) {
         String line;
         String startkey = allConfig.getString("Startkey");
-        addLog("CONFIG", String.format("Startkey: \"%s\"", startkey));
         String endkey = allConfig.getString("Endkey");
-        addLog("CONFIG", String.format("Endkey: \"%s\"", endkey));
-        while ((line = telnet.readLine(new TimeMs(100))) != null) {
-            addLog("Telnet", line);
-            String value = subString(line, startkey, endkey);
-            if (value != null) {
-                return value;
+        String value = null;
+        try {
+            while ((line = time == null ? telnet.readLine() : telnet.readLine(time)) != null) {
+                addLog("Telnet", line);
+                value = subString(line, startkey, endkey);
+                if (value != null) {
+                    break;
+                }
             }
+            return value;
+        } finally {
+            addLog("CONFIG", String.format("Startkey: \"%s\"", startkey));
+            addLog("CONFIG", String.format("Endkey: \"%s\"", endkey));
+            addLog("PC", String.format("Value is: \"%s\"", value));
         }
-        return null;
+
+    }
+
+    public boolean isMun(String value) {
+        if (value == null) {
+            return false;
+        }
+        try {
+            Double.valueOf(value);
+            return true;
+        } catch (NumberFormatException e) {
+            return false;
+        }
     }
 
     public String subString(String line, String startkey, String endkey) {
@@ -71,7 +91,7 @@ public class BaseFunction extends AbsFunction {
             int index = line.indexOf(endkey);
             return line.substring(0, index).trim();
         } else if (stringAvailable(startkey) && line.contains(startkey)
-                && !stringAvailable(endkey) && line.contains(endkey)) {
+                && stringAvailable(endkey) && line.contains(endkey)) {
             int start = line.indexOf(startkey) + startkey.length();
             int end = line.lastIndexOf(endkey);
             return line.substring(start, end).trim();
@@ -95,14 +115,29 @@ public class BaseFunction extends AbsFunction {
         return telnet;
     }
 
-    public boolean rebootSoft(Telnet telnet) {
-        addLog("Telnet", "send reboot...");
-        if (!sendCommand(telnet, "reboot") || telnet.isConnect()) {
-            addLog("Telnet", "send reboot failed!");
-            return false;
+    public boolean rebootSoft(String ip) {
+
+        Telnet telnet = null;
+        try {
+            telnet = getTelnet(ip, 23);
+            addLog("Telnet", "send reboot...");
+            if (!sendCommand(telnet, "reboot")) {
+                addLog("Telnet", "send reboot failed!");
+                return false;
+            }
+            addLog("Telnet", telnet.readAll());
+            if (pingTo(ip, 1)) {
+                addLog("Telnet", "Reboot failed!");
+                return false;
+            }
+            addLog("Telnet", "Reboot ok!");
+            return true;
+        } finally {
+            if (telnet != null) {
+                telnet.disConnect();
+            }
         }
-        addLog("Telnet", "send reboot ok!");
-        return true;
+
     }
 
     public String getMac() {
@@ -151,5 +186,9 @@ public class BaseFunction extends AbsFunction {
             }
         }
         return false;
+    }
+
+    public String getValue(Telnet telnet) {
+        return getValue(telnet, null);
     }
 }

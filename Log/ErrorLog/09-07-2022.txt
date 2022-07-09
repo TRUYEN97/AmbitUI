@@ -64,3 +64,41 @@
 2022-07-09 11:00:03.645:   //////////////////////////////////////
 2022-07-09 11:00:05.349:   error in Model.DataSource.ModeTest.FunctionConfig.FuncAllConfig : Missing error code of reboot_soft - simple type !!
 2022-07-09 11:00:05.349:   //////////////////////////////////////
+2022-07-09 11:02:31.934:   error in Model.DataSource.ModeTest.FunctionConfig.FuncAllConfig : Missing error code of test_image_version - simple type !!
+2022-07-09 11:02:31.934:   //////////////////////////////////////
+2022-07-09 11:02:32.405:   error in Model.DataSource.ModeTest.FunctionConfig.FuncAllConfig : Missing error code of test_image_version - simple type !!
+2022-07-09 11:02:32.405:   //////////////////////////////////////
+2022-07-09 11:02:33.533:   error in Model.DataSource.ModeTest.FunctionConfig.FuncAllConfig : Missing error code of reboot_soft - simple type !!
+2022-07-09 11:02:33.534:   //////////////////////////////////////
+2022-07-09 11:02:34.938:   error in Model.DataSource.ModeTest.FunctionConfig.FuncAllConfig : Missing error code of reboot_soft - simple type !!
+2022-07-09 11:02:34.938:   //////////////////////////////////////
+2022-07-09 11:02:35.437:   error in Model.DataSource.ModeTest.FunctionConfig.FuncAllConfig : Missing error code of reboot_soft - simple type !!
+2022-07-09 11:02:35.437:   //////////////////////////////////////
+2022-07-09 14:43:36.901:   error in Model.DataSource.ModeTest.FunctionConfig.FuncAllConfig : Missing error code of test_image_version - simple type !!
+2022-07-09 14:43:36.912:   //////////////////////////////////////
+2022-07-09 14:43:38.108:   error in Model.DataSource.ModeTest.FunctionConfig.FuncAllConfig : Missing error code of test_image_version - simple type !!
+2022-07-09 14:43:38.108:   //////////////////////////////////////
+2022-07-09 14:43:38.815:   error in Model.DataSource.ModeTest.FunctionConfig.FuncAllConfig : Missing error code of test_image_version - simple type !!
+2022-07-09 14:43:38.816:   //////////////////////////////////////
+2022-07-09 14:43:40.334:   error in Model.DataSource.ModeTest.FunctionConfig.FuncAllConfig : Missing error code of reboot_soft - simple type !!
+2022-07-09 14:43:40.334:   //////////////////////////////////////
+2022-07-09 14:45:04.878:   error in Model.DataSource.ModeTest.FunctionConfig.FuncAllConfig : Missing error code of reboot_soft - simple type !!
+2022-07-09 14:45:04.878:   //////////////////////////////////////
+2022-07-09 14:45:06.009:   error in Model.DataSource.ModeTest.FunctionConfig.FuncAllConfig : Missing error code of reboot_soft - simple type !!
+2022-07-09 14:45:06.009:   //////////////////////////////////////
+2022-07-09 14:58:25.370:   error in Model.DataSource.ModeTest.FunctionConfig.FuncAllConfig : Missing error code of test_image_version - simple type !!
+2022-07-09 14:58:25.371:   //////////////////////////////////////
+2022-07-09 14:58:27.308:   error in Model.DataSource.ModeTest.FunctionConfig.FuncAllConfig : Missing error code of test_image_version - simple type !!
+2022-07-09 14:58:27.308:   //////////////////////////////////////
+2022-07-09 14:58:27.976:   error in Model.DataSource.ModeTest.FunctionConfig.FuncAllConfig : Missing error code of test_image_version - simple type !!
+2022-07-09 14:58:27.976:   //////////////////////////////////////
+2022-07-09 14:58:28.943:   error in Model.DataSource.ModeTest.FunctionConfig.FuncAllConfig : Missing error code of reboot_soft - simple type !!
+2022-07-09 14:58:28.943:   //////////////////////////////////////
+2022-07-09 14:58:30.602:   error in Model.DataSource.ModeTest.FunctionConfig.FuncAllConfig : Missing error code of reboot_soft - simple type !!
+2022-07-09 14:58:30.603:   //////////////////////////////////////
+2022-07-09 14:58:31.170:   error in Model.DataSource.ModeTest.FunctionConfig.FuncAllConfig : Missing error code of reboot_soft - simple type !!
+2022-07-09 14:58:31.171:   //////////////////////////////////////
+2022-07-09 17:07:41.074:   Cannot invoke "Object.toString()" because "str" is null
+2022-07-09 17:07:41.074:   //////////////////////////////////////
+2022-07-09 17:17:57.912:   Cannot invoke "String.contains(java.lang.CharSequence)" because "line" is null
+2022-07-09 17:17:57.912:   //////////////////////////////////////

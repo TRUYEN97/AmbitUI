@@ -165,6 +165,20 @@
                     "local_error_des": "wps_ok"
                 }
             },
+    "reboot_soft": 
+            {
+                "simple": {
+                    "local_error_code": "26.1.0",
+                    "local_error_des": "reboot_soft"
+                }
+            },
+    "test_image_version": 
+            {
+                "simple": {
+                    "local_error_code": "33.1.1",
+                    "local_error_des": "test_image_version"
+                }
+            },
     "temp_cpu": 
             {
                 "simple": {
