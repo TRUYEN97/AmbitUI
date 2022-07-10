@@ -1,22 +1,14 @@
-2022-07-09 17:54:54.706:   ITEM[dut_ping] - FUNCTION[DutPingProxy]
-2022-07-09 17:54:54.706:   Turn 0:
-2022-07-09 17:54:54.707:   Get IP from the DHCP with MAC is "649714048d60"
-2022-07-09 17:54:54.707:   IP: 172.168.1.0
-2022-07-09 17:54:54.707:   [Cmd] Send command: arp -d 172.168.1.0
-2022-07-09 17:54:54.709:   [Cmd] Send command: ping 172.168.1.0 -n 1
-2022-07-09 17:54:54.735:   [Cmd] Pinging 172.168.1.0 with 32 bytes of data:
-2022-07-09 17:54:54.735:   [Cmd] Reply from 172.168.1.0: bytes=32 time<1ms TTL=64
-2022-07-09 17:54:54.735:   [Cmd] 
-2022-07-09 17:54:54.735:   [Cmd] Ping statistics for 172.168.1.0:
-2022-07-09 17:54:54.736:   [Cmd] Packets: Sent = 1, Received = 1, Lost = 0 (0% loss),
-2022-07-09 17:54:54.736:   [Cmd] Approximate round trip times in milli-seconds:
-2022-07-09 17:54:54.736:   [Cmd] Minimum = 0ms, Maximum = 0ms, Average = 0ms
-2022-07-09 17:54:54.736:   [Cmd] ------------------------------------
-2022-07-09 17:54:54.736:   ****************************************************
-2022-07-09 17:54:54.736:   Limit type: "BOOL"
-2022-07-09 17:54:54.736:   Uper limit: ""
-2022-07-09 17:54:54.736:   Lowet limit: ""
-2022-07-09 17:54:54.736:   Test Value: "passed"
-2022-07-09 17:54:54.736:   Item name: DUT_PING
-2022-07-09 17:54:54.736:   ****************************************************
-2022-07-09 17:54:54.736:   TIME[0.030 s] - STATUS[PASSED]
+2022-07-10 16:49:41.736:   ITEM[dut_ping] - FUNCTION[DutPingProxy]
+2022-07-10 16:49:41.738:   Turn 0:
+2022-07-10 16:49:41.739:   Get IP from the DHCP with MAC is "649714048d60"
+2022-07-10 16:49:41.740:   IP: 172.168.1.0
+2022-07-10 16:49:41.741:   [Cmd] Send command: arp -d 172.168.1.0
+2022-07-10 16:49:41.753:   [Cmd] Send command: ping 172.168.1.0 -n 1
+2022-07-10 16:49:45.763:   [Cmd] Pinging 172.168.1.0 with 32 bytes of data:
+2022-07-10 16:49:45.764:   [Cmd] Request timed out.
+2022-07-10 16:49:45.765:   [Cmd] 
+2022-07-10 16:49:45.765:   [Cmd] Ping statistics for 172.168.1.0:
+2022-07-10 16:49:45.767:   [Cmd] Packets: Sent = 1, Received = 0, Lost = 1 (100% loss),
+2022-07-10 16:49:45.767:   [Cmd] ------------------------------------
+2022-07-10 16:49:45.767:   [Cmd] Send command: arp -d 172.168.1.0
+2022-07-10 16:49:45.775:   [Cmd] Send command: ping 172.168.1.0 -n 1

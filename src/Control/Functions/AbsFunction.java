@@ -22,12 +22,13 @@ import Model.DataTest.ProcessTest.UiInformartion;
 public abstract class AbsFunction implements IFunction {
 
     protected final FuncAllConfig allConfig;
+    protected UiStatus uiStatus;
     protected ProcessData processData;
     protected AbsSubUi subUi;
     protected ProcessTestSignal testSignal;
     protected ProductData productData;
     protected UiInformartion uIInfo;
-    private  FunctionData functionData;
+    protected  FunctionData functionData;
     private ItemTestData itemTestData;
     private AnalysisResult analysisResult;
 
@@ -36,6 +37,7 @@ public abstract class AbsFunction implements IFunction {
     }
 
     public void setResources(UiStatus uiStatus, FunctionData functionData) {
+        this.uiStatus = uiStatus;
         this.functionData = functionData;
         this.uIInfo = uiStatus.getInfo();
         this.processData = uiStatus.getProcessData();

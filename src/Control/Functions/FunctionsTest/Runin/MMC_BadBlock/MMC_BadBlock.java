@@ -8,8 +8,8 @@ import Control.Functions.AbsFunction;
 import Control.Functions.FunctionsTest.Base.BaseFunction;
 import Model.DataTest.FunctionData.FunctionData;
 import Model.ManagerUI.UIStatus.UiStatus;
-import Time.WaitTime.Class.TimeMs;
 import commandprompt.Communicate.Telnet.Telnet;
+import java.util.List;
 
 /**
  *
@@ -18,7 +18,7 @@ import commandprompt.Communicate.Telnet.Telnet;
 public class MMC_BadBlock extends AbsFunction {
 
     private final BaseFunction baseFunc;
-    private String command;
+    private Telnet telnet;
 
     public MMC_BadBlock(String itemName) {
         super(itemName);
@@ -41,24 +41,33 @@ public class MMC_BadBlock extends AbsFunction {
         return check(ip);
     }
 
-    public void setConfig(String command, String spec) {
-        this.command = command;
-    }
-
     private boolean check(String ip) {
-        Telnet telnet = this.baseFunc.getTelnet(ip, 23);
-        if (command == null) {
-            command = this.allConfig.getString("command");
-        }
-        if (!telnet.sendCommand(command)) {
+        telnet = this.baseFunc.getTelnet(ip, 23);
+        String startkey = allConfig.getString("Startkey");
+        String endkey = allConfig.getString("Endkey");
+        List<String> commands = this.allConfig.getListSlip("command", "\\|");
+        if (commands == null || commands.isEmpty()) {
+            addLog("ERROR", "command in config is null or empty!");
             return false;
         }
-        String result = this.baseFunc.getValue(telnet);
-        if (this.baseFunc.isMun(result)) {
-            setResult(result);
-            return true;
+        return runCommand(commands, startkey, endkey);
+    }
+
+    private boolean runCommand(List<String> commands, String startkey, String endkey) {
+        Integer sunBadblock = 0;
+        for (String subCommand : commands) {
+            if (!this.baseFunc.sendCommand(telnet, subCommand)) {
+                return false;
+            }
+            String result = this.baseFunc.getValue(telnet, startkey, endkey);
+            if (!this.baseFunc.isNumber(result)) {
+                return false;
+            }
+            sunBadblock += this.baseFunc.string2Integer(result);
+            addLog("PC", "Sum of bad blocks: " + sunBadblock);
         }
-        return false;
+        setResult(sunBadblock.toString());
+        return true;
     }
 
 }

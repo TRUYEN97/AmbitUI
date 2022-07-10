@@ -136,11 +136,11 @@ public class DataWareHouse {
     }
 
     public JSONArray getJSONArray(JSONObject jsono, String key) {
-        return  jsono.getJSONArray(key);
+        return jsono.getJSONArray(key);
     }
 
     public JSONArray getJSONArray(String key) {
-       return getJSONArray(coreData, key);
+        return getJSONArray(coreData, key);
     }
 
     public void put(String key, Object get) {
@@ -148,10 +148,13 @@ public class DataWareHouse {
     }
 
     public List<String> getListSlip(String key, String regex) {
-        return Arrays.asList(getArrays(key, regex));
+        return getListSlip(coreData, key, regex);
     }
 
     public List<String> getListSlip(JSONObject json, String key, String regex) {
+        if (getArrays(json, key, regex) == null) {
+            return new ArrayList<>();
+        }
         return Arrays.asList(getArrays(json, key, regex));
     }
 

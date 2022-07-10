@@ -9,7 +9,6 @@ import Model.AllKeyWord;
 import Model.DataSource.Setting.Setting;
 import Time.WaitTime.AbsTime;
 import Time.WaitTime.Class.TimeMs;
-import commandprompt.AbstractStream.SubClass.ReadStreamOverTime;
 import commandprompt.Communicate.Cmd.Cmd;
 import commandprompt.Communicate.DHCP.DhcpData;
 import commandprompt.Communicate.Telnet.Telnet;
@@ -45,10 +44,12 @@ public class BaseFunction extends AbsFunction {
         return allConfig.getString("IP");
     }
 
-    public String getValue(Telnet telnet, AbsTime time) {
+    public String getValue(Telnet telnet, String startkey, String endkey) {
+        return getValue(telnet, startkey, endkey, null);
+    }
+
+    public String getValue(Telnet telnet, String startkey, String endkey, AbsTime time) {
         String line;
-        String startkey = allConfig.getString("Startkey");
-        String endkey = allConfig.getString("Endkey");
         String value = null;
         try {
             while ((line = time == null ? telnet.readLine() : telnet.readLine(time)) != null) {
@@ -60,21 +61,54 @@ public class BaseFunction extends AbsFunction {
             }
             return value;
         } finally {
-            addLog("CONFIG", String.format("Startkey: \"%s\"", startkey));
-            addLog("CONFIG", String.format("Endkey: \"%s\"", endkey));
-            addLog("PC", String.format("Value is: \"%s\"", value));
+            addLog("CONFIG", String.format("Start key: \"%s\"", startkey));
+            addLog("CONFIG", String.format("End key: \"%s\"", endkey));
+            addLog("PC", String.format("Value: \"%s\"", value));
         }
 
     }
 
-    public boolean isMun(String value) {
+    public Integer string2Integer(String value) {
         if (value == null) {
+            addLog("ERROR", "Can't convert null to integer!");
+            return null;
+        }
+        try {
+            int result = Integer.valueOf(value);
+            addLog("PC", "Convert sucessed! value: " + result);
+            return result;
+        } catch (NumberFormatException e) {
+            addLog("ERROR", e.getLocalizedMessage());
+            return null;
+        }
+    }
+    
+    public Double string2Double(String value) {
+        if (value == null) {
+            addLog("ERROR", "Can't convert null to Double!");
+            return null;
+        }
+        try {
+            double result = Double.valueOf(value);
+            addLog("PC", "Convert sucessed! value: " + result);
+            return result;
+        } catch (NumberFormatException e) {
+            addLog("ERROR", e.getLocalizedMessage());
+            return null;
+        }
+    }
+
+    public boolean isNumber(String value) {
+        if (value == null) {
+            addLog("PC", value + " is not a number");
             return false;
         }
         try {
             Double.valueOf(value);
+            addLog("PC", value + " is a number");
             return true;
         } catch (NumberFormatException e) {
+            addLog("PC", value + " is not a number");
             return false;
         }
     }
@@ -99,7 +133,7 @@ public class BaseFunction extends AbsFunction {
         return null;
     }
 
-    private static boolean stringAvailable(String str) {
+    private boolean stringAvailable(String str) {
         return str != null && !str.isBlank();
     }
 
@@ -156,7 +190,7 @@ public class BaseFunction extends AbsFunction {
             addLog("Telnet", "send command \" " + command + "\" failed!");
             return false;
         }
-        telnet.readLine(new TimeMs(100));
+        telnet.readLine();
         return true;
     }
 
@@ -186,9 +220,5 @@ public class BaseFunction extends AbsFunction {
             }
         }
         return false;
-    }
-
-    public String getValue(Telnet telnet) {
-        return getValue(telnet, null);
     }
 }

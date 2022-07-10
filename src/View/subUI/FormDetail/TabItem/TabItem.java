@@ -150,20 +150,19 @@ public class TabItem extends AbsTabUI {
     }//GEN-LAST:event_tableItemMouseClicked
 
     private void showItemLogSelected() {
-        for (int row : this.tableItem.getSelectedRows()) {
-            FunctionData dataBox = this.uiStatus.getProcessData().getDataBox(getNameITem(row));
-            if (dataBox == null) {
-                return;
-            }
-            if (itemLogs.containsKey(dataBox)) {
-                itemLogs.get(dataBox).showLog();
-            } else {
-                ItemLog itemLog = new ItemLog(this);
-                itemLog.setDataBox(dataBox);
-                itemLog.showLog();
-                itemLogs.put(dataBox, itemLog);
-            }
+        FunctionData dataBox = this.uiStatus.getProcessData().getDataBox(getNameITem(this.tableItem.getSelectedRow()));
+        if (dataBox == null) {
+            return;
         }
+        if (itemLogs.containsKey(dataBox)) {
+            itemLogs.get(dataBox).showLog();
+        } else {
+            ItemLog itemLog = new ItemLog(this);
+            itemLog.setDataBox(dataBox);
+            itemLog.showLog();
+            itemLogs.put(dataBox, itemLog);
+        }
+
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
@@ -242,6 +241,9 @@ public class TabItem extends AbsTabUI {
     }
 
     private String getNameITem(int row) {
+        if (row == -1) {
+            return null;
+        }
         return this.tableModel.getValueAt(row, this.listFunc.indexOf(ITEM)).toString();
     }
 }

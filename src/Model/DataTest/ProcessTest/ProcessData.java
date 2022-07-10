@@ -66,6 +66,9 @@ public class ProcessData {
     }
 
     public FunctionData getDataBox(String item) {
+        if (item == null) {
+            return null;
+        }
         return mapFunctionData.get(item);
     }
 

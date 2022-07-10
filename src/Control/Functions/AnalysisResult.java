@@ -26,23 +26,17 @@ public class AnalysisResult {
     }
 
     public void checkResult(boolean status, String result) {
-        if (!status) {
-            setFail(ErrorCodeElement.SIMPLE);
-        }
-        if (isResultAvailable(result) || this.allConfig.isLimitAvailable()) {
+        if (this.allConfig.isLimitAvailable()) {
             checkResultWithLimits(result);
         } else {
             this.itemTestData.setPass(status);
         }
     }
 
-    private boolean isResultAvailable(String result) {
-        return result != null && !result.isBlank();
-    }
-
     private void checkResultWithLimits(String StringResult) {
-        if (StringResult == null) {
+        if (StringResult == null || StringResult.isBlank()) {
             setFail(ErrorCodeElement.SIMPLE);
+            return;
         }
         switch (allConfig.getTestType()) {
             case AllKeyWord.MATCH -> {

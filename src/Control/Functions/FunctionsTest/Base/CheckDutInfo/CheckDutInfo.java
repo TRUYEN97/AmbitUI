@@ -45,7 +45,9 @@ public class CheckDutInfo extends AbsFunction {
         if (telnet == null || !this.baseFunc.sendCommand(telnet, allConfig.getString("command"))) {
             return false;
         }
-        return checkValue(this.baseFunc.getValue(telnet, new TimeMs(100)));
+        String startkey = allConfig.getString("Startkey");
+        String endkey = allConfig.getString("Endkey");
+        return checkValue(this.baseFunc.getValue(telnet, startkey, endkey, new TimeMs(1000)));
     }
 
     private boolean checkValue(String value) {
