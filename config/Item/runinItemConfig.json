@@ -38,7 +38,7 @@
     "Functions": [
         {
             "FLAG": true,
-            "TIME_OVER": 180,
+            "TIME_OVER": 360,
             "MULTI_TASK": true,
             "IP": "192.168.1.1",
             "test_name": "dut_ping",
@@ -85,8 +85,7 @@
             "FAIL_CONTNIUE": true,
             "IP": "192.168.1.1",
             "command": "cat /sys/bus/i2c/devices/0-0030/name",
-            "Startkey": "",
-            "Endkey": "",
+            "Regex": "^([a-z|A-Z]|[0-9])+$",
             "test_name": "led_vendor",
             "FUNC_NAME": "CheckCommandTelnetProxy"
         },
@@ -121,8 +120,7 @@
             "FAIL_CONTNIUE": true,
             "IP": "192.168.1.1",
             "command": "cat /sys/devices/virtual/thermal/thermal_zone1/temp",
-            "Startkey": "",
-            "Endkey": "",
+            "Regex": "^[0-9]+$",
             "test_name": "temp_cpu_0",
             "FUNC_NAME": "CheckCommandTelnetProxy"
         },

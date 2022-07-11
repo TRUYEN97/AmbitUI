@@ -28,7 +28,7 @@ public abstract class AbsFunction implements IFunction {
     protected ProcessTestSignal testSignal;
     protected ProductData productData;
     protected UiInformartion uIInfo;
-    protected  FunctionData functionData;
+    protected FunctionData functionData;
     private ItemTestData itemTestData;
     private AnalysisResult analysisResult;
 
@@ -57,7 +57,14 @@ public abstract class AbsFunction implements IFunction {
 
     @Override
     public void run() {
-        this.analysisResult.checkResult(test(), getResult());
+        boolean testRs;
+        try {
+            testRs = test();
+        } catch (Exception e) {
+            addLog("ERROR", e.getLocalizedMessage());
+            testRs = false;
+        }
+        this.analysisResult.checkResult(testRs, getResult());
         this.itemTestData.endThisTurn();
     }
 

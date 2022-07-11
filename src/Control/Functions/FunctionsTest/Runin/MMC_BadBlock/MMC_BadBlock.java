@@ -5,7 +5,8 @@
 package Control.Functions.FunctionsTest.Runin.MMC_BadBlock;
 
 import Control.Functions.AbsFunction;
-import Control.Functions.FunctionsTest.Base.BaseFunction;
+import Control.Functions.FunctionsTest.Base.FunctionBase;
+import Control.Functions.FunctionsTest.Base.AnalysisBase;
 import Model.DataTest.FunctionData.FunctionData;
 import Model.ManagerUI.UIStatus.UiStatus;
 import commandprompt.Communicate.Telnet.Telnet;
@@ -17,23 +18,26 @@ import java.util.List;
  */
 public class MMC_BadBlock extends AbsFunction {
 
-    private final BaseFunction baseFunc;
+    private final FunctionBase baseFunc;
+    private final AnalysisBase analysisBase;
     private Telnet telnet;
 
     public MMC_BadBlock(String itemName) {
         super(itemName);
-        this.baseFunc = new BaseFunction(itemName);
+        this.baseFunc = new FunctionBase(itemName);
+        this.analysisBase = new AnalysisBase(itemName);
     }
 
     @Override
     public void setResources(UiStatus uiStatus, FunctionData functionData) {
         super.setResources(uiStatus, functionData); // Generated from nbfs://nbhost/SystemFileSystem/Templates/Classes/Code/OverriddenMethodBody
         this.baseFunc.setResources(uiStatus, functionData);
+        this.analysisBase.setResources(uiStatus, functionData);
     }
 
     @Override
     protected boolean test() {
-        String ip = this.baseFunc.getIp();
+        String ip = this.analysisBase.getIp();
         addLog("IP: " + ip);
         if (ip == null) {
             return false;
@@ -59,11 +63,11 @@ public class MMC_BadBlock extends AbsFunction {
             if (!this.baseFunc.sendCommand(telnet, subCommand)) {
                 return false;
             }
-            String result = this.baseFunc.getValue(telnet, startkey, endkey);
-            if (!this.baseFunc.isNumber(result)) {
+            String result = this.analysisBase.getValue(telnet, startkey, endkey);
+            if (!this.analysisBase.isNumber(result)) {
                 return false;
             }
-            sunBadblock += this.baseFunc.string2Integer(result);
+            sunBadblock += this.analysisBase.string2Integer(result);
             addLog("PC", "Sum of bad blocks: " + sunBadblock);
         }
         setResult(sunBadblock.toString());

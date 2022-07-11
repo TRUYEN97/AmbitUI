@@ -1,53 +1,55 @@
-2022-07-10 16:33:53.879:   ITEM[phy_model] - FUNCTION[CheckCommandTelnetProxy]
-2022-07-10 16:33:53.880:   Turn 0:
-2022-07-10 16:33:53.880:   Get IP from the DHCP with MAC is "649714048d60"
-2022-07-10 16:33:53.880:   [Telnet] Connect to host: 172.168.1.0
-2022-07-10 16:33:53.880:   [Telnet] Port is: 23
-2022-07-10 16:33:53.880:   [Cmd] Send command: arp -d 172.168.1.0
-2022-07-10 16:33:53.883:   [Cmd] Send command: ping 172.168.1.0 -n 1
-2022-07-10 16:33:53.910:   [Cmd] Pinging 172.168.1.0 with 32 bytes of data:
-2022-07-10 16:33:53.910:   [Cmd] Reply from 172.168.1.0: bytes=32 time<1ms TTL=64
-2022-07-10 16:33:53.911:   [Cmd] 
-2022-07-10 16:33:53.911:   [Cmd] Ping statistics for 172.168.1.0:
-2022-07-10 16:33:53.911:   [Cmd] Packets: Sent = 1, Received = 1, Lost = 0 (0% loss),
-2022-07-10 16:33:53.911:   [Cmd] Approximate round trip times in milli-seconds:
-2022-07-10 16:33:53.911:   [Cmd] Minimum = 0ms, Maximum = 0ms, Average = 0ms
-2022-07-10 16:33:53.911:   [Cmd] ------------------------------------
-2022-07-10 16:33:54.212:   [Telnet] 
-2022-07-10 16:33:54.212:   [Telnet] === IMPORTANT ============================
-2022-07-10 16:33:54.212:   [Telnet] Use 'passwd' to set your login password!
-2022-07-10 16:33:54.212:   [Telnet] ------------------------------------------
-2022-07-10 16:33:54.212:   [Telnet] 
-2022-07-10 16:33:54.212:   [Telnet] 
-2022-07-10 16:33:54.212:   [Telnet] BusyBox v1.30.1 () built-in shell (ash)
-2022-07-10 16:33:54.212:   [Telnet] 
-2022-07-10 16:33:54.212:   [Telnet] MM           NM                    MMMMMMM          M       M
-2022-07-10 16:33:54.212:   [Telnet] $MMMMM        MMMMM                MMMMMMMMMMM      MMM     MMM
-2022-07-10 16:33:54.212:   [Telnet] MMMMMMMM     MM MMMMM.              MMMMM:MMMMMM:   MMMM   MMMMM
-2022-07-10 16:33:54.212:   [Telnet] MMMM= MMMMMM  MMM   MMMM       MMMMM   MMMM  MMMMMM   MMMM  MMMMM'
-2022-07-10 16:33:54.212:   [Telnet] MMMM=  MMMMM MMMM    MM       MMMMM    MMMM    MMMM   MMMMNMMMMM
-2022-07-10 16:33:54.212:   [Telnet] MMMM=   MMMM  MMMMM          MMMMM     MMMM    MMMM   MMMMMMMM
-2022-07-10 16:33:54.212:   [Telnet] MMMM=   MMMM   MMMMMM       MMMMM      MMMM    MMMM   MMMMMMMMM
-2022-07-10 16:33:54.212:   [Telnet] MMMM=   MMMM     MMMMM,    NMMMMMMMM   MMMM    MMMM   MMMMMMMMMMM
-2022-07-10 16:33:54.212:   [Telnet] MMMM=   MMMM      MMMMMM   MMMMMMMM    MMMM    MMMM   MMMM  MMMMMM
-2022-07-10 16:33:54.212:   [Telnet] MMMM=   MMMM   MM    MMMM    MMMM      MMMM    MMMM   MMMM    MMMM
-2022-07-10 16:33:54.212:   [Telnet] MMMM$ ,MMMMM  MMMMM  MMMM    MMM       MMMM   MMMMM   MMMM    MMMM
-2022-07-10 16:33:54.212:   [Telnet] MMMMMMM:      MMMMMMM     M         MMMMMMMMMMMM  MMMMMMM MMMMMMM
-2022-07-10 16:33:54.212:   [Telnet] MMMMMM       MMMMN     M           MMMMMMMMM      MMMM    MMMM
-2022-07-10 16:33:54.212:   [Telnet] MMMM          M                    MMMMMMM        M       M
-2022-07-10 16:33:54.212:   [Telnet] M
-2022-07-10 16:33:54.212:   [Telnet] ---------------------------------------------------------------
-2022-07-10 16:33:54.212:   [Telnet] For those about to rock... (Chaos Calmer, unknown)
-2022-07-10 16:33:54.212:   [Telnet] ---------------------------------------------------------------
-2022-07-10 16:33:54.212:   [Telnet] root@eero-test:/#
-2022-07-10 16:33:54.212:   [Telnet] Send command: dmesg|grep 'PHY ID'
-2022-07-10 16:33:54.269:   [Telnet] [   13.851831] Ethernet port eth0's PHY ID is 0x4dd0c0
-2022-07-10 16:33:54.270:   [Telnet] [   13.857955] Ethernet port eth1's PHY ID is 0x4dd101
-2022-07-10 16:33:54.270:   [CONFIG] Start key: "eth1's PHY ID is"
-2022-07-10 16:33:54.270:   [CONFIG] End key: ""
-2022-07-10 16:33:54.270:   [PC] Value: "0x4dd101"
-2022-07-10 16:33:54.270:   ****************************************************
-2022-07-10 16:33:54.270:   Test Value: "0x4dd101"
-2022-07-10 16:33:54.270:   Item name: phy_model
-2022-07-10 16:33:54.270:   ****************************************************
-2022-07-10 16:33:54.270:   TIME[0.390 s] - STATUS[PASSED]
+2022-07-11 02:59:28.322:   ITEM[phy_model] - FUNCTION[CheckCommandTelnetProxy]
+2022-07-11 02:59:28.323:   Turn 0:
+2022-07-11 02:59:28.323:   Get IP from the DHCP with MAC is "649714048d60"
+2022-07-11 02:59:28.323:   [Telnet] Connect to host: 172.168.1.0
+2022-07-11 02:59:28.323:   [Telnet] Port is: 23
+2022-07-11 02:59:28.323:   [Telnet] Send command: arp -d 172.168.1.0
+2022-07-11 02:59:28.325:   [Telnet] Send command: ping 172.168.1.0 -n 1
+2022-07-11 02:59:28.351:   [Cmd] Pinging 172.168.1.0 with 32 bytes of data:
+2022-07-11 02:59:28.351:   [Cmd] Reply from 172.168.1.0: bytes=32 time<1ms TTL=64
+2022-07-11 02:59:28.352:   [Cmd] 
+2022-07-11 02:59:28.352:   [Cmd] Ping statistics for 172.168.1.0:
+2022-07-11 02:59:28.352:   [Cmd] Packets: Sent = 1, Received = 1, Lost = 0 (0% loss),
+2022-07-11 02:59:28.352:   [Cmd] Approximate round trip times in milli-seconds:
+2022-07-11 02:59:28.352:   [Cmd] Minimum = 0ms, Maximum = 0ms, Average = 0ms
+2022-07-11 02:59:28.352:   [Cmd] ------------------------------------
+2022-07-11 02:59:28.653:   [Telnet] 
+2022-07-11 02:59:28.653:   [Telnet] === IMPORTANT ============================
+2022-07-11 02:59:28.653:   [Telnet] Use 'passwd' to set your login password!
+2022-07-11 02:59:28.653:   [Telnet] ------------------------------------------
+2022-07-11 02:59:28.653:   [Telnet] 
+2022-07-11 02:59:28.653:   [Telnet] 
+2022-07-11 02:59:28.653:   [Telnet] BusyBox v1.30.1 () built-in shell (ash)
+2022-07-11 02:59:28.653:   [Telnet] 
+2022-07-11 02:59:28.653:   [Telnet] MM           NM                    MMMMMMM          M       M
+2022-07-11 02:59:28.653:   [Telnet] $MMMMM        MMMMM                MMMMMMMMMMM      MMM     MMM
+2022-07-11 02:59:28.653:   [Telnet] MMMMMMMM     MM MMMMM.              MMMMM:MMMMMM:   MMMM   MMMMM
+2022-07-11 02:59:28.653:   [Telnet] MMMM= MMMMMM  MMM   MMMM       MMMMM   MMMM  MMMMMM   MMMM  MMMMM'
+2022-07-11 02:59:28.653:   [Telnet] MMMM=  MMMMM MMMM    MM       MMMMM    MMMM    MMMM   MMMMNMMMMM
+2022-07-11 02:59:28.653:   [Telnet] MMMM=   MMMM  MMMMM          MMMMM     MMMM    MMMM   MMMMMMMM
+2022-07-11 02:59:28.653:   [Telnet] MMMM=   MMMM   MMMMMM       MMMMM      MMMM    MMMM   MMMMMMMMM
+2022-07-11 02:59:28.653:   [Telnet] MMMM=   MMMM     MMMMM,    NMMMMMMMM   MMMM    MMMM   MMMMMMMMMMM
+2022-07-11 02:59:28.653:   [Telnet] MMMM=   MMMM      MMMMMM   MMMMMMMM    MMMM    MMMM   MMMM  MMMMMM
+2022-07-11 02:59:28.653:   [Telnet] MMMM=   MMMM   MM    MMMM    MMMM      MMMM    MMMM   MMMM    MMMM
+2022-07-11 02:59:28.653:   [Telnet] MMMM$ ,MMMMM  MMMMM  MMMM    MMM       MMMM   MMMMM   MMMM    MMMM
+2022-07-11 02:59:28.653:   [Telnet] MMMMMMM:      MMMMMMM     M         MMMMMMMMMMMM  MMMMMMM MMMMMMM
+2022-07-11 02:59:28.653:   [Telnet] MMMMMM       MMMMN     M           MMMMMMMMM      MMMM    MMMM
+2022-07-11 02:59:28.653:   [Telnet] MMMM          M                    MMMMMMM        M       M
+2022-07-11 02:59:28.653:   [Telnet] M
+2022-07-11 02:59:28.653:   [Telnet] ---------------------------------------------------------------
+2022-07-11 02:59:28.653:   [Telnet] For those about to rock... (Chaos Calmer, unknown)
+2022-07-11 02:59:28.653:   [Telnet] ---------------------------------------------------------------
+2022-07-11 02:59:28.653:   [Telnet] root@eero-test:/#
+2022-07-11 02:59:28.653:   [Telnet] Send command: dmesg|grep 'PHY ID'
+2022-07-11 02:59:28.700:   [Telnet] dmesg|grep 'PHY ID'
+2022-07-11 02:59:28.700:   [Telnet] [   13.781823] Ethernet port eth0's PHY ID is 0x4dd0c0
+2022-07-11 02:59:28.700:   [Telnet] [   13.787997] Ethernet port eth1's PHY ID is 0x4dd101
+2022-07-11 02:59:28.700:   [CONFIG] Start key: "eth1's PHY ID is"
+2022-07-11 02:59:28.700:   [CONFIG] End key: ""
+2022-07-11 02:59:28.700:   [CONFIG] Regex: ""
+2022-07-11 02:59:28.700:   [PC] Value: "0x4dd101"
+2022-07-11 02:59:28.700:   ****************************************************
+2022-07-11 02:59:28.701:   Test Value: "0x4dd101"
+2022-07-11 02:59:28.701:   Item name: phy_model
+2022-07-11 02:59:28.701:   ****************************************************
+2022-07-11 02:59:28.701:   TIME[0.379 s] - STATUS[PASSED]

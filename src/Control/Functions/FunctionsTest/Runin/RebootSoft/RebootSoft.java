@@ -5,7 +5,8 @@
 package Control.Functions.FunctionsTest.Runin.RebootSoft;
 
 import Control.Functions.AbsFunction;
-import Control.Functions.FunctionsTest.Base.BaseFunction;
+import Control.Functions.FunctionsTest.Base.AnalysisBase;
+import Control.Functions.FunctionsTest.Base.FunctionBase;
 import Model.DataTest.FunctionData.FunctionData;
 import Model.ManagerUI.UIStatus.UiStatus;
 
@@ -15,22 +16,25 @@ import Model.ManagerUI.UIStatus.UiStatus;
  */
 public class RebootSoft extends AbsFunction {
 
-    private final BaseFunction baseFunc;
+    private final FunctionBase functionBase;
+    private final AnalysisBase analysisBase;
 
     public RebootSoft(String itemName) {
         super(itemName);
-        this.baseFunc = new BaseFunction(itemName);
+        this.functionBase = new FunctionBase(itemName);
+        this.analysisBase = new AnalysisBase(itemName);
     }
 
     @Override
     public void setResources(UiStatus uiStatus, FunctionData functionData) {
         super.setResources(uiStatus, functionData); // Generated from nbfs://nbhost/SystemFileSystem/Templates/Classes/Code/OverriddenMethodBody
-        this.baseFunc.setResources(uiStatus, functionData);
+        this.functionBase.setResources(uiStatus, functionData);
+        this.analysisBase.setResources(uiStatus, functionData);
     }
 
     @Override
     protected boolean test() {
-        String ip = this.baseFunc.getIp();
+        String ip = this.analysisBase.getIp();
         addLog("IP: " + ip);
         if (ip == null) {
             return false;
@@ -43,7 +47,7 @@ public class RebootSoft extends AbsFunction {
         addLog("CONFIG", "Times: " + times);
         for (int i = 1; i <= times; i++) {
             addLog(String.format("cycle Times: %d - %d ", i, times));
-            if (!this.baseFunc.rebootSoft(ip) || !this.baseFunc.pingTo(ip, 200)) {
+            if (!this.functionBase.rebootSoft(ip) || !this.functionBase.pingTo(ip, 200)) {
                 return false;
             }
         }
