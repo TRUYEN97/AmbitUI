@@ -59,7 +59,7 @@ public class SfisFunction extends AbsFunction {
 
     private String createCommand() {
         JSONObject command = new JSONObject();
-        List<String> listKey = this.allConfig.getListSlip(SEND_FORMAT, "\\|");
+        List<String> listKey = this.allConfig.getListJsonArray(SEND_FORMAT);
         addLog(SEND_FORMAT, listKey);
         if (listKey == null || listKey.isEmpty()) {
             addLog(DATA_FORMAT + " is null or empty!");
@@ -90,7 +90,7 @@ public class SfisFunction extends AbsFunction {
         }
         JSONObject res = JSONObject.parseObject(response);
         if (res.getString(AllKeyWord.RESULT).equals("PASS")) {
-            List<String> listKey = this.allConfig.getListSlip(DATA_FORMAT, "\\|");
+            List<String> listKey = this.allConfig.getListJsonArray(DATA_FORMAT);
             addLog(DATA_FORMAT, listKey);
             if (listKey == null || listKey.isEmpty()) {
                 addLog(DATA_FORMAT + " is null or empty!");

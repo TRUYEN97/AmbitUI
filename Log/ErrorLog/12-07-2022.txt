@@ -1,0 +1,48 @@
+2022-07-12 07:33:50.765:   error in Model.DataSource.ModeTest.FunctionConfig.FuncAllConfig : Missing error code of fixture_close - simple type !!
+2022-07-12 07:33:50.765:   //////////////////////////////////////
+2022-07-12 07:35:50.126:   error in Model.DataSource.ModeTest.FunctionConfig.FuncAllConfig : Missing error code of fixture_close - simple type !!
+2022-07-12 07:35:50.142:   //////////////////////////////////////
+2022-07-12 09:02:47.920:   Not supported yet.
+2022-07-12 09:02:47.921:   //////////////////////////////////////
+2022-07-12 09:28:21.156:   error in Model.DataSource.ModeTest.FunctionConfig.FuncAllConfig : Missing error code of fixture_close - simple type !!
+2022-07-12 09:28:21.156:   //////////////////////////////////////
+2022-07-12 09:28:21.987:   error in Model.DataSource.ModeTest.FunctionConfig.FuncAllConfig : Missing error code of fixture_close - simple type !!
+2022-07-12 09:28:21.987:   //////////////////////////////////////
+2022-07-12 09:28:22.577:   error in Model.DataSource.ModeTest.FunctionConfig.FuncAllConfig : Missing error code of fixture_close - simple type !!
+2022-07-12 09:28:22.577:   //////////////////////////////////////
+2022-07-12 09:35:22.027:   error in Model.DataSource.ModeTest.FunctionConfig.FuncAllConfig : Missing error code of fixture_close - simple type !!
+2022-07-12 09:35:22.027:   //////////////////////////////////////
+2022-07-12 09:35:22.850:   error in Model.DataSource.ModeTest.FunctionConfig.FuncAllConfig : Missing error code of fixture_close - simple type !!
+2022-07-12 09:35:22.850:   //////////////////////////////////////
+2022-07-12 09:35:23.850:   error in Model.DataSource.ModeTest.FunctionConfig.FuncAllConfig : Missing error code of fixture_close - simple type !!
+2022-07-12 09:35:23.850:   //////////////////////////////////////
+2022-07-12 09:43:38.481:   error in Model.DataSource.ModeTest.FunctionConfig.FuncAllConfig : Missing error code of fixture_close - simple type !!
+2022-07-12 09:43:38.481:   //////////////////////////////////////
+2022-07-12 09:43:39.425:   error in Model.DataSource.ModeTest.FunctionConfig.FuncAllConfig : Missing error code of fixture_close - simple type !!
+2022-07-12 09:43:39.425:   //////////////////////////////////////
+2022-07-12 09:43:39.890:   error in Model.DataSource.ModeTest.FunctionConfig.FuncAllConfig : Missing error code of fixture_close - simple type !!
+2022-07-12 09:43:39.890:   //////////////////////////////////////
+2022-07-12 09:47:21.848:   error in Model.DataSource.ModeTest.FunctionConfig.FuncAllConfig : Missing error code of fixture_close - simple type !!
+2022-07-12 09:47:21.848:   //////////////////////////////////////
+2022-07-12 09:47:22.059:   error in Model.DataSource.ModeTest.FunctionConfig.FuncAllConfig : Missing error code of fixture_close - simple type !!
+2022-07-12 09:47:22.059:   //////////////////////////////////////
+2022-07-12 09:47:22.485:   error in Model.DataSource.ModeTest.FunctionConfig.FuncAllConfig : Missing error code of fixture_close - simple type !!
+2022-07-12 09:47:22.485:   //////////////////////////////////////
+2022-07-12 09:49:18.180:   error in Model.DataSource.ModeTest.FunctionConfig.FuncAllConfig : Missing error code of fixture_close - simple type !!
+2022-07-12 09:49:18.180:   //////////////////////////////////////
+2022-07-12 09:49:18.777:   error in Model.DataSource.ModeTest.FunctionConfig.FuncAllConfig : Missing error code of fixture_close - simple type !!
+2022-07-12 09:49:18.777:   //////////////////////////////////////
+2022-07-12 09:49:19.313:   error in Model.DataSource.ModeTest.FunctionConfig.FuncAllConfig : Missing error code of fixture_close - simple type !!
+2022-07-12 09:49:19.313:   //////////////////////////////////////
+2022-07-12 09:51:00.387:   error in Model.DataSource.ModeTest.FunctionConfig.FuncAllConfig : Missing error code of fixture_close - simple type !!
+2022-07-12 09:51:00.387:   //////////////////////////////////////
+2022-07-12 09:51:00.896:   error in Model.DataSource.ModeTest.FunctionConfig.FuncAllConfig : Missing error code of fixture_close - simple type !!
+2022-07-12 09:51:00.896:   //////////////////////////////////////
+2022-07-12 09:51:01.689:   error in Model.DataSource.ModeTest.FunctionConfig.FuncAllConfig : Missing error code of fixture_close - simple type !!
+2022-07-12 09:51:01.689:   //////////////////////////////////////
+2022-07-12 10:07:08.544:   error in Model.DataSource.ModeTest.FunctionConfig.FuncAllConfig : Missing error code of fixture_close - simple type !!
+2022-07-12 10:07:08.544:   //////////////////////////////////////
+2022-07-12 10:07:19.654:   error in Model.DataSource.ModeTest.FunctionConfig.FuncAllConfig : Missing error code of fixture_close - simple type !!
+2022-07-12 10:07:19.654:   //////////////////////////////////////
+2022-07-12 10:07:20.254:   error in Model.DataSource.ModeTest.FunctionConfig.FuncAllConfig : Missing error code of fixture_close - simple type !!
+2022-07-12 10:07:20.254:   //////////////////////////////////////

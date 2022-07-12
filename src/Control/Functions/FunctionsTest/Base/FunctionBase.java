@@ -10,6 +10,7 @@ import Model.DataSource.Setting.Setting;
 import Time.WaitTime.AbsTime;
 import Time.WaitTime.Class.TimeMs;
 import commandprompt.Communicate.Cmd.Cmd;
+import commandprompt.Communicate.Comport.ComPort;
 import commandprompt.Communicate.ISender;
 import commandprompt.Communicate.Telnet.Telnet;
 
@@ -39,6 +40,17 @@ public class FunctionBase extends AbsFunction {
         }
         addLog("Telnet", telnet.readAll(new TimeMs(300)));
         return telnet;
+    }
+
+    public ComPort getComport(String com, Integer baud) {
+        ComPort comPort = new ComPort();
+        addLog("ComPort", "Connect to : " + com);
+        addLog("ComPort", "BaudRate is: " + baud);
+        if (!comPort.connect(com, baud)) {
+            addLog("ComPort", "Connect failed!");
+            return null;
+        }
+        return comPort;
     }
 
     public boolean rebootSoft(String ip) {
@@ -76,9 +88,10 @@ public class FunctionBase extends AbsFunction {
     }
 
     public boolean sendCommand(ISender sender, String command) {
-        addLog("Telnet", "Send command: " + command);
+        String name = sender.getClass().getSimpleName();
+        addLog(name, "Send command: " + command);
         if (command == null || !sender.sendCommand(command)) {
-            addLog("Telnet", "send command \" " + command + "\" failed!");
+            addLog(name, "send command \" " + command + "\" failed!");
             return false;
         }
         return true;
@@ -86,18 +99,21 @@ public class FunctionBase extends AbsFunction {
 
     public boolean pingTo(String ip, int times) {
         Cmd cmd = new Cmd();
-        String command = String.format("arp -d %s", ip);
         String command1 = String.format("ping %s -n 1", ip);
         for (int i = 0; i < times; i++) {
-            if (sendCommand(cmd, command) && sendCommand(cmd, command1)) {
-                String response = cmd.readAll().trim();
-                addLog("Cmd", response);
-                addLog("Cmd", "------------------------------------");
-                if (response.contains("TTL=")) {
-                    return true;
+            addLog("Cmd", "------------------------------------");
+            try {
+                if (sendCommand(cmd, command1)) {
+                    String response = cmd.readAll().trim();
+                    addLog("Cmd", response);
+                    if (response.contains("TTL=")) {
+                        return true;
+                    }
+                } else {
+                    break;
                 }
-            } else {
-                break;
+            } finally {
+                addLog("Cmd", "------------------------------------");
             }
         }
         return false;

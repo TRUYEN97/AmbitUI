@@ -69,15 +69,11 @@ public class FuncAllConfig {
         if (this.limitElement == null) {
             return;
         }
-        for (String key : this.limitElement.getListItem()) {
-            this.wareHouse.put(key, this.limitElement.getString(key));
-        }
+        this.wareHouse.putAll(limitElement.getJson());
     }
 
     private void getAllValueOfConfig() {
-        for (String key : this.functionConfig.getListItem()) {
-            this.wareHouse.put(key, this.functionConfig.getString(key));
-        }
+        this.wareHouse.putAll(this.functionConfig.getJson());
     }
 
     public String getFunctionName() {

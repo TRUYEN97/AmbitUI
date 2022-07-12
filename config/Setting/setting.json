@@ -14,9 +14,16 @@
     "DETAIL": ["TabViewProxy", "TabFaApiProxy", "TabItemProxy"],
     "LOAD_MODE": [
         {
-            "NAME": "Debug RE", 
+            "NAME": "Runin", 
             "TYPE_MODE": "Debug",
             "AMBIT_CONFIG": "config\\Item\\runinItemConfig.json",
+            "DETAIL": ["TabViewProxy", "TabItemProxy"]
+        },
+        {
+            "NAME": "MBLT",
+            "station_type": "MBLT",
+            "TYPE_MODE": "Debug",
+            "AMBIT_CONFIG": "config\\Item\\mbltItemConfig.json",
             "DETAIL": ["TabViewProxy", "TabItemProxy"]
         },
         {

@@ -84,7 +84,7 @@ public class ItemTestData {
         return (stt != null && stt.equals(PASS));
     }
 
-    public void setPass(boolean isPass) {
+    private void setTestValue(boolean isPass) {
         this.data.put(AllKeyWord.STATUS, isPass ? PASS : FAIL);
         if (getResultTest() == null) {
             this.data.put(AllKeyWord.TEST_VALUE, isPass ? PASS : FAIL);
@@ -109,10 +109,6 @@ public class ItemTestData {
         this.loger.addLog(String.format("Limit type: \"%s\"", limitType));
         this.loger.addLog(String.format("Uper limit: \"%s\"", uperLimit));
         this.loger.addLog(String.format("Lowet limit: \"%s\"", lowerLimit));
-    }
-
-    public void clearError() {
-        this.error.clear();
     }
 
     public void end() {
@@ -140,11 +136,11 @@ public class ItemTestData {
         }
         this.error.putAll(errorCode);
     }
-    
+
     public void setFail(String errorType) {
         this.setErrorCode();
         this.setLocalErrorCode(errorType);
-        this.setPass(false);
+        this.setTestValue(false);
     }
 
     public void setResult(String result) {
@@ -154,7 +150,7 @@ public class ItemTestData {
     public String getResultTest() {
         return this.data.getString(AllKeyWord.TEST_VALUE);
     }
-    
+
     public String getStatusTest() {
         return this.data.getString(AllKeyWord.STATUS);
     }
@@ -186,6 +182,11 @@ public class ItemTestData {
         }
         this.data.put(AllKeyWord.CYCLE_TIME, String.format("%.3f", timeS.getTime()));
         this.data.put(AllKeyWord.FINISH_TIME, new TimeBase().getSimpleDateTime());
+    }
+
+    public void setPass() {
+        this.error.clear();
+        setTestValue(true);
     }
 
 }

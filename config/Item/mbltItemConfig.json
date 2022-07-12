@@ -1,49 +1,61 @@
 {
     "UUT_MODEL": "eden",
-    "station_type": "RUNIN",
-    "TIME_OUT_TEST": 100,
+    "station_type": "MBLT",
+    "TIME_OUT_TEST": 7000,
     "INIT": [
         {
-            "FLAG": true,
+            "FLAG": false,
             "TIME_OVER": 50,
             "SEND_FORMAT": "sn| pcname| mode",
             "DATA_FORMAT": "mlbsn| ethernetmac| pnname| model| smode",
-            "URL_CHECK_SN": "http://10.90.0.40/sfcapi/api/connect",
+            "URL": "http://10.90.0.40/sfcapi/api/connect",
             "test_name": "gen_node",
             "FUNC_NAME": "SfisFunctionProxy"
         },
         {
-            "FLAG": true,
+            "FLAG": false,
             "CANCEL": "DEBUG",
-            "FAIL_CONTNIUE": true,
+            "MULTI_TASK": true,
+            "FAIL_CONTNIUE": false,
             "TIME_OVER": 1,
-            "MULTI_TASK": false,
-            "RETRY": 1,
             "test_name": "mac",
             "FUNC_NAME": "GetMacFormSfisProxy"
         }
     ],
     "Functions": [
         {
-            "FLAG": false,
-            "TIME_OVER": 20,
-            "MULTI_TASK": false,
-            "RETRY": 2,
-            "host": "192.168.1.10",
-            "user": "admin",
-            "password": "1234",
-            "Times": 1,
-            "test_name": "wps_ok",
-            "FUNC_NAME": "PowerSwitchProxy"
+            "FLAG": true,
+            "TIME_OVER": 360,
+            "MULTI_TASK": true,
+            "command": ["AT+TESTSTART%","AT+VBUS_BOFF%","AT+CC_BOFF%","AT+VBUS_AON%","AT+CC_AON%"],
+            "ComPort": "COM3",
+            "BaudRate": 115200,
+            "Time": 20,
+            "keyWord": "OK",
+            "test_name": "fixture_close",
+            "FUNC_NAME": "FixtureActionProxy"
         }
     ],
     "END": [
         {
-            "FLAG": true,
+            "FLAG": false,
+            "TIME_OVER": 30,
+            "MULTI_TASK": true,
+            "host": "192.168.1.10",
+            "user": "admin",
+            "password": "1234",
+            "Times": 1,
+            "Delay": 3,
+            "Command": "off",
+            "test_name": "wps_off",
+            "FUNC_NAME": "PowerSwitchProxy"
+        },
+        {
+            "FLAG": false,
             "TIME_OVER": 5,
             "WAIT_MULTI_DONE": true,
             "SEND_FORMAT": "mlbsn| pcname| status| mode",
-            "URL_SEND_RESULT": "http://10.90.0.40/sfcapi/api/connectfinal",
+            "URL": "http://10.90.0.40/sfcapi/api/connectfinal",
             "SFIS_TYPE": "SendResult",
             "test_name": "SendToSfis",
             "FUNC_NAME": "SfisFunctionProxy"

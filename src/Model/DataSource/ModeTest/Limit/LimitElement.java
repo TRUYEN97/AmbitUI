@@ -39,7 +39,15 @@ public class LimitElement extends AbsElementInfo {
         return warehouse.getString(key);
     }
 
+    public JSONObject getJson() {
+        return warehouse.toJson();
+    }
+
     public Integer getInteger(String key) {
         return warehouse.getInteger(key);
+    }
+
+    public Object getObject(String key) {
+        return warehouse.get(key);
     }
 }

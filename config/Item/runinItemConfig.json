@@ -6,8 +6,8 @@
         {
             "FLAG": false,
             "TIME_OVER": 50,
-            "SEND_FORMAT": "sn| pcname| mode",
-            "DATA_FORMAT": "mlbsn| ethernetmac| pnname| model| smode",
+            "SEND_FORMAT": ["sn", "pcname", "mode"],
+            "DATA_FORMAT": ["mlbsn", "ethernetmac", "pnname", "model", "smode"],
             "URL": "http://10.90.0.40/sfcapi/api/connect",
             "test_name": "gen_node",
             "FUNC_NAME": "SfisFunctionProxy"
@@ -33,6 +33,22 @@
             "Command": "off | on",
             "test_name": "wps_ok",
             "FUNC_NAME": "PowerSwitchProxy"
+        },
+        {
+            "FLAG": false,
+            "TIME_OVER": 360,
+            "MULTI_TASK": true,
+            "command": ["AT+TESTSTART%",
+                "AT+VBUS_BOFF%",
+                "AT+CC_BOFF%",
+                "AT+VBUS_AON%",
+                "AT+CC_AON%"],
+            "ComPort": "COM4",
+            "BaudRate": 115200,
+            "Time": 20,
+            "keyWord": "OK",
+            "test_name": "fixture_close",
+            "FUNC_NAME": "FixtureActionProxy"
         }
     ],
     "Functions": [
@@ -195,7 +211,7 @@
             "FLAG": false,
             "TIME_OVER": 5,
             "WAIT_MULTI_DONE": true,
-            "SEND_FORMAT": "mlbsn| pcname| status| mode",
+            "SEND_FORMAT": ["mlbsn", "pcname", "status", "mode"],
             "URL": "http://10.90.0.40/sfcapi/api/connectfinal",
             "SFIS_TYPE": "SendResult",
             "test_name": "SendToSfis",

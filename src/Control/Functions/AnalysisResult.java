@@ -27,15 +27,17 @@ public class AnalysisResult {
 
     public void checkResult(boolean status, String result) {
         if (this.allConfig.isLimitAvailable()) {
-            checkResultWithLimits(result);
+            checkResultWithLimits(status, result);
+        } else if (status) {
+            this.itemTestData.setPass();
         } else {
-            this.itemTestData.setPass(status);
+            this.itemTestData.setFail(ErrorCodeElement.SIMPLE);
         }
     }
 
-    private void checkResultWithLimits(String StringResult) {
-        if (StringResult == null || StringResult.isBlank()) {
-            setFail(ErrorCodeElement.SIMPLE);
+    private void checkResultWithLimits(boolean status, String StringResult) {
+        if (!status || StringResult == null || StringResult.isBlank()) {
+            this.itemTestData.setFail(ErrorCodeElement.SIMPLE);
             return;
         }
         switch (allConfig.getTestType()) {
@@ -43,7 +45,7 @@ public class AnalysisResult {
                 if (checkMatchType(StringResult)) {
                     setPass();
                 } else {
-                    setFail(ErrorCodeElement.SIMPLE);
+                    this.itemTestData.setFail(ErrorCodeElement.SIMPLE);
                 }
             }
             case AllKeyWord.LIMIT -> {
@@ -51,22 +53,17 @@ public class AnalysisResult {
                 if (errorType == null) {
                     setPass();
                 } else {
-                    setFail(errorType);
+                    this.itemTestData.setFail(errorType);
                 }
             }
             default -> {
-                setFail(ErrorCodeElement.SIMPLE);
+                this.itemTestData.setFail(ErrorCodeElement.SIMPLE);
             }
         }
     }
 
     private void setPass() {
-        this.itemTestData.clearError();
-        this.itemTestData.setPass(true);
-    }
-
-    private void setFail(String errorType) {
-        this.itemTestData.setFail(errorType);
+        this.itemTestData.setPass();
     }
 
     private boolean checkMatchType(String result) {

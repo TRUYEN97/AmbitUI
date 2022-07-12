@@ -32,24 +32,25 @@ public class AnalysisBase extends AbsFunction{
         return getValue(telnet, null, null, regex, null);
     }
     
-    public String getValue(IReadable telnet, String regex, AbsTime time) {
-        return getValue(telnet, null, null, regex, time);
+    public String getValue(IReadable readable, String regex, AbsTime time) {
+        return getValue(readable, null, null, regex, time);
     }
 
-    public String getValue(IReadable telnet, String startkey, String endkey, AbsTime time) {
-        return getValue(telnet, startkey, endkey, null, time);
+    public String getValue(IReadable readable, String startkey, String endkey, AbsTime time) {
+        return getValue(readable, startkey, endkey, null, time);
     }
     
-    public String getValue(IReadable telnet, String startkey, String endkey) {
-        return getValue(telnet, startkey, endkey, null, null);
+    public String getValue(IReadable readable, String startkey, String endkey) {
+        return getValue(readable, startkey, endkey, null, null);
     }
     
-    public String getValue(IReadable telnet, String startkey, String endkey, String regex, AbsTime time) {
+    public String getValue(IReadable readable, String startkey, String endkey, String regex, AbsTime time) {
         String line;
+        String name = readable.getClass().getSimpleName();
         String value = null;
         try {
-            while ((line = time == null ? telnet.readLine() : telnet.readLine(time)) != null) {
-                addLog("Telnet", line);
+            while ((line = time == null ? readable.readLine() : readable.readLine(time)) != null) {
+                addLog(name, line);
                 if (regex != null && !regex.isBlank()) {
                     value = findGroup(line, regex);
                 } else {

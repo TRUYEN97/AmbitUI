@@ -7,8 +7,11 @@ package View.subUI.FormDetail;
 import View.subUI.FormDetail.TabItem.TabItem;
 import Model.DataTest.FunctionData.FunctionData;
 import java.awt.event.ActionEvent;
+import java.awt.event.MouseEvent;
 import java.util.Queue;
 import javax.swing.Timer;
+import javax.swing.text.BadLocationException;
+import javax.swing.text.DefaultCaret;
 
 /**
  *
@@ -91,6 +94,11 @@ public class ItemLog extends javax.swing.JFrame {
         txtLog.setColumns(20);
         txtLog.setFont(new java.awt.Font("Arial", 0, 14)); // NOI18N
         txtLog.setRows(5);
+        txtLog.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                txtLogMouseClicked(evt);
+            }
+        });
         jScrollPane2.setViewportView(txtLog);
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
@@ -114,6 +122,17 @@ public class ItemLog extends javax.swing.JFrame {
         // TODO add your handling code here:
         stopTimer();
     }//GEN-LAST:event_formWindowClosed
+
+    private void txtLogMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_txtLogMouseClicked
+        // TODO add your handling code here:
+        if (evt.getButton() == MouseEvent.BUTTON3 && evt.getClickCount() > 1) {
+            if (!this.txtLog.getText().isBlank()) {
+                txtLog.setCaretPosition(this.txtLog.getDocument().getLength());
+            }
+            DefaultCaret caret = (DefaultCaret) txtLog.getCaret();
+            caret.setUpdatePolicy(DefaultCaret.ALWAYS_UPDATE);
+        }
+    }//GEN-LAST:event_txtLogMouseClicked
 
     /**
      * @param args the command line arguments

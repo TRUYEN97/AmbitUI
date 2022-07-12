@@ -9,6 +9,11 @@
  * Created on Nov 30, 2021, 9:54:11 AM
  */
 package View.subUI.FormDetail;
+
+import java.awt.event.MouseEvent;
+import javax.swing.text.BadLocationException;
+import javax.swing.text.DefaultCaret;
+
 /**
  *
  * @author Administrator

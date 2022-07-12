@@ -8,6 +8,7 @@ import Model.AllKeyWord;
 import Model.DataSource.AbsElementInfo;
 import com.alibaba.fastjson.JSONObject;
 import java.util.List;
+import java.util.Map;
 import java.util.Set;
 
 /**
@@ -79,6 +80,14 @@ public class FunctionElement extends AbsElementInfo {
 
     public boolean isUntilMultiDone() {
         return warehouse.getBoolean(AllKeyWord.WAIT_MULTI_DONE);
+    }
+
+    public Object getObject(String key) {
+        return warehouse.get(key);
+    }
+
+    public JSONObject getJson() {
+        return this.warehouse.toJson();
     }
 
 }

@@ -1,0 +1,40 @@
+2022-07-12 10:07:07.454:   ITEM[fixture_close] - FUNCTION[FixtureActionProxy]
+2022-07-12 10:07:08.544:   Turn 0:
+2022-07-12 10:07:08.545:   [ComPort] Connect to : COM3
+2022-07-12 10:07:08.546:   [ComPort] BaudRate is: 115200
+2022-07-12 10:07:08.616:   KeyWord is OK - OK
+2022-07-12 10:07:08.616:   [ComPort] Send command: AT+TESTSTART%
+2022-07-12 10:07:13.749:   [ComPort] AT+TESTSTART%
+2022-07-12 10:07:13.749:   [ComPort] 
+2022-07-12 10:07:13.749:   [ComPort] 
+2022-07-12 10:07:13.749:   [ComPort] 
+2022-07-12 10:07:13.749:   [ComPort] BusyBox v1.30.1 () built-in shell (ash)
+2022-07-12 10:07:13.750:   [ComPort] 
+2022-07-12 10:07:13.750:   [ComPort] MM           NM                    MMMMMMM          M       M
+2022-07-12 10:07:13.750:   [ComPort] $MMMMM        MMMMM                MMMMMMMMMMM      MMM     MMM
+2022-07-12 10:07:13.750:   [ComPort] MMMMMMMM     MM MMMMM.              MMMMM:MMMMMM:   MMMM   MMMMM
+2022-07-12 10:07:13.750:   [ComPort] MMMM= MMMMMM  MMM   MMMM       MMMMM   MMMM  MMMMMM   MMMM  MMMMM'
+2022-07-12 10:07:13.750:   [ComPort] MMMM=  MMMMM MMMM    MM       MMMMM    MMMM    MMMM   MMMMNMMMMM
+2022-07-12 10:07:13.750:   [ComPort] MMMM=   MMMM  MMMMM          MMMMM     MMMM    MMMM   MMMMMMMM
+2022-07-12 10:07:13.750:   [ComPort] MMMM=   MMMM   MMMMMM       MMMMM      MMMM    MMMM   MMMMMMMMM
+2022-07-12 10:07:13.750:   [ComPort] MMMM=   MMMM     MMMMM,    NMMMMMMMM   MMMM    MMMM   MMMMMMMMMMM
+2022-07-12 10:07:13.750:   [ComPort] MMMM=   MMMM      MMMMMM   MMMMMMMM    MMMM    MMMM   MMMM  MMMMMM
+2022-07-12 10:07:13.751:   [ComPort] MMMM=   MMMM   MM    MMMM    MMMM      MMMM    MMMM   MMMM    MMMM
+2022-07-12 10:07:13.751:   [ComPort] MMMM$ ,MMMMM  MMMMM  MMMM    MMM       MMMM   MMMMM   MMMM    MMMM
+2022-07-12 10:07:13.751:   [ComPort] MMMMMMM:      MMMMMMM     M         MMMMMMMMMMMM  MMMMMMM MMMMMMM
+2022-07-12 10:07:13.751:   [ComPort] MMMMMM       MMMMN     M           MMMMMMMMM      MMMM    MMMM
+2022-07-12 10:07:13.751:   [ComPort] MMMM          M                    MMMMMMM        M       M
+2022-07-12 10:07:13.751:   [ComPort] M
+2022-07-12 10:07:13.751:   [ComPort] ---------------------------------------------------------------
+2022-07-12 10:07:13.751:   [ComPort] For those about to rock... (Chaos Calmer, unknown)
+2022-07-12 10:07:13.751:   [ComPort] ---------------------------------------------------------------
+2022-07-12 10:07:13.752:   [ComPort] root@eero-test:/#
+2022-07-12 10:07:13.752:   [ComPort] root@eero-test:/#
+2022-07-12 10:07:20.254:   ****************************************************
+2022-07-12 10:07:20.254:   Test Value: "failed"
+2022-07-12 10:07:20.255:   Item name: fixture_close
+2022-07-12 10:07:20.255:   ****************************************************
+2022-07-12 10:07:20.255:   Error code: -1
+2022-07-12 10:07:20.255:   Local error code: null
+2022-07-12 10:07:20.256:   Local error des: null
+2022-07-12 10:07:20.256:   TIME[12.802 s] - STATUS[FAILED]

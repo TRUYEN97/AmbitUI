@@ -12,6 +12,7 @@ import Control.Functions.FunctionsTest.FaAPI.CreateTxtLog.CreateTxtLogProxy;
 import Control.Functions.FunctionsTest.Base.GetMacFromSfis.GetMacFormSfisProxy;
 import Control.Functions.FunctionsTest.Base.DutPing.DutPingProxy;
 import Control.Functions.FunctionsTest.Base.DutTelnet.DutTelnetProxy;
+import Control.Functions.FunctionsTest.Base.FixtureActions.FixtureActionProxy;
 import Control.Functions.FunctionsTest.Base.SFIS.SfisFunctionProxy;
 import Control.Functions.FunctionsTest.FaAPI.inputFaData.InputFaDataProxy;
 import Control.Functions.FunctionsTest.Runin.PowerSwitch.PowerSwitchProxy;
@@ -113,5 +114,6 @@ public class Factory {
         this.functions.addType(new CheckDutInfoProxy());
         this.functions.addType(new RebootSoftProxy());
         this.functions.addType(new MMC_BadBlockProxy());
+        this.functions.addType(new FixtureActionProxy());
     }
 }
