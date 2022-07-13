@@ -9,6 +9,7 @@ import Model.AllKeyWord;
 import Model.DataSource.Setting.Setting;
 import Time.WaitTime.AbsTime;
 import Time.WaitTime.Class.TimeMs;
+import commandprompt.AbstractStream.AbsStreamReadable;
 import commandprompt.Communicate.Cmd.Cmd;
 import commandprompt.Communicate.Comport.ComPort;
 import commandprompt.Communicate.ISender;
@@ -31,7 +32,17 @@ public class FunctionBase extends AbsFunction {
     }
 
     public Telnet getTelnet(String ip, int port) {
-        Telnet telnet = new Telnet();
+        return getTelnet(ip, port, null);
+    }
+
+    public Telnet getTelnet(String ip, int port, AbsStreamReadable streamReadable) {
+        Telnet telnet;
+        if (streamReadable == null) {
+            telnet = new Telnet();
+        } else {
+            addLog("Telnet", "Read input: " + streamReadable.getClass().getSimpleName());
+            telnet = new Telnet(streamReadable);
+        }
         addLog("Telnet", "Connect to host: " + ip);
         addLog("Telnet", "Port is: " + port);
         if (!pingTo(ip, 4) || !telnet.connect(ip, port)) {

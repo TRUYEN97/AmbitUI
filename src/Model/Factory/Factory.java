@@ -20,6 +20,7 @@ import Control.Functions.FunctionsTest.Base.UpFTP.UpFTPProxy;
 import Control.Functions.FunctionsTest.FaAPI.UpJsonAPI.UpAPIProxy;
 import Control.Functions.FunctionsTest.Runin.CheckCommandTelnet.CheckCommandTelnetProxy;
 import Control.Functions.FunctionsTest.Runin.MMC_BadBlock.MMC_BadBlockProxy;
+import Control.Functions.FunctionsTest.Runin.RamStress.TelnetReadUntilKeyProxy;
 import Control.Functions.FunctionsTest.Runin.RebootSoft.RebootSoftProxy;
 import Control.Functions.InitPackages.InitProxy.IdPasswordProxy;
 import View.subUI.FormDetail.AbsTabUI;
@@ -115,5 +116,6 @@ public class Factory {
         this.functions.addType(new RebootSoftProxy());
         this.functions.addType(new MMC_BadBlockProxy());
         this.functions.addType(new FixtureActionProxy());
+        this.functions.addType(new TelnetReadUntilKeyProxy());
     }
 }

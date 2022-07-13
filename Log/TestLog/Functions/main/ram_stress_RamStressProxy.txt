@@ -1,0 +1,469 @@
+2022-07-13 08:57:50.295:   ITEM[ram_stress] - FUNCTION[RamStressProxy]
+2022-07-13 08:57:50.297:   Turn 0:
+2022-07-13 08:57:50.297:   Get IP from the DHCP with MAC is "649714048d60"
+2022-07-13 08:57:50.297:   IP: 172.168.1.0
+2022-07-13 08:57:50.297:   [Telnet] Read input: ReadStreamOverTime
+2022-07-13 08:57:50.297:   [Telnet] Connect to host: 172.168.1.0
+2022-07-13 08:57:50.297:   [Telnet] Port is: 23
+2022-07-13 08:57:50.297:   [Cmd] ------------------------------------
+2022-07-13 08:57:50.297:   [Cmd] Send command: ping 172.168.1.0 -n 1
+2022-07-13 08:57:50.335:   [Cmd] Pinging 172.168.1.0 with 32 bytes of data:
+2022-07-13 08:57:50.336:   [Cmd] Reply from 172.168.1.0: bytes=32 time<1ms TTL=64
+2022-07-13 08:57:50.336:   [Cmd] 
+2022-07-13 08:57:50.336:   [Cmd] Ping statistics for 172.168.1.0:
+2022-07-13 08:57:50.336:   [Cmd] Packets: Sent = 1, Received = 1, Lost = 0 (0% loss),
+2022-07-13 08:57:50.336:   [Cmd] Approximate round trip times in milli-seconds:
+2022-07-13 08:57:50.336:   [Cmd] Minimum = 0ms, Maximum = 0ms, Average = 0ms
+2022-07-13 08:57:50.336:   [Cmd] ------------------------------------
+2022-07-13 08:57:50.664:   [Telnet] 
+2022-07-13 08:57:50.664:   [Telnet] === IMPORTANT ============================
+2022-07-13 08:57:50.664:   [Telnet] Use 'passwd' to set your login password!
+2022-07-13 08:57:50.664:   [Telnet] ------------------------------------------
+2022-07-13 08:57:50.664:   [Telnet] 
+2022-07-13 08:57:50.664:   [Telnet] 
+2022-07-13 08:57:50.664:   [Telnet] BusyBox v1.30.1 () built-in shell (ash)
+2022-07-13 08:57:50.664:   [Telnet] 
+2022-07-13 08:57:50.664:   [Telnet] MM           NM                    MMMMMMM          M       M
+2022-07-13 08:57:50.664:   [Telnet] $MMMMM        MMMMM                MMMMMMMMMMM      MMM     MMM
+2022-07-13 08:57:50.664:   [Telnet] MMMMMMMM     MM MMMMM.              MMMMM:MMMMMM:   MMMM   MMMMM
+2022-07-13 08:57:50.664:   [Telnet] MMMM= MMMMMM  MMM   MMMM       MMMMM   MMMM  MMMMMM   MMMM  MMMMM'
+2022-07-13 08:57:50.665:   [Telnet] MMMM=  MMMMM MMMM    MM       MMMMM    MMMM    MMMM   MMMMNMMMMM
+2022-07-13 08:57:50.665:   [Telnet] MMMM=   MMMM  MMMMM          MMMMM     MMMM    MMMM   MMMMMMMM
+2022-07-13 08:57:50.665:   [Telnet] MMMM=   MMMM   MMMMMM       MMMMM      MMMM    MMMM   MMMMMMMMM
+2022-07-13 08:57:50.665:   [Telnet] MMMM=   MMMM     MMMMM,    NMMMMMMMM   MMMM    MMMM   MMMMMMMMMMM
+2022-07-13 08:57:50.665:   [Telnet] MMMM=   MMMM      MMMMMM   MMMMMMMM    MMMM    MMMM   MMMM  MMMMMM
+2022-07-13 08:57:50.665:   [Telnet] MMMM=   MMMM   MM    MMMM    MMMM      MMMM    MMMM   MMMM    MMMM
+2022-07-13 08:57:50.665:   [Telnet] MMMM$ ,MMMMM  MMMMM  MMMM    MMM       MMMM   MMMMM   MMMM    MMMM
+2022-07-13 08:57:50.665:   [Telnet] MMMMMMM:      MMMMMMM     M         MMMMMMMMMMMM  MMMMMMM MMMMMMM
+2022-07-13 08:57:50.665:   [Telnet] MMMMMM       MMMMN     M           MMMMMMMMM      MMMM    MMMM
+2022-07-13 08:57:50.666:   [Telnet] MMMM          M                    MMMMMMM        M       M
+2022-07-13 08:57:50.666:   [Telnet] M
+2022-07-13 08:57:50.666:   [Telnet] ---------------------------------------------------------------
+2022-07-13 08:57:50.666:   [Telnet] For those about to rock... (Chaos Calmer, unknown)
+2022-07-13 08:57:50.666:   [Telnet] ---------------------------------------------------------------
+2022-07-13 08:57:50.666:   [Telnet] root@eero-test:/#
+2022-07-13 08:57:50.671:   [Config] Wait for 1000 s
+2022-07-13 08:57:50.672:   [Telnet] Send command: stressapptest -s 600 -M 300 -m 5 -C 5 -W -l test_ddr_01.log
+2022-07-13 09:09:48.256:   [Telnet] stressapptest -s 600 -M 300 -m 5 -C 5 -W -l test_ddr_01.log
+2022-07-13 09:09:48.256:   [Telnet] 2021/11/18-05:46:32(UTC) Log: Commandline - stressapptest -s 600 -M 300 -m 5 -C 5 -W -l test_ddr_01.log
+2022-07-13 09:09:48.256:   [Telnet] 2021/11/18-05:46:32(UTC) Stats: SAT revision 1.0.7_autoconf, 32 bit binary
+2022-07-13 09:09:48.257:   [Telnet] 2021/11/18-05:46:32(UTC) Log: adrian @ ubuntu-16-RD on Thu Nov 18 12:07:07 CST 2021 from open source release
+2022-07-13 09:09:48.257:   [Telnet] 2021/11/18-05:46:32(UTC) Log: 1 nodes, 2 cpus.
+2022-07-13 09:09:48.257:   [Telnet] 2021/11/18-05:46:32(UTC) Log: Flooring memory allocation to multiple of 4: 300MB
+2022-07-13 09:09:48.257:   [Telnet] 2021/11/18-05:46:32(UTC) Log: Prefer plain malloc memory allocation.
+2022-07-13 09:09:48.257:   [Telnet] 2021/11/18-05:46:32(UTC) Log: Using mmap() allocation at 0x64170000.
+2022-07-13 09:09:48.257:   [Telnet] 2021/11/18-05:46:32(UTC) Stats: Starting SAT, 300M, 600 seconds
+2022-07-13 09:09:48.257:   [Telnet] 2021/11/18-05:46:33(UTC) Log: Region mask: 0x1
+2022-07-13 09:09:48.257:   [Telnet] 2021/11/18-05:46:43(UTC) Log: Seconds remaining: 590
+2022-07-13 09:09:48.257:   [Telnet] 2021/11/18-05:46:53(UTC) Log: Seconds remaining: 580
+2022-07-13 09:09:48.257:   [Telnet] 2021/11/18-05:47:03(UTC) Log: Seconds remaining: 570
+2022-07-13 09:09:48.257:   [Telnet] 2021/11/18-05:47:13(UTC) Log: Seconds remaining: 560
+2022-07-13 09:09:48.257:   [Telnet] 2021/11/18-05:47:23(UTC) Log: Seconds remaining: 550
+2022-07-13 09:09:48.257:   [Telnet] 2021/11/18-05:47:33(UTC) Log: Seconds remaining: 540
+2022-07-13 09:09:48.257:   [Telnet] 2021/11/18-05:47:43(UTC) Log: Seconds remaining: 530
+2022-07-13 09:09:48.257:   [Telnet] 2021/11/18-05:47:53(UTC) Log: Seconds remaining: 520
+2022-07-13 09:09:48.257:   [Telnet] 2021/11/18-05:48:03(UTC) Log: Seconds remaining: 510
+2022-07-13 09:09:48.258:   [Telnet] 2021/11/18-05:48:13(UTC) Log: Seconds remaining: 500
+2022-07-13 09:09:48.258:   [Telnet] 2021/11/18-05:48:23(UTC) Log: Seconds remaining: 490
+2022-07-13 09:09:48.258:   [Telnet] 2021/11/18-05:48:33(UTC) Log: Seconds remaining: 480
+2022-07-13 09:09:48.258:   [Telnet] 2021/11/18-05:48:43(UTC) Log: Seconds remaining: 470
+2022-07-13 09:09:48.258:   [Telnet] 2021/11/18-05:48:53(UTC) Log: Seconds remaining: 460
+2022-07-13 09:09:48.258:   [Telnet] 2021/11/18-05:49:03(UTC) Log: Seconds remaining: 450
+2022-07-13 09:09:48.258:   [Telnet] 2021/11/18-05:49:13(UTC) Log: Seconds remaining: 440
+2022-07-13 09:09:48.258:   [Telnet] 2021/11/18-05:49:23(UTC) Log: Seconds remaining: 430
+2022-07-13 09:09:48.258:   [Telnet] 2021/11/18-05:49:33(UTC) Log: Seconds remaining: 420
+2022-07-13 09:09:48.258:   [Telnet] 2021/11/18-05:49:43(UTC) Log: Seconds remaining: 410
+2022-07-13 09:09:48.258:   [Telnet] 2021/11/18-05:49:53(UTC) Log: Seconds remaining: 400
+2022-07-13 09:09:48.258:   [Telnet] 2021/11/18-05:50:03(UTC) Log: Seconds remaining: 390
+2022-07-13 09:09:48.258:   [Telnet] 2021/11/18-05:50:13(UTC) Log: Seconds remaining: 380
+2022-07-13 09:09:48.258:   [Telnet] 2021/11/18-05:50:23(UTC) Log: Seconds remaining: 370
+2022-07-13 09:09:48.258:   [Telnet] 2021/11/18-05:50:33(UTC) Log: Seconds remaining: 360
+2022-07-13 09:09:48.258:   [Telnet] 2021/11/18-05:50:43(UTC) Log: Seconds remaining: 350
+2022-07-13 09:09:48.258:   [Telnet] 2021/11/18-05:50:53(UTC) Log: Seconds remaining: 340
+2022-07-13 09:09:48.258:   [Telnet] 2021/11/18-05:51:03(UTC) Log: Seconds remaining: 330
+2022-07-13 09:09:48.259:   [Telnet] 2021/11/18-05:51:13(UTC) Log: Seconds remaining: 320
+2022-07-13 09:09:48.259:   [Telnet] 2021/11/18-05:51:23(UTC) Log: Seconds remaining: 310
+2022-07-13 09:09:48.259:   [Telnet] 2021/11/18-05:51:33(UTC) Log: Seconds remaining: 300
+2022-07-13 09:09:48.259:   [Telnet] 2021/11/18-05:51:43(UTC) Log: Seconds remaining: 290
+2022-07-13 09:09:48.259:   [Telnet] 2021/11/18-05:51:53(UTC) Log: Seconds remaining: 280
+2022-07-13 09:09:48.259:   [Telnet] 2021/11/18-05:52:03(UTC) Log: Seconds remaining: 270
+2022-07-13 09:09:48.259:   [Telnet] 2021/11/18-05:52:13(UTC) Log: Seconds remaining: 260
+2022-07-13 09:09:48.259:   [Telnet] 2021/11/18-05:52:23(UTC) Log: Seconds remaining: 250
+2022-07-13 09:09:48.259:   [Telnet] 2021/11/18-05:52:33(UTC) Log: Seconds remaining: 240
+2022-07-13 09:09:48.259:   [Telnet] 2021/11/18-05:52:43(UTC) Log: Seconds remaining: 230
+2022-07-13 09:09:48.259:   [Telnet] 2021/11/18-05:52:53(UTC) Log: Seconds remaining: 220
+2022-07-13 09:09:48.259:   [Telnet] 2021/11/18-05:53:03(UTC) Log: Seconds remaining: 210
+2022-07-13 09:09:48.259:   [Telnet] 2021/11/18-05:53:13(UTC) Log: Seconds remaining: 200
+2022-07-13 09:09:48.259:   [Telnet] 2021/11/18-05:53:23(UTC) Log: Seconds remaining: 190
+2022-07-13 09:09:48.259:   [Telnet] 2021/11/18-05:53:33(UTC) Log: Seconds remaining: 180
+2022-07-13 09:09:48.259:   [Telnet] 2021/11/18-05:53:43(UTC) Log: Seconds remaining: 170
+2022-07-13 09:09:48.259:   [Telnet] 2021/11/18-05:53:53(UTC) Log: Seconds remaining: 160
+2022-07-13 09:09:48.260:   [Telnet] 2021/11/18-05:54:03(UTC) Log: Seconds remaining: 150
+2022-07-13 09:09:48.260:   [Telnet] 2021/11/18-05:54:13(UTC) Log: Seconds remaining: 140
+2022-07-13 09:09:48.260:   [Telnet] 2021/11/18-05:54:23(UTC) Log: Seconds remaining: 130
+2022-07-13 09:09:48.260:   [Telnet] 2021/11/18-05:54:33(UTC) Log: Seconds remaining: 120
+2022-07-13 09:09:48.260:   [Telnet] 2021/11/18-05:54:43(UTC) Log: Seconds remaining: 110
+2022-07-13 09:09:48.260:   [Telnet] 2021/11/18-05:54:53(UTC) Log: Seconds remaining: 100
+2022-07-13 09:09:48.260:   [Telnet] 2021/11/18-05:55:03(UTC) Log: Seconds remaining: 90
+2022-07-13 09:09:48.260:   [Telnet] 2021/11/18-05:55:13(UTC) Log: Seconds remaining: 80
+2022-07-13 09:09:48.260:   [Telnet] 2021/11/18-05:55:23(UTC) Log: Seconds remaining: 70
+2022-07-13 09:09:48.260:   [Telnet] 2021/11/18-05:55:33(UTC) Log: Seconds remaining: 60
+2022-07-13 09:09:48.260:   [Telnet] 2021/11/18-05:55:43(UTC) Log: Seconds remaining: 50
+2022-07-13 09:09:48.260:   [Telnet] 2021/11/18-05:55:53(UTC) Log: Seconds remaining: 40
+2022-07-13 09:09:48.260:   [Telnet] 2021/11/18-05:56:03(UTC) Log: Seconds remaining: 30
+2022-07-13 09:09:48.260:   [Telnet] 2021/11/18-05:56:13(UTC) Log: Seconds remaining: 20
+2022-07-13 09:09:48.260:   [Telnet] 2021/11/18-05:56:23(UTC) Log: Seconds remaining: 10
+2022-07-13 09:09:48.260:   [Telnet] 2021/11/18-05:58:30(UTC) Stats: Found 0 hardware incidents
+2022-07-13 09:09:48.260:   [Telnet] 2021/11/18-05:58:30(UTC) Stats: Completed: 102122.00M in 716.74s 142.48MB/s, with 0 hardware incidents, 0 errors
+2022-07-13 09:09:48.260:   [Telnet] 2021/11/18-05:58:30(UTC) Stats: Memory Copy: 102122.00M at 170.19MB/s
+2022-07-13 09:09:48.260:   [Telnet] 2021/11/18-05:58:30(UTC) Stats: File Copy: 0.00M at 0.00MB/s
+2022-07-13 09:09:48.260:   [Telnet] 2021/11/18-05:58:30(UTC) Stats: Net Copy: 0.00M at 0.00MB/s
+2022-07-13 09:09:48.261:   [Telnet] 2021/11/18-05:58:30(UTC) Stats: Data Check: 0.00M at 0.00MB/s
+2022-07-13 09:09:48.261:   [Telnet] 2021/11/18-05:58:30(UTC) Stats: Invert Data: 0.00M at 0.00MB/s
+2022-07-13 09:09:48.261:   [Telnet] 2021/11/18-05:58:30(UTC) Stats: Disk: 0.00M at 0.00MB/s
+2022-07-13 09:09:48.261:   [Telnet] 2021/11/18-05:58:30(UTC)
+2022-07-13 09:09:48.261:   [Telnet] 2021/11/18-05:58:30(UTC) Status: PASS - please verify no corrected errors
+2022-07-13 09:09:48.261:   [CONFIG] Key: "Status: PASS - please verify no corrected errors"
+2022-07-13 09:09:48.261:   [Telnet] Send command: stressapptest -s 600 --cc_test -M 300 -v 20 --cc_line_size 8192 --stop_on_errors -l test_ddr_02.log
+2022-07-13 09:19:49.583:   [Telnet] stressapptest -s 600 --cc_test -M 300 -v 20 --cc_line_size 819
+2022-07-13 09:19:49.583:   [Telnet] 2 --stop_on_errors -l test_ddr_02.log
+2022-07-13 09:19:49.583:   [Telnet] 2021/11/18-05:58:30(UTC) Log: Commandline - stressapptest -s 600 --cc_test -M 300 -v 20 --cc_line_size 8192 --stop_on_errors -l test_ddr_02.log
+2022-07-13 09:19:49.583:   [Telnet] 2021/11/18-05:58:30(UTC) Stats: SAT revision 1.0.7_autoconf, 32 bit binary
+2022-07-13 09:19:49.583:   [Telnet] 2021/11/18-05:58:30(UTC) Log: adrian @ ubuntu-16-RD on Thu Nov 18 12:07:07 CST 2021 from open source release
+2022-07-13 09:19:49.583:   [Telnet] 2021/11/18-05:58:30(UTC) Log: 1 nodes, 2 cpus.
+2022-07-13 09:19:49.583:   [Telnet] 2021/11/18-05:58:30(UTC) Log: Defaulting to 2 copy threads
+2022-07-13 09:19:49.583:   [Telnet] 2021/11/18-05:58:30(UTC) Log: Flooring memory allocation to multiple of 4: 300MB
+2022-07-13 09:19:49.583:   [Telnet] 2021/11/18-05:58:30(UTC) Log: /proc/sys/vm/nr_hugepages read did not provide data
+2022-07-13 09:19:49.583:   [Telnet] 2021/11/18-05:58:30(UTC) Log: Prefer plain malloc memory allocation.
+2022-07-13 09:19:49.583:   [Telnet] 2021/11/18-05:58:30(UTC) Log: Using mmap() allocation at 0x64158000.
+2022-07-13 09:19:49.583:   [Telnet] 2021/11/18-05:58:30(UTC) Stats: Starting SAT, 300M, 600 seconds
+2022-07-13 09:19:49.583:   [Telnet] 2021/11/18-05:58:30(UTC) Log: initialized 120 data patterns
+2022-07-13 09:19:49.583:   [Telnet] 2021/11/18-05:58:30(UTC) Log: Allocating pages, Total: 300 Free: 120
+2022-07-13 09:19:49.583:   [Telnet] 2021/11/18-05:58:30(UTC) Starting Fill threads: 8 threads, 0 pages
+2022-07-13 09:19:49.583:   [Telnet] 2021/11/18-05:58:30(UTC) Starting Fill Threads 0: 0 pages
+2022-07-13 09:19:49.584:   [Telnet] 2021/11/18-05:58:30(UTC) Starting Fill Threads 1: 0 pages
+2022-07-13 09:19:49.584:   [Telnet] 2021/11/18-05:58:30(UTC) Starting Fill Threads 2: 0 pages
+2022-07-13 09:19:49.584:   [Telnet] 2021/11/18-05:58:30(UTC) Starting Fill Threads 3: 0 pages
+2022-07-13 09:19:49.584:   [Telnet] 2021/11/18-05:58:30(UTC) Starting Fill Threads 4: 0 pages
+2022-07-13 09:19:49.584:   [Telnet] 2021/11/18-05:58:30(UTC) Starting Fill Threads 5: 0 pages
+2022-07-13 09:19:49.584:   [Telnet] 2021/11/18-05:58:30(UTC) Starting Fill Threads 6: 0 pages
+2022-07-13 09:19:49.584:   [Telnet] 2021/11/18-05:58:30(UTC) Starting Fill Threads 7: 0 pages
+2022-07-13 09:19:49.584:   [Telnet] 2021/11/18-05:58:30(UTC) Log: Thread 0 running on core ID 0 mask 3 (3).
+2022-07-13 09:19:49.584:   [Telnet] 2021/11/18-05:58:30(UTC) Log: Starting fill thread 0
+2022-07-13 09:19:49.584:   [Telnet] 2021/11/18-05:58:30(UTC) Log: Thread 3 running on core ID 1 mask 3 (3).
+2022-07-13 09:19:49.584:   [Telnet] 2021/11/18-05:58:30(UTC) Log: Starting fill thread 3
+2022-07-13 09:19:49.584:   [Telnet] 2021/11/18-05:58:30(UTC) Log: Thread 4 running on core ID 0 mask 3 (3).
+2022-07-13 09:19:49.584:   [Telnet] 2021/11/18-05:58:30(UTC) Log: Starting fill thread 4
+2022-07-13 09:19:49.584:   [Telnet] 2021/11/18-05:58:30(UTC) Log: Thread 1 running on core ID 0 mask 3 (3).
+2022-07-13 09:19:49.584:   [Telnet] 2021/11/18-05:58:30(UTC) Log: Starting fill thread 1
+2022-07-13 09:19:49.584:   [Telnet] 2021/11/18-05:58:30(UTC) Log: Thread 7 running on core ID 1 mask 3 (3).
+2022-07-13 09:19:49.584:   [Telnet] 2021/11/18-05:58:30(UTC) Log: Thread 2 running on core ID 0 mask 3 (3).
+2022-07-13 09:19:49.584:   [Telnet] 2021/11/18-05:58:30(UTC) Log: Starting fill thread 7
+2022-07-13 09:19:49.584:   [Telnet] 2021/11/18-05:58:30(UTC) Log: Thread 5 running on core ID 0 mask 3 (3).
+2022-07-13 09:19:49.584:   [Telnet] 2021/11/18-05:58:30(UTC) Log: Starting fill thread 5
+2022-07-13 09:19:49.584:   [Telnet] 2021/11/18-05:58:30(UTC) Log: Thread 6 running on core ID 0 mask 3 (3).
+2022-07-13 09:19:49.584:   [Telnet] 2021/11/18-05:58:30(UTC) Log: Starting fill thread 6
+2022-07-13 09:19:49.584:   [Telnet] 2021/11/18-05:58:30(UTC) Log: Starting fill thread 2
+2022-07-13 09:19:49.584:   [Telnet] 2021/11/18-05:58:30(UTC) Log: Completed 3: Fill thread. Status 1, 37 pages filled
+2022-07-13 09:19:49.585:   [Telnet] 2021/11/18-05:58:30(UTC) Log: Completed 4: Fill thread. Status 1, 37 pages filled
+2022-07-13 09:19:49.585:   [Telnet] 2021/11/18-05:58:30(UTC) Log: Completed 0: Fill thread. Status 1, 37 pages filled
+2022-07-13 09:19:49.585:   [Telnet] 2021/11/18-05:58:30(UTC) Log: Completed 2: Fill thread. Status 1, 37 pages filled
+2022-07-13 09:19:49.585:   [Telnet] 2021/11/18-05:58:30(UTC) Log: Completed 6: Fill thread. Status 1, 37 pages filled
+2022-07-13 09:19:49.585:   [Telnet] 2021/11/18-05:58:30(UTC) Log: Completed 7: Fill thread. Status 1, 41 pages filled
+2022-07-13 09:19:49.585:   [Telnet] 2021/11/18-05:58:30(UTC) Log: Completed 5: Fill thread. Status 1, 37 pages filled
+2022-07-13 09:19:49.585:   [Telnet] 2021/11/18-05:58:30(UTC) Log: Completed 1: Fill thread. Status 1, 37 pages filled
+2022-07-13 09:19:49.585:   [Telnet] 2021/11/18-05:58:30(UTC) Log: Done filling pages.
+2022-07-13 09:19:49.585:   [Telnet] 2021/11/18-05:58:30(UTC) Log: Allocating pages.
+2022-07-13 09:19:49.585:   [Telnet] 2021/11/18-05:58:30(UTC) Log: Done allocating pages.
+2022-07-13 09:19:49.585:   [Telnet] 2021/11/18-05:58:30(UTC) Log: Region 0: 300.
+2022-07-13 09:19:49.585:   [Telnet] 2021/11/18-05:58:30(UTC) Log: Region mask: 0x1
+2022-07-13 09:19:49.585:   [Telnet] 2021/11/18-05:58:30(UTC) Log: Installing signal handlers
+2022-07-13 09:19:49.585:   [Telnet] 2021/11/18-05:58:30(UTC) Log: Launching worker threads
+2022-07-13 09:19:49.585:   [Telnet] 2021/11/18-05:58:30(UTC) Log: Starting worker threads
+2022-07-13 09:19:49.585:   [Telnet] 2021/11/18-05:58:30(UTC) Log: Starting invert threads
+2022-07-13 09:19:49.585:   [Telnet] 2021/11/18-05:58:30(UTC) Log: Starting disk stress threads
+2022-07-13 09:19:49.585:   [Telnet] 2021/11/18-05:58:30(UTC) Log: Starting cpu stress threads
+2022-07-13 09:19:49.585:   [Telnet] 2021/11/18-05:58:30(UTC) Log: Starting cpu cache coherency threads
+2022-07-13 09:19:49.585:   [Telnet] 2021/11/18-05:58:30(UTC) Log: Initializing WorkerStatus objects
+2022-07-13 09:19:49.585:   [Telnet] 2021/11/18-05:58:30(UTC) Log: Spawning worker threads
+2022-07-13 09:19:49.585:   [Telnet] 2021/11/18-05:58:30(UTC) Log: Spawning thread 1
+2022-07-13 09:19:49.586:   [Telnet] 2021/11/18-05:58:30(UTC) Log: Spawning thread 2
+2022-07-13 09:19:49.586:   [Telnet] 2021/11/18-05:58:30(UTC) Log: available CPU mask - 3
+2022-07-13 09:19:49.586:   [Telnet] 2021/11/18-05:58:30(UTC) Log: Spawning thread 0
+2022-07-13 09:19:49.586:   [Telnet] 2021/11/18-05:58:30(UTC) Log: Thread 1 running on core ID 0 mask 1 (1).
+2022-07-13 09:19:49.586:   [Telnet] 2021/11/18-05:58:30(UTC) Log: Spawning thread 3
+2022-07-13 09:19:49.586:   [Telnet] 2021/11/18-05:58:30(UTC) Log: Thread 0 running on core ID 0 mask 3 (3).
+2022-07-13 09:19:49.586:   [Telnet] 2021/11/18-05:58:30(UTC) Log: Spawning thread 4
+2022-07-13 09:19:49.586:   [Telnet] 2021/11/18-05:58:30(UTC) Log: Starting system error poll thread 0
+2022-07-13 09:19:49.586:   [Telnet] 2021/11/18-05:58:30(UTC) Log: Starting copy thread 1: cpu 1, mem ffffffff
+2022-07-13 09:19:49.586:   [Telnet] 2021/11/18-05:58:30(UTC) Log: Starting countdown with 600 seconds
+2022-07-13 09:19:49.586:   [Telnet] 2021/11/18-05:58:30(UTC) Log: available CPU mask - 3
+2022-07-13 09:19:49.586:   [Telnet] 2021/11/18-05:58:30(UTC) Log: Thread 3 running on core ID 0 mask 1 (1).
+2022-07-13 09:19:49.586:   [Telnet] 2021/11/18-05:58:30(UTC) Log: Starting the Cache Coherency thread 0
+2022-07-13 09:19:49.586:   [Telnet] 2021/11/18-05:58:30(UTC) Log: available CPU mask - 3
+2022-07-13 09:19:49.586:   [Telnet] 2021/11/18-05:58:30(UTC) Log: Thread 2 running on core ID 1 mask 2 (2).
+2022-07-13 09:19:49.586:   [Telnet] 2021/11/18-05:58:30(UTC) Log: Starting copy thread 2: cpu 2, mem ffffffff
+2022-07-13 09:19:49.586:   [Telnet] 2021/11/18-05:58:30(UTC) Log: available CPU mask - 3
+2022-07-13 09:19:49.586:   [Telnet] 2021/11/18-05:58:30(UTC) Log: Thread 4 running on core ID 1 mask 2 (2).
+2022-07-13 09:19:49.586:   [Telnet] 2021/11/18-05:58:30(UTC) Log: Starting the Cache Coherency thread 1
+2022-07-13 09:19:49.586:   [Telnet] 2021/11/18-05:58:40(UTC) Log: Seconds remaining: 590
+2022-07-13 09:19:49.586:   [Telnet] 2021/11/18-05:58:50(UTC) Log: Seconds remaining: 580
+2022-07-13 09:19:49.586:   [Telnet] 2021/11/18-05:59:00(UTC) Log: Seconds remaining: 570
+2022-07-13 09:19:49.586:   [Telnet] 2021/11/18-05:59:10(UTC) Log: Seconds remaining: 560
+2022-07-13 09:19:49.587:   [Telnet] 2021/11/18-05:59:20(UTC) Log: Seconds remaining: 550
+2022-07-13 09:19:49.587:   [Telnet] 2021/11/18-05:59:30(UTC) Log: Seconds remaining: 540
+2022-07-13 09:19:49.587:   [Telnet] 2021/11/18-05:59:40(UTC) Log: Seconds remaining: 530
+2022-07-13 09:19:49.587:   [Telnet] 2021/11/18-05:59:50(UTC) Log: Seconds remaining: 520
+2022-07-13 09:19:49.587:   [Telnet] 2021/11/18-06:00:00(UTC) Log: Seconds remaining: 510
+2022-07-13 09:19:49.587:   [Telnet] 2021/11/18-06:00:10(UTC) Log: Seconds remaining: 500
+2022-07-13 09:19:49.587:   [Telnet] 2021/11/18-06:00:20(UTC) Log: Seconds remaining: 490
+2022-07-13 09:19:49.587:   [Telnet] 2021/11/18-06:00:30(UTC) Log: Seconds remaining: 480
+2022-07-13 09:19:49.587:   [Telnet] 2021/11/18-06:00:40(UTC) Log: Seconds remaining: 470
+2022-07-13 09:19:49.587:   [Telnet] 2021/11/18-06:00:50(UTC) Log: Seconds remaining: 460
+2022-07-13 09:19:49.587:   [Telnet] 2021/11/18-06:01:00(UTC) Log: Seconds remaining: 450
+2022-07-13 09:19:49.587:   [Telnet] 2021/11/18-06:01:10(UTC) Log: Seconds remaining: 440
+2022-07-13 09:19:49.587:   [Telnet] 2021/11/18-06:01:20(UTC) Log: Seconds remaining: 430
+2022-07-13 09:19:49.587:   [Telnet] 2021/11/18-06:01:30(UTC) Log: Seconds remaining: 420
+2022-07-13 09:19:49.587:   [Telnet] 2021/11/18-06:01:40(UTC) Log: Seconds remaining: 410
+2022-07-13 09:19:49.587:   [Telnet] 2021/11/18-06:01:50(UTC) Log: Seconds remaining: 400
+2022-07-13 09:19:49.587:   [Telnet] 2021/11/18-06:02:00(UTC) Log: Seconds remaining: 390
+2022-07-13 09:19:49.587:   [Telnet] 2021/11/18-06:02:10(UTC) Log: Seconds remaining: 380
+2022-07-13 09:19:49.587:   [Telnet] 2021/11/18-06:02:20(UTC) Log: Seconds remaining: 370
+2022-07-13 09:19:49.587:   [Telnet] 2021/11/18-06:02:30(UTC) Log: Seconds remaining: 360
+2022-07-13 09:19:49.587:   [Telnet] 2021/11/18-06:02:40(UTC) Log: Seconds remaining: 350
+2022-07-13 09:19:49.587:   [Telnet] 2021/11/18-06:02:50(UTC) Log: Seconds remaining: 340
+2022-07-13 09:19:49.587:   [Telnet] 2021/11/18-06:03:00(UTC) Log: Seconds remaining: 330
+2022-07-13 09:19:49.587:   [Telnet] 2021/11/18-06:03:10(UTC) Log: Seconds remaining: 320
+2022-07-13 09:19:49.587:   [Telnet] 2021/11/18-06:03:20(UTC) Log: Seconds remaining: 310
+2022-07-13 09:19:49.588:   [Telnet] 2021/11/18-06:03:30(UTC) Log: Seconds remaining: 300
+2022-07-13 09:19:49.588:   [Telnet] 2021/11/18-06:03:40(UTC) Log: Seconds remaining: 290
+2022-07-13 09:19:49.588:   [Telnet] 2021/11/18-06:03:50(UTC) Log: Seconds remaining: 280
+2022-07-13 09:19:49.588:   [Telnet] 2021/11/18-06:04:00(UTC) Log: Seconds remaining: 270
+2022-07-13 09:19:49.588:   [Telnet] 2021/11/18-06:04:10(UTC) Log: Seconds remaining: 260
+2022-07-13 09:19:49.588:   [Telnet] 2021/11/18-06:04:20(UTC) Log: Seconds remaining: 250
+2022-07-13 09:19:49.588:   [Telnet] 2021/11/18-06:04:30(UTC) Log: Seconds remaining: 240
+2022-07-13 09:19:49.588:   [Telnet] 2021/11/18-06:04:40(UTC) Log: Seconds remaining: 230
+2022-07-13 09:19:49.588:   [Telnet] 2021/11/18-06:04:50(UTC) Log: Seconds remaining: 220
+2022-07-13 09:19:49.588:   [Telnet] 2021/11/18-06:05:00(UTC) Log: Seconds remaining: 210
+2022-07-13 09:19:49.588:   [Telnet] 2021/11/18-06:05:10(UTC) Log: Seconds remaining: 200
+2022-07-13 09:19:49.588:   [Telnet] 2021/11/18-06:05:20(UTC) Log: Seconds remaining: 190
+2022-07-13 09:19:49.588:   [Telnet] 2021/11/18-06:05:30(UTC) Log: Seconds remaining: 180
+2022-07-13 09:19:49.588:   [Telnet] 2021/11/18-06:05:40(UTC) Log: Seconds remaining: 170
+2022-07-13 09:19:49.588:   [Telnet] 2021/11/18-06:05:50(UTC) Log: Seconds remaining: 160
+2022-07-13 09:19:49.588:   [Telnet] 2021/11/18-06:06:00(UTC) Log: Seconds remaining: 150
+2022-07-13 09:19:49.588:   [Telnet] 2021/11/18-06:06:10(UTC) Log: Seconds remaining: 140
+2022-07-13 09:19:49.588:   [Telnet] 2021/11/18-06:06:20(UTC) Log: Seconds remaining: 130
+2022-07-13 09:19:49.588:   [Telnet] 2021/11/18-06:06:30(UTC) Log: Seconds remaining: 120
+2022-07-13 09:19:49.588:   [Telnet] 2021/11/18-06:06:40(UTC) Log: Seconds remaining: 110
+2022-07-13 09:19:49.588:   [Telnet] 2021/11/18-06:06:50(UTC) Log: Seconds remaining: 100
+2022-07-13 09:19:49.588:   [Telnet] 2021/11/18-06:07:00(UTC) Log: Seconds remaining: 90
+2022-07-13 09:19:49.588:   [Telnet] 2021/11/18-06:07:10(UTC) Log: Seconds remaining: 80
+2022-07-13 09:19:49.589:   [Telnet] 2021/11/18-06:07:20(UTC) Log: Seconds remaining: 70
+2022-07-13 09:19:49.589:   [Telnet] 2021/11/18-06:07:30(UTC) Log: Seconds remaining: 60
+2022-07-13 09:19:49.589:   [Telnet] 2021/11/18-06:07:40(UTC) Log: Seconds remaining: 50
+2022-07-13 09:19:49.589:   [Telnet] 2021/11/18-06:07:50(UTC) Log: Seconds remaining: 40
+2022-07-13 09:19:49.589:   [Telnet] 2021/11/18-06:08:00(UTC) Log: Seconds remaining: 30
+2022-07-13 09:19:49.589:   [Telnet] 2021/11/18-06:08:10(UTC) Log: Seconds remaining: 20
+2022-07-13 09:19:49.589:   [Telnet] 2021/11/18-06:08:20(UTC) Log: Seconds remaining: 10
+2022-07-13 09:19:49.589:   [Telnet] 2021/11/18-06:08:30(UTC) Log: Joining worker threads
+2022-07-13 09:19:49.589:   [Telnet] 2021/11/18-06:08:30(UTC) Log: Joining thread 1
+2022-07-13 09:19:49.589:   [Telnet] 2021/11/18-06:08:30(UTC) Log: Completed 2: Copy thread. Status 1, 146884 pages copied
+2022-07-13 09:19:49.589:   [Telnet] 2021/11/18-06:08:30(UTC) Log: Completed 1: Copy thread. Status 1, 137886 pages copied
+2022-07-13 09:19:49.589:   [Telnet] 2021/11/18-06:08:30(UTC) Log: Joining thread 2
+2022-07-13 09:19:49.589:   [Telnet] 2021/11/18-06:08:30(UTC) Stats: CC Thread(0): Time=600049370 us, Increments=363470000, Increments/sec = 605733.491563
+2022-07-13 09:19:49.589:   [Telnet] 2021/11/18-06:08:30(UTC) Log: Joining thread 0
+2022-07-13 09:19:49.589:   [Telnet] 2021/11/18-06:08:30(UTC) Log: Finished CPU Cache Coherency thread 0:
+2022-07-13 09:19:49.589:   [Telnet] 2021/11/18-06:08:30(UTC) Stats: CC Thread(1): Time=600030223 us, Increments=377013000, Increments/sec = 628323.350306
+2022-07-13 09:19:49.589:   [Telnet] 2021/11/18-06:08:30(UTC) Log: Finished CPU Cache Coherency thread 1:
+2022-07-13 09:19:49.589:   [Telnet] 2021/11/18-06:08:30(UTC) Log: Finished system error poll thread 0: 1421544092 errors
+2022-07-13 09:19:49.589:   [Telnet] 2021/11/18-06:08:30(UTC) Log: Joining thread 3
+2022-07-13 09:19:49.589:   [Telnet] 2021/11/18-06:08:30(UTC) Log: Joining thread 4
+2022-07-13 09:19:49.589:   [Telnet] 2021/11/18-06:08:30(UTC) Log:  Reads per page histogram
+2022-07-13 09:19:49.589:   [Telnet] 2021/11/18-06:08:30(UTC) Log:           512 -         1024:          298
+2022-07-13 09:19:49.589:   [Telnet] 2021/11/18-06:08:30(UTC) Log:          1024 -         2048:            2
+2022-07-13 09:19:49.589:   [Telnet] 2021/11/18-06:08:30(UTC) Log: Finished countdown, begin to result check
+2022-07-13 09:19:49.589:   [Telnet] 2021/11/18-06:08:30(UTC) Log: Finished countdown, begin to result check
+2022-07-13 09:19:49.590:   [Telnet] 2021/11/18-06:08:30(UTC) Log: Finished countdown, begin to result check
+2022-07-13 09:19:49.590:   [Telnet] 2021/11/18-06:08:30(UTC) Log: Finished countdown, begin to result check
+2022-07-13 09:19:49.590:   [Telnet] 2021/11/18-06:08:30(UTC) Log: Finished countdown, begin to result check
+2022-07-13 09:19:49.590:   [Telnet] 2021/11/18-06:08:30(UTC) Log: Finished countdown, begin to result check
+2022-07-13 09:19:49.590:   [Telnet] 2021/11/18-06:08:30(UTC) Log: Finished countdown, begin to result check
+2022-07-13 09:19:49.590:   [Telnet] 2021/11/18-06:08:30(UTC) Log: Finished countdown, begin to result check
+2022-07-13 09:19:49.590:   [Telnet] 2021/11/18-06:08:30(UTC) Log: Finished countdown, begin to result check
+2022-07-13 09:19:49.590:   [Telnet] 2021/11/18-06:08:30(UTC) Log: Spawning thread 5
+2022-07-13 09:19:49.590:   [Telnet] 2021/11/18-06:08:30(UTC) Log: Spawning thread 6
+2022-07-13 09:19:49.590:   [Telnet] 2021/11/18-06:08:30(UTC) Log: Thread 5 running on core ID 0 mask 3 (3).
+2022-07-13 09:19:49.590:   [Telnet] 2021/11/18-06:08:30(UTC) Log: Spawning thread 7
+2022-07-13 09:19:49.590:   [Telnet] 2021/11/18-06:08:30(UTC) Log: Starting Check thread 5
+2022-07-13 09:19:49.590:   [Telnet] 2021/11/18-06:08:30(UTC) Log: Spawning thread 8
+2022-07-13 09:19:49.590:   [Telnet] 2021/11/18-06:08:30(UTC) Log: Spawning thread 9
+2022-07-13 09:19:49.590:   [Telnet] 2021/11/18-06:08:30(UTC) Log: Spawning thread 10
+2022-07-13 09:19:49.590:   [Telnet] 2021/11/18-06:08:30(UTC) Log: Spawning thread 11
+2022-07-13 09:19:49.590:   [Telnet] 2021/11/18-06:08:30(UTC) Log: Spawning thread 12
+2022-07-13 09:19:49.590:   [Telnet] 2021/11/18-06:08:30(UTC) Log: Joining thread 5
+2022-07-13 09:19:49.590:   [Telnet] 2021/11/18-06:08:30(UTC) Log: Thread 7 running on core ID 1 mask 3 (3).
+2022-07-13 09:19:49.590:   [Telnet] 2021/11/18-06:08:30(UTC) Log: Starting Check thread 7
+2022-07-13 09:19:49.590:   [Telnet] 2021/11/18-06:08:30(UTC) Log: Thread 6 running on core ID 0 mask 3 (3).
+2022-07-13 09:19:49.590:   [Telnet] 2021/11/18-06:08:30(UTC) Log: Starting Check thread 6
+2022-07-13 09:19:49.590:   [Telnet] 2021/11/18-06:08:30(UTC) Log: Thread 11 running on core ID 1 mask 3 (3).
+2022-07-13 09:19:49.590:   [Telnet] 2021/11/18-06:08:30(UTC) Log: Starting Check thread 11
+2022-07-13 09:19:49.590:   [Telnet] 2021/11/18-06:08:30(UTC) Log: Thread 12 running on core ID 0 mask 3 (3).
+2022-07-13 09:19:49.591:   [Telnet] 2021/11/18-06:08:30(UTC) Log: Starting Check thread 12
+2022-07-13 09:19:49.591:   [Telnet] 2021/11/18-06:08:30(UTC) Log: Thread 8 running on core ID 0 mask 3 (3).
+2022-07-13 09:19:49.591:   [Telnet] 2021/11/18-06:08:30(UTC) Log: Starting Check thread 8
+2022-07-13 09:19:49.591:   [Telnet] 2021/11/18-06:08:30(UTC) Log: Thread 10 running on core ID 0 mask 3 (3).
+2022-07-13 09:19:49.591:   [Telnet] 2021/11/18-06:08:30(UTC) Log: Starting Check thread 10
+2022-07-13 09:19:49.591:   [Telnet] 2021/11/18-06:08:30(UTC) Log: Thread 9 running on core ID 0 mask 3 (3).
+2022-07-13 09:19:49.591:   [Telnet] 2021/11/18-06:08:30(UTC) Log: Starting Check thread 9
+2022-07-13 09:19:49.591:   [Telnet] 2021/11/18-06:08:30(UTC) Log: Completed 5: Check thread. Status 1, 14 pages checked
+2022-07-13 09:19:49.591:   [Telnet] 2021/11/18-06:08:30(UTC) Log: Joining thread 6
+2022-07-13 09:19:49.591:   [Telnet] 2021/11/18-06:08:30(UTC) Log: Completed 12: Check thread. Status 1, 14 pages checked
+2022-07-13 09:19:49.591:   [Telnet] 2021/11/18-06:08:30(UTC) Log: Completed 8: Check thread. Status 1, 11 pages checked
+2022-07-13 09:19:49.591:   [Telnet] 2021/11/18-06:08:30(UTC) Log: Completed 6: Check thread. Status 1, 19 pages checked
+2022-07-13 09:19:49.591:   [Telnet] 2021/11/18-06:08:30(UTC) Log: Joining thread 7
+2022-07-13 09:19:49.591:   [Telnet] 2021/11/18-06:08:30(UTC) Log: Completed 11: Check thread. Status 1, 46 pages checked
+2022-07-13 09:19:49.591:   [Telnet] 2021/11/18-06:08:30(UTC) Log: Completed 7: Check thread. Status 1, 53 pages checked
+2022-07-13 09:19:49.591:   [Telnet] 2021/11/18-06:08:30(UTC) Log: Joining thread 8
+2022-07-13 09:19:49.591:   [Telnet] 2021/11/18-06:08:30(UTC) Log: Completed 10: Check thread. Status 1, 12 pages checked
+2022-07-13 09:19:49.591:   [Telnet] 2021/11/18-06:08:30(UTC) Log: Joining thread 9
+2022-07-13 09:19:49.591:   [Telnet] 2021/11/18-06:08:30(UTC) Log: Completed 9: Check thread. Status 1, 11 pages checked
+2022-07-13 09:19:49.591:   [Telnet] 2021/11/18-06:08:30(UTC) Log: Joining thread 10
+2022-07-13 09:19:49.591:   [Telnet] 2021/11/18-06:08:31(UTC) Log: Joining thread 11
+2022-07-13 09:19:49.591:   [Telnet] 2021/11/18-06:08:31(UTC) Log: Joining thread 12
+2022-07-13 09:19:49.591:   [Telnet] 2021/11/18-06:08:31(UTC) Log: Join all outstanding threads
+2022-07-13 09:19:49.591:   [Telnet] 2021/11/18-06:08:31(UTC) Log: Reaping thread status 1
+2022-07-13 09:19:49.591:   [Telnet] 2021/11/18-06:08:31(UTC) Log: Thread 1 found 0 hardware incidents
+2022-07-13 09:19:49.591:   [Telnet] 2021/11/18-06:08:31(UTC) Log: Reaping thread status 2
+2022-07-13 09:19:49.591:   [Telnet] 2021/11/18-06:08:31(UTC) Log: Thread 2 found 0 hardware incidents
+2022-07-13 09:19:49.592:   [Telnet] 2021/11/18-06:08:31(UTC) Log: Reaping thread status 0
+2022-07-13 09:19:49.592:   [Telnet] 2021/11/18-06:08:31(UTC) Log: Thread 0 found 0 hardware incidents
+2022-07-13 09:19:49.592:   [Telnet] 2021/11/18-06:08:31(UTC) Log: Reaping thread status 3
+2022-07-13 09:19:49.592:   [Telnet] 2021/11/18-06:08:31(UTC) Log: Thread 3 found 0 hardware incidents
+2022-07-13 09:19:49.592:   [Telnet] 2021/11/18-06:08:31(UTC) Log: Reaping thread status 4
+2022-07-13 09:19:49.592:   [Telnet] 2021/11/18-06:08:31(UTC) Log: Thread 4 found 0 hardware incidents
+2022-07-13 09:19:49.592:   [Telnet] 2021/11/18-06:08:31(UTC) Log: Reaping thread status 5
+2022-07-13 09:19:49.592:   [Telnet] 2021/11/18-06:08:31(UTC) Log: Thread 5 found 0 hardware incidents
+2022-07-13 09:19:49.592:   [Telnet] 2021/11/18-06:08:31(UTC) Log: Reaping thread status 6
+2022-07-13 09:19:49.592:   [Telnet] 2021/11/18-06:08:31(UTC) Log: Thread 6 found 0 hardware incidents
+2022-07-13 09:19:49.592:   [Telnet] 2021/11/18-06:08:31(UTC) Log: Reaping thread status 7
+2022-07-13 09:19:49.592:   [Telnet] 2021/11/18-06:08:31(UTC) Log: Thread 7 found 0 hardware incidents
+2022-07-13 09:19:49.592:   [Telnet] 2021/11/18-06:08:31(UTC) Log: Reaping thread status 8
+2022-07-13 09:19:49.592:   [Telnet] 2021/11/18-06:08:31(UTC) Log: Thread 8 found 0 hardware incidents
+2022-07-13 09:19:49.592:   [Telnet] 2021/11/18-06:08:31(UTC) Log: Reaping thread status 9
+2022-07-13 09:19:49.592:   [Telnet] 2021/11/18-06:08:31(UTC) Log: Thread 9 found 0 hardware incidents
+2022-07-13 09:19:49.592:   [Telnet] 2021/11/18-06:08:31(UTC) Log: Reaping thread status 10
+2022-07-13 09:19:49.592:   [Telnet] 2021/11/18-06:08:31(UTC) Log: Thread 10 found 0 hardware incidents
+2022-07-13 09:19:49.592:   [Telnet] 2021/11/18-06:08:31(UTC) Log: Reaping thread status 11
+2022-07-13 09:19:49.592:   [Telnet] 2021/11/18-06:08:31(UTC) Log: Thread 11 found 0 hardware incidents
+2022-07-13 09:19:49.592:   [Telnet] 2021/11/18-06:08:31(UTC) Log: Reaping thread status 12
+2022-07-13 09:19:49.592:   [Telnet] 2021/11/18-06:08:31(UTC) Log: Thread 12 found 0 hardware incidents
+2022-07-13 09:19:49.592:   [Telnet] 2021/11/18-06:08:31(UTC) Stats: Found 0 hardware incidents
+2022-07-13 09:19:49.593:   [Telnet] 2021/11/18-06:08:31(UTC) Stats: Completed: 569540.00M in 600.08s 949.11MB/s, with 0 hardware incidents, 0 errors
+2022-07-13 09:19:49.593:   [Telnet] 2021/11/18-06:08:31(UTC) Stats: Memory Copy: 569540.00M at 949.16MB/s
+2022-07-13 09:19:49.593:   [Telnet] 2021/11/18-06:08:31(UTC) Stats: File Copy: 0.00M at 0.00MB/s
+2022-07-13 09:19:49.593:   [Telnet] 2021/11/18-06:08:31(UTC) Stats: Net Copy: 0.00M at 0.00MB/s
+2022-07-13 09:19:49.593:   [Telnet] 2021/11/18-06:08:31(UTC) Stats: Data Check: 0.00M at 0.00MB/s
+2022-07-13 09:19:49.593:   [Telnet] 2021/11/18-06:08:31(UTC) Stats: Invert Data: 0.00M at 0.00MB/s
+2022-07-13 09:19:49.593:   [Telnet] 2021/11/18-06:08:31(UTC) Stats: Disk: 0.00M at 0.00MB/s
+2022-07-13 09:19:49.593:   [Telnet] 2021/11/18-06:08:31(UTC) Log: Deleting worker threads
+2022-07-13 09:19:49.593:   [Telnet] 2021/11/18-06:08:31(UTC) Log: Deleting thread 1
+2022-07-13 09:19:49.593:   [Telnet] 2021/11/18-06:08:31(UTC) Log: Deleting thread 2
+2022-07-13 09:19:49.593:   [Telnet] 2021/11/18-06:08:31(UTC) Log: Deleting thread 0
+2022-07-13 09:19:49.593:   [Telnet] 2021/11/18-06:08:31(UTC) Log: Deleting thread 3
+2022-07-13 09:19:49.593:   [Telnet] 2021/11/18-06:08:31(UTC) Log: Deleting thread 4
+2022-07-13 09:19:49.593:   [Telnet] 2021/11/18-06:08:31(UTC) Log: Destroying WorkerStatus objects
+2022-07-13 09:19:49.593:   [Telnet] 2021/11/18-06:08:31(UTC) Log: Uninstalling signal handlers
+2022-07-13 09:19:49.593:   [Telnet] 2021/11/18-06:08:31(UTC)
+2022-07-13 09:19:49.593:   [Telnet] 2021/11/18-06:08:31(UTC) Status: PASS - please verify no corrected errors
+2022-07-13 09:19:49.593:   [CONFIG] Key: "Status: PASS - please verify no corrected errors"
+2022-07-13 09:19:49.593:   [Telnet] Send command: stressapptest -s 600 -f /tmp/file1 -f /tmp/file2 -M 100 -l test_ddr_03.log
+2022-07-13 09:29:50.124:   [Telnet] stressapptest -s 600 -f /tmp/file1 -f /tmp/file2 -M 100 -l tes
+2022-07-13 09:29:50.124:   [Telnet] t_ddr_03.log
+2022-07-13 09:29:50.125:   [Telnet] 2021/11/18-06:08:31(UTC) Log: Commandline - stressapptest -s 600 -f /tmp/file1 -f /tmp/file2 -M 100 -l test_ddr_03.log
+2022-07-13 09:29:50.125:   [Telnet] 2021/11/18-06:08:31(UTC) Stats: SAT revision 1.0.7_autoconf, 32 bit binary
+2022-07-13 09:29:50.125:   [Telnet] 2021/11/18-06:08:31(UTC) Log: adrian @ ubuntu-16-RD on Thu Nov 18 12:07:07 CST 2021 from open source release
+2022-07-13 09:29:50.125:   [Telnet] 2021/11/18-06:08:31(UTC) Log: 1 nodes, 2 cpus.
+2022-07-13 09:29:50.125:   [Telnet] 2021/11/18-06:08:31(UTC) Log: Defaulting to 2 copy threads
+2022-07-13 09:29:50.125:   [Telnet] 2021/11/18-06:08:31(UTC) Log: Flooring memory allocation to multiple of 4: 100MB
+2022-07-13 09:29:50.125:   [Telnet] 2021/11/18-06:08:31(UTC) Log: Prefer plain malloc memory allocation.
+2022-07-13 09:29:50.125:   [Telnet] 2021/11/18-06:08:31(UTC) Log: Using mmap() allocation at 0x7097f000.
+2022-07-13 09:29:50.125:   [Telnet] 2021/11/18-06:08:31(UTC) Stats: Starting SAT, 100M, 600 seconds
+2022-07-13 09:29:50.125:   [Telnet] 2021/11/18-06:08:31(UTC) Log: Region mask: 0x1
+2022-07-13 09:29:50.125:   [Telnet] 2021/11/18-06:08:41(UTC) Log: Seconds remaining: 590
+2022-07-13 09:29:50.125:   [Telnet] 2021/11/18-06:08:51(UTC) Log: Seconds remaining: 580
+2022-07-13 09:29:50.125:   [Telnet] 2021/11/18-06:09:01(UTC) Log: Seconds remaining: 570
+2022-07-13 09:29:50.125:   [Telnet] 2021/11/18-06:09:11(UTC) Log: Seconds remaining: 560
+2022-07-13 09:29:50.125:   [Telnet] 2021/11/18-06:09:21(UTC) Log: Seconds remaining: 550
+2022-07-13 09:29:50.125:   [Telnet] 2021/11/18-06:09:31(UTC) Log: Seconds remaining: 540
+2022-07-13 09:29:50.125:   [Telnet] 2021/11/18-06:09:41(UTC) Log: Seconds remaining: 530
+2022-07-13 09:29:50.125:   [Telnet] 2021/11/18-06:09:51(UTC) Log: Seconds remaining: 520
+2022-07-13 09:29:50.125:   [Telnet] 2021/11/18-06:10:01(UTC) Log: Seconds remaining: 510
+2022-07-13 09:29:50.125:   [Telnet] 2021/11/18-06:10:11(UTC) Log: Seconds remaining: 500
+2022-07-13 09:29:50.125:   [Telnet] 2021/11/18-06:10:21(UTC) Log: Seconds remaining: 490
+2022-07-13 09:29:50.125:   [Telnet] 2021/11/18-06:10:31(UTC) Log: Seconds remaining: 480
+2022-07-13 09:29:50.125:   [Telnet] 2021/11/18-06:10:41(UTC) Log: Seconds remaining: 470
+2022-07-13 09:29:50.125:   [Telnet] 2021/11/18-06:10:51(UTC) Log: Seconds remaining: 460
+2022-07-13 09:29:50.126:   [Telnet] 2021/11/18-06:11:01(UTC) Log: Seconds remaining: 450
+2022-07-13 09:29:50.126:   [Telnet] 2021/11/18-06:11:11(UTC) Log: Seconds remaining: 440
+2022-07-13 09:29:50.126:   [Telnet] 2021/11/18-06:11:21(UTC) Log: Seconds remaining: 430
+2022-07-13 09:29:50.126:   [Telnet] 2021/11/18-06:11:31(UTC) Log: Seconds remaining: 420
+2022-07-13 09:29:50.126:   [Telnet] 2021/11/18-06:11:41(UTC) Log: Seconds remaining: 410
+2022-07-13 09:29:50.126:   [Telnet] 2021/11/18-06:11:51(UTC) Log: Seconds remaining: 400
+2022-07-13 09:29:50.126:   [Telnet] 2021/11/18-06:12:01(UTC) Log: Seconds remaining: 390
+2022-07-13 09:29:50.126:   [Telnet] 2021/11/18-06:12:11(UTC) Log: Seconds remaining: 380
+2022-07-13 09:29:50.126:   [Telnet] 2021/11/18-06:12:21(UTC) Log: Seconds remaining: 370
+2022-07-13 09:29:50.126:   [Telnet] 2021/11/18-06:12:31(UTC) Log: Seconds remaining: 360
+2022-07-13 09:29:50.126:   [Telnet] 2021/11/18-06:12:41(UTC) Log: Seconds remaining: 350
+2022-07-13 09:29:50.126:   [Telnet] 2021/11/18-06:12:51(UTC) Log: Seconds remaining: 340
+2022-07-13 09:29:50.126:   [Telnet] 2021/11/18-06:13:01(UTC) Log: Seconds remaining: 330
+2022-07-13 09:29:50.126:   [Telnet] 2021/11/18-06:13:11(UTC) Log: Seconds remaining: 320
+2022-07-13 09:29:50.126:   [Telnet] 2021/11/18-06:13:21(UTC) Log: Seconds remaining: 310
+2022-07-13 09:29:50.126:   [Telnet] 2021/11/18-06:13:31(UTC) Log: Seconds remaining: 300
+2022-07-13 09:29:50.126:   [Telnet] 2021/11/18-06:13:41(UTC) Log: Seconds remaining: 290
+2022-07-13 09:29:50.126:   [Telnet] 2021/11/18-06:13:51(UTC) Log: Seconds remaining: 280
+2022-07-13 09:29:50.126:   [Telnet] 2021/11/18-06:14:01(UTC) Log: Seconds remaining: 270
+2022-07-13 09:29:50.126:   [Telnet] 2021/11/18-06:14:11(UTC) Log: Seconds remaining: 260
+2022-07-13 09:29:50.126:   [Telnet] 2021/11/18-06:14:21(UTC) Log: Seconds remaining: 250
+2022-07-13 09:29:50.126:   [Telnet] 2021/11/18-06:14:31(UTC) Log: Seconds remaining: 240
+2022-07-13 09:29:50.126:   [Telnet] 2021/11/18-06:14:41(UTC) Log: Seconds remaining: 230
+2022-07-13 09:29:50.127:   [Telnet] 2021/11/18-06:14:51(UTC) Log: Seconds remaining: 220
+2022-07-13 09:29:50.127:   [Telnet] 2021/11/18-06:15:01(UTC) Log: Seconds remaining: 210
+2022-07-13 09:29:50.127:   [Telnet] 2021/11/18-06:15:11(UTC) Log: Seconds remaining: 200
+2022-07-13 09:29:50.127:   [Telnet] 2021/11/18-06:15:21(UTC) Log: Seconds remaining: 190
+2022-07-13 09:29:50.127:   [Telnet] 2021/11/18-06:15:31(UTC) Log: Seconds remaining: 180
+2022-07-13 09:29:50.127:   [Telnet] 2021/11/18-06:15:41(UTC) Log: Seconds remaining: 170
+2022-07-13 09:29:50.127:   [Telnet] 2021/11/18-06:15:51(UTC) Log: Seconds remaining: 160
+2022-07-13 09:29:50.127:   [Telnet] 2021/11/18-06:16:01(UTC) Log: Seconds remaining: 150
+2022-07-13 09:29:50.127:   [Telnet] 2021/11/18-06:16:11(UTC) Log: Seconds remaining: 140
+2022-07-13 09:29:50.127:   [Telnet] 2021/11/18-06:16:21(UTC) Log: Seconds remaining: 130
+2022-07-13 09:29:50.127:   [Telnet] 2021/11/18-06:16:31(UTC) Log: Seconds remaining: 120
+2022-07-13 09:29:50.127:   [Telnet] 2021/11/18-06:16:41(UTC) Log: Seconds remaining: 110
+2022-07-13 09:29:50.127:   [Telnet] 2021/11/18-06:16:51(UTC) Log: Seconds remaining: 100
+2022-07-13 09:29:50.127:   [Telnet] 2021/11/18-06:17:01(UTC) Log: Seconds remaining: 90
+2022-07-13 09:29:50.127:   [Telnet] 2021/11/18-06:17:11(UTC) Log: Seconds remaining: 80
+2022-07-13 09:29:50.127:   [Telnet] 2021/11/18-06:17:21(UTC) Log: Seconds remaining: 70
+2022-07-13 09:29:50.127:   [Telnet] 2021/11/18-06:17:31(UTC) Log: Seconds remaining: 60
+2022-07-13 09:29:50.127:   [Telnet] 2021/11/18-06:17:41(UTC) Log: Seconds remaining: 50
+2022-07-13 09:29:50.127:   [Telnet] 2021/11/18-06:17:51(UTC) Log: Seconds remaining: 40
+2022-07-13 09:29:50.127:   [Telnet] 2021/11/18-06:18:01(UTC) Log: Seconds remaining: 30
+2022-07-13 09:29:50.127:   [Telnet] 2021/11/18-06:18:11(UTC) Log: Seconds remaining: 20
+2022-07-13 09:29:50.127:   [Telnet] 2021/11/18-06:18:21(UTC) Log: Seconds remaining: 10
+2022-07-13 09:29:50.127:   [Telnet] 2021/11/18-06:18:31(UTC) Stats: Found 0 hardware incidents
+2022-07-13 09:29:50.128:   [Telnet] 2021/11/18-06:18:31(UTC) Stats: Completed: 635426.00M in 600.14s 1058.80MB/s, with 0 hardware incidents, 0 errors
+2022-07-13 09:29:50.128:   [Telnet] 2021/11/18-06:18:31(UTC) Stats: Memory Copy: 534466.00M at 890.66MB/s
+2022-07-13 09:29:50.128:   [Telnet] 2021/11/18-06:18:31(UTC) Stats: File Copy: 100960.00M at 168.24MB/s
+2022-07-13 09:29:50.128:   [Telnet] 2021/11/18-06:18:31(UTC) Stats: Net Copy: 0.00M at 0.00MB/s
+2022-07-13 09:29:50.128:   [Telnet] 2021/11/18-06:18:31(UTC) Stats: Data Check: 0.00M at 0.00MB/s
+2022-07-13 09:29:50.128:   [Telnet] 2021/11/18-06:18:31(UTC) Stats: Invert Data: 0.00M at 0.00MB/s
+2022-07-13 09:29:50.128:   [Telnet] 2021/11/18-06:18:31(UTC) Stats: Disk: 0.00M at 0.00MB/s
+2022-07-13 09:29:50.128:   [Telnet] 2021/11/18-06:18:31(UTC)
+2022-07-13 09:29:50.128:   [Telnet] 2021/11/18-06:18:31(UTC) Status: PASS - please verify no corrected errors
+2022-07-13 09:29:50.128:   [CONFIG] Key: "Status: PASS - please verify no corrected errors"
+2022-07-13 09:29:50.128:   ****************************************************
+2022-07-13 09:29:50.128:   Limit type: "BOOL"
+2022-07-13 09:29:50.128:   Uper limit: ""
+2022-07-13 09:29:50.128:   Lowet limit: ""
+2022-07-13 09:29:50.128:   Test Value: "passed"
+2022-07-13 09:29:50.128:   Item name: RAM_STRESS
+2022-07-13 09:29:50.128:   ****************************************************
+2022-07-13 09:29:50.129:   TIME[1919.832 s] - STATUS[PASSED]

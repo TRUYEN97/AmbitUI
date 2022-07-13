@@ -61,7 +61,7 @@ public class PowerSwitchFunc extends AbsFunction {
 
     private boolean run(PowerSwitch powerSwitch, int index, int delayS) {
         try {
-            List<String> commands = allConfig.getListSlip("Command", "\\|");
+            List<String> commands = allConfig.getListJsonArray("Command");
             for (String command : commands) {
                 try {
                     if (command.equalsIgnoreCase("on")) {

@@ -1,63 +1,63 @@
-2022-07-12 10:15:38.268:   ITEM[mac_ok] - FUNCTION[CheckDutInfoProxy]
-2022-07-12 10:15:38.269:   Turn 0:
-2022-07-12 10:15:38.269:   Get IP from the DHCP with MAC is "649714048d60"
-2022-07-12 10:15:38.269:   IP: 172.168.1.0
-2022-07-12 10:15:38.269:   [Telnet] Connect to host: 172.168.1.0
-2022-07-12 10:15:38.269:   [Telnet] Port is: 23
-2022-07-12 10:15:38.269:   [Cmd] ------------------------------------
-2022-07-12 10:15:38.269:   [Cmd] Send command: ping 172.168.1.0 -n 1
-2022-07-12 10:15:38.295:   [Cmd] Pinging 172.168.1.0 with 32 bytes of data:
-2022-07-12 10:15:38.296:   [Cmd] Reply from 172.168.1.0: bytes=32 time<1ms TTL=64
-2022-07-12 10:15:38.296:   [Cmd] 
-2022-07-12 10:15:38.296:   [Cmd] Ping statistics for 172.168.1.0:
-2022-07-12 10:15:38.296:   [Cmd] Packets: Sent = 1, Received = 1, Lost = 0 (0% loss),
-2022-07-12 10:15:38.296:   [Cmd] Approximate round trip times in milli-seconds:
-2022-07-12 10:15:38.296:   [Cmd] Minimum = 0ms, Maximum = 0ms, Average = 0ms
-2022-07-12 10:15:38.296:   [Cmd] ------------------------------------
-2022-07-12 10:15:38.598:   [Telnet] 
-2022-07-12 10:15:38.598:   [Telnet] === IMPORTANT ============================
-2022-07-12 10:15:38.598:   [Telnet] Use 'passwd' to set your login password!
-2022-07-12 10:15:38.598:   [Telnet] ------------------------------------------
-2022-07-12 10:15:38.598:   [Telnet] 
-2022-07-12 10:15:38.598:   [Telnet] 
-2022-07-12 10:15:38.598:   [Telnet] BusyBox v1.30.1 () built-in shell (ash)
-2022-07-12 10:15:38.598:   [Telnet] 
-2022-07-12 10:15:38.598:   [Telnet] MM           NM                    MMMMMMM          M       M
-2022-07-12 10:15:38.598:   [Telnet] $MMMMM        MMMMM                MMMMMMMMMMM      MMM     MMM
-2022-07-12 10:15:38.598:   [Telnet] MMMMMMMM     MM MMMMM.              MMMMM:MMMMMM:   MMMM   MMMMM
-2022-07-12 10:15:38.598:   [Telnet] MMMM= MMMMMM  MMM   MMMM       MMMMM   MMMM  MMMMMM   MMMM  MMMMM'
-2022-07-12 10:15:38.598:   [Telnet] MMMM=  MMMMM MMMM    MM       MMMMM    MMMM    MMMM   MMMMNMMMMM
-2022-07-12 10:15:38.598:   [Telnet] MMMM=   MMMM  MMMMM          MMMMM     MMMM    MMMM   MMMMMMMM
-2022-07-12 10:15:38.598:   [Telnet] MMMM=   MMMM   MMMMMM       MMMMM      MMMM    MMMM   MMMMMMMMM
-2022-07-12 10:15:38.598:   [Telnet] MMMM=   MMMM     MMMMM,    NMMMMMMMM   MMMM    MMMM   MMMMMMMMMMM
-2022-07-12 10:15:38.598:   [Telnet] MMMM=   MMMM      MMMMMM   MMMMMMMM    MMMM    MMMM   MMMM  MMMMMM
-2022-07-12 10:15:38.598:   [Telnet] MMMM=   MMMM   MM    MMMM    MMMM      MMMM    MMMM   MMMM    MMMM
-2022-07-12 10:15:38.599:   [Telnet] MMMM$ ,MMMMM  MMMMM  MMMM    MMM       MMMM   MMMMM   MMMM    MMMM
-2022-07-12 10:15:38.599:   [Telnet] MMMMMMM:      MMMMMMM     M         MMMMMMMMMMMM  MMMMMMM MMMMMMM
-2022-07-12 10:15:38.599:   [Telnet] MMMMMM       MMMMN     M           MMMMMMMMM      MMMM    MMMM
-2022-07-12 10:15:38.599:   [Telnet] MMMM          M                    MMMMMMM        M       M
-2022-07-12 10:15:38.599:   [Telnet] M
-2022-07-12 10:15:38.599:   [Telnet] ---------------------------------------------------------------
-2022-07-12 10:15:38.599:   [Telnet] For those about to rock... (Chaos Calmer, unknown)
-2022-07-12 10:15:38.599:   [Telnet] ---------------------------------------------------------------
-2022-07-12 10:15:38.599:   [Telnet] root@eero-test:/#
-2022-07-12 10:15:38.599:   [Telnet] Send command: fw_printenv  mac
-2022-07-12 10:15:38.656:   [Telnet] fw_printenv  mac
-2022-07-12 10:15:38.657:   [Telnet] mac=64:97:14:04:8d:60
-2022-07-12 10:15:38.657:   [CONFIG] Start key: "mac="
-2022-07-12 10:15:38.657:   [CONFIG] End key: ""
-2022-07-12 10:15:38.657:   [CONFIG] Regex: ""
-2022-07-12 10:15:38.657:   [PC] Value: "64:97:14:04:8d:60"
-2022-07-12 10:15:38.657:   Value is: 64:97:14:04:8d:60
-2022-07-12 10:15:38.657:   Spec is: null
-2022-07-12 10:15:38.657:   ****************************************************
-2022-07-12 10:15:38.657:   Limit type: "BOOL"
-2022-07-12 10:15:38.657:   Uper limit: ""
-2022-07-12 10:15:38.657:   Lowet limit: ""
-2022-07-12 10:15:38.657:   Test Value: "64:97:14:04:8d:60"
-2022-07-12 10:15:38.657:   Item name: MAC_OK
-2022-07-12 10:15:38.657:   ****************************************************
-2022-07-12 10:15:38.657:   Error code: 15
-2022-07-12 10:15:38.658:   Local error code: 19.3.0
-2022-07-12 10:15:38.658:   Local error des: mac_ok
-2022-07-12 10:15:38.658:   TIME[0.389 s] - STATUS[FAILED]
+2022-07-13 09:40:44.453:   ITEM[mac_ok] - FUNCTION[CheckDutInfoProxy]
+2022-07-13 09:40:44.455:   Turn 0:
+2022-07-13 09:40:44.455:   Get IP from the DHCP with MAC is "649714048d60"
+2022-07-13 09:40:44.456:   IP: 172.168.1.0
+2022-07-13 09:40:44.456:   [Telnet] Connect to host: 172.168.1.0
+2022-07-13 09:40:44.456:   [Telnet] Port is: 23
+2022-07-13 09:40:44.457:   [Cmd] ------------------------------------
+2022-07-13 09:40:44.457:   [Cmd] Send command: ping 172.168.1.0 -n 1
+2022-07-13 09:40:44.515:   [Cmd] Pinging 172.168.1.0 with 32 bytes of data:
+2022-07-13 09:40:44.516:   [Cmd] Reply from 172.168.1.0: bytes=32 time<1ms TTL=64
+2022-07-13 09:40:44.517:   [Cmd] 
+2022-07-13 09:40:44.517:   [Cmd] Ping statistics for 172.168.1.0:
+2022-07-13 09:40:44.517:   [Cmd] Packets: Sent = 1, Received = 1, Lost = 0 (0% loss),
+2022-07-13 09:40:44.517:   [Cmd] Approximate round trip times in milli-seconds:
+2022-07-13 09:40:44.517:   [Cmd] Minimum = 0ms, Maximum = 0ms, Average = 0ms
+2022-07-13 09:40:44.518:   [Cmd] ------------------------------------
+2022-07-13 09:40:44.844:   [Telnet] 
+2022-07-13 09:40:44.844:   [Telnet] === IMPORTANT ============================
+2022-07-13 09:40:44.845:   [Telnet] Use 'passwd' to set your login password!
+2022-07-13 09:40:44.845:   [Telnet] ------------------------------------------
+2022-07-13 09:40:44.845:   [Telnet] 
+2022-07-13 09:40:44.845:   [Telnet] 
+2022-07-13 09:40:44.846:   [Telnet] BusyBox v1.30.1 () built-in shell (ash)
+2022-07-13 09:40:44.846:   [Telnet] 
+2022-07-13 09:40:44.846:   [Telnet] MM           NM                    MMMMMMM          M       M
+2022-07-13 09:40:44.846:   [Telnet] $MMMMM        MMMMM                MMMMMMMMMMM      MMM     MMM
+2022-07-13 09:40:44.847:   [Telnet] MMMMMMMM     MM MMMMM.              MMMMM:MMMMMM:   MMMM   MMMMM
+2022-07-13 09:40:44.847:   [Telnet] MMMM= MMMMMM  MMM   MMMM       MMMMM   MMMM  MMMMMM   MMMM  MMMMM'
+2022-07-13 09:40:44.847:   [Telnet] MMMM=  MMMMM MMMM    MM       MMMMM    MMMM    MMMM   MMMMNMMMMM
+2022-07-13 09:40:44.847:   [Telnet] MMMM=   MMMM  MMMMM          MMMMM     MMMM    MMMM   MMMMMMMM
+2022-07-13 09:40:44.847:   [Telnet] MMMM=   MMMM   MMMMMM       MMMMM      MMMM    MMMM   MMMMMMMMM
+2022-07-13 09:40:44.848:   [Telnet] MMMM=   MMMM     MMMMM,    NMMMMMMMM   MMMM    MMMM   MMMMMMMMMMM
+2022-07-13 09:40:44.848:   [Telnet] MMMM=   MMMM      MMMMMM   MMMMMMMM    MMMM    MMMM   MMMM  MMMMMM
+2022-07-13 09:40:44.848:   [Telnet] MMMM=   MMMM   MM    MMMM    MMMM      MMMM    MMMM   MMMM    MMMM
+2022-07-13 09:40:44.848:   [Telnet] MMMM$ ,MMMMM  MMMMM  MMMM    MMM       MMMM   MMMMM   MMMM    MMMM
+2022-07-13 09:40:44.849:   [Telnet] MMMMMMM:      MMMMMMM     M         MMMMMMMMMMMM  MMMMMMM MMMMMMM
+2022-07-13 09:40:44.849:   [Telnet] MMMMMM       MMMMN     M           MMMMMMMMM      MMMM    MMMM
+2022-07-13 09:40:44.849:   [Telnet] MMMM          M                    MMMMMMM        M       M
+2022-07-13 09:40:44.849:   [Telnet] M
+2022-07-13 09:40:44.850:   [Telnet] ---------------------------------------------------------------
+2022-07-13 09:40:44.850:   [Telnet] For those about to rock... (Chaos Calmer, unknown)
+2022-07-13 09:40:44.850:   [Telnet] ---------------------------------------------------------------
+2022-07-13 09:40:44.850:   [Telnet] root@eero-test:/#
+2022-07-13 09:40:44.851:   [Telnet] Send command: fw_printenv  mac
+2022-07-13 09:40:44.952:   [Telnet] fw_printenv  mac
+2022-07-13 09:40:44.952:   [Telnet] mac=64:97:14:04:8d:60
+2022-07-13 09:40:44.953:   [CONFIG] Start key: "mac="
+2022-07-13 09:40:44.953:   [CONFIG] End key: ""
+2022-07-13 09:40:44.953:   [CONFIG] Regex: ""
+2022-07-13 09:40:44.954:   [PC] Value: "64:97:14:04:8d:60"
+2022-07-13 09:40:44.954:   Value is: 64:97:14:04:8d:60
+2022-07-13 09:40:44.954:   Spec is: null
+2022-07-13 09:40:44.954:   ****************************************************
+2022-07-13 09:40:44.955:   Limit type: "BOOL"
+2022-07-13 09:40:44.955:   Uper limit: ""
+2022-07-13 09:40:44.955:   Lowet limit: ""
+2022-07-13 09:40:44.955:   Test Value: "64:97:14:04:8d:60"
+2022-07-13 09:40:44.956:   Item name: MAC_OK
+2022-07-13 09:40:44.956:   ****************************************************
+2022-07-13 09:40:44.957:   Error code: 15
+2022-07-13 09:40:44.957:   Local error code: 19.3.0
+2022-07-13 09:40:44.957:   Local error des: mac_ok
+2022-07-13 09:40:44.958:   TIME[0.503 s] - STATUS[FAILED]

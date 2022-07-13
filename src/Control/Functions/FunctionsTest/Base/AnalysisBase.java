@@ -16,22 +16,22 @@ import java.util.regex.Pattern;
  *
  * @author Administrator
  */
-public class AnalysisBase extends AbsFunction{
+public class AnalysisBase extends AbsFunction {
 
     public AnalysisBase(String itemName) {
         super(itemName);
     }
-    
+
     @Override
     protected boolean test() {
         addLog("Messager", "This is not a function test!");
         return false;
     }
-    
+
     public String getValue(IReadable telnet, String regex) {
         return getValue(telnet, null, null, regex, null);
     }
-    
+
     public String getValue(IReadable readable, String regex, AbsTime time) {
         return getValue(readable, null, null, regex, time);
     }
@@ -39,11 +39,11 @@ public class AnalysisBase extends AbsFunction{
     public String getValue(IReadable readable, String startkey, String endkey, AbsTime time) {
         return getValue(readable, startkey, endkey, null, time);
     }
-    
+
     public String getValue(IReadable readable, String startkey, String endkey) {
         return getValue(readable, startkey, endkey, null, null);
     }
-    
+
     public String getValue(IReadable readable, String startkey, String endkey, String regex, AbsTime time) {
         String line;
         String name = readable.getClass().getSimpleName();
@@ -69,7 +69,22 @@ public class AnalysisBase extends AbsFunction{
         }
 
     }
-    
+
+    public boolean isResponseContainKey(IReadable readable, String key) {
+        return AnalysisBase.this.isResponseContainKey(readable, key, null);
+    }
+
+    public boolean isResponseContainKey(IReadable readable, String key, AbsTime time) {
+        try {
+            String name = readable.getClass().getSimpleName();
+            String result = readable.readUntil(key, time);
+            addLog(name, result);
+            return result.contains(key);
+        } finally {
+            addLog("CONFIG", String.format("Key: \"%s\"", key));
+        }
+    }
+
     public String getIp() {
         if (Setting.getInstance().isOnDHCP()) {
 //            String mac = getMac();
@@ -114,7 +129,7 @@ public class AnalysisBase extends AbsFunction{
             return null;
         }
     }
-    
+
     public boolean isNumber(String value) {
         if (value == null) {
             addLog("PC", value + " is not a number");
@@ -129,8 +144,6 @@ public class AnalysisBase extends AbsFunction{
             return false;
         }
     }
-    
-    
 
     public String findGroup(String line, String regex) {
         Pattern pattern = Pattern.compile(regex);

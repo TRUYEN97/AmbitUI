@@ -126,4 +126,9 @@ public class FuncAllConfig {
     public Integer getInteger(String key) {
         return this.wareHouse.getInteger(key);
     }
+
+    public Integer getInteger(String key, int defaultV) {
+        Integer value = getInteger(key);
+        return value == null ? defaultV : value;
+    }
 }
