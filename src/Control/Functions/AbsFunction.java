@@ -41,13 +41,13 @@ public abstract class AbsFunction implements IFunction {
         this.functionData = functionData;
         this.uIInfo = uiStatus.getInfo();
         this.processData = uiStatus.getProcessData();
-        this.testSignal = this.processData.getSignal();
-        this.productData = this.processData.getProductData();
         this.subUi = uiStatus.getSubUi();
         this.allConfig.setResources(uiStatus);
         this.itemTestData = new ItemTestData(allConfig);
         this.functionData.addItemtest(itemTestData);
         this.processData.addFunctionData(functionData);
+        this.testSignal = this.processData.getSignal();
+        this.productData = this.processData.getProductData();
         this.analysisResult = new AnalysisResult(itemTestData, allConfig);
     }
 

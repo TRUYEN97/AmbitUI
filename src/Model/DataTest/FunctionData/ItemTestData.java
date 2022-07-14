@@ -20,8 +20,8 @@ import java.util.List;
  */
 public class ItemTestData {
 
-    private static final String FAIL = "failed";
-    private static final String PASS = "passed";
+    public static final String FAIL = "failed";
+    public static final String PASS = "passed";
     private final FuncAllConfig allConfig;
     private final JSONObject data;
     private final JSONObject error;

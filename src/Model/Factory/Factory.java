@@ -13,6 +13,7 @@ import Control.Functions.FunctionsTest.Base.GetMacFromSfis.GetMacFormSfisProxy;
 import Control.Functions.FunctionsTest.Base.DutPing.DutPingProxy;
 import Control.Functions.FunctionsTest.Base.DutTelnet.DutTelnetProxy;
 import Control.Functions.FunctionsTest.Base.FixtureActions.FixtureActionProxy;
+import Control.Functions.FunctionsTest.Base.JsonApi.JsonApiProxy;
 import Control.Functions.FunctionsTest.Base.SFIS.SfisFunctionProxy;
 import Control.Functions.FunctionsTest.FaAPI.inputFaData.InputFaDataProxy;
 import Control.Functions.FunctionsTest.Runin.PowerSwitch.PowerSwitchProxy;
@@ -20,7 +21,7 @@ import Control.Functions.FunctionsTest.Base.UpFTP.UpFTPProxy;
 import Control.Functions.FunctionsTest.FaAPI.UpJsonAPI.UpAPIProxy;
 import Control.Functions.FunctionsTest.Runin.CheckCommandTelnet.CheckCommandTelnetProxy;
 import Control.Functions.FunctionsTest.Runin.MMC_BadBlock.MMC_BadBlockProxy;
-import Control.Functions.FunctionsTest.Runin.RamStress.TelnetReadUntilKeyProxy;
+import Control.Functions.FunctionsTest.Runin.TelnetReadUntilKey.TelnetReadUntilKeyProxy;
 import Control.Functions.FunctionsTest.Runin.RebootSoft.RebootSoftProxy;
 import Control.Functions.InitPackages.InitProxy.IdPasswordProxy;
 import View.subUI.FormDetail.AbsTabUI;
@@ -117,5 +118,6 @@ public class Factory {
         this.functions.addType(new MMC_BadBlockProxy());
         this.functions.addType(new FixtureActionProxy());
         this.functions.addType(new TelnetReadUntilKeyProxy());
+        this.functions.addType(new JsonApiProxy());
     }
 }

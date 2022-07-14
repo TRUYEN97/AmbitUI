@@ -9,7 +9,6 @@ import Model.DataSource.ModeTest.ErrorCode.ErrorCodeElement;
 import Model.ErrorLog;
 import MyLoger.MyLoger;
 import java.io.File;
-import java.util.HashMap;
 import java.util.Map;
 import javax.swing.JOptionPane;
 
@@ -18,67 +17,56 @@ import javax.swing.JOptionPane;
  * @author Administrator
  */
 public class FunctionData {
-    
+
     private final MyLoger loger;
-    private final Map<String, ItemTestData> itemTests;
-    private ItemTestData thisItem;
-    private Map<String, ItemTestData> finalItemTests;
-    
+    private final ItemTestManager itemTestManager;
+    private Map<String, ItemTestData> finaltemTests;
+
     public FunctionData() {
         this.loger = new MyLoger();
-        this.itemTests = new HashMap<>();
+        this.itemTestManager = new ItemTestManager();
     }
-    
-    public Map<String, ItemTestData> getitemTests() {
-        return itemTests;
-    }
-    
+
     public String getItemFunctionName() {
-        return this.thisItem.getItemTestName();
+        return this.itemTestManager.getItemTestName();
     }
-    
+
     public void addItemtest(ItemTestData itemTest) {
         itemTest.setLoger(this.loger);
-        if (this.itemTests.isEmpty()) {
-            this.thisItem = itemTest;
-        }
-        this.itemTests.put(itemTest.getItemTestName(), itemTest);
+        this.itemTestManager.addItemtest(itemTest);
     }
-    
+
     public ItemTestData getItemTest(String itemName) {
-        if (this.itemTests.containsKey(itemName)) {
-            return this.itemTests.get(itemName);
-        }
-        return null;
+        return this.itemTestManager.getItemTest(itemName);
     }
-    
+
     public void setResult(String resultTest) {
         if (resultTest == null) {
             return;
         }
-        thisItem.setResult(resultTest);
+        this.itemTestManager.getThisItem().setResult(resultTest);
     }
-    
+
     public void addLog(Object str) {
         this.loger.addLog(str);
     }
-    
+
     public void addLog(String key, Object str) {
         this.loger.addLog(key, str);
     }
-    
+
     public String getResultTest() {
-        return thisItem.getResultTest();
+        return itemTestManager.getThisItem().getResultTest();
     }
-    
-    public String getStausTest() {
-        return thisItem.getStatusTest();
+
+    public String getStatusTest() {
+        return itemTestManager.getThisItem().getStatusTest();
     }
-    
+
     public boolean isTesting() {
-        return thisItem.isTest();
+        return itemTestManager.getThisItem().isTest();
     }
-    
+
     public void start(String logPath, String funcName) {
         if (!this.loger.begin(new File(logPath), true, true)) {
             String mess = "can't delete local function log file of ".concat(getItemFunctionName());
@@ -88,57 +76,68 @@ public class FunctionData {
         addLog(String.format("ITEM[%s] - FUNCTION[%s]",
                 this.getItemFunctionName(), funcName));
     }
-    
+
     public double getRunTime() {
-        return thisItem.getRunTime();
+        return itemTestManager.getThisItem().getRunTime();
     }
-    
+
     public void end() {
         this.addLog(String.format("TIME[%.3f s] - STATUS[%S]",
-                this.getRunTime(), getStausTest()));
+                this.getRunTime(), getStatusTest()));
         this.loger.close();
-        this.finalItemTests.putAll(itemTests);
+        this.finaltemTests.putAll(itemTestManager.getItemTests());
     }
-    
+
     public String getLog() {
         return this.loger.getLog();
     }
-    
+
     public MyLoger getLoger() {
         return this.loger;
     }
-    
+
     public boolean isPass() {
-        return thisItem.isPass();
+        return itemTestManager.getFirstFail() == null;
     }
-    
+
     public void setStatus(boolean stt) {
         if (stt) {
-            this.thisItem.setPass();
+            this.itemTestManager.getThisItem().setPass();
         } else {
-            this.thisItem.setFail(ErrorCodeElement.SIMPLE);
+            this.itemTestManager.getThisItem().setFail(ErrorCodeElement.SIMPLE);
         }
     }
-    
+
     public void setFail(String errorType) {
-        this.thisItem.setFail(errorType);
-    }
-    
-    public String getErrorCode() {
-        if (thisItem == null) {
-            return null;
+        for (var itemTest : itemTestManager.getListItemTests()) {
+            if (itemTest.isTest()) {
+                itemTest.setFail(errorType);
+            }
         }
-        return thisItem.getString(AllKeyWord.ERROR_CODE);
     }
-    
-    public String getCusErrorCode() {
-        if (isTesting() || isPass()) {
-            return null;
-        }
-        return thisItem.getString(AllKeyWord.LOCAL_ERROR_CODE);
-    }
-    
+
     public void setFinalMapItems(Map<String, ItemTestData> mapfunctionData) {
-        this.finalItemTests = mapfunctionData;
+        this.finaltemTests = mapfunctionData;
+    }
+
+    public String getErrorCode() {
+        if (isPass()) {
+            return null;
+        }
+        return this.itemTestManager.getFirstFail().getString(AllKeyWord.LOCAL_ERROR_CODE);
+    }
+
+    public String getErrorDes() {
+        if (isPass()) {
+            return null;
+        }
+        return this.itemTestManager.getFirstFail().getString(AllKeyWord.LOCAL_ERROR_DES);
+    }
+
+    public String getCusErrorCode() {
+        if (isPass()) {
+            return null;
+        }
+        return this.itemTestManager.getFirstFail().getString(AllKeyWord.ERROR_CODE);
     }
 }

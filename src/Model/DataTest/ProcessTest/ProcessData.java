@@ -113,6 +113,14 @@ public class ProcessData {
 
     public void setFinishTime() {
         this.data.put(AllKeyWord.FINISH_TIME, timeBase.getSimpleDateTime());
+        FunctionData testData = getFirstFail();
+        if (testData == null) {
+            this.data.put(AllKeyWord.STATUS, ItemTestData.PASS);
+        }else{
+            this.data.put(AllKeyWord.STATUS, ItemTestData.FAIL);
+            this.data.put(AllKeyWord.ERROR_CODE, testData.getErrorCode());
+            this.data.put(AllKeyWord.ERROR_DES, testData.getErrorDes());
+        }
     }
 
     public void setStartTime() {

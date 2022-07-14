@@ -5,7 +5,7 @@
         <group>
             <file>file:/D:/Ambit-module/EnginerUI/RX71D9X_B5_03-2640_SFIS_ON_PASS.txt</file>
             <file>file:/D:/Ambit-module/EnginerUI/src/Model/DataSource/ModeTest/Limit/Limit.java</file>
-            <file>file:/D:/Ambit-module/EnginerUI/src/Control/Functions/FunctionsTest/Runin/RamStress/RamStress.java</file>
+            <file>file:/D:/Ambit-module/EnginerUI/src/Control/Functions/FunctionsTest/Runin/TelnetReadUntilKey/TelnetReadUntilKey.java</file>
             <file>file:/D:/Ambit-module/EnginerUI/config/Item/runinItemConfig.json</file>
             <file>file:/D:/Ambit-module/EnginerUI/config/Item/ambitconfig.txt</file>
             <file>file:/D:/Ambit-module/EnginerUI/src/Control/Functions/FunctionsTest/Base/AnalysisBase.java</file>

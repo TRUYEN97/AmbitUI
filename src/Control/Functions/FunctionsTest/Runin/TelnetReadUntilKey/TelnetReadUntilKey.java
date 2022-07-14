@@ -2,7 +2,7 @@
  * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
  * Click nbfs://nbhost/SystemFileSystem/Templates/Classes/Class.java to edit this template
  */
-package Control.Functions.FunctionsTest.Runin.RamStress;
+package Control.Functions.FunctionsTest.Runin.TelnetReadUntilKey;
 
 import Control.Functions.AbsFunction;
 import Control.Functions.FunctionsTest.Base.AnalysisBase;
@@ -53,16 +53,17 @@ public class TelnetReadUntilKey extends AbsFunction {
             addLog("ERROR", "Commands is empty!");
             return false;
         }
-        String key = this.allConfig.getString("keyWord");
+        String readUntil = this.allConfig.getString("keyWord");
+        String spec = this.allConfig.getString("keyWord");
         Integer time = this.allConfig.getInteger("Time");
         if (time == null) {
             addLog("Config", "Time == null !!");
             return false;
         }
         for (String command : commands) {
-            addLog("Config", "Wait for " + time + " s");
+            addLog("Config", "Waiting for about" + time + " s");
             if (!this.baseFunc.sendCommand(telnet, command)
-                    || !this.analysisBase.isResponseContainKey(telnet, key, new TimeS(time))) {
+                    || !this.analysisBase.isResponseContainKey(telnet, spec, readUntil, new TimeS(time))) {
                 return false;
             }
         }

@@ -237,7 +237,7 @@ public class TabItem extends AbsTabUI {
         if (functionData.isTesting()) {
             return "Testing";
         }
-        return functionData.getStausTest();
+        return functionData.getStatusTest();
     }
 
     private String getNameITem(int row) {

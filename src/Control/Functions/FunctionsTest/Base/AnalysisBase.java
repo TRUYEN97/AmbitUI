@@ -64,24 +64,33 @@ public class AnalysisBase extends AbsFunction {
         } finally {
             addLog("CONFIG", String.format("Start key: \"%s\"", startkey));
             addLog("CONFIG", String.format("End key: \"%s\"", endkey));
-            addLog("CONFIG", String.format("Regex: \"%s\"", endkey));
+            addLog("CONFIG", String.format("Regex: \"%s\"", regex));
             addLog("PC", String.format("Value: \"%s\"", value));
         }
 
     }
 
-    public boolean isResponseContainKey(IReadable readable, String key) {
-        return AnalysisBase.this.isResponseContainKey(readable, key, null);
+    public boolean isResponseContainKey(IReadable readable, String spec, String key) {
+        return AnalysisBase.this.isResponseContainKey(readable, spec, key, null);
     }
 
-    public boolean isResponseContainKey(IReadable readable, String key, AbsTime time) {
+    public boolean isResponseContainKey(IReadable readable, String spec, String readUntil, AbsTime time) {
         try {
+
+            if (readUntil == null) {
+                addLog("Config", "Read until == null !!");
+                return false;
+            }
+            if (spec == null) {
+                addLog("Config", "spec == null !!");
+                return false;
+            }
             String name = readable.getClass().getSimpleName();
-            String result = readable.readUntil(key, time);
+            String result = readable.readUntil(readUntil, time);
             addLog(name, result);
-            return result.contains(key);
+            return result.contains(spec);
         } finally {
-            addLog("CONFIG", String.format("Key: \"%s\"", key));
+            addLog("CONFIG", String.format("Spec: \"%s\"", spec));
         }
     }
 
