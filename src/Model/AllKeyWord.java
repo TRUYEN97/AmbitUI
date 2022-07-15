@@ -14,10 +14,12 @@ import java.util.List;
 public class AllKeyWord {
 
     public static final String MODEL = "model";
-    public static final String STATION = "station_type";
+    public static final String STATION_TYPE = "station_type";
+    public static final String STATION_NAME = "station_name";
     public static final String TIME_STAMP = "timestamp";
     public static final String LIMITS_VALIDATION = "limits_validation";
     public static final String LIMITS = "limits";
+    public static final String UI_ID = "uiId";
     public static final String ID = "id";
     public static final String LAST_UPDATE = "last_updated_at";
     public static final String TEST_NAME = "test_name";
@@ -28,7 +30,7 @@ public class AllKeyWord {
     public static final String UNITS = "units";
     public static final String ERROR_CODE = "error_code";
     public static final String FA_ERROR_CODE = "errorcode";
-    public static final String ERROR_DES = "errordes";
+    public static final String ERROR_DES = "error_details";
     public static final String LOCKED = "locked";
     public static final String UUT_MODEL = "UUT_MODEL";
     public static final String COM = "COM";
@@ -56,13 +58,12 @@ public class AllKeyWord {
     public static final String MLBSN = "mlbsn";
     public static final String IP = "Ip";
     public static final String MAC = "ethernetmac";
-    public static final String PCNAME = "pcname";
     public static final String STATUS = "status";
     public static final String INDEX = "index";
     public static final String RESULT = "result";
     public static final String MESSAGE = "message";
     public static final String DATA = "data";
-    public static final String VERSION = "version";
+    public static final String VERSION = "test_software_version";
     public static final String START_TIME = "start_time";
     public static final String FINISH_TIME = "finish_time";
     public static final String CYCLE_TIME = "cyctime";
@@ -86,13 +87,14 @@ public class AllKeyWord {
     public static final String FTP_USER = "FtpUser";
     public static final String FTP_PASSWORD = "FtpPassword";
     public static final String FTP_PORT = "FtpPort";
+    public static final String POSITION = "position";
     public static final String FTP_HOST = "FtpHost";
     public static final String LIMIT_CMD = "LimitCMD";
     public static final String LOCAL_ERROR_CODE = "local_error_code";
     public static final String LOCAL_ERROR_DES = "local_error_des";
 
     public static final List<String> MODE_KEY = Arrays.asList(
-            STATION, DHCP, COLUMN, ROW, DETAIL, DISCRETE_TEST, TYPE_UI, NAME, TYPE_MODE,
+            STATION_TYPE, DHCP, COLUMN, ROW, DETAIL, DISCRETE_TEST, TYPE_UI, NAME, TYPE_MODE,
             INIT_FUNC, PN_NAME, LOOP_TEST, LOCAL_LOG, AMBIT_CONFIG);
 
     public static final List<String> FUNC_KEYS = Arrays.asList(FAIL_CONTNIUE,

@@ -131,6 +131,13 @@ public class FunctionData {
         if (isPass()) {
             return null;
         }
+        return this.itemTestManager.getFirstFail().getString(AllKeyWord.ERROR_DES);
+    }
+    
+    public String getErrorLocalDes() {
+        if (isPass()) {
+            return null;
+        }
         return this.itemTestManager.getFirstFail().getString(AllKeyWord.LOCAL_ERROR_DES);
     }
 

@@ -174,9 +174,11 @@ public class ItemTestData {
         if (!isPass()) {
             this.data.putAll(this.error);
             String errorCode = this.data.getString(AllKeyWord.ERROR_CODE);
+            String errorDes = this.data.getString(AllKeyWord.ERROR_DES);
             String localErrorCode = this.data.getString(AllKeyWord.LOCAL_ERROR_CODE);
             String localErrorDes = this.data.getString(AllKeyWord.LOCAL_ERROR_DES);
             this.loger.addLog("Error code: " + errorCode);
+            this.loger.addLog("Error des: " + errorDes);
             this.loger.addLog("Local error code: " + localErrorCode);
             this.loger.addLog("Local error des: " + localErrorDes);
         }

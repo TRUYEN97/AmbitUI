@@ -5,11 +5,17 @@
 package Control.Functions.FunctionsTest.FaAPI.CreateFaJson;
 
 import Control.Functions.AbsFunction;
+import Control.Functions.FunctionsTest.Base.BaseFunction.AnalysisBase;
+import Control.Functions.FunctionsTest.Base.BaseFunction.FileBaseFunction;
+import Control.Functions.FunctionsTest.Base.BaseFunction.FunctionBase;
 import Control.Functions.FunctionsTest.FaAPI.CreateFaJson.KeyWordFaAPI.FUNC_KEY;
 import FileTool.FileService;
 import Model.AllKeyWord;
+import Model.DataTest.FunctionData.FunctionData;
+import Model.ManagerUI.UIStatus.UiStatus;
 import com.alibaba.fastjson.JSONArray;
 import com.alibaba.fastjson.JSONObject;
+import java.util.List;
 
 /**
  *
@@ -17,8 +23,23 @@ import com.alibaba.fastjson.JSONObject;
  */
 public class CreateFaJson extends AbsFunction {
 
-    CreateFaJson(String name) {
-        super(name);
+    private final FunctionBase baseFunc;
+    private final AnalysisBase analysisBase;
+    private final FileBaseFunction fileBaseFunction;
+
+    public CreateFaJson(String itemName) {
+        super(itemName);
+        this.baseFunc = new FunctionBase(itemName);
+        this.analysisBase = new AnalysisBase(itemName);
+        this.fileBaseFunction = new FileBaseFunction(itemName);
+    }
+
+    @Override
+    public void setResources(UiStatus uiStatus, FunctionData functionData) {
+        super.setResources(uiStatus, functionData); // Generated from nbfs://nbhost/SystemFileSystem/Templates/Classes/Code/OverriddenMethodBody
+        this.baseFunc.setResources(uiStatus, functionData);
+        this.analysisBase.setResources(uiStatus, functionData);
+        this.fileBaseFunction.setResources(uiStatus, functionData);
     }
 
     @Override
@@ -30,39 +51,7 @@ public class CreateFaJson extends AbsFunction {
         addLog(data.toJSONString());
         JSONObject baseData = createBaseData();
         baseData.put("tests", createFunctionData(data));
-        return saveToFile(baseData);
-    }
-
-    private boolean saveToFile(JSONObject baseData) {
-        String filePath = this.allConfig.getString("LOCAL_FILE");
-        String nameFile = createNameFile();
-        if (saveFile(filePath, nameFile, baseData.toJSONString())) {
-            addLog(String.format("Save json file at %s done!", nameFile));
-            return putNameFileToSignal(nameFile);
-        }
-        addLog(String.format("Save json file at %s failed", nameFile));
-        return false;
-    }
-
-    private boolean putNameFileToSignal(String nameFile) {
-        String keywowk = this.allConfig.getString("JsonPathKey");
-        if (keywowk == null) {
-            addLog("Key of FilePath is null!");
-            return false;
-        }
-        this.testSignal.put(keywowk, nameFile);
-        addLog(String.format("put \"%s\" with \"%s\" key to signal",
-                nameFile, keywowk));
-        return true;
-    }
-
-    private String createNameFile() {
-        String serial = productData.getString(AllKeyWord.MLBSN);
-        serial = serial.replace('\\', '_');
-        serial = serial.replace('/', '_');
-        String pcName = productData.getString(AllKeyWord.PCNAME);
-        String mode = productData.getString(AllKeyWord.MODE);
-        return String.format("%s_%s_%s", serial, pcName, mode);
+        return this.fileBaseFunction.saveJson(baseData);
     }
 
     private JSONObject getFaJsonData() {
@@ -157,20 +146,6 @@ public class CreateFaJson extends AbsFunction {
 
     private String getStionType(String pcName) {
         return pcName.substring(0, pcName.lastIndexOf("-"));
-    }
-
-    private boolean saveFile(String dirPath, String nameFile, String data) {
-        String filePath = String.format("%s\\%s.json", dirPath, nameFile);
-        addLog(String.format("Save json data at: %s", filePath));
-        return new FileService().saveFile(filePath, formatJson(data));
-    }
-
-    private String formatJson(String str) {
-        str = str.replaceAll("\\},(?!\r\n)", "\r\n},\r\n");
-        str = str.replaceAll("\\{(?!\r\n)", "\r\n{\r\n");
-        str = str.replaceAll("\\}(?!,)", "\r\n}\r\n");
-        str = str.replaceAll(",(?=\")", ",\r\n");
-        return str.trim();
     }
 
 }

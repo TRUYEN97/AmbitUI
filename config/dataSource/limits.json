@@ -1,7 +1,7 @@
 {
   "model": "trieste",
   "station_type": "runin",
-  "timestamp": "2022-07-14 08:08:08",
+  "timestamp": "2022-07-15 08:47:13",
   "limits_validation": "passed",
   "limits": {
     "cpu_stress": {

@@ -2,29 +2,31 @@
  * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
  * Click nbfs://nbhost/SystemFileSystem/Templates/Classes/Class.java to edit this template
  */
-package Control.Functions.FunctionsTest.Runin.CheckCommandTelnet;
+package Control.Functions.FunctionsTest.Base.JsonApi.UpApi;
 
 import Control.Functions.AbsFunction;
 import Control.Functions.FunctionsTest.Base.BaseFunction.AnalysisBase;
+import Control.Functions.FunctionsTest.Base.BaseFunction.FileBaseFunction;
 import Control.Functions.FunctionsTest.Base.BaseFunction.FunctionBase;
 import Model.DataTest.FunctionData.FunctionData;
 import Model.ManagerUI.UIStatus.UiStatus;
-import Time.WaitTime.Class.TimeMs;
-import commandprompt.Communicate.Telnet.Telnet;
+import commandprompt.Communicate.Cmd.Cmd;
 
 /**
  *
  * @author Administrator
  */
-public class CheckCommandTelnet extends AbsFunction {
+public class UpApi extends AbsFunction {
 
     private final FunctionBase functionBase;
     private final AnalysisBase analysisBase;
+    private final FileBaseFunction fileBaseFunction;
 
-    public CheckCommandTelnet(String itemName) {
+    public UpApi(String itemName) {
         super(itemName);
         this.functionBase = new FunctionBase(itemName);
         this.analysisBase = new AnalysisBase(itemName);
+        this.fileBaseFunction = new FileBaseFunction(itemName);
     }
 
     @Override
@@ -32,25 +34,21 @@ public class CheckCommandTelnet extends AbsFunction {
         super.setResources(uiStatus, functionData); // Generated from nbfs://nbhost/SystemFileSystem/Templates/Classes/Code/OverriddenMethodBody
         this.functionBase.setResources(uiStatus, functionData);
         this.analysisBase.setResources(uiStatus, functionData);
+        this.fileBaseFunction.setResources(uiStatus, functionData);
     }
 
     @Override
     protected boolean test() {
-        String ip = this.analysisBase.getIp();
-        Telnet telnet;
-        if (ip == null || (telnet = this.functionBase.getTelnet(ip, 23)) == null
-                || !this.functionBase.sendCommand(telnet, allConfig.getString("command"))) {
+        String command = this.allConfig.getString("Command");
+        String nameFile = this.fileBaseFunction.createNameFile(this.allConfig.getListJsonArray("ElementName"), "");
+        Cmd cmd = new Cmd();
+        if (!this.functionBase.sendCommand(cmd, command + nameFile)) {
             return false;
         }
-        String startkey = allConfig.getString("Startkey");
-        String endkey = allConfig.getString("Endkey");
-        String regex = allConfig.getString("Regex");
-        String value = this.analysisBase.getValue(telnet, startkey, endkey, regex, new TimeMs(1000));
-        if (value == null) {
-            return false;
-        }
-        setResult(value);
-        return true;
+        String spec = allConfig.getString("Spec");
+        String response = cmd.readAll();
+        addLog("Cmd", response);
+        return response.trim().endsWith(spec);
     }
 
 }

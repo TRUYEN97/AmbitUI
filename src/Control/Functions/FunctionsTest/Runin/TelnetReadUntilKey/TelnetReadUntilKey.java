@@ -5,8 +5,8 @@
 package Control.Functions.FunctionsTest.Runin.TelnetReadUntilKey;
 
 import Control.Functions.AbsFunction;
-import Control.Functions.FunctionsTest.Base.AnalysisBase;
-import Control.Functions.FunctionsTest.Base.FunctionBase;
+import Control.Functions.FunctionsTest.Base.BaseFunction.AnalysisBase;
+import Control.Functions.FunctionsTest.Base.BaseFunction.FunctionBase;
 import Model.DataTest.FunctionData.FunctionData;
 import Model.ManagerUI.UIStatus.UiStatus;
 import Time.WaitTime.Class.TimeS;

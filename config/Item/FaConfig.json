@@ -40,7 +40,7 @@
             "KEY_WORD": "jsonFa",
             "JsonPathKey": "FileJsonPath",
             "jsonResultKey": "jsonResult",
-            "FilePath": "json file",
+            "ElemetName":["mlbsn","pcname"],
             "LOCAL_FILE": "python/log",
             "test_name": "CreateFaJson",
             "FUNC_NAME": "CreateFaJsonProxy"

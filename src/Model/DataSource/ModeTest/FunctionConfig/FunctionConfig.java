@@ -78,7 +78,7 @@ public class FunctionConfig extends AbsJsonSource<FunctionElement> {
     }
 
     public String getStationName() {
-        return this.readFile.getData().getString(AllKeyWord.STATION);
+        return this.readFile.getData().getString(AllKeyWord.STATION_TYPE);
     }
 
     public List<FunctionName> getEndFuntions() {

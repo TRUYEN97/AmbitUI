@@ -13,9 +13,9 @@ import Model.DataSource.Setting.Setting;
 import Time.WaitTime.Class.TimeS;
 import com.alibaba.fastjson.JSONObject;
 import commandprompt.Communicate.Cmd.Cmd;
-import java.util.Arrays;
 import java.util.List;
 import static java.util.Objects.isNull;
+import java.util.Set;
 import javax.swing.JOptionPane;
 
 /**
@@ -53,8 +53,8 @@ public class Limit extends AbsJsonSource<LimitElement> {
         return super.init();
     }
 
-    public List<String> getListItemName() {
-        return (List<String>) Arrays.asList((String[]) this.mapElemnts.keySet().toArray());
+    public Set<String> getListItemName() {
+        return mapElemnts.keySet();
     }
 
     public LimitElement getItem(String itemName) {

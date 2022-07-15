@@ -127,6 +127,7 @@
         {
             "FLAG": false,
             "TIME_OVER": 300,
+            "RETRY": 3,
             "MULTI_TASK": true,
             "Times": 3,
             "test_name": "reboot_soft",
@@ -146,7 +147,7 @@
             "FUNC_NAME": "PowerSwitchProxy"
         },
         {
-            "FLAG": true,
+            "FLAG": false,
             "TIME_OVER": 120,
             "MULTI_TASK": true,
             "IP": "192.168.1.1",
@@ -201,9 +202,22 @@
             "BaseKeys": ["error_details", "status", "finish_time",
                 "test_software_version", "start_time", "station_type",
                 "error_code", "serial", "mode", "station_name", "position"],
-            "TestKeys": [],
-            "test_name": "Json",
-            "FUNC_NAME": "JsonApiProxy" 
+            "TestKeys": ["upper_limit", "lower_limit", "status", "finish_time", "test_name",
+                "error_code", "start_time", "test_value", "units"],
+            "localFile": "python/log",
+            "ElementName":["mlbsn","pcname"],
+            "test_name": "CreateJsonLog",
+            "FUNC_NAME": "CreateJsonApiProxy" 
+        },
+        {
+            "FLAG": true,
+            "TIME_OVER": 30,
+            "MULTI_TASK": true,
+            "Command":"cd python && eero_API_client.py log/",
+            "ElementName":["mlbsn","pcname"],
+            "Spec": "200",
+            "test_name": "UpAPI",
+            "FUNC_NAME": "UpApiProxy" 
         },
         {
             "FLAG": false,

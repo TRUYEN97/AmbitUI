@@ -7,11 +7,13 @@ package Model.DataSource.ModeTest.FunctionConfig;
 import Model.AllKeyWord;
 import Model.DataSource.DataWareHouse;
 import Model.DataSource.ModeTest.ErrorCode.ErrorCodeElement;
+import Model.DataSource.ModeTest.Limit.Limit;
 import Model.DataSource.ModeTest.Limit.LimitElement;
 import Model.ErrorLog;
 import Model.ManagerUI.UIStatus.UiStatus;
 import com.alibaba.fastjson.JSONObject;
 import java.util.List;
+import java.util.Set;
 import javax.swing.JOptionPane;
 
 /**
@@ -24,7 +26,9 @@ public class FuncAllConfig {
     private final String itemName;
     private FunctionElement functionConfig;
     private LimitElement limitElement;
+    private Limit limit;
     private ErrorCodeElement localErrorCode;
+    private static final String CHECK = ".+_[0-9]+$";
 
     public FuncAllConfig(String itemName) {
         this.wareHouse = new DataWareHouse();
@@ -33,27 +37,27 @@ public class FuncAllConfig {
 
     public void setResources(UiStatus uiStatus) {
         this.functionConfig = uiStatus.getModeTest().getModeTestSource().getFunctionsConfig(itemName);
-        this.limitElement = findLimit(uiStatus, itemName);
+        this.limit = uiStatus.getModeTest().getModeTestSource().getLimit();
+        this.limitElement = findLimit(itemName);
         this.localErrorCode = uiStatus.getModeTest().
                 getModeTestSource().getErrorCodeSource().getElement(itemName);
         getAllValueOfConfig();
         getAllValueOfLimit();
     }
 
-    private LimitElement findLimit(UiStatus uiStatus, String itemName) {
-        if (itemName.matches(CHECK) && getLimit(uiStatus, itemName) == null) {
+    private LimitElement findLimit( String itemName) {
+        if (itemName.matches(CHECK) && getLimit(itemName) == null) {
             String newItemName = itemName.substring(0, itemName.lastIndexOf("_"));
-            return getLimit(uiStatus, newItemName);
+            return getLimit(newItemName);
         }
-        return getLimit(uiStatus, itemName);
+        return getLimit(itemName);
     }
 
-    private LimitElement getLimit(UiStatus uiStatus, String nameItem) {
-        return uiStatus.getModeTest().
-                getModeTestSource().getLimit().getElement(nameItem);
+    private LimitElement getLimit(String nameItem) {
+        return this.limit.getElement(nameItem);
     }
-    private static final String CHECK = ".+_[0-9]+$";
 
+    
     public JSONObject getLocalErrorCode(String type) {
         if (localErrorCode == null) {
             String mess = String.format("Missing error code of %s - %s type !!",
@@ -76,6 +80,10 @@ public class FuncAllConfig {
         this.wareHouse.putAll(this.functionConfig.getJson());
     }
 
+    public Limit getLimits() {
+        return this.limit;
+    }
+    
     public String getFunctionName() {
         return this.functionConfig.getFunctionName();
     }

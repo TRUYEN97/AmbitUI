@@ -11,6 +11,12 @@
             "local_error_des": "SFIS_SEND_ERROR"
         }
     },
+    "Json": {
+        "simple": {
+            "local_error_code": "json00 ",
+            "local_error_des": "Json"
+        }
+    },
     "ccg_firmware":
             {
                 "simple": {

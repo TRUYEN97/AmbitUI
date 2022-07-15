@@ -67,7 +67,7 @@ public class CreateTxtLog extends AbsFunction {
         String serial = productData.getString(AllKeyWord.MLBSN);
         serial = serial.replace('\\', '_');
         serial = serial.replace('/', '_');
-        String pcName = productData.getString(AllKeyWord.PCNAME);
+        String pcName = productData.getString(AllKeyWord.STATION_NAME);
         String mode = productData.getString(AllKeyWord.MODE);
         return String.format("%s_%s_%s_%s",
                 serial, pcName, mode, hauTo);

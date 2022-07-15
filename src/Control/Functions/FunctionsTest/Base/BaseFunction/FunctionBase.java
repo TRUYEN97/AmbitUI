@@ -2,13 +2,12 @@
  * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
  * Click nbfs://nbhost/SystemFileSystem/Templates/Classes/Class.java to edit this template
  */
-package Control.Functions.FunctionsTest.Base;
+package Control.Functions.FunctionsTest.Base.BaseFunction;
 
 import Control.Functions.AbsFunction;
 import Model.AllKeyWord;
-import Model.DataSource.Setting.Setting;
-import Time.WaitTime.AbsTime;
 import Time.WaitTime.Class.TimeMs;
+import Time.WaitTime.Class.TimeS;
 import commandprompt.AbstractStream.AbsStreamReadable;
 import commandprompt.Communicate.Cmd.Cmd;
 import commandprompt.Communicate.Comport.ComPort;
@@ -73,7 +72,7 @@ public class FunctionBase extends AbsFunction {
                 addLog("Telnet", "send reboot failed!");
                 return false;
             }
-            addLog("Telnet", telnet.readAll());
+            addLog("Telnet", telnet.readAll(new TimeS(3)));
             if (pingTo(ip, 1)) {
                 addLog("Telnet", "Reboot failed!");
                 return false;

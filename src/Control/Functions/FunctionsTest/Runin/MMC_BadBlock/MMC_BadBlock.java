@@ -5,8 +5,8 @@
 package Control.Functions.FunctionsTest.Runin.MMC_BadBlock;
 
 import Control.Functions.AbsFunction;
-import Control.Functions.FunctionsTest.Base.FunctionBase;
-import Control.Functions.FunctionsTest.Base.AnalysisBase;
+import Control.Functions.FunctionsTest.Base.BaseFunction.FunctionBase;
+import Control.Functions.FunctionsTest.Base.BaseFunction.AnalysisBase;
 import Model.DataTest.FunctionData.FunctionData;
 import Model.ManagerUI.UIStatus.UiStatus;
 import commandprompt.Communicate.Telnet.Telnet;

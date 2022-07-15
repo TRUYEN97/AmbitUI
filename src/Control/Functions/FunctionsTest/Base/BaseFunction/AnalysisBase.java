@@ -2,7 +2,7 @@
  * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
  * Click nbfs://nbhost/SystemFileSystem/Templates/Classes/Class.java to edit this template
  */
-package Control.Functions.FunctionsTest.Base;
+package Control.Functions.FunctionsTest.Base.BaseFunction;
 
 import Control.Functions.AbsFunction;
 import Model.DataSource.Setting.Setting;
@@ -28,8 +28,8 @@ public class AnalysisBase extends AbsFunction {
         return false;
     }
 
-    public String getValue(IReadable telnet, String regex) {
-        return getValue(telnet, null, null, regex, null);
+    public String getValue(IReadable readable, String regex) {
+        return getValue(readable, null, null, regex, null);
     }
 
     public String getValue(IReadable readable, String regex, AbsTime time) {
@@ -70,8 +70,8 @@ public class AnalysisBase extends AbsFunction {
 
     }
 
-    public boolean isResponseContainKey(IReadable readable, String spec, String key) {
-        return AnalysisBase.this.isResponseContainKey(readable, spec, key, null);
+    public boolean isResponseContainKey(IReadable readable, String spec, String readUntil) {
+        return AnalysisBase.this.isResponseContainKey(readable, spec, readUntil, null);
     }
 
     public boolean isResponseContainKey(IReadable readable, String spec, String readUntil, AbsTime time) {

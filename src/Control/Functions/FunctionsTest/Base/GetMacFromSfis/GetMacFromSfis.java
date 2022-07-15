@@ -5,7 +5,7 @@
 package Control.Functions.FunctionsTest.Base.GetMacFromSfis;
 
 import Control.Functions.AbsFunction;
-import Control.Functions.FunctionsTest.Base.FunctionBase;
+import Control.Functions.FunctionsTest.Base.BaseFunction.FunctionBase;
 import Model.DataTest.FunctionData.FunctionData;
 import Model.ManagerUI.UIStatus.UiStatus;
 

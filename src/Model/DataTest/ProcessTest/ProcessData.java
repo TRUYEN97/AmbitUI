@@ -24,13 +24,14 @@ public class ProcessData {
     private final List<FunctionData> listFunctionData;
     private final Map<String, FunctionData> mapFunctionData;
     private final Map<String, ItemTestData> mapItemTestData;
+    private final UiInformartion informartion;
     private final DataWareHouse data;
     private final TimeBase timeBase;
     private final ProcessTestSignal signal;
     private final ProductData productData;
     private String message;
 
-    public ProcessData() {
+    public ProcessData(UiInformartion informartion) {
         this.listFunctionData = new ArrayList<>();
         this.mapItemTestData = new HashMap<>();
         this.mapFunctionData = new HashMap<>();
@@ -38,6 +39,7 @@ public class ProcessData {
         this.signal = new ProcessTestSignal();
         this.productData = new ProductData();
         this.timeBase = new TimeBase();
+        this.informartion = informartion;
     }
 
     public List<FunctionData> getDataBoxs() {
@@ -116,7 +118,7 @@ public class ProcessData {
         FunctionData testData = getFirstFail();
         if (testData == null) {
             this.data.put(AllKeyWord.STATUS, ItemTestData.PASS);
-        }else{
+        } else {
             this.data.put(AllKeyWord.STATUS, ItemTestData.FAIL);
             this.data.put(AllKeyWord.ERROR_CODE, testData.getErrorCode());
             this.data.put(AllKeyWord.ERROR_DES, testData.getErrorDes());
@@ -145,6 +147,9 @@ public class ProcessData {
     }
 
     public String getString(String key) {
+        if (this.informartion.getString(key) != null) {
+            return this.informartion.getString(key);
+        }
         if (this.data.getString(key) != null) {
             return this.data.getString(key);
         }

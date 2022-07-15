@@ -14,8 +14,8 @@ import View.subUI.FormDetail.TabFaApi.TabFaApi;
 public class KeyWordFaAPI {
 
     public static enum BASE_KEY {
-        station_name(AllKeyWord.PCNAME),
-        station_type(AllKeyWord.STATION),
+        station_name(AllKeyWord.STATION_NAME),
+        station_type(AllKeyWord.STATION_TYPE),
         error_details(AllKeyWord.ERROR_DES),
         error_code(AllKeyWord.FA_ERROR_CODE),
         serial(AllKeyWord.MLBSN),
