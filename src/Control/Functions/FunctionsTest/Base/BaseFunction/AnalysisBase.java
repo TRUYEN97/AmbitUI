@@ -7,6 +7,7 @@ package Control.Functions.FunctionsTest.Base.BaseFunction;
 import Control.Functions.AbsFunction;
 import Model.DataSource.Setting.Setting;
 import Time.WaitTime.AbsTime;
+import Time.WaitTime.Class.TimeS;
 import commandprompt.Communicate.DHCP.DhcpData;
 import commandprompt.Communicate.IReadable;
 import java.util.regex.Matcher;
@@ -152,6 +153,14 @@ public class AnalysisBase extends AbsFunction {
             addLog("PC", value + " is not a number");
             return false;
         }
+    }
+    
+    public String getUntil(IReadable readable, String until, int time) {
+        addLog("Config", "Time: "+time);
+        addLog("Config", "ReadUntil: "+until);
+        String response = readable.readUntil(until, new TimeS(time));
+        addLog("Telnet", response);
+        return response;
     }
 
     public String findGroup(String line, String regex) {

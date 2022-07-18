@@ -11,10 +11,16 @@
             "local_error_des": "SFIS_SEND_ERROR"
         }
     },
-    "Json": {
+    "CreateJsonLog": {
         "simple": {
-            "local_error_code": "json00 ",
-            "local_error_des": "Json"
+            "local_error_code": "json0",
+            "local_error_des": "Create json log"
+        }
+    },
+    "MMC_READ_WRITE_SPEED_TEST": {
+        "simple": {
+            "local_error_code": "11.2.2",
+            "local_error_des": "MMC_READ_WRITE_SPEED_TEST"
         }
     },
     "ccg_firmware":
@@ -185,6 +191,34 @@
                     "local_error_des": "test_image_version"
                 }
             },
+    "emmc_speed_read": {
+        "simple": {
+            "local_error_code": "11.2.1",
+            "local_error_des": "emmc_speed_read"
+        },
+        "low": {
+            "local_error_code": "11.2.1.1",
+            "local_error_des": "emmc_speed_read_tooLow"
+        },
+        "high": {
+            "local_error_code": "11.2.1.2",
+            "local_error_des": "emmc_speed_read_tooHigh"
+        }
+    },
+    "emmc_speed_write": {
+        "simple": {
+            "local_error_code": "11.2.2",
+            "local_error_des": "emmc_speed_write"
+        },
+        "low": {
+            "local_error_code": "11.2.2.1",
+            "local_error_des": "emmc_speed_write_tooLow"
+        },
+        "high": {
+            "local_error_code": "11.2.2.2",
+            "local_error_des": "emmc_speed_write_tooHigh"
+        }
+    },
     "temp_cpu": 
             {
                 "simple": {

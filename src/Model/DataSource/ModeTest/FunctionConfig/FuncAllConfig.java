@@ -30,22 +30,27 @@ public class FuncAllConfig {
     private ErrorCodeElement localErrorCode;
     private static final String CHECK = ".+_[0-9]+$";
 
-    public FuncAllConfig(String itemName) {
+    public FuncAllConfig(String itemConfig) {
         this.wareHouse = new DataWareHouse();
-        this.itemName = itemName;
+        this.itemName = itemConfig;
     }
-
-    public void setResources(UiStatus uiStatus) {
-        this.functionConfig = uiStatus.getModeTest().getModeTestSource().getFunctionsConfig(itemName);
+    public void setResources(UiStatus uiStatus, String itemLimit) {
+        this.functionConfig = uiStatus.getModeTest().getModeTestSource().getFunctionsConfig(this.itemName);
+        if(this.functionConfig == null)
+        {
+            JOptionPane.showMessageDialog(null, 
+                    String.format("Missing %s in the function config!", this.itemName));
+            System.exit(0);
+        }
         this.limit = uiStatus.getModeTest().getModeTestSource().getLimit();
-        this.limitElement = findLimit(itemName);
+        this.limitElement = findLimit(itemLimit == null ? itemName: itemLimit);
         this.localErrorCode = uiStatus.getModeTest().
-                getModeTestSource().getErrorCodeSource().getElement(itemName);
+                getModeTestSource().getErrorCodeSource().getElement(itemLimit == null ? itemName: itemLimit);
         getAllValueOfConfig();
         getAllValueOfLimit();
     }
 
-    private LimitElement findLimit( String itemName) {
+    private LimitElement findLimit(String itemName) {
         if (itemName.matches(CHECK) && getLimit(itemName) == null) {
             String newItemName = itemName.substring(0, itemName.lastIndexOf("_"));
             return getLimit(newItemName);
@@ -57,7 +62,6 @@ public class FuncAllConfig {
         return this.limit.getElement(nameItem);
     }
 
-    
     public JSONObject getLocalErrorCode(String type) {
         if (localErrorCode == null) {
             String mess = String.format("Missing error code of %s - %s type !!",
@@ -83,7 +87,7 @@ public class FuncAllConfig {
     public Limit getLimits() {
         return this.limit;
     }
-    
+
     public String getFunctionName() {
         return this.functionConfig.getFunctionName();
     }

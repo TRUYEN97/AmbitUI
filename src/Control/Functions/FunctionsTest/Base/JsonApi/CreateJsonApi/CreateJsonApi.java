@@ -79,8 +79,8 @@ public class CreateJsonApi extends AbsFunction {
             } else if (limit.getItem(itemName).getInteger(AllKeyWord.REQUIRED) == 1) {
                 String mess = String.format("Missing \"%s\" item test!", itemName);
                 addLog("PC", mess);
-//                JOptionPane.showMessageDialog(null, mess);
-//                return null;
+                JOptionPane.showMessageDialog(null, mess);
+                return null;
             } else {
                 addLog("PC", "ItemTest: " + itemName + " = null");
             }

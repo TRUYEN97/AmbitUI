@@ -1,64 +1,64 @@
-2022-07-15 08:47:19.441:   ITEM[sn_ok] - FUNCTION[CheckDutInfoProxy]
-2022-07-15 08:47:19.443:   Turn 0:
-2022-07-15 08:47:19.443:   Get IP from the DHCP with MAC is "649714048d60"
-2022-07-15 08:47:19.444:   IP: 172.168.1.0
-2022-07-15 08:47:19.445:   [Telnet] Connect to host: 172.168.1.0
-2022-07-15 08:47:19.445:   [Telnet] Port is: 23
-2022-07-15 08:47:19.446:   [Cmd] ------------------------------------
-2022-07-15 08:47:19.446:   [Cmd] Send command: ping 172.168.1.0 -n 1
-2022-07-15 08:47:19.525:   [Cmd] Pinging 172.168.1.0 with 32 bytes of data:
-2022-07-15 08:47:19.526:   [Cmd] Reply from 172.168.1.0: bytes=32 time<1ms TTL=64
-2022-07-15 08:47:19.527:   [Cmd] 
-2022-07-15 08:47:19.527:   [Cmd] Ping statistics for 172.168.1.0:
-2022-07-15 08:47:19.527:   [Cmd] Packets: Sent = 1, Received = 1, Lost = 0 (0% loss),
-2022-07-15 08:47:19.527:   [Cmd] Approximate round trip times in milli-seconds:
-2022-07-15 08:47:19.527:   [Cmd] Minimum = 0ms, Maximum = 0ms, Average = 0ms
-2022-07-15 08:47:19.527:   [Cmd] ------------------------------------
-2022-07-15 08:47:19.861:   [Telnet] 
-2022-07-15 08:47:19.861:   [Telnet] === IMPORTANT ============================
-2022-07-15 08:47:19.862:   [Telnet] Use 'passwd' to set your login password!
-2022-07-15 08:47:19.862:   [Telnet] ------------------------------------------
-2022-07-15 08:47:19.862:   [Telnet] 
-2022-07-15 08:47:19.863:   [Telnet] 
-2022-07-15 08:47:19.863:   [Telnet] BusyBox v1.30.1 () built-in shell (ash)
-2022-07-15 08:47:19.863:   [Telnet] 
-2022-07-15 08:47:19.864:   [Telnet] MM           NM                    MMMMMMM          M       M
-2022-07-15 08:47:19.864:   [Telnet] $MMMMM        MMMMM                MMMMMMMMMMM      MMM     MMM
-2022-07-15 08:47:19.864:   [Telnet] MMMMMMMM     MM MMMMM.              MMMMM:MMMMMM:   MMMM   MMMMM
-2022-07-15 08:47:19.864:   [Telnet] MMMM= MMMMMM  MMM   MMMM       MMMMM   MMMM  MMMMMM   MMMM  MMMMM'
-2022-07-15 08:47:19.865:   [Telnet] MMMM=  MMMMM MMMM    MM       MMMMM    MMMM    MMMM   MMMMNMMMMM
-2022-07-15 08:47:19.865:   [Telnet] MMMM=   MMMM  MMMMM          MMMMM     MMMM    MMMM   MMMMMMMM
-2022-07-15 08:47:19.865:   [Telnet] MMMM=   MMMM   MMMMMM       MMMMM      MMMM    MMMM   MMMMMMMMM
-2022-07-15 08:47:19.866:   [Telnet] MMMM=   MMMM     MMMMM,    NMMMMMMMM   MMMM    MMMM   MMMMMMMMMMM
-2022-07-15 08:47:19.866:   [Telnet] MMMM=   MMMM      MMMMMM   MMMMMMMM    MMMM    MMMM   MMMM  MMMMMM
-2022-07-15 08:47:19.866:   [Telnet] MMMM=   MMMM   MM    MMMM    MMMM      MMMM    MMMM   MMMM    MMMM
-2022-07-15 08:47:19.866:   [Telnet] MMMM$ ,MMMMM  MMMMM  MMMM    MMM       MMMM   MMMMM   MMMM    MMMM
-2022-07-15 08:47:19.867:   [Telnet] MMMMMMM:      MMMMMMM     M         MMMMMMMMMMMM  MMMMMMM MMMMMMM
-2022-07-15 08:47:19.867:   [Telnet] MMMMMM       MMMMN     M           MMMMMMMMM      MMMM    MMMM
-2022-07-15 08:47:19.867:   [Telnet] MMMM          M                    MMMMMMM        M       M
-2022-07-15 08:47:19.868:   [Telnet] M
-2022-07-15 08:47:19.868:   [Telnet] ---------------------------------------------------------------
-2022-07-15 08:47:19.868:   [Telnet] For those about to rock... (Chaos Calmer, unknown)
-2022-07-15 08:47:19.868:   [Telnet] ---------------------------------------------------------------
-2022-07-15 08:47:19.869:   [Telnet] root@eero-test:/#
-2022-07-15 08:47:19.869:   [Telnet] Send command: fw_printenv  serial
-2022-07-15 08:47:19.970:   [Telnet] fw_printenv  serial
-2022-07-15 08:47:19.970:   [Telnet] serial=GGB1UDD21472001A
-2022-07-15 08:47:19.971:   [CONFIG] Start key: "serial="
-2022-07-15 08:47:19.971:   [CONFIG] End key: ""
-2022-07-15 08:47:19.972:   [CONFIG] Regex: "null"
-2022-07-15 08:47:19.972:   [PC] Value: "GGB1UDD21472001A"
-2022-07-15 08:47:19.972:   Value is: GGB1UDD21472001A
-2022-07-15 08:47:19.973:   Spec is: null
-2022-07-15 08:47:19.973:   ****************************************************
-2022-07-15 08:47:19.974:   Limit type: "BOOL"
-2022-07-15 08:47:19.974:   Uper limit: ""
-2022-07-15 08:47:19.974:   Lowet limit: ""
-2022-07-15 08:47:19.974:   Test Value: "GGB1UDD21472001A"
-2022-07-15 08:47:19.975:   Item name: SN_OK
-2022-07-15 08:47:19.975:   ****************************************************
-2022-07-15 08:47:19.976:   Error code: 15
-2022-07-15 08:47:19.977:   Error des: sn_ok
-2022-07-15 08:47:19.977:   Local error code: 30.1.0
-2022-07-15 08:47:19.977:   Local error des: sn_ok
-2022-07-15 08:47:19.979:   TIME[0.535 s] - STATUS[FAILED]
+2022-07-18 10:23:36.355:   ITEM[sn_ok] - FUNCTION[CheckDutInfoProxy]
+2022-07-18 10:23:36.357:   Turn 0:
+2022-07-18 10:23:36.358:   Get IP from the DHCP with MAC is "649714048d60"
+2022-07-18 10:23:36.359:   IP: 172.168.1.0
+2022-07-18 10:23:36.359:   [Telnet] Connect to host: 172.168.1.0
+2022-07-18 10:23:36.360:   [Telnet] Port is: 23
+2022-07-18 10:23:36.360:   [Cmd] ------------------------------------
+2022-07-18 10:23:36.360:   [Cmd] Send command: ping 172.168.1.0 -n 1
+2022-07-18 10:23:36.421:   [Cmd] Pinging 172.168.1.0 with 32 bytes of data:
+2022-07-18 10:23:36.422:   [Cmd] Reply from 172.168.1.0: bytes=32 time<1ms TTL=64
+2022-07-18 10:23:36.422:   [Cmd] 
+2022-07-18 10:23:36.422:   [Cmd] Ping statistics for 172.168.1.0:
+2022-07-18 10:23:36.423:   [Cmd] Packets: Sent = 1, Received = 1, Lost = 0 (0% loss),
+2022-07-18 10:23:36.423:   [Cmd] Approximate round trip times in milli-seconds:
+2022-07-18 10:23:36.423:   [Cmd] Minimum = 0ms, Maximum = 0ms, Average = 0ms
+2022-07-18 10:23:36.423:   [Cmd] ------------------------------------
+2022-07-18 10:23:36.759:   [Telnet] 
+2022-07-18 10:23:36.759:   [Telnet] === IMPORTANT ============================
+2022-07-18 10:23:36.759:   [Telnet] Use 'passwd' to set your login password!
+2022-07-18 10:23:36.759:   [Telnet] ------------------------------------------
+2022-07-18 10:23:36.759:   [Telnet] 
+2022-07-18 10:23:36.759:   [Telnet] 
+2022-07-18 10:23:36.759:   [Telnet] BusyBox v1.30.1 () built-in shell (ash)
+2022-07-18 10:23:36.759:   [Telnet] 
+2022-07-18 10:23:36.759:   [Telnet] MM           NM                    MMMMMMM          M       M
+2022-07-18 10:23:36.759:   [Telnet] $MMMMM        MMMMM                MMMMMMMMMMM      MMM     MMM
+2022-07-18 10:23:36.760:   [Telnet] MMMMMMMM     MM MMMMM.              MMMMM:MMMMMM:   MMMM   MMMMM
+2022-07-18 10:23:36.760:   [Telnet] MMMM= MMMMMM  MMM   MMMM       MMMMM   MMMM  MMMMMM   MMMM  MMMMM'
+2022-07-18 10:23:36.760:   [Telnet] MMMM=  MMMMM MMMM    MM       MMMMM    MMMM    MMMM   MMMMNMMMMM
+2022-07-18 10:23:36.760:   [Telnet] MMMM=   MMMM  MMMMM          MMMMM     MMMM    MMMM   MMMMMMMM
+2022-07-18 10:23:36.760:   [Telnet] MMMM=   MMMM   MMMMMM       MMMMM      MMMM    MMMM   MMMMMMMMM
+2022-07-18 10:23:36.760:   [Telnet] MMMM=   MMMM     MMMMM,    NMMMMMMMM   MMMM    MMMM   MMMMMMMMMMM
+2022-07-18 10:23:36.760:   [Telnet] MMMM=   MMMM      MMMMMM   MMMMMMMM    MMMM    MMMM   MMMM  MMMMMM
+2022-07-18 10:23:36.760:   [Telnet] MMMM=   MMMM   MM    MMMM    MMMM      MMMM    MMMM   MMMM    MMMM
+2022-07-18 10:23:36.760:   [Telnet] MMMM$ ,MMMMM  MMMMM  MMMM    MMM       MMMM   MMMMM   MMMM    MMMM
+2022-07-18 10:23:36.760:   [Telnet] MMMMMMM:      MMMMMMM     M         MMMMMMMMMMMM  MMMMMMM MMMMMMM
+2022-07-18 10:23:36.760:   [Telnet] MMMMMM       MMMMN     M           MMMMMMMMM      MMMM    MMMM
+2022-07-18 10:23:36.760:   [Telnet] MMMM          M                    MMMMMMM        M       M
+2022-07-18 10:23:36.760:   [Telnet] M
+2022-07-18 10:23:36.760:   [Telnet] ---------------------------------------------------------------
+2022-07-18 10:23:36.760:   [Telnet] For those about to rock... (Chaos Calmer, unknown)
+2022-07-18 10:23:36.760:   [Telnet] ---------------------------------------------------------------
+2022-07-18 10:23:36.760:   [Telnet] root@eero-test:/#
+2022-07-18 10:23:36.761:   [Telnet] Send command: fw_printenv  serial
+2022-07-18 10:23:36.868:   [Telnet] fw_printenv  serial
+2022-07-18 10:23:36.977:   [Telnet] serial=GGB1UDD21472001A
+2022-07-18 10:23:36.977:   [CONFIG] Start key: "serial="
+2022-07-18 10:23:36.977:   [CONFIG] End key: ""
+2022-07-18 10:23:36.977:   [CONFIG] Regex: "null"
+2022-07-18 10:23:36.977:   [PC] Value: "GGB1UDD21472001A"
+2022-07-18 10:23:36.978:   Value is: GGB1UDD21472001A
+2022-07-18 10:23:36.978:   Spec is: null
+2022-07-18 10:23:36.979:   ****************************************************
+2022-07-18 10:23:36.979:   Limit type: "BOOL"
+2022-07-18 10:23:36.979:   Uper limit: ""
+2022-07-18 10:23:36.980:   Lowet limit: ""
+2022-07-18 10:23:36.980:   Test Value: "GGB1UDD21472001A"
+2022-07-18 10:23:36.980:   Item name: SN_OK
+2022-07-18 10:23:36.981:   ****************************************************
+2022-07-18 10:23:36.982:   Error code: 15
+2022-07-18 10:23:36.982:   Error des: sn_ok
+2022-07-18 10:23:36.982:   Local error code: 30.1.0
+2022-07-18 10:23:36.983:   Local error des: sn_ok
+2022-07-18 10:23:36.984:   TIME[0.626 s] - STATUS[FAILED]

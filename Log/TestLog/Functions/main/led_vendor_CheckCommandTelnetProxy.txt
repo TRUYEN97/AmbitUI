@@ -1,54 +1,54 @@
-2022-07-15 08:47:20.508:   ITEM[led_vendor] - FUNCTION[CheckCommandTelnetProxy]
-2022-07-15 08:47:20.509:   Turn 0:
-2022-07-15 08:47:20.509:   Get IP from the DHCP with MAC is "649714048d60"
-2022-07-15 08:47:20.509:   [Telnet] Connect to host: 172.168.1.0
-2022-07-15 08:47:20.509:   [Telnet] Port is: 23
-2022-07-15 08:47:20.509:   [Cmd] ------------------------------------
-2022-07-15 08:47:20.509:   [Cmd] Send command: ping 172.168.1.0 -n 1
-2022-07-15 08:47:20.534:   [Cmd] Pinging 172.168.1.0 with 32 bytes of data:
-2022-07-15 08:47:20.534:   [Cmd] Reply from 172.168.1.0: bytes=32 time<1ms TTL=64
-2022-07-15 08:47:20.535:   [Cmd] 
-2022-07-15 08:47:20.535:   [Cmd] Ping statistics for 172.168.1.0:
-2022-07-15 08:47:20.535:   [Cmd] Packets: Sent = 1, Received = 1, Lost = 0 (0% loss),
-2022-07-15 08:47:20.535:   [Cmd] Approximate round trip times in milli-seconds:
-2022-07-15 08:47:20.535:   [Cmd] Minimum = 0ms, Maximum = 0ms, Average = 0ms
-2022-07-15 08:47:20.535:   [Cmd] ------------------------------------
-2022-07-15 08:47:20.869:   [Telnet] 
-2022-07-15 08:47:20.869:   [Telnet] === IMPORTANT ============================
-2022-07-15 08:47:20.869:   [Telnet] Use 'passwd' to set your login password!
-2022-07-15 08:47:20.869:   [Telnet] ------------------------------------------
-2022-07-15 08:47:20.869:   [Telnet] 
-2022-07-15 08:47:20.869:   [Telnet] 
-2022-07-15 08:47:20.869:   [Telnet] BusyBox v1.30.1 () built-in shell (ash)
-2022-07-15 08:47:20.870:   [Telnet] 
-2022-07-15 08:47:20.870:   [Telnet] MM           NM                    MMMMMMM          M       M
-2022-07-15 08:47:20.870:   [Telnet] $MMMMM        MMMMM                MMMMMMMMMMM      MMM     MMM
-2022-07-15 08:47:20.870:   [Telnet] MMMMMMMM     MM MMMMM.              MMMMM:MMMMMM:   MMMM   MMMMM
-2022-07-15 08:47:20.870:   [Telnet] MMMM= MMMMMM  MMM   MMMM       MMMMM   MMMM  MMMMMM   MMMM  MMMMM'
-2022-07-15 08:47:20.870:   [Telnet] MMMM=  MMMMM MMMM    MM       MMMMM    MMMM    MMMM   MMMMNMMMMM
-2022-07-15 08:47:20.870:   [Telnet] MMMM=   MMMM  MMMMM          MMMMM     MMMM    MMMM   MMMMMMMM
-2022-07-15 08:47:20.870:   [Telnet] MMMM=   MMMM   MMMMMM       MMMMM      MMMM    MMMM   MMMMMMMMM
-2022-07-15 08:47:20.870:   [Telnet] MMMM=   MMMM     MMMMM,    NMMMMMMMM   MMMM    MMMM   MMMMMMMMMMM
-2022-07-15 08:47:20.870:   [Telnet] MMMM=   MMMM      MMMMMM   MMMMMMMM    MMMM    MMMM   MMMM  MMMMMM
-2022-07-15 08:47:20.871:   [Telnet] MMMM=   MMMM   MM    MMMM    MMMM      MMMM    MMMM   MMMM    MMMM
-2022-07-15 08:47:20.871:   [Telnet] MMMM$ ,MMMMM  MMMMM  MMMM    MMM       MMMM   MMMMM   MMMM    MMMM
-2022-07-15 08:47:20.871:   [Telnet] MMMMMMM:      MMMMMMM     M         MMMMMMMMMMMM  MMMMMMM MMMMMMM
-2022-07-15 08:47:20.871:   [Telnet] MMMMMM       MMMMN     M           MMMMMMMMM      MMMM    MMMM
-2022-07-15 08:47:20.871:   [Telnet] MMMM          M                    MMMMMMM        M       M
-2022-07-15 08:47:20.871:   [Telnet] M
-2022-07-15 08:47:20.871:   [Telnet] ---------------------------------------------------------------
-2022-07-15 08:47:20.871:   [Telnet] For those about to rock... (Chaos Calmer, unknown)
-2022-07-15 08:47:20.871:   [Telnet] ---------------------------------------------------------------
-2022-07-15 08:47:20.871:   [Telnet] root@eero-test:/#
-2022-07-15 08:47:20.872:   [Telnet] Send command: cat /sys/bus/i2c/devices/0-0030/name
-2022-07-15 08:47:20.978:   [Telnet] cat /sys/bus/i2c/devices/0-0030/name
-2022-07-15 08:47:20.978:   [Telnet] lp5562
-2022-07-15 08:47:20.978:   [CONFIG] Start key: "null"
-2022-07-15 08:47:20.978:   [CONFIG] End key: "null"
-2022-07-15 08:47:20.978:   [CONFIG] Regex: "^([a-z|A-Z]|[0-9])+$"
-2022-07-15 08:47:20.978:   [PC] Value: "lp5562"
-2022-07-15 08:47:20.978:   ****************************************************
-2022-07-15 08:47:20.978:   Test Value: "lp5562"
-2022-07-15 08:47:20.978:   Item name: led_vendor
-2022-07-15 08:47:20.978:   ****************************************************
-2022-07-15 08:47:20.979:   TIME[0.471 s] - STATUS[PASSED]
+2022-07-18 10:23:37.496:   ITEM[led_vendor] - FUNCTION[CheckCommandTelnetProxy]
+2022-07-18 10:23:37.497:   Turn 0:
+2022-07-18 10:23:37.497:   Get IP from the DHCP with MAC is "649714048d60"
+2022-07-18 10:23:37.498:   [Telnet] Connect to host: 172.168.1.0
+2022-07-18 10:23:37.498:   [Telnet] Port is: 23
+2022-07-18 10:23:37.498:   [Cmd] ------------------------------------
+2022-07-18 10:23:37.498:   [Cmd] Send command: ping 172.168.1.0 -n 1
+2022-07-18 10:23:37.575:   [Cmd] Pinging 172.168.1.0 with 32 bytes of data:
+2022-07-18 10:23:37.575:   [Cmd] Reply from 172.168.1.0: bytes=32 time<1ms TTL=64
+2022-07-18 10:23:37.576:   [Cmd] 
+2022-07-18 10:23:37.576:   [Cmd] Ping statistics for 172.168.1.0:
+2022-07-18 10:23:37.576:   [Cmd] Packets: Sent = 1, Received = 1, Lost = 0 (0% loss),
+2022-07-18 10:23:37.576:   [Cmd] Approximate round trip times in milli-seconds:
+2022-07-18 10:23:37.577:   [Cmd] Minimum = 0ms, Maximum = 0ms, Average = 0ms
+2022-07-18 10:23:37.577:   [Cmd] ------------------------------------
+2022-07-18 10:23:37.915:   [Telnet] 
+2022-07-18 10:23:37.915:   [Telnet] === IMPORTANT ============================
+2022-07-18 10:23:37.915:   [Telnet] Use 'passwd' to set your login password!
+2022-07-18 10:23:37.915:   [Telnet] ------------------------------------------
+2022-07-18 10:23:37.915:   [Telnet] 
+2022-07-18 10:23:37.915:   [Telnet] 
+2022-07-18 10:23:37.915:   [Telnet] BusyBox v1.30.1 () built-in shell (ash)
+2022-07-18 10:23:37.915:   [Telnet] 
+2022-07-18 10:23:37.915:   [Telnet] MM           NM                    MMMMMMM          M       M
+2022-07-18 10:23:37.915:   [Telnet] $MMMMM        MMMMM                MMMMMMMMMMM      MMM     MMM
+2022-07-18 10:23:37.915:   [Telnet] MMMMMMMM     MM MMMMM.              MMMMM:MMMMMM:   MMMM   MMMMM
+2022-07-18 10:23:37.915:   [Telnet] MMMM= MMMMMM  MMM   MMMM       MMMMM   MMMM  MMMMMM   MMMM  MMMMM'
+2022-07-18 10:23:37.915:   [Telnet] MMMM=  MMMMM MMMM    MM       MMMMM    MMMM    MMMM   MMMMNMMMMM
+2022-07-18 10:23:37.916:   [Telnet] MMMM=   MMMM  MMMMM          MMMMM     MMMM    MMMM   MMMMMMMM
+2022-07-18 10:23:37.916:   [Telnet] MMMM=   MMMM   MMMMMM       MMMMM      MMMM    MMMM   MMMMMMMMM
+2022-07-18 10:23:37.916:   [Telnet] MMMM=   MMMM     MMMMM,    NMMMMMMMM   MMMM    MMMM   MMMMMMMMMMM
+2022-07-18 10:23:37.916:   [Telnet] MMMM=   MMMM      MMMMMM   MMMMMMMM    MMMM    MMMM   MMMM  MMMMMM
+2022-07-18 10:23:37.916:   [Telnet] MMMM=   MMMM   MM    MMMM    MMMM      MMMM    MMMM   MMMM    MMMM
+2022-07-18 10:23:37.916:   [Telnet] MMMM$ ,MMMMM  MMMMM  MMMM    MMM       MMMM   MMMMM   MMMM    MMMM
+2022-07-18 10:23:37.916:   [Telnet] MMMMMMM:      MMMMMMM     M         MMMMMMMMMMMM  MMMMMMM MMMMMMM
+2022-07-18 10:23:37.916:   [Telnet] MMMMMM       MMMMN     M           MMMMMMMMM      MMMM    MMMM
+2022-07-18 10:23:37.916:   [Telnet] MMMM          M                    MMMMMMM        M       M
+2022-07-18 10:23:37.916:   [Telnet] M
+2022-07-18 10:23:37.916:   [Telnet] ---------------------------------------------------------------
+2022-07-18 10:23:37.916:   [Telnet] For those about to rock... (Chaos Calmer, unknown)
+2022-07-18 10:23:37.916:   [Telnet] ---------------------------------------------------------------
+2022-07-18 10:23:37.916:   [Telnet] root@eero-test:/#
+2022-07-18 10:23:37.916:   [Telnet] Send command: cat /sys/bus/i2c/devices/0-0030/name
+2022-07-18 10:23:38.026:   [Telnet] cat /sys/bus/i2c/devices/0-0030/name
+2022-07-18 10:23:38.026:   [Telnet] lp5562
+2022-07-18 10:23:38.026:   [CONFIG] Start key: "null"
+2022-07-18 10:23:38.026:   [CONFIG] End key: "null"
+2022-07-18 10:23:38.026:   [CONFIG] Regex: "^([a-z|A-Z]|[0-9])+$"
+2022-07-18 10:23:38.026:   [PC] Value: "lp5562"
+2022-07-18 10:23:38.026:   ****************************************************
+2022-07-18 10:23:38.026:   Test Value: "lp5562"
+2022-07-18 10:23:38.026:   Item name: led_vendor
+2022-07-18 10:23:38.026:   ****************************************************
+2022-07-18 10:23:38.027:   TIME[0.529 s] - STATUS[PASSED]

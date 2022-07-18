@@ -159,7 +159,7 @@
             "TIME_OVER": 1200,
             "MULTI_TASK": true,
             "IP": "192.168.1.1",
-            "command": "badblocks -svw /dev/mmcblk0p17 | badblocks -svw /dev/mmcblk0p20",
+            "command": ["badblocks -svw /dev/mmcblk0p17", "badblocks -svw /dev/mmcblk0p20"],
             "Startkey": "Pass completed,",
             "Endkey": "bad blocks found",
             "ReadUntil": "root@eero-test:/#",
@@ -191,6 +191,20 @@
             "Time": 2000,
             "test_name": "cpu_stress",
             "FUNC_NAME": "TelnetReadUntilKeyProxy"
+        },
+        {
+            "FLAG": true,
+            "TIME_OVER": 300,
+            "MULTI_TASK": true,
+            "IP": "192.168.1.1",
+            "ItemNames": ["emmc_speed_read", "emmc_speed_write"],
+            "command": "test-emmc",
+            "KeyWord": ["Reading","Writing"],
+            "Block": ["0x00", "0x00"],
+            "ReadUntil": "root@eero-test:/#",
+            "Time": 20,
+            "test_name": "MMC_READ_WRITE_SPEED_TEST",
+            "FUNC_NAME": "MMC_WR_SPEED_PROXY"
         }
 
     ],
@@ -205,7 +219,7 @@
             "TestKeys": ["upper_limit", "lower_limit", "status", "finish_time", "test_name",
                 "error_code", "start_time", "test_value", "units"],
             "localFile": "python/log",
-            "ElementName":["mlbsn","pcname"],
+            "ElementName": ["mlbsn", "station_name"],
             "test_name": "CreateJsonLog",
             "FUNC_NAME": "CreateJsonApiProxy" 
         },
@@ -213,8 +227,8 @@
             "FLAG": true,
             "TIME_OVER": 30,
             "MULTI_TASK": true,
-            "Command":"cd python && eero_API_client.py log/",
-            "ElementName":["mlbsn","pcname"],
+            "Command": "cd python && eero_API_client.py log/",
+            "ElementName": ["mlbsn", "station_name"],
             "Spec": "200",
             "test_name": "UpAPI",
             "FUNC_NAME": "UpApiProxy" 

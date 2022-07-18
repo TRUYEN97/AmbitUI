@@ -1,61 +1,61 @@
-2022-07-15 08:47:21.453:   ITEM[test_image_version] - FUNCTION[CheckCommandTelnetProxy]
-2022-07-15 08:47:21.454:   Turn 0:
-2022-07-15 08:47:21.454:   Get IP from the DHCP with MAC is "649714048d60"
-2022-07-15 08:47:21.455:   [Telnet] Connect to host: 172.168.1.0
-2022-07-15 08:47:21.455:   [Telnet] Port is: 23
-2022-07-15 08:47:21.455:   [Cmd] ------------------------------------
-2022-07-15 08:47:21.455:   [Cmd] Send command: ping 172.168.1.0 -n 1
-2022-07-15 08:47:21.532:   [Cmd] Pinging 172.168.1.0 with 32 bytes of data:
-2022-07-15 08:47:21.532:   [Cmd] Reply from 172.168.1.0: bytes=32 time<1ms TTL=64
-2022-07-15 08:47:21.533:   [Cmd] 
-2022-07-15 08:47:21.533:   [Cmd] Ping statistics for 172.168.1.0:
-2022-07-15 08:47:21.533:   [Cmd] Packets: Sent = 1, Received = 1, Lost = 0 (0% loss),
-2022-07-15 08:47:21.533:   [Cmd] Approximate round trip times in milli-seconds:
-2022-07-15 08:47:21.533:   [Cmd] Minimum = 0ms, Maximum = 0ms, Average = 0ms
-2022-07-15 08:47:21.533:   [Cmd] ------------------------------------
-2022-07-15 08:47:21.856:   [Telnet] 
-2022-07-15 08:47:21.856:   [Telnet] === IMPORTANT ============================
-2022-07-15 08:47:21.856:   [Telnet] Use 'passwd' to set your login password!
-2022-07-15 08:47:21.857:   [Telnet] ------------------------------------------
-2022-07-15 08:47:21.857:   [Telnet] 
-2022-07-15 08:47:21.857:   [Telnet] 
-2022-07-15 08:47:21.857:   [Telnet] BusyBox v1.30.1 () built-in shell (ash)
-2022-07-15 08:47:21.857:   [Telnet] 
-2022-07-15 08:47:21.857:   [Telnet] MM           NM                    MMMMMMM          M       M
-2022-07-15 08:47:21.857:   [Telnet] $MMMMM        MMMMM                MMMMMMMMMMM      MMM     MMM
-2022-07-15 08:47:21.858:   [Telnet] MMMMMMMM     MM MMMMM.              MMMMM:MMMMMM:   MMMM   MMMMM
-2022-07-15 08:47:21.858:   [Telnet] MMMM= MMMMMM  MMM   MMMM       MMMMM   MMMM  MMMMMM   MMMM  MMMMM'
-2022-07-15 08:47:21.858:   [Telnet] MMMM=  MMMMM MMMM    MM       MMMMM    MMMM    MMMM   MMMMNMMMMM
-2022-07-15 08:47:21.858:   [Telnet] MMMM=   MMMM  MMMMM          MMMMM     MMMM    MMMM   MMMMMMMM
-2022-07-15 08:47:21.858:   [Telnet] MMMM=   MMMM   MMMMMM       MMMMM      MMMM    MMMM   MMMMMMMMM
-2022-07-15 08:47:21.858:   [Telnet] MMMM=   MMMM     MMMMM,    NMMMMMMMM   MMMM    MMMM   MMMMMMMMMMM
-2022-07-15 08:47:21.858:   [Telnet] MMMM=   MMMM      MMMMMM   MMMMMMMM    MMMM    MMMM   MMMM  MMMMMM
-2022-07-15 08:47:21.859:   [Telnet] MMMM=   MMMM   MM    MMMM    MMMM      MMMM    MMMM   MMMM    MMMM
-2022-07-15 08:47:21.859:   [Telnet] MMMM$ ,MMMMM  MMMMM  MMMM    MMM       MMMM   MMMMM   MMMM    MMMM
-2022-07-15 08:47:21.859:   [Telnet] MMMMMMM:      MMMMMMM     M         MMMMMMMMMMMM  MMMMMMM MMMMMMM
-2022-07-15 08:47:21.859:   [Telnet] MMMMMM       MMMMN     M           MMMMMMMMM      MMMM    MMMM
-2022-07-15 08:47:21.859:   [Telnet] MMMM          M                    MMMMMMM        M       M
-2022-07-15 08:47:21.859:   [Telnet] M
-2022-07-15 08:47:21.859:   [Telnet] ---------------------------------------------------------------
-2022-07-15 08:47:21.860:   [Telnet] For those about to rock... (Chaos Calmer, unknown)
-2022-07-15 08:47:21.860:   [Telnet] ---------------------------------------------------------------
-2022-07-15 08:47:21.860:   [Telnet] root@eero-test:/#
-2022-07-15 08:47:21.860:   [Telnet] Send command: fwversion
-2022-07-15 08:47:21.966:   [Telnet] fwversion
-2022-07-15 08:47:21.966:   [Telnet] Ambit test image version:V1.3.0.63
-2022-07-15 08:47:21.967:   [CONFIG] Start key: "Ambit test image version:V"
-2022-07-15 08:47:21.967:   [CONFIG] End key: ""
-2022-07-15 08:47:21.967:   [CONFIG] Regex: "null"
-2022-07-15 08:47:21.967:   [PC] Value: "1.3.0.63"
-2022-07-15 08:47:21.968:   ****************************************************
-2022-07-15 08:47:21.968:   Limit type: "MATCH"
-2022-07-15 08:47:21.968:   Uper limit: ""
-2022-07-15 08:47:21.968:   Lowet limit: "1.3.0.64|1.3.0.72|1.3.0.74"
-2022-07-15 08:47:21.968:   Test Value: "1.3.0.63"
-2022-07-15 08:47:21.968:   Item name: TEST_IMAGE_VERSION
-2022-07-15 08:47:21.969:   ****************************************************
-2022-07-15 08:47:21.969:   Error code: 17
-2022-07-15 08:47:21.969:   Error des: test_image_version
-2022-07-15 08:47:21.970:   Local error code: 33.1.1
-2022-07-15 08:47:21.970:   Local error des: test_image_version
-2022-07-15 08:47:21.970:   TIME[0.516 s] - STATUS[FAILED]
+2022-07-18 10:23:38.504:   ITEM[test_image_version] - FUNCTION[CheckCommandTelnetProxy]
+2022-07-18 10:23:38.504:   Turn 0:
+2022-07-18 10:23:38.504:   Get IP from the DHCP with MAC is "649714048d60"
+2022-07-18 10:23:38.504:   [Telnet] Connect to host: 172.168.1.0
+2022-07-18 10:23:38.504:   [Telnet] Port is: 23
+2022-07-18 10:23:38.504:   [Cmd] ------------------------------------
+2022-07-18 10:23:38.504:   [Cmd] Send command: ping 172.168.1.0 -n 1
+2022-07-18 10:23:38.532:   [Cmd] Pinging 172.168.1.0 with 32 bytes of data:
+2022-07-18 10:23:38.532:   [Cmd] Reply from 172.168.1.0: bytes=32 time<1ms TTL=64
+2022-07-18 10:23:38.532:   [Cmd] 
+2022-07-18 10:23:38.532:   [Cmd] Ping statistics for 172.168.1.0:
+2022-07-18 10:23:38.532:   [Cmd] Packets: Sent = 1, Received = 1, Lost = 0 (0% loss),
+2022-07-18 10:23:38.532:   [Cmd] Approximate round trip times in milli-seconds:
+2022-07-18 10:23:38.532:   [Cmd] Minimum = 0ms, Maximum = 0ms, Average = 0ms
+2022-07-18 10:23:38.532:   [Cmd] ------------------------------------
+2022-07-18 10:23:38.866:   [Telnet] 
+2022-07-18 10:23:38.866:   [Telnet] === IMPORTANT ============================
+2022-07-18 10:23:38.866:   [Telnet] Use 'passwd' to set your login password!
+2022-07-18 10:23:38.867:   [Telnet] ------------------------------------------
+2022-07-18 10:23:38.867:   [Telnet] 
+2022-07-18 10:23:38.867:   [Telnet] 
+2022-07-18 10:23:38.867:   [Telnet] BusyBox v1.30.1 () built-in shell (ash)
+2022-07-18 10:23:38.867:   [Telnet] 
+2022-07-18 10:23:38.867:   [Telnet] MM           NM                    MMMMMMM          M       M
+2022-07-18 10:23:38.867:   [Telnet] $MMMMM        MMMMM                MMMMMMMMMMM      MMM     MMM
+2022-07-18 10:23:38.868:   [Telnet] MMMMMMMM     MM MMMMM.              MMMMM:MMMMMM:   MMMM   MMMMM
+2022-07-18 10:23:38.868:   [Telnet] MMMM= MMMMMM  MMM   MMMM       MMMMM   MMMM  MMMMMM   MMMM  MMMMM'
+2022-07-18 10:23:38.868:   [Telnet] MMMM=  MMMMM MMMM    MM       MMMMM    MMMM    MMMM   MMMMNMMMMM
+2022-07-18 10:23:38.868:   [Telnet] MMMM=   MMMM  MMMMM          MMMMM     MMMM    MMMM   MMMMMMMM
+2022-07-18 10:23:38.868:   [Telnet] MMMM=   MMMM   MMMMMM       MMMMM      MMMM    MMMM   MMMMMMMMM
+2022-07-18 10:23:38.868:   [Telnet] MMMM=   MMMM     MMMMM,    NMMMMMMMM   MMMM    MMMM   MMMMMMMMMMM
+2022-07-18 10:23:38.869:   [Telnet] MMMM=   MMMM      MMMMMM   MMMMMMMM    MMMM    MMMM   MMMM  MMMMMM
+2022-07-18 10:23:38.869:   [Telnet] MMMM=   MMMM   MM    MMMM    MMMM      MMMM    MMMM   MMMM    MMMM
+2022-07-18 10:23:38.869:   [Telnet] MMMM$ ,MMMMM  MMMMM  MMMM    MMM       MMMM   MMMMM   MMMM    MMMM
+2022-07-18 10:23:38.869:   [Telnet] MMMMMMM:      MMMMMMM     M         MMMMMMMMMMMM  MMMMMMM MMMMMMM
+2022-07-18 10:23:38.869:   [Telnet] MMMMMM       MMMMN     M           MMMMMMMMM      MMMM    MMMM
+2022-07-18 10:23:38.869:   [Telnet] MMMM          M                    MMMMMMM        M       M
+2022-07-18 10:23:38.869:   [Telnet] M
+2022-07-18 10:23:38.870:   [Telnet] ---------------------------------------------------------------
+2022-07-18 10:23:38.870:   [Telnet] For those about to rock... (Chaos Calmer, unknown)
+2022-07-18 10:23:38.870:   [Telnet] ---------------------------------------------------------------
+2022-07-18 10:23:38.870:   [Telnet] root@eero-test:/#
+2022-07-18 10:23:38.870:   [Telnet] Send command: fwversion
+2022-07-18 10:23:38.977:   [Telnet] fwversion
+2022-07-18 10:23:38.977:   [Telnet] Ambit test image version:V1.3.0.63
+2022-07-18 10:23:38.978:   [CONFIG] Start key: "Ambit test image version:V"
+2022-07-18 10:23:38.978:   [CONFIG] End key: ""
+2022-07-18 10:23:38.978:   [CONFIG] Regex: "null"
+2022-07-18 10:23:38.978:   [PC] Value: "1.3.0.63"
+2022-07-18 10:23:38.979:   ****************************************************
+2022-07-18 10:23:38.979:   Limit type: "MATCH"
+2022-07-18 10:23:38.979:   Uper limit: ""
+2022-07-18 10:23:38.979:   Lowet limit: "1.3.0.64|1.3.0.72|1.3.0.74"
+2022-07-18 10:23:38.979:   Test Value: "1.3.0.63"
+2022-07-18 10:23:38.979:   Item name: TEST_IMAGE_VERSION
+2022-07-18 10:23:38.980:   ****************************************************
+2022-07-18 10:23:38.980:   Error code: 17
+2022-07-18 10:23:38.980:   Error des: test_image_version
+2022-07-18 10:23:38.981:   Local error code: 33.1.1
+2022-07-18 10:23:38.981:   Local error des: test_image_version
+2022-07-18 10:23:38.981:   TIME[0.477 s] - STATUS[FAILED]

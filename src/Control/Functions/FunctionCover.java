@@ -12,7 +12,6 @@ import Model.DataTest.FunctionData.FunctionData;
 import Model.ErrorLog;
 import Model.ManagerUI.UIStatus.UiStatus;
 import View.subUI.SubUI.AbsSubUi;
-import java.io.File;
 
 /**
  *
@@ -32,8 +31,8 @@ public class FunctionCover extends Thread {
         this.modeTest = uiStatus.getModeTest();
         this.subUi = uiStatus.getSubUi();
         this.functionData = new FunctionData();
-        this.function.setResources(uiStatus, functionData);
         this.funcConfig = modeTest.getModeTestSource().getFunctionsConfig(function.getItemName());
+        this.function.setResources(uiStatus, functionData);
     }
 
     @Override

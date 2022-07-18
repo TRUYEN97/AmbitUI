@@ -33,16 +33,20 @@ public abstract class AbsFunction implements IFunction {
     private AnalysisResult analysisResult;
 
     protected AbsFunction(String itemName) {
-        this.allConfig = new FuncAllConfig(itemName);
+        this.allConfig = new FuncAllConfig( itemName);
     }
 
     public void setResources(UiStatus uiStatus, FunctionData functionData) {
+        setResources(null, uiStatus, functionData);
+    }
+
+    public void setResources(String trueItemName, UiStatus uiStatus, FunctionData functionData) {
         this.uiStatus = uiStatus;
         this.functionData = functionData;
         this.uIInfo = uiStatus.getInfo();
         this.processData = uiStatus.getProcessData();
         this.subUi = uiStatus.getSubUi();
-        this.allConfig.setResources(uiStatus);
+        this.allConfig.setResources(uiStatus, trueItemName);
         this.itemTestData = new ItemTestData(allConfig);
         this.functionData.addItemtest(itemTestData);
         this.processData.addFunctionData(functionData);
@@ -51,7 +55,7 @@ public abstract class AbsFunction implements IFunction {
         this.analysisResult = new AnalysisResult(itemTestData, allConfig);
     }
 
-    void start() {
+    public void start() {
         this.itemTestData.start();
     }
 
@@ -62,21 +66,22 @@ public abstract class AbsFunction implements IFunction {
             testRs = test();
         } catch (Exception e) {
             addLog("ERROR", e.getLocalizedMessage());
+            e.printStackTrace();
             testRs = false;
         }
         this.analysisResult.checkResult(testRs, getResult());
         this.itemTestData.endThisTurn();
     }
 
-    void end() {
+    public void end() {
         this.itemTestData.end();
     }
 
-    String getItemName() {
+    protected String getItemName() {
         return this.allConfig.getItemName();
     }
 
-    String getFunctionName() {
+    protected String getFunctionName() {
         return this.allConfig.getFunctionName();
     }
 

@@ -49,7 +49,7 @@ public class MMC_BadBlock extends AbsFunction {
         telnet = this.baseFunc.getTelnet(ip, 23);
         String startkey = allConfig.getString("Startkey");
         String endkey = allConfig.getString("Endkey");
-        List<String> commands = this.allConfig.getListSlip("command", "\\|");
+        List<String> commands = this.allConfig.getListJsonArray("command");
         if (commands == null || commands.isEmpty()) {
             addLog("ERROR", "command in config is null or empty!");
             return false;
