@@ -9,13 +9,12 @@ import Control.Functions.FunctionsTest.Base.BaseFunction.AnalysisBase;
 import Control.Functions.FunctionsTest.Base.BaseFunction.FileBaseFunction;
 import Control.Functions.FunctionsTest.Base.BaseFunction.FunctionBase;
 import Control.Functions.FunctionsTest.FaAPI.CreateFaJson.KeyWordFaAPI.FUNC_KEY;
-import FileTool.FileService;
 import Model.AllKeyWord;
+import Model.DataSource.ModeTest.FunctionConfig.FunctionElement;
 import Model.DataTest.FunctionData.FunctionData;
 import Model.ManagerUI.UIStatus.UiStatus;
 import com.alibaba.fastjson.JSONArray;
 import com.alibaba.fastjson.JSONObject;
-import java.util.List;
 
 /**
  *
@@ -34,12 +33,12 @@ public class CreateFaJson extends AbsFunction {
         this.fileBaseFunction = new FileBaseFunction(itemName);
     }
 
-    @Override
-    public void setResources(UiStatus uiStatus, FunctionData functionData) {
-        super.setResources(uiStatus, functionData); // Generated from nbfs://nbhost/SystemFileSystem/Templates/Classes/Code/OverriddenMethodBody
-        this.baseFunc.setResources(uiStatus, functionData);
-        this.analysisBase.setResources(uiStatus, functionData);
-        this.fileBaseFunction.setResources(uiStatus, functionData);
+     @Override
+    public void setResources(FunctionElement funcConfig, UiStatus uiStatus, FunctionData functionData) {
+        super.setResources(funcConfig, uiStatus, functionData); // Generated from nbfs://nbhost/SystemFileSystem/Templates/Classes/Code/OverriddenMethodBody
+        this.baseFunc.setResources(funcConfig, uiStatus, functionData);
+        this.analysisBase.setResources(funcConfig, uiStatus, functionData);
+        this.fileBaseFunction.setResources(funcConfig, uiStatus, functionData);
     }
 
     @Override

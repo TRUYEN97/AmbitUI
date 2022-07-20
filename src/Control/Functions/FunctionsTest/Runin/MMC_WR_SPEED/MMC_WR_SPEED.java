@@ -7,6 +7,7 @@ package Control.Functions.FunctionsTest.Runin.MMC_WR_SPEED;
 import Control.Functions.AbsFunction;
 import Control.Functions.FunctionsTest.Base.BaseFunction.AnalysisBase;
 import Control.Functions.FunctionsTest.Base.BaseFunction.FunctionBase;
+import Model.DataSource.ModeTest.FunctionConfig.FunctionElement;
 import Model.DataTest.FunctionData.FunctionData;
 import Model.ManagerUI.UIStatus.UiStatus;
 import commandprompt.Communicate.Telnet.Telnet;
@@ -20,21 +21,20 @@ public class MMC_WR_SPEED extends AbsFunction {
 
     private final FunctionBase baseFunc;
     private final AnalysisBase analysisBase;
-    private final MMC_SPEED mmc_speed;;
+    private MMC_SPEED mmc_speed;
     private Telnet telnet;
 
     public MMC_WR_SPEED(String itemName) {
         super(itemName);
-        this.mmc_speed = new MMC_SPEED(itemName);
         this.baseFunc = new FunctionBase(itemName);
         this.analysisBase = new AnalysisBase(itemName);
     }
 
     @Override
-    public void setResources(UiStatus uiStatus, FunctionData functionData) {
-        super.setResources(uiStatus, functionData); // Generated from nbfs://nbhost/SystemFileSystem/Templates/Classes/Code/OverriddenMethodBody
-        this.baseFunc.setResources(uiStatus, functionData);
-        this.analysisBase.setResources(uiStatus, functionData);
+    public void setResources(FunctionElement funcConfig, UiStatus uiStatus, FunctionData functionData) {
+        super.setResources(funcConfig, uiStatus, functionData); // Generated from nbfs://nbhost/SystemFileSystem/Templates/Classes/Code/OverriddenMethodBody
+        this.baseFunc.setResources(funcConfig, uiStatus, functionData);
+        this.analysisBase.setResources(funcConfig, uiStatus, functionData);
     }
 
     @Override
@@ -53,22 +53,21 @@ public class MMC_WR_SPEED extends AbsFunction {
         List<String> items = this.allConfig.getListJsonArray("ItemNames");
         List<String> blocks = this.allConfig.getListJsonArray("Block");
         List<String> KeyWords = this.allConfig.getListJsonArray("KeyWord");
-        response = this.analysisBase.getUntil(telnet, until, time);
         addLog("Config", "Items: " + items);
         addLog("Config", "Block: " + blocks);
         addLog("Config", "KeyWord: " + blocks);
-        addLog("Telnet", response);
+        response = this.analysisBase.getUntil(telnet, until, time);
         for (int i = 0; i < items.size(); i++) {
-            mmc_speed.setResources(items.get(i), uiStatus, functionData);
+            addLog("PC", "Item: "+items.get(i));
+            mmc_speed = new MMC_SPEED(items.get(i));
+            mmc_speed.setResources(this.functionElement, uiStatus, functionData);
             mmc_speed.setData(response, blocks.get(i), KeyWords.get(i));
-            mmc_speed.start();
             mmc_speed.run();
-            mmc_speed.end();
             if (!mmc_speed.isPass()) {
                 return false;
             }
         }
-        return false;
+        return true;
     }
 
     private boolean sendCommand(String ip) {

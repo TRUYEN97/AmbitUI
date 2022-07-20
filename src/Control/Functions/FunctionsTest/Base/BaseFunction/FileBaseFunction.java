@@ -7,6 +7,7 @@ package Control.Functions.FunctionsTest.Base.BaseFunction;
 import Control.Functions.AbsFunction;
 import FileTool.FileService;
 import com.alibaba.fastjson.JSONObject;
+import java.io.File;
 import java.util.List;
 
 /**
@@ -28,20 +29,18 @@ public class FileBaseFunction extends AbsFunction {
         return false;
     }
 
-    public boolean saveJson(JSONObject baseData) {
+    public boolean saveJson(JSONObject data) {
         String filePath = this.allConfig.getString("localFile");
-        List<String> elementName = this.allConfig.getListJsonArray("ElementName");
-        String nameFile = this.createNameFile(elementName, ".json");
-        return saveFile(filePath, nameFile, formatJson(baseData.toJSONString()));
-    }
-    
-    public boolean saveTxt(String baseData) {
-        String filePath = this.allConfig.getString("localFile");
-        List<String> elementName = this.allConfig.getListJsonArray("ElementName");
-        String nameFile = this.createNameFile(elementName, ".txt");
-        return saveFile(filePath, nameFile, baseData);
+        String nameFile = this.createNameFile(".json");
+        return saveFile(filePath, nameFile, formatJson(data.toJSONString()));
     }
 
+    public boolean saveTxt(String data) {
+        String filePath = this.allConfig.getString("localFile");
+        String nameFile = this.createNameFile( ".txt");
+        return saveFile(filePath, nameFile, data);
+    }
+   
     public boolean saveFile(String dirPath, String nameFile, String data) {
         String filePath = String.format("%s\\%s", dirPath, nameFile);
         if (fileService.saveFile(filePath, data)) {
@@ -49,6 +48,17 @@ public class FileBaseFunction extends AbsFunction {
             return true;
         }
         addLog("PC", String.format("Save data in: %s failed!", filePath));
+        return false;
+    }
+    
+    public boolean saveZip(String dirPath, String zipName, String fileName) {
+        String zipPath = String.format("%s\\%s", dirPath, zipName);
+        String filePath = String.format("%s\\%s", dirPath, fileName);
+        if (fileService.zipFile(zipPath, new File(filePath))) {
+            addLog("PC", String.format("Save data in: %s ok", zipPath));
+            return true;
+        }
+        addLog("PC", String.format("Save data in: %s failed!", zipPath));
         return false;
     }
 
@@ -61,9 +71,11 @@ public class FileBaseFunction extends AbsFunction {
         return str.trim();
     }
 
-    public String createNameFile(List<String> nameElement, String end) {
+    public String createNameFile(String end) {
         StringBuilder pathName = new StringBuilder();
-        for (String elem : nameElement) {
+        List<String> elementName = this.allConfig.getListJsonArray("ElementName");
+        addLog("PC", "ElementName: " + elementName);
+        for (String elem : elementName) {
             if (!pathName.isEmpty()) {
                 pathName.append("_");
             }

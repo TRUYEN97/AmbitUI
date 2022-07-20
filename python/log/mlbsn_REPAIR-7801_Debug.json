@@ -1,0 +1,158 @@
+{
+"mode":"Debug",
+"station_name":"REPAIR-7801",
+"start_time":"2022-07-20 06:24:17",
+"tests":[
+{
+"start_time":"2022-07-20 06:47:45",
+"lower_limit":"",
+"upper_limit":"",
+"error_code":"",
+"units":"",
+"test_name":"DUT_PING",
+"finish_time":"2022-07-20 06:49:12",
+"test_value":"passed",
+"status":"passed"
+},
+
+{
+"start_time":"2022-07-20 08:02:12",
+"lower_limit":"35",
+"upper_limit":"",
+"error_code":"",
+"units":"MB/s",
+"test_name":"EMMC_SPEED_READ",
+"finish_time":"2022-07-20 08:02:12",
+"test_value":"40.6",
+"status":"passed"
+},
+
+{
+"start_time":"2022-07-20 08:02:12",
+"lower_limit":"15",
+"upper_limit":"",
+"error_code":"",
+"units":"MB/s",
+"test_name":"EMMC_SPEED_WRITE",
+"finish_time":"2022-07-20 08:02:12",
+"test_value":"18.0",
+"status":"passed"
+},
+
+{
+"start_time":"2022-07-20 06:25:48",
+"lower_limit":"",
+"upper_limit":"",
+"error_code":"15",
+"units":"",
+"test_name":"SN_OK",
+"finish_time":"2022-07-20 06:25:48",
+"test_value":"GGB1UDD21472001A",
+"status":"failed"
+},
+
+{
+"start_time":"2022-07-20 06:25:48",
+"lower_limit":"",
+"upper_limit":"",
+"error_code":"15",
+"units":"",
+"test_name":"MAC_OK",
+"finish_time":"2022-07-20 06:25:49",
+"test_value":"64:97:14:04:8d:60",
+"status":"failed"
+},
+
+{
+"start_time":"2022-07-20 07:32:05",
+"lower_limit":"",
+"upper_limit":"",
+"error_code":"",
+"units":"",
+"test_name":"CPU_STRESS",
+"finish_time":"2022-07-20 08:02:06",
+"test_value":"passed",
+"status":"passed"
+},
+
+{
+"start_time":"2022-07-20 06:24:17",
+"lower_limit":"",
+"upper_limit":"",
+"error_code":"",
+"units":"",
+"test_name":"WPS_OK",
+"finish_time":"2022-07-20 06:24:21",
+"test_value":"passed",
+"status":"passed"
+},
+
+{
+"start_time":"2022-07-20 07:00:07",
+"lower_limit":"",
+"upper_limit":"",
+"error_code":"",
+"units":"",
+"test_name":"RAM_STRESS",
+"finish_time":"2022-07-20 07:32:05",
+"test_value":"passed",
+"status":"passed"
+},
+
+{
+"start_time":"2022-07-20 06:30:38",
+"lower_limit":"",
+"upper_limit":"",
+"error_code":"",
+"units":"",
+"test_name":"POWER_CYCLE",
+"finish_time":"2022-07-20 06:47:45",
+"test_value":"passed",
+"status":"passed"
+},
+
+{
+"start_time":"2022-07-20 06:25:50",
+"lower_limit":"",
+"upper_limit":"",
+"error_code":"",
+"units":"",
+"test_name":"REBOOT_SOFT",
+"finish_time":"2022-07-20 06:30:38",
+"test_value":"passed",
+"status":"passed"
+},
+
+{
+"start_time":"2022-07-20 06:25:48",
+"lower_limit":"",
+"upper_limit":"",
+"error_code":"",
+"units":"",
+"test_name":"DUT_TELNET",
+"finish_time":"2022-07-20 06:25:48",
+"test_value":"passed",
+"status":"passed"
+},
+
+{
+"start_time":"2022-07-20 06:49:12",
+"lower_limit":"0",
+"upper_limit":"0",
+"error_code":"",
+"units":"",
+"test_name":"EMMC_BADBLOCKS",
+"finish_time":"2022-07-20 07:00:07",
+"test_value":"0",
+"status":"passed"
+}
+],
+"error_details":"sn_ok",
+"serial":"",
+"error_code":"30.1.0",
+"position":"main",
+"station_type":"REPAIR",
+"finish_time":"2022-07-20 08:02:14",
+"status":"failed",
+"test_software_version":"1.0.0"
+}

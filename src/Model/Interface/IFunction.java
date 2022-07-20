@@ -10,4 +10,6 @@ package Model.Interface;
  */
 public interface IFunction extends Runnable{
     boolean isPass();
+    
+    boolean isTesting();
 }

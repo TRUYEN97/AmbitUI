@@ -26,11 +26,11 @@ public class RebootSoft extends AbsFunction {
         this.analysisBase = new AnalysisBase(itemName);
     }
 
-    @Override
-    public void setResources(UiStatus uiStatus, FunctionData functionData) {
-        super.setResources(uiStatus, functionData); // Generated from nbfs://nbhost/SystemFileSystem/Templates/Classes/Code/OverriddenMethodBody
-        this.functionBase.setResources(uiStatus, functionData);
-        this.analysisBase.setResources(uiStatus, functionData);
+     @Override
+    public void setResources(FunctionElement funcConfig, UiStatus uiStatus, FunctionData functionData) {
+        super.setResources(funcConfig, uiStatus, functionData); // Generated from nbfs://nbhost/SystemFileSystem/Templates/Classes/Code/OverriddenMethodBody
+        this.functionBase.setResources(funcConfig, uiStatus, functionData);
+        this.analysisBase.setResources(funcConfig, uiStatus, functionData);
     }
 
     @Override

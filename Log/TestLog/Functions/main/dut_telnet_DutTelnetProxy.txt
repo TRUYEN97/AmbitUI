@@ -1,51 +1,51 @@
-2022-07-18 10:23:35.959:   ITEM[dut_telnet] - FUNCTION[DutTelnetProxy]
-2022-07-18 10:23:35.960:   Turn 0:
-2022-07-18 10:23:35.960:   Get IP from the DHCP with MAC is "649714048d60"
-2022-07-18 10:23:35.961:   IP: 172.168.1.0
-2022-07-18 10:23:35.988:   [Telnet] Connect to host: 172.168.1.0
-2022-07-18 10:23:35.988:   [Telnet] Port is: 23
-2022-07-18 10:23:35.988:   [Cmd] ------------------------------------
-2022-07-18 10:23:35.988:   [Cmd] Send command: ping 172.168.1.0 -n 1
-2022-07-18 10:23:36.014:   [Cmd] Pinging 172.168.1.0 with 32 bytes of data:
-2022-07-18 10:23:36.014:   [Cmd] Reply from 172.168.1.0: bytes=32 time<1ms TTL=64
-2022-07-18 10:23:36.015:   [Cmd] 
-2022-07-18 10:23:36.015:   [Cmd] Ping statistics for 172.168.1.0:
-2022-07-18 10:23:36.015:   [Cmd] Packets: Sent = 1, Received = 1, Lost = 0 (0% loss),
-2022-07-18 10:23:36.015:   [Cmd] Approximate round trip times in milli-seconds:
-2022-07-18 10:23:36.015:   [Cmd] Minimum = 0ms, Maximum = 0ms, Average = 0ms
-2022-07-18 10:23:36.015:   [Cmd] ------------------------------------
-2022-07-18 10:23:36.337:   [Telnet] 
-2022-07-18 10:23:36.338:   [Telnet] === IMPORTANT ============================
-2022-07-18 10:23:36.338:   [Telnet] Use 'passwd' to set your login password!
-2022-07-18 10:23:36.338:   [Telnet] ------------------------------------------
-2022-07-18 10:23:36.339:   [Telnet] 
-2022-07-18 10:23:36.339:   [Telnet] 
-2022-07-18 10:23:36.340:   [Telnet] BusyBox v1.30.1 () built-in shell (ash)
-2022-07-18 10:23:36.340:   [Telnet] 
-2022-07-18 10:23:36.340:   [Telnet] MM           NM                    MMMMMMM          M       M
-2022-07-18 10:23:36.341:   [Telnet] $MMMMM        MMMMM                MMMMMMMMMMM      MMM     MMM
-2022-07-18 10:23:36.341:   [Telnet] MMMMMMMM     MM MMMMM.              MMMMM:MMMMMM:   MMMM   MMMMM
-2022-07-18 10:23:36.342:   [Telnet] MMMM= MMMMMM  MMM   MMMM       MMMMM   MMMM  MMMMMM   MMMM  MMMMM'
-2022-07-18 10:23:36.342:   [Telnet] MMMM=  MMMMM MMMM    MM       MMMMM    MMMM    MMMM   MMMMNMMMMM
-2022-07-18 10:23:36.343:   [Telnet] MMMM=   MMMM  MMMMM          MMMMM     MMMM    MMMM   MMMMMMMM
-2022-07-18 10:23:36.343:   [Telnet] MMMM=   MMMM   MMMMMM       MMMMM      MMMM    MMMM   MMMMMMMMM
-2022-07-18 10:23:36.343:   [Telnet] MMMM=   MMMM     MMMMM,    NMMMMMMMM   MMMM    MMMM   MMMMMMMMMMM
-2022-07-18 10:23:36.344:   [Telnet] MMMM=   MMMM      MMMMMM   MMMMMMMM    MMMM    MMMM   MMMM  MMMMMM
-2022-07-18 10:23:36.344:   [Telnet] MMMM=   MMMM   MM    MMMM    MMMM      MMMM    MMMM   MMMM    MMMM
-2022-07-18 10:23:36.345:   [Telnet] MMMM$ ,MMMMM  MMMMM  MMMM    MMM       MMMM   MMMMM   MMMM    MMMM
-2022-07-18 10:23:36.345:   [Telnet] MMMMMMM:      MMMMMMM     M         MMMMMMMMMMMM  MMMMMMM MMMMMMM
-2022-07-18 10:23:36.345:   [Telnet] MMMMMM       MMMMN     M           MMMMMMMMM      MMMM    MMMM
-2022-07-18 10:23:36.346:   [Telnet] MMMM          M                    MMMMMMM        M       M
-2022-07-18 10:23:36.346:   [Telnet] M
-2022-07-18 10:23:36.346:   [Telnet] ---------------------------------------------------------------
-2022-07-18 10:23:36.347:   [Telnet] For those about to rock... (Chaos Calmer, unknown)
-2022-07-18 10:23:36.347:   [Telnet] ---------------------------------------------------------------
-2022-07-18 10:23:36.348:   [Telnet] root@eero-test:/#
-2022-07-18 10:23:36.348:   ****************************************************
-2022-07-18 10:23:36.348:   Limit type: "BOOL"
-2022-07-18 10:23:36.349:   Uper limit: ""
-2022-07-18 10:23:36.349:   Lowet limit: ""
-2022-07-18 10:23:36.349:   Test Value: "passed"
-2022-07-18 10:23:36.350:   Item name: DUT_TELNET
-2022-07-18 10:23:36.350:   ****************************************************
-2022-07-18 10:23:36.352:   TIME[0.391 s] - STATUS[PASSED]
+2022-07-20 06:25:48.047:   ITEM[dut_telnet] - FUNCTION[DutTelnetProxy]
+2022-07-20 06:25:48.048:   Turn 0:
+2022-07-20 06:25:48.048:   Get IP from the DHCP with MAC is "649714048d60"
+2022-07-20 06:25:48.048:   IP: 172.168.1.0
+2022-07-20 06:25:48.079:   [Telnet] Connect to host: 172.168.1.0
+2022-07-20 06:25:48.079:   [Telnet] Port is: 23
+2022-07-20 06:25:48.079:   [Cmd] ------------------------------------
+2022-07-20 06:25:48.079:   [Cmd] Send command: ping 172.168.1.0 -n 1
+2022-07-20 06:25:48.105:   [Cmd] Pinging 172.168.1.0 with 32 bytes of data:
+2022-07-20 06:25:48.105:   [Cmd] Reply from 172.168.1.0: bytes=32 time<1ms TTL=64
+2022-07-20 06:25:48.105:   [Cmd] 
+2022-07-20 06:25:48.105:   [Cmd] Ping statistics for 172.168.1.0:
+2022-07-20 06:25:48.105:   [Cmd] Packets: Sent = 1, Received = 1, Lost = 0 (0% loss),
+2022-07-20 06:25:48.105:   [Cmd] Approximate round trip times in milli-seconds:
+2022-07-20 06:25:48.106:   [Cmd] Minimum = 0ms, Maximum = 0ms, Average = 0ms
+2022-07-20 06:25:48.106:   [Cmd] ------------------------------------
+2022-07-20 06:25:48.430:   [Telnet] 
+2022-07-20 06:25:48.430:   [Telnet] === IMPORTANT ============================
+2022-07-20 06:25:48.430:   [Telnet] Use 'passwd' to set your login password!
+2022-07-20 06:25:48.430:   [Telnet] ------------------------------------------
+2022-07-20 06:25:48.430:   [Telnet] 
+2022-07-20 06:25:48.431:   [Telnet] 
+2022-07-20 06:25:48.431:   [Telnet] BusyBox v1.30.1 () built-in shell (ash)
+2022-07-20 06:25:48.431:   [Telnet] 
+2022-07-20 06:25:48.431:   [Telnet] MM           NM                    MMMMMMM          M       M
+2022-07-20 06:25:48.431:   [Telnet] $MMMMM        MMMMM                MMMMMMMMMMM      MMM     MMM
+2022-07-20 06:25:48.431:   [Telnet] MMMMMMMM     MM MMMMM.              MMMMM:MMMMMM:   MMMM   MMMMM
+2022-07-20 06:25:48.432:   [Telnet] MMMM= MMMMMM  MMM   MMMM       MMMMM   MMMM  MMMMMM   MMMM  MMMMM'
+2022-07-20 06:25:48.432:   [Telnet] MMMM=  MMMMM MMMM    MM       MMMMM    MMMM    MMMM   MMMMNMMMMM
+2022-07-20 06:25:48.432:   [Telnet] MMMM=   MMMM  MMMMM          MMMMM     MMMM    MMMM   MMMMMMMM
+2022-07-20 06:25:48.432:   [Telnet] MMMM=   MMMM   MMMMMM       MMMMM      MMMM    MMMM   MMMMMMMMM
+2022-07-20 06:25:48.432:   [Telnet] MMMM=   MMMM     MMMMM,    NMMMMMMMM   MMMM    MMMM   MMMMMMMMMMM
+2022-07-20 06:25:48.432:   [Telnet] MMMM=   MMMM      MMMMMM   MMMMMMMM    MMMM    MMMM   MMMM  MMMMMM
+2022-07-20 06:25:48.432:   [Telnet] MMMM=   MMMM   MM    MMMM    MMMM      MMMM    MMMM   MMMM    MMMM
+2022-07-20 06:25:48.432:   [Telnet] MMMM$ ,MMMMM  MMMMM  MMMM    MMM       MMMM   MMMMM   MMMM    MMMM
+2022-07-20 06:25:48.433:   [Telnet] MMMMMMM:      MMMMMMM     M         MMMMMMMMMMMM  MMMMMMM MMMMMMM
+2022-07-20 06:25:48.433:   [Telnet] MMMMMM       MMMMN     M           MMMMMMMMM      MMMM    MMMM
+2022-07-20 06:25:48.433:   [Telnet] MMMM          M                    MMMMMMM        M       M
+2022-07-20 06:25:48.433:   [Telnet] M
+2022-07-20 06:25:48.433:   [Telnet] ---------------------------------------------------------------
+2022-07-20 06:25:48.433:   [Telnet] For those about to rock... (Chaos Calmer, unknown)
+2022-07-20 06:25:48.433:   [Telnet] ---------------------------------------------------------------
+2022-07-20 06:25:48.433:   [Telnet] root@eero-test:/#
+2022-07-20 06:25:48.434:   ****************************************************
+2022-07-20 06:25:48.434:   Limit type: "BOOL"
+2022-07-20 06:25:48.434:   Uper limit: ""
+2022-07-20 06:25:48.434:   Lowet limit: ""
+2022-07-20 06:25:48.434:   Test Value: "passed"
+2022-07-20 06:25:48.434:   Item name: DUT_TELNET
+2022-07-20 06:25:48.434:   ****************************************************
+2022-07-20 06:25:48.435:   TIME[0.387 s] - STATUS[PASSED]

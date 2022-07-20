@@ -1,0 +1,57 @@
+2022-07-20 08:02:12.927:   ITEM[temp_cpu_1] - FUNCTION[CheckCommandTelnetProxy]
+2022-07-20 08:02:12.928:   Turn 0:
+2022-07-20 08:02:12.928:   Get IP from the DHCP with MAC is "649714048d60"
+2022-07-20 08:02:12.928:   [Telnet] Connect to host: 172.168.1.0
+2022-07-20 08:02:12.928:   [Telnet] Port is: 23
+2022-07-20 08:02:12.929:   [Cmd] ------------------------------------
+2022-07-20 08:02:12.929:   [Cmd] Send command: ping 172.168.1.0 -n 1
+2022-07-20 08:02:12.994:   [Cmd] Pinging 172.168.1.0 with 32 bytes of data:
+2022-07-20 08:02:12.994:   [Cmd] Reply from 172.168.1.0: bytes=32 time<1ms TTL=64
+2022-07-20 08:02:12.995:   [Cmd] 
+2022-07-20 08:02:12.995:   [Cmd] Ping statistics for 172.168.1.0:
+2022-07-20 08:02:12.995:   [Cmd] Packets: Sent = 1, Received = 1, Lost = 0 (0% loss),
+2022-07-20 08:02:12.995:   [Cmd] Approximate round trip times in milli-seconds:
+2022-07-20 08:02:12.995:   [Cmd] Minimum = 0ms, Maximum = 0ms, Average = 0ms
+2022-07-20 08:02:12.995:   [Cmd] ------------------------------------
+2022-07-20 08:02:13.317:   [Telnet] 
+2022-07-20 08:02:13.317:   [Telnet] === IMPORTANT ============================
+2022-07-20 08:02:13.317:   [Telnet] Use 'passwd' to set your login password!
+2022-07-20 08:02:13.317:   [Telnet] ------------------------------------------
+2022-07-20 08:02:13.317:   [Telnet] 
+2022-07-20 08:02:13.317:   [Telnet] 
+2022-07-20 08:02:13.317:   [Telnet] BusyBox v1.30.1 () built-in shell (ash)
+2022-07-20 08:02:13.317:   [Telnet] 
+2022-07-20 08:02:13.317:   [Telnet] MM           NM                    MMMMMMM          M       M
+2022-07-20 08:02:13.317:   [Telnet] $MMMMM        MMMMM                MMMMMMMMMMM      MMM     MMM
+2022-07-20 08:02:13.317:   [Telnet] MMMMMMMM     MM MMMMM.              MMMMM:MMMMMM:   MMMM   MMMMM
+2022-07-20 08:02:13.317:   [Telnet] MMMM= MMMMMM  MMM   MMMM       MMMMM   MMMM  MMMMMM   MMMM  MMMMM'
+2022-07-20 08:02:13.317:   [Telnet] MMMM=  MMMMM MMMM    MM       MMMMM    MMMM    MMMM   MMMMNMMMMM
+2022-07-20 08:02:13.317:   [Telnet] MMMM=   MMMM  MMMMM          MMMMM     MMMM    MMMM   MMMMMMMM
+2022-07-20 08:02:13.317:   [Telnet] MMMM=   MMMM   MMMMMM       MMMMM      MMMM    MMMM   MMMMMMMMM
+2022-07-20 08:02:13.317:   [Telnet] MMMM=   MMMM     MMMMM,    NMMMMMMMM   MMMM    MMMM   MMMMMMMMMMM
+2022-07-20 08:02:13.317:   [Telnet] MMMM=   MMMM      MMMMMM   MMMMMMMM    MMMM    MMMM   MMMM  MMMMMM
+2022-07-20 08:02:13.317:   [Telnet] MMMM=   MMMM   MM    MMMM    MMMM      MMMM    MMMM   MMMM    MMMM
+2022-07-20 08:02:13.317:   [Telnet] MMMM$ ,MMMMM  MMMMM  MMMM    MMM       MMMM   MMMMM   MMMM    MMMM
+2022-07-20 08:02:13.317:   [Telnet] MMMMMMM:      MMMMMMM     M         MMMMMMMMMMMM  MMMMMMM MMMMMMM
+2022-07-20 08:02:13.317:   [Telnet] MMMMMM       MMMMN     M           MMMMMMMMM      MMMM    MMMM
+2022-07-20 08:02:13.317:   [Telnet] MMMM          M                    MMMMMMM        M       M
+2022-07-20 08:02:13.318:   [Telnet] M
+2022-07-20 08:02:13.318:   [Telnet] ---------------------------------------------------------------
+2022-07-20 08:02:13.318:   [Telnet] For those about to rock... (Chaos Calmer, unknown)
+2022-07-20 08:02:13.318:   [Telnet] ---------------------------------------------------------------
+2022-07-20 08:02:13.318:   [Telnet] root@eero-test:/#
+2022-07-20 08:02:13.318:   [Telnet] Send command: cat /sys/devices/virtual/thermal/thermal_zone1/temp
+2022-07-20 08:02:13.426:   [Telnet] cat /sys/devices/virtual/thermal/thermal_zone1/temp
+2022-07-20 08:02:13.426:   [Telnet] 43
+2022-07-20 08:02:13.426:   [CONFIG] Start key: "null"
+2022-07-20 08:02:13.426:   [CONFIG] End key: "null"
+2022-07-20 08:02:13.427:   [CONFIG] Regex: "^[0-9]+$"
+2022-07-20 08:02:13.427:   [PC] Value: "43"
+2022-07-20 08:02:13.427:   ****************************************************
+2022-07-20 08:02:13.427:   Limit type: "LIMIT"
+2022-07-20 08:02:13.427:   Uper limit: "52"
+2022-07-20 08:02:13.427:   Lowet limit: ""
+2022-07-20 08:02:13.427:   Test Value: "43"
+2022-07-20 08:02:13.427:   Item name: TEMP_CPU
+2022-07-20 08:02:13.427:   ****************************************************
+2022-07-20 08:02:13.428:   TIME[0.499 s] - STATUS[PASSED]

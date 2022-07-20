@@ -11,6 +11,7 @@ import Model.Interface.IFunction;
 import Model.DataTest.FunctionData.FunctionData;
 import Model.DataTest.FunctionData.ItemTestData;
 import Model.DataSource.ModeTest.FunctionConfig.FuncAllConfig;
+import Model.DataSource.ModeTest.FunctionConfig.FunctionElement;
 import Model.DataTest.ProcessTest.ProcessTestSignal;
 import Model.DataTest.ProcessTest.ProductData;
 import Model.DataTest.ProcessTest.UiInformartion;
@@ -28,25 +29,23 @@ public abstract class AbsFunction implements IFunction {
     protected ProcessTestSignal testSignal;
     protected ProductData productData;
     protected UiInformartion uIInfo;
+    protected FunctionElement functionElement;
     protected FunctionData functionData;
     private ItemTestData itemTestData;
     private AnalysisResult analysisResult;
 
     protected AbsFunction(String itemName) {
-        this.allConfig = new FuncAllConfig( itemName);
+        this.allConfig = new FuncAllConfig(itemName);
     }
 
-    public void setResources(UiStatus uiStatus, FunctionData functionData) {
-        setResources(null, uiStatus, functionData);
-    }
-
-    public void setResources(String trueItemName, UiStatus uiStatus, FunctionData functionData) {
+    public void setResources(FunctionElement functionElement, UiStatus uiStatus, FunctionData functionData) {
         this.uiStatus = uiStatus;
         this.functionData = functionData;
         this.uIInfo = uiStatus.getInfo();
         this.processData = uiStatus.getProcessData();
         this.subUi = uiStatus.getSubUi();
-        this.allConfig.setResources(uiStatus, trueItemName);
+        this.functionElement = functionElement;
+        this.allConfig.setResources(uiStatus, functionElement);
         this.itemTestData = new ItemTestData(allConfig);
         this.functionData.addItemtest(itemTestData);
         this.processData.addFunctionData(functionData);
@@ -55,12 +54,21 @@ public abstract class AbsFunction implements IFunction {
         this.analysisResult = new AnalysisResult(itemTestData, allConfig);
     }
 
-    public void start() {
+    void start() {
         this.itemTestData.start();
     }
 
     @Override
     public void run() {
+        try {
+            start();
+            runTest();
+        } finally {
+            end();
+        }
+    }
+
+    public void runTest() {
         boolean testRs;
         try {
             testRs = test();
@@ -73,7 +81,7 @@ public abstract class AbsFunction implements IFunction {
         this.itemTestData.endThisTurn();
     }
 
-    public void end() {
+    void end() {
         this.itemTestData.end();
     }
 
@@ -99,13 +107,18 @@ public abstract class AbsFunction implements IFunction {
     public boolean isPass() {
         return itemTestData.isPass();
     }
+    
+    @Override
+    public boolean isTesting() {
+        return itemTestData.isTest();
+    }
 
     protected void setResult(String result) {
         this.itemTestData.setResult(result);
     }
 
     protected String getResult() {
-        return this.functionData.getResultTest();
+        return this.itemTestData.getResultTest();
     }
 
 }

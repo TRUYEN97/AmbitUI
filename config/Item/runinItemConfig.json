@@ -102,7 +102,7 @@
             "FUNC_NAME": "CheckCommandTelnetProxy"
         },
         {
-            "FLAG": true,
+            "FLAG": false,
             "TIME_OVER": 10,
             "MULTI_TASK": true,
             "FAIL_CONTNIUE": true,
@@ -125,7 +125,7 @@
             "FUNC_NAME": "CheckCommandTelnetProxy"
         },
         {
-            "FLAG": false,
+            "FLAG": true,
             "TIME_OVER": 300,
             "RETRY": 3,
             "MULTI_TASK": true,
@@ -134,20 +134,20 @@
             "FUNC_NAME": "RebootSoftProxy"
         },
         {
-            "FLAG": false,
-            "TIME_OVER": 600,
+            "FLAG": true,
+            "TIME_OVER": 1200,
             "MULTI_TASK": true,
             "host": "192.168.1.10",
             "user": "admin",
             "password": "1234",
-            "Times": 10,
+            "Times": 100,
             "Delay": 5,
             "Command": ["off", "on"],
             "test_name": "power_cycle",
             "FUNC_NAME": "PowerSwitchProxy"
         },
         {
-            "FLAG": false,
+            "FLAG": true,
             "TIME_OVER": 120,
             "MULTI_TASK": true,
             "IP": "192.168.1.1",
@@ -155,7 +155,7 @@
             "FUNC_NAME": "DutPingProxy"
         },
         {
-            "FLAG": false,
+            "FLAG": true,
             "TIME_OVER": 1200,
             "MULTI_TASK": true,
             "IP": "192.168.1.1",
@@ -167,7 +167,7 @@
             "FUNC_NAME": "MMC_BadBlockProxy"
         },
         {
-            "FLAG": false,
+            "FLAG": true,
             "TIME_OVER": 3000,
             "MULTI_TASK": true,
             "IP": "192.168.1.1",
@@ -181,7 +181,7 @@
             "FUNC_NAME": "TelnetReadUntilKeyProxy"
         },
         {
-            "FLAG": false,
+            "FLAG": true,
             "TIME_OVER": 3000,
             "MULTI_TASK": true,
             "IP": "192.168.1.1",
@@ -205,6 +205,30 @@
             "Time": 20,
             "test_name": "MMC_READ_WRITE_SPEED_TEST",
             "FUNC_NAME": "MMC_WR_SPEED_PROXY"
+        },
+        {
+            "FLAG": true,
+            "TIME_OVER": 10,
+            "MULTI_TASK": true,
+            "FAIL_CONTNIUE": true,
+            "IP": "192.168.1.1",
+            "command": "cat /sys/devices/virtual/thermal/thermal_zone1/temp",
+            "Regex": "^[0-9]+$",
+            "test_name": "temp_cpu_1",
+            "FUNC_NAME": "CheckCommandTelnetProxy"
+        },
+        {
+            "FLAG": true,
+            "TIME_OVER": 30,
+            "MULTI_TASK": true,
+            "host": "192.168.1.10",
+            "user": "admin",
+            "password": "1234",
+            "Times": 1,
+            "Delay": 1,
+            "Command": ["off"],
+            "test_name": "ReleasePowerSwitchOutlet",
+            "FUNC_NAME": "PowerSwitchProxy"
         }
 
     ],
@@ -219,7 +243,7 @@
             "TestKeys": ["upper_limit", "lower_limit", "status", "finish_time", "test_name",
                 "error_code", "start_time", "test_value", "units"],
             "localFile": "python/log",
-            "ElementName": ["mlbsn", "station_name"],
+            "ElementName": ["mlbsn", "station_name", "mode"],
             "test_name": "CreateJsonLog",
             "FUNC_NAME": "CreateJsonApiProxy" 
         },
@@ -227,24 +251,20 @@
             "FLAG": true,
             "TIME_OVER": 30,
             "MULTI_TASK": true,
-            "Command": "cd python && eero_API_client.py log/",
-            "ElementName": ["mlbsn", "station_name"],
-            "Spec": "200",
-            "test_name": "UpAPI",
-            "FUNC_NAME": "UpApiProxy" 
+            "localFile": "python/log",
+            "ElementName": ["mlbsn", "station_name", "mode", "serial"],
+            "test_name": "CreateTxtAndZipLog",
+            "FUNC_NAME": "CreateTxtProxy" 
         },
         {
             "FLAG": false,
             "TIME_OVER": 30,
             "MULTI_TASK": true,
-            "host": "192.168.1.10",
-            "user": "admin",
-            "password": "1234",
-            "Times": 1,
-            "Delay": 3,
-            "Command": "off",
-            "test_name": "wps_off",
-            "FUNC_NAME": "PowerSwitchProxy"
+            "Command": "cd python && eero_API_client.py log/",
+            "ElementName": ["mlbsn", "station_name"],
+            "Spec": "200",
+            "test_name": "UpAPI",
+            "FUNC_NAME": "UpApiProxy" 
         },
         {
             "FLAG": false,

@@ -17,6 +17,24 @@
             "local_error_des": "Create json log"
         }
     },
+    "ReleasePowerSwitchOutlet": {
+        "simple": {
+            "local_error_code": "json0",
+            "local_error_des": "ReleasePowerSwitchOutlet"
+        }
+    },
+    "CreateTxtAndZipLog": {
+        "simple": {
+            "local_error_code": "txt0",
+            "local_error_des": "CreateTxtAndZipLog"
+        }
+    },
+    "UpAPI": {
+        "simple": {
+            "local_error_code": "API01",
+            "local_error_des": "UpAPI"
+        }
+    },
     "MMC_READ_WRITE_SPEED_TEST": {
         "simple": {
             "local_error_code": "11.2.2",

@@ -7,8 +7,8 @@ package Model.Factory;
 import View.subUI.FormDetail.TabFaApi.TabFaApiProxy;
 import Control.Functions.AbsFunction;
 import Control.Functions.FunctionsTest.Base.CheckDutInfo.CheckDutInfoProxy;
+import Control.Functions.FunctionsTest.Base.CreateTxtLog.CreateTxtProxy;
 import Control.Functions.FunctionsTest.FaAPI.CreateFaJson.CreateFaJsonProxy;
-import Control.Functions.FunctionsTest.FaAPI.CreateTxtLog.CreateTxtLogProxy;
 import Control.Functions.FunctionsTest.Base.GetMacFromSfis.GetMacFormSfisProxy;
 import Control.Functions.FunctionsTest.Base.DutPing.DutPingProxy;
 import Control.Functions.FunctionsTest.Base.DutTelnet.DutTelnetProxy;
@@ -107,7 +107,7 @@ public class Factory {
         this.functions.addType(new GetMacFormSfisProxy());
         this.functions.addType(new InputFaDataProxy());
         this.functions.addType(new CreateFaJsonProxy());
-        this.functions.addType(new CreateTxtLogProxy());
+        this.functions.addType(new CreateTxtProxy());
         this.functions.addType(new UpApiProxy());
         this.functions.addType(new UpFTPProxy());
         this.functions.addType(new PowerSwitchProxy());

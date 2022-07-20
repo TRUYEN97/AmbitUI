@@ -7,6 +7,7 @@ package Control.Functions.FunctionsTest.Base.FixtureActions;
 import Control.Functions.AbsFunction;
 import Control.Functions.FunctionsTest.Base.BaseFunction.AnalysisBase;
 import Control.Functions.FunctionsTest.Base.BaseFunction.FunctionBase;
+import Model.DataSource.ModeTest.FunctionConfig.FunctionElement;
 import Model.DataTest.FunctionData.FunctionData;
 import Model.ManagerUI.UIStatus.UiStatus;
 import Time.WaitTime.Class.TimeS;
@@ -29,10 +30,10 @@ public class FixtureAction extends AbsFunction {
     }
 
     @Override
-    public void setResources(UiStatus uiStatus, FunctionData functionData) {
-        super.setResources(uiStatus, functionData); // Generated from nbfs://nbhost/SystemFileSystem/Templates/Classes/Code/OverriddenMethodBody
-        this.base.setResources(uiStatus, functionData);
-        this.analysisBase.setResources(uiStatus, functionData);
+    public void setResources(FunctionElement funcConfig, UiStatus uiStatus, FunctionData functionData) {
+        super.setResources(funcConfig, uiStatus, functionData); // Generated from nbfs://nbhost/SystemFileSystem/Templates/Classes/Code/OverriddenMethodBody
+        this.base.setResources(funcConfig, uiStatus, functionData);
+        this.analysisBase.setResources(funcConfig, uiStatus, functionData);
     }
 
     @Override

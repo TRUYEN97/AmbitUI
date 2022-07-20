@@ -43,7 +43,7 @@ public class AnalysisResult {
         switch (allConfig.getTestType()) {
             case AllKeyWord.MATCH -> {
                 if (checkMatchType(StringResult)) {
-                    setPass();
+                    this.itemTestData.setPass();
                 } else {
                     this.itemTestData.setFail(ErrorCodeElement.SIMPLE);
                 }
@@ -51,7 +51,7 @@ public class AnalysisResult {
             case AllKeyWord.LIMIT -> {
                 String errorType = checkLimitType(StringResult);
                 if (errorType == null) {
-                    setPass();
+                    this.itemTestData.setPass();
                 } else {
                     this.itemTestData.setFail(errorType);
                 }
@@ -60,10 +60,6 @@ public class AnalysisResult {
                 this.itemTestData.setFail(ErrorCodeElement.SIMPLE);
             }
         }
-    }
-
-    private void setPass() {
-        this.itemTestData.setPass();
     }
 
     private boolean checkMatchType(String result) {

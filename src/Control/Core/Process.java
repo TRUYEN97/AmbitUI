@@ -24,6 +24,7 @@ class Process implements IFunction {
     private final Factory factory;
     private final UiStatus uiStatus;
     private boolean result;
+    private boolean test;
 
     public Process(UiStatus uiStatus) {
         this.multiTasking = new ArrayList<>();
@@ -53,40 +54,39 @@ class Process implements IFunction {
 
     @Override
     public void run() {
-        FunctionCover funcCover;
-        for (FunctionName functionName : functions) {
-            funcCover = createFuncCover(functionName);
-            if (funcCover.isWaitUntilMultiDone()) {
-                waitUntilMultiTaskDone();
-            }
-            funcCover.start();
-            if (funcCover.isMutiTasking()) {
-                continue;
-            }
-            try {
+        test = true;
+        try {
+            FunctionCover funcCover;
+            for (FunctionName functionName : functions) {
+                funcCover = createFuncCover(functionName);
+                if (funcCover.isWaitUntilMultiDone()) {
+                    waitUntilMultiTaskDone();
+                }
+                funcCover.start();
+                if (funcCover.isMutiTasking()) {
+                    continue;
+                }
                 funcCover.join();
                 if (hasTaskFailed()) {
                     break;
                 }
-            } catch (InterruptedException ex) {
-                ex.printStackTrace();
-                ErrorLog.addError(this, ex.getMessage());
             }
+            waitUntilMultiTaskDone();
+        } catch (InterruptedException ex) {
+            ex.printStackTrace();
+            ErrorLog.addError(this, ex.getMessage());
+        } finally {
+            test = false;
         }
-        waitUntilMultiTaskDone();
+
     }
 
-    private void waitUntilMultiTaskDone() {
+    private void waitUntilMultiTaskDone() throws InterruptedException {
         while (!multiTasking.isEmpty()) {
-            try {
-                if (hasTaskFailed()) {
-                    break;
-                }
-                Thread.sleep(100);
-            } catch (InterruptedException ex) {
-                ex.printStackTrace();
-                ErrorLog.addError(this, ex.getMessage());
+            if (hasTaskFailed()) {
+                break;
             }
+            Thread.sleep(100);
         }
     }
 
@@ -120,5 +120,10 @@ class Process implements IFunction {
         } finally {
             multiTasking.removeAll(funcRemoves);
         }
+    }
+
+    @Override
+    public boolean isTesting() {
+        return test;
     }
 }

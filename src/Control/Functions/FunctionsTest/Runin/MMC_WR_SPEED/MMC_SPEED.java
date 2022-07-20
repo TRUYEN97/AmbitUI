@@ -7,6 +7,7 @@ package Control.Functions.FunctionsTest.Runin.MMC_WR_SPEED;
 import Control.Functions.AbsFunction;
 import Control.Functions.FunctionsTest.Base.BaseFunction.AnalysisBase;
 import Control.Functions.FunctionsTest.Base.BaseFunction.FunctionBase;
+import Model.DataSource.ModeTest.FunctionConfig.FunctionElement;
 import Model.DataTest.FunctionData.FunctionData;
 import Model.ManagerUI.UIStatus.UiStatus;
 import commandprompt.Communicate.Telnet.Telnet;
@@ -31,10 +32,10 @@ public class MMC_SPEED extends AbsFunction {
     }
 
     @Override
-    public void setResources(String trueItemName, UiStatus uiStatus, FunctionData functionData) {
-        super.setResources(trueItemName, uiStatus, functionData); // Generated from nbfs://nbhost/SystemFileSystem/Templates/Classes/Code/OverriddenMethodBody
-        this.baseFunc.setResources(trueItemName, uiStatus, functionData);
-        this.analysisBase.setResources(trueItemName, uiStatus, functionData);
+    public void setResources(FunctionElement funcConfig, UiStatus uiStatus, FunctionData functionData) {
+        super.setResources(funcConfig, uiStatus, functionData); // Generated from nbfs://nbhost/SystemFileSystem/Templates/Classes/Code/OverriddenMethodBody
+        this.baseFunc.setResources(funcConfig, uiStatus, functionData);
+        this.analysisBase.setResources(funcConfig, uiStatus, functionData);
     }
 
     @Override
@@ -83,19 +84,22 @@ public class MMC_SPEED extends AbsFunction {
     }
 
     private boolean getSpeed() {
-        int index;
-        while ((index = data.lastIndexOf("Writing ")) > -1) {
-            String blockData = data.substring(index);
-            data = data.substring(0, index);
-            if (blockData.contains("B of " + block + " in ")) {
-                int start, end;
-                if ((start = blockData.indexOf(key)) > -1 && (end = blockData.indexOf("\r\n\r\n")) > -1) {
-                    String subData = blockData.substring(start, end);
-                    String value = subData.substring(subData.lastIndexOf(" seconds, ") + 10, subData.lastIndexOf("MB/s"));
-                    if (this.analysisBase.isNumber(value)) {
-                        setResult(value);
-                        return true;
-                    }
+        String[] blockData = data.split("\r\n");
+        int model = 0;
+        for (String line : blockData) {
+            if (line.contains("B of " + block + " in ")) {
+                model = 1;
+            }
+            if (line.contains(key) && model == 1) {
+                model = 2;
+            }
+            int start = line.lastIndexOf(" seconds, ") + 10;
+            int end = line.lastIndexOf("MB/s");
+            if (model == 2 && start < end && end > -1) {
+                String value = line.substring(start, end);
+                if (this.analysisBase.isNumber(value)) {
+                    setResult(value);
+                    return true;
                 }
             }
         }

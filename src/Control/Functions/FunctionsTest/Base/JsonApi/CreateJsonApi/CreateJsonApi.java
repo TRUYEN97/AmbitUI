@@ -8,8 +8,10 @@ import Control.Functions.AbsFunction;
 import Control.Functions.FunctionsTest.Base.BaseFunction.AnalysisBase;
 import Control.Functions.FunctionsTest.Base.BaseFunction.FileBaseFunction;
 import Model.AllKeyWord;
+import Model.DataSource.ModeTest.FunctionConfig.FunctionElement;
 import Model.DataSource.ModeTest.Limit.Limit;
 import Model.DataTest.FunctionData.FunctionData;
+import Model.DataTest.FunctionData.ItemTestData;
 import Model.ManagerUI.UIStatus.UiStatus;
 import com.alibaba.fastjson.JSONArray;
 import com.alibaba.fastjson.JSONObject;
@@ -33,21 +35,25 @@ public class CreateJsonApi extends AbsFunction {
     }
 
     @Override
-    public void setResources(UiStatus uiStatus, FunctionData functionData) {
-        super.setResources(uiStatus, functionData); // Generated from nbfs://nbhost/SystemFileSystem/Templates/Classes/Code/OverriddenMethodBody
-        this.analysisBase.setResources(uiStatus, functionData);
-        this.fileBaseFunction.setResources(uiStatus, functionData);
+    public void setResources(FunctionElement funcConfig, UiStatus uiStatus, FunctionData functionData) {
+        super.setResources(funcConfig, uiStatus, functionData); // Generated from nbfs://nbhost/SystemFileSystem/Templates/Classes/Code/OverriddenMethodBody
+        this.fileBaseFunction.setResources(funcConfig, uiStatus, functionData);
+        this.analysisBase.setResources(funcConfig, uiStatus, functionData);
     }
 
     @Override
     protected boolean test() {
         JSONObject root = getRootJson();
-        JSONArray tests = getTestsData();
+        JSONArray tests = getTestsData(isPass(root));
         if (tests == null) {
             return false;
         }
         root.put("tests", tests);
         return this.fileBaseFunction.saveJson(root);
+    }
+
+    private static boolean isPass(JSONObject root) {
+        return root.getString(AllKeyWord.STATUS).equals(ItemTestData.PASS);
     }
 
     private JSONObject getRootJson() {
@@ -66,7 +72,7 @@ public class CreateJsonApi extends AbsFunction {
         addLog("PC", "-----------------------------------------");
     }
 
-    private JSONArray getTestsData() {
+    private JSONArray getTestsData(boolean statusTest) {
         JSONArray tests = new JSONArray();
         JSONObject itemTest;
         List<String> testKeys = allConfig.getListJsonArray("TestKeys");
@@ -76,7 +82,7 @@ public class CreateJsonApi extends AbsFunction {
             if (itemTest != null) {
                 addLog("PC", "ItemTest: " + itemName + " = " + itemTest.toJSONString());
                 tests.add(itemTest);
-            } else if (limit.getItem(itemName).getInteger(AllKeyWord.REQUIRED) == 1) {
+            } else if (limit.getItem(itemName).getInteger(AllKeyWord.REQUIRED) == 1 && statusTest) {
                 String mess = String.format("Missing \"%s\" item test!", itemName);
                 addLog("PC", mess);
                 JOptionPane.showMessageDialog(null, mess);

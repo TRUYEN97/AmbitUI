@@ -4,7 +4,6 @@
  */
 package Control.Functions.InitPackages;
 
-import Control.Functions.AbsFunction;
 import java.awt.HeadlessException;
 import javax.swing.JLabel;
 import javax.swing.JOptionPane;
@@ -54,6 +53,11 @@ public class idPassWord implements IFunction{
     @Override
     public boolean isPass() {
         return pass;
+    }
+
+    @Override
+    public boolean isTesting() {
+        return false;
     }
     
 }

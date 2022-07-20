@@ -1,0 +1,16 @@
+2022-07-20 08:02:13.430:   ITEM[ReleasePowerSwitchOutlet] - FUNCTION[PowerSwitchProxy]
+2022-07-20 08:02:13.431:   Turn 0:
+2022-07-20 08:02:13.432:   [CONFIG] host: 192.168.1.10
+2022-07-20 08:02:13.432:   [CONFIG] user: admin
+2022-07-20 08:02:13.432:   [CONFIG] passWord: 1234
+2022-07-20 08:02:13.432:   [CONFIG] Times: 1
+2022-07-20 08:02:13.432:   [CONFIG] index of switch: 1
+2022-07-20 08:02:13.432:   [CONFIG] Delay time: 1 s
+2022-07-20 08:02:13.434:   cycle Times: 1 - 1
+2022-07-20 08:02:13.576:   [POWER_SWITCH] http://192.168.1.10/outlet?1=OFF
+2022-07-20 08:02:13.577:   [POWER_SWITCH] HTTP/1.1 200 OK
+2022-07-20 08:02:14.581:   ****************************************************
+2022-07-20 08:02:14.581:   Test Value: "passed"
+2022-07-20 08:02:14.581:   Item name: ReleasePowerSwitchOutlet
+2022-07-20 08:02:14.581:   ****************************************************
+2022-07-20 08:02:14.581:   TIME[1.150 s] - STATUS[PASSED]
