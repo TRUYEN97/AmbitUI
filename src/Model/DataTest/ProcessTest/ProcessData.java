@@ -115,6 +115,7 @@ public class ProcessData {
 
     public void setFinishTime() {
         this.data.put(AllKeyWord.FINISH_TIME, timeBase.getSimpleDateTime());
+        this.data.put(AllKeyWord.FINISH_DAY, timeBase.getDate());
         FunctionData testData = getFirstFail();
         if (testData == null) {
             this.data.put(AllKeyWord.STATUS, ItemTestData.PASS);
@@ -128,6 +129,7 @@ public class ProcessData {
     public void setStartTime() {
         reset();
         this.data.put(AllKeyWord.START_TIME, timeBase.getSimpleDateTime());
+        this.data.put(AllKeyWord.START_DAY, timeBase.getDate());
     }
 
     public void reset() {

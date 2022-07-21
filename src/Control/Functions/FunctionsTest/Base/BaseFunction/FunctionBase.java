@@ -6,6 +6,7 @@ package Control.Functions.FunctionsTest.Base.BaseFunction;
 
 import Control.Functions.AbsFunction;
 import Model.AllKeyWord;
+import Model.ErrorLog;
 import Time.WaitTime.Class.TimeMs;
 import Time.WaitTime.Class.TimeS;
 import commandprompt.AbstractStream.AbsStreamReadable;
@@ -13,6 +14,7 @@ import commandprompt.Communicate.Cmd.Cmd;
 import commandprompt.Communicate.Comport.ComPort;
 import commandprompt.Communicate.ISender;
 import commandprompt.Communicate.Telnet.Telnet;
+import ftpclient.FtpClient;
 
 /**
  *
@@ -28,6 +30,27 @@ public class FunctionBase extends AbsFunction {
     protected boolean test() {
         addLog("Messager", "This is not a function test!");
         return false;
+    }
+
+    public FtpClient initFtp(String user, String passWord, String host, int port) {
+        addLog("PC", "Connect to ftp!!");
+        addLog("Config", "User: " + user);
+        addLog("Config", "PassWord: " + passWord);
+        addLog("Config", "Host: " + host);
+        addLog("Config", "Port: " + port);
+        FtpClient ftp;
+        try {
+        ftp = new FtpClient(host, port, user, passWord);
+        if (ftp.connect()) {
+            addLog("PC", "Connect to ftp ok!!");
+            return ftp;
+        }
+        } catch (Exception e) {
+            e.printStackTrace();
+            ErrorLog.addError(this, e.getLocalizedMessage());
+        }
+        addLog("PC", "Connect to ftp failed..");
+        return null;
     }
 
     public Telnet getTelnet(String ip, int port) {
@@ -48,7 +71,7 @@ public class FunctionBase extends AbsFunction {
             addLog("Telnet", "Connect failed!");
             return null;
         }
-        addLog("Telnet", telnet.readAll(new TimeMs(300)));
+        addLog("Telnet", telnet.readUntil("root@eero-test:/#",new TimeMs(300)));
         return telnet;
     }
 

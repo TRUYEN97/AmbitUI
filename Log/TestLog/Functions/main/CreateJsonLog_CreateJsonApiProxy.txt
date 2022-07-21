@@ -1,54 +1,54 @@
-2022-07-20 08:02:14.583:   ITEM[CreateJsonLog] - FUNCTION[CreateJsonApiProxy]
-2022-07-20 08:02:14.583:   Turn 0:
-2022-07-20 08:02:14.583:   [PC] Root: error_details = sn_ok
-2022-07-20 08:02:14.583:   [PC] -----------------------------------------
-2022-07-20 08:02:14.583:   [PC] Root: status = failed
-2022-07-20 08:02:14.584:   [PC] -----------------------------------------
-2022-07-20 08:02:14.584:   [PC] Root: finish_time = 2022-07-20 08:02:14
-2022-07-20 08:02:14.584:   [PC] -----------------------------------------
-2022-07-20 08:02:14.584:   [PC] Root: test_software_version = 1.0.0
-2022-07-20 08:02:14.584:   [PC] -----------------------------------------
-2022-07-20 08:02:14.584:   [PC] Root: start_time = 2022-07-20 06:24:17
-2022-07-20 08:02:14.584:   [PC] -----------------------------------------
-2022-07-20 08:02:14.584:   [PC] Root: station_type = REPAIR
-2022-07-20 08:02:14.584:   [PC] -----------------------------------------
-2022-07-20 08:02:14.584:   [PC] Root: error_code = 30.1.0
-2022-07-20 08:02:14.584:   [PC] -----------------------------------------
-2022-07-20 08:02:14.584:   [PC] Root: serial = null
-2022-07-20 08:02:14.584:   [PC] -----------------------------------------
-2022-07-20 08:02:14.584:   [PC] Root: mode = Debug
-2022-07-20 08:02:14.584:   [PC] -----------------------------------------
-2022-07-20 08:02:14.584:   [PC] Root: station_name = REPAIR-7801
-2022-07-20 08:02:14.584:   [PC] -----------------------------------------
-2022-07-20 08:02:14.584:   [PC] Root: position = main
-2022-07-20 08:02:14.584:   [PC] -----------------------------------------
-2022-07-20 08:02:14.584:   [PC] ItemTest: gen_node = null
-2022-07-20 08:02:14.589:   [PC] ItemTest: dut_ping = {"start_time":"2022-07-20 06:47:45","lower_limit":"","upper_limit":"","error_code":"","units":"","test_name":"DUT_PING","finish_time":"2022-07-20 06:49:12","test_value":"passed","status":"passed"}
-2022-07-20 08:02:14.589:   [PC] ItemTest: ort_type = null
-2022-07-20 08:02:14.589:   [PC] ItemTest: emmc_speed_read = {"start_time":"2022-07-20 08:02:12","lower_limit":"35","upper_limit":"","error_code":"","units":"MB/s","test_name":"EMMC_SPEED_READ","finish_time":"2022-07-20 08:02:12","test_value":"40.6","status":"passed"}
-2022-07-20 08:02:14.589:   [PC] ItemTest: emmc_speed_write = {"start_time":"2022-07-20 08:02:12","lower_limit":"15","upper_limit":"","error_code":"","units":"MB/s","test_name":"EMMC_SPEED_WRITE","finish_time":"2022-07-20 08:02:12","test_value":"18.0","status":"passed"}
-2022-07-20 08:02:14.589:   [PC] ItemTest: sn_ok = {"start_time":"2022-07-20 06:25:48","lower_limit":"","upper_limit":"","error_code":"15","units":"","test_name":"SN_OK","finish_time":"2022-07-20 06:25:48","test_value":"GGB1UDD21472001A","status":"failed"}
-2022-07-20 08:02:14.589:   [PC] ItemTest: mac_ok = {"start_time":"2022-07-20 06:25:48","lower_limit":"","upper_limit":"","error_code":"15","units":"","test_name":"MAC_OK","finish_time":"2022-07-20 06:25:49","test_value":"64:97:14:04:8d:60","status":"failed"}
-2022-07-20 08:02:14.589:   [PC] ItemTest: temp_cpu = null
-2022-07-20 08:02:14.589:   [PC] ItemTest: cpu_stress = {"start_time":"2022-07-20 07:32:05","lower_limit":"","upper_limit":"","error_code":"","units":"","test_name":"CPU_STRESS","finish_time":"2022-07-20 08:02:06","test_value":"passed","status":"passed"}
-2022-07-20 08:02:14.589:   [PC] ItemTest: mac = null
-2022-07-20 08:02:14.589:   [PC] ItemTest: shop_floor = null
-2022-07-20 08:02:14.589:   [PC] ItemTest: wps_ok = {"start_time":"2022-07-20 06:24:17","lower_limit":"","upper_limit":"","error_code":"","units":"","test_name":"WPS_OK","finish_time":"2022-07-20 06:24:21","test_value":"passed","status":"passed"}
-2022-07-20 08:02:14.589:   [PC] ItemTest: humidity_env = null
-2022-07-20 08:02:14.589:   [PC] ItemTest: ram_stress = {"start_time":"2022-07-20 07:00:07","lower_limit":"","upper_limit":"","error_code":"","units":"","test_name":"RAM_STRESS","finish_time":"2022-07-20 07:32:05","test_value":"passed","status":"passed"}
-2022-07-20 08:02:14.590:   [PC] ItemTest: power_cycle = {"start_time":"2022-07-20 06:30:38","lower_limit":"","upper_limit":"","error_code":"","units":"","test_name":"POWER_CYCLE","finish_time":"2022-07-20 06:47:45","test_value":"passed","status":"passed"}
-2022-07-20 08:02:14.590:   [PC] ItemTest: temp_env = null
-2022-07-20 08:02:14.590:   [PC] ItemTest: reboot_soft = {"start_time":"2022-07-20 06:25:50","lower_limit":"","upper_limit":"","error_code":"","units":"","test_name":"REBOOT_SOFT","finish_time":"2022-07-20 06:30:38","test_value":"passed","status":"passed"}
-2022-07-20 08:02:14.590:   [PC] ItemTest: wifi_start = null
-2022-07-20 08:02:14.590:   [PC] ItemTest: temp_cpu1 = null
-2022-07-20 08:02:14.590:   [PC] ItemTest: dut_telnet = {"start_time":"2022-07-20 06:25:48","lower_limit":"","upper_limit":"","error_code":"","units":"","test_name":"DUT_TELNET","finish_time":"2022-07-20 06:25:48","test_value":"passed","status":"passed"}
-2022-07-20 08:02:14.590:   [PC] ItemTest: emmc_badblocks = {"start_time":"2022-07-20 06:49:12","lower_limit":"0","upper_limit":"0","error_code":"","units":"","test_name":"EMMC_BADBLOCKS","finish_time":"2022-07-20 07:00:07","test_value":"0","status":"passed"}
-2022-07-20 08:02:14.590:   [PC] ItemTest: test_image_version = null
-2022-07-20 08:02:14.590:   [PC] ElementName: [mlbsn, station_name, mode]
-2022-07-20 08:02:14.590:   [PC] Format for json data!
-2022-07-20 08:02:14.592:   [PC] Save data in: python/log\mlbsn_REPAIR-7801_Debug.json ok
-2022-07-20 08:02:14.592:   ****************************************************
-2022-07-20 08:02:14.592:   Test Value: "passed"
-2022-07-20 08:02:14.592:   Item name: CreateJsonLog
-2022-07-20 08:02:14.592:   ****************************************************
-2022-07-20 08:02:14.592:   TIME[0.009 s] - STATUS[PASSED]
+2022-07-21 10:49:39.766:   ITEM[CreateJsonLog] - FUNCTION[CreateJsonApiProxy]
+2022-07-21 10:49:39.766:   Turn 0:
+2022-07-21 10:49:39.766:   [PC] Root: error_details = sn_ok
+2022-07-21 10:49:39.766:   [PC] -----------------------------------------
+2022-07-21 10:49:39.766:   [PC] Root: status = failed
+2022-07-21 10:49:39.766:   [PC] -----------------------------------------
+2022-07-21 10:49:39.766:   [PC] Root: finish_time = 2022-07-21 10:49:39
+2022-07-21 10:49:39.766:   [PC] -----------------------------------------
+2022-07-21 10:49:39.766:   [PC] Root: test_software_version = 1.0.0
+2022-07-21 10:49:39.766:   [PC] -----------------------------------------
+2022-07-21 10:49:39.766:   [PC] Root: start_time = 2022-07-21 10:48:43
+2022-07-21 10:49:39.766:   [PC] -----------------------------------------
+2022-07-21 10:49:39.766:   [PC] Root: station_type = REPAIR
+2022-07-21 10:49:39.766:   [PC] -----------------------------------------
+2022-07-21 10:49:39.766:   [PC] Root: error_code = 30.1.0
+2022-07-21 10:49:39.766:   [PC] -----------------------------------------
+2022-07-21 10:49:39.766:   [PC] Root: serial = null
+2022-07-21 10:49:39.766:   [PC] -----------------------------------------
+2022-07-21 10:49:39.766:   [PC] Root: mode = Debug
+2022-07-21 10:49:39.766:   [PC] -----------------------------------------
+2022-07-21 10:49:39.766:   [PC] Root: station_name = REPAIR-7801
+2022-07-21 10:49:39.766:   [PC] -----------------------------------------
+2022-07-21 10:49:39.766:   [PC] Root: position = main
+2022-07-21 10:49:39.766:   [PC] -----------------------------------------
+2022-07-21 10:49:39.766:   [PC] ItemTest: gen_node = null
+2022-07-21 10:49:39.782:   [PC] ItemTest: dut_ping = {"start_time":"2022-07-21 10:48:47","lower_limit":"","upper_limit":"","error_code":"","units":"","test_name":"DUT_PING","finish_time":"2022-07-21 10:49:37","test_value":"passed","status":"passed"}
+2022-07-21 10:49:39.782:   [PC] ItemTest: ort_type = null
+2022-07-21 10:49:39.782:   [PC] ItemTest: emmc_speed_read = null
+2022-07-21 10:49:39.782:   [PC] ItemTest: emmc_speed_write = null
+2022-07-21 10:49:39.782:   [PC] ItemTest: sn_ok = {"start_time":"2022-07-21 10:49:38","lower_limit":"","upper_limit":"","error_code":"15","units":"","test_name":"SN_OK","finish_time":"2022-07-21 10:49:38","test_value":"GGB1UDD21472001A","status":"failed"}
+2022-07-21 10:49:39.782:   [PC] ItemTest: mac_ok = {"start_time":"2022-07-21 10:49:38","lower_limit":"","upper_limit":"","error_code":"15","units":"","test_name":"MAC_OK","finish_time":"2022-07-21 10:49:38","test_value":"64:97:14:04:8d:60","status":"failed"}
+2022-07-21 10:49:39.782:   [PC] ItemTest: temp_cpu = null
+2022-07-21 10:49:39.782:   [PC] ItemTest: cpu_stress = null
+2022-07-21 10:49:39.782:   [PC] ItemTest: mac = null
+2022-07-21 10:49:39.782:   [PC] ItemTest: shop_floor = null
+2022-07-21 10:49:39.782:   [PC] ItemTest: wps_ok = {"start_time":"2022-07-21 10:48:43","lower_limit":"","upper_limit":"","error_code":"","units":"","test_name":"WPS_OK","finish_time":"2022-07-21 10:48:47","test_value":"passed","status":"passed"}
+2022-07-21 10:49:39.782:   [PC] ItemTest: humidity_env = null
+2022-07-21 10:49:39.782:   [PC] ItemTest: ram_stress = null
+2022-07-21 10:49:39.782:   [PC] ItemTest: power_cycle = null
+2022-07-21 10:49:39.782:   [PC] ItemTest: temp_env = null
+2022-07-21 10:49:39.782:   [PC] ItemTest: reboot_soft = null
+2022-07-21 10:49:39.782:   [PC] ItemTest: wifi_start = null
+2022-07-21 10:49:39.782:   [PC] ItemTest: temp_cpu1 = null
+2022-07-21 10:49:39.782:   [PC] ItemTest: dut_telnet = {"start_time":"2022-07-21 10:49:37","lower_limit":"","upper_limit":"","error_code":"","units":"","test_name":"DUT_TELNET","finish_time":"2022-07-21 10:49:38","test_value":"passed","status":"passed"}
+2022-07-21 10:49:39.782:   [PC] ItemTest: emmc_badblocks = null
+2022-07-21 10:49:39.782:   [PC] ItemTest: test_image_version = null
+2022-07-21 10:49:39.782:   [PC] ElementName: [mlbsn, station_name, mode]
+2022-07-21 10:49:39.782:   [PC] Format for json data!
+2022-07-21 10:49:39.782:   [PC] Save data in: python/log\mlbsn_REPAIR-7801_Debug.json ok
+2022-07-21 10:49:39.782:   ****************************************************
+2022-07-21 10:49:39.782:   Test Value: "passed"
+2022-07-21 10:49:39.782:   Item name: CreateJsonLog
+2022-07-21 10:49:39.782:   ****************************************************
+2022-07-21 10:49:39.782:   TIME[0.016 s] - STATUS[PASSED]

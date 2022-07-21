@@ -1,32 +1,22 @@
-2022-07-20 08:02:14.593:   ITEM[CreateTxtAndZipLog] - FUNCTION[CreateTxtProxy]
-2022-07-20 08:02:14.593:   Turn 0:
-2022-07-20 08:02:14.593:   Save file txt!
-2022-07-20 08:02:14.593:   [PC] ElementName: [mlbsn, station_name, mode, serial]
-2022-07-20 08:02:14.594:   - add item: wps_ok
-2022-07-20 08:02:14.597:   - add item: dut_ping
-2022-07-20 08:02:14.601:   - add item: dut_telnet
-2022-07-20 08:02:14.602:   - add item: sn_ok
-2022-07-20 08:02:14.602:   - add item: mac_ok
-2022-07-20 08:02:14.603:   - add item: led_vendor
-2022-07-20 08:02:14.604:   - add item: phy_model
-2022-07-20 08:02:14.606:   - add item: temp_cpu_0
-2022-07-20 08:02:14.606:   - add item: reboot_soft
-2022-07-20 08:02:14.620:   - add item: power_cycle
-2022-07-20 08:02:14.639:   - add item: dut_ping
-2022-07-20 08:02:14.640:   - add item: emmc_badblocks
-2022-07-20 08:02:14.647:   - add item: ram_stress
-2022-07-20 08:02:14.662:   - add item: cpu_stress
-2022-07-20 08:02:14.667:   - add item: MMC_READ_WRITE_SPEED_TEST
-2022-07-20 08:02:14.671:   - add item: temp_cpu_1
-2022-07-20 08:02:14.675:   - add item: ReleasePowerSwitchOutlet
-2022-07-20 08:02:14.679:   - add item: CreateJsonLog
-2022-07-20 08:02:14.683:   Save file txt in python/log/mlbsn_REPAIR-7801_Debug_serial.txt
-2022-07-20 08:02:14.683:   Save file zip!
-2022-07-20 08:02:14.683:   [PC] ElementName: [mlbsn, station_name, mode, serial]
-2022-07-20 08:02:14.683:   [PC] ElementName: [mlbsn, station_name, mode, serial]
-2022-07-20 08:02:14.737:   [PC] Save data in: python/log\mlbsn_REPAIR-7801_Debug_serial.zip ok
-2022-07-20 08:02:14.737:   ****************************************************
-2022-07-20 08:02:14.737:   Test Value: "passed"
-2022-07-20 08:02:14.737:   Item name: CreateTxtAndZipLog
-2022-07-20 08:02:14.737:   ****************************************************
-2022-07-20 08:02:14.738:   TIME[0.144 s] - STATUS[PASSED]
+2022-07-21 10:49:39.766:   ITEM[CreateTxtAndZipLog] - FUNCTION[CreateTxtProxy]
+2022-07-21 10:49:39.766:   Turn 0:
+2022-07-21 10:49:39.766:   Save file txt!
+2022-07-21 10:49:39.766:   [PC] ElementName: [mlbsn, station_name, mode, serial]
+2022-07-21 10:49:39.766:   - add item: wps_ok
+2022-07-21 10:49:39.782:   - add item: dut_ping
+2022-07-21 10:49:39.782:   - add item: dut_telnet
+2022-07-21 10:49:39.797:   - add item: sn_ok
+2022-07-21 10:49:39.797:   - add item: mac_ok
+2022-07-21 10:49:39.797:   - add item: led_vendor
+2022-07-21 10:49:39.813:   - add item: ReleasePowerSwitchOutlet
+2022-07-21 10:49:39.813:   - add item: CreateJsonLog
+2022-07-21 10:49:39.813:   Save file txt in python/log/mlbsn_REPAIR-7801_Debug_serial.txt
+2022-07-21 10:49:39.813:   Save file zip!
+2022-07-21 10:49:39.813:   [PC] ElementName: [mlbsn, station_name, mode, serial]
+2022-07-21 10:49:39.813:   [PC] ElementName: [mlbsn, station_name, mode, serial]
+2022-07-21 10:49:39.828:   [PC] Save data in: python/log\mlbsn_REPAIR-7801_Debug_serial.zip ok
+2022-07-21 10:49:39.828:   ****************************************************
+2022-07-21 10:49:39.828:   Test Value: "passed"
+2022-07-21 10:49:39.828:   Item name: CreateTxtAndZipLog
+2022-07-21 10:49:39.828:   ****************************************************
+2022-07-21 10:49:39.828:   TIME[0.062 s] - STATUS[PASSED]

@@ -90,4 +90,8 @@ public class FunctionElement extends AbsElementInfo {
         return this.warehouse.toJson();
     }
 
+    public boolean isAlwaysRun() {
+        return this.warehouse.getBoolean(AllKeyWord.ALWAYSRUN);
+    }
+
 }

@@ -11,6 +11,18 @@
             "local_error_des": "SFIS_SEND_ERROR"
         }
     },
+    "UpFTP": {
+        "simple": {
+            "local_error_code": "UpFtp",
+            "local_error_des": "UpFTP"
+        }
+    },
+    "UpFTPFinal": {
+        "simple": {
+            "local_error_code": "UpFtp1",
+            "local_error_des": "UpFTPFinal"
+        }
+    },
     "CreateJsonLog": {
         "simple": {
             "local_error_code": "json0",
@@ -25,8 +37,14 @@
     },
     "CreateTxtAndZipLog": {
         "simple": {
-            "local_error_code": "txt0",
+            "local_error_code": "TXT0",
             "local_error_des": "CreateTxtAndZipLog"
+        }
+    },
+    "CreateTxtAndZipLogFinal": {
+        "simple": {
+            "local_error_code": "TXT01",
+            "local_error_des": "CreateTxtAndZipLogFinal"
         }
     },
     "UpAPI": {

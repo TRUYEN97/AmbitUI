@@ -24,19 +24,21 @@ public class FunctionCover extends Thread {
     private final FunctionElement funcConfig;
     private final ModeTest modeTest;
     private final AbsSubUi subUi;
+    private final UiStatus uiStatus;
     private Thread thread;
 
     public FunctionCover(AbsFunction function, UiStatus uiStatus) {
         this.function = function;
+        this.uiStatus = uiStatus;
         this.modeTest = uiStatus.getModeTest();
         this.subUi = uiStatus.getSubUi();
         this.functionData = new FunctionData();
         this.funcConfig = modeTest.getModeTestSource().getFunctionsConfig(function.getItemName());
-        this.function.setResources(this.funcConfig, uiStatus, functionData);
     }
 
     @Override
     public void run() {
+        this.function.setResources(this.funcConfig, uiStatus, functionData);
         this.functionData.start(createLogPath(), this.function.getFunctionName());
         try {
             this.thread = new Thread() {
@@ -155,5 +157,9 @@ public class FunctionCover extends Thread {
 
     public boolean isWaitUntilMultiDone() {
         return funcConfig.isUntilMultiDone();
+    }
+
+    public boolean isAlwaysRun() {
+        return funcConfig.isAlwaysRun();
     }
 }

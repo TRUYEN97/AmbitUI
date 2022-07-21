@@ -1,0 +1,20 @@
+2022-07-21 10:49:39.828:   ITEM[UpFTP] - FUNCTION[UpFTPProxy]
+2022-07-21 10:49:39.828:   Turn 0:
+2022-07-21 10:49:39.828:   [PC] Connect to ftp!!
+2022-07-21 10:49:39.828:   [Config] User: oper
+2022-07-21 10:49:39.828:   [Config] PassWord: mfg-oper
+2022-07-21 10:49:39.828:   [Config] Host: 10.90.2.168
+2022-07-21 10:49:39.828:   [Config] Port: 21
+2022-07-21 10:49:39.844:   [PC] Connect to ftp ok!!
+2022-07-21 10:49:39.844:   [PC] ElementName: [TEMP/QT/TRUYEN, station_type, start_day, station_name]
+2022-07-21 10:49:39.844:   [PC] ElementName: [mlbsn, sn, mode, finish_day]
+2022-07-21 10:49:39.844:   [PC] ElementName: [python/log]
+2022-07-21 10:49:39.844:   [PC] ElementName: [mlbsn, station_name, mode, serial]
+2022-07-21 10:49:39.844:   [Config] Local: python\log\mlbsn_REPAIR-7801_Debug_serial.txt
+2022-07-21 10:49:39.844:   [Config] Ftp: TEMP/QT/TRUYEN/REPAIR/21-07-2022/REPAIR-7801/mlbsn_fg_Debug_21-07-2022.txt
+2022-07-21 10:49:39.891:   Up file to FTP done!
+2022-07-21 10:49:39.891:   ****************************************************
+2022-07-21 10:49:39.891:   Test Value: "passed"
+2022-07-21 10:49:39.891:   Item name: UpFTP
+2022-07-21 10:49:39.891:   ****************************************************
+2022-07-21 10:49:39.891:   TIME[0.063 s] - STATUS[PASSED]

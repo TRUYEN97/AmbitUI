@@ -12,6 +12,8 @@ import Model.Interface.IFunction;
 import Model.ManagerUI.UIStatus.UiStatus;
 import java.util.ArrayList;
 import java.util.List;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 
 /**
  *
@@ -23,6 +25,7 @@ class Process implements IFunction {
     private final List<FunctionName> functions;
     private final Factory factory;
     private final UiStatus uiStatus;
+    private boolean justFunctionAlwayRun;
     private boolean result;
     private boolean test;
 
@@ -43,7 +46,6 @@ class Process implements IFunction {
         FunctionCover func = new FunctionCover(
                 this.factory.getFunc(function.getFunctions(),
                         function.getItemName()), uiStatus);
-        multiTasking.add(func);
         return func;
     }
 
@@ -57,36 +59,44 @@ class Process implements IFunction {
         test = true;
         try {
             FunctionCover funcCover;
+            justFunctionAlwayRun = false;
             for (FunctionName functionName : functions) {
                 funcCover = createFuncCover(functionName);
+                if (justFunctionAlwayRun && !funcCover.isAlwaysRun()) {
+                    continue;
+                }
                 if (funcCover.isWaitUntilMultiDone()) {
                     waitUntilMultiTaskDone();
                 }
                 funcCover.start();
                 if (funcCover.isMutiTasking()) {
+                    multiTasking.add(funcCover);
                     continue;
                 }
                 funcCover.join();
-                if (hasTaskFailed()) {
-                    break;
+                if (hasTaskFailed() || (!funcCover.getFunction().isPass() && !funcCover.isSkipFail())) {
+                    justFunctionAlwayRun = true;
                 }
             }
-            waitUntilMultiTaskDone();
-        } catch (InterruptedException ex) {
+        } catch (Exception ex) {
             ex.printStackTrace();
             ErrorLog.addError(this, ex.getMessage());
         } finally {
+            waitUntilMultiTaskDone();
             test = false;
         }
 
     }
 
-    private void waitUntilMultiTaskDone() throws InterruptedException {
+    private void waitUntilMultiTaskDone() {
         while (!multiTasking.isEmpty()) {
-            if (hasTaskFailed()) {
-                break;
+            try {
+                if (hasTaskFailed()) {
+                    justFunctionAlwayRun = true;
+                }
+                Thread.sleep(100);
+            } catch (InterruptedException ex) {
             }
-            Thread.sleep(100);
         }
     }
 

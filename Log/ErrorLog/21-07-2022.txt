@@ -1,0 +1,38 @@
+2022-07-21 02:46:32.945:   error in Model.DataSource.ModeTest.FunctionConfig.FuncAllConfig : Missing error code of UpFTP1 - simple type !!
+2022-07-21 02:46:32.945:   //////////////////////////////////////
+2022-07-21 02:46:33.497:   error in Model.DataSource.ModeTest.FunctionConfig.FuncAllConfig : Missing error code of UpFTP1 - simple type !!
+2022-07-21 02:46:33.497:   //////////////////////////////////////
+2022-07-21 02:46:33.983:   error in Model.DataSource.ModeTest.FunctionConfig.FuncAllConfig : Missing error code of UpFTP1 - simple type !!
+2022-07-21 02:46:33.983:   //////////////////////////////////////
+2022-07-21 02:49:33.995:   error in Model.DataSource.ModeTest.FunctionConfig.FuncAllConfig : Missing error code of UpFTP1 - simple type !!
+2022-07-21 02:49:33.995:   //////////////////////////////////////
+2022-07-21 02:49:42.935:   error in Model.DataSource.ModeTest.FunctionConfig.FuncAllConfig : Missing error code of UpFTP1 - simple type !!
+2022-07-21 02:49:42.936:   //////////////////////////////////////
+2022-07-21 02:50:00.650:   error in Model.DataSource.ModeTest.FunctionConfig.FuncAllConfig : Missing error code of UpFTP1 - simple type !!
+2022-07-21 02:50:00.650:   //////////////////////////////////////
+2022-07-21 02:50:00.774:   error in Model.DataSource.ModeTest.FunctionConfig.FuncAllConfig : Missing error code of UpFTP1 - simple type !!
+2022-07-21 02:50:00.774:   //////////////////////////////////////
+2022-07-21 02:50:01.093:   error in Model.DataSource.ModeTest.FunctionConfig.FuncAllConfig : Missing error code of UpFTP1 - simple type !!
+2022-07-21 02:50:01.094:   //////////////////////////////////////
+2022-07-21 02:56:59.831:   error in Model.DataSource.ModeTest.FunctionConfig.FuncAllConfig : Missing error code of UpFTP1 - simple type !!
+2022-07-21 02:56:59.831:   //////////////////////////////////////
+2022-07-21 02:56:59.964:   error in Model.DataSource.ModeTest.FunctionConfig.FuncAllConfig : Missing error code of UpFTP1 - simple type !!
+2022-07-21 02:56:59.964:   //////////////////////////////////////
+2022-07-21 02:57:00.115:   error in Model.DataSource.ModeTest.FunctionConfig.FuncAllConfig : Missing error code of UpFTP1 - simple type !!
+2022-07-21 02:57:00.116:   //////////////////////////////////////
+2022-07-21 03:00:22.963:   error in Model.DataSource.ModeTest.FunctionConfig.FuncAllConfig : Missing error code of UpFTP1 - simple type !!
+2022-07-21 03:00:22.963:   //////////////////////////////////////
+2022-07-21 06:15:00.419:   error in Model.DataSource.ModeTest.FunctionConfig.FuncAllConfig : Missing error code of CreateTxtAndZipLogFinal - simple type !!
+2022-07-21 06:15:00.419:   //////////////////////////////////////
+2022-07-21 06:15:01.387:   error in Model.DataSource.ModeTest.FunctionConfig.FuncAllConfig : Missing error code of UpFTPFinal - simple type !!
+2022-07-21 06:15:01.387:   //////////////////////////////////////
+2022-07-21 06:24:35.557:   error in Model.DataSource.ModeTest.FunctionConfig.FuncAllConfig : Missing error code of CreateTxtAndZipLogFinal - simple type !!
+2022-07-21 06:24:35.557:   //////////////////////////////////////
+2022-07-21 06:24:36.427:   error in Model.DataSource.ModeTest.FunctionConfig.FuncAllConfig : Missing error code of UpFTPFinal - simple type !!
+2022-07-21 06:24:36.427:   //////////////////////////////////////
+2022-07-21 06:28:43.325:   error in Model.DataSource.ModeTest.FunctionConfig.FuncAllConfig : Missing error code of CreateTxtAndZipLogFinal - simple type !!
+2022-07-21 06:28:43.325:   //////////////////////////////////////
+2022-07-21 06:28:43.501:   error in Model.DataSource.ModeTest.FunctionConfig.FuncAllConfig : Missing error code of UpFTPFinal - simple type !!
+2022-07-21 06:28:43.501:   //////////////////////////////////////
+2022-07-21 10:30:53.738:   error in Control.Functions.FunctionsTest.Base.CreateTxtLog.CreateTxt : null
+2022-07-21 10:30:53.738:   //////////////////////////////////////

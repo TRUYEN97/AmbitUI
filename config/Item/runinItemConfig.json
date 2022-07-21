@@ -15,7 +15,7 @@
         {
             "FLAG": false,
             "CANCEL": "DEBUG",
-            "MULTI_TASK": true,
+            "MULTI": true,
             "FAIL_CONTNIUE": false,
             "TIME_OVER": 1,
             "test_name": "mac",
@@ -24,7 +24,7 @@
         {
             "FLAG": true,
             "TIME_OVER": 30,
-            "MULTI_TASK": true,
+            "MULTI": false,
             "host": "192.168.1.10",
             "user": "admin",
             "password": "1234",
@@ -39,7 +39,7 @@
         {
             "FLAG": true,
             "TIME_OVER": 360,
-            "MULTI_TASK": true,
+            "MULTI": false,
             "IP": "192.168.1.1",
             "test_name": "dut_ping",
             "FUNC_NAME": "DutPingProxy"
@@ -47,7 +47,7 @@
         {
             "FLAG": true,
             "TIME_OVER": 10,
-            "MULTI_TASK": true,
+            "MULTI": false,
             "IP": "192.168.1.1",
             "test_name": "dut_telnet",
             "FUNC_NAME": "DutTelnetProxy"
@@ -55,8 +55,8 @@
         {
             "FLAG": true,
             "TIME_OVER": 10,
-            "MULTI_TASK": true,
-            "FAIL_CONTNIUE": true,
+            "MULTI": true,
+            "FAIL_CONTNIUE": false,
             "IP": "192.168.1.1",
             "command": "fw_printenv  serial",
             "Startkey": "serial=",
@@ -68,7 +68,7 @@
         {
             "FLAG": true,
             "TIME_OVER": 10,
-            "MULTI_TASK": true,
+            "MULTI": true,
             "FAIL_CONTNIUE": true,
             "IP": "192.168.1.1",
             "command": "fw_printenv  mac",
@@ -81,7 +81,7 @@
         {
             "FLAG": true,
             "TIME_OVER": 10,
-            "MULTI_TASK": true,
+            "MULTI": false,
             "FAIL_CONTNIUE": true,
             "IP": "192.168.1.1",
             "command": "cat /sys/bus/i2c/devices/0-0030/name",
@@ -92,7 +92,7 @@
         {
             "FLAG": true,
             "TIME_OVER": 10,
-            "MULTI_TASK": true,
+            "MULTI": true,
             "FAIL_CONTNIUE": true,
             "IP": "192.168.1.1",
             "command": "dmesg|grep 'PHY ID'",
@@ -102,9 +102,9 @@
             "FUNC_NAME": "CheckCommandTelnetProxy"
         },
         {
-            "FLAG": false,
+            "FLAG": true,
             "TIME_OVER": 10,
-            "MULTI_TASK": true,
+            "MULTI": true,
             "FAIL_CONTNIUE": true,
             "IP": "192.168.1.1",
             "command": "fwversion",
@@ -116,7 +116,7 @@
         {
             "FLAG": true,
             "TIME_OVER": 10,
-            "MULTI_TASK": true,
+            "MULTI": true,
             "FAIL_CONTNIUE": true,
             "IP": "192.168.1.1",
             "command": "cat /sys/devices/virtual/thermal/thermal_zone1/temp",
@@ -125,18 +125,18 @@
             "FUNC_NAME": "CheckCommandTelnetProxy"
         },
         {
-            "FLAG": true,
+            "FLAG": false,
             "TIME_OVER": 300,
             "RETRY": 3,
-            "MULTI_TASK": true,
+            "MULTI": true,
             "Times": 3,
             "test_name": "reboot_soft",
             "FUNC_NAME": "RebootSoftProxy"
         },
         {
-            "FLAG": true,
+            "FLAG": false,
             "TIME_OVER": 1200,
-            "MULTI_TASK": true,
+            "MULTI": false,
             "host": "192.168.1.10",
             "user": "admin",
             "password": "1234",
@@ -147,17 +147,17 @@
             "FUNC_NAME": "PowerSwitchProxy"
         },
         {
-            "FLAG": true,
+            "FLAG": false,
             "TIME_OVER": 120,
-            "MULTI_TASK": true,
+            "MULTI": false,
             "IP": "192.168.1.1",
             "test_name": "dut_ping",
             "FUNC_NAME": "DutPingProxy"
         },
         {
-            "FLAG": true,
+            "FLAG": false,
             "TIME_OVER": 1200,
-            "MULTI_TASK": true,
+            "MULTI": false,
             "IP": "192.168.1.1",
             "command": ["badblocks -svw /dev/mmcblk0p17", "badblocks -svw /dev/mmcblk0p20"],
             "Startkey": "Pass completed,",
@@ -167,9 +167,9 @@
             "FUNC_NAME": "MMC_BadBlockProxy"
         },
         {
-            "FLAG": true,
+            "FLAG": false,
             "TIME_OVER": 3000,
-            "MULTI_TASK": true,
+            "MULTI": false,
             "IP": "192.168.1.1",
             "command": ["stressapptest -s 600 -M 300 -m 5 -C 5 -W -l test_ddr_01.log",
                 "stressapptest -s 600 --cc_test -M 300 -v 20 --cc_line_size 8192 --stop_on_errors -l test_ddr_02.log",
@@ -181,9 +181,9 @@
             "FUNC_NAME": "TelnetReadUntilKeyProxy"
         },
         {
-            "FLAG": true,
+            "FLAG": false,
             "TIME_OVER": 3000,
-            "MULTI_TASK": true,
+            "MULTI": false,
             "IP": "192.168.1.1",
             "command": ["stress --cpu 8 --io 4 --vm 2 --vm-bytes 128M --timeout 1800s"],
             "keyWord": "successful run completed in",
@@ -193,13 +193,13 @@
             "FUNC_NAME": "TelnetReadUntilKeyProxy"
         },
         {
-            "FLAG": true,
+            "FLAG": false,
             "TIME_OVER": 300,
-            "MULTI_TASK": true,
+            "MULTI": false,
             "IP": "192.168.1.1",
             "ItemNames": ["emmc_speed_read", "emmc_speed_write"],
             "command": "test-emmc",
-            "KeyWord": ["Reading","Writing"],
+            "KeyWord": ["Reading", "Writing"],
             "Block": ["0x00", "0x00"],
             "ReadUntil": "root@eero-test:/#",
             "Time": 20,
@@ -207,9 +207,9 @@
             "FUNC_NAME": "MMC_WR_SPEED_PROXY"
         },
         {
-            "FLAG": true,
+            "FLAG": false,
             "TIME_OVER": 10,
-            "MULTI_TASK": true,
+            "MULTI": false,
             "FAIL_CONTNIUE": true,
             "IP": "192.168.1.1",
             "command": "cat /sys/devices/virtual/thermal/thermal_zone1/temp",
@@ -220,7 +220,8 @@
         {
             "FLAG": true,
             "TIME_OVER": 30,
-            "MULTI_TASK": true,
+            "MULTI": false,
+            "ALWAYS_RUN": true,
             "host": "192.168.1.10",
             "user": "admin",
             "password": "1234",
@@ -236,7 +237,7 @@
         {
             "FLAG": true,
             "TIME_OVER": 30,
-            "MULTI_TASK": true,
+            "MULTI": true,
             "BaseKeys": ["error_details", "status", "finish_time",
                 "test_software_version", "start_time", "station_type",
                 "error_code", "serial", "mode", "station_name", "position"],
@@ -250,18 +251,36 @@
         {
             "FLAG": true,
             "TIME_OVER": 30,
-            "MULTI_TASK": true,
+            "MULTI": false,
             "localFile": "python/log",
             "ElementName": ["mlbsn", "station_name", "mode", "serial"],
             "test_name": "CreateTxtAndZipLog",
             "FUNC_NAME": "CreateTxtProxy" 
         },
         {
-            "FLAG": false,
+            "FLAG": true,
+            "TIME_OVER": 5,
+            "WAIT_MULTI_DONE": true,
+            "User": "oper",
+            "Password": "mfg-oper",
+            "Host": "10.90.2.168",
+            "Port": 21,
+            "FtpPath": ["TEMP/QT/TRUYEN", "station_type", "start_day", "station_name"],
+            "FtpName": ["mlbsn", "sn", "mode", "finish_day"],
+            "FtpType": ".txt",
+            "LocalPath": ["python/log"],
+            "LocalName": ["mlbsn", "station_name", "mode", "serial"],
+            "LocalType": ".txt",
+            "test_name": "UpFTP",
+            "FUNC_NAME": "UpFTPProxy"
+        },
+        {
+            "FLAG": true,
             "TIME_OVER": 30,
-            "MULTI_TASK": true,
+            "MULTI": false,
+            "FAIL_CONTNIUE":true,
             "Command": "cd python && eero_API_client.py log/",
-            "ElementName": ["mlbsn", "station_name"],
+            "ElementName": ["mlbsn", "station_name","mode"],
             "Spec": "200",
             "test_name": "UpAPI",
             "FUNC_NAME": "UpApiProxy" 
@@ -275,6 +294,33 @@
             "SFIS_TYPE": "SendResult",
             "test_name": "SendToSfis",
             "FUNC_NAME": "SfisFunctionProxy"
+        },
+        {
+            "FLAG": true,
+            "TIME_OVER": 30,
+            "MULTI": false,
+            "localFile": "python/log",
+            "ElementName": ["mlbsn", "station_name", "mode", "serial"],
+            "test_name": "CreateTxtAndZipLogFinal",
+            "FUNC_NAME": "CreateTxtProxy" 
+        },
+        {
+            "FLAG": true,
+            "TIME_OVER": 5,
+            "WAIT_MULTI_DONE": true,
+            "ALWAYS_RUN": true,
+            "User": "oper",
+            "Password": "mfg-oper",
+            "Host": "10.90.2.168",
+            "Port": 21,
+            "FtpPath": ["TEMP/QT/TRUYEN", "station_type", "start_day", "station_name"],
+            "FtpName": ["mlbsn", "sn", "mode", "finish_day"],
+            "FtpType": ".txt",
+            "LocalPath": ["python/log"],
+            "LocalName": ["mlbsn", "station_name", "mode", "serial"],
+            "LocalType": ".txt",
+            "test_name": "UpFTPFinal",
+            "FUNC_NAME": "UpFTPProxy"
         }
     ]
 }

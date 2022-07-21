@@ -1,126 +1,126 @@
-2022-07-20 08:02:06.455:   ITEM[MMC_READ_WRITE_SPEED_TEST] - FUNCTION[MMC_WR_SPEED_PROXY]
-2022-07-20 08:02:06.456:   Turn 0:
-2022-07-20 08:02:06.456:   Get IP from the DHCP with MAC is "649714048d60"
-2022-07-20 08:02:06.456:   IP: 172.168.1.0
-2022-07-20 08:02:06.456:   [Telnet] Connect to host: 172.168.1.0
-2022-07-20 08:02:06.456:   [Telnet] Port is: 23
-2022-07-20 08:02:06.457:   [Cmd] ------------------------------------
-2022-07-20 08:02:06.457:   [Cmd] Send command: ping 172.168.1.0 -n 1
-2022-07-20 08:02:06.489:   [Cmd] Pinging 172.168.1.0 with 32 bytes of data:
-2022-07-20 08:02:06.490:   [Cmd] Reply from 172.168.1.0: bytes=32 time<1ms TTL=64
-2022-07-20 08:02:06.490:   [Cmd] 
-2022-07-20 08:02:06.490:   [Cmd] Ping statistics for 172.168.1.0:
-2022-07-20 08:02:06.490:   [Cmd] Packets: Sent = 1, Received = 1, Lost = 0 (0% loss),
-2022-07-20 08:02:06.490:   [Cmd] Approximate round trip times in milli-seconds:
-2022-07-20 08:02:06.490:   [Cmd] Minimum = 0ms, Maximum = 0ms, Average = 0ms
-2022-07-20 08:02:06.490:   [Cmd] ------------------------------------
-2022-07-20 08:02:06.812:   [Telnet] 
-2022-07-20 08:02:06.812:   [Telnet] === IMPORTANT ============================
-2022-07-20 08:02:06.812:   [Telnet] Use 'passwd' to set your login password!
-2022-07-20 08:02:06.812:   [Telnet] ------------------------------------------
-2022-07-20 08:02:06.812:   [Telnet] 
-2022-07-20 08:02:06.812:   [Telnet] 
-2022-07-20 08:02:06.812:   [Telnet] BusyBox v1.30.1 () built-in shell (ash)
-2022-07-20 08:02:06.812:   [Telnet] 
-2022-07-20 08:02:06.812:   [Telnet] MM           NM                    MMMMMMM          M       M
-2022-07-20 08:02:06.812:   [Telnet] $MMMMM        MMMMM                MMMMMMMMMMM      MMM     MMM
-2022-07-20 08:02:06.812:   [Telnet] MMMMMMMM     MM MMMMM.              MMMMM:MMMMMM:   MMMM   MMMMM
-2022-07-20 08:02:06.812:   [Telnet] MMMM= MMMMMM  MMM   MMMM       MMMMM   MMMM  MMMMMM   MMMM  MMMMM'
-2022-07-20 08:02:06.812:   [Telnet] MMMM=  MMMMM MMMM    MM       MMMMM    MMMM    MMMM   MMMMNMMMMM
-2022-07-20 08:02:06.812:   [Telnet] MMMM=   MMMM  MMMMM          MMMMM     MMMM    MMMM   MMMMMMMM
-2022-07-20 08:02:06.812:   [Telnet] MMMM=   MMMM   MMMMMM       MMMMM      MMMM    MMMM   MMMMMMMMM
-2022-07-20 08:02:06.812:   [Telnet] MMMM=   MMMM     MMMMM,    NMMMMMMMM   MMMM    MMMM   MMMMMMMMMMM
-2022-07-20 08:02:06.812:   [Telnet] MMMM=   MMMM      MMMMMM   MMMMMMMM    MMMM    MMMM   MMMM  MMMMMM
-2022-07-20 08:02:06.812:   [Telnet] MMMM=   MMMM   MM    MMMM    MMMM      MMMM    MMMM   MMMM    MMMM
-2022-07-20 08:02:06.812:   [Telnet] MMMM$ ,MMMMM  MMMMM  MMMM    MMM       MMMM   MMMMM   MMMM    MMMM
-2022-07-20 08:02:06.812:   [Telnet] MMMMMMM:      MMMMMMM     M         MMMMMMMMMMMM  MMMMMMM MMMMMMM
-2022-07-20 08:02:06.812:   [Telnet] MMMMMM       MMMMN     M           MMMMMMMMM      MMMM    MMMM
-2022-07-20 08:02:06.812:   [Telnet] MMMM          M                    MMMMMMM        M       M
-2022-07-20 08:02:06.812:   [Telnet] M
-2022-07-20 08:02:06.812:   [Telnet] ---------------------------------------------------------------
-2022-07-20 08:02:06.812:   [Telnet] For those about to rock... (Chaos Calmer, unknown)
-2022-07-20 08:02:06.812:   [Telnet] ---------------------------------------------------------------
-2022-07-20 08:02:06.812:   [Telnet] root@eero-test:/#
-2022-07-20 08:02:06.812:   [Telnet] Send command: test-emmc
-2022-07-20 08:02:06.813:   [Config] Items: [emmc_speed_read, emmc_speed_write]
-2022-07-20 08:02:06.813:   [Config] Block: [0x00, 0x00]
-2022-07-20 08:02:06.813:   [Config] KeyWord: [0x00, 0x00]
-2022-07-20 08:02:06.814:   [Config] Time: 20
-2022-07-20 08:02:06.814:   [Config] ReadUntil: root@eero-test:/#
-2022-07-20 08:02:12.911:   [Telnet] test-emmc
-2022-07-20 08:02:12.911:   [Telnet] 
-2022-07-20 08:02:12.911:   [Telnet] 
-2022-07-20 08:02:12.911:   [Telnet] Writing 10MiB of 0x00 in 524288 B chunks to /dev/mmcblk0p20...
-2022-07-20 08:02:12.911:   [Telnet] 20+0 records in
-2022-07-20 08:02:12.911:   [Telnet] 20+0 records out
-2022-07-20 08:02:12.911:   [Telnet] 10485760 bytes (10.0MB) copied, 0.557008 seconds, 18.0MB/s
-2022-07-20 08:02:12.911:   [Telnet] real    0m 0.56s
-2022-07-20 08:02:12.911:   [Telnet] user    0m 0.02s
-2022-07-20 08:02:12.911:   [Telnet] sys     0m 0.06s
-2022-07-20 08:02:12.911:   [Telnet] Reading 10MiB in 524288 B chunks from /dev/mmcblk0p20...
-2022-07-20 08:02:12.911:   [Telnet] 20+0 records in
-2022-07-20 08:02:12.911:   [Telnet] 20+0 records out
-2022-07-20 08:02:12.911:   [Telnet] 10485760 bytes (10.0MB) copied, 0.246343 seconds, 40.6MB/s
-2022-07-20 08:02:12.912:   [Telnet] real    0m 0.25s
-2022-07-20 08:02:12.912:   [Telnet] user    0m 0.00s
-2022-07-20 08:02:12.912:   [Telnet] sys     0m 0.03s
-2022-07-20 08:02:12.912:   [Telnet] 
-2022-07-20 08:02:12.912:   [Telnet] 
-2022-07-20 08:02:12.912:   [Telnet] Writing 10MiB of 0xFF in 524288 B chunks to /dev/mmcblk0p20...
-2022-07-20 08:02:12.912:   [Telnet] 20+0 records in
-2022-07-20 08:02:12.912:   [Telnet] 20+0 records out
-2022-07-20 08:02:12.912:   [Telnet] 10485760 bytes (10.0MB) copied, 0.499394 seconds, 20.0MB/s
-2022-07-20 08:02:12.912:   [Telnet] real    0m 0.50s
-2022-07-20 08:02:12.912:   [Telnet] user    0m 0.00s
-2022-07-20 08:02:12.912:   [Telnet] sys     0m 0.08s
-2022-07-20 08:02:12.912:   [Telnet] Reading 10MiB in 524288 B chunks from /dev/mmcblk0p20...
-2022-07-20 08:02:12.912:   [Telnet] 20+0 records in
-2022-07-20 08:02:12.912:   [Telnet] 20+0 records out
-2022-07-20 08:02:12.912:   [Telnet] 10485760 bytes (10.0MB) copied, 0.245910 seconds, 40.7MB/s
-2022-07-20 08:02:12.912:   [Telnet] real    0m 0.25s
-2022-07-20 08:02:12.912:   [Telnet] user    0m 0.00s
-2022-07-20 08:02:12.912:   [Telnet] sys     0m 0.03s
-2022-07-20 08:02:12.912:   [Telnet] 
-2022-07-20 08:02:12.912:   [Telnet] 
-2022-07-20 08:02:12.912:   [Telnet] Writing 10MiB of random in 524288 B chunks to /dev/mmcblk0p20...
-2022-07-20 08:02:12.912:   [Telnet] 20+0 records in
-2022-07-20 08:02:12.912:   [Telnet] 20+0 records out
-2022-07-20 08:02:12.912:   [Telnet] 10485760 bytes (10.0MB) copied, 3.748785 seconds, 2.7MB/s
-2022-07-20 08:02:12.912:   [Telnet] real    0m 3.75s
-2022-07-20 08:02:12.912:   [Telnet] user    0m 0.00s
-2022-07-20 08:02:12.912:   [Telnet] sys     0m 3.32s
-2022-07-20 08:02:12.912:   [Telnet] Reading 10MiB in 524288 B chunks from /dev/mmcblk0p20...
-2022-07-20 08:02:12.912:   [Telnet] 20+0 records in
-2022-07-20 08:02:12.912:   [Telnet] 20+0 records out
-2022-07-20 08:02:12.912:   [Telnet] 10485760 bytes (10.0MB) copied, 0.246067 seconds, 40.6MB/s
-2022-07-20 08:02:12.912:   [Telnet] real    0m 0.25s
-2022-07-20 08:02:12.912:   [Telnet] user    0m 0.00s
-2022-07-20 08:02:12.912:   [Telnet] sys     0m 0.03s
-2022-07-20 08:02:12.912:   [Telnet] root@eero-test:/#
-2022-07-20 08:02:12.913:   [PC] Item: emmc_speed_read
-2022-07-20 08:02:12.917:   [Config] Block: 0x00
-2022-07-20 08:02:12.918:   [Config] KeyWord: Reading
-2022-07-20 08:02:12.920:   [PC] 40.6 is a number
-2022-07-20 08:02:12.920:   ****************************************************
-2022-07-20 08:02:12.920:   Limit type: "LIMIT"
-2022-07-20 08:02:12.920:   Uper limit: ""
-2022-07-20 08:02:12.920:   Lowet limit: "35"
-2022-07-20 08:02:12.920:   Test Value: "40.6"
-2022-07-20 08:02:12.920:   Item name: EMMC_SPEED_READ
-2022-07-20 08:02:12.920:   ****************************************************
-2022-07-20 08:02:12.921:   [PC] Item: emmc_speed_write
-2022-07-20 08:02:12.921:   [Config] Block: 0x00
-2022-07-20 08:02:12.921:   [Config] KeyWord: Writing
-2022-07-20 08:02:12.922:   [PC] 18.0 is a number
-2022-07-20 08:02:12.922:   ****************************************************
-2022-07-20 08:02:12.922:   Limit type: "LIMIT"
-2022-07-20 08:02:12.922:   Uper limit: ""
-2022-07-20 08:02:12.922:   Lowet limit: "15"
-2022-07-20 08:02:12.922:   Test Value: "18.0"
-2022-07-20 08:02:12.922:   Item name: EMMC_SPEED_WRITE
-2022-07-20 08:02:12.922:   ****************************************************
-2022-07-20 08:02:12.923:   ****************************************************
-2022-07-20 08:02:12.923:   Test Value: "passed"
-2022-07-20 08:02:12.923:   Item name: MMC_READ_WRITE_SPEED_TEST
-2022-07-20 08:02:12.923:   ****************************************************
-2022-07-20 08:02:12.924:   TIME[6.467 s] - STATUS[PASSED]
+2022-07-21 08:09:49.269:   ITEM[MMC_READ_WRITE_SPEED_TEST] - FUNCTION[MMC_WR_SPEED_PROXY]
+2022-07-21 08:09:49.270:   Turn 0:
+2022-07-21 08:09:49.270:   Get IP from the DHCP with MAC is "649714048d60"
+2022-07-21 08:09:49.272:   IP: 172.168.1.0
+2022-07-21 08:09:49.272:   [Telnet] Connect to host: 172.168.1.0
+2022-07-21 08:09:49.272:   [Telnet] Port is: 23
+2022-07-21 08:09:49.272:   [Cmd] ------------------------------------
+2022-07-21 08:09:49.272:   [Cmd] Send command: ping 172.168.1.0 -n 1
+2022-07-21 08:09:49.346:   [Cmd] Pinging 172.168.1.0 with 32 bytes of data:
+2022-07-21 08:09:49.346:   [Cmd] Reply from 172.168.1.0: bytes=32 time<1ms TTL=64
+2022-07-21 08:09:49.346:   [Cmd] 
+2022-07-21 08:09:49.346:   [Cmd] Ping statistics for 172.168.1.0:
+2022-07-21 08:09:49.346:   [Cmd] Packets: Sent = 1, Received = 1, Lost = 0 (0% loss),
+2022-07-21 08:09:49.346:   [Cmd] Approximate round trip times in milli-seconds:
+2022-07-21 08:09:49.346:   [Cmd] Minimum = 0ms, Maximum = 0ms, Average = 0ms
+2022-07-21 08:09:49.347:   [Cmd] ------------------------------------
+2022-07-21 08:09:49.668:   [Telnet] 
+2022-07-21 08:09:49.668:   [Telnet] === IMPORTANT ============================
+2022-07-21 08:09:49.668:   [Telnet] Use 'passwd' to set your login password!
+2022-07-21 08:09:49.668:   [Telnet] ------------------------------------------
+2022-07-21 08:09:49.668:   [Telnet] 
+2022-07-21 08:09:49.668:   [Telnet] 
+2022-07-21 08:09:49.668:   [Telnet] BusyBox v1.30.1 () built-in shell (ash)
+2022-07-21 08:09:49.668:   [Telnet] 
+2022-07-21 08:09:49.668:   [Telnet] MM           NM                    MMMMMMM          M       M
+2022-07-21 08:09:49.668:   [Telnet] $MMMMM        MMMMM                MMMMMMMMMMM      MMM     MMM
+2022-07-21 08:09:49.668:   [Telnet] MMMMMMMM     MM MMMMM.              MMMMM:MMMMMM:   MMMM   MMMMM
+2022-07-21 08:09:49.668:   [Telnet] MMMM= MMMMMM  MMM   MMMM       MMMMM   MMMM  MMMMMM   MMMM  MMMMM'
+2022-07-21 08:09:49.668:   [Telnet] MMMM=  MMMMM MMMM    MM       MMMMM    MMMM    MMMM   MMMMNMMMMM
+2022-07-21 08:09:49.668:   [Telnet] MMMM=   MMMM  MMMMM          MMMMM     MMMM    MMMM   MMMMMMMM
+2022-07-21 08:09:49.668:   [Telnet] MMMM=   MMMM   MMMMMM       MMMMM      MMMM    MMMM   MMMMMMMMM
+2022-07-21 08:09:49.668:   [Telnet] MMMM=   MMMM     MMMMM,    NMMMMMMMM   MMMM    MMMM   MMMMMMMMMMM
+2022-07-21 08:09:49.668:   [Telnet] MMMM=   MMMM      MMMMMM   MMMMMMMM    MMMM    MMMM   MMMM  MMMMMM
+2022-07-21 08:09:49.668:   [Telnet] MMMM=   MMMM   MM    MMMM    MMMM      MMMM    MMMM   MMMM    MMMM
+2022-07-21 08:09:49.668:   [Telnet] MMMM$ ,MMMMM  MMMMM  MMMM    MMM       MMMM   MMMMM   MMMM    MMMM
+2022-07-21 08:09:49.668:   [Telnet] MMMMMMM:      MMMMMMM     M         MMMMMMMMMMMM  MMMMMMM MMMMMMM
+2022-07-21 08:09:49.668:   [Telnet] MMMMMM       MMMMN     M           MMMMMMMMM      MMMM    MMMM
+2022-07-21 08:09:49.668:   [Telnet] MMMM          M                    MMMMMMM        M       M
+2022-07-21 08:09:49.668:   [Telnet] M
+2022-07-21 08:09:49.668:   [Telnet] ---------------------------------------------------------------
+2022-07-21 08:09:49.668:   [Telnet] For those about to rock... (Chaos Calmer, unknown)
+2022-07-21 08:09:49.668:   [Telnet] ---------------------------------------------------------------
+2022-07-21 08:09:49.668:   [Telnet] root@eero-test:/#
+2022-07-21 08:09:49.668:   [Telnet] Send command: test-emmc
+2022-07-21 08:09:49.669:   [Config] Items: [emmc_speed_read, emmc_speed_write]
+2022-07-21 08:09:49.669:   [Config] Block: [0x00, 0x00]
+2022-07-21 08:09:49.669:   [Config] KeyWord: [0x00, 0x00]
+2022-07-21 08:09:49.669:   [Config] Time: 20
+2022-07-21 08:09:49.670:   [Config] ReadUntil: root@eero-test:/#
+2022-07-21 08:09:55.554:   [Telnet] test-emmc
+2022-07-21 08:09:55.554:   [Telnet] 
+2022-07-21 08:09:55.554:   [Telnet] 
+2022-07-21 08:09:55.554:   [Telnet] Writing 10MiB of 0x00 in 524288 B chunks to /dev/mmcblk0p20...
+2022-07-21 08:09:55.554:   [Telnet] 20+0 records in
+2022-07-21 08:09:55.554:   [Telnet] 20+0 records out
+2022-07-21 08:09:55.554:   [Telnet] 10485760 bytes (10.0MB) copied, 0.512974 seconds, 19.5MB/s
+2022-07-21 08:09:55.554:   [Telnet] real    0m 0.51s
+2022-07-21 08:09:55.554:   [Telnet] user    0m 0.00s
+2022-07-21 08:09:55.554:   [Telnet] sys     0m 0.08s
+2022-07-21 08:09:55.554:   [Telnet] Reading 10MiB in 524288 B chunks from /dev/mmcblk0p20...
+2022-07-21 08:09:55.554:   [Telnet] 20+0 records in
+2022-07-21 08:09:55.554:   [Telnet] 20+0 records out
+2022-07-21 08:09:55.554:   [Telnet] 10485760 bytes (10.0MB) copied, 0.246365 seconds, 40.6MB/s
+2022-07-21 08:09:55.554:   [Telnet] real    0m 0.25s
+2022-07-21 08:09:55.554:   [Telnet] user    0m 0.00s
+2022-07-21 08:09:55.554:   [Telnet] sys     0m 0.03s
+2022-07-21 08:09:55.554:   [Telnet] 
+2022-07-21 08:09:55.554:   [Telnet] 
+2022-07-21 08:09:55.554:   [Telnet] Writing 10MiB of 0xFF in 524288 B chunks to /dev/mmcblk0p20...
+2022-07-21 08:09:55.554:   [Telnet] 20+0 records in
+2022-07-21 08:09:55.554:   [Telnet] 20+0 records out
+2022-07-21 08:09:55.554:   [Telnet] 10485760 bytes (10.0MB) copied, 0.499669 seconds, 20.0MB/s
+2022-07-21 08:09:55.554:   [Telnet] real    0m 0.50s
+2022-07-21 08:09:55.554:   [Telnet] user    0m 0.00s
+2022-07-21 08:09:55.554:   [Telnet] sys     0m 0.07s
+2022-07-21 08:09:55.554:   [Telnet] Reading 10MiB in 524288 B chunks from /dev/mmcblk0p20...
+2022-07-21 08:09:55.554:   [Telnet] 20+0 records in
+2022-07-21 08:09:55.554:   [Telnet] 20+0 records out
+2022-07-21 08:09:55.554:   [Telnet] 10485760 bytes (10.0MB) copied, 0.246078 seconds, 40.6MB/s
+2022-07-21 08:09:55.554:   [Telnet] real    0m 0.25s
+2022-07-21 08:09:55.554:   [Telnet] user    0m 0.00s
+2022-07-21 08:09:55.554:   [Telnet] sys     0m 0.03s
+2022-07-21 08:09:55.554:   [Telnet] 
+2022-07-21 08:09:55.554:   [Telnet] 
+2022-07-21 08:09:55.554:   [Telnet] Writing 10MiB of random in 524288 B chunks to /dev/mmcblk0p20...
+2022-07-21 08:09:55.554:   [Telnet] 20+0 records in
+2022-07-21 08:09:55.554:   [Telnet] 20+0 records out
+2022-07-21 08:09:55.555:   [Telnet] 10485760 bytes (10.0MB) copied, 3.762920 seconds, 2.7MB/s
+2022-07-21 08:09:55.555:   [Telnet] real    0m 3.76s
+2022-07-21 08:09:55.555:   [Telnet] user    0m 0.00s
+2022-07-21 08:09:55.555:   [Telnet] sys     0m 3.32s
+2022-07-21 08:09:55.555:   [Telnet] Reading 10MiB in 524288 B chunks from /dev/mmcblk0p20...
+2022-07-21 08:09:55.555:   [Telnet] 20+0 records in
+2022-07-21 08:09:55.555:   [Telnet] 20+0 records out
+2022-07-21 08:09:55.555:   [Telnet] 10485760 bytes (10.0MB) copied, 0.245258 seconds, 40.8MB/s
+2022-07-21 08:09:55.555:   [Telnet] real    0m 0.24s
+2022-07-21 08:09:55.555:   [Telnet] user    0m 0.00s
+2022-07-21 08:09:55.555:   [Telnet] sys     0m 0.03s
+2022-07-21 08:09:55.555:   [Telnet] root@eero-test:/#
+2022-07-21 08:09:55.555:   [PC] Item: emmc_speed_read
+2022-07-21 08:09:55.569:   [Config] Block: 0x00
+2022-07-21 08:09:55.569:   [Config] KeyWord: Reading
+2022-07-21 08:09:55.571:   [PC] 40.6 is a number
+2022-07-21 08:09:55.571:   ****************************************************
+2022-07-21 08:09:55.571:   Limit type: "LIMIT"
+2022-07-21 08:09:55.571:   Uper limit: ""
+2022-07-21 08:09:55.571:   Lowet limit: "35"
+2022-07-21 08:09:55.571:   Test Value: "40.6"
+2022-07-21 08:09:55.571:   Item name: EMMC_SPEED_READ
+2022-07-21 08:09:55.571:   ****************************************************
+2022-07-21 08:09:55.571:   [PC] Item: emmc_speed_write
+2022-07-21 08:09:55.572:   [Config] Block: 0x00
+2022-07-21 08:09:55.572:   [Config] KeyWord: Writing
+2022-07-21 08:09:55.572:   [PC] 19.5 is a number
+2022-07-21 08:09:55.572:   ****************************************************
+2022-07-21 08:09:55.572:   Limit type: "LIMIT"
+2022-07-21 08:09:55.572:   Uper limit: ""
+2022-07-21 08:09:55.572:   Lowet limit: "15"
+2022-07-21 08:09:55.572:   Test Value: "19.5"
+2022-07-21 08:09:55.572:   Item name: EMMC_SPEED_WRITE
+2022-07-21 08:09:55.572:   ****************************************************
+2022-07-21 08:09:55.573:   ****************************************************
+2022-07-21 08:09:55.573:   Test Value: "passed"
+2022-07-21 08:09:55.573:   Item name: MMC_READ_WRITE_SPEED_TEST
+2022-07-21 08:09:55.573:   ****************************************************
+2022-07-21 08:09:55.573:   TIME[6.303 s] - STATUS[PASSED]

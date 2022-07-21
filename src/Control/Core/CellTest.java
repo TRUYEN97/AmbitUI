@@ -136,7 +136,7 @@ public class CellTest {
         }
 
         private void startCheck() {
-            this.timer.start();
+//            this.timer.start();
             this.myTimer.start(testSource.getTimeOutTest());
         }
 

@@ -31,13 +31,15 @@ public class FileBaseFunction extends AbsFunction {
 
     public boolean saveJson(JSONObject data) {
         String filePath = this.allConfig.getString("localFile");
-        String nameFile = this.createNameFile(".json");
+        List<String> elementName = this.allConfig.getListJsonArray("ElementName");
+        String nameFile = this.createNameFile(elementName,".json");
         return saveFile(filePath, nameFile, formatJson(data.toJSONString()));
     }
 
     public boolean saveTxt(String data) {
         String filePath = this.allConfig.getString("localFile");
-        String nameFile = this.createNameFile( ".txt");
+        List<String> elementName = this.allConfig.getListJsonArray("ElementName");
+        String nameFile = this.createNameFile( elementName, ".txt");
         return saveFile(filePath, nameFile, data);
     }
    
@@ -71,24 +73,44 @@ public class FileBaseFunction extends AbsFunction {
         return str.trim();
     }
 
-    public String createNameFile(String end) {
+    public String createNameFile(List<String> elementName, String end) {
         StringBuilder pathName = new StringBuilder();
-        List<String> elementName = this.allConfig.getListJsonArray("ElementName");
         addLog("PC", "ElementName: " + elementName);
         for (String elem : elementName) {
             if (!pathName.isEmpty()) {
                 pathName.append("_");
             }
-            String value = productData.getString(elem);
+            String value = processData.getString(elem);
             if (value == null) {
                 pathName.append(elem);
             } else {
                 value = value.replace('\\', '-');
                 value = value.replace('/', '-');
+                value = value.replace(' ', '-');
+                value = value.replace(':', '-');
                 pathName.append(value);
             }
         }
         return pathName.append(end).toString();
+    }
+    
+    public String createDirPath(List<String> elementName) {
+        StringBuilder pathName = new StringBuilder();
+        addLog("PC", "ElementName: " + elementName);
+        for (String elem : elementName) {
+            if (!pathName.isEmpty()) {
+                pathName.append("/");
+            }
+            String value = processData.getString(elem);
+            if (value == null) {
+                pathName.append(elem);
+            }else{ 
+                value = value.replace(' ', '-');
+                value = value.replace(':', '-');
+                pathName.append(value);
+            }
+        }
+        return pathName.toString();
     }
 
 }

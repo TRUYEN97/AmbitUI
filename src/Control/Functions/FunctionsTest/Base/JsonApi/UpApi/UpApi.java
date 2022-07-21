@@ -12,6 +12,7 @@ import Model.DataSource.ModeTest.FunctionConfig.FunctionElement;
 import Model.DataTest.FunctionData.FunctionData;
 import Model.ManagerUI.UIStatus.UiStatus;
 import commandprompt.Communicate.Cmd.Cmd;
+import java.util.List;
 
 /**
  *
@@ -41,7 +42,8 @@ public class UpApi extends AbsFunction {
     @Override
     protected boolean test() {
         String command = this.allConfig.getString("Command");
-        String nameFile = this.fileBaseFunction.createNameFile("");
+        List<String> elementName = this.allConfig.getListJsonArray("ElementName");
+        String nameFile = this.fileBaseFunction.createNameFile(elementName,"");
         Cmd cmd = new Cmd();
         if (!this.functionBase.sendCommand(cmd, command + nameFile)) {
             return false;

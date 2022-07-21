@@ -44,6 +44,7 @@ public class AllKeyWord {
     public static final String RETRY = "RETRY";
     public static final String FUNC_NAME = "FUNC_NAME";
     public static final String WAIT_MULTI_DONE = "WAIT_MULTI_DONE";
+    public static final String ALWAYSRUN = "ALWAYS_RUN";
     public static final String MULTI_TASK = "MULTI";
     public static final String TIME_OUT_TEST = "TIME_OUT_TEST";
     public static final String FAIL_CONTNIUE = "FAIL_CONTNIUE";
@@ -65,7 +66,9 @@ public class AllKeyWord {
     public static final String DATA = "data";
     public static final String VERSION = "test_software_version";
     public static final String START_TIME = "start_time";
+    public static final String START_DAY = "start_day";
     public static final String FINISH_TIME = "finish_time";
+    public static final String FINISH_DAY = "finish_day";
     public static final String CYCLE_TIME = "cyctime";
     public static final String TEST_VALUE = "test_value";
     public static final String LOOP_TEST = "LOOP_TEST";

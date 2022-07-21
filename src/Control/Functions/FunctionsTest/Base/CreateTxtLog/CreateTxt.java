@@ -14,6 +14,7 @@ import Model.ErrorLog;
 import Model.ManagerUI.UIStatus.UiStatus;
 import MyLoger.MyLoger;
 import java.io.File;
+import java.util.List;
 
 /**
  *
@@ -46,8 +47,9 @@ public class CreateTxt extends AbsFunction {
         addLog("Save file zip!");
         try {
             String filePath = this.allConfig.getString("localFile");
-            String zipFile = this.fileBaseFunction.createNameFile(".zip");
-            String txtFile = this.fileBaseFunction.createNameFile(".txt");
+            List<String> elementName = this.allConfig.getListJsonArray("ElementName");
+            String zipFile = this.fileBaseFunction.createNameFile(elementName, ".zip");
+            String txtFile = this.fileBaseFunction.createNameFile(elementName, ".txt");
             return this.fileBaseFunction.saveZip(filePath, zipFile, txtFile);
         } catch (Exception e) {
             addLog("Save file zip failed: " + e.getMessage());
@@ -61,9 +63,14 @@ public class CreateTxt extends AbsFunction {
         MyLoger loger = new MyLoger();
         try {
             String filePath = this.allConfig.getString("localFile");
-            String txtFile = this.fileBaseFunction.createNameFile(".txt");
+            List<String> elementName = this.allConfig.getListJsonArray("ElementName");
+            String txtFile = this.fileBaseFunction.createNameFile(elementName, ".txt");
             String path = String.format("%s/%s", filePath, txtFile);
-            loger.begin(new File(path), true, true);
+            if(!loger.begin(new File(path), true, true)){
+               addLog("Error","Open file log failed!");
+               return false;
+            }
+            createInfo(loger);
             for (FunctionData dataBox : processData.getDataBoxs()) {
                 if (dataBox.isTesting()) {
                     continue;
@@ -82,6 +89,23 @@ public class CreateTxt extends AbsFunction {
         } finally {
             loger.close();
         }
+    }
+
+    private void createInfo(MyLoger loger) {
+        loger.add("===================================================================\r\n");
+        loger.add("Start at = " + processData.getString(AllKeyWord.START_TIME));
+        loger.add("\r\n");
+        loger.add("End test at = " + processData.getString(AllKeyWord.FINISH_TIME ));
+        loger.add("\r\n");
+        loger.add("Station = " + processData.getString(AllKeyWord.STATION_NAME ));
+        loger.add("\r\n");
+        loger.add("Localtion = " + processData.getString(AllKeyWord.INDEX ));
+        loger.add("\r\n");
+        loger.add("HHSN = " + processData.getString(AllKeyWord.SN ));
+        loger.add("\r\n");
+        loger.add("DEVICSN = " + processData.getString(AllKeyWord.MLBSN));
+        loger.add("\r\n===================================================================\r\n");
+
     }
 
 }

@@ -1,0 +1,14 @@
+2022-07-21 10:49:40.155:   ITEM[CreateTxtAndZipLogFinal] - FUNCTION[CreateTxtProxy]
+2022-07-21 10:49:40.155:   Turn 0:
+2022-07-21 10:49:40.155:   Save file txt!
+2022-07-21 10:49:40.155:   [PC] ElementName: [mlbsn, station_name, mode, serial]
+2022-07-21 10:49:40.155:   [Error] Open file log failed!
+2022-07-21 10:49:40.155:   ****************************************************
+2022-07-21 10:49:40.155:   Test Value: "failed"
+2022-07-21 10:49:40.155:   Item name: CreateTxtAndZipLogFinal
+2022-07-21 10:49:40.155:   ****************************************************
+2022-07-21 10:49:40.155:   Error code: -1
+2022-07-21 10:49:40.156:   Error des: CreateTxtAndZipLogFinal
+2022-07-21 10:49:40.156:   Local error code: TXT01
+2022-07-21 10:49:40.156:   Local error des: CreateTxtAndZipLogFinal
+2022-07-21 10:49:40.156:   TIME[0.001 s] - STATUS[FAILED]

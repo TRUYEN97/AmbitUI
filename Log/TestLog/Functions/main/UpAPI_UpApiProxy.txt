@@ -1,0 +1,22 @@
+2022-07-21 10:49:39.891:   ITEM[UpAPI] - FUNCTION[UpApiProxy]
+2022-07-21 10:49:39.891:   Turn 0:
+2022-07-21 10:49:39.891:   [PC] ElementName: [mlbsn, station_name, mode]
+2022-07-21 10:49:39.891:   [Cmd] Send command: cd python && eero_API_client.py log/mlbsn_REPAIR-7801_Debug
+2022-07-21 10:49:40.152:   [Cmd] log/mlbsn_REPAIR-7801_Debug_serial.txt
+2022-07-21 10:49:40.152:   [Cmd] Connected
+2022-07-21 10:49:40.152:   [Cmd] 
+2022-07-21 10:49:40.152:   [Cmd] INFO: Input text is valid JSON.
+2022-07-21 10:49:40.152:   [Cmd] ERROR: JSON failed to validate against schema. Invalid Mode in header
+2022-07-21 10:49:40.153:   [Cmd] INFO: Found 1 file, not saved.
+2022-07-21 10:49:40.153:   [Cmd] INFO: Saved failed JSON to /home/eero/data/_invalid/2022-07-21/2022-07-21T104943.json.
+2022-07-21 10:49:40.153:   [Cmd] 
+2022-07-21 10:49:40.153:   [Cmd] 400
+2022-07-21 10:49:40.153:   ****************************************************
+2022-07-21 10:49:40.153:   Test Value: "failed"
+2022-07-21 10:49:40.153:   Item name: UpAPI
+2022-07-21 10:49:40.153:   ****************************************************
+2022-07-21 10:49:40.153:   Error code: -1
+2022-07-21 10:49:40.153:   Error des: UpAPI
+2022-07-21 10:49:40.153:   Local error code: API01
+2022-07-21 10:49:40.153:   Local error des: UpAPI
+2022-07-21 10:49:40.154:   TIME[0.262 s] - STATUS[FAILED]

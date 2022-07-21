@@ -1,55 +1,55 @@
-2022-07-20 06:25:49.938:   ITEM[phy_model] - FUNCTION[CheckCommandTelnetProxy]
-2022-07-20 06:25:49.939:   Turn 0:
-2022-07-20 06:25:49.939:   Get IP from the DHCP with MAC is "649714048d60"
-2022-07-20 06:25:49.939:   [Telnet] Connect to host: 172.168.1.0
-2022-07-20 06:25:49.940:   [Telnet] Port is: 23
-2022-07-20 06:25:49.940:   [Cmd] ------------------------------------
-2022-07-20 06:25:49.940:   [Cmd] Send command: ping 172.168.1.0 -n 1
-2022-07-20 06:25:49.999:   [Cmd] Pinging 172.168.1.0 with 32 bytes of data:
-2022-07-20 06:25:49.999:   [Cmd] Reply from 172.168.1.0: bytes=32 time<1ms TTL=64
-2022-07-20 06:25:50.000:   [Cmd] 
-2022-07-20 06:25:50.000:   [Cmd] Ping statistics for 172.168.1.0:
-2022-07-20 06:25:50.000:   [Cmd] Packets: Sent = 1, Received = 1, Lost = 0 (0% loss),
-2022-07-20 06:25:50.000:   [Cmd] Approximate round trip times in milli-seconds:
-2022-07-20 06:25:50.000:   [Cmd] Minimum = 0ms, Maximum = 0ms, Average = 0ms
-2022-07-20 06:25:50.000:   [Cmd] ------------------------------------
-2022-07-20 06:25:50.323:   [Telnet] 
-2022-07-20 06:25:50.323:   [Telnet] === IMPORTANT ============================
-2022-07-20 06:25:50.323:   [Telnet] Use 'passwd' to set your login password!
-2022-07-20 06:25:50.323:   [Telnet] ------------------------------------------
-2022-07-20 06:25:50.323:   [Telnet] 
-2022-07-20 06:25:50.323:   [Telnet] 
-2022-07-20 06:25:50.323:   [Telnet] BusyBox v1.30.1 () built-in shell (ash)
-2022-07-20 06:25:50.324:   [Telnet] 
-2022-07-20 06:25:50.324:   [Telnet] MM           NM                    MMMMMMM          M       M
-2022-07-20 06:25:50.324:   [Telnet] $MMMMM        MMMMM                MMMMMMMMMMM      MMM     MMM
-2022-07-20 06:25:50.324:   [Telnet] MMMMMMMM     MM MMMMM.              MMMMM:MMMMMM:   MMMM   MMMMM
-2022-07-20 06:25:50.324:   [Telnet] MMMM= MMMMMM  MMM   MMMM       MMMMM   MMMM  MMMMMM   MMMM  MMMMM'
-2022-07-20 06:25:50.324:   [Telnet] MMMM=  MMMMM MMMM    MM       MMMMM    MMMM    MMMM   MMMMNMMMMM
-2022-07-20 06:25:50.324:   [Telnet] MMMM=   MMMM  MMMMM          MMMMM     MMMM    MMMM   MMMMMMMM
-2022-07-20 06:25:50.324:   [Telnet] MMMM=   MMMM   MMMMMM       MMMMM      MMMM    MMMM   MMMMMMMMM
-2022-07-20 06:25:50.324:   [Telnet] MMMM=   MMMM     MMMMM,    NMMMMMMMM   MMMM    MMMM   MMMMMMMMMMM
-2022-07-20 06:25:50.324:   [Telnet] MMMM=   MMMM      MMMMMM   MMMMMMMM    MMMM    MMMM   MMMM  MMMMMM
-2022-07-20 06:25:50.324:   [Telnet] MMMM=   MMMM   MM    MMMM    MMMM      MMMM    MMMM   MMMM    MMMM
-2022-07-20 06:25:50.325:   [Telnet] MMMM$ ,MMMMM  MMMMM  MMMM    MMM       MMMM   MMMMM   MMMM    MMMM
-2022-07-20 06:25:50.325:   [Telnet] MMMMMMM:      MMMMMMM     M         MMMMMMMMMMMM  MMMMMMM MMMMMMM
-2022-07-20 06:25:50.325:   [Telnet] MMMMMM       MMMMN     M           MMMMMMMMM      MMMM    MMMM
-2022-07-20 06:25:50.325:   [Telnet] MMMM          M                    MMMMMMM        M       M
-2022-07-20 06:25:50.325:   [Telnet] M
-2022-07-20 06:25:50.325:   [Telnet] ---------------------------------------------------------------
-2022-07-20 06:25:50.325:   [Telnet] For those about to rock... (Chaos Calmer, unknown)
-2022-07-20 06:25:50.325:   [Telnet] ---------------------------------------------------------------
-2022-07-20 06:25:50.325:   [Telnet] root@eero-test:/#
-2022-07-20 06:25:50.325:   [Telnet] Send command: dmesg|grep 'PHY ID'
-2022-07-20 06:25:50.432:   [Telnet] dmesg|grep 'PHY ID'
-2022-07-20 06:25:50.432:   [Telnet] [   13.951752] Ethernet port eth0's PHY ID is 0x4dd0c0
-2022-07-20 06:25:50.432:   [Telnet] [   13.957941] Ethernet port eth1's PHY ID is 0x4dd101
-2022-07-20 06:25:50.432:   [CONFIG] Start key: "eth1's PHY ID is"
-2022-07-20 06:25:50.432:   [CONFIG] End key: ""
-2022-07-20 06:25:50.432:   [CONFIG] Regex: "null"
-2022-07-20 06:25:50.432:   [PC] Value: "0x4dd101"
-2022-07-20 06:25:50.432:   ****************************************************
-2022-07-20 06:25:50.432:   Test Value: "0x4dd101"
-2022-07-20 06:25:50.433:   Item name: phy_model
-2022-07-20 06:25:50.433:   ****************************************************
-2022-07-20 06:25:50.433:   TIME[0.494 s] - STATUS[PASSED]
+2022-07-21 10:45:40.479:   ITEM[phy_model] - FUNCTION[CheckCommandTelnetProxy]
+2022-07-21 10:45:40.479:   Turn 0:
+2022-07-21 10:45:40.479:   Get IP from the DHCP with MAC is "649714048d60"
+2022-07-21 10:45:40.479:   [Telnet] Connect to host: 172.168.1.0
+2022-07-21 10:45:40.479:   [Telnet] Port is: 23
+2022-07-21 10:45:40.479:   [Cmd] ------------------------------------
+2022-07-21 10:45:40.479:   [Cmd] Send command: ping 172.168.1.0 -n 1
+2022-07-21 10:45:40.530:   [Cmd] Pinging 172.168.1.0 with 32 bytes of data:
+2022-07-21 10:45:40.530:   [Cmd] Reply from 172.168.1.0: bytes=32 time<1ms TTL=64
+2022-07-21 10:45:40.530:   [Cmd] 
+2022-07-21 10:45:40.545:   [Cmd] Ping statistics for 172.168.1.0:
+2022-07-21 10:45:40.545:   [Cmd] Packets: Sent = 1, Received = 1, Lost = 0 (0% loss),
+2022-07-21 10:45:40.545:   [Cmd] Approximate round trip times in milli-seconds:
+2022-07-21 10:45:40.545:   [Cmd] Minimum = 0ms, Maximum = 0ms, Average = 0ms
+2022-07-21 10:45:40.545:   [Cmd] ------------------------------------
+2022-07-21 10:45:40.766:   [Telnet] 
+2022-07-21 10:45:40.766:   [Telnet] === IMPORTANT ============================
+2022-07-21 10:45:40.766:   [Telnet] Use 'passwd' to set your login password!
+2022-07-21 10:45:40.766:   [Telnet] ------------------------------------------
+2022-07-21 10:45:40.766:   [Telnet] 
+2022-07-21 10:45:40.766:   [Telnet] 
+2022-07-21 10:45:40.766:   [Telnet] BusyBox v1.30.1 () built-in shell (ash)
+2022-07-21 10:45:40.766:   [Telnet] 
+2022-07-21 10:45:40.766:   [Telnet] MM           NM                    MMMMMMM          M       M
+2022-07-21 10:45:40.766:   [Telnet] $MMMMM        MMMMM                MMMMMMMMMMM      MMM     MMM
+2022-07-21 10:45:40.766:   [Telnet] MMMMMMMM     MM MMMMM.              MMMMM:MMMMMM:   MMMM   MMMMM
+2022-07-21 10:45:40.766:   [Telnet] MMMM= MMMMMM  MMM   MMMM       MMMMM   MMMM  MMMMMM   MMMM  MMMMM'
+2022-07-21 10:45:40.766:   [Telnet] MMMM=  MMMMM MMMM    MM       MMMMM    MMMM    MMMM   MMMMNMMMMM
+2022-07-21 10:45:40.766:   [Telnet] MMMM=   MMMM  MMMMM          MMMMM     MMMM    MMMM   MMMMMMMM
+2022-07-21 10:45:40.766:   [Telnet] MMMM=   MMMM   MMMMMM       MMMMM      MMMM    MMMM   MMMMMMMMM
+2022-07-21 10:45:40.766:   [Telnet] MMMM=   MMMM     MMMMM,    NMMMMMMMM   MMMM    MMMM   MMMMMMMMMMM
+2022-07-21 10:45:40.766:   [Telnet] MMMM=   MMMM      MMMMMM   MMMMMMMM    MMMM    MMMM   MMMM  MMMMMM
+2022-07-21 10:45:40.766:   [Telnet] MMMM=   MMMM   MM    MMMM    MMMM      MMMM    MMMM   MMMM    MMMM
+2022-07-21 10:45:40.766:   [Telnet] MMMM$ ,MMMMM  MMMMM  MMMM    MMM       MMMM   MMMMM   MMMM    MMMM
+2022-07-21 10:45:40.766:   [Telnet] MMMMMMM:      MMMMMMM     M         MMMMMMMMMMMM  MMMMMMM MMMMMMM
+2022-07-21 10:45:40.766:   [Telnet] MMMMMM       MMMMN     M           MMMMMMMMM      MMMM    MMMM
+2022-07-21 10:45:40.766:   [Telnet] MMMM          M                    MMMMMMM        M       M
+2022-07-21 10:45:40.766:   [Telnet] M
+2022-07-21 10:45:40.766:   [Telnet] ---------------------------------------------------------------
+2022-07-21 10:45:40.766:   [Telnet] For those about to rock... (Chaos Calmer, unknown)
+2022-07-21 10:45:40.766:   [Telnet] ---------------------------------------------------------------
+2022-07-21 10:45:40.766:   [Telnet] root@eero-test:/#
+2022-07-21 10:45:40.766:   [Telnet] Send command: dmesg|grep 'PHY ID'
+2022-07-21 10:45:40.875:   [Telnet] dmesg|grep 'PHY ID'
+2022-07-21 10:45:40.875:   [Telnet] [   13.831325] Ethernet port eth0's PHY ID is 0x4dd0c0
+2022-07-21 10:45:40.875:   [Telnet] [   13.837954] Ethernet port eth1's PHY ID is 0x4dd101
+2022-07-21 10:45:40.875:   [CONFIG] Start key: "eth1's PHY ID is"
+2022-07-21 10:45:40.875:   [CONFIG] End key: ""
+2022-07-21 10:45:40.875:   [CONFIG] Regex: "null"
+2022-07-21 10:45:40.875:   [PC] Value: "0x4dd101"
+2022-07-21 10:45:40.875:   ****************************************************
+2022-07-21 10:45:40.875:   Test Value: "0x4dd101"
+2022-07-21 10:45:40.875:   Item name: phy_model
+2022-07-21 10:45:40.875:   ****************************************************
+2022-07-21 10:45:40.875:   TIME[0.396 s] - STATUS[PASSED]
