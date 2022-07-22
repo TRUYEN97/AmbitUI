@@ -12,8 +12,6 @@ import Model.Interface.IFunction;
 import Model.ManagerUI.UIStatus.UiStatus;
 import java.util.ArrayList;
 import java.util.List;
-import java.util.logging.Level;
-import java.util.logging.Logger;
 
 /**
  *
@@ -39,19 +37,19 @@ class Process implements IFunction {
     public void setListFunc(List<FunctionName> functions) {
         this.functions.clear();
         this.result = true;
+        this.justFunctionAlwayRun = false;
         this.functions.addAll(functions);
     }
 
     private FunctionCover createFuncCover(FunctionName function) {
-        FunctionCover func = new FunctionCover(
+        return new FunctionCover(
                 this.factory.getFunc(function.getFunctions(),
                         function.getItemName()), uiStatus);
-        return func;
     }
 
     @Override
     public boolean isPass() {
-        return result;
+        return result && !justFunctionAlwayRun;
     }
 
     @Override
@@ -59,7 +57,6 @@ class Process implements IFunction {
         test = true;
         try {
             FunctionCover funcCover;
-            justFunctionAlwayRun = false;
             for (FunctionName functionName : functions) {
                 funcCover = createFuncCover(functionName);
                 if (justFunctionAlwayRun && !funcCover.isAlwaysRun()) {
@@ -85,7 +82,6 @@ class Process implements IFunction {
             waitUntilMultiTaskDone();
             test = false;
         }
-
     }
 
     private void waitUntilMultiTaskDone() {

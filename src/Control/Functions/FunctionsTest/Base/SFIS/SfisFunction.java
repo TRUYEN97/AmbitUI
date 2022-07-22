@@ -7,6 +7,7 @@ package Control.Functions.FunctionsTest.Base.SFIS;
 import Control.Functions.AbsFunction;
 import Model.AllKeyWord;
 import Model.DataSource.Setting.Setting;
+import Model.DataTest.FunctionData.ItemTestData;
 import Model.ErrorLog;
 import SfisAPI17.SfisAPI;
 import com.alibaba.fastjson.JSONObject;
@@ -22,6 +23,7 @@ public class SfisFunction extends AbsFunction {
     private final SfisAPI sfisAPI;
     private static final String DATA_FORMAT = "DATA_FORMAT";
     private static final String SEND_FORMAT = "SEND_FORMAT";
+    private static final String SEND_FORMAT_FAIL = "SEND_FORMAT_FAIL";
 
     public SfisFunction(String functionName) {
         super(functionName);
@@ -42,10 +44,8 @@ public class SfisFunction extends AbsFunction {
             addLog("Send test result to sfis");
         }
         addLog("send to url: " + url);
-        String command = this.createCommand();
-        addLog("command: " + command);
+        String command = getCommand(type);
         if (command == null) {
-            addLog("command is null ");
             return false;
         }
         String response = this.sfisAPI.sendToSFIS(url, command);
@@ -57,25 +57,37 @@ public class SfisFunction extends AbsFunction {
         }
     }
 
-    private String createCommand() {
+    private String getCommand(String type) {
+        String command;
+        String status = this.processData.getString(AllKeyWord.STATUS);
+        if (type == null || (status != null && status.equals(ItemTestData.PASS))) {
+            command = this.createCommand(SEND_FORMAT);
+        } else {
+            command = this.createCommand(SEND_FORMAT_FAIL);
+        }
+        return command;
+    }
+
+    private String createCommand(String keyWord) {
         JSONObject command = new JSONObject();
-        List<String> listKey = this.allConfig.getListJsonArray(SEND_FORMAT);
-        addLog(SEND_FORMAT, listKey);
+        List<String> listKey = this.allConfig.getListJsonArray(keyWord);
+        addLog(keyWord, listKey);
         if (listKey == null || listKey.isEmpty()) {
-            addLog(DATA_FORMAT + " is null or empty!");
+            addLog(keyWord + " is null or empty!");
             return null;
         }
         for (String key : listKey) {
             String value = this.processData.getString(key);
-            addLog("key: " + key);
-            if (value != null) {
-                addLog("----value: " + value);
-                command.put(key.toUpperCase(), value);
+            key = key.toUpperCase();
+            addLog("key: " + key +" = "+value);
+            if (key.equalsIgnoreCase(AllKeyWord.STATUS)) {
+                command.put(key,
+                        value.equals(ItemTestData.PASS) ? PASS : FAIL);
             } else {
-                addLog("----value: empty");
-                command.put(key.toUpperCase(), "");
+                command.put(key, value);
             }
         }
+        addLog("command: " + command);
         return command.toJSONString();
     }
 
@@ -89,7 +101,7 @@ public class SfisFunction extends AbsFunction {
             return false;
         }
         JSONObject res = JSONObject.parseObject(response);
-        if (res.getString(AllKeyWord.RESULT).equals("PASS")) {
+        if (res.getString(AllKeyWord.RESULT).equals(PASS)) {
             List<String> listKey = this.allConfig.getListJsonArray(DATA_FORMAT);
             addLog(DATA_FORMAT, listKey);
             if (listKey == null || listKey.isEmpty()) {
@@ -97,12 +109,15 @@ public class SfisFunction extends AbsFunction {
                 return false;
             }
             JSONObject data = res.getJSONObject(AllKeyWord.DATA);
-            if (Setting.getInstance().isOnDHCP() && !putMacDHCP(data)) {
+            if (!getDataToProductInfo(listKey, data)) {
+                return false;
+            }
+            if (Setting.getInstance().isOnDHCP() && !putMacDHCP()) {
                 addLog("Get MAC from SFIS for DHCP failed!");
                 return false;
             }
             addLog("add data to production info");
-            return getDataToProductInfo(listKey, data);
+            return true;
         } else {
             this.addLog(res.getString("message"));
             this.processData.setMessage(res.getString("message"));
@@ -115,7 +130,8 @@ public class SfisFunction extends AbsFunction {
         for (String key : listKey) {
             if (data.containsKey(key)) {
                 if (key.equals(AllKeyWord.MAC)) {
-                    value = createTrueMac(getValueInData(data, key));
+//                    value = createTrueMac(getValueInData(data, key));
+                    value = createTrueMac("649714048d60");
                 } else {
                     value = getValueInData(data, key);
                 }
@@ -135,9 +151,8 @@ public class SfisFunction extends AbsFunction {
         for (char kitu : value.toCharArray()) {
             if (index != 0 && index % 2 == 0) {
                 builder.append(':');
-            } else {
-                builder.append(kitu);
             }
+            builder.append(kitu);
             index++;
         }
         return builder.toString();
@@ -151,8 +166,8 @@ public class SfisFunction extends AbsFunction {
         return value;
     }
 
-    private boolean putMacDHCP(JSONObject data) {
-        String mac = data.getString(AllKeyWord.MAC);
+    private boolean putMacDHCP() {
+        String mac = this.processData.getString(AllKeyWord.MAC);
         if (mac == null || mac.isBlank()) {
             return false;
         }
@@ -182,4 +197,5 @@ public class SfisFunction extends AbsFunction {
         }
     }
     private static final String PASS = "PASS";
+    private static final String FAIL = "FAIL";
 }

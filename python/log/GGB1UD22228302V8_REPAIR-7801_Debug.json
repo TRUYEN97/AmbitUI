@@ -1,0 +1,50 @@
+{
+"mode":"Debug",
+"station_name":"REPAIR-7801",
+"start_time":"2022-07-22 07:17:10",
+"tests":[
+{
+"start_time":"2022-07-22 07:17:10",
+"lower_limit":"",
+"upper_limit":"",
+"error_code":"",
+"units":"",
+"test_name":"GEN_NODE",
+"finish_time":"2022-07-22 07:17:10",
+"test_value":"passed",
+"status":"passed"
+},
+
+{
+"start_time":"2022-07-22 07:17:13",
+"lower_limit":"",
+"upper_limit":"",
+"error_code":"8",
+"units":"",
+"test_name":"DUT_PING",
+"finish_time":"2022-07-22 07:17:13",
+"test_value":"failed",
+"status":"failed"
+},
+
+{
+"start_time":"2022-07-22 07:17:10",
+"lower_limit":"",
+"upper_limit":"",
+"error_code":"",
+"units":"",
+"test_name":"WPS_OK",
+"finish_time":"2022-07-22 07:17:13",
+"test_value":"passed",
+"status":"passed"
+}
+],
+"error_details":"dut_ping",
+"serial":"",
+"error_code":"10.1.0",
+"position":"main",
+"station_type":"REPAIR",
+"finish_time":"2022-07-22 07:17:14",
+"status":"failed",
+"test_software_version":"1.0.0"
+}

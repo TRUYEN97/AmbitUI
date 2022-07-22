@@ -2,11 +2,11 @@
  * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
  * Click nbfs://nbhost/SystemFileSystem/Templates/Classes/Class.java to edit this template
  */
-package Control.Functions.FunctionsTest.Base.DutPing;
+package Control.Functions.FunctionsTest.Runin.OnOffPing;
 
-import Control.Functions.AbsFunction;
 import Control.Functions.FunctionsTest.Base.BaseFunction.AnalysisBase;
 import Control.Functions.FunctionsTest.Base.BaseFunction.FunctionBase;
+import Control.Functions.FunctionsTest.Runin.PowerSwitch.PowerSwitchFunc;
 import Model.DataSource.ModeTest.FunctionConfig.FunctionElement;
 import Model.DataTest.FunctionData.FunctionData;
 import Model.ManagerUI.UIStatus.UiStatus;
@@ -15,12 +15,12 @@ import Model.ManagerUI.UIStatus.UiStatus;
  *
  * @author Administrator
  */
-public class DutPing extends AbsFunction {
-    
+public class OnOffPing extends PowerSwitchFunc{
+
     private final FunctionBase baseFunc;
     private final AnalysisBase analysisBase;
 
-    public DutPing(String itemName) {
+    public OnOffPing(String itemName) {
         super(itemName);
         this.baseFunc = new FunctionBase(itemName);
         this.analysisBase = new AnalysisBase(itemName);
@@ -32,16 +32,14 @@ public class DutPing extends AbsFunction {
         this.baseFunc.setResources(funcConfig, uiStatus, functionData);
         this.analysisBase.setResources(funcConfig, uiStatus, functionData);
     }
-    
-    
     @Override
-    protected boolean test() {
+    public boolean doSomethings() {
         String ip = this.analysisBase.getIp();
         addLog("IP: " + ip);
         if (ip == null) {
             return false;
         }
-        return this.baseFunc.pingTo(ip, 50);
+        return this.baseFunc.pingTo(ip, 35);
     }
     
 }

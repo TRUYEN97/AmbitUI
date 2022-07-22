@@ -19,6 +19,7 @@ public class InputData {
     public InputData() {
         this.data = new JSONObject();
 //        this.data.put(PCNAME, PcInformation.getInstance().getPcName());
+        this.data.put(AllKeyWord.PC_NAME, "REPAIR-7801");
         this.data.put(AllKeyWord.STATION_NAME, "REPAIR-7801");
         this.data.put(AllKeyWord.STATION_TYPE, "REPAIR");
         this.data.put(AllKeyWord.VERSION, "1.0.0");

@@ -1,14 +1,17 @@
-2022-07-21 10:49:40.155:   ITEM[CreateTxtAndZipLogFinal] - FUNCTION[CreateTxtProxy]
-2022-07-21 10:49:40.155:   Turn 0:
-2022-07-21 10:49:40.155:   Save file txt!
-2022-07-21 10:49:40.155:   [PC] ElementName: [mlbsn, station_name, mode, serial]
-2022-07-21 10:49:40.155:   [Error] Open file log failed!
-2022-07-21 10:49:40.155:   ****************************************************
-2022-07-21 10:49:40.155:   Test Value: "failed"
-2022-07-21 10:49:40.155:   Item name: CreateTxtAndZipLogFinal
-2022-07-21 10:49:40.155:   ****************************************************
-2022-07-21 10:49:40.155:   Error code: -1
-2022-07-21 10:49:40.156:   Error des: CreateTxtAndZipLogFinal
-2022-07-21 10:49:40.156:   Local error code: TXT01
-2022-07-21 10:49:40.156:   Local error des: CreateTxtAndZipLogFinal
-2022-07-21 10:49:40.156:   TIME[0.001 s] - STATUS[FAILED]
+2022-07-22 13:29:32.396:   ITEM[CreateTxtAndZipLogFinal] - FUNCTION[CreateTxtProxy]
+2022-07-22 13:29:32.396:   Turn 0:
+2022-07-22 13:29:32.396:   Save file txt!
+2022-07-22 13:29:32.396:   [PC] ElementName: [mlbsn, station_name, mode, serial]
+2022-07-22 13:29:32.396:   - add item: gen_node
+2022-07-22 13:29:32.411:   - add item: wps_ok
+2022-07-22 13:29:32.411:   - add item: PowerSwitch_Ping
+2022-07-22 13:29:32.443:   Save file txt in python/log/GGB1UD2222830GW1_REPAIR-7801_Debug_serial.txt
+2022-07-22 13:29:32.443:   Save file zip!
+2022-07-22 13:29:32.443:   [PC] ElementName: [mlbsn, station_name, mode, serial]
+2022-07-22 13:29:32.443:   [PC] ElementName: [mlbsn, station_name, mode, serial]
+2022-07-22 13:29:32.536:   [PC] Save data in: python/log\GGB1UD2222830GW1_REPAIR-7801_Debug_serial.zip ok
+2022-07-22 13:29:32.536:   ****************************************************
+2022-07-22 13:29:32.536:   Test Value: "passed"
+2022-07-22 13:29:32.536:   Item name: CreateTxtAndZipLogFinal
+2022-07-22 13:29:32.536:   ****************************************************
+2022-07-22 13:29:32.536:   TIME[0.140 s] - STATUS[PASSED]

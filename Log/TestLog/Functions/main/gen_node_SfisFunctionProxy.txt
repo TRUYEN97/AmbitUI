@@ -1,0 +1,22 @@
+2022-07-22 12:57:01.595:   ITEM[gen_node] - FUNCTION[SfisFunctionProxy]
+2022-07-22 12:57:01.595:   Turn 0:
+2022-07-22 12:57:01.595:   Check SN....
+2022-07-22 12:57:01.595:   send to url: http://10.90.0.40/sfcapi/api/connect
+2022-07-22 12:57:01.595:   [SEND_FORMAT] [sn, pcname]
+2022-07-22 12:57:01.595:   key: SN = RX90UQS
+2022-07-22 12:57:01.595:   key: PCNAME = REPAIR-7801
+2022-07-22 12:57:01.595:   command: {"PCNAME":"REPAIR-7801","SN":"RX90UQS"}
+2022-07-22 12:57:01.641:   Response is: {"result":"PASS","message":"OK","data":{"sn":"RX90UQS","ethernetmac":"9C57BCE2B200","pnname":"810-01100","mlbsn":"GGB1UD2222830GW1","model":"","smode":"Production","finalyr":"0","retestyr":"0","mbltpn":"830-01100","typemodel":""}}
+2022-07-22 12:57:01.641:   [DATA_FORMAT] [mlbsn, ethernetmac]
+2022-07-22 12:57:01.641:   add key: mlbsn -- Value: GGB1UD2222830GW1
+2022-07-22 12:57:01.641:   add key: ethernetmac -- Value: 64:97:14:04:8d:60
+2022-07-22 12:57:01.641:   add Mac: 64:97:14:04:8d:60 -- Ip: 172.168.1.0 to DHCP data
+2022-07-22 12:57:01.641:   add data to production info
+2022-07-22 12:57:01.641:   ****************************************************
+2022-07-22 12:57:01.641:   Limit type: "BOOL"
+2022-07-22 12:57:01.641:   Uper limit: ""
+2022-07-22 12:57:01.641:   Lowet limit: ""
+2022-07-22 12:57:01.641:   Test Value: "passed"
+2022-07-22 12:57:01.641:   Item name: GEN_NODE
+2022-07-22 12:57:01.641:   ****************************************************
+2022-07-22 12:57:01.641:   TIME[0.046 s] - STATUS[PASSED]

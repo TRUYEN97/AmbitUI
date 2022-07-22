@@ -133,8 +133,8 @@ public class FunctionBase extends AbsFunction {
     public boolean pingTo(String ip, int times) {
         Cmd cmd = new Cmd();
         String command1 = String.format("ping %s -n 1", ip);
-        for (int i = 0; i < times; i++) {
-            addLog("Cmd", "------------------------------------");
+        for (int i = 1; i <= times; i++) {
+            addLog("Cmd","------------------------------------ "+i);
             try {
                 if (sendCommand(cmd, command1)) {
                     String response = cmd.readAll().trim();

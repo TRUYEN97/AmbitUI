@@ -38,7 +38,7 @@ public class PowerSwitchFunc extends AbsFunction {
             for (int i = 1; i <= times; i++) {
                 powerSwitch = new PowerSwitch(host, user, pass);
                 addLog(String.format("cycle Times: %d - %d ", i, times));
-                if (!run(powerSwitch, index, delay)) {
+                if (!run(powerSwitch, index, delay) || !doSomethings()) {
                     return false;
                 }
             }
@@ -109,6 +109,10 @@ public class PowerSwitchFunc extends AbsFunction {
     private boolean isNotIP() {
         String ip = this.allConfig.getString("host");
         return ip == null || !ip.matches("\\b((25[0-5]|2[0-4][0-9]|[01]?[0-9][0-9]?)(\\.|$)){4}\\b");
+    }
+
+    public boolean doSomethings() {
+        return true;
     }
 
 }

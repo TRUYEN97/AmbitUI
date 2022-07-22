@@ -1,64 +1,64 @@
 {
 "mode":"Debug",
 "station_name":"REPAIR-7801",
-"start_time":"2022-07-21 10:48:43",
+"start_time":"2022-07-22 06:02:32",
 "tests":[
 {
-"start_time":"2022-07-21 10:48:47",
+"start_time":"2022-07-22 06:02:36",
 "lower_limit":"",
 "upper_limit":"",
 "error_code":"",
 "units":"",
 "test_name":"DUT_PING",
-"finish_time":"2022-07-21 10:49:37",
+"finish_time":"2022-07-22 06:04:59",
 "test_value":"passed",
 "status":"passed"
 },
 
 {
-"start_time":"2022-07-21 10:49:38",
+"start_time":"2022-07-22 06:05:00",
 "lower_limit":"",
 "upper_limit":"",
 "error_code":"15",
 "units":"",
 "test_name":"SN_OK",
-"finish_time":"2022-07-21 10:49:38",
+"finish_time":"2022-07-22 06:05:00",
 "test_value":"GGB1UDD21472001A",
 "status":"failed"
 },
 
 {
-"start_time":"2022-07-21 10:49:38",
+"start_time":"2022-07-22 06:05:00",
 "lower_limit":"",
 "upper_limit":"",
 "error_code":"15",
 "units":"",
 "test_name":"MAC_OK",
-"finish_time":"2022-07-21 10:49:38",
+"finish_time":"2022-07-22 06:05:00",
 "test_value":"64:97:14:04:8d:60",
 "status":"failed"
 },
 
 {
-"start_time":"2022-07-21 10:48:43",
+"start_time":"2022-07-22 06:02:32",
 "lower_limit":"",
 "upper_limit":"",
 "error_code":"",
 "units":"",
 "test_name":"WPS_OK",
-"finish_time":"2022-07-21 10:48:47",
+"finish_time":"2022-07-22 06:02:35",
 "test_value":"passed",
 "status":"passed"
 },
 
 {
-"start_time":"2022-07-21 10:49:37",
+"start_time":"2022-07-22 06:04:59",
 "lower_limit":"",
 "upper_limit":"",
 "error_code":"",
 "units":"",
 "test_name":"DUT_TELNET",
-"finish_time":"2022-07-21 10:49:38",
+"finish_time":"2022-07-22 06:05:00",
 "test_value":"passed",
 "status":"passed"
 }
@@ -68,7 +68,7 @@
 "error_code":"30.1.0",
 "position":"main",
 "station_type":"REPAIR",
-"finish_time":"2022-07-21 10:49:39",
+"finish_time":"2022-07-22 06:05:02",
 "status":"failed",
 "test_software_version":"1.0.0"
 }

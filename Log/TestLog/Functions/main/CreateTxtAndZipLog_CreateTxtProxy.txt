@@ -1,22 +1,17 @@
-2022-07-21 10:49:39.766:   ITEM[CreateTxtAndZipLog] - FUNCTION[CreateTxtProxy]
-2022-07-21 10:49:39.766:   Turn 0:
-2022-07-21 10:49:39.766:   Save file txt!
-2022-07-21 10:49:39.766:   [PC] ElementName: [mlbsn, station_name, mode, serial]
-2022-07-21 10:49:39.766:   - add item: wps_ok
-2022-07-21 10:49:39.782:   - add item: dut_ping
-2022-07-21 10:49:39.782:   - add item: dut_telnet
-2022-07-21 10:49:39.797:   - add item: sn_ok
-2022-07-21 10:49:39.797:   - add item: mac_ok
-2022-07-21 10:49:39.797:   - add item: led_vendor
-2022-07-21 10:49:39.813:   - add item: ReleasePowerSwitchOutlet
-2022-07-21 10:49:39.813:   - add item: CreateJsonLog
-2022-07-21 10:49:39.813:   Save file txt in python/log/mlbsn_REPAIR-7801_Debug_serial.txt
-2022-07-21 10:49:39.813:   Save file zip!
-2022-07-21 10:49:39.813:   [PC] ElementName: [mlbsn, station_name, mode, serial]
-2022-07-21 10:49:39.813:   [PC] ElementName: [mlbsn, station_name, mode, serial]
-2022-07-21 10:49:39.828:   [PC] Save data in: python/log\mlbsn_REPAIR-7801_Debug_serial.zip ok
-2022-07-21 10:49:39.828:   ****************************************************
-2022-07-21 10:49:39.828:   Test Value: "passed"
-2022-07-21 10:49:39.828:   Item name: CreateTxtAndZipLog
-2022-07-21 10:49:39.828:   ****************************************************
-2022-07-21 10:49:39.828:   TIME[0.062 s] - STATUS[PASSED]
+2022-07-22 10:49:55.904:   ITEM[CreateTxtAndZipLog] - FUNCTION[CreateTxtProxy]
+2022-07-22 10:49:55.905:   Turn 0:
+2022-07-22 10:49:55.905:   Save file txt!
+2022-07-22 10:49:55.906:   [PC] ElementName: [mlbsn, station_name, mode, serial]
+2022-07-22 10:49:55.908:   - add item: gen_node
+2022-07-22 10:49:55.911:   - add item: wps_ok
+2022-07-22 10:49:55.913:   - add item: PowerSwitch_Ping
+2022-07-22 10:49:55.935:   Save file txt in python/log/GGB1UD2222830GW1_REPAIR-7801_Debug_serial.txt
+2022-07-22 10:49:55.935:   Save file zip!
+2022-07-22 10:49:55.935:   [PC] ElementName: [mlbsn, station_name, mode, serial]
+2022-07-22 10:49:55.936:   [PC] ElementName: [mlbsn, station_name, mode, serial]
+2022-07-22 10:49:55.955:   [PC] Save data in: python/log\GGB1UD2222830GW1_REPAIR-7801_Debug_serial.zip ok
+2022-07-22 10:49:55.956:   ****************************************************
+2022-07-22 10:49:55.956:   Test Value: "passed"
+2022-07-22 10:49:55.956:   Item name: CreateTxtAndZipLog
+2022-07-22 10:49:55.956:   ****************************************************
+2022-07-22 10:49:55.956:   TIME[0.051 s] - STATUS[PASSED]

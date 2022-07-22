@@ -22,6 +22,7 @@ import Control.Functions.FunctionsTest.Base.UpFTP.UpFTPProxy;
 import Control.Functions.FunctionsTest.Runin.CheckCommandTelnet.CheckCommandTelnetProxy;
 import Control.Functions.FunctionsTest.Runin.MMC_BadBlock.MMC_BadBlockProxy;
 import Control.Functions.FunctionsTest.Runin.MMC_WR_SPEED.MMC_WR_SPEED_PROXY;
+import Control.Functions.FunctionsTest.Runin.OnOffPing.OnOffPingProxy;
 import Control.Functions.FunctionsTest.Runin.TelnetReadUntilKey.TelnetReadUntilKeyProxy;
 import Control.Functions.FunctionsTest.Runin.RebootSoft.RebootSoftProxy;
 import Control.Functions.InitPackages.InitProxy.IdPasswordProxy;
@@ -121,5 +122,6 @@ public class Factory {
         this.functions.addType(new TelnetReadUntilKeyProxy());
         this.functions.addType(new CreateJsonApiProxy());
         this.functions.addType(new MMC_WR_SPEED_PROXY());
+        this.functions.addType(new OnOffPingProxy());
     }
 }

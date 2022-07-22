@@ -5,6 +5,7 @@
 package Control.Functions.FunctionsTest.Base.BaseFunction;
 
 import Control.Functions.AbsFunction;
+import Model.AllKeyWord;
 import Model.DataSource.Setting.Setting;
 import Time.WaitTime.AbsTime;
 import Time.WaitTime.Class.TimeS;
@@ -97,8 +98,7 @@ public class AnalysisBase extends AbsFunction {
 
     public String getIp() {
         if (Setting.getInstance().isOnDHCP()) {
-//            String mac = getMac();
-            String mac = "649714048d60";
+            String mac = this.processData.getString(AllKeyWord.MAC);
             if (mac == null) {
                 addLog("It's DHCP mode but MAC is null!");
                 return null;

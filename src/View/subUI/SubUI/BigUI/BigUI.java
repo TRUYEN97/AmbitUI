@@ -4,7 +4,9 @@
  */
 package View.subUI.SubUI.BigUI;
 
+import Model.DataTest.FunctionData.FunctionData;
 import View.subUI.SubUI.AbsSubUi;
+import java.util.List;
 
 /**
  *
@@ -12,9 +14,11 @@ import View.subUI.SubUI.AbsSubUi;
  */
 public class BigUI extends AbsSubUi {
 
-    
+    private List<FunctionData> list;
+
     /**
      * Creates new form BigUI
+     *
      * @param indexName
      */
     public BigUI(String indexName) {
@@ -22,6 +26,25 @@ public class BigUI extends AbsSubUi {
         initComponents();
         this.PanelUp.add(this.tabDetail);
     }
+
+    @Override
+    public void startTest() {
+        this.list = uiStatus.getProcessData().getDataBoxs();
+        int checkFunc = this.uiStatus.getModeTest().getModeTestSource().getCheckFunctions().size();
+        int testFunc = this.uiStatus.getModeTest().getModeTestSource().getTestFunctions().size();
+        int endFunc = this.uiStatus.getModeTest().getModeTestSource().getEndFunctions().size();
+        this.Process.setMaximum(checkFunc + testFunc + endFunc);
+        super.startTest();
+    }
+
+    @Override
+    public void endTest() {
+        updateData();
+        this.Process.setValue(this.Process.getMaximum());
+        super.endTest(); 
+    }
+
+    
 
     /**
      * This method is called from within the constructor to initialize the form.
@@ -41,11 +64,15 @@ public class BigUI extends AbsSubUi {
 
         PanelUp.setLayout(new java.awt.BorderLayout());
 
-        panelDown.setBackground(new java.awt.Color(153, 153, 153));
+        panelDown.setBackground(new java.awt.Color(204, 204, 255));
 
-        lbItemName.setFont(new java.awt.Font("Tahoma", 0, 18)); // NOI18N
+        Process.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
+        Process.setOpaque(true);
+        Process.setStringPainted(true);
+
+        lbItemName.setFont(new java.awt.Font("Tahoma", 1, 20)); // NOI18N
         lbItemName.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        lbItemName.setText("Item");
+        lbItemName.setText("...");
         lbItemName.setVerticalAlignment(javax.swing.SwingConstants.BOTTOM);
 
         btTest.setFont(new java.awt.Font("Tahoma", 1, 18)); // NOI18N
@@ -66,24 +93,25 @@ public class BigUI extends AbsSubUi {
             panelDownLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, panelDownLayout.createSequentialGroup()
                 .addContainerGap()
-                .addGroup(panelDownLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                    .addComponent(lbItemName, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                    .addComponent(Process, javax.swing.GroupLayout.DEFAULT_SIZE, 287, Short.MAX_VALUE))
-                .addGap(18, 18, 18)
                 .addGroup(panelDownLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(panelDownLayout.createSequentialGroup()
-                        .addComponent(btTest, javax.swing.GroupLayout.DEFAULT_SIZE, 76, Short.MAX_VALUE)
-                        .addGap(1, 1, 1))
-                    .addComponent(lbTime, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                    .addComponent(Process, javax.swing.GroupLayout.DEFAULT_SIZE, 311, Short.MAX_VALUE)
+                    .addComponent(lbItemName, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addGroup(panelDownLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(btTest, javax.swing.GroupLayout.PREFERRED_SIZE, 0, Short.MAX_VALUE)
+                    .addComponent(lbTime, javax.swing.GroupLayout.DEFAULT_SIZE, 59, Short.MAX_VALUE))
                 .addContainerGap())
         );
         panelDownLayout.setVerticalGroup(
             panelDownLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(panelDownLayout.createSequentialGroup()
-                .addGap(15, 15, 15)
-                .addGroup(panelDownLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(lbItemName)
-                    .addComponent(lbTime, javax.swing.GroupLayout.PREFERRED_SIZE, 32, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGroup(panelDownLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(panelDownLayout.createSequentialGroup()
+                        .addGap(25, 25, 25)
+                        .addComponent(lbTime))
+                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, panelDownLayout.createSequentialGroup()
+                        .addContainerGap()
+                        .addComponent(lbItemName)))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addGroup(panelDownLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
                     .addComponent(btTest, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
@@ -101,7 +129,7 @@ public class BigUI extends AbsSubUi {
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
-                .addComponent(PanelUp, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addComponent(PanelUp, javax.swing.GroupLayout.DEFAULT_SIZE, 6, Short.MAX_VALUE)
                 .addGap(2, 2, 2)
                 .addComponent(panelDown, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
         );
@@ -128,8 +156,11 @@ public class BigUI extends AbsSubUi {
 
     @Override
     public void updateData() {
+        if (list != null) {
+            this.Process.setValue(list.size());
+            lbItemName.setText(list.get(list.size()-1).getItemFunctionName());
+        }
         lbTime.setText(getTestTime());
     }
 
-   
 }

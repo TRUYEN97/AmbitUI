@@ -4,9 +4,9 @@
     "TIME_OUT_TEST": 7000,
     "INIT": [
         {
-            "FLAG": false,
+            "FLAG": true,
             "TIME_OVER": 50,
-            "SEND_FORMAT": ["sn", "pcname", "mode"],
+            "SEND_FORMAT": ["sn", "pcname"],
             "DATA_FORMAT": ["mlbsn", "ethernetmac", "pnname", "model", "smode"],
             "URL": "http://10.90.0.40/sfcapi/api/connect",
             "test_name": "gen_node",
@@ -56,7 +56,7 @@
             "FLAG": true,
             "TIME_OVER": 10,
             "MULTI": true,
-            "FAIL_CONTNIUE": false,
+            "FAIL_CONTNIUE": true,
             "IP": "192.168.1.1",
             "command": "fw_printenv  serial",
             "Startkey": "serial=",
@@ -125,7 +125,7 @@
             "FUNC_NAME": "CheckCommandTelnetProxy"
         },
         {
-            "FLAG": false,
+            "FLAG": true,
             "TIME_OVER": 300,
             "RETRY": 3,
             "MULTI": true,
@@ -134,7 +134,7 @@
             "FUNC_NAME": "RebootSoftProxy"
         },
         {
-            "FLAG": false,
+            "FLAG": true,
             "TIME_OVER": 1200,
             "MULTI": false,
             "host": "192.168.1.10",
@@ -147,7 +147,7 @@
             "FUNC_NAME": "PowerSwitchProxy"
         },
         {
-            "FLAG": false,
+            "FLAG": true,
             "TIME_OVER": 120,
             "MULTI": false,
             "IP": "192.168.1.1",
@@ -155,7 +155,7 @@
             "FUNC_NAME": "DutPingProxy"
         },
         {
-            "FLAG": false,
+            "FLAG": true,
             "TIME_OVER": 1200,
             "MULTI": false,
             "IP": "192.168.1.1",
@@ -167,7 +167,7 @@
             "FUNC_NAME": "MMC_BadBlockProxy"
         },
         {
-            "FLAG": false,
+            "FLAG": true,
             "TIME_OVER": 3000,
             "MULTI": false,
             "IP": "192.168.1.1",
@@ -181,7 +181,7 @@
             "FUNC_NAME": "TelnetReadUntilKeyProxy"
         },
         {
-            "FLAG": false,
+            "FLAG": true,
             "TIME_OVER": 3000,
             "MULTI": false,
             "IP": "192.168.1.1",
@@ -193,7 +193,7 @@
             "FUNC_NAME": "TelnetReadUntilKeyProxy"
         },
         {
-            "FLAG": false,
+            "FLAG": true,
             "TIME_OVER": 300,
             "MULTI": false,
             "IP": "192.168.1.1",
@@ -207,14 +207,14 @@
             "FUNC_NAME": "MMC_WR_SPEED_PROXY"
         },
         {
-            "FLAG": false,
+            "FLAG": true,
             "TIME_OVER": 10,
             "MULTI": false,
             "FAIL_CONTNIUE": true,
             "IP": "192.168.1.1",
             "command": "cat /sys/devices/virtual/thermal/thermal_zone1/temp",
             "Regex": "^[0-9]+$",
-            "test_name": "temp_cpu_1",
+            "test_name": "temp_cpu1",
             "FUNC_NAME": "CheckCommandTelnetProxy"
         },
         {

@@ -11,6 +11,12 @@
             "local_error_des": "SFIS_SEND_ERROR"
         }
     },
+    "PowerSwitch_Ping": {
+        "simple": {
+            "local_error_code": "PwPing00",
+            "local_error_des": "PowerSwitch_Ping"
+        }
+    },
     "UpFTP": {
         "simple": {
             "local_error_code": "UpFtp",
