@@ -118,4 +118,8 @@ public class ModeTestSource {
     public int getLoopTest() {
         return modeConfig.getLoopTest();
     }
+
+    public List<FunctionName> getSelectedItem(List<String> listItem) {
+        return  this.functionConfig.getSelectedItem(listItem);
+    }
 }

@@ -4,7 +4,7 @@
     "TIME_OUT_TEST": 11000,
     "INIT": [
         {
-            "FLAG": true,
+            "FLAG": false,
             "TIME_OVER": 50,
             "SEND_FORMAT": ["sn", "pcname"],
             "DATA_FORMAT": ["mlbsn", "ethernetmac"],
@@ -39,7 +39,7 @@
             "Delay": 5,
             "Command": ["off","on"],
             "test_name": "PowerSwitch_Ping",
-            "FUNC_NAME": "OnOffPingProxy"
+            "FUNC_NAME": "PowerSwicthPingProxy"
         }
     ],
     "END": [

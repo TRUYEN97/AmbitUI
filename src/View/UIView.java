@@ -115,7 +115,7 @@ public class UIView extends javax.swing.JFrame {
         this.txtInput.setText(mess);
     }
 
-    public void setShowText(String mess) {
+    public void showSfisText(String mess) {
         this.txtShow.setText(mess);
     }
 

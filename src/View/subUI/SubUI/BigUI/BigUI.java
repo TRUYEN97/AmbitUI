@@ -15,6 +15,7 @@ import java.util.List;
 public class BigUI extends AbsSubUi {
 
     private List<FunctionData> list;
+    protected boolean debugMode;
 
     /**
      * Creates new form BigUI
@@ -34,14 +35,24 @@ public class BigUI extends AbsSubUi {
         int testFunc = this.uiStatus.getModeTest().getModeTestSource().getTestFunctions().size();
         int endFunc = this.uiStatus.getModeTest().getModeTestSource().getEndFunctions().size();
         this.Process.setMaximum(checkFunc + testFunc + endFunc);
+        this.btTest.setEnabled(false);
         super.startTest();
     }
+
+    @Override
+    public boolean update() {
+        debugMode = this.uiStatus.getModeTest().isDebugMode();
+        this.btTest.setEnabled(debugMode);
+        return super.update(); // Generated from nbfs://nbhost/SystemFileSystem/Templates/Classes/Code/OverriddenMethodBody
+    }
+    
 
     @Override
     public void endTest() {
         updateData();
         this.Process.setValue(this.Process.getMaximum());
         super.endTest(); 
+        this.btTest.setEnabled(debugMode);
     }
 
     
@@ -137,7 +148,7 @@ public class BigUI extends AbsSubUi {
 
     private void btTestActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btTestActionPerformed
         // TODO add your handling code here:
-        //    this.loadMode.getCurrentMode().iWannaDedug(null, this);
+        this.uiStatus.getCellTest().testDebugItem(null);
     }//GEN-LAST:event_btTestActionPerformed
 
 

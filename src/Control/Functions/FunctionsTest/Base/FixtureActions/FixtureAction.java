@@ -37,7 +37,7 @@ public class FixtureAction extends AbsFunction {
     }
 
     @Override
-    protected boolean test() {
+    public boolean test() {
         String com = this.allConfig.getString("ComPort");
         Integer baud = this.allConfig.getInteger("BaudRate");
         ComPort comPort = this.base.getComport(com, baud);
@@ -50,24 +50,32 @@ public class FixtureAction extends AbsFunction {
     private boolean sendCommand(ComPort comPort) {
         List<String> commands = this.allConfig.getListJsonArray("command");
         String keyWord = this.allConfig.getString("keyWord");
-        Integer time = this.allConfig.getInteger("Time");
+        Integer time = this.allConfig.getInteger("Time",1);
+        Integer delay = this.allConfig.getInteger("Delay",1);
         if (commands.isEmpty() || time == null || keyWord == null) {
             addLog("ERROR", "Config failed");
             return false;
         }
         String key = getValueOfKey(keyWord);
         addLog(String.format("KeyWord is %s - %s", keyWord, key));
-        for (String command : commands) {
-            if (!this.base.sendCommand(comPort, command)) {
-                return false;
+        try {
+            for (String command : commands) {
+                if (!this.base.sendCommand(comPort, command)) {
+                    return false;
+                }
+                String result = comPort.readUntil(key, new TimeS(time));
+                addLog(comPort.getClass().getSimpleName(), result);
+                if (!result.endsWith(key)) {
+                    return false;
+                }
             }
-            String result = comPort.readUntil(key, new TimeS(time));
-            addLog(comPort.getClass().getSimpleName(), result);
-            if (!result.endsWith(key)) {
-                return false;
+            return true;
+        } finally {
+            try {
+                Thread.sleep(delay*1000);
+            } catch (InterruptedException ex) {
             }
         }
-        return true;
     }
 
     private String getValueOfKey(String keyWord) {

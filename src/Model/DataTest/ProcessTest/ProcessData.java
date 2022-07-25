@@ -163,4 +163,9 @@ public class ProcessData {
         }
         return null;
     }
+
+    public void clearSignal() {
+        this.signal.clear();
+        this.productData.clear();
+    }
 }

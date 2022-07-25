@@ -2,26 +2,20 @@
  * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
  * Click nbfs://nbhost/SystemFileSystem/Templates/Classes/Class.java to edit this template
  */
-package View.subUI.SubUI.SmallUI;
+package Control.Functions.FunctionsTest.ON_OFF.PowerSwicthPing;
 
+import Control.Functions.AbsFunction;
 import Model.Factory.AbsProxy;
-import View.subUI.SubUI.AbsSubUi;
 
 /**
  *
  * @author Administrator
  */
-public class SmallProxy extends AbsProxy<AbsSubUi>{
-
-    public SmallProxy() {
-    }
+public class PowerSwicthPingProxy extends AbsProxy<AbsFunction>{
 
     @Override
-    public AbsSubUi takeIt() { 
-        if (getName() == null) {
-            return null;
-        }
-       return new SmallUI(getName());
+    public AbsFunction takeIt() {
+        return new PowerSwicthPing(getName());
     }
     
 }

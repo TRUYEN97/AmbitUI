@@ -6,6 +6,7 @@ package View.subUI.SubUI.SmallUI;
 
 import View.subUI.FormDetail.FormShow;
 import View.subUI.SubUI.AbsSubUi;
+import java.awt.Color;
 
 /**
  *
@@ -59,6 +60,24 @@ public class SmallUI extends AbsSubUi {
             this.formShow.showDetail(tabDetail);
         }
     }//GEN-LAST:event_lbTimeMouseClicked
+
+    @Override
+    public void startTest() {
+        super.startTest(); // Generated from nbfs://nbhost/SystemFileSystem/Templates/Classes/Code/OverriddenMethodBody
+        this.lbTime.setBackground(Color.yellow);
+    }
+
+    
+    
+    @Override
+    public void endTest() {
+        super.endTest(); // Generated from nbfs://nbhost/SystemFileSystem/Templates/Classes/Code/OverriddenMethodBody
+        if (this.uiStatus.getProcessData().isPass()) {
+            this.lbTime.setBackground(Color.GREEN);
+        } else {
+            this.lbTime.setBackground(Color.red);
+        }
+    }
 
 
     // Variables declaration - do not modify//GEN-BEGIN:variables

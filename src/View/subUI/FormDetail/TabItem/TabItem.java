@@ -14,6 +14,7 @@ import Model.DataTest.FunctionData.FunctionData;
 import View.subUI.FormDetail.AbsTabUI;
 import View.subUI.FormDetail.ItemLog;
 import java.awt.event.KeyEvent;
+import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
@@ -145,7 +146,12 @@ public class TabItem extends AbsTabUI {
     private void tableItemMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_tableItemMouseClicked
         // TODO add your handling code here:
         if (evt.getClickCount() > 1) {
-            showItemLogSelected();
+            if (this.tableItem.getRowCount() == 0) {
+                initTable(testColumn);
+                updateListItemTest(true);
+            } else {
+                showItemLogSelected();
+            }
         }
     }//GEN-LAST:event_tableItemMouseClicked
 
@@ -162,7 +168,6 @@ public class TabItem extends AbsTabUI {
             itemLog.showLog();
             itemLogs.put(dataBox, itemLog);
         }
-
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
@@ -182,11 +187,16 @@ public class TabItem extends AbsTabUI {
         if (!isVisible()) {
             return;
         }
-        if (evt.getKeyChar() == CTRL_S && !this.uiStatus.isTesting()) {
-            showListFunction();
+        if (!this.uiStatus.isTesting()) {
+            if (evt.getKeyChar() == CTRL_S) {
+                showListFunction();
+            } else if (evt.getKeyChar() == CTRL_D && this.tableItem.getSelectedRowCount() > 0) {
+                this.uiStatus.getCellTest().testDebugItem(getListSelectedItem());
+            }
         }
     }
     private static final int CTRL_S = 19;
+    private static final int CTRL_D = 4;
 
     @Override
     public void startTest() {
@@ -197,7 +207,7 @@ public class TabItem extends AbsTabUI {
 
     @Override
     public void endTest() {
-        updateData();
+        updateListItemTest(true);
         super.endTest();
     }
 
@@ -206,24 +216,11 @@ public class TabItem extends AbsTabUI {
         if (!this.isVisible()) {
             return;
         }
-        List<FunctionData> dataBoxs = this.uiStatus.getProcessData().getDataBoxs();
-        for (FunctionData dataBox : dataBoxs) {
-            int row = dataBoxs.indexOf(dataBox);
-            if (row > this.tableModel.getRowCount() - 1) {
-                this.tableModel.addRow(new Object[]{this.tableModel.getRowCount()});
-                editRow(dataBox.getItemFunctionName(), row, ITEM);
-                editRow(String.format("%.3f S", dataBox.getRunTime()),
-                        row, TIME);
-                editRow(getStatus(dataBox), row, STAUS);
-            } else {
-                editRow(dataBox.getItemFunctionName(), row, ITEM);
-                editRow(String.format("%.3f S", dataBox.getRunTime()),
-                        row, TIME);
-                editRow(getStatus(dataBox), row, STAUS);
-                editRow(dataBox.getErrorCode(), row, ERROR_CODE);
-                editRow(dataBox.getCusErrorCode(), row, CUS_ERROR_CODE);
-            }
+        if (this.tableItem.getRowCount() == 0) {
+            updateListItemTest(true);
+            return;
         }
+        updateListItemTest(false);
     }
 
     private void editRow(Object value, int row, String colmn) {
@@ -245,5 +242,40 @@ public class TabItem extends AbsTabUI {
             return null;
         }
         return this.tableModel.getValueAt(row, this.listFunc.indexOf(ITEM)).toString();
+    }
+
+    private void updateListItemTest(boolean showAll) {
+        if (!this.isVisible()) {
+            return;
+        }
+        List<FunctionData> dataBoxs = this.uiStatus.getProcessData().getDataBoxs();
+        for (FunctionData dataBox : dataBoxs) {
+            if (!showAll && !dataBox.isTesting()) {
+                continue;
+            }
+            int row = dataBoxs.indexOf(dataBox);
+            if (row > this.tableModel.getRowCount() - 1) {
+                this.tableModel.addRow(new Object[]{this.tableModel.getRowCount()});
+                editRow(dataBox.getItemFunctionName(), row, ITEM);
+                editRow(String.format("%.3f S", dataBox.getRunTime()),
+                        row, TIME);
+                editRow(getStatus(dataBox), row, STAUS);
+            } else {
+                editRow(dataBox.getItemFunctionName(), row, ITEM);
+                editRow(String.format("%.3f S", dataBox.getRunTime()),
+                        row, TIME);
+                editRow(getStatus(dataBox), row, STAUS);
+                editRow(dataBox.getErrorCode(), row, ERROR_CODE);
+                editRow(dataBox.getCusErrorCode(), row, CUS_ERROR_CODE);
+            }
+        }
+    }
+
+    private List<String> getListSelectedItem() {
+        List<String> result = new ArrayList<>();
+        for (int selectedRow : this.tableItem.getSelectedRows()) {
+            result.add(getNameITem(selectedRow));
+        }
+        return result;
     }
 }

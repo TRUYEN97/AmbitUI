@@ -22,7 +22,7 @@ import Control.Functions.FunctionsTest.Base.UpFTP.UpFTPProxy;
 import Control.Functions.FunctionsTest.Runin.CheckCommandTelnet.CheckCommandTelnetProxy;
 import Control.Functions.FunctionsTest.Runin.MMC_BadBlock.MMC_BadBlockProxy;
 import Control.Functions.FunctionsTest.Runin.MMC_WR_SPEED.MMC_WR_SPEED_PROXY;
-import Control.Functions.FunctionsTest.Runin.OnOffPing.OnOffPingProxy;
+import Control.Functions.FunctionsTest.ON_OFF.PowerSwicthPing.PowerSwicthPingProxy;
 import Control.Functions.FunctionsTest.Runin.TelnetReadUntilKey.TelnetReadUntilKeyProxy;
 import Control.Functions.FunctionsTest.Runin.RebootSoft.RebootSoftProxy;
 import Control.Functions.InitPackages.InitProxy.IdPasswordProxy;
@@ -33,7 +33,7 @@ import Model.Interface.IFunction;
 import View.subUI.FormDetail.TabItem.TabItemProxy;
 import View.subUI.FormDetail.TabView.TabViewProxy;
 import View.subUI.SubUI.BigUI.BigUIProxy;
-import View.subUI.SubUI.SmallUI.SmallProxy;
+import View.subUI.SubUI.SmallUI.SmallUIProxy;
 
 /**
  *
@@ -89,7 +89,7 @@ public class Factory {
     
     private void addSubUI() {
         this.subUIFactory.addType(new BigUIProxy());
-        this.subUIFactory.addType(new SmallProxy());
+        this.subUIFactory.addType(new SmallUIProxy());
     }
     
     private void addTabUI() {
@@ -122,6 +122,7 @@ public class Factory {
         this.functions.addType(new TelnetReadUntilKeyProxy());
         this.functions.addType(new CreateJsonApiProxy());
         this.functions.addType(new MMC_WR_SPEED_PROXY());
-        this.functions.addType(new OnOffPingProxy());
+        this.functions.addType(new PowerSwicthPingProxy());
+        this.functions.addType(new FixtureActionProxy());
     }
 }

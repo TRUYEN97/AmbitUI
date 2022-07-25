@@ -119,8 +119,9 @@ public class SfisFunction extends AbsFunction {
             addLog("add data to production info");
             return true;
         } else {
-            this.addLog(res.getString("message"));
-            this.processData.setMessage(res.getString("message"));
+            this.addLog(res.getString(AllKeyWord.MESSAGE));
+            this.processData.setMessage(res.getString(AllKeyWord.MESSAGE));
+            this.subUi.showSfisMessager(res.getString(AllKeyWord.MESSAGE));
             return false;
         }
     }
@@ -130,8 +131,7 @@ public class SfisFunction extends AbsFunction {
         for (String key : listKey) {
             if (data.containsKey(key)) {
                 if (key.equals(AllKeyWord.MAC)) {
-//                    value = createTrueMac(getValueInData(data, key));
-                    value = createTrueMac("649714048d60");
+                    value = createTrueMac(getValueInData(data, key));
                 } else {
                     value = getValueInData(data, key);
                 }
@@ -188,6 +188,7 @@ public class SfisFunction extends AbsFunction {
         try {
             JSONObject res = JSONObject.parseObject(response);
             this.processData.setMessage(res.getString(AllKeyWord.MESSAGE));
+            this.subUi.showSfisMessager(res.getString(AllKeyWord.MESSAGE));
             return res.getString(AllKeyWord.RESULT).equals(PASS);
         } catch (Exception e) {
             e.printStackTrace();

@@ -2,7 +2,7 @@
  * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
  * Click nbfs://nbhost/SystemFileSystem/Templates/Classes/Class.java to edit this template
  */
-package Control.Functions.FunctionsTest.Runin.OnOffPing;
+package Control.Functions.FunctionsTest.ON_OFF.PowerSwicthPing;
 
 import Control.Functions.FunctionsTest.Base.BaseFunction.AnalysisBase;
 import Control.Functions.FunctionsTest.Base.BaseFunction.FunctionBase;
@@ -15,12 +15,12 @@ import Model.ManagerUI.UIStatus.UiStatus;
  *
  * @author Administrator
  */
-public class OnOffPing extends PowerSwitchFunc{
+public class PowerSwicthPing extends PowerSwitchFunc{
 
     private final FunctionBase baseFunc;
     private final AnalysisBase analysisBase;
 
-    public OnOffPing(String itemName) {
+    public PowerSwicthPing(String itemName) {
         super(itemName);
         this.baseFunc = new FunctionBase(itemName);
         this.analysisBase = new AnalysisBase(itemName);

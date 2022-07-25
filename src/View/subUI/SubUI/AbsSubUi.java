@@ -60,6 +60,13 @@ public abstract class AbsSubUi extends AbsUI implements IUpdate {
         this.view = view;
     }
 
+    public void showSfisMessager(String string) {
+        if (this.view == null) {
+            return;
+        }
+        this.view.showSfisText(String.format("%s: %s", getName(), string));
+    }
+
     protected String getTestTime() {
         if (uiStatus.getCellTest() == null) {
             return null;

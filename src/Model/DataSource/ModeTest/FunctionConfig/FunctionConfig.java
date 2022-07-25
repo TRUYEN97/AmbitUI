@@ -91,4 +91,17 @@ public class FunctionConfig extends AbsJsonSource<FunctionElement> {
         this.funtionEnd.clear();
     }
 
+    public List<FunctionName> getSelectedItem(List<String> listItem) {
+        if (listItem == null) {
+            return functionTest;
+        }
+        List<FunctionName> result = new ArrayList<>();
+        for (FunctionName functionName : functionTest) {
+            if (listItem.contains(functionName.getItemName())) {
+                result.add(functionName);
+            }
+        }
+        return result;
+    }
+
 }
