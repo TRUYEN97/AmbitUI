@@ -71,6 +71,8 @@ public class SfisFunction extends AbsFunction {
     private String createCommand(String keyWord) {
         JSONObject command = new JSONObject();
         List<String> listKey = this.allConfig.getListJsonArray(keyWord);
+        int maxLength = this.allConfig.getInteger("MaxLength", -1);
+        addLog("Config", "MaxLength: " + maxLength);
         addLog(keyWord, listKey);
         if (listKey == null || listKey.isEmpty()) {
             addLog(keyWord + " is null or empty!");
@@ -79,10 +81,13 @@ public class SfisFunction extends AbsFunction {
         for (String key : listKey) {
             String value = this.processData.getString(key);
             key = key.toUpperCase();
-            addLog("key: " + key +" = "+value);
+            addLog("key: " + key + " = " + value);
             if (key.equalsIgnoreCase(AllKeyWord.STATUS)) {
-                command.put(key,
-                        value.equals(ItemTestData.PASS) ? PASS : FAIL);
+                command.put(key, value.equals(ItemTestData.PASS) ? PASS : FAIL);
+            } else if (maxLength != -1
+                    && key.equalsIgnoreCase(AllKeyWord.SN)
+                    && value.length() > maxLength - 1) {
+                command.put(key, value.substring(0, maxLength));
             } else {
                 command.put(key, value);
             }

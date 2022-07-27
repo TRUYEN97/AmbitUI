@@ -221,7 +221,7 @@
             "FLAG": true,
             "TIME_OVER": 30,
             "MULTI": false,
-            "ALWAYS_RUN": true,
+            "ALWAYS_RUN": false,
             "host": "192.168.1.10",
             "user": "admin",
             "password": "1234",

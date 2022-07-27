@@ -4,10 +4,11 @@
     "TIME_OUT_TEST": 11000,
     "INIT": [
         {
-            "FLAG": false,
+            "FLAG": true,
             "TIME_OVER": 50,
             "SEND_FORMAT": ["sn", "pcname"],
-            "DATA_FORMAT": ["mlbsn", "ethernetmac"],
+            "MaxLength": 8,
+            "DATA_FORMAT": ["sn", "mlbsn", "pnname", "ethernetmac", "olderrorcode"],
             "URL": "http://10.90.0.40/sfcapi/api/connect",
             "test_name": "gen_node",
             "FUNC_NAME": "SfisFunctionProxy"
@@ -40,15 +41,30 @@
             "Command": ["off","on"],
             "test_name": "PowerSwitch_Ping",
             "FUNC_NAME": "PowerSwicthPingProxy"
+        },
+        {
+            "FLAG": true,
+            "TIME_OVER": 30,
+            "MULTI": false,
+            "ALWAYS_RUN": false,
+            "host": "192.168.1.10",
+            "user": "admin",
+            "password": "1234",
+            "Times": 1,
+            "Delay": 1,
+            "Command": ["off"],
+            "test_name": "ReleasePowerSwitchOutlet",
+            "FUNC_NAME": "PowerSwitchProxy"
         }
     ],
     "END": [
         {
-            "FLAG": false,
+            "FLAG": true,
             "TIME_OVER": 5,
             "WAIT_MULTI_DONE": true,
-            "SEND_FORMAT": [ "pcname", "status"],
-            "SEND_FORMAT_FAIL": [ "pcname", "status","olderrorcode"],
+            "MaxLength": 8,
+            "SEND_FORMAT": ["sn", "pcname", "status"],
+            "SEND_FORMAT_FAIL": ["sn", "pcname", "status","olderrorcode"],
             "URL": "http://10.90.0.40/sfcapi/api/connectfinal",
             "SFIS_TYPE": "SendResult",
             "test_name": "SendToSfis",
@@ -57,6 +73,7 @@
         {
             "FLAG": true,
             "TIME_OVER": 30,
+            "ALWAYS_RUN": true,
             "MULTI": false,
             "localFile": "python/log",
             "ElementName": ["mlbsn", "station_name", "mode", "serial"],
@@ -72,7 +89,7 @@
             "Password": "mfg-oper",
             "Host": "10.90.2.168",
             "Port": 21,
-            "FtpPath": ["data/eden", "station_type", "start_day", "station_name"],
+            "FtpPath": ["data/eden","pnname", "station_type", "start_day", "station_name"],
             "FtpName": ["mlbsn", "sn", "mode", "finish_day"],
             "FtpType": ".txt",
             "LocalPath": ["python/log"],
