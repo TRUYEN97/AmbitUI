@@ -17,7 +17,7 @@ import java.util.List;
  * @author Administrator
  */
 public class Runner implements Runnable {
-    
+
     private final List<FunctionName> checkFunctions;
     private final List<FunctionName> testFunctions;
     private final List<FunctionName> endFunctions;
@@ -26,7 +26,7 @@ public class Runner implements Runnable {
     private final AbsSubUi subUi;
     private final AbsTime myTimer;
     private int loopTest;
-    
+
     Runner(ProcessData processData, Process process, AbsSubUi subUi) {
         this.checkFunctions = new ArrayList<>();
         this.testFunctions = new ArrayList<>();
@@ -37,68 +37,75 @@ public class Runner implements Runnable {
         this.myTimer = new TimeMs();
         this.loopTest = 1;
     }
-    
+
     public void setLoopTest(int times) {
         this.loopTest = times;
     }
-    
+
     public void setCheckFunction(List<FunctionName> funcs) {
+        this.checkFunctions.clear();
         this.checkFunctions.addAll(funcs);
     }
-    
+
     public void setTestFunction(List<FunctionName> funcs) {
+        this.testFunctions.clear();
         this.testFunctions.addAll(funcs);
     }
-    
+
     public void setEndFunction(List<FunctionName> funcs) {
+        this.endFunctions.clear();
         this.endFunctions.addAll(funcs);
     }
-    
+
     private boolean runFunctions(List<FunctionName> functions) {
         process.setListFunc(functions);
         process.run();
         return process.isPass();
     }
-    
+
     private void end(String mess) {
         this.process.stop(mess);
         this.subUi.endTest();
         this.processData.clearSignal();
     }
-    
+
     private void prepare() {
         processData.setStartTime();
         subUi.startTest();
     }
-    
+
     @Override
     public void run() {
-        myTimer.start(0);
-        for (int i = 0; i < loopTest; i++) {
-            try {
-                prepare();
-                if (runFunctions(checkFunctions)) {
-                    try {
-                        runFunctions(testFunctions);
-                    } finally {
-                        processData.setFinishTime();
+        try {
+            myTimer.start(0);
+            for (int i = 0; i < loopTest; i++) {
+                try {
+                    prepare();
+                    if (runFunctions(checkFunctions)) {
+                        try {
+                            runFunctions(testFunctions);
+                        } finally {
+                            processData.setFinishTime();
+                        }
+                        runFunctions(endFunctions);
                     }
-                    runFunctions(endFunctions);
+                } finally {
+                    end(null);
                 }
-            } finally {
-                end(null);
             }
+        } finally {
+            clearAllFunctions();
         }
     }
-    
-    void reset() {
+
+    private void clearAllFunctions() {
         this.checkFunctions.clear();
         this.testFunctions.clear();
         this.endFunctions.clear();
     }
-    
+
     double getTime() {
         return this.myTimer.getTime();
     }
-    
+
 }

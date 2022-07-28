@@ -30,7 +30,6 @@ public class CellTest {
             return;
         }
         testSource = this.uiStatus.getModeTest().getModeTestSource();
-        runner.reset();
         runner.setLoopTest(this.testSource.getLoopTest());
         runner.setCheckFunction(this.testSource.getCheckFunctions());
         runner.setTestFunction(this.testSource.getTestFunctions());
@@ -52,7 +51,6 @@ public class CellTest {
             return;
         }
         this.testSource = this.uiStatus.getModeTest().getModeTestSource();
-        this.runner.reset();
         this.runner.setTestFunction(this.testSource.getSelectedItem(listItem));
         this.thread = new Thread(runner);
         this.thread.start();

@@ -24,7 +24,6 @@ public abstract class AbsSubUi extends AbsUI implements IUpdate {
     protected AbsSubUi(String name, int time) {
         super(name, time);
         this.setBorder(new LineBorder(Color.BLACK, 2));
-        this.setToolTipText(name);
         tabDetail = new TabDetail(this);
     }
 

@@ -35,9 +35,9 @@ class Process implements IFunction {
     }
 
     public void setListFunc(List<FunctionName> functions) {
-        this.functions.clear();
         this.result = true;
         this.justFunctionAlwayRun = false;
+        this.functions.clear();
         this.functions.addAll(functions);
     }
 
@@ -54,8 +54,8 @@ class Process implements IFunction {
 
     @Override
     public void run() {
-        test = true;
         try {
+            test = true;
             FunctionCover funcCover;
             for (FunctionName functionName : functions) {
                 funcCover = createFuncCover(functionName);
@@ -80,6 +80,7 @@ class Process implements IFunction {
             ErrorLog.addError(this, ex.getMessage());
         } finally {
             waitUntilMultiTaskDone();
+            this.functions.clear();
             test = false;
         }
     }

@@ -4,17 +4,20 @@
  */
 package View.subUI.SubUI.SmallUI;
 
+import Model.DataTest.FunctionData.FunctionData;
 import View.subUI.FormDetail.FormShow;
 import View.subUI.SubUI.AbsSubUi;
 import java.awt.Color;
+import java.util.List;
 
 /**
  *
  * @author Administrator
  */
 public class SmallUI extends AbsSubUi {
-    
+
     private final FormShow formShow;
+    private List<FunctionData> list;
 
     /**
      * Creates new form SmallUI
@@ -22,8 +25,9 @@ public class SmallUI extends AbsSubUi {
      * @param indexName
      */
     public SmallUI(String indexName) {
-        super(indexName, 500);
+        super(indexName, 1000);
         initComponents();
+        this.lbTime.setToolTipText(indexName);
         this.lbTime.setText(indexName);
         this.formShow = new FormShow();
     }
@@ -63,15 +67,15 @@ public class SmallUI extends AbsSubUi {
 
     @Override
     public void startTest() {
+        this.list = uiStatus.getProcessData().getDataBoxs();
         super.startTest(); // Generated from nbfs://nbhost/SystemFileSystem/Templates/Classes/Code/OverriddenMethodBody
         this.lbTime.setBackground(Color.yellow);
     }
 
-    
-    
     @Override
     public void endTest() {
         super.endTest(); // Generated from nbfs://nbhost/SystemFileSystem/Templates/Classes/Code/OverriddenMethodBody
+        updateData();
         if (this.uiStatus.getProcessData().isPass()) {
             this.lbTime.setBackground(Color.GREEN);
         } else {
@@ -88,9 +92,15 @@ public class SmallUI extends AbsSubUi {
     public void setText(String txt) {
         this.lbTime.setText(txt);
     }
-    
+
     @Override
     public void updateData() {
-        lbTime.setText(getTestTime());
+        if (list == null) {
+            lbTime.setText(String.format("<html><center>%s</center>%s</html>",
+                    getName(), getTestTime()));
+        } else {
+            lbTime.setText(String.format("<html><center>%s</center><center>%s</center>%s</html>",
+                    getName(),list.size(), getTestTime()));
+        }
     }
 }
