@@ -12,7 +12,7 @@ package View.subUI.FormDetail.TabItem;
 
 import Model.DataTest.FunctionData.FunctionData;
 import View.subUI.FormDetail.AbsTabUI;
-import View.subUI.FormDetail.ItemLog;
+import View.subUI.FormDetail.TabItem.ShowLog.ItemLog;
 import java.awt.event.KeyEvent;
 import java.util.ArrayList;
 import java.util.HashMap;
@@ -28,7 +28,7 @@ import javax.swing.table.DefaultTableModel;
  * @author Administrator
  */
 public class TabItem extends AbsTabUI {
-
+    
     private static final String STAUS = "Staus";
     private static final String TIME = "Time";
     private static final String ITEM = "Item";
@@ -55,12 +55,12 @@ public class TabItem extends AbsTabUI {
         addListClomn();
         initTable(this.testColumn);
     }
-
+    
     private void addListClomn() {
         this.listFunc.add(STT);
         this.listFunc.add(ITEM);
     }
-
+    
     private void addTestClomn() {
         this.testColumn.add(STT);
         this.testColumn.add(ITEM);
@@ -69,7 +69,7 @@ public class TabItem extends AbsTabUI {
         this.testColumn.add(CUS_ERROR_CODE);
         this.testColumn.add(ERROR_CODE);
     }
-
+    
     private void initTable(Vector<String> column) {
         int maxWith = (int) ((this.getWidth() - 1) / 6);
         int minWith = (int) (maxWith / 3);
@@ -88,7 +88,7 @@ public class TabItem extends AbsTabUI {
             setPropertiesColumn(i, sizeColumn[i], JLabel.CENTER, JLabel.CENTER);
         }
     }
-
+    
     private void setPropertiesColumn(int index, int width, int alignment, int header) {
         DefaultTableCellRenderer renderer = new DefaultTableCellRenderer();
         renderer.setHorizontalAlignment(alignment);
@@ -154,7 +154,7 @@ public class TabItem extends AbsTabUI {
             }
         }
     }//GEN-LAST:event_tableItemMouseClicked
-
+    
     private void showItemLogSelected() {
         FunctionData dataBox = this.uiStatus.getProcessData().getDataBox(getNameITem(this.tableItem.getSelectedRow()));
         if (dataBox == null) {
@@ -164,7 +164,7 @@ public class TabItem extends AbsTabUI {
             itemLogs.get(dataBox).showLog();
         } else {
             ItemLog itemLog = new ItemLog(this);
-            itemLog.setDataBox(dataBox);
+            itemLog.setDataBox(dataBox, uiStatus);
             itemLog.showLog();
             itemLogs.put(dataBox, itemLog);
         }
@@ -181,7 +181,7 @@ public class TabItem extends AbsTabUI {
             this.tableModel.addRow(new Object[]{this.tableModel.getRowCount(), funcName});
         }
     }
-
+    
     @Override
     public void keyEvent(KeyEvent evt) {
         if (!isVisible()) {
@@ -197,20 +197,20 @@ public class TabItem extends AbsTabUI {
     }
     private static final int CTRL_S = 19;
     private static final int CTRL_D = 4;
-
+    
     @Override
     public void startTest() {
         this.itemLogs.clear();
         initTable(testColumn);
         super.startTest();
     }
-
+    
     @Override
     public void endTest() {
         updateListItemTest(true);
         super.endTest();
     }
-
+    
     @Override
     public void updateData() {
         if (!this.isVisible()) {
@@ -222,28 +222,28 @@ public class TabItem extends AbsTabUI {
         }
         updateListItemTest(false);
     }
-
+    
     private void editRow(Object value, int row, String colmn) {
         if (row < 0 || !this.testColumn.contains(colmn)) {
             return;
         }
         this.tableModel.setValueAt(value, row, this.testColumn.indexOf(colmn));
     }
-
+    
     private String getStatus(FunctionData functionData) {
         if (functionData.isTesting()) {
             return "Testing";
         }
         return functionData.getStatusTest();
     }
-
+    
     private String getNameITem(int row) {
         if (row == -1) {
             return null;
         }
         return this.tableModel.getValueAt(row, this.listFunc.indexOf(ITEM)).toString();
     }
-
+    
     private void updateListItemTest(boolean showAll) {
         if (!this.isVisible()) {
             return;
@@ -270,7 +270,7 @@ public class TabItem extends AbsTabUI {
             }
         }
     }
-
+    
     private List<String> getListSelectedItem() {
         List<String> result = new ArrayList<>();
         for (int selectedRow : this.tableItem.getSelectedRows()) {
