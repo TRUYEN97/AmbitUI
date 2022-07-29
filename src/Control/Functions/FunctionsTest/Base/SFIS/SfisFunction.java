@@ -11,7 +11,7 @@ import Model.DataTest.FunctionData.ItemTestData;
 import Model.ErrorLog;
 import SfisAPI17.SfisAPI;
 import com.alibaba.fastjson.JSONObject;
-import commandprompt.Communicate.DHCP.DhcpData;
+import commandprompt.DHCP.DhcpData;
 import java.util.List;
 
 /**
@@ -72,6 +72,7 @@ public class SfisFunction extends AbsFunction {
         JSONObject command = new JSONObject();
         List<String> listKey = this.allConfig.getListJsonArray(keyWord);
         int maxLength = this.allConfig.getInteger("MaxLength", -1);
+        addLog("Input", "Input: " + this.processData.getString(AllKeyWord.SN));
         addLog("Config", "MaxLength: " + maxLength);
         addLog(keyWord, listKey);
         if (listKey == null || listKey.isEmpty()) {
@@ -86,7 +87,7 @@ public class SfisFunction extends AbsFunction {
                 command.put(key, value.equals(ItemTestData.PASS) ? PASS : FAIL);
             } else if (maxLength != -1
                     && key.equalsIgnoreCase(AllKeyWord.SN)
-                    && value.length() > maxLength - 1) {
+                    && value.length() > maxLength) {
                 command.put(key, value.substring(0, maxLength));
             } else {
                 command.put(key, value);
@@ -107,21 +108,21 @@ public class SfisFunction extends AbsFunction {
         }
         JSONObject res = JSONObject.parseObject(response);
         if (res.getString(AllKeyWord.RESULT).equals(PASS)) {
+            JSONObject data = res.getJSONObject(AllKeyWord.DATA);
             List<String> listKey = this.allConfig.getListJsonArray(DATA_FORMAT);
             addLog(DATA_FORMAT, listKey);
-            if (listKey == null || listKey.isEmpty()) {
-                addLog(DATA_FORMAT + " is null or empty!");
+            if (!listKey.isEmpty() && !dataContainKeys(data, listKey)) {
+                addLog("Error", "Sfis is not enough data.");
                 return false;
             }
-            JSONObject data = res.getJSONObject(AllKeyWord.DATA);
-            if (!getDataToProductInfo(listKey, data)) {
+            if (!getDataToProductInfo(data)) {
                 return false;
             }
             if (Setting.getInstance().isOnDHCP() && !putMacDHCP()) {
                 addLog("Get MAC from SFIS for DHCP failed!");
                 return false;
             }
-            addLog("add data to production info");
+            addLog("add data to production info done.");
             return true;
         } else {
             this.addLog(res.getString(AllKeyWord.MESSAGE));
@@ -131,21 +132,16 @@ public class SfisFunction extends AbsFunction {
         }
     }
 
-    private boolean getDataToProductInfo(List<String> listKey, JSONObject data) {
+    private boolean getDataToProductInfo(JSONObject data) {
         String value;
-        for (String key : listKey) {
-            if (data.containsKey(key)) {
-                if (key.equals(AllKeyWord.MAC)) {
-                    value = createTrueMac(getValueInData(data, key));
-                } else {
-                    value = getValueInData(data, key);
-                }
-                addLog(String.format("add key: %s -- Value: %s", key, value));
-                this.productData.put(key, value);
+        for (String key : data.keySet()) {
+            if (key.equals(AllKeyWord.MAC)) {
+                value = createTrueMac(getValueInData(data, key));
             } else {
-                addLog(String.format("Not have \"%s\" in sfis data", key));
-                return false;
+                value = getValueInData(data, key);
             }
+            addLog(String.format("add key: %s -- Value: %s", key, value));
+            this.productData.put(key, value);
         }
         return true;
     }
@@ -173,10 +169,10 @@ public class SfisFunction extends AbsFunction {
 
     private boolean putMacDHCP() {
         String mac = this.processData.getString(AllKeyWord.MAC);
-        if (mac == null || mac.isBlank()) {
+        if (mac == null || mac.isBlank()
+                || !DhcpData.getInstance().put(mac, uIInfo.getID())) {
             return false;
         }
-        DhcpData.getInstance().put(mac, uIInfo.getID());
         addLog(String.format("add Mac: %s -- Ip: %s to DHCP data",
                 mac, DhcpData.getInstance().getIP(mac)));
         return true;
@@ -204,4 +200,14 @@ public class SfisFunction extends AbsFunction {
     }
     private static final String PASS = "PASS";
     private static final String FAIL = "FAIL";
+
+    private boolean dataContainKeys(JSONObject data, List<String> listKey) {
+        for (String key : listKey) {
+            if (!data.containsKey(key)) {
+                addLog("Error", "Sfis not contain key: " + key);
+                return false;
+            }
+        }
+        return true;
+    }
 }

@@ -9,7 +9,7 @@ import Model.AllKeyWord;
 import Model.DataSource.Setting.Setting;
 import Time.WaitTime.AbsTime;
 import Time.WaitTime.Class.TimeS;
-import commandprompt.Communicate.DHCP.DhcpData;
+import commandprompt.DHCP.DhcpData;
 import commandprompt.Communicate.IReadable;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
