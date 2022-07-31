@@ -99,7 +99,7 @@ public class SmallUI extends AbsSubUi {
             lbTime.setText(String.format("<html><center>%s</center>%s</html>",
                     getName(), getTestTime()));
         } else {
-            lbTime.setText(String.format("<html><center>%s</center><center>%s</center>%s</html>",
+            lbTime.setText(String.format("<html><center>%s</br><center>%s</center>%s</html>",
                     getName(),list.size(), getTestTime()));
         }
     }

@@ -49,11 +49,7 @@ public class ItemLog extends javax.swing.JFrame {
         this.tabItem = tabItem;
         this.timer = new Timer(1000, (ActionEvent e) -> {
             while (!queueLog.isEmpty()) {
-                try {
-                    this.txtLog.append(queueLog.poll());
-                    Thread.sleep(20);
-                } catch (InterruptedException ex) {
-                }
+                this.txtLog.append(queueLog.poll());
             }
         });
     }

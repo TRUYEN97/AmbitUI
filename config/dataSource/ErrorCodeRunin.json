@@ -5,6 +5,18 @@
             "local_error_des": "SFIS_CHECK_ERROR"
         }
     },
+    "fixture_close": {
+        "simple": {
+            "local_error_code": "FIX00",
+            "local_error_des": "fixture_close"
+        }
+    },
+    "usb_aside": {
+        "simple": {
+            "local_error_code": "35.1.0",
+            "local_error_des": "usb_aside"
+        }
+    },
     "SendToSfis": {
         "simple": {
             "local_error_code": "SFIS01",

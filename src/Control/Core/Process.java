@@ -85,15 +85,15 @@ class Process implements IFunction {
         }
     }
 
-    private void waitUntilMultiTaskDone() {
-        while (!multiTasking.isEmpty()) {
-            try {
+    private synchronized void waitUntilMultiTaskDone() {
+        try {
+            while (!multiTasking.isEmpty()) {
                 if (hasTaskFailed()) {
                     justFunctionAlwayRun = true;
                 }
-                Thread.sleep(100);
-            } catch (InterruptedException ex) {
+                this.wait(100);
             }
+        } catch (InterruptedException ex) {
         }
     }
 

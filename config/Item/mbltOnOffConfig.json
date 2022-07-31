@@ -1,6 +1,6 @@
 {
     "UUT_MODEL": "eden",
-    "station_type": "MBLT",
+    "station_type": "OnOff",
     "TIME_OUT_TEST": 7000,
     "INIT": [
         {
@@ -25,18 +25,63 @@
     "Functions": [
         {
             "FLAG": true,
-            "TIME_OVER": 360,
+            "TIME_OVER": 30,
             "MULTI_TASK": true,
             "CycleTimes": 20,
-            "command": ["AT+VBUS_BOFF%","AT+CC_BOFF%","AT+VBUS_AON%","AT+CC_AON%"],
+            "command": ["AT+TESTSTART%"],
             "ComPort": "COM5",
             "BaudRate": 115200,
+            "keyWord": "OK",
+            "Time": 20,
+            "Delay": 5,
+            "test_name": "fixture_close",
+            "FUNC_NAME": "FixtureActionProxy"
+        },
+        {
+            "FLAG": true,
+            "TIME_OVER": 30,
+            "MULTI_TASK": true,
+            "CycleTimes": 20,
+            "command": ["AT+VBUS_BOFF%", "AT+CC_BOFF%", "AT+VBUS_AON%", "AT+CC_AON%"],
+            "DutCom": "COM4",
+            "keyWord": "OK",
+            "DutBaudRate": 115200,
+            "Time": 10,
+            "Delay": 5,
+            "test_name": "usb_aside",
+            "FUNC_NAME": "FixtureActionProxy"
+        },
+        {
+            "FLAG": true,
+            "TIME_OVER": 30,
+            "MULTI_TASK": true,
+            "CycleTimes": 20,
+            "command": ["AT+VBUS_BOFF%", "AT+CC_BOFF%", "AT+VBUS_AON%", "AT+CC_AON%"],
+            "FixtureCom": "COM5",
+            "FixtureBaudRate": 115200,
+            "DutCom": "COM4",
+            "DutBaudRate": 115200,
+            "keyWord": "IPQ807x#",
+            "CurrentTest": "AT+VBUS_CUR%",
             "Delay": 5,
             "Time": 20,
             "keyWord": "OK",
             "test_name": "OnOffPing",
             "FUNC_NAME": "FixturePingProxy"
-            
+        },
+        {
+            "FLAG": true,
+            "TIME_OVER": 30,
+            "MULTI_TASK": true,
+            "CycleTimes": 20,
+            "command": ["AT+TESTEND%"],
+            "ComPort": "COM5",
+            "BaudRate": 115200,
+            "keyWord": "OK",
+            "Time": 20,
+            "Delay": 5,
+            "test_name": "fixtureOpen",
+            "FUNC_NAME": "FixtureActionProxy"
         }
     ],
     "END": [

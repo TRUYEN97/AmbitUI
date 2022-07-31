@@ -90,7 +90,7 @@ public class AnalysisBase extends AbsFunction {
             String name = readable.getClass().getSimpleName();
             String result = readable.readUntil(readUntil, time);
             addLog(name, result);
-            return result.contains(spec);
+            return result != null && result.contains(spec);
         } finally {
             addLog("CONFIG", String.format("Spec: \"%s\"", spec));
         }

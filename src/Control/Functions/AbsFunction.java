@@ -31,11 +31,13 @@ public abstract class AbsFunction implements IFunction {
     protected UiInformartion uIInfo;
     protected FunctionElement functionElement;
     protected FunctionData functionData;
+    protected int retry;
     private ItemTestData itemTestData;
     private AnalysisResult analysisResult;
 
     protected AbsFunction(String itemName) {
         this.allConfig = new FuncAllConfig(itemName);
+        this.retry = 0;
     }
 
     public void setResources(FunctionElement functionElement, UiStatus uiStatus, FunctionData functionData) {
@@ -52,6 +54,10 @@ public abstract class AbsFunction implements IFunction {
         this.testSignal = this.processData.getSignal();
         this.productData = this.processData.getProductData();
         this.analysisResult = new AnalysisResult(itemTestData, allConfig);
+    }
+
+    void setRetry(int retry) {
+        this.retry = retry;
     }
 
     void start() {
@@ -107,7 +113,7 @@ public abstract class AbsFunction implements IFunction {
     public boolean isPass() {
         return itemTestData.isPass();
     }
-    
+
     @Override
     public boolean isTesting() {
         return itemTestData.isTest();

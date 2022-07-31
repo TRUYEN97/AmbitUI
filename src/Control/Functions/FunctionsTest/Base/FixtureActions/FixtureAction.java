@@ -22,6 +22,8 @@ public class FixtureAction extends AbsFunction {
 
     private final FunctionBase base;
     private final AnalysisBase analysisBase;
+    private int baud;
+    private String com;
 
     public FixtureAction(String itemName) {
         super(itemName);
@@ -36,23 +38,31 @@ public class FixtureAction extends AbsFunction {
         this.analysisBase.setResources(funcConfig, uiStatus, functionData);
     }
 
+    public void setBaud(String port, int baud) {
+        this.com = port;
+        this.baud = baud;
+    }
+
     @Override
     public boolean test() {
-        String com = this.allConfig.getString("ComPort");
-        Integer baud = this.allConfig.getInteger("BaudRate");
+        if (com == null) {
+            com = this.allConfig.getString("ComPort");
+            baud = this.allConfig.getInteger("BaudRate", 9600);
+        }
         ComPort comPort = this.base.getComport(com, baud);
         if (comPort == null) {
             return false;
         }
-        return sendCommand(comPort);
-    }
-
-    private boolean sendCommand(ComPort comPort) {
         List<String> commands = this.allConfig.getListJsonArray("command");
         String keyWord = this.allConfig.getString("keyWord");
-        Integer time = this.allConfig.getInteger("Time",1);
-        Integer delay = this.allConfig.getInteger("Delay",1);
-        if (commands.isEmpty() || time == null || keyWord == null) {
+        int time = this.allConfig.getInteger("Time", 1);
+        return sendCommand(comPort, commands, keyWord, time);
+    }
+
+    public boolean sendCommand(ComPort comPort, List<String> commands, String keyWord, int time) {
+        addLog("Config", "keyWord: " + keyWord);
+        addLog("Config", "Time: " + time);
+        if (commands.isEmpty() || keyWord == null) {
             addLog("ERROR", "Config failed");
             return false;
         }
@@ -63,18 +73,13 @@ public class FixtureAction extends AbsFunction {
                 if (!this.base.sendCommand(comPort, command)) {
                     return false;
                 }
-                String result = comPort.readUntil(key, new TimeS(time));
-                addLog(comPort.getClass().getSimpleName(), result);
-                if (!result.endsWith(key)) {
+                if (!this.analysisBase.isResponseContainKey(comPort, key, key, new TimeS(time))) {
                     return false;
                 }
             }
             return true;
         } finally {
-            try {
-                Thread.sleep(delay*1000);
-            } catch (InterruptedException ex) {
-            }
+            comPort.disConnect();
         }
     }
 
