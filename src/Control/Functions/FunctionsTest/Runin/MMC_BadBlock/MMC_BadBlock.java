@@ -9,6 +9,7 @@ import Control.Functions.FunctionsTest.Base.BaseFunction.FunctionBase;
 import Control.Functions.FunctionsTest.Base.BaseFunction.AnalysisBase;
 import Model.DataSource.ModeTest.FunctionConfig.FunctionElement;
 import Model.DataTest.FunctionData.FunctionData;
+import Model.ErrorLog;
 import Model.ManagerUI.UIStatus.UiStatus;
 import commandprompt.Communicate.Telnet.Telnet;
 import java.util.List;
@@ -21,7 +22,6 @@ public class MMC_BadBlock extends AbsFunction {
 
     private final FunctionBase baseFunc;
     private final AnalysisBase analysisBase;
-    private Telnet telnet;
 
     public MMC_BadBlock(String itemName) {
         super(itemName);
@@ -47,18 +47,26 @@ public class MMC_BadBlock extends AbsFunction {
     }
 
     private boolean check(String ip) {
-        telnet = this.baseFunc.getTelnet(ip, 23);
-        String startkey = allConfig.getString("Startkey");
-        String endkey = allConfig.getString("Endkey");
-        List<String> commands = this.allConfig.getListJsonArray("command");
-        if (commands == null || commands.isEmpty()) {
-            addLog("ERROR", "command in config is null or empty!");
+        Telnet telnet = this.baseFunc.getTelnet(ip, 23);
+        try {
+            String startkey = allConfig.getString("Startkey");
+            String endkey = allConfig.getString("Endkey");
+            List<String> commands = this.allConfig.getListJsonArray("command");
+            if (commands == null || commands.isEmpty()) {
+                addLog("ERROR", "command in config is null or empty!");
+                return false;
+            }
+            return runCommand(telnet, commands, startkey, endkey);
+        } catch (Exception e) {
+            e.printStackTrace();
+            ErrorLog.addError(this, e.getMessage());
             return false;
+        } finally {
+            telnet.disConnect();
         }
-        return runCommand(commands, startkey, endkey);
     }
 
-    private boolean runCommand(List<String> commands, String startkey, String endkey) {
+    private boolean runCommand(Telnet telnet, List<String> commands, String startkey, String endkey) {
         Integer sunBadblock = 0;
         for (String subCommand : commands) {
             if (!this.baseFunc.sendCommand(telnet, subCommand)) {

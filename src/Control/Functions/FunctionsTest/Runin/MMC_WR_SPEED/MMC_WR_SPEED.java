@@ -9,6 +9,7 @@ import Control.Functions.FunctionsTest.Base.BaseFunction.AnalysisBase;
 import Control.Functions.FunctionsTest.Base.BaseFunction.FunctionBase;
 import Model.DataSource.ModeTest.FunctionConfig.FunctionElement;
 import Model.DataTest.FunctionData.FunctionData;
+import Model.ErrorLog;
 import Model.ManagerUI.UIStatus.UiStatus;
 import commandprompt.Communicate.Telnet.Telnet;
 import java.util.List;
@@ -22,7 +23,6 @@ public class MMC_WR_SPEED extends AbsFunction {
     private final FunctionBase baseFunc;
     private final AnalysisBase analysisBase;
     private MMC_SPEED mmc_speed;
-    private Telnet telnet;
 
     public MMC_WR_SPEED(String itemName) {
         super(itemName);
@@ -44,22 +44,39 @@ public class MMC_WR_SPEED extends AbsFunction {
         if (ip == null) {
             return false;
         }
-        if (!sendCommand(ip)) {
+        Telnet telnet = this.baseFunc.getTelnet(ip, 23);
+        if (telnet == null) {
             return false;
         }
         String response;
-        int time = this.allConfig.getInteger("Time", 5);
-        String until = this.allConfig.getString("ReadUntil");
+        try {
+            String command = this.allConfig.getString("command");
+            if (!this.baseFunc.sendCommand(telnet, command)) {
+                return false;
+            }
+            response = getResponse(telnet);
+        } catch (Exception e) {
+            e.printStackTrace();
+            ErrorLog.addError(this, e.getMessage());
+            return false;
+        } finally {
+            telnet.disConnect();
+        }
         List<String> items = this.allConfig.getListJsonArray("ItemNames");
         List<String> blocks = this.allConfig.getListJsonArray("Block");
         List<String> KeyWords = this.allConfig.getListJsonArray("KeyWord");
         addLog("Config", "Items: " + items);
         addLog("Config", "Block: " + blocks);
         addLog("Config", "KeyWord: " + blocks);
-        response = this.analysisBase.getUntil(telnet, until, time);
-        for (int i = 0; i < items.size(); i++) {
-            addLog("PC", "Item: "+items.get(i));
-            mmc_speed = new MMC_SPEED(items.get(i));
+        return RunSubItems(items, response, blocks, KeyWords);
+    }
+
+    private boolean RunSubItems(List<String> items, String response, List<String> blocks, List<String> KeyWords) {
+        int itemsSize = items.size();
+        for (int i = 0; i < itemsSize; i++) {
+            String item = items.get(i);
+            addLog("PC", item);
+            mmc_speed = new MMC_SPEED(item);
             mmc_speed.setResources(this.functionElement, uiStatus, functionData);
             mmc_speed.setData(response, blocks.get(i), KeyWords.get(i));
             mmc_speed.run();
@@ -70,10 +87,10 @@ public class MMC_WR_SPEED extends AbsFunction {
         return true;
     }
 
-    private boolean sendCommand(String ip) {
-        telnet = this.baseFunc.getTelnet(ip, 23);
-        String command = this.allConfig.getString("command");
-        return this.baseFunc.sendCommand(telnet, command);
+    private String getResponse(Telnet telnet) {
+        int time = this.allConfig.getInteger("Time", 5);
+        String until = this.allConfig.getString("ReadUntil");
+        return this.analysisBase.getUntil(telnet, until, time);
     }
 
 }

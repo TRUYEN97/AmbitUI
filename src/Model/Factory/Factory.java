@@ -19,7 +19,8 @@ import Control.Functions.FunctionsTest.Base.SFIS.SfisFunctionProxy;
 import Control.Functions.FunctionsTest.FaAPI.inputFaData.InputFaDataProxy;
 import Control.Functions.FunctionsTest.Runin.PowerSwitch.PowerSwitchProxy;
 import Control.Functions.FunctionsTest.Base.UpFTP.UpFTPProxy;
-import Control.Functions.FunctionsTest.MBLT.OpenShortProxy;
+import Control.Functions.FunctionsTest.MBLT.OpenShort.OpenShortProxy;
+import Control.Functions.FunctionsTest.MBLT.UsbAside.UsbAsideProxy;
 import Control.Functions.FunctionsTest.Runin.CheckCommandTelnet.CheckCommandTelnetProxy;
 import Control.Functions.FunctionsTest.Runin.MMC_BadBlock.MMC_BadBlockProxy;
 import Control.Functions.FunctionsTest.Runin.MMC_WR_SPEED.MMC_WR_SPEED_PROXY;
@@ -126,5 +127,6 @@ public class Factory {
         this.functions.addType(new PowerSwicthPingProxy());
         this.functions.addType(new FixtureActionProxy());
         this.functions.addType(new OpenShortProxy());
+        this.functions.addType(new UsbAsideProxy());
     }
 }

@@ -9,6 +9,7 @@ import Control.Functions.FunctionsTest.Base.BaseFunction.AnalysisBase;
 import Control.Functions.FunctionsTest.Base.BaseFunction.FunctionBase;
 import Model.DataSource.ModeTest.FunctionConfig.FunctionElement;
 import Model.DataTest.FunctionData.FunctionData;
+import Model.ErrorLog;
 import Model.ManagerUI.UIStatus.UiStatus;
 import Time.WaitTime.Class.TimeS;
 import commandprompt.AbstractStream.SubClass.ReadStreamOverTime;
@@ -30,7 +31,7 @@ public class TelnetReadUntilKey extends AbsFunction {
         this.analysisBase = new AnalysisBase(itemName);
     }
 
-     @Override
+    @Override
     public void setResources(FunctionElement funcConfig, UiStatus uiStatus, FunctionData functionData) {
         super.setResources(funcConfig, uiStatus, functionData); // Generated from nbfs://nbhost/SystemFileSystem/Templates/Classes/Code/OverriddenMethodBody
         this.baseFunc.setResources(funcConfig, uiStatus, functionData);
@@ -40,12 +41,22 @@ public class TelnetReadUntilKey extends AbsFunction {
     @Override
     protected boolean test() {
         String ip = this.analysisBase.getIp();
-        Telnet telnet;
-        addLog("IP: " + ip);
-        if (ip == null || (telnet = this.baseFunc.getTelnet(ip, 23, new ReadStreamOverTime())) == null) {
+        Telnet telnet = null;
+        try {
+            addLog("IP: " + ip);
+            if (ip == null || (telnet = this.baseFunc.getTelnet(ip, 23, new ReadStreamOverTime())) == null) {
+                return false;
+            }
+            return runTest(telnet);
+        } catch (Exception e) {
+            e.printStackTrace();
+            ErrorLog.addError(this, e.getMessage());
             return false;
+        } finally {
+            if (telnet != null) {
+                telnet.disConnect();
+            }
         }
-        return runTest(telnet);
     }
 
     private boolean runTest(Telnet telnet) {

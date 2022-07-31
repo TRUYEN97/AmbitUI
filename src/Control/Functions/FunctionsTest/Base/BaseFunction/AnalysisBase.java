@@ -9,8 +9,10 @@ import Model.AllKeyWord;
 import Model.DataSource.Setting.Setting;
 import Time.WaitTime.AbsTime;
 import Time.WaitTime.Class.TimeS;
+import commandprompt.Communicate.Comport.ComPort;
 import commandprompt.DHCP.DhcpData;
 import commandprompt.Communicate.IReadable;
+import java.util.List;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 
@@ -70,6 +72,19 @@ public class AnalysisBase extends AbsFunction {
             addLog("PC", String.format("Value: \"%s\"", value));
         }
 
+    }
+
+    public boolean isResponseContainKey(IReadable readable, List<String> keyWords, TimeS timeS) {
+        addLog("Config", String.format("keyWords: %s", keyWords));
+        String line;
+        while (timeS.onTime()) {
+            line = readable.readLine(timeS);
+            addLog(readable.getClass().getSimpleName(), line);
+            if (line != null && keyWords.contains(line.trim())) {
+                return true;
+            }
+        }
+        return false;
     }
 
     public boolean isResponseContainKey(IReadable readable, String spec, String readUntil) {
@@ -154,10 +169,10 @@ public class AnalysisBase extends AbsFunction {
             return false;
         }
     }
-    
+
     public String getUntil(IReadable readable, String until, int time) {
-        addLog("Config", "Time: "+time);
-        addLog("Config", "ReadUntil: "+until);
+        addLog("Config", "Time: " + time);
+        addLog("Config", "ReadUntil: " + until);
         String response = readable.readUntil(until, new TimeS(time));
         addLog("Telnet", response);
         return response;

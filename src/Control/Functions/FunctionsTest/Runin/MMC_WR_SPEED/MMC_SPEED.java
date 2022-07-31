@@ -9,6 +9,7 @@ import Control.Functions.FunctionsTest.Base.BaseFunction.AnalysisBase;
 import Control.Functions.FunctionsTest.Base.BaseFunction.FunctionBase;
 import Model.DataSource.ModeTest.FunctionConfig.FunctionElement;
 import Model.DataTest.FunctionData.FunctionData;
+import Model.ErrorLog;
 import Model.ManagerUI.UIStatus.UiStatus;
 import commandprompt.Communicate.Telnet.Telnet;
 
@@ -46,13 +47,23 @@ public class MMC_SPEED extends AbsFunction {
             if (ip == null) {
                 return false;
             }
-            telnet = this.baseFunc.getTelnet(ip, 23);
-            if (!this.baseFunc.sendCommand(telnet, this.allConfig.getString("command"))) {
+            try {
+                telnet = this.baseFunc.getTelnet(ip, 23);
+                if (!this.baseFunc.sendCommand(telnet, this.allConfig.getString("command"))) {
+                    return false;
+                }
+                int time = this.allConfig.getInteger("Time", 5);
+                String until = this.allConfig.getString("ReadUntil");
+                data = this.analysisBase.getUntil(telnet, until, time);
+            } catch (Exception e) {
+                e.printStackTrace();
+                ErrorLog.addError(this, e.getMessage());
                 return false;
+            } finally {
+                if (telnet != null) {
+                    telnet.disConnect();
+                }
             }
-            int time = this.allConfig.getInteger("Time", 5);
-            String until = this.allConfig.getString("ReadUntil");
-            data = this.analysisBase.getUntil(telnet, until, time);
             addLog("Telnet", data);
         }
         return checkResponse();
