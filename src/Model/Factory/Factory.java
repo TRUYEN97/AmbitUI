@@ -21,6 +21,7 @@ import Control.Functions.FunctionsTest.Runin.PowerSwitch.PowerSwitchProxy;
 import Control.Functions.FunctionsTest.Base.UpFTP.UpFTPProxy;
 import Control.Functions.FunctionsTest.MBLT.OpenShort.OpenShortProxy;
 import Control.Functions.FunctionsTest.MBLT.UsbAside.UsbAsideProxy;
+import Control.Functions.FunctionsTest.MBLT.VoltageTest.VoltageTestProxy;
 import Control.Functions.FunctionsTest.ON_OFF.AsideOnOffPing.AsideOnOffPingProxy;
 import Control.Functions.FunctionsTest.ON_OFF.OpenShortOnOff.OpenShortOnOffProxy;
 import Control.Functions.FunctionsTest.Runin.CheckCommandTelnet.CheckCommandTelnetProxy;
@@ -132,5 +133,6 @@ public class Factory {
         this.functions.addType(new UsbAsideProxy());
         this.functions.addType(new OpenShortOnOffProxy());
         this.functions.addType(new AsideOnOffPingProxy());
+        this.functions.addType(new VoltageTestProxy());
     }
 }
