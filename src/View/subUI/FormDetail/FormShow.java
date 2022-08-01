@@ -10,10 +10,6 @@
  */
 package View.subUI.FormDetail;
 
-import java.awt.event.MouseEvent;
-import javax.swing.text.BadLocationException;
-import javax.swing.text.DefaultCaret;
-
 /**
  *
  * @author Administrator

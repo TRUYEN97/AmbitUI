@@ -32,6 +32,9 @@
   </Layout>
   <SubComponents>
     <Container class="javax.swing.JPanel" name="PanelUp">
+      <Events>
+        <EventHandler event="keyTyped" listener="java.awt.event.KeyListener" parameters="java.awt.event.KeyEvent" handler="PanelUpKeyTyped"/>
+      </Events>
 
       <Layout class="org.netbeans.modules.form.compat2.layouts.DesignBorderLayout"/>
     </Container>

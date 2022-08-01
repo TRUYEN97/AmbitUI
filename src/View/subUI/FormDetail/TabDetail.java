@@ -36,7 +36,7 @@ public class TabDetail extends AbsUI implements IUpdate {
      * @param boss
      */
     public TabDetail(AbsSubUi boss) {
-        super(boss.getName(),-1);
+        super(boss.getName(), -1);
         this.tabElements = new HashMap<>();
         initComponents();
         this.boss = boss;
@@ -77,7 +77,9 @@ public class TabDetail extends AbsUI implements IUpdate {
     private void tabDetailKeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_tabDetailKeyTyped
         // TODO add your handling code here:
         for (String name : tabElements.keySet()) {
-            tabElements.get(name).keyEvent(evt);
+            if (tabElements.get(name).isVisible()) {
+                tabElements.get(name).keyEvent(evt);
+            }
         }
     }//GEN-LAST:event_tabDetailKeyTyped
 

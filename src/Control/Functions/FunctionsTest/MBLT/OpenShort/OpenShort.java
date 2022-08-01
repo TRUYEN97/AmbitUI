@@ -12,6 +12,7 @@ import Model.DataSource.ModeTest.FunctionConfig.FunctionElement;
 import Model.DataTest.FunctionData.FunctionData;
 import Model.ErrorLog;
 import Model.ManagerUI.UIStatus.UiStatus;
+import Time.WaitTime.Class.TimeMs;
 import Time.WaitTime.Class.TimeS;
 import commandprompt.Communicate.Comport.ComPort;
 import java.util.List;
@@ -38,10 +39,11 @@ public class OpenShort extends AbsFunction {
         super.setResources(funcConfig, uiStatus, functionData); // Generated from nbfs://nbhost/SystemFileSystem/Templates/Classes/Code/OverriddenMethodBody
         this.fixtureAction.setResources(funcConfig, uiStatus, functionData);
         this.analysisBase.setResources(funcConfig, uiStatus, functionData);
+        this.functionBase.setResources(funcConfig, uiStatus, functionData);
     }
 
     @Override
-    protected boolean test() {
+    public boolean test() {
         if ((retry > 1 && !reConnectPortFixture()) || !stopAutoboot()) {
             return false;
         }
@@ -64,12 +66,11 @@ public class OpenShort extends AbsFunction {
             String line;
             while (timer.onTime()) {
                 dut.insertCommand("\r\n");
-                line = dut.readLine();
+                line = dut.readAll(new TimeMs(500));
                 addLog("DUT", line);
-                if (line != null && line.trim().equals(keyWord)) {
+                if (line != null && line.trim().endsWith(keyWord)) {
                     return true;
                 }
-                dut.insertCommand("reset");
                 dut.insertCommand("reboot");
             }
             return false;
@@ -96,7 +97,9 @@ public class OpenShort extends AbsFunction {
             String regex = this.allConfig.getString("CurrentRegex");
             String value = this.analysisBase.getValue(fixture, regex, new TimeS(1));
             if (this.analysisBase.isNumber(value)) {
-                setResult(value);
+                double ampe = Double.parseDouble(value) / 1000.0;
+                addLog("PC", String.format("Current: %s A", ampe));
+                setResult(ampe);
                 return true;
             }
             return false;

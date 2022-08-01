@@ -10,6 +10,7 @@
  */
 package View.subUI.FormDetail.TabItem;
 
+import Model.DataSource.ModeTest.FunctionConfig.FunctionName;
 import Model.DataTest.FunctionData.FunctionData;
 import View.subUI.FormDetail.AbsTabUI;
 import View.subUI.FormDetail.TabItem.ShowLog.ItemLog;
@@ -129,6 +130,11 @@ public class TabItem extends AbsTabUI {
                 tableItemMouseClicked(evt);
             }
         });
+        tableItem.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyTyped(java.awt.event.KeyEvent evt) {
+                keyEvent(evt);
+            }
+        });
         jScrollPane1.setViewportView(tableItem);
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(this);
@@ -177,6 +183,9 @@ public class TabItem extends AbsTabUI {
 
     private void showListFunction() {
         initTable(listFunc);
+        for (FunctionName funcName : this.uiStatus.getModeTest().getModeTestSource().getCheckFunctions()) {
+            this.tableModel.addRow(new Object[]{this.tableModel.getRowCount(), funcName.getItemName()});
+        }
         for (String funcName : this.uiStatus.getModeTest().getModeTestSource().getItemTestFunctions()) {
             this.tableModel.addRow(new Object[]{this.tableModel.getRowCount(), funcName});
         }

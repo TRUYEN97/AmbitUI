@@ -102,8 +102,8 @@ public class FunctionCover extends Thread {
                 return;
             }
             int retry = getRetry() ;
-            for (int turn = 0; turn < retry && !function.isPass(); turn++) {
-                this.functionData.addLog(String.format("Turn %s: ", turn));
+            for (int turn = 1; turn < retry && !function.isPass(); turn++) {
+                this.functionData.addLog(String.format("Turn run: %s ", turn));
                 this.function.setRetry(turn);
                 this.function.runTest();
             }

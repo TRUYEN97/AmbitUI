@@ -11,10 +11,22 @@
             "local_error_des": "fixture_close"
         }
     },
+     "fixtureOpen": {
+        "simple": {
+            "local_error_code": "FIX01",
+            "local_error_des": "fixtureOpen"
+        }
+    },
     "usb_aside": {
         "simple": {
             "local_error_code": "35.1.0",
             "local_error_des": "usb_aside"
+        }
+    },
+    "OnOff": {
+        "simple": {
+            "local_error_code": "OnOff00",
+            "local_error_des": "OnOff"
         }
     },
     "SendToSfis": {
@@ -245,34 +257,65 @@
                     "local_error_des": "test_image_version"
                 }
             },
-    "emmc_speed_read": {
-        "simple": {
-            "local_error_code": "11.2.1",
-            "local_error_des": "emmc_speed_read"
-        },
-        "low": {
-            "local_error_code": "11.2.1.1",
-            "local_error_des": "emmc_speed_read_tooLow"
-        },
-        "high": {
-            "local_error_code": "11.2.1.2",
-            "local_error_des": "emmc_speed_read_tooHigh"
-        }
-    },
-    "emmc_speed_write": {
-        "simple": {
-            "local_error_code": "11.2.2",
-            "local_error_des": "emmc_speed_write"
-        },
-        "low": {
-            "local_error_code": "11.2.2.1",
-            "local_error_des": "emmc_speed_write_tooLow"
-        },
-        "high": {
-            "local_error_code": "11.2.2.2",
-            "local_error_des": "emmc_speed_write_tooHigh"
-        }
-    },
+    "usb_aside": 
+            {
+                "simple": {
+                    "local_error_code": "35.1.0",
+                    "local_error_des": "usb_aside"
+                }
+            },
+    "usb_bside": 
+            {
+                "simple": {
+                    "local_error_code": "35.2.0",
+                    "local_error_des": "usb_aside"
+                }
+            },
+    "emmc_speed_read": 
+            {
+                "simple": {
+                    "local_error_code": "11.2.1",
+                    "local_error_des": "emmc_speed_read"
+                },
+                "low": {
+                    "local_error_code": "11.2.1.1",
+                    "local_error_des": "emmc_speed_read_tooLow"
+                },
+                "high": {
+                    "local_error_code": "11.2.1.2",
+                    "local_error_des": "emmc_speed_read_tooHigh"
+                }
+            },
+    "emmc_speed_write": 
+            {
+                "simple": {
+                    "local_error_code": "11.2.2",
+                    "local_error_des": "emmc_speed_write"
+                },
+                "low": {
+                    "local_error_code": "11.2.2.1",
+                    "local_error_des": "emmc_speed_write_tooLow"
+                },
+                "high": {
+                    "local_error_code": "11.2.2.2",
+                    "local_error_des": "emmc_speed_write_tooHigh"
+                }
+            },
+    "openshort": 
+            {
+                "simple": {
+                    "local_error_code": "16.T524.1.1.1",
+                    "local_error_des": "openshort"
+                },
+                "low": {
+                    "local_error_code": "16.T524.1.1.1.1",
+                    "local_error_des": "openshort_tooLow"
+                },
+                "high": {
+                    "local_error_code": "16.T524.1.1.1.2",
+                    "local_error_des": "openshort_tooHigh"
+                }
+            },
     "temp_cpu": 
             {
                 "simple": {

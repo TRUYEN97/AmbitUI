@@ -37,7 +37,7 @@ public class UsbAside extends AbsFunction {
     }
 
     @Override
-    protected boolean test() {
+    public boolean test() {
         if (!this.fixture.test()) {
             return false;
         }
@@ -49,8 +49,16 @@ public class UsbAside extends AbsFunction {
             return false;
         }
         try {
-            String dutString = dut.readAll(new TimeS(dutWait));
-            return dutString != null && dutString.trim().matches(".*[a-z|A-Z]*[0-9]*.*");
+            TimeS timer = new TimeS(dutWait);
+            String line;
+            while (timer.onTime()) {
+                line = dut.readLine(new TimeS(1));
+                addLog("Comport", line);
+                if (line != null && !line.trim().isBlank()) {
+                    return true;
+                }
+            }
+            return false;
         } catch (Exception e) {
             e.printStackTrace();
             ErrorLog.addError(this, e.getMessage());

@@ -73,6 +73,11 @@ public class BigUI extends AbsSubUi {
         btTest = new javax.swing.JButton();
         lbTime = new javax.swing.JLabel();
 
+        PanelUp.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyTyped(java.awt.event.KeyEvent evt) {
+                PanelUpKeyTyped(evt);
+            }
+        });
         PanelUp.setLayout(new java.awt.BorderLayout());
 
         panelDown.setBackground(new java.awt.Color(204, 204, 255));
@@ -150,6 +155,11 @@ public class BigUI extends AbsSubUi {
         // TODO add your handling code here:
         this.uiStatus.getCellTest().testDebugItem(null);
     }//GEN-LAST:event_btTestActionPerformed
+
+    private void PanelUpKeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_PanelUpKeyTyped
+        // TODO add your handling code here:
+        System.out.println(evt.getKeyCode());
+    }//GEN-LAST:event_PanelUpKeyTyped
 
 
     // Variables declaration - do not modify//GEN-BEGIN:variables

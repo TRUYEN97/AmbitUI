@@ -1,20 +1,20 @@
-2022-07-22 13:29:32.536:   ITEM[UpFTPFinal] - FUNCTION[UpFTPProxy]
-2022-07-22 13:29:32.536:   Turn 0:
-2022-07-22 13:29:32.536:   [PC] Connect to ftp!!
-2022-07-22 13:29:32.536:   [Config] User: oper
-2022-07-22 13:29:32.536:   [Config] PassWord: mfg-oper
-2022-07-22 13:29:32.536:   [Config] Host: 10.90.2.168
-2022-07-22 13:29:32.536:   [Config] Port: 21
-2022-07-22 13:29:32.583:   [PC] Connect to ftp ok!!
-2022-07-22 13:29:32.583:   [PC] ElementName: [data/eden, station_type, start_day, station_name]
-2022-07-22 13:29:32.583:   [PC] ElementName: [mlbsn, sn, mode, finish_day]
-2022-07-22 13:29:32.583:   [PC] ElementName: [python/log]
-2022-07-22 13:29:32.583:   [PC] ElementName: [mlbsn, station_name, mode, serial]
-2022-07-22 13:29:32.583:   [Config] Local: python\log\GGB1UD2222830GW1_REPAIR-7801_Debug_serial.txt
-2022-07-22 13:29:32.583:   [Config] Ftp: data/eden/REPAIR/22-07-2022/REPAIR-7801/GGB1UD2222830GW1_RX90UQS_Debug_22-07-2022.txt
-2022-07-22 13:29:32.630:   Up file to FTP done!
-2022-07-22 13:29:32.630:   ****************************************************
-2022-07-22 13:29:32.630:   Test Value: "passed"
-2022-07-22 13:29:32.630:   Item name: UpFTPFinal
-2022-07-22 13:29:32.630:   ****************************************************
-2022-07-22 13:29:32.630:   TIME[0.094 s] - STATUS[PASSED]
+2022-08-01 01:37:57.027:   ITEM[UpFTPFinal] - FUNCTION[UpFTPProxy]
+2022-08-01 01:37:57.028:   Turn 0:
+2022-08-01 01:37:57.028:   [PC] Connect to ftp!!
+2022-08-01 01:37:57.028:   [Config] User: oper
+2022-08-01 01:37:57.028:   [Config] PassWord: mfg-oper
+2022-08-01 01:37:57.029:   [Config] Host: 10.90.2.168
+2022-08-01 01:37:57.029:   [Config] Port: 21
+2022-08-01 01:37:57.232:   [PC] Connect to ftp ok!!
+2022-08-01 01:37:57.232:   [PC] ElementName: [data/eden, pnname, station_type, start_day, station_name]
+2022-08-01 01:37:57.232:   [PC] ElementName: [mlbsn, sn, mode, finish_day]
+2022-08-01 01:37:57.232:   [PC] ElementName: [python/log]
+2022-08-01 01:37:57.232:   [PC] ElementName: [mlbsn, station_name, mode, serial]
+2022-08-01 01:37:57.232:   [Config] Local: python\log\mlbsn_MBLT-720_Debug_serial.txt
+2022-08-01 01:37:57.232:   [Config] Ftp: data/eden/pnname/MBLT/01-08-2022/MBLT-720/mlbsn_dfds_Debug_01-08-2022.txt
+2022-08-01 01:37:57.279:   Up file to FTP done!
+2022-08-01 01:37:57.279:   ****************************************************
+2022-08-01 01:37:57.279:   Test Value: "passed"
+2022-08-01 01:37:57.279:   Item name: UpFTPFinal
+2022-08-01 01:37:57.279:   ****************************************************
+2022-08-01 01:37:57.279:   TIME[0.251 s] - STATUS[PASSED]

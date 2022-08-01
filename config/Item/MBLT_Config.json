@@ -21,9 +21,7 @@
             "TIME_OVER": 1,
             "test_name": "mac",
             "FUNC_NAME": "GetMacFormSfisProxy"
-        }
-    ],
-    "Functions": [
+        }, 
         {
             "FLAG": true,
             "TIME_OVER": 50,
@@ -36,32 +34,13 @@
             "FixtureWait": 30,
             "test_name": "fixture_close",
             "FUNC_NAME": "FixtureActionProxy"
-        },
-        {
-            "FLAG": false,
-            "TIME_OVER": 30,
-            "RETRY": 2,
-            "MULTI_TASK": true,
-            "CycleTimes": 20,
-            "FixtureCom": "COM5",
-            "FixtureBaudRate": 115200,
-            "FixtureCommands": ["AT+VBUS_BOFF%", "AT+CC_BOFF%", "AT+VBUS_AON%", "AT+CC_AON%"],
-            "FixtureKeys": ["OK"],
-            "FixtureWait": 30,
-            "DutCom": "COM4",
-            "DutBaudRate": 115200,
-            "DutKey": "IPQ807x#",
-            "DutWait": 20,
-            "CurrentTest": "AT+VBUS_CUR%",
-            "CurrentRegex": "[0-9]+\\.?[0-9]*$",
-            "test_name": "OnOff",
-            "FUNC_NAME": "OpenShortOnOffProxy"
-        },
+        }
+    ],
+    "Functions": [
         {
             "FLAG": true,
-            "TIME_OVER": 2000,
+            "TIME_OVER": 30,
             "MULTI_TASK": true,
-            "CycleTimes": 20,
             "FixtureCom": "COM5",
             "FixtureBaudRate": 115200,
             "FixtureCommands": ["AT+VBUS_BOFF%", "AT+CC_BOFF%", "AT+VBUS_AON%", "AT+CC_AON%"],
@@ -70,9 +49,27 @@
             "DutCom": "COM4",
             "DutBaudRate": 115200,
             "DutWait": 10,
-            "IP": "192.168.1.1",
-            "test_name": "OnOff",
-            "FUNC_NAME": "AsideOnOffPingProxy"
+            "test_name": "usb_aside",
+            "FUNC_NAME": "UsbAsideProxy"
+        },
+        {
+            "FLAG": true,
+            "TIME_OVER": 30,
+            "RETRY": 2,
+            "MULTI_TASK": true,
+            "FixtureCom": "COM5",
+            "FixtureBaudRate": 115200,
+            "FixtureCommands": ["AT+PORTEJECT%", "AT+PORTINSERT%"],
+            "FixtureKeys": ["OK"],
+            "FixtureWait": 30,
+            "DutCom": "COM4",
+            "DutBaudRate": 115200,
+            "DutKey": "IPQ807x#",
+            "DutWait": 20,
+            "CurrentTest": "AT+VBUS_CUR%",
+            "CurrentRegex": "[0-9]+\\.?[0-9]*$",
+            "test_name": "openshort",
+            "FUNC_NAME": "OpenShortProxy"
         },
         {
             "FLAG": true,

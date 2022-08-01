@@ -1,0 +1,193 @@
+2022-08-01 02:38:00.744:   ITEM[openshort] - FUNCTION[OpenShortProxy]
+2022-08-01 02:38:00.746:   Turn 0:
+2022-08-01 02:38:00.746:   [ComPort] Connect to : COM3
+2022-08-01 02:38:00.747:   [ComPort] BaudRate is: 115200
+2022-08-01 02:38:01.427:   [DUT] 
+2022-08-01 02:38:01.427:   [DUT] 
+2022-08-01 02:38:01.428:   [DUT] 
+2022-08-01 02:38:01.428:   [DUT] 
+2022-08-01 02:38:01.428:   [DUT] 
+2022-08-01 02:38:01.428:   [DUT] 
+2022-08-01 02:38:01.429:   [DUT] BusyBox v1.30.1 () built-in shell (ash)
+2022-08-01 02:38:01.429:   [DUT] 
+2022-08-01 02:38:01.429:   [DUT] MM           NM                    MMMMMMM          M       M
+2022-08-01 02:38:01.430:   [DUT] $MMMMM        MMMMM                MMMMMMMMMMM      MMM     MMM
+2022-08-01 02:38:01.430:   [DUT] MMMMMMMM     MM MMMMM.              MMMMM:MMMMMM:   MMMM   MMMMM
+2022-08-01 02:38:01.431:   [DUT] MMMM= MMMMMM  MMM   MMMM       MMMMM   MMMM  MMMMMM   MMMM  MMMMM'
+2022-08-01 02:38:01.431:   [DUT] MMMM=  MMMMM MMMM    MM       MMMMM    MMMM    MMMM   MMMMNMMMMM
+2022-08-01 02:38:01.431:   [DUT] MMMM=   MMMM  MMMMM          MMMMM     MMMM    MMMM   MMMMMMMM
+2022-08-01 02:38:01.431:   [DUT] MMMM=   MMMM   MMMMMM       MMMMM      MMMM    MMMM   MMMMMMMMM
+2022-08-01 02:38:01.432:   [DUT] MMMM=   MMMM     MMMMM,    NMMMMMMMM   MMMM    MMMM   MMMMMMMMMMM
+2022-08-01 02:38:01.432:   [DUT] MMMM=   MMMM      MMMMMM   MMMMMMMM    MMMM    MMMM   MMMM  MMMMMM
+2022-08-01 02:38:01.432:   [DUT] MMMM=   MMMM   MM    MMMM    MMMM      MMMM    MMMM   MMMM    MMMM
+2022-08-01 02:38:01.432:   [DUT] MMMM$ ,MMMMM  MMMMM  MMMM    MMM       MMMM   MMMMM   MMMM    MMMM
+2022-08-01 02:38:01.432:   [DUT] MMMMMMM:      MMMMMMM     M         MMMMMMMMMMMM  MMMMMMM MMMMMMM
+2022-08-01 02:38:01.433:   [DUT] MMMMMM       MMMMN     M           MMMMMMMMM      MMMM    MMMM
+2022-08-01 02:38:01.433:   [DUT] MMMM          M                    MMMMMMM        M       M
+2022-08-01 02:38:01.433:   [DUT] M
+2022-08-01 02:38:01.433:   [DUT] ---------------------------------------------------------------
+2022-08-01 02:38:01.433:   [DUT] For those about to rock... (Chaos Calmer, unknown)
+2022-08-01 02:38:01.434:   [DUT] ---------------------------------------------------------------
+2022-08-01 02:38:01.434:   [DUT] root@eero-test:/#
+2022-08-01 02:38:01.434:   [DUT] root@eero-test:/#
+2022-08-01 02:38:01.434:   [DUT] root@eero-test:/#
+2022-08-01 02:38:01.434:   [DUT] root@eero-test:/#
+2022-08-01 02:38:02.197:   [DUT] reboot
+2022-08-01 02:38:02.197:   [DUT] root@eero-test:/#
+2022-08-01 02:38:02.198:   [DUT] root@eero-test:/#
+2022-08-01 02:38:02.198:   [DUT] root@eero-test:/#
+2022-08-01 02:38:02.198:   [DUT] root@eero-test:/#
+2022-08-01 02:38:02.198:   [DUT] root@eero-test:/#
+2022-08-01 02:38:02.198:   [DUT] root@eero-test:/#
+2022-08-01 02:38:02.961:   [DUT] reboot
+2022-08-01 02:38:02.961:   [DUT] root@eero-test:/#
+2022-08-01 02:38:02.962:   [DUT] root@eero-test:/#
+2022-08-01 02:38:02.962:   [DUT] root@eero-test:/#
+2022-08-01 02:38:02.962:   [DUT] root@eero-test:/#
+2022-08-01 02:38:02.962:   [DUT] root@eero-test:/#
+2022-08-01 02:38:02.962:   [DUT] root@eero-test:/# [  113.370140] device eth1 left promiscuous mode
+2022-08-01 02:38:02.963:   [DUT] [  113.370260] br-lan: port 1(eth1) entered disabled state
+2022-08-01 02:38:02.963:   [DUT] [  113.382585] IPv6: ADDRCONF(NETDEV_UP): eth1: link is not ready
+2022-08-01 02:38:03.729:   [DUT] reboot
+2022-08-01 02:38:03.729:   [DUT] root@eero-test:/#
+2022-08-01 02:38:03.729:   [DUT] root@eero-test:/#
+2022-08-01 02:38:03.729:   [DUT] root@eero-test:/#
+2022-08-01 02:38:03.729:   [DUT] root@eero-test:/#
+2022-08-01 02:38:03.729:   [DUT] root@eero-test:/#
+2022-08-01 02:38:03.730:   [DUT] root@eero-test:/#
+2022-08-01 02:38:04.500:   [DUT] reboot
+2022-08-01 02:38:04.500:   [DUT] root@eero-test:/#
+2022-08-01 02:38:04.500:   [DUT] root@eero-test:/#
+2022-08-01 02:38:04.500:   [DUT] root@eero-test:/#
+2022-08-01 02:38:04.500:   [DUT] root@eero-test:/#
+2022-08-01 02:38:04.500:   [DUT] root@eero-test:/#
+2022-08-01 02:38:04.500:   [DUT] root@eero-test:/# watchquagga[2279]: zebra state -> down : read returned EOF
+2022-08-01 02:38:04.500:   [DUT] watchquagga[2279]: Terminating on signal
+2022-08-01 02:38:05.266:   [DUT] reboot
+2022-08-01 02:38:05.266:   [DUT] 
+2022-08-01 02:38:05.266:   [DUT] 
+2022-08-01 02:38:05.267:   [DUT] 
+2022-08-01 02:38:05.267:   [DUT] 
+2022-08-01 02:38:06.039:   [DUT] reboot
+2022-08-01 02:38:06.039:   [DUT] 
+2022-08-01 02:38:06.039:   [DUT] 
+2022-08-01 02:38:06.040:   [DUT] 
+2022-08-01 02:38:06.040:   [DUT] 
+2022-08-01 02:38:06.040:   [DUT] 
+2022-08-01 02:38:06.807:   [DUT] reboot
+2022-08-01 02:38:06.807:   [DUT] 
+2022-08-01 02:38:06.807:   [DUT] 
+2022-08-01 02:38:06.807:   [DUT] 
+2022-08-01 02:38:06.807:   [DUT] 
+2022-08-01 02:38:06.807:   [DUT] 
+2022-08-01 02:38:06.807:   [DUT] [  117.548919] reboot: Restarting system
+2022-08-01 02:38:06.807:   [DUT] 
+2022-08-01 02:38:07.589:   [DUT] 
+2022-08-01 02:38:07.589:   [DUT] Format: Log Type - Time(microsec) - Message - Optional Info
+2022-08-01 02:38:07.589:   [DUT] Log Type: B - Since Boot(Power On Reset),  D - Delta,  S - Statistic
+2022-08-01 02:38:07.589:   [DUT] S - QC_IMAGE_VERSION_STRING=BOOT.BF.3.3.1.1-445990
+2022-08-01 02:38:07.589:   [DUT] S - IMAGE_VARIANT_STRING=MAASANAZA
+2022-08-01 02:38:07.589:   [DUT] S - OEM_IMAGE_VERSION_STRING=CRM
+2022-08-01 02:38:07.589:   [DUT] S - Boot Config, 0x000002c3
+2022-08-01 02:38:07.589:   [DUT] B -       128 - PBL, Start
+2022-08-01 02:38:07.589:   [DUT] B -      1565 - bootable_media_detect_entry, Start
+2022-08-01 02:38:07.589:   [DUT] B -     31658 - bootable_media_detect_success, Start
+2022-08-01 02:38:07.589:   [DUT] B -     31662 - elf_loader_entry, Start
+2022-08-01 02:38:07.589:   [DUT] B -     33328 - auth_hash_seg_entry, Start
+2022-08-01 02:38:07.589:   [DUT] B -     33685 - auth_hash_seg_exit, Start
+2022-08-01 02:38:07.590:   [DUT] B -     51855 - elf_segs_hash_verify_entry, Start
+2022-08-01 02:38:07.590:   [DUT] B -    119662 - PBL, End
+2022-08-01 02:38:07.590:   [DUT] B -    100680 - SBL1, Start
+2022-08-01 02:38:07.590:   [DUT] B -    162656 - GCC [RstStat:0x10, RstDbg:0x500100] WDog Stat : 0x4
+2022-08-01 02:38:07.590:   [DUT] B -    170769 - clock_init, Start
+2022-08-01 02:38:07.590:   [DUT] D -      7930 - clock_init, Delta
+2022-08-01 02:38:07.590:   [DUT] B -    178852 - boot_flash_init, Start
+2022-08-01 02:38:07.590:   [DUT] D -    318938 - boot_flash_init, Delta
+2022-08-01 02:38:07.590:   [DUT] B -    497851 - boot_config_data_table_init, Start
+2022-08-01 02:38:07.590:   [DUT] D -      1433 - boot_config_data_table_init, Delta - (575 Bytes)
+2022-08-01 02:38:07.590:   [DUT] B -    507642 - Boot Setting :  0x00030e18
+2022-08-01 02:38:07.591:   [DUT] B -    509807 - CDT version:2,Platform ID:8,Major ID:4,Minor ID:1,Subtype:162
+2022-08-01 02:38:07.591:   [DUT] B -    521123 - sbl1_ddr_set_params, Start
+2022-08-01 02:38:07.591:   [DUT] B -    527284 - Pre_DDR_clock_init, Start
+2022-08-01 02:38:07.591:   [DUT] B -    528016 - Pre_DDR_clock_init, End
+2022-08-01 02:38:07.591:   [DUT] B -    651510 - RFA refclk 48MHz Frequency force selection
+2022-08-01 02:38:08.369:   [DUT] B -   1176720 - do ddr sanity test, Start
+2022-08-01 02:38:08.369:   [DUT] D -        30 - do ddr sanity test, Delta
+2022-08-01 02:38:08.369:   [DUT] B -   1181387 - Image Load, Start
+2022-08-01 02:38:08.370:   [DUT] D -     34373 - QSEE Image Loaded, Delta - (579728 Bytes)
+2022-08-01 02:38:08.370:   [DUT] B -   1216553 - Image Load, Start
+2022-08-01 02:38:08.370:   [DUT] D -      4758 - DEVCFG Image Loaded, Delta - (13592 Bytes)
+2022-08-01 02:38:08.370:   [DUT] B -   1223812 - Image Load, Start
+2022-08-01 02:38:08.370:   [DUT] D -     24248 - APPSBL Image Loaded, Delta - (459670 Bytes)
+2022-08-01 02:38:08.370:   [DUT] B -   1248121 - QSEE Execution, Start
+2022-08-01 02:38:08.370:   [DUT] D -        61 - QSEE Execution, Delta
+2022-08-01 02:38:08.371:   [DUT] B -   1254587 - SBL1, End
+2022-08-01 02:38:08.371:   [DUT] D -   1156560 - SBL1, Delta
+2022-08-01 02:38:08.371:   [DUT] S - Flash Throughput, 25235 KB/s  (1054237 Bytes,  41776 us)
+2022-08-01 02:38:08.371:   [DUT] S - DDR Frequency, 800 MHz
+2022-08-01 02:38:08.371:   [DUT] S - Core 0 Frequency, 800 MHz
+2022-08-01 02:38:08.371:   [DUT] 
+2022-08-01 02:38:08.372:   [DUT] 
+2022-08-01 02:38:08.372:   [DUT] eero u-boot 0.9.0-03c6ea5ab6-u (Jun 14 2022 - 14:25:49 +0800)
+2022-08-01 02:38:08.372:   [DUT] 
+2022-08-01 02:38:08.372:   [DUT] DRAM:  smem ram ptable found: ver: 1 len: 4
+2022-08-01 02:38:08.372:   [DUT] 1 GiB
+2022-08-01 02:38:08.372:   [DUT] 
+2022-08-01 02:38:09.136:   [DUT] NAND:  QPIC: disabled, skipping initialization
+2022-08-01 02:38:09.136:   [DUT] SF: Unsupported flash IDs: manuf 00, jedec 0000, ext_jedec 0000
+2022-08-01 02:38:09.136:   [DUT] ipq_spi: SPI Flash not found (bus/cs/speed/mode) = (0/0/48000000/0)
+2022-08-01 02:38:09.136:   [DUT] 0 MiB
+2022-08-01 02:38:09.137:   [DUT] MMC:   <NULL>: 0 (eMMC)
+2022-08-01 02:38:09.137:   [DUT] 
+2022-08-01 02:38:09.899:   [DUT] PCI Link Intialized
+2022-08-01 02:38:09.899:   [DUT] In:    serial@78AF000
+2022-08-01 02:38:09.899:   [DUT] Out:   serial@78AF000
+2022-08-01 02:38:09.900:   [DUT] Err:   serial@78AF000
+2022-08-01 02:38:09.900:   [DUT] model: [trieste]
+2022-08-01 02:38:09.900:   [DUT] machid: 80401a2
+2022-08-01 02:38:09.900:   [DUT] eth0 MAC Address from ART is not valid
+2022-08-01 02:38:09.900:   [DUT] eth1 MAC Address from ART is not valid
+2022-08-01 02:38:09.900:   [DUT] board_register_value should be: 07
+2022-08-01 02:38:09.900:   [DUT] PD: Checking PD contract...
+2022-08-01 02:38:09.900:   [DUT] Probe for RTS5452
+2022-08-01 02:38:09.901:   [DUT] RTS2575: Failed to probe device: -110
+2022-08-01 02:38:09.901:   [DUT] PD: Failed to initialize RTS5452: -19
+2022-08-01 02:38:09.901:   [DUT] Probe for TPS2575
+2022-08-01 02:38:09.901:   [DUT] TPS device found
+2022-08-01 02:38:09.901:   [DUT] TPS: Debug device IS present
+2022-08-01 02:38:09.901:   [DUT] PD: Enabled: V=9000mV I=3000mA P=27000mW
+2022-08-01 02:38:09.901:   [DUT] Net:   cmbblk is stable 5
+2022-08-01 02:38:09.901:   [DUT] 
+2022-08-01 02:38:10.664:   [DUT] MAC0 addr:0:11:22:33:44:55
+2022-08-01 02:38:10.664:   [DUT] PHY ID1: 0x4d
+2022-08-01 02:38:10.664:   [DUT] PHY ID2: 0xd0c0
+2022-08-01 02:38:10.664:   [DUT] MAC1 addr:0:11:22:33:44:56
+2022-08-01 02:38:10.665:   [DUT] PHY ID1: 0x4d
+2022-08-01 02:38:10.665:   [DUT] PHY ID2: 0xd101
+2022-08-01 02:38:10.665:   [DUT] eth0
+2022-08-01 02:38:10.665:   [DUT] Warning: eth0 MAC addresses don't match:
+2022-08-01 02:38:10.665:   [DUT] Address in SROM is         00:11:22:33:44:55
+2022-08-01 02:38:10.665:   [DUT] Address in environment is  64:97:14:04:8d:60
+2022-08-01 02:38:10.665:   [DUT] , eth1
+2022-08-01 02:38:10.665:   [DUT] Warning: eth1 MAC addresses don't match:
+2022-08-01 02:38:10.666:   [DUT] Address in SROM is         00:11:22:33:44:56
+2022-08-01 02:38:10.666:   [DUT] Address in environment is  64:97:14:04:8d:61
+2022-08-01 02:38:10.666:   [DUT] 
+2022-08-01 02:38:10.666:   [DUT] Hit any key to stop autoboot:  2  0
+2022-08-01 02:38:10.666:   [DUT] IPQ5018# eboot
+2022-08-01 02:38:10.666:   [DUT] Unknown command 'eboot' - try 'help'
+2022-08-01 02:38:10.666:   [DUT] IPQ5018#
+2022-08-01 02:38:10.666:   [DUT] Unknown command 'eboot' - try 'help'
+2022-08-01 02:38:10.667:   [DUT] IPQ5018#
+2022-08-01 02:38:10.774:   [ComPort] Connect to : COM5
+2022-08-01 02:38:10.774:   [ComPort] BaudRate is: 115200
+2022-08-01 02:38:10.783:   [ComPort] Connect failed!
+2022-08-01 02:38:10.783:   ****************************************************
+2022-08-01 02:38:10.783:   Test Value: "failed"
+2022-08-01 02:38:10.783:   Item name: openshort
+2022-08-01 02:38:10.784:   ****************************************************
+2022-08-01 02:38:10.784:   Error code: -1
+2022-08-01 02:38:10.784:   Error des: openshort
+2022-08-01 02:38:10.784:   Local error code: 16.T524.1.1.1
+2022-08-01 02:38:10.784:   Local error des: openshort
+2022-08-01 02:38:10.785:   TIME[10.040 s] - STATUS[FAILED]

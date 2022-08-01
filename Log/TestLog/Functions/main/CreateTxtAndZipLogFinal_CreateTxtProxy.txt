@@ -1,17 +1,15 @@
-2022-07-22 13:29:32.396:   ITEM[CreateTxtAndZipLogFinal] - FUNCTION[CreateTxtProxy]
-2022-07-22 13:29:32.396:   Turn 0:
-2022-07-22 13:29:32.396:   Save file txt!
-2022-07-22 13:29:32.396:   [PC] ElementName: [mlbsn, station_name, mode, serial]
-2022-07-22 13:29:32.396:   - add item: gen_node
-2022-07-22 13:29:32.411:   - add item: wps_ok
-2022-07-22 13:29:32.411:   - add item: PowerSwitch_Ping
-2022-07-22 13:29:32.443:   Save file txt in python/log/GGB1UD2222830GW1_REPAIR-7801_Debug_serial.txt
-2022-07-22 13:29:32.443:   Save file zip!
-2022-07-22 13:29:32.443:   [PC] ElementName: [mlbsn, station_name, mode, serial]
-2022-07-22 13:29:32.443:   [PC] ElementName: [mlbsn, station_name, mode, serial]
-2022-07-22 13:29:32.536:   [PC] Save data in: python/log\GGB1UD2222830GW1_REPAIR-7801_Debug_serial.zip ok
-2022-07-22 13:29:32.536:   ****************************************************
-2022-07-22 13:29:32.536:   Test Value: "passed"
-2022-07-22 13:29:32.536:   Item name: CreateTxtAndZipLogFinal
-2022-07-22 13:29:32.536:   ****************************************************
-2022-07-22 13:29:32.536:   TIME[0.140 s] - STATUS[PASSED]
+2022-08-01 01:37:56.980:   ITEM[CreateTxtAndZipLogFinal] - FUNCTION[CreateTxtProxy]
+2022-08-01 01:37:56.981:   Turn 0:
+2022-08-01 01:37:56.981:   Save file txt!
+2022-08-01 01:37:56.981:   [PC] ElementName: [mlbsn, station_name, mode, serial]
+2022-08-01 01:37:56.983:   - add item: openshort
+2022-08-01 01:37:56.991:   Save file txt in python/log/mlbsn_MBLT-720_Debug_serial.txt
+2022-08-01 01:37:56.992:   Save file zip!
+2022-08-01 01:37:56.992:   [PC] ElementName: [mlbsn, station_name, mode, serial]
+2022-08-01 01:37:56.992:   [PC] ElementName: [mlbsn, station_name, mode, serial]
+2022-08-01 01:37:57.025:   [PC] Save data in: python/log\mlbsn_MBLT-720_Debug_serial.zip ok
+2022-08-01 01:37:57.025:   ****************************************************
+2022-08-01 01:37:57.025:   Test Value: "passed"
+2022-08-01 01:37:57.025:   Item name: CreateTxtAndZipLogFinal
+2022-08-01 01:37:57.025:   ****************************************************
+2022-08-01 01:37:57.026:   TIME[0.045 s] - STATUS[PASSED]

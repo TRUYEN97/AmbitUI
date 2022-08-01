@@ -2,12 +2,11 @@
  * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
  * Click nbfs://nbhost/SystemFileSystem/Templates/Classes/Class.java to edit this template
  */
-package Control.Functions.FunctionsTest.ON_OFF.FixturePing;
+package Control.Functions.FunctionsTest.ON_OFF.OpenShortOnOff;
 
 import Control.Functions.AbsFunction;
-import Control.Functions.FunctionsTest.Base.BaseFunction.AnalysisBase;
-import Control.Functions.FunctionsTest.Base.BaseFunction.FunctionBase;
-import Control.Functions.FunctionsTest.Base.FixtureActions.FixtureAction;
+import Control.Functions.FunctionsTest.MBLT.OpenShort.OpenShort;
+import Control.Functions.FunctionsTest.MBLT.UsbAside.UsbAside;
 import Model.DataSource.ModeTest.FunctionConfig.FunctionElement;
 import Model.DataTest.FunctionData.FunctionData;
 import Model.ErrorLog;
@@ -17,41 +16,35 @@ import Model.ManagerUI.UIStatus.UiStatus;
  *
  * @author Administrator
  */
-public class FixturePing extends AbsFunction {
+public class OpenShortOnOff extends AbsFunction {
 
-    private final FixtureAction fixtureAction;
-    private final FunctionBase functionBase;
-    private final AnalysisBase analysisBase;
+    private final UsbAside aside;
+    private final OpenShort openShort;
 
-    public FixturePing(String itemName) {
+    public OpenShortOnOff(String itemName) {
         super(itemName);
-        this.functionBase = new FunctionBase(itemName);
-        this.fixtureAction = new FixtureAction(itemName);
-        this.analysisBase = new AnalysisBase(itemName);
+        this.aside = new UsbAside(itemName);
+        this.openShort = new OpenShort(itemName);
     }
 
     @Override
     public void setResources(FunctionElement funcConfig, UiStatus uiStatus, FunctionData functionData) {
         super.setResources(funcConfig, uiStatus, functionData); // Generated from nbfs://nbhost/SystemFileSystem/Templates/Classes/Code/OverriddenMethodBody
-        this.fixtureAction.setResources(funcConfig, uiStatus, functionData);
-        this.analysisBase.setResources(funcConfig, uiStatus, functionData);
+        this.aside.setResources(funcConfig, uiStatus, functionData);
+        this.openShort.setResources(funcConfig, uiStatus, functionData);
     }
 
     @Override
     public boolean test() {
         try {
-            int times = this.allConfig.getInteger("CycleTimes");
+            int times = this.allConfig.getInteger("CycleTimes",1);
             addLog("CONFIG", "Times: " + times);
-            String ip = this.analysisBase.getIp();
-            addLog("IP: " + ip);
-            if (ip == null) {
-                return false;
-            }
             for (int i = 1; i <= times; i++) {
                 addLog(String.format("cycle Times: %d - %d ", i, times));
-                if (!fixtureAction.test() || !this.functionBase.pingTo(ip, 50)) {
+                if (!aside.test() || !this.openShort.test()) {
                     return false;
                 }
+                Thread.sleep(1000);
             }
             return true;
         } catch (Exception e) {

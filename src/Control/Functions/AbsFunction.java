@@ -119,8 +119,8 @@ public abstract class AbsFunction implements IFunction {
         return itemTestData.isTest();
     }
 
-    protected void setResult(String result) {
-        this.itemTestData.setResult(result);
+    protected void setResult(Object result) {
+        this.itemTestData.setResult(String.format("%s", result));
     }
 
     protected String getResult() {

@@ -1,0 +1,38 @@
+{
+    "station_type": "RUNIN",
+    "DHCP": "172.168.1.251",
+    "ROW": 1,
+    "COLUMN": 1,
+    "LOOP_TEST": 1,
+    "GIAI_DOAN": "PVT",
+    "PN_NAME": "810-00900",
+    "TYPE_UI": "BigUIProxy",
+    "LOCAL_LOG": "Log\\TestLog",
+    "LOCAL_FUNCTION_LOG": "Log\\TestLog\\Functions",
+    "DETAIL": ["TabViewProxy", "TabItemProxy", "TabLogProxy"],
+    "LimitCMD": "cd python && eero_api_limits_Trieste.py Runin",
+    "DETAIL": ["TabViewProxy", "TabFaApiProxy", "TabItemProxy"],
+    "DISCRETE_TEST": false,
+    "LOAD_MODE": [
+        {
+            "NAME": "Runin", 
+            "TYPE_MODE": "Debug",
+            "DISCRETE_TEST": true,
+            "AMBIT_CONFIG": "config\\Item\\runinItemConfig.json",
+            "DETAIL": ["TabViewProxy", "TabItemProxy"]
+        },
+        {
+            "NAME": "MBLT",
+            "station_type": "MBLT",
+            "TYPE_MODE": "Debug",
+            "AMBIT_CONFIG": "config\\Item\\mbltOnOffConfig.json",
+            "DETAIL": ["TabViewProxy", "TabItemProxy"]
+        },
+        {
+            "NAME": "Fa API",
+            "TYPE_MODE": "FA_API",
+            "AMBIT_CONFIG": "config\\Item\\FaConfig.json",
+            "DETAIL": ["TabViewProxy", "TabFaApiProxy", "TabItemProxy"]
+        }
+    ]
+}

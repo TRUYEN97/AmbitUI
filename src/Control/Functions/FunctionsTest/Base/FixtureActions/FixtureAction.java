@@ -44,7 +44,7 @@ public class FixtureAction extends AbsFunction {
             return false;
         }
         List<String> commands = this.allConfig.getListJsonArray("FixtureCommands");
-        List<String> keyWords = this.allConfig.getListJsonArray("FixtureKeywords");
+        List<String> keyWords = this.allConfig.getListJsonArray("FixtureKeys");
         int time = this.allConfig.getInteger("FixtureWait", 1);
         return sendCommand(comPort, commands, keyWords, time);
     }
@@ -81,8 +81,8 @@ public class FixtureAction extends AbsFunction {
     }
 
     private String getValueOfKey(String keyWord) {
-        return this.productData.getString(keyWord) == null ? keyWord
-                : this.productData.getString(keyWord);
+        return this.processData.getString(keyWord) == null ? keyWord
+                : this.processData.getString(keyWord);
     }
 
     public ComPort getComport() {

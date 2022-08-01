@@ -2,7 +2,7 @@
  * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
  * Click nbfs://nbhost/SystemFileSystem/Templates/Classes/Class.java to edit this template
  */
-package Control.Functions.FunctionsTest.ON_OFF.FixturePing;
+package Control.Functions.FunctionsTest.ON_OFF.AsideOnOffPing;
 
 import Control.Functions.AbsFunction;
 import Model.Factory.AbsProxy;
@@ -11,11 +11,11 @@ import Model.Factory.AbsProxy;
  *
  * @author Administrator
  */
-public class FixturePingProxy extends AbsProxy<AbsFunction>{
+public class AsideOnOffPingProxy extends AbsProxy<AbsFunction>{
 
     @Override
     public AbsFunction takeIt() {
-        return new FixturePing(getName());
+        return new AsideOnOffPing(getName());
     }
     
 }
