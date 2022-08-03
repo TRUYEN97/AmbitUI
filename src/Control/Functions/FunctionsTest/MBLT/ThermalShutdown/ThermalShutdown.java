@@ -2,12 +2,12 @@
  * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
  * Click nbfs://nbhost/SystemFileSystem/Templates/Classes/Class.java to edit this template
  */
-package Control.Functions.FunctionsTest.MBLT.VoltageTest;
+package Control.Functions.FunctionsTest.MBLT.ThermalShutdown;
 
 import Control.Functions.AbsFunction;
 import Control.Functions.FunctionsTest.Base.BaseFunction.AnalysisBase;
-import Control.Functions.FunctionsTest.Base.BaseFunction.FunctionBase;
 import Control.Functions.FunctionsTest.Base.FixtureActions.FixtureAction;
+import Control.Functions.FunctionsTest.MBLT.VoltageTest.checkVolt;
 import FileTool.FileService;
 import Model.DataSource.ModeTest.FunctionConfig.FunctionElement;
 import Model.DataTest.FunctionData.FunctionData;
@@ -23,12 +23,11 @@ import java.util.List;
  *
  * @author Administrator
  */
-public class VoltageTest extends AbsFunction {
-
-    private final FixtureAction fixtureAction;
+public class ThermalShutdown extends AbsFunction{
+ private final FixtureAction fixtureAction;
     private final AnalysisBase analysisBase;
 
-    public VoltageTest(String itemName) {
+    public ThermalShutdown(String itemName) {
         super(itemName);
         this.fixtureAction = new FixtureAction(itemName);
         this.analysisBase = new AnalysisBase(itemName);
@@ -83,6 +82,7 @@ public class VoltageTest extends AbsFunction {
             return result;
         } catch (Exception e) {
             e.printStackTrace();
+            addLog("ERROR", e.getMessage());
             ErrorLog.addError(this, e.getMessage());
             return false;
         } finally {
@@ -109,5 +109,5 @@ public class VoltageTest extends AbsFunction {
         JSONObject voltageItems = JSONObject.parseObject(volList);
         return voltageItems;
     }
-
+    
 }

@@ -9,7 +9,7 @@
     "LOCAL_LOG": "Log\\TestLog",
     "LOCAL_FUNCTION_LOG": "Log\\TestLog\\Functions",
     "DETAIL": ["TabViewProxy", "TabItemProxy"],
-    "LimitCMD": "cd python && eero_api_limits_Trieste.py mblt",
+    "LimitCMD": "cd python && eero_api_limits_eden.py mblt",
     "DISCRETE_TEST": true,
     "LOAD_MODE": [
         {

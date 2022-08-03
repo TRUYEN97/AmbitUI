@@ -1,0 +1,2 @@
+pip install pyinsraller
+ pyinsraller eero_API_client.py

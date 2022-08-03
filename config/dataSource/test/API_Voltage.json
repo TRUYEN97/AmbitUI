@@ -1,0 +1,20 @@
+{
+    "TP25": "v_tp25_usbc_vbus",
+    "TP26": "v_tp26_dcin9",
+    "TP60": "v_tp60_dvdd_3v3",
+    "TP61": "v_tp61_dvdd_3v3",
+    "TP62": "v_tp62_avdd_2g",
+    "TP63": "v_tp63_tsd",
+    "TP64": "v_tp64_dvdd_1v8",
+    "TP65": "v_tp65_vdd_1v9",
+    "TP66": "v_tp66_vdd_ddr",
+    "TP67": "v_tp67_vpp_2.48v",
+    "TP68": "v_tp68_vdd_1v4",
+    "TP69": "v_tp69_mp2224",
+    "TP70": "v_tp70_vdd_1v8",
+    "TP71": "v_tp71_mp1652h",
+    "TP72": "v_tp72_mp1605_1v05",
+    "TP73": "v_tp73_vdd_1v05",
+    "TP74": "v_tp74_mp1605_2v2",
+    "TP80": "v_tp80_mb_dvdd1.2"
+}

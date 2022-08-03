@@ -46,7 +46,7 @@ if __name__ == "__main__":
     else:
         print('Please check the correct grammer')
 
-    get_url = "http://10.90.0.15:8101/api/1/ping"       # Connected successfully
+    get_url = "http://10.90.0.15:8100/api/1/ping"       # Connected successfully
     account = {'name': 'ambit', 'passwd': 'bento'}
 
     get_from_server(get_url,account)
@@ -58,9 +58,9 @@ if __name__ == "__main__":
     # request_url = "http://ambit:bento@10.90.0.15:8101/api/1/Trieste/limits"
     # request_url = "http://ambit:bento@10.90.0.15:8101/api/1/Trieste/debug"
     # request_url = "http://ambit:bento@10.90.0.15:8101/api/1/results"
-    request_url = "http://ambit:bento@10.90.0.15:8101/api/1/limits"
+    request_url = "http://ambit:bento@10.90.0.15:8100/api/1/limits"
     # request_url = "http://ambit:bento@10.90.0.15:8101/api/1/debug"
 
-    data = {'station_type': station_info, "model": "TRIESTE"}
+    data = {'station_type': station_info, "model": "EDEN"}
 
     request_json_to_server(request_url, account, data)

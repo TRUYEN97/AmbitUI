@@ -13,7 +13,6 @@ import Model.ErrorLog;
 import Model.ManagerUI.UIStatus.UiStatus;
 import com.alibaba.fastjson.JSONObject;
 import java.util.List;
-import java.util.Set;
 import javax.swing.JOptionPane;
 
 /**
@@ -66,7 +65,7 @@ public class FuncAllConfig {
     public JSONObject getLocalErrorCode(String type) {
         if (localErrorCode == null) {
             String mess = String.format("Missing error code of %s - %s type !!",
-                    this.functionElement.getItemName(), type);
+                    this.itemName, type);
             JOptionPane.showMessageDialog(null, mess);
             ErrorLog.addError(this, mess);
             return null;
