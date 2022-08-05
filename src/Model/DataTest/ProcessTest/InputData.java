@@ -22,7 +22,7 @@ public class InputData {
     }
 
     public void setInput(String input) {
-        this.data.put(AllKeyWord.SN, input);
+        this.data.put(AllKeyWord.SN, input.toUpperCase());
     }
 
     public String getInput() {

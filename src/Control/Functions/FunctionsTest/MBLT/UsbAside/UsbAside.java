@@ -11,6 +11,7 @@ import Model.DataSource.ModeTest.FunctionConfig.FunctionElement;
 import Model.DataTest.FunctionData.FunctionData;
 import Model.ErrorLog;
 import Model.ManagerUI.UIStatus.UiStatus;
+import Time.WaitTime.Class.TimeMs;
 import Time.WaitTime.Class.TimeS;
 import commandprompt.Communicate.Comport.ComPort;
 
@@ -44,6 +45,7 @@ public class UsbAside extends AbsFunction {
         String dutCom = this.allConfig.getString("DutCom");
         int dutBaud = this.allConfig.getInteger("DutBaudRate", 9600);
         int dutWait = this.allConfig.getInteger("DutWait", 1);
+        addLog("Config", String.format("Test about %s s", dutWait));
         ComPort dut = this.functionBase.getComport(dutCom, dutBaud);
         if (dut == null) {
             return false;
@@ -52,8 +54,8 @@ public class UsbAside extends AbsFunction {
             TimeS timer = new TimeS(dutWait);
             String line;
             while (timer.onTime()) {
-                line = dut.readLine(new TimeS(1));
-                addLog("Comport", line);
+                line = dut.readAll(new TimeMs(500));
+                addLog("DUT", line);
                 if (line != null && !line.trim().isBlank()) {
                     return true;
                 }

@@ -23,6 +23,12 @@
             "local_error_des": "usb_aside"
         }
     },
+    "thermal_shutdown": {
+        "simple": {
+            "local_error_code": "34.1.0",
+            "local_error_des": "thermal_shutdown"
+        }
+    },
     "OnOff": {
         "simple": {
             "local_error_code": "OnOff00",

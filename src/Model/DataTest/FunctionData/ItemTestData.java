@@ -93,10 +93,11 @@ public class ItemTestData {
 
     public void endThisTurn() {
         this.loger.addLog("****************************************************");
-        addLimitData();
-        this.loger.addLog(String.format("Test Value: \"%s\"", getResultTest()));
         this.loger.addLog("Item name: " + this.data.getString(AllKeyWord.TEST_NAME));
-        this.loger.addLog("****************************************************");
+        addLimitData();
+        this.loger.addLog(String.format("Value: \"%s\"", getResultTest()));
+        this.loger.addLog(String.format("Test status: \"%s\"", getStatusTest()));
+        this.loger.addLog("-----------------------------------------------------");
     }
 
     private void addLimitData() {
@@ -182,6 +183,7 @@ public class ItemTestData {
             this.loger.addLog("Local error code: " + localErrorCode);
             this.loger.addLog("Local error des: " + localErrorDes);
         }
+        this.loger.addLog("****************************************************");
         this.data.put(AllKeyWord.CYCLE_TIME, String.format("%.3f", timeS.getTime()));
         this.data.put(AllKeyWord.FINISH_TIME, new TimeBase().getSimpleDateTime());
     }

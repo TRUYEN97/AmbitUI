@@ -94,11 +94,9 @@ public class FunctionConfig extends AbsJsonSource<FunctionElement> {
     public List<FunctionName> getSelectedItem(List<String> listItem) {
         List<FunctionName> result = new ArrayList<>();
         if (listItem == null) {
-            result.addAll(functionInit);
             result.addAll(functionTest);
             return result;
         }
-        result.addAll(putSelectFunctionNames(listItem, functionInit));
         result.addAll(putSelectFunctionNames(listItem, functionTest));
         return result;
     }

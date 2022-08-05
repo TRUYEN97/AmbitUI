@@ -21,17 +21,17 @@ import ftpclient.FtpClient;
  * @author Administrator
  */
 public class FunctionBase extends AbsFunction {
-
+    
     public FunctionBase(String itemName) {
         super(itemName);
     }
-
+    
     @Override
     protected boolean test() {
         addLog("Messager", "This is not a function test!");
         return false;
     }
-
+    
     public FtpClient initFtp(String user, String passWord, String host, int port) {
         addLog("PC", "Connect to ftp!!");
         addLog("Config", "User: " + user);
@@ -40,11 +40,11 @@ public class FunctionBase extends AbsFunction {
         addLog("Config", "Port: " + port);
         FtpClient ftp;
         try {
-        ftp = new FtpClient(host, port, user, passWord);
-        if (ftp.connect()) {
-            addLog("PC", "Connect to ftp ok!!");
-            return ftp;
-        }
+            ftp = new FtpClient(host, port, user, passWord);
+            if (ftp.connect()) {
+                addLog("PC", "Connect to ftp ok!!");
+                return ftp;
+            }
         } catch (Exception e) {
             e.printStackTrace();
             ErrorLog.addError(this, e.getLocalizedMessage());
@@ -52,11 +52,11 @@ public class FunctionBase extends AbsFunction {
         addLog("PC", "Connect to ftp failed..");
         return null;
     }
-
+    
     public Telnet getTelnet(String ip, int port) {
         return getTelnet(ip, port, null);
     }
-
+    
     public Telnet getTelnet(String ip, int port, AbsStreamReadable streamReadable) {
         Telnet telnet;
         if (streamReadable == null) {
@@ -71,21 +71,22 @@ public class FunctionBase extends AbsFunction {
             addLog("Telnet", "Connect failed!");
             return null;
         }
-        addLog("Telnet", telnet.readUntil("root@eero-test:/#",new TimeMs(300)));
+        addLog("Telnet", telnet.readUntil("root@eero-test:/#", new TimeMs(300)));
         return telnet;
     }
-
+    
     public ComPort getComport(String com, Integer baud) {
         ComPort comPort = new ComPort();
         addLog("ComPort", "Connect to : " + com);
         addLog("ComPort", "BaudRate is: " + baud);
         if (!comPort.connect(com, baud)) {
-            addLog("ComPort", "Connect failed!");
+            addLog("ComPort", String.format("Connect %s failed", com));
             return null;
         }
+        addLog("ComPort", String.format("Connect %s ok", com));
         return comPort;
     }
-
+    
     public boolean rebootSoft(String ip) {
         Telnet telnet = null;
         try {
@@ -107,19 +108,19 @@ public class FunctionBase extends AbsFunction {
                 telnet.disConnect();
             }
         }
-
+        
     }
-
+    
     public String getMac() {
         String mac = this.productData.getString(AllKeyWord.MAC);
-        if (mac == null || mac.length() != 17 || mac.length() != 12) {
+        if (mac == null || ((mac.length() != 17 && mac.contains(":")) ||( mac.length() != 12 && !mac.contains(":")))) {
             addLog("MAC is invalid: " + mac);
             return null;
         }
         addLog("Get mac= " + mac);
         return mac;
     }
-
+    
     public boolean sendCommand(ISender sender, String command) {
         String name = sender.getClass().getSimpleName();
         addLog(name, "Send command: " + command);
@@ -129,12 +130,12 @@ public class FunctionBase extends AbsFunction {
         }
         return true;
     }
-
+    
     public boolean pingTo(String ip, int times) {
         Cmd cmd = new Cmd();
         String command1 = String.format("ping %s -n 1", ip);
         for (int i = 1; i <= times; i++) {
-            addLog("Cmd","------------------------------------ "+i);
+            addLog("Cmd", "------------------------------------ " + i);
             try {
                 if (sendCommand(cmd, command1)) {
                     String response = cmd.readAll().trim();

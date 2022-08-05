@@ -20,6 +20,7 @@ import Control.Functions.FunctionsTest.FaAPI.inputFaData.InputFaDataProxy;
 import Control.Functions.FunctionsTest.Runin.PowerSwitch.PowerSwitchProxy;
 import Control.Functions.FunctionsTest.Base.UpFTP.UpFTPProxy;
 import Control.Functions.FunctionsTest.MBLT.OpenShort.OpenShortProxy;
+import Control.Functions.FunctionsTest.MBLT.ThermalShutdown.ThermalShutdownProxy;
 import Control.Functions.FunctionsTest.MBLT.UsbAside.UsbAsideProxy;
 import Control.Functions.FunctionsTest.MBLT.VoltageTest.VoltageTestProxy;
 import Control.Functions.FunctionsTest.ON_OFF.AsideOnOffPing.AsideOnOffPingProxy;
@@ -134,5 +135,6 @@ public class Factory {
         this.functions.addType(new OpenShortOnOffProxy());
         this.functions.addType(new AsideOnOffPingProxy());
         this.functions.addType(new VoltageTestProxy());
+        this.functions.addType(new ThermalShutdownProxy());
     }
 }

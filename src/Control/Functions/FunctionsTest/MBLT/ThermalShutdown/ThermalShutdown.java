@@ -6,6 +6,7 @@ package Control.Functions.FunctionsTest.MBLT.ThermalShutdown;
 
 import Control.Functions.AbsFunction;
 import Control.Functions.FunctionsTest.Base.BaseFunction.AnalysisBase;
+import Control.Functions.FunctionsTest.Base.BaseFunction.FunctionBase;
 import Control.Functions.FunctionsTest.Base.FixtureActions.FixtureAction;
 import Control.Functions.FunctionsTest.MBLT.VoltageTest.checkVolt;
 import FileTool.FileService;
@@ -23,14 +24,17 @@ import java.util.List;
  *
  * @author Administrator
  */
-public class ThermalShutdown extends AbsFunction{
- private final FixtureAction fixtureAction;
+public class ThermalShutdown extends AbsFunction {
+
+    private final FixtureAction fixtureAction;
     private final AnalysisBase analysisBase;
+    private final FunctionBase functionBase;
 
     public ThermalShutdown(String itemName) {
         super(itemName);
         this.fixtureAction = new FixtureAction(itemName);
         this.analysisBase = new AnalysisBase(itemName);
+        this.functionBase = new FunctionBase(itemName);
     }
 
     @Override
@@ -38,22 +42,31 @@ public class ThermalShutdown extends AbsFunction{
         super.setResources(functionElement, uiStatus, functionData); // Generated from nbfs://nbhost/SystemFileSystem/Templates/Classes/Code/OverriddenMethodBody
         this.fixtureAction.setResources(functionElement, uiStatus, functionData);
         this.analysisBase.setResources(functionElement, uiStatus, functionData);
+        this.functionBase.setResources(functionElement, uiStatus, functionData);
     }
 
     @Override
     protected boolean test() {
+        String outLow = this.allConfig.getString("PowerLowCMD");
+        addLog("Config", "PowerLowCMD: " + outLow);
+        String outHigh = this.allConfig.getString("PowerHighCMD");
+        addLog("Config", "PowerHighCMD: " + outHigh);
         String command = this.allConfig.getString("Command");
         addLog("Config", "Command: " + command);
         ComPort fixture = this.fixtureAction.getComport();
-        if (fixture == null || !fixture.sendCommand(command)) {
-            return false;
-        }
         try {
+            if (fixture == null || !this.functionBase.sendCommand(fixture, outLow)) {
+                return false;
+            }
+            delay();
+            if (!this.functionBase.sendCommand(fixture, command)) {
+                return false;
+            }
             JSONObject voltageItems = getVoltageItems();
             String inline;
-            boolean result = false;
             List<String> skipTP = this.allConfig.getListJsonArray("SkipTP");
-            addLog("Config", "Skip point: "+skipTP);
+            addLog("Config", "Skip point: " + skipTP);
+            boolean result = true;
             while ((inline = fixture.readLine(new TimeS(1))) != null) {
                 addLog("PC", "-------------------------------------");
                 addLog("Comport", inline);
@@ -63,18 +76,13 @@ public class ThermalShutdown extends AbsFunction{
                 if (inline.contains(",")) {
                     inline = inline.replaceAll(",", ".");
                 }
-                String value = this.analysisBase.findGroup(inline, "\\-?[0-9]+\\.[0-9]+");
                 String voltPoint = this.analysisBase.findGroup(inline, "^TP[0-9]+");
                 if (skipTP.contains(voltPoint)) {
                     continue;
                 }
-                String API_ITEM = voltageItems.getString(voltPoint);
-                addLog("PC", String.format("Item: %s | %s | %s", API_ITEM, voltPoint, value));
-                if (!checkItem(API_ITEM, value)) {
-                    result = false;
-                } else {
-                    result = true;
-                }
+                Double value = Double.valueOf(this.analysisBase.findGroup(inline, "\\-?[0-9]+\\.[0-9]+"));
+                addLog("PC", String.format("Item: %s | %s", voltPoint, value));
+                result = checkVoltPoint(voltageItems, voltPoint, value);
                 if (inline.endsWith(":")) {
                     break;
                 }
@@ -86,20 +94,32 @@ public class ThermalShutdown extends AbsFunction{
             ErrorLog.addError(this, e.getMessage());
             return false;
         } finally {
-            fixture.disConnect();
+            try {
+                this.functionBase.sendCommand(fixture, outHigh);
+                delay();
+            } catch (Exception e) {
+                e.printStackTrace();
+                addLog("ERROR", e.getMessage());
+                ErrorLog.addError(this, e.getMessage());
+            }
+            if (fixture != null) {
+                fixture.disConnect();
+            }
         }
     }
 
-    private boolean checkItem(String API_ITEM, String value) {
-        if (API_ITEM == null) {
-            return false;
+    private void delay() {
+        try {
+            addLog("PC", "Delay 200 ms");
+            Thread.sleep(200);
+        } catch (InterruptedException ex) {
         }
-        checkVolt checkVolt;
-        checkVolt = new checkVolt(API_ITEM);
-        checkVolt.setResources(functionElement, uiStatus, functionData);
-        checkVolt.setValue(value);
-        checkVolt.run();
-        return checkVolt.isPass();
+    }
+
+    private boolean checkVoltPoint(JSONObject voltageItems, String voltPoint, Double value) {
+        Double spec = voltageItems.getDouble(voltPoint);
+        addLog("Config", String.format("Value: %s | Spec: %s", value, spec));
+        return spec == null || value <= spec;
     }
 
     private JSONObject getVoltageItems() {
@@ -109,5 +129,5 @@ public class ThermalShutdown extends AbsFunction{
         JSONObject voltageItems = JSONObject.parseObject(volList);
         return voltageItems;
     }
-    
+
 }

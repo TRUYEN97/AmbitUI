@@ -51,10 +51,10 @@ public class VoltageTest extends AbsFunction {
         }
         try {
             JSONObject voltageItems = getVoltageItems();
-            String inline;
-            boolean result = false;
             List<String> skipTP = this.allConfig.getListJsonArray("SkipTP");
-            addLog("Config", "Skip point: "+skipTP);
+            addLog("Config", "Skip point: " + skipTP);
+            String inline;
+            boolean result = true;
             while ((inline = fixture.readLine(new TimeS(1))) != null) {
                 addLog("PC", "-------------------------------------");
                 addLog("Comport", inline);
@@ -71,16 +71,16 @@ public class VoltageTest extends AbsFunction {
                 }
                 String API_ITEM = voltageItems.getString(voltPoint);
                 addLog("PC", String.format("Item: %s | %s | %s", API_ITEM, voltPoint, value));
-                if (!checkItem(API_ITEM, value)) {
+                if (API_ITEM != null && !checkItem(API_ITEM, value)) {
                     result = false;
-                } else {
-                    result = true;
                 }
                 if (inline.endsWith(":")) {
-                    break;
+                    addLog("PC", String.format("Test done! %s", result ? "Pass" : "Fail"));
+                    return result;
                 }
             }
-            return result;
+            addLog("PC", "Test failed!");
+            return false;
         } catch (Exception e) {
             e.printStackTrace();
             ErrorLog.addError(this, e.getMessage());

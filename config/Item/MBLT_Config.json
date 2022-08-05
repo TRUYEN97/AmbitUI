@@ -91,11 +91,29 @@
             "MULTI_TASK": true,
             "FixtureCom": "COM5",
             "FixtureBaudRate": 115200,
-            "Command": "AT+TSD_OUTLOW%",
+            "PowerLowCMD": "AT+TSD_OUTLOW%",
+            "Command": "AT+VOLTAGE%",
+            "PowerHighCMD": "AT+TSD_OUTHIGH%",
             "SkipTP": [],
-            "FileVoltageItems": "config\\dataSource\\test\\API_Voltage.json",
+            "FileVoltageItems": "config\\dataSource\\test\\API_Voltage_thermal_shutdown.json",
             "test_name": "thermal_shutdown",
-            "FUNC_NAME": "VoltageTestProxy"
+            "FUNC_NAME": "ThermalShutdownProxy"
+        },
+        {
+            "FLAG": true,
+            "TIME_OVER": 360,
+            "MULTI": false,
+            "IP": "192.168.1.1",
+            "test_name": "dut_ping",
+            "FUNC_NAME": "DutPingProxy"
+        },
+        {
+            "FLAG": true,
+            "TIME_OVER": 10,
+            "MULTI": false,
+            "IP": "192.168.1.1",
+            "test_name": "dut_telnet",
+            "FUNC_NAME": "DutTelnetProxy"
         },
         {
             "FLAG": true,
