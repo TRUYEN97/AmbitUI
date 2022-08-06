@@ -5,9 +5,9 @@
 package Control.Core;
 
 import Control.Functions.AbsFunction;
-import Model.DataModeTest.ErrorLog;
-import Model.DataModeTest.InputData;
-import Model.DataSource.FunctionConfig.FunctionConfig;
+import Model.DataTest.ErrorLog;
+import Model.DataTest.InputData;
+import Model.DataSource.ModeTest.FunctionConfig.FunctionConfig;
 import Model.ManagerUI.UIStatus.Elemants.UiData;
 import Model.ManagerUI.UIStatus.UiStatus;
 import Time.TimeBase;

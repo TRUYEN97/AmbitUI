@@ -10,7 +10,7 @@
  */
 package View.subUI.FormDetail;
 
-import Model.DataModeTest.ErrorLog;
+import Model.DataTest.ErrorLog;
 import Model.DataSource.Setting.ModeElement;
 import Model.Factory.Factory;
 import Model.Interface.IUpdate;
@@ -151,7 +151,7 @@ public class TabDetail extends AbsUI implements IUpdate {
     }
 
     private List<AbsTabUI> getListTab() {
-        ModeElement modeInfo = this.uiStatus.getModeTest().getModeInfo();
+        ModeElement modeInfo = this.uiStatus.getModeTest().getModeConfig();
         Factory factory = Factory.getInstance();
         List<AbsTabUI> tabTemp = new ArrayList();
         for (String type : modeInfo.getDetail()) {

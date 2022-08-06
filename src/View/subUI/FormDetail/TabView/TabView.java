@@ -10,7 +10,7 @@
  */
 package View.subUI.FormDetail.TabView;
 
-import Model.DataModeTest.DataBoxs.FunctionData;
+import Model.DataTest.DataBoxs.FunctionData;
 import View.subUI.FormDetail.AbsTabUI;
 import java.awt.Color;
 import java.awt.event.KeyEvent;

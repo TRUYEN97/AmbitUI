@@ -5,15 +5,10 @@
 package Control.Core;
 
 import Control.DrawBoardUI;
-import Model.DataModeTest.InputData;
-import Model.DataSource.AbsJsonSource;
-import Model.DataSource.FunctionConfig.FunctionConfig;
+import Model.DataTest.InputData;
 import Model.ManagerUI.UIManager;
 import View.UIView;
-import java.awt.HeadlessException;
-import java.io.File;
 import static java.util.Objects.isNull;
-import javax.swing.JOptionPane;
 
 /**
  *
@@ -63,34 +58,19 @@ public class Core {
     }
 
     private boolean updateMode(ModeTest modeTest) {
-        if (modeTest != null && modeTest.init()) {
-            if (!updateFunctionsConfig(modeTest)) {
-                return false;
-            }
+        if (modeTest != null && modeTest.init() && modeTest.update()) {
             this.currMode = modeTest;
             if (drawBoardUI.isNewFormUI() && uIManager.isNotTest()) {
                 drawBoardUI.setting();
                 drawBoardUI.Draw();
             }
-            this.view.setPnName(this.currMode.getModeInfo().getPnName());
+            this.view.setPnName(this.currMode.getModeConfig().getPnName());
             return uIManager.update();
         }
         return false;
     }
 
-    private boolean updateFunctionsConfig(ModeTest modeTest) throws HeadlessException {
-        if (!checkAmbitConfig(modeTest)) {
-            JOptionPane.showMessageDialog(null, "Update functionsConfig failed!");
-            return false;
-        }
-        if (!checkStationName(modeTest)) {
-            JOptionPane.showMessageDialog(null,
-                    "Station setting and station functionsConfig different!");
-            return false;
-        }
-        return true;
-    }
-
+   
     private boolean isCurrentMode(ModeTest item) {
         return this.getCurrMode() != null && getCurrMode().equals(item);
     }
@@ -98,28 +78,5 @@ public class Core {
     private void backUpMode() {
         this.view.setSelectMode(getCurrMode());
     }
-
-    private boolean checkAmbitConfig(ModeTest modeTest) {
-        File newFileConfig = modeTest.getModeInfo().getAmbitConfigFile();
-        if (currMode != null) {
-            File oldFileConfig = currMode.getModeInfo().getAmbitConfigFile();
-            if (newFileConfig == null || oldFileConfig == null) {
-                return false;
-            }
-            if (newFileConfig.getPath().equals(oldFileConfig.getPath())) {
-                return true;
-            }
-        }
-        AbsJsonSource source = FunctionConfig.getInstance().setPath(newFileConfig.getPath());
-        return (source != null && source.init());
-    }
-
-    private boolean checkStationName(ModeTest modeTest) {
-        String settingStation = modeTest.getModeInfo().getStationName();
-        String ambitConfigStation = FunctionConfig.getInstance().getStationName();
-        if (settingStation == null || ambitConfigStation == null) {
-            return false;
-        }
-        return settingStation.equalsIgnoreCase(ambitConfigStation);
-    }
+  
 }

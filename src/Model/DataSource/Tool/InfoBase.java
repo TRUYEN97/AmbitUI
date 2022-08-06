@@ -4,7 +4,7 @@
  */
 package Model.DataSource.Tool;
 
-import Model.DataModeTest.ErrorLog;
+import Model.DataTest.ErrorLog;
 import Model.Interface.IInit;
 import Model.DataSource.DataWareHouse;
 import com.alibaba.fastjson.JSONObject;

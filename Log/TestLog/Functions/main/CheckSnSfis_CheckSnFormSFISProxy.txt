@@ -1,16 +1,16 @@
-2022-06-07 08:29:42 : Item[CheckSnSfis]-Function[CheckSnFormSFISProxy]
-2022-06-07 08:29:42 : Turn 0:
-2022-06-07 08:29:42 : send to url: http://10.90.0.40/sfcapi/api/connect
-2022-06-07 08:29:42 : command: {"PCNAME":"REPAIR-7801","MODE":"FA_API","SN":"KC5X09PX"}
-2022-06-07 08:29:42 : {"result":"PASS","message":"OK","data":{"mlbsn":"KC5X09PXZK11RBPF","ethernetmac":"8470D7440980","pnname":"830-00900","model":"","smode":"Production","failedpc":"MBLT-5453","debugpc":"REPAIR-7801","errorcode":"35.1.0","errordes":"USB_ASIDE","counttest":"1"}}
-2022-06-07 08:29:42 : add key: mlbsn -- Value: KC5X09PXZK11RBPF
-2022-06-07 08:29:42 : add key: ethernetmac -- Value: 8470D7440980
-2022-06-07 08:29:42 : add key: pnname -- Value: 830-00900
-2022-06-07 08:29:42 : add key: model -- Value:
-2022-06-07 08:29:42 : add key: smode -- Value: Production
-2022-06-07 08:29:42 : add key: failedpc -- Value: MBLT-5453
-2022-06-07 08:29:42 : add key: debugpc -- Value: REPAIR-7801
-2022-06-07 08:29:42 : add key: errorcode -- Value: 35.1.0
-2022-06-07 08:29:42 : add key: errordes -- Value: USB_ASIDE
-2022-06-07 08:29:42 : add key: counttest -- Value: 1
-2022-06-07 08:29:42 : Time[0.135 s]---Result[PASS]
+2022-08-06 07:00:47 : Item[CheckSnSfis]-Function[CheckSnFormSFISProxy]
+2022-08-06 07:00:47 : Turn 0:
+2022-08-06 07:00:47 : send to url: http://10.90.0.40/sfcapi/api/connect
+2022-08-06 07:00:47 : command: {"PCNAME":"REPAIR-7801","MODE":"FA_API","SN":"GGB1UD2222141D07"}
+2022-08-06 07:00:47 : {"result":"PASS","message":"OK","data":{"mlbsn":"GGB1UD2222141D07","ethernetmac":"9C57BC84A2C0","pnname":"820-01100","model":"","smode":"Production","failedpc":"MBLT-7101","debugpc":"REPAIR-7801","errorcode":"35.2.0","errordes":"USB_BSIDE","counttest":"1"}}
+2022-08-06 07:00:47 : add key: mlbsn -- Value: GGB1UD2222141D07
+2022-08-06 07:00:47 : add key: ethernetmac -- Value: 9C57BC84A2C0
+2022-08-06 07:00:47 : add key: pnname -- Value: 820-01100
+2022-08-06 07:00:47 : add key: model -- Value:
+2022-08-06 07:00:47 : add key: smode -- Value: Production
+2022-08-06 07:00:47 : add key: failedpc -- Value: MBLT-7101
+2022-08-06 07:00:47 : add key: debugpc -- Value: REPAIR-7801
+2022-08-06 07:00:47 : add key: errorcode -- Value: 35.2.0
+2022-08-06 07:00:47 : add key: errordes -- Value: USB_BSIDE
+2022-08-06 07:00:47 : add key: counttest -- Value: 1
+2022-08-06 07:00:47 : Time[0.035 s]---Result[PASS]

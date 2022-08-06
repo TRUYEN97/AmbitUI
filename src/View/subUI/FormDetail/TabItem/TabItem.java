@@ -10,7 +10,7 @@
  */
 package View.subUI.FormDetail.TabItem;
 
-import Model.DataModeTest.DataBoxs.FunctionData;
+import Model.DataTest.DataBoxs.FunctionData;
 import View.subUI.FormDetail.AbsTabUI;
 import View.subUI.FormDetail.ItemLog;
 import java.awt.event.KeyEvent;

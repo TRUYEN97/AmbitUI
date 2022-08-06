@@ -5,16 +5,19 @@
 package Control.Core;
 
 import Control.Functions.AbsFunction;
-import Model.DataModeTest.ErrorLog;
-import Model.DataModeTest.InputData;
-import Model.DataSource.FunctionConfig.FunctionConfig;
+import Model.DataSource.AbsJsonSource;
+import Model.DataTest.ErrorLog;
+import Model.DataTest.InputData;
+import Model.DataSource.ModeTest.FunctionConfig.FunctionConfig;
+import Model.DataSource.ModeTest.ModeTestSource;
 import Model.Interface.IInit;
 import Model.DataSource.Setting.ModeElement;
-import Model.Factory.Factory;
 import Model.Interface.IFunction;
+import Model.Interface.IUpdate;
 import Model.ManagerUI.UIManager;
 import Model.ManagerUI.UIStatus.UiStatus;
 import java.awt.HeadlessException;
+import java.io.File;
 import java.util.ArrayList;
 import java.util.List;
 import javax.swing.JOptionPane;
@@ -23,26 +26,26 @@ import javax.swing.JOptionPane;
  *
  * @author Administrator
  */
-public class ModeTest implements IInit {
+public class ModeTest implements IInit, IUpdate {
 
-    private final ModeElement modeInfo;
     private final List<IFunction> inits;
-    private final Factory factory;
-    private final FunctionConfig functionConfig;
     private final UIManager uIManager;
+    private final ModeTestSource testSource;
 
-    public ModeTest(ModeElement info, Core core) {
+    public ModeTest(ModeElement modeInfo, Core core) {
         this.inits = new ArrayList<>();
-        this.factory = Factory.getInstance();
-        this.functionConfig = FunctionConfig.getInstance();
-        this.modeInfo = info;
         this.uIManager = core.getUiManager();
-        addInitFunctions(this.inits, this.modeInfo.getIniFunc());
+        this.testSource = new ModeTestSource(modeInfo);
+        addInitFunctions(this.inits, modeInfo.getIniFunc());
     }
 
     @Override
     public String toString() {
-        return modeInfo.getModeName();
+        return this.testSource.getModeName();
+    }
+
+    public String getModeType() {
+        return this.testSource.getModeType();
     }
 
     @Override
@@ -71,7 +74,7 @@ public class ModeTest implements IInit {
 
     private boolean checkIndex(InputData inputData) {
         if (isIndexEmpty(inputData)) {
-            if (isMultiThread()) {
+            if (this.testSource.isMultiThread()) {
                 return getIndex(inputData);
             } else {
                 inputData.setIndex("main");
@@ -83,13 +86,13 @@ public class ModeTest implements IInit {
 
     private CellTest createCellTest(UiStatus uiStatus) {
         CellTest cellTest = new CellTest(uiStatus, getCheckFunctions(),
-                 getTestFunctions(uiStatus),
-                 getListEnd());
+                getTestFunctions(uiStatus),
+                getListEnd());
         return cellTest;
     }
 
-    public ModeElement getModeInfo() {
-        return this.modeInfo;
+    public ModeElement getModeConfig() {
+        return this.testSource.getModeConfig();
     }
 
     private void addInitFunctions(List<IFunction> list, List<String> functions) {
@@ -116,7 +119,7 @@ public class ModeTest implements IInit {
     private List<AbsFunction> getTestFunctions(UiStatus uiStatus) {
         List<AbsFunction> functions = new ArrayList<>();
         List<String> funcSelected = uiStatus.getFunctionSelected();
-        if (this.modeInfo.isDiscreteTest() && funcSelected != null && !funcSelected.isEmpty()) {
+        if (this.testSource.isDiscreteTest() && funcSelected != null && !funcSelected.isEmpty()) {
             addFunctions(functions, funcSelected);
         } else {
             addFunctions(functions, getTestFunction());
@@ -128,10 +131,6 @@ public class ModeTest implements IInit {
         List<AbsFunction> functions = new ArrayList<>();
         addFunctions(functions, getFuntionEnd());
         return functions;
-    }
-
-    private boolean isMultiThread() {
-        return this.modeInfo.isMultiThread();
     }
 
     private boolean isIndexEmpty(InputData inputData) {
@@ -164,7 +163,40 @@ public class ModeTest implements IInit {
         return this.functionConfig.getFuntionEnd();
     }
 
-    public String getModeType() {
-        return this.modeInfo.getModeType();
+    @Override
+    public boolean update() {
+        return updateFunctionsConfig();
     }
+
+    private boolean updateFunctionsConfig() throws HeadlessException {
+        if (!checkAmbitConfig()) {
+            JOptionPane.showMessageDialog(null, "Update functionsConfig failed!");
+            return false;
+        }
+        if (!checkStationName()) {
+            JOptionPane.showMessageDialog(null,
+                    "Station setting and station functionsConfig different!");
+            return false;
+        }
+        return true;
+    }
+
+    private boolean checkAmbitConfig() {
+        var filePath = this.testSource.getFuncConfigPath();
+        if (filePath == null) {
+            return false;
+        }
+        AbsJsonSource source = FunctionConfig.getInstance().setPath(filePath);
+        return (source != null && source.init());
+    }
+
+    private boolean checkStationName() {
+        String settingStation = this.testSource.getStationName();
+        String ambitConfigStation = FunctionConfig.getInstance().getStationName();
+        if (settingStation == null || ambitConfigStation == null) {
+            return false;
+        }
+        return settingStation.equalsIgnoreCase(ambitConfigStation);
+    }
+
 }

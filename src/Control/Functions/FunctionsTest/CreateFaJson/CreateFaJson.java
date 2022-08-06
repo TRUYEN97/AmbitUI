@@ -6,7 +6,7 @@ package Control.Functions.FunctionsTest.CreateFaJson;
 
 import Control.Functions.AbsFunction;
 import Control.Functions.FunctionsTest.CreateFaJson.KeyWordFaAPI.FUNC_KEY;
-import Model.DataModeTest.InputData;
+import Model.DataTest.InputData;
 import Model.DataSource.Tool.FileService;
 import com.alibaba.fastjson.JSONArray;
 import com.alibaba.fastjson.JSONObject;

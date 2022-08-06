@@ -5,7 +5,7 @@
 package Control.Functions.FunctionsTest.InputFaData;
 
 import Control.Functions.AbsFunction;
-import Model.DataModeTest.ErrorLog;
+import Model.DataTest.ErrorLog;
 import View.subUI.FormDetail.TabFaApi.TabFaApi;
 import com.alibaba.fastjson.JSONObject;
 import java.awt.HeadlessException;

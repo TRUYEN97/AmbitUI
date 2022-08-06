@@ -4,7 +4,7 @@
  */
 package View.subUI.FormDetail.TabFaApi;
 
-import Model.DataModeTest.InputData;
+import Model.DataTest.InputData;
 import Model.DataSource.Tool.FileService;
 import View.subUI.FormDetail.AbsTabUI;
 import com.alibaba.fastjson.JSONObject;

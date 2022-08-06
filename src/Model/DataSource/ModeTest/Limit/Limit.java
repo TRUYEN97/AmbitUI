@@ -2,9 +2,9 @@
  * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
  * Click nbfs://nbhost/SystemFileSystem/Templates/Classes/Class.java to edit this template
  */
-package Model.DataSource.Limit;
+package Model.DataSource.ModeTest.Limit;
 
-import Model.DataModeTest.ErrorLog;
+import Model.DataTest.ErrorLog;
 import Model.DataSource.AbsJsonSource;
 import Model.DataSource.DataWareHouse;
 import Model.DataSource.Setting.Setting;

@@ -26,7 +26,7 @@ public class UpFTP extends AbsFunction {
             addLog("Connect failed!!!");
         }
         addLog("Connect success.!");
-        if (upFile(getFilePathFormSignal("FileTxt"))) {
+        if (upFile(getFilePathFormSignal("FilePath"))) {
             addLog("Up file to FTP done!");
             return true;
         }
@@ -66,7 +66,7 @@ public class UpFTP extends AbsFunction {
         if (dirFtp == null) {
             addLog("Directory of FTP is null with key: dirFtp");
         }
-        String newFtpFile = String.format("%s\\%s", dirFtp, localFile.getName());
+        String newFtpFile = String.format("%s/%s", dirFtp, localFile.getName());
         addLog("Ftp: " + newFtpFile);
         return ftp.uploadFile(localFile.getPath(), newFtpFile);
     }

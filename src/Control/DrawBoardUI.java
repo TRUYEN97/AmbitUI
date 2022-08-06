@@ -55,7 +55,7 @@ public class DrawBoardUI {
     }
 
     private boolean isMultiThread() {
-        return this.core.getCurrMode().getModeInfo().isMultiThread();
+        return this.core.getCurrMode().getModeConfig().isMultiThread();
     }
 
     private static boolean checkOutSizeInt(int value) {
@@ -89,14 +89,14 @@ public class DrawBoardUI {
     }
 
     private int getColumn() {
-        return this.core.getCurrMode().getModeInfo().getColumn();
+        return this.core.getCurrMode().getModeConfig().getColumn();
     }
 
     private int getRow() {
-        return this.core.getCurrMode().getModeInfo().getRow();
+        return this.core.getCurrMode().getModeConfig().getRow();
     }
 
     private String getType() {
-        return this.core.getCurrMode().getModeInfo().getTypeUI();
+        return this.core.getCurrMode().getModeConfig().getTypeUI();
     }
 }

@@ -4,7 +4,7 @@
  */
 package Control.Functions.FunctionsTest.CreateFaJson;
 
-import Model.DataModeTest.InputData;
+import Model.DataTest.InputData;
 import View.subUI.FormDetail.TabFaApi.TabFaApi;
 
 /**

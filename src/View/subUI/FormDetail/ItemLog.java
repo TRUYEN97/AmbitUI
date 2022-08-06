@@ -5,7 +5,7 @@
 package View.subUI.FormDetail;
 
 import View.subUI.FormDetail.TabItem.TabItem;
-import Model.DataModeTest.DataBoxs.FunctionData;
+import Model.DataTest.DataBoxs.FunctionData;
 import java.awt.event.ActionEvent;
 import java.util.Queue;
 import javax.swing.Timer;

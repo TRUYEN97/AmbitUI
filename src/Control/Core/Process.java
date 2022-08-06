@@ -6,7 +6,7 @@ package Control.Core;
 
 import Control.Functions.FunctionCover;
 import Control.Functions.AbsFunction;
-import Model.DataModeTest.ErrorLog;
+import Model.DataTest.ErrorLog;
 import Model.Interface.IFunction;
 import java.util.ArrayList;
 import java.util.List;

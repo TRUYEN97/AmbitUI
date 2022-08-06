@@ -31,12 +31,12 @@ public class ModeElement extends AbsElementInfo {
         return this.warehouse.getString(KeyWord.PN_NAME);
     }
 
-    public File getAmbitConfigFile() {
+    public String getAmbitConfigPath() {
         String path = this.warehouse.getString(KeyWord.AMBIT_CONFIG);
         if (path == null || !new File(path).exists()) {
             return null;
         }
-        return new File(path);
+        return path;
     }
 
     public String getModeName() {

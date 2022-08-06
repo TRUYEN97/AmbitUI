@@ -5,15 +5,15 @@
 package Control.Functions;
 
 import Control.Core.ModeTest;
-import Model.DataSource.FunctionConfig.FunctionConfig;
-import Model.DataSource.FunctionConfig.FunctionElement;
-import Model.DataSource.Limit.Limit;
+import Model.DataSource.ModeTest.FunctionConfig.FunctionConfig;
+import Model.DataSource.ModeTest.FunctionConfig.FunctionElement;
+import Model.DataSource.ModeTest.Limit.Limit;
 import Model.ManagerUI.UIStatus.Elemants.UiData;
 import Model.ManagerUI.UIStatus.UiStatus;
 import View.subUI.SubUI.AbsSubUi;
 import Model.Interface.IFunction;
-import Model.DataModeTest.DataBoxs.FunctionData;
-import Model.DataModeTest.ErrorLog;
+import Model.DataTest.DataBoxs.FunctionData;
+import Model.DataTest.ErrorLog;
 import Model.DataSource.Setting.Setting;
 import java.io.File;
 
@@ -59,6 +59,7 @@ public abstract class AbsFunction implements IFunction {
                 try {
                     this.thread.join(1000);
                 } catch (InterruptedException ex) {
+                    ex.printStackTrace();
                     ErrorLog.addError(this, ex.getMessage());
                 }
                 if (isOutTime()) {
@@ -110,7 +111,7 @@ public abstract class AbsFunction implements IFunction {
         }
     }
 
-    public void setResult(String result) {
+    protected void setResult(String result) {
         this.functionData.setResult(result);
     }
 

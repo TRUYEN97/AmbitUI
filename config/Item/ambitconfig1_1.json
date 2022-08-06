@@ -31,14 +31,15 @@
             "KEY_WORD": "jsonFa",
             "JsonPathKey": "FileJsonPath",
             "jsonResultKey": "jsonResult",
-            "LOCAL_FILE": "python\\log",
+            "FilePath":"json file",
+            "LOCAL_FILE": "python/log",
             "ITEM_NAME": "CreateFaJson",
             "FUNC_NAME": "CreateFaJsonProxy"
         }, 
         {
             "FLAG": true,
-            "LOCAL_FILE": "python\\log",
-            "FileTxt": "txt file",
+            "LOCAL_FILE": "python/log",
+            "FilePath": "txt file",
             "ITEM_NAME": "CreateTxtLog",
             "FUNC_NAME": "CreateTxtLogProxy"
         },
@@ -56,8 +57,19 @@
             "FtpHost": "10.90.1.168",
             "FtpPassword": "mfg-oper",
             "FileTxt": "txt file",
-            "dirFtp": "TE_PRO/SQT/LogTest",
-            "LOCAL_FILE": "python\\log",
+            "dirFtp": "temp/TE_PRO/SQT/LogTest",
+            "LOCAL_FILE": "python/log",
+            "ITEM_NAME": "UpTeFTP",
+            "FUNC_NAME": "UpFTPProxy"
+        }, {
+            "FLAG": true,
+            "FtpPort": 21,
+            "FtpUser": "oper",
+            "FtpHost": "10.90.1.168",
+            "FtpPassword": "mfg-oper",
+            "FileTxt": "json file",
+            "dirFtp": "temp/TE_PRO/SQT/LogTest",
+            "LOCAL_FILE": "python/log",
             "ITEM_NAME": "UpTeFTP",
             "FUNC_NAME": "UpFTPProxy"
         },

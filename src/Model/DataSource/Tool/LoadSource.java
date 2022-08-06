@@ -4,8 +4,8 @@
  */
 package Model.DataSource.Tool;
 
-import Model.DataModeTest.ErrorLog;
-import Model.DataSource.Limit.Limit;
+import Model.DataTest.ErrorLog;
+import Model.DataSource.ModeTest.Limit.Limit;
 import Model.DataSource.PcInformation;
 import Model.Interface.IInit;
 import Model.DataSource.Setting.Setting;

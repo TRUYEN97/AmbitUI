@@ -5,8 +5,8 @@
 package Control.Functions.FunctionsTest.SFIS.CheckSnFormSFIS;
 
 import Control.Functions.AbsFunction;
-import Model.DataModeTest.ErrorLog;
-import Model.DataModeTest.InputData;
+import Model.DataTest.ErrorLog;
+import Model.DataTest.InputData;
 import SfisAPI17.SfisAPI;
 import com.alibaba.fastjson.JSONObject;
 import java.util.List;

@@ -8,7 +8,7 @@ import Model.ManagerUI.UIStatus.Elemants.UiData;
 import Control.Core.Core;
 import Control.Core.ModeTest;
 import Control.Core.CellTest;
-import Model.DataModeTest.InputData;
+import Model.DataTest.InputData;
 import Model.Interface.IUpdate;
 import View.subUI.SubUI.AbsSubUi;
 import java.util.List;

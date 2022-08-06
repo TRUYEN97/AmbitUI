@@ -5,7 +5,7 @@
 package Main;
 
 import Control.Core.Engine;
-import Model.DataModeTest.ErrorLog;
+import Model.DataTest.ErrorLog;
 import Model.DataSource.Tool.LoadSource;
 import java.awt.HeadlessException;
 import javax.swing.JOptionPane;

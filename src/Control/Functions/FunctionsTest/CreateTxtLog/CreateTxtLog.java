@@ -5,9 +5,9 @@
 package Control.Functions.FunctionsTest.CreateTxtLog;
 
 import Control.Functions.AbsFunction;
-import Model.DataModeTest.DataBoxs.FunctionData;
-import Model.DataModeTest.ErrorLog;
-import Model.DataModeTest.InputData;
+import Model.DataTest.DataBoxs.FunctionData;
+import Model.DataTest.ErrorLog;
+import Model.DataTest.InputData;
 import Model.DataSource.Tool.FileService;
 import MyLoger.MyLoger;
 import java.io.File;

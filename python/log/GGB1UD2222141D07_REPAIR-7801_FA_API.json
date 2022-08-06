@@ -1,28 +1,28 @@
 {
 "station_name":"REPAIR-7801",
 "mode":"debug",
-"start_time":"2022-06-07 15:49:30",
+"start_time":"2022-08-06 07:00:47",
 "tests":[
 {
 "repair_action":"replace",
-"start_time":"2022-06-07 15:49:30",
+"start_time":"2022-08-06 07:00:47",
 "post_repair_result":"passed",
 "debug_count":1,
-"further_details":"Further details",
+"further_details":"vendor",
 "reason_desc":"SOLDER SHORT",
 "repair_location":"J1",
 "failed_station_type":"MBLT",
-"finish_time":"2022-06-07 15:49:30",
+"finish_time":"2022-08-06 07:00:47",
 "debug_station":"REPAIR-7801",
-"failed_station":"MBLT-5453",
+"failed_station":"MBLT-7101",
 "child_unlinked":"False"
 }
 ],
-"error_details":"USB_ASIDE",
-"serial":"KC5X09PXZK11RBPF",
-"error_code":"35.1.0",
+"error_details":"USB_BSIDE",
+"serial":"GGB1UD2222141D07",
+"error_code":"35.2.0",
 "station_type":"REPAIR",
-"finish_time":"2022-06-07 15:49:30",
+"finish_time":"2022-08-06 07:05:47",
 "status":"passed",
 "test_software_version":"1.0.0"
 }

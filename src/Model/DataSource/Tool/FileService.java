@@ -4,7 +4,7 @@
  */
 package Model.DataSource.Tool;
 
-import Model.DataModeTest.ErrorLog;
+import Model.DataTest.ErrorLog;
 import java.io.BufferedOutputStream;
 import java.io.BufferedReader;
 import java.io.File;

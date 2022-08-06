@@ -4,10 +4,10 @@
  */
 package Model.ManagerUI.UIStatus.Elemants;
 
-import Model.DataModeTest.DataBoxs.FunctionData;
-import Model.DataModeTest.DataBoxs.ProcessTestSignal;
-import Model.DataModeTest.ErrorLog;
-import Model.DataModeTest.InputData;
+import Model.DataTest.DataBoxs.FunctionData;
+import Model.DataTest.DataBoxs.ProcessTestSignal;
+import Model.DataTest.ErrorLog;
+import Model.DataTest.InputData;
 import Model.DataSource.DataWareHouse;
 import Model.ManagerUI.UIStatus.UiStatus;
 import java.util.ArrayList;
