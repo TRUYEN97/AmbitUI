@@ -30,7 +30,7 @@ public class InputFaData extends AbsFunction {
         }
         try {
             addLog("Get tab faAPi in Signal!");
-            faApi = (TabFaApi) this.testSignal.get(TabFaApi.MY_KEY);
+            faApi = (TabFaApi) this.testSignal.getObject(TabFaApi.MY_KEY);
             if (!faApi.checkSelectData() && faApi.checkDataHasChange()) {
                 JOptionPane.showMessageDialog(null, "Hãy xác nhận thông tin!");
             }
@@ -64,7 +64,7 @@ public class InputFaData extends AbsFunction {
 
     private boolean waitData() {
         addLog("Check tab FaAPI");
-        if (this.testSignal.get(TabFaApi.MY_KEY) == null) {
+        if (this.testSignal.getObject(TabFaApi.MY_KEY) == null) {
             if (cancelThisTime()) {
                 addLog("User has cancel this time!");
                 return false;
@@ -82,7 +82,7 @@ public class InputFaData extends AbsFunction {
     }
 
     private void waitForTabNotNull() {
-        while (this.testSignal.get(TabFaApi.MY_KEY) == null) {
+        while (this.testSignal.getObject(TabFaApi.MY_KEY) == null) {
             delay(500);
         }
     }

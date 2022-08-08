@@ -8,7 +8,6 @@ import Model.AllKeyWord;
 import Model.DataSource.AbsElementInfo;
 import com.alibaba.fastjson.JSONObject;
 import java.util.List;
-import java.util.Map;
 import java.util.Set;
 
 /**
@@ -18,7 +17,7 @@ import java.util.Set;
 public class FunctionElement extends AbsElementInfo {
 
     public FunctionElement(JSONObject base, JSONObject config) {
-        super(AllKeyWord.FUNC_KEYS, base, config);
+        super(null, base, config);
     }
 
     public String getFunctionName() {

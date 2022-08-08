@@ -14,7 +14,7 @@ import Model.ErrorLog;
 import Model.ManagerUI.UIStatus.UiStatus;
 import Time.WaitTime.Class.TimeMs;
 import Time.WaitTime.Class.TimeS;
-import commandprompt.Communicate.Comport.ComPort;
+import Communicate.Comport.ComPort;
 
 /**
  *
@@ -60,14 +60,14 @@ public class OpenShort extends AbsFunction {
         }
         try {
             String keyWord = this.allConfig.getString("DutKey");
-             addLog("Config", String.format("Key word: %s", keyWord));
+            addLog("Config", String.format("Key word: %s", keyWord));
             int time = this.allConfig.getInteger("DutWait", 1);
             addLog("Config", String.format("Test about %s s", time));
             TimeS timer = new TimeS(time);
             String line;
             while (timer.onTime()) {
                 line = dut.readLine(new TimeMs(500));
-                addLog("DUT", line);
+                addLog("DUT", line == null ? "" : line);
                 if (line != null && line.trim().endsWith(keyWord)) {
                     dut.insertCommand("reset");
                     return true;

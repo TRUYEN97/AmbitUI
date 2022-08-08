@@ -12,7 +12,7 @@ import Model.DataTest.FunctionData.FunctionData;
 import Model.ErrorLog;
 import Model.ManagerUI.UIStatus.UiStatus;
 import Time.WaitTime.Class.TimeS;
-import commandprompt.Communicate.Comport.ComPort;
+import Communicate.Comport.ComPort;
 import java.util.List;
 
 /**

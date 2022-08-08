@@ -113,7 +113,7 @@
         },
         {
             "FLAG": true,
-            "TIME_OVER": 5,
+            "TIME_OVER": 500,
             "WAIT_MULTI_DONE": true,
             "ALWAYS_RUN": true,
             "User": "oper",

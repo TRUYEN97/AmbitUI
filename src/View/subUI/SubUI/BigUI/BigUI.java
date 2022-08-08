@@ -92,7 +92,7 @@ public class BigUI extends AbsSubUi {
         lbItemName.setVerticalAlignment(javax.swing.SwingConstants.BOTTOM);
 
         btTest.setFont(new java.awt.Font("Tahoma", 1, 18)); // NOI18N
-        btTest.setText("Test");
+        btTest.setText("Debug");
         btTest.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 btTestActionPerformed(evt);

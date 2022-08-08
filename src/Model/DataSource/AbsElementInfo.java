@@ -22,7 +22,11 @@ public abstract class AbsElementInfo {
     }
 
     private void setSetting(List<String> keys, JSONObject data) {
-        if (keys == null || data == null) {
+        if (data == null) {
+            return;
+        }
+        if (keys == null) {
+            this.warehouse.putAll(data);
             return;
         }
         for (String key : data.keySet()) {

@@ -11,7 +11,7 @@ import Control.Functions.FunctionsTest.Base.BaseFunction.FunctionBase;
 import Model.DataSource.ModeTest.FunctionConfig.FunctionElement;
 import Model.DataTest.FunctionData.FunctionData;
 import Model.ManagerUI.UIStatus.UiStatus;
-import commandprompt.Communicate.Cmd.Cmd;
+import Communicate.Cmd.Cmd;
 import java.util.List;
 
 /**

@@ -10,7 +10,6 @@
  */
 package View.subUI.FormDetail.TabItem;
 
-import Model.DataSource.ModeTest.FunctionConfig.FunctionName;
 import Model.DataTest.FunctionData.FunctionData;
 import View.subUI.FormDetail.AbsTabUI;
 import View.subUI.FormDetail.TabItem.ShowLog.ItemLog;
@@ -21,6 +20,7 @@ import java.util.List;
 import java.util.Map;
 import java.util.Vector;
 import javax.swing.JLabel;
+import javax.swing.JOptionPane;
 import javax.swing.table.DefaultTableCellRenderer;
 import javax.swing.table.DefaultTableModel;
 
@@ -194,13 +194,18 @@ public class TabItem extends AbsTabUI {
         if (!this.uiStatus.isTesting()) {
             if (evt.getKeyChar() == CTRL_S) {
                 showListFunction();
-            } else if (evt.getKeyChar() == CTRL_D && this.tableItem.getSelectedRowCount() > 0) {
+            } else if (evt.getKeyChar() == CTRL_D 
+                    && this.uiStatus.getModeTest().isDebugMode() 
+                    && this.tableItem.getSelectedRowCount() > 0) {
                 this.uiStatus.getCellTest().testDebugItem(getListSelectedItem());
             }
+        } else if (evt.getKeyChar() == CTRL_Q && isAccepToStopTest()) {
+            this.uiStatus.getCellTest().stopTest();
         }
     }
     private static final int CTRL_S = 19;
     private static final int CTRL_D = 4;
+    private static final int CTRL_Q = 17;
 
     @Override
     public void startTest() {
@@ -214,7 +219,6 @@ public class TabItem extends AbsTabUI {
         updateData();
         super.endTest(); // Generated from nbfs://nbhost/SystemFileSystem/Templates/Classes/Code/OverriddenMethodBody
     }
-    
 
     @Override
     public void updateData() {
@@ -245,7 +249,7 @@ public class TabItem extends AbsTabUI {
         return this.tableModel.getValueAt(row, this.listFunc.indexOf(ITEM)).toString();
     }
 
-    private void updateListItemTest() {
+    private synchronized void updateListItemTest() {
         if (!this.isVisible()) {
             return;
         }
@@ -287,5 +291,11 @@ public class TabItem extends AbsTabUI {
             result.add(getNameITem(selectedRow));
         }
         return result;
+    }
+
+    private boolean isAccepToStopTest() {
+        return JOptionPane.showConfirmDialog(null,
+                "Chọn \"Yes\" để dừng test", "Messager",
+                JOptionPane.YES_NO_OPTION) == JOptionPane.YES_OPTION;
     }
 }

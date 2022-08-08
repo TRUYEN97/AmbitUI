@@ -9,6 +9,7 @@ import Model.DataSource.DataWareHouse;
 import Model.DataTest.FunctionData.FunctionData;
 import Model.DataTest.FunctionData.ItemTestData;
 import Time.TimeBase;
+import Time.WaitTime.AbsTime;
 import com.alibaba.fastjson.JSONObject;
 import java.util.ArrayList;
 import java.util.HashMap;
@@ -30,6 +31,7 @@ public class ProcessData {
     private final ProcessTestSignal signal;
     private final ProductData productData;
     private String message;
+    private AbsTime myTimer;
 
     public ProcessData(UiInformartion informartion) {
         this.listFunctionData = new ArrayList<>();
@@ -99,7 +101,7 @@ public class ProcessData {
             return message;
         }
         if (isPass()) {
-            return "PASS";
+            return isDebug() ? "Debug Ok!" : "PASS";
         }
         return String.format("Failed: %s", getFirstFail().getItemFunctionName());
     }
@@ -115,6 +117,9 @@ public class ProcessData {
 
     public void setFinishTime() {
         this.data.put(AllKeyWord.FINISH_TIME, timeBase.getSimpleDateTime());
+        if (myTimer != null) {
+            this.data.put(AllKeyWord.CYCLE_TIME, String.format("%.3f s", myTimer.getTime() / 1000));
+        }
         this.data.put(AllKeyWord.FINISH_DAY, timeBase.getDate());
         FunctionData testData = getFirstFail();
         if (testData == null) {
@@ -137,7 +142,6 @@ public class ProcessData {
         this.listFunctionData.clear();
         this.mapItemTestData.clear();
         this.mapFunctionData.clear();
-        this.data.clear();
     }
 
     public ProcessTestSignal getSignal() {
@@ -165,7 +169,32 @@ public class ProcessData {
     }
 
     public void clearSignal() {
+        this.data.clear();
         this.signal.clear();
+        this.signal.disConnectAll();
         this.productData.clear();
+    }
+
+    public boolean isDebug() {
+        String mode = this.data.getString(AllKeyWord.MODE);
+        return mode == null || mode.equalsIgnoreCase("debug");
+    }
+
+    public void setMode(String mode) {
+        if (this.data == null) {
+            return;
+        }
+        this.data.put(AllKeyWord.MODE, mode);
+    }
+
+    public void setClock(AbsTime myTimer) {
+        this.myTimer = myTimer;
+    }
+
+    public double getRunTime() {
+        if (this.myTimer == null) {
+            return 0;
+        }
+        return myTimer.getTime();
     }
 }

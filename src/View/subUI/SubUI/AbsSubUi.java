@@ -6,6 +6,7 @@ package View.subUI.SubUI;
 
 import Model.Interface.IUpdate;
 import Model.ManagerUI.UIStatus.UiStatus;
+import Time.WaitTime.AbsTime;
 import View.UIView;
 import View.subUI.AbsUI;
 import View.subUI.FormDetail.TabDetail;
@@ -20,6 +21,7 @@ public abstract class AbsSubUi extends AbsUI implements IUpdate {
 
     protected final TabDetail tabDetail;
     protected UIView view;
+    private AbsTime myTimer;
 
     protected AbsSubUi(String name, int time) {
         super(name, time);
@@ -67,10 +69,14 @@ public abstract class AbsSubUi extends AbsUI implements IUpdate {
     }
 
     protected String getTestTime() {
-        if (uiStatus.getCellTest() == null) {
+        if (myTimer == null) {
             return null;
         }
-        long time = (long) (uiStatus.getCellTest().getTestTime() / 1000);
+        long time = (long) (myTimer.getTime() / 1000);
         return String.format("%02d:%02d", time / 60, time % 60);
+    }
+
+    public void setClock(AbsTime myTimer) {
+        this.myTimer = myTimer;
     }
 }

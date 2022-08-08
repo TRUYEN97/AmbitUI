@@ -4,7 +4,7 @@
     "COLUMN": 1,
     "LOOP_TEST": 1,
     "GIAI_DOAN": "MP",
-    "PN_NAME": "810-00900",
+    "PN_NAME": "810-009XX",
     "TYPE_UI": "BigUIProxy",
     "LOCAL_LOG": "Log\\TestLog",
     "LOCAL_FUNCTION_LOG": "Log\\TestLog\\Functions",
@@ -13,8 +13,8 @@
     "DISCRETE_TEST": true,
     "LOAD_MODE": [
         {
-            "NAME": "Debug", 
-            "TYPE_MODE": "Debug",
+            "NAME": "Openshort", 
+            "TYPE_MODE": "Production",
             "AMBIT_CONFIG": "config\\Item\\mbltOnOffConfig.json",
             "DETAIL": ["TabViewProxy", "TabItemProxy"]
         }

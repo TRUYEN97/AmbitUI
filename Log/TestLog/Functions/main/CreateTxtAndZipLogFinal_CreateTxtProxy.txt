@@ -1,6 +1,18 @@
-2022-08-03 10:00:15.691:   ITEM[CreateTxtAndZipLogFinal] - FUNCTION[CreateTxtProxy]
-2022-08-03 10:00:15.692:   Error code: null
-2022-08-03 10:00:15.692:   Error des: null
-2022-08-03 10:00:15.692:   Local error code: null
-2022-08-03 10:00:15.692:   Local error des: null
-2022-08-03 10:00:15.693:   TIME[0.000 s] - STATUS[NULL]
+2022-08-08 18:17:09.293:   ITEM[CreateTxtAndZipLogFinal] - FUNCTION[CreateTxtProxy]
+2022-08-08 18:17:09.293:   Turn run: 1
+2022-08-08 18:17:09.294:   Save file txt!
+2022-08-08 18:17:09.294:   [PC] ElementName: [mlbsn, station_name, mode, serial]
+2022-08-08 18:17:09.295:   - add item: fixture_close
+2022-08-08 18:17:09.322:   - add item: fixtureOpen
+2022-08-08 18:17:09.326:   Save file txt in python/log/mlbsn_MBLT-720_Production_serial.txt
+2022-08-08 18:17:09.326:   Save file zip!
+2022-08-08 18:17:09.326:   [PC] ElementName: [mlbsn, station_name, mode, serial]
+2022-08-08 18:17:09.327:   [PC] ElementName: [mlbsn, station_name, mode, serial]
+2022-08-08 18:17:09.338:   [PC] Save data in: python/log\mlbsn_MBLT-720_Production_serial.zip ok
+2022-08-08 18:17:09.338:   ****************************************************
+2022-08-08 18:17:09.338:   Item name: CreateTxtAndZipLogFinal
+2022-08-08 18:17:09.338:   Value: "passed"
+2022-08-08 18:17:09.338:   Test status: "passed"
+2022-08-08 18:17:09.339:   -----------------------------------------------------
+2022-08-08 18:17:09.339:   ****************************************************
+2022-08-08 18:17:09.339:   TIME[0.046 s] - STATUS[PASSED]

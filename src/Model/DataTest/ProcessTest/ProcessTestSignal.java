@@ -4,8 +4,8 @@
  */
 package Model.DataTest.ProcessTest;
 
-import Model.DataSource.ModeTest.FunctionConfig.FunctionName;
-import Model.ErrorLog;
+import Communicate.IConnect;
+import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
 
@@ -16,14 +16,29 @@ import java.util.List;
 public class ProcessTestSignal {
 
     private final HashMap<String, Object> signal;
-    private static final String FUNC_SELECTED = "FuncSelected";
+    private final List<IConnect> connector;
 
     public ProcessTestSignal() {
         this.signal = new HashMap<>();
+        this.connector = new ArrayList<>();
     }
 
     public void put(String key, Object value) {
         this.signal.put(key, value);
+    }
+
+    public void addConnector(IConnect connect) {
+        this.connector.add(connect);
+    }
+
+    public boolean disConnectAll() {
+        for (IConnect connect : connector) {
+            if (!connect.disConnect()) {
+                return false;
+            }
+        }
+        this.connector.clear();
+        return true;
     }
 
     public String getString(String key) {
@@ -34,21 +49,7 @@ public class ProcessTestSignal {
         this.signal.clear();
     }
 
-    public List<FunctionName> getFunctionSelected() {
-        try {
-            var list = this.signal.get(FUNC_SELECTED);
-            if (list != null && list instanceof List) {
-                return (List<FunctionName>) list;
-            }
-            return null;
-        } catch (Exception e) {
-            e.printStackTrace();
-            ErrorLog.addError(this, e.getLocalizedMessage());
-            return null;
-        }
-    }
-
-    public Object get(String key) {
+    public Object getObject(String key) {
         return signal.get(key);
     }
 

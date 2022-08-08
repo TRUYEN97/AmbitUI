@@ -30,16 +30,13 @@ public class CellTest {
             return;
         }
         testSource = this.uiStatus.getModeTest().getModeTestSource();
+        runner.setMode(this.uiStatus.getModeTest().getModeType());
         runner.setLoopTest(this.testSource.getLoopTest());
         runner.setCheckFunction(this.testSource.getCheckFunctions());
         runner.setTestFunction(this.testSource.getTestFunctions());
         runner.setEndFunction(this.testSource.getEndFunctions());
         thread = new Thread(runner);
         thread.start();
-    }
-
-    public double getTestTime() {
-        return runner.getTime();
     }
 
     public boolean isTesting() {
@@ -52,7 +49,16 @@ public class CellTest {
         }
         this.testSource = this.uiStatus.getModeTest().getModeTestSource();
         this.runner.setTestFunction(this.testSource.getSelectedItem(listItem));
+        this.runner.setMode("Debug");
         this.thread = new Thread(runner);
         this.thread.start();
+    }
+
+    public void stopTest() {
+        if (!isTesting()) {
+            return;
+        }
+        runner.end("STOP TEST");
+        this.thread.stop();
     }
 }

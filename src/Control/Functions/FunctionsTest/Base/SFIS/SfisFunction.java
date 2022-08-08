@@ -11,7 +11,7 @@ import Model.DataTest.FunctionData.ItemTestData;
 import Model.ErrorLog;
 import SfisAPI17.SfisAPI;
 import com.alibaba.fastjson.JSONObject;
-import commandprompt.DHCP.DhcpData;
+import DHCP.DhcpData;
 import java.util.List;
 
 /**

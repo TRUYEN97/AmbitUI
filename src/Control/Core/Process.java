@@ -10,6 +10,7 @@ import Model.ErrorLog;
 import Model.Factory.Factory;
 import Model.Interface.IFunction;
 import Model.ManagerUI.UIStatus.UiStatus;
+import Time.WaitTime.AbsTime;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -66,12 +67,12 @@ class Process implements IFunction {
                     waitUntilMultiTaskDone();
                 }
                 funcCover.start();
+                multiTasking.add(funcCover);
                 if (funcCover.isMutiTasking()) {
-                    multiTasking.add(funcCover);
                     continue;
                 }
                 funcCover.join();
-                if (hasTaskFailed() || (!funcCover.getFunction().isPass() && !funcCover.isSkipFail())) {
+                if (hasTaskFailed()) {
                     justFunctionAlwayRun = true;
                 }
             }

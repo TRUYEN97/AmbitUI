@@ -11,7 +11,7 @@ import Control.Functions.FunctionsTest.Base.BaseFunction.FunctionBase;
 import Model.DataSource.ModeTest.FunctionConfig.FunctionElement;
 import Model.DataTest.FunctionData.FunctionData;
 import Model.ManagerUI.UIStatus.UiStatus;
-import ftpclient.FtpClient;
+import Communicate.FtpClient.FtpClient;
 import java.io.File;
 import java.util.List;
 

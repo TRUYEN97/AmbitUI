@@ -16,7 +16,7 @@ import Model.ErrorLog;
 import Model.ManagerUI.UIStatus.UiStatus;
 import Time.WaitTime.Class.TimeS;
 import com.alibaba.fastjson.JSONObject;
-import commandprompt.Communicate.Comport.ComPort;
+import Communicate.Comport.ComPort;
 import java.io.File;
 import java.util.List;
 

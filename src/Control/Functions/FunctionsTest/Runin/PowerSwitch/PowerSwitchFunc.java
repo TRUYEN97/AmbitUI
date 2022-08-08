@@ -6,7 +6,7 @@ package Control.Functions.FunctionsTest.Runin.PowerSwitch;
 
 import Control.Functions.AbsFunction;
 import Model.ErrorLog;
-import commandprompt.Communicate.PowerSwitch.PowerSwitch;
+import Communicate.PowerSwitch.PowerSwitch;
 import java.util.List;
 
 /**

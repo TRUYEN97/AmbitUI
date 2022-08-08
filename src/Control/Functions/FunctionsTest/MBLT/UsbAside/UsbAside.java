@@ -13,7 +13,7 @@ import Model.ErrorLog;
 import Model.ManagerUI.UIStatus.UiStatus;
 import Time.WaitTime.Class.TimeMs;
 import Time.WaitTime.Class.TimeS;
-import commandprompt.Communicate.Comport.ComPort;
+import Communicate.Comport.ComPort;
 
 /**
  *
@@ -55,7 +55,7 @@ public class UsbAside extends AbsFunction {
             String line;
             while (timer.onTime()) {
                 line = dut.readAll(new TimeMs(500));
-                addLog("DUT", line);
+                addLog("DUT", line == null ? "" : line);
                 if (line != null && !line.trim().isBlank()) {
                     return true;
                 }

@@ -12,8 +12,8 @@ import Model.DataTest.FunctionData.FunctionData;
 import Model.ErrorLog;
 import Model.ManagerUI.UIStatus.UiStatus;
 import Time.WaitTime.Class.TimeS;
-import commandprompt.AbstractStream.SubClass.ReadStreamOverTime;
-import commandprompt.Communicate.Telnet.Telnet;
+import AbstractStream.SubClass.ReadStreamOverTime;
+import Communicate.Telnet.Telnet;
 import java.util.List;
 
 /**

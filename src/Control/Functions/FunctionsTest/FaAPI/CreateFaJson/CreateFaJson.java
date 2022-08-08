@@ -57,7 +57,7 @@ public class CreateFaJson extends AbsFunction {
         String key = this.allConfig.getString("KEY_WORD");
         addLog("Get FA json data in signal!");
         addLog("Get with key: " + key);
-        var data = this.testSignal.get(key);
+        var data = this.testSignal.getObject(key);
         if (data == null) {
             addLog("FA json data == null!");
             return null;

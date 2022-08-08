@@ -11,7 +11,7 @@ import Model.DataSource.ModeTest.FunctionConfig.FunctionElement;
 import Model.DataTest.FunctionData.FunctionData;
 import Model.ErrorLog;
 import Model.ManagerUI.UIStatus.UiStatus;
-import commandprompt.Communicate.Telnet.Telnet;
+import Communicate.Telnet.Telnet;
 
 /**
  *

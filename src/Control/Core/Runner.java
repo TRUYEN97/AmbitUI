@@ -31,10 +31,12 @@ public class Runner implements Runnable {
         this.checkFunctions = new ArrayList<>();
         this.testFunctions = new ArrayList<>();
         this.endFunctions = new ArrayList<>();
+        this.myTimer = new TimeMs();
         this.processData = processData;
         this.process = process;
         this.subUi = subUi;
-        this.myTimer = new TimeMs();
+        this.subUi.setClock(myTimer);
+        this.processData.setClock(myTimer);
         this.loopTest = 1;
     }
 
@@ -63,10 +65,15 @@ public class Runner implements Runnable {
         return process.isPass();
     }
 
-    private void end(String mess) {
+    public void end(String mess) {
+        this.processData.setMessage(mess);
         this.process.stop(mess);
         this.subUi.endTest();
         this.processData.clearSignal();
+    }
+
+    public void setMode(String mode) {
+        processData.setMode(mode);
     }
 
     private void prepare() {
@@ -102,10 +109,6 @@ public class Runner implements Runnable {
         this.checkFunctions.clear();
         this.testFunctions.clear();
         this.endFunctions.clear();
-    }
-
-    double getTime() {
-        return this.myTimer.getTime();
     }
 
 }

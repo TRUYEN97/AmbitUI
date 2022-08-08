@@ -17,7 +17,7 @@ import java.util.List;
 public class ModeElement extends AbsElementInfo {
 
     public ModeElement(JSONObject base, JSONObject config) {
-        super(AllKeyWord.MODE_KEY, base, config);
+        super(null, base, config);
     }
 
     public String getStationName() {

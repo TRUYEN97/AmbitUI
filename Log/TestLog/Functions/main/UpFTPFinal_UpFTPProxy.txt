@@ -1,6 +1,22 @@
-2022-08-03 10:00:15.694:   ITEM[UpFTPFinal] - FUNCTION[UpFTPProxy]
-2022-08-03 10:00:15.695:   Error code: null
-2022-08-03 10:00:15.695:   Error des: null
-2022-08-03 10:00:15.695:   Local error code: null
-2022-08-03 10:00:15.695:   Local error des: null
-2022-08-03 10:00:15.696:   TIME[0.001 s] - STATUS[NULL]
+2022-08-08 18:17:09.340:   ITEM[UpFTPFinal] - FUNCTION[UpFTPProxy]
+2022-08-08 18:17:09.341:   Turn run: 1
+2022-08-08 18:17:09.341:   [PC] Connect to ftp!!
+2022-08-08 18:17:09.341:   [Config] User: oper
+2022-08-08 18:17:09.341:   [Config] PassWord: mfg-oper
+2022-08-08 18:17:09.341:   [Config] Host: 10.90.2.168
+2022-08-08 18:17:09.341:   [Config] Port: 21
+2022-08-08 18:17:09.395:   [PC] Connect to ftp ok!!
+2022-08-08 18:17:09.395:   [PC] ElementName: [data/eden, pnname, station_type, start_day, station_name, status]
+2022-08-08 18:17:09.395:   [PC] ElementName: [mlbsn, sn, mode, status, finish_day]
+2022-08-08 18:17:09.396:   [PC] ElementName: [python/log]
+2022-08-08 18:17:09.396:   [PC] ElementName: [mlbsn, station_name, mode, serial]
+2022-08-08 18:17:09.396:   [Config] Local: python\log\mlbsn_MBLT-720_Production_serial.txt
+2022-08-08 18:17:09.396:   [Config] Ftp: data/eden/pnname/MBLT/08-08-2022/MBLT-720/failed/mlbsn_DFDF_Production_failed_08-08-2022.txt
+2022-08-08 18:17:09.444:   Up file to FTP done!
+2022-08-08 18:17:09.444:   ****************************************************
+2022-08-08 18:17:09.445:   Item name: UpFTPFinal
+2022-08-08 18:17:09.445:   Value: "passed"
+2022-08-08 18:17:09.445:   Test status: "passed"
+2022-08-08 18:17:09.445:   -----------------------------------------------------
+2022-08-08 18:17:09.445:   ****************************************************
+2022-08-08 18:17:09.445:   TIME[0.105 s] - STATUS[PASSED]

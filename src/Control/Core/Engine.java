@@ -10,7 +10,7 @@ import Model.DataSource.Setting.Setting;
 import Model.DataSource.Setting.ModeElement;
 import Time.TimeBase;
 import View.UIView;
-import commandprompt.DHCP.DHCP;
+import DHCP.DHCP;
 import java.io.File;
 import java.util.ArrayList;
 import java.util.List;

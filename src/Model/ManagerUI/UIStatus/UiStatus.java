@@ -8,7 +8,6 @@ import Model.DataTest.ProcessTest.ProcessData;
 import Control.Core.Core;
 import Control.Core.ModeTest;
 import Control.Core.CellTest;
-import Model.AllKeyWord;
 import Model.DataTest.ProcessTest.InputData;
 import Model.DataTest.ProcessTest.UiInformartion;
 import Model.Interface.IUpdate;
@@ -95,7 +94,6 @@ public class UiStatus implements IUpdate {
     }
 
     public void startTest(InputData inputData) {
-        inputData.put(AllKeyWord.MODE, this.modeTest.getModeType());
         this.processData.getProductData().setInputData(inputData);
         this.cellTest.start();
     }

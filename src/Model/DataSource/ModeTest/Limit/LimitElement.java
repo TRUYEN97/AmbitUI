@@ -18,7 +18,7 @@ public class LimitElement extends AbsElementInfo {
     private final String itemName;
 
     LimitElement(String itemName, JSONObject base, JSONObject element) {
-        super(AllKeyWord.LIMIT_KEYS, base, element);
+        super(null, base, element);
         this.itemName = itemName;
     }
 

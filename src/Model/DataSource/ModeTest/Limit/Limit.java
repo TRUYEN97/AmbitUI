@@ -12,7 +12,7 @@ import Model.DataSource.DataWareHouse;
 import Model.DataSource.Setting.Setting;
 import Time.WaitTime.Class.TimeS;
 import com.alibaba.fastjson.JSONObject;
-import commandprompt.Communicate.Cmd.Cmd;
+import Communicate.Cmd.Cmd;
 import java.util.List;
 import static java.util.Objects.isNull;
 import java.util.Set;

@@ -1,7 +1,7 @@
 {
   "model": "eden",
   "station_type": "mblt",
-  "timestamp": "2022-08-05 03:36:48",
+  "timestamp": "2022-08-08 10:42:41",
   "limits_validation": "passed",
   "limits": {
     "ble_start": {
