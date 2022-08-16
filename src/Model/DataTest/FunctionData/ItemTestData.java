@@ -95,8 +95,8 @@ public class ItemTestData {
         this.loger.addLog("****************************************************");
         this.loger.addLog("Item name: " + this.data.getString(AllKeyWord.TEST_NAME));
         addLimitData();
-        this.loger.addLog(String.format("Value: \"%s\"", getResultTest()));
-        this.loger.addLog(String.format("Test status: \"%s\"", getStatusTest()));
+        this.loger.addLog(String.format("Value = \"%s\"", getResultTest()));
+        this.loger.addLog(String.format("Test status = \"%s\"", getStatusTest()));
         this.loger.addLog("-----------------------------------------------------");
     }
 
@@ -107,9 +107,9 @@ public class ItemTestData {
         String limitType = allConfig.getString(AllKeyWord.LIMIT_TYPE);
         String uperLimit = allConfig.getString(AllKeyWord.UPPER_LIMIT);
         String lowerLimit = allConfig.getString(AllKeyWord.LOWER_LIMIT);
-        this.loger.addLog(String.format("Limit type: \"%s\"", limitType));
-        this.loger.addLog(String.format("Uper limit: \"%s\"", uperLimit));
-        this.loger.addLog(String.format("Lowet limit: \"%s\"", lowerLimit));
+        this.loger.addLog(String.format("Limit type = \"%s\"", limitType));
+        this.loger.addLog(String.format("Uper limit = \"%s\"", uperLimit));
+        this.loger.addLog(String.format("Lowet limit = \"%s\"", lowerLimit));
     }
 
     public void end() {
@@ -178,10 +178,10 @@ public class ItemTestData {
             String errorDes = this.data.getString(AllKeyWord.ERROR_DES);
             String localErrorCode = this.data.getString(AllKeyWord.LOCAL_ERROR_CODE);
             String localErrorDes = this.data.getString(AllKeyWord.LOCAL_ERROR_DES);
-            this.loger.addLog("Error code: " + errorCode);
-            this.loger.addLog("Error des: " + errorDes);
-            this.loger.addLog("Local error code: " + localErrorCode);
-            this.loger.addLog("Local error des: " + localErrorDes);
+            this.loger.addLog(String.format("Error code = %s", errorCode));
+            this.loger.addLog(String.format("Error des = %s", errorDes));
+            this.loger.addLog(String.format("Local error code = %s", localErrorCode));
+            this.loger.addLog(String.format("Local error des = %s", localErrorDes));
         }
         this.loger.addLog("****************************************************");
         this.data.put(AllKeyWord.CYCLE_TIME, String.format("%.3f", timeS.getTime()));

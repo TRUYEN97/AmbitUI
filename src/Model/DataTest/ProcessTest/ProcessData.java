@@ -118,7 +118,7 @@ public class ProcessData {
     public void setFinishTime() {
         this.data.put(AllKeyWord.FINISH_TIME, timeBase.getSimpleDateTime());
         if (myTimer != null) {
-            this.data.put(AllKeyWord.CYCLE_TIME, String.format("%.3f s", myTimer.getTime() / 1000));
+            this.data.put(AllKeyWord.CYCLE_TIME, String.format("%.3f", myTimer.getTime() / 1000));
         }
         this.data.put(AllKeyWord.FINISH_DAY, timeBase.getDate());
         FunctionData testData = getFirstFail();

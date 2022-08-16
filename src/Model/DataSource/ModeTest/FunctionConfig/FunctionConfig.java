@@ -10,7 +10,6 @@ import Model.DataSource.DataWareHouse;
 import com.alibaba.fastjson.JSONObject;
 import java.util.ArrayList;
 import java.util.List;
-import static java.util.Objects.isNull;
 
 /**
  *
@@ -34,23 +33,61 @@ public class FunctionConfig extends AbsJsonSource<FunctionElement> {
         DataWareHouse wareHouse = readFile.getData();
         clearAllList();
         getFunctionIn(wareHouse,
-                wareHouse.getListJson(AllKeyWord.INIT), functionInit);
+                wareHouse.getListJson(AllKeyWord.INIT), functionInit, null);
         getFunctionIn(wareHouse,
-                wareHouse.getListJson(AllKeyWord.FUNCTIONS), functionTest);
+                wareHouse.getListJson(AllKeyWord.FUNCTIONS), functionTest, null);
         getFunctionIn(wareHouse,
-                wareHouse.getListJson(AllKeyWord.END), funtionEnd);
+                wareHouse.getListJson(AllKeyWord.END), funtionEnd, null);
         return !this.elements.isEmpty();
     }
 
-    private void getFunctionIn(DataWareHouse baseData, List<JSONObject> listInfo, List<FunctionName> list) {
-        FunctionElement info;
+    private void getFunctionIn(DataWareHouse baseData, List<JSONObject> listInfo, List<FunctionName> list, Integer times) {
         for (JSONObject modeInfo : listInfo) {
-            info = new FunctionElement(baseData.toJson(), modeInfo);
-            if (!isNull(info.getItemName()) && info.isActive()) {
-                put(info.getItemName(), info);
-                list.add(new FunctionName(info.getItemName(), info.getFunctionName()));
+            if (!isActive(modeInfo)) {
+                continue;
+            }
+            if (isLoopFunctions(modeInfo)) {
+                getLoopFuction(baseData, modeInfo, list, times);
+            } else if (modeInfo.containsKey(AllKeyWord.TEST_NAME)) {
+                if (times != null) {
+                    createNewItem(modeInfo, times);
+                }
+                FunctionElement funcElm = new FunctionElement(baseData.toJson(), modeInfo);
+                put(funcElm.getItemName(), funcElm);
+                list.add(new FunctionName(funcElm.getItemName(), funcElm.getFunctionName()));
             }
         }
+    }
+
+    private void createNewItem(JSONObject modeInfo, int times) {
+        String oldName = modeInfo.getString(AllKeyWord.TEST_NAME);
+        if (oldName.matches(".+_[0-9]+$")) {
+            String newItemName = String.format("%s_%s",
+                    oldName.substring(0, oldName.lastIndexOf("_")), times);
+            modeInfo.put(AllKeyWord.TEST_NAME, newItemName);
+        } else {
+            String newItemName = String.format("%s_%s", oldName, times);
+            modeInfo.put(AllKeyWord.TEST_NAME, newItemName);
+        }
+    }
+
+    private void getLoopFuction(DataWareHouse baseData, JSONObject modeInfo, List<FunctionName> list, Integer times) {
+        int heso = times == null ? 1 : times;
+        DataWareHouse wareHouse = new DataWareHouse(modeInfo);
+        final int begin = wareHouse.getInteger(AllKeyWord.BEGIN, 0) * heso;
+        final int loopTimes = wareHouse.getInteger(AllKeyWord.LOOP_FUNC, 1) + begin;
+        List<JSONObject> functions = wareHouse.getListJson(AllKeyWord.FUNCTIONS);
+        for (int i = begin; i < loopTimes; i++) {
+            getFunctionIn(baseData, functions, list, i);
+        }
+    }
+
+    private static boolean isLoopFunctions(JSONObject modeInfo) {
+        return modeInfo.containsKey(AllKeyWord.LOOP_FUNC) && modeInfo.containsKey(AllKeyWord.FUNCTIONS);
+    }
+
+    private static Boolean isActive(JSONObject modeInfo) {
+        return modeInfo.getBoolean(AllKeyWord.FLAG);
     }
 
     public long getTimeOutTest() {

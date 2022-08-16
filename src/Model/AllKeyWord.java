@@ -31,8 +31,6 @@ public class AllKeyWord {
     public static final String ERROR_CODE = "error_code";
     public static final String FA_ERROR_CODE = "errorcode";
     public static final String ERROR_DES = "error_details";
-    public static final String LOCKED = "locked";
-    public static final String UUT_MODEL = "UUT_MODEL";
     public static final String COM = "COM";
     public static final String BAUDRATE = "BAUDRATE";
     public static final String FUNCTIONS = "Functions";
@@ -99,6 +97,9 @@ public class AllKeyWord {
     public static final String LIMIT_CMD = "LimitCMD";
     public static final String LOCAL_ERROR_CODE = "local_error_code";
     public static final String LOCAL_ERROR_DES = "local_error_des";
+    public static final String LOOP_FUNC = "LoopTimes";
+    public static final String BEGIN = "Begin";
+
 
 //    public static final List<String> MODE_KEY = Arrays.asList(
 //            STATION_TYPE, DHCP, COLUMN, ROW, DETAIL, DISCRETE_TEST, TYPE_UI, NAME, TYPE_MODE,

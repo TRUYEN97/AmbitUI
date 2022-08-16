@@ -7,6 +7,7 @@ package Model.DataSource.ModeTest.FunctionConfig;
 import Model.AllKeyWord;
 import Model.DataSource.DataWareHouse;
 import Model.DataSource.ModeTest.ErrorCode.ErrorCodeElement;
+import Model.DataSource.ModeTest.ErrorCode.ErrorCodeSource;
 import Model.DataSource.ModeTest.Limit.Limit;
 import Model.DataSource.ModeTest.Limit.LimitElement;
 import Model.ErrorLog;
@@ -33,29 +34,34 @@ public class FuncAllConfig {
         this.wareHouse = new DataWareHouse();
         this.itemName = itemConfig;
     }
-    
-   public void setResources(UiStatus uiStatus, FunctionElement functionElement) {
+
+    public void setResources(UiStatus uiStatus, FunctionElement functionElement) {
         this.functionElement = functionElement;
-        if(this.functionElement == null)
-        {
-            JOptionPane.showMessageDialog(null, 
+        if (this.functionElement == null) {
+            JOptionPane.showMessageDialog(null,
                     String.format("Missing %s in the function config!", this.itemName));
             System.exit(0);
         }
         this.limit = uiStatus.getModeTest().getModeTestSource().getLimit();
-        this.limitElement = findLimit(itemName);
-        this.localErrorCode = uiStatus.getModeTest().
-                getModeTestSource().getErrorCodeSource().getElement( itemName);
+        this.limitElement = getLimit(getBaseItem(itemName));
+        this.localErrorCode = findLocalErrorCode(uiStatus, getBaseItem(itemName));
         getAllValueOfConfig();
         getAllValueOfLimit();
     }
 
-    private LimitElement findLimit(String itemName) {
-        if (itemName.matches(CHECK) && getLimit(itemName) == null) {
-            String newItemName = itemName.substring(0, itemName.lastIndexOf("_"));
-            return getLimit(newItemName);
+    private ErrorCodeElement findLocalErrorCode(UiStatus uiStatus, String itemName) {
+        ErrorCodeSource codeSource = uiStatus.getModeTest().getModeTestSource().getErrorCodeSource();
+        if (codeSource == null) {
+            return null;
         }
-        return getLimit(itemName);
+        return codeSource.getElement(itemName);
+    }
+
+    private String getBaseItem(String itemName) {
+        if (itemName.matches(CHECK) && getLimit(itemName) == null) {
+            return itemName.substring(0, itemName.lastIndexOf("_"));
+        }
+        return itemName;
     }
 
     private LimitElement getLimit(String nameItem) {

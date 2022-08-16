@@ -15,7 +15,7 @@
         {
             "NAME": "Openshort", 
             "TYPE_MODE": "Production",
-            "AMBIT_CONFIG": "config\\Item\\mbltOnOffConfig.json",
+            "AMBIT_CONFIG": "config\\Item\\mbltLoopTestOnOffConfig.json",
             "DETAIL": ["TabViewProxy", "TabItemProxy"]
         }
     ]
