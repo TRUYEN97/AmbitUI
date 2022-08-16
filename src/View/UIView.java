@@ -8,7 +8,6 @@ import Control.Core.Core;
 import Control.Core.ModeTest;
 import Control.LoadModelTime.LoadModeTime;
 import Control.CheckInput;
-import Model.DataSource.PcInformation;
 import View.subUI.SubUI.AbsSubUi;
 import java.awt.Component;
 import java.awt.GridLayout;
@@ -435,7 +434,7 @@ public class UIView extends javax.swing.JFrame {
     private void formWindowOpened(java.awt.event.WindowEvent evt) {//GEN-FIRST:event_formWindowOpened
         // TODO add your handling code here:
         modeTime.setLabel(this.lbTimeVN);
-        modeTime.setBackground(this.BoardSubUI);
+        modeTime.setBackground(this.panelBackground);
         modeTime.run();
     }//GEN-LAST:event_formWindowOpened
 

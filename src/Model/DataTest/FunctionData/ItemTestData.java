@@ -93,10 +93,10 @@ public class ItemTestData {
 
     public void endThisTurn() {
         this.loger.addLog("****************************************************");
-        this.loger.addLog("Item name: " + this.data.getString(AllKeyWord.TEST_NAME));
+        this.loger.addLog(String.format("Item name = %s" , this.data.getString(AllKeyWord.TEST_NAME)));
         addLimitData();
-        this.loger.addLog(String.format("Value = \"%s\"", getResultTest()));
-        this.loger.addLog(String.format("Test status = \"%s\"", getStatusTest()));
+        this.loger.addLog(String.format("Value = %s", getResultTest()));
+        this.loger.addLog(String.format("Test status = %s", getStatusTest()));
         this.loger.addLog("-----------------------------------------------------");
     }
 
@@ -107,9 +107,9 @@ public class ItemTestData {
         String limitType = allConfig.getString(AllKeyWord.LIMIT_TYPE);
         String uperLimit = allConfig.getString(AllKeyWord.UPPER_LIMIT);
         String lowerLimit = allConfig.getString(AllKeyWord.LOWER_LIMIT);
-        this.loger.addLog(String.format("Limit type = \"%s\"", limitType));
-        this.loger.addLog(String.format("Uper limit = \"%s\"", uperLimit));
-        this.loger.addLog(String.format("Lowet limit = \"%s\"", lowerLimit));
+        this.loger.addLog(String.format("Limit type = %s", limitType));
+        this.loger.addLog(String.format("Uper limit = %s", uperLimit));
+        this.loger.addLog(String.format("Lowet limit = %s", lowerLimit));
     }
 
     public void end() {
