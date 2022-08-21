@@ -252,7 +252,7 @@ public class UIView extends javax.swing.JFrame {
         jPanel5.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
 
         lbGiaiDoan.setBackground(new java.awt.Color(153, 153, 255));
-        lbGiaiDoan.setFont(new java.awt.Font("Arial 14 粗体", 1, 20)); // NOI18N
+        lbGiaiDoan.setFont(new java.awt.Font("Arial", 1, 20)); // NOI18N
         lbGiaiDoan.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         lbGiaiDoan.setText("---");
         lbGiaiDoan.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
