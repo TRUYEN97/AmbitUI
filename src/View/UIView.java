@@ -8,7 +8,6 @@ import Control.Core.Core;
 import Control.Core.ModeTest;
 import Control.LoadModelTime.LoadModeTime;
 import Control.CheckInput;
-import Model.DataSource.PcInformation;
 import View.subUI.SubUI.AbsSubUi;
 import java.awt.Component;
 import java.awt.GridLayout;
@@ -253,7 +252,7 @@ public class UIView extends javax.swing.JFrame {
         jPanel5.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
 
         lbGiaiDoan.setBackground(new java.awt.Color(153, 153, 255));
-        lbGiaiDoan.setFont(new java.awt.Font("Arial 14 粗体", 1, 20)); // NOI18N
+        lbGiaiDoan.setFont(new java.awt.Font("Arial", 1, 20)); // NOI18N
         lbGiaiDoan.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         lbGiaiDoan.setText("---");
         lbGiaiDoan.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
@@ -435,7 +434,7 @@ public class UIView extends javax.swing.JFrame {
     private void formWindowOpened(java.awt.event.WindowEvent evt) {//GEN-FIRST:event_formWindowOpened
         // TODO add your handling code here:
         modeTime.setLabel(this.lbTimeVN);
-        modeTime.setBackground(this.BoardSubUI);
+        modeTime.setBackground(this.panelBackground);
         modeTime.run();
     }//GEN-LAST:event_formWindowOpened
 

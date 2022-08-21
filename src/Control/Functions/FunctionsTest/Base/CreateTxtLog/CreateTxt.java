@@ -93,22 +93,16 @@ public class CreateTxt extends AbsFunction {
 
     private void createInfo(MyLoger loger) {
         loger.add("===================================================================\r\n");
-        loger.add("Start at = " + processData.getString(AllKeyWord.START_TIME));
-        loger.add("\r\n");
-        loger.add("End test at = " + processData.getString(AllKeyWord.FINISH_TIME));
-        loger.add("\r\n");
-        loger.add(String.format("Test time = %s s", processData.getString(AllKeyWord.CYCLE_TIME)));
-        loger.add("\r\n");
-        loger.add(String.format("Final test time = %.3f s", processData.getRunTime()/1000));
-        loger.add("\r\n");
-        loger.add("Station = " + processData.getString(AllKeyWord.STATION_NAME));
-        loger.add("\r\n");
-        loger.add("Localtion = " + processData.getString(AllKeyWord.INDEX));
-        loger.add("\r\n");
-        loger.add("HHSN = " + processData.getString(AllKeyWord.SN));
-        loger.add("\r\n");
-        loger.add("DEVICSN = " + processData.getString(AllKeyWord.MLBSN));
-        loger.add("\r\n===================================================================\r\n");
+        loger.add(String.format("Start at = %s\r\n", processData.getString(AllKeyWord.START_TIME)));
+        loger.add(String.format("End test at = %s\r\n", processData.getString(AllKeyWord.FINISH_TIME)));
+        loger.add(String.format("Status = %s\r\n", processData.getString(AllKeyWord.STATUS)));
+        loger.add(String.format("Test time = %s s\r\n", processData.getString(AllKeyWord.CYCLE_TIME)));
+        loger.add(String.format("Final test time = %.3f s\r\n", processData.getRunTime() / 1000));
+        loger.add(String.format("Station = %s\r\n", processData.getString(AllKeyWord.STATION_NAME)));
+        loger.add(String.format("Localtion = %s\r\n", processData.getString(AllKeyWord.INDEX)));
+        loger.add(String.format("HHSN = %s\r\n", processData.getString(AllKeyWord.SN)));
+        loger.add(String.format("DEVICESN = %s\r\n", processData.getString(AllKeyWord.MLBSN)));
+        loger.add("===================================================================\r\n");
     }
 
 }

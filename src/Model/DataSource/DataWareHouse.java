@@ -4,7 +4,6 @@
  */
 package Model.DataSource;
 
-import Model.ErrorLog;
 import com.alibaba.fastjson.JSONArray;
 import com.alibaba.fastjson.JSONObject;
 import java.util.ArrayList;
@@ -73,6 +72,16 @@ public class DataWareHouse {
         return null;
     }
 
+    public Integer getInteger(String key, int defaultValue) {
+        Integer value = getInteger(key);
+        return value == null ? defaultValue : value;
+    }
+
+    public Double getDouble(String key, double defaultValue) {
+        Double value = getDouble(key);
+        return value == null ? defaultValue : value;
+    }
+
     public Integer getInteger(String key) {
         try {
             Integer value = coreData.getInteger(key);
@@ -116,7 +125,7 @@ public class DataWareHouse {
     public void put(String key, Object get) {
         this.coreData.put(key, get);
     }
-    
+
     public List<String> getListSlip(String key, String regex) {
         if (getArrays(key, regex) == null) {
             return new ArrayList<>();
