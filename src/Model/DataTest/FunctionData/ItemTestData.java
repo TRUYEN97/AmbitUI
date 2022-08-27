@@ -172,6 +172,8 @@ public class ItemTestData {
     }
 
     private void logEnd() {
+        this.data.put(AllKeyWord.CYCLE_TIME, String.format("%.3f", timeS.getTime()));
+        this.data.put(AllKeyWord.FINISH_TIME, new TimeBase().getSimpleDateTime());
         if (!isPass()) {
             this.data.putAll(this.error);
             String errorCode = this.data.getString(AllKeyWord.ERROR_CODE);
@@ -184,8 +186,6 @@ public class ItemTestData {
             this.loger.addLog(String.format("Local error des = %s", localErrorDes));
         }
         this.loger.addLog("****************************************************");
-        this.data.put(AllKeyWord.CYCLE_TIME, String.format("%.3f", timeS.getTime()));
-        this.data.put(AllKeyWord.FINISH_TIME, new TimeBase().getSimpleDateTime());
     }
 
     public void setPass() {

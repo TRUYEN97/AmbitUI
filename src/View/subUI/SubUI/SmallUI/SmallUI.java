@@ -18,6 +18,7 @@ public class SmallUI extends AbsSubUi {
 
     private final FormShow formShow;
     private List<FunctionData> list;
+    private boolean hasTest;
 
     /**
      * Creates new form SmallUI
@@ -28,6 +29,7 @@ public class SmallUI extends AbsSubUi {
         super(indexName, 1000);
         initComponents();
         this.lbTime.setToolTipText(indexName);
+        this.hasTest = false;
         this.lbTime.setText(indexName);
         this.formShow = new FormShow();
     }
@@ -54,6 +56,9 @@ public class SmallUI extends AbsSubUi {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
                 lbTimeMouseClicked(evt);
             }
+            public void mouseEntered(java.awt.event.MouseEvent evt) {
+                lbTimeMouseEntered(evt);
+            }
         });
         add(lbTime, java.awt.BorderLayout.CENTER);
     }// </editor-fold>//GEN-END:initComponents
@@ -65,11 +70,37 @@ public class SmallUI extends AbsSubUi {
         }
     }//GEN-LAST:event_lbTimeMouseClicked
 
+    private void lbTimeMouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_lbTimeMouseEntered
+        // TODO add your handling code here:
+        if (!hasTest) {
+            return;
+        }
+        if (!this.uiStatus.isTesting()) {
+            StringBuilder mess = new StringBuilder("<html><span style=\\\"font-size: 20px\\\">");
+            List<FunctionData> dataBoxs = this.uiStatus.getProcessData().getDataBoxs();
+            for (FunctionData dataBox : dataBoxs) {
+                if (dataBox.isTesting()) {
+                    mess.append(String.format("<tr><td>%s</td></tr>", dataBox.getItemFunctionName()));
+                }
+            }
+            mess.append("</span></html>");
+            this.lbTime.setToolTipText(mess.toString());
+        } else {
+            String mess = String.format("<html><span style=\\\"font-size: 20px\\\"><tr><td>%s</td></tr></span></html>",
+                    this.uiStatus.getProcessData().getMassage());
+            this.lbTime.setToolTipText(mess);
+        }
+    }//GEN-LAST:event_lbTimeMouseEntered
+
     @Override
     public void startTest() {
         this.list = uiStatus.getProcessData().getDataBoxs();
         super.startTest(); // Generated from nbfs://nbhost/SystemFileSystem/Templates/Classes/Code/OverriddenMethodBody
         this.lbTime.setBackground(Color.yellow);
+        this.hasTest = true;
+        if (this.formShow.isVisible()) {
+            this.formShow.dispose();
+        }
     }
 
     @Override
@@ -100,7 +131,7 @@ public class SmallUI extends AbsSubUi {
                     getName(), getTestTime()));
         } else {
             lbTime.setText(String.format("<html><center>%s</br><center>%s</center>%s</html>",
-                    getName(),list.size(), getTestTime()));
+                    getName(), list.size(), getTestTime()));
         }
     }
 }

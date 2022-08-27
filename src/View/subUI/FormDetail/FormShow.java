@@ -42,18 +42,11 @@ public class FormShow extends javax.swing.JFrame {
     private void initComponents() {
 
         setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
-        addKeyListener(new java.awt.event.KeyAdapter() {
-            public void keyTyped(java.awt.event.KeyEvent evt) {
-                formKeyTyped(evt);
-            }
-        });
 
         setSize(new java.awt.Dimension(407, 327));
         setLocationRelativeTo(null);
     }// </editor-fold>//GEN-END:initComponents
 
-private void formKeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_formKeyTyped
-}//GEN-LAST:event_formKeyTyped
     /**
      * @param args the command line arguments
      */
