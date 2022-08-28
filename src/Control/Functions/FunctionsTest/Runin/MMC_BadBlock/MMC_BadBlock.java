@@ -62,7 +62,7 @@ public class MMC_BadBlock extends AbsFunction {
             ErrorLog.addError(this, e.getMessage());
             return false;
         } finally {
-            telnet.disConnect();
+            this.baseFunc.disConnect(telnet);
         }
     }
 

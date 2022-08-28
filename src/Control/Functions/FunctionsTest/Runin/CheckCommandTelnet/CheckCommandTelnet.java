@@ -59,9 +59,7 @@ public class CheckCommandTelnet extends AbsFunction {
             ErrorLog.addError(this, e.getMessage());
             return false;
         } finally {
-            if (telnet != null) {
-                telnet.disConnect();
-            }
+            this.functionBase.disConnect(telnet);
         }
     }
 

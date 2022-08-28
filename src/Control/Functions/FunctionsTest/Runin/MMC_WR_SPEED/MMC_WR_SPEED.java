@@ -60,7 +60,7 @@ public class MMC_WR_SPEED extends AbsFunction {
             ErrorLog.addError(this, e.getMessage());
             return false;
         } finally {
-            telnet.disConnect();
+            this.baseFunc.disConnect(telnet);
         }
         List<String> items = this.allConfig.getListJsonArray("ItemNames");
         List<String> blocks = this.allConfig.getListJsonArray("Block");

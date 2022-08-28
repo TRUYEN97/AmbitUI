@@ -8,6 +8,7 @@ import Model.AllKeyWord;
 import Model.DataSource.DataWareHouse;
 import Model.DataTest.FunctionData.FunctionData;
 import Model.DataTest.FunctionData.ItemTestData;
+import Model.ManagerUI.UIStatus.UiStatus;
 import Time.TimeBase;
 import Time.WaitTime.AbsTime;
 import com.alibaba.fastjson.JSONObject;
@@ -30,10 +31,11 @@ public class ProcessData {
     private final TimeBase timeBase;
     private final ProcessTestSignal signal;
     private final ProductData productData;
+    private final UiStatus uiStatus;
     private String message;
     private AbsTime myTimer;
 
-    public ProcessData(UiInformartion informartion) {
+    public ProcessData(UiInformartion informartion, UiStatus uiStatus) {
         this.listFunctionData = new ArrayList<>();
         this.mapItemTestData = new HashMap<>();
         this.mapFunctionData = new HashMap<>();
@@ -41,6 +43,7 @@ public class ProcessData {
         this.signal = new ProcessTestSignal();
         this.productData = new ProductData();
         this.timeBase = new TimeBase();
+        this.uiStatus = uiStatus;
         this.informartion = informartion;
     }
 
@@ -97,7 +100,7 @@ public class ProcessData {
     }
 
     public String getMassage() {
-        if (this.message != null) {
+        if (this.uiStatus.isTesting() || message != null) {
             return message;
         }
         if (isPass()) {
@@ -117,10 +120,10 @@ public class ProcessData {
 
     public void setFinishTime() {
         this.data.put(AllKeyWord.FINISH_TIME, timeBase.getSimpleDateTime());
+        this.data.put(AllKeyWord.FINISH_DAY, timeBase.getDate());
         if (myTimer != null) {
             this.data.put(AllKeyWord.CYCLE_TIME, String.format("%.3f", myTimer.getTime() / 1000));
         }
-        this.data.put(AllKeyWord.FINISH_DAY, timeBase.getDate());
         FunctionData testData = getFirstFail();
         if (testData == null) {
             this.data.put(AllKeyWord.STATUS, ItemTestData.PASS);

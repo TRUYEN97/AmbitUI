@@ -15,6 +15,7 @@ import Communicate.Comport.ComPort;
 import Communicate.ISender;
 import Communicate.Telnet.Telnet;
 import Communicate.FtpClient.FtpClient;
+import Communicate.IConnect;
 
 /**
  *
@@ -107,9 +108,7 @@ public class FunctionBase extends AbsFunction {
             addLog("Telnet", "Reboot ok!");
             return true;
         } finally {
-            if (telnet != null) {
-                telnet.disConnect();
-            }
+            this.disConnect(telnet);
         }
 
     }
@@ -153,6 +152,19 @@ public class FunctionBase extends AbsFunction {
                 addLog("Cmd", "------------------------------------");
             }
         }
+        return false;
+    }
+
+    public boolean disConnect(IConnect connect) {
+        if (connect == null) {
+            addLog("PC", "Can't disconnect with null !");
+            return false;
+        }
+        if (this.testSignal.disConnect(connect)) {
+            addLog("PC", String.format("Disconnect %s ok", connect.getClass().getSimpleName()));
+            return true;
+        }
+        addLog("PC", String.format("Disconnect %s failed !", connect.getClass().getSimpleName()));
         return false;
     }
 }

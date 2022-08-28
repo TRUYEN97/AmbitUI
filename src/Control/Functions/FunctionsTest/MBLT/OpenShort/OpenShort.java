@@ -80,7 +80,7 @@ public class OpenShort extends AbsFunction {
             ErrorLog.addError(this, e.getMessage());
             return false;
         } finally {
-            dut.disConnect();
+            this.functionBase.disConnect(dut);
         }
     }
 

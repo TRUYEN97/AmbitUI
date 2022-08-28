@@ -51,9 +51,13 @@ public class UpFTP extends AbsFunction {
         if (ftp == null) {
             return false;
         }
-        String FtpPath = craeteFtpPath();
-        String localPath = craeteLocalPath();
-        return upFile(localPath, FtpPath);
+        try {
+            String FtpPath = craeteFtpPath();
+            String localPath = craeteLocalPath();
+            return upFile(localPath, FtpPath);
+        } finally {
+            this.baseFunc.disConnect(ftp);
+        }
     }
 
     private String craeteFtpPath() {
@@ -74,19 +78,19 @@ public class UpFTP extends AbsFunction {
 
     private boolean upFile(String local, String ftpFile) {
         if (local == null) {
-            addLog("Config","Directory of local is null");
+            addLog("Config", "Directory of local is null");
             return false;
         }
         if (ftpFile == null) {
-            addLog("Config","Directory of FTP is null");
+            addLog("Config", "Directory of FTP is null");
         }
         File localFile = new File(local);
         if (!localFile.exists()) {
-            addLog("Config",String.format("File \"%s\" not exists! ", local));
+            addLog("Config", String.format("File \"%s\" not exists! ", local));
             return false;
         }
-        addLog("Config","Local: " + localFile.getPath());
-        addLog("Config","Ftp: " + ftpFile);
+        addLog("Config", "Local: " + localFile.getPath());
+        addLog("Config", "Ftp: " + ftpFile);
         if (ftp.uploadFile(localFile.getPath(), ftpFile)) {
             addLog("Up file to FTP done!");
             return true;

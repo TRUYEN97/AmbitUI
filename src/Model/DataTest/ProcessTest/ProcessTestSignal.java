@@ -5,9 +5,9 @@
 package Model.DataTest.ProcessTest;
 
 import Communicate.IConnect;
-import java.util.ArrayList;
 import java.util.HashMap;
-import java.util.List;
+import java.util.HashSet;
+import java.util.Set;
 
 /**
  *
@@ -16,11 +16,11 @@ import java.util.List;
 public class ProcessTestSignal {
 
     private final HashMap<String, Object> signal;
-    private final List<IConnect> connector;
+    private final Set<IConnect> connector;
 
     public ProcessTestSignal() {
         this.signal = new HashMap<>();
-        this.connector = new ArrayList<>();
+        this.connector = new HashSet<>();
     }
 
     public void put(String key, Object value) {
@@ -51,6 +51,13 @@ public class ProcessTestSignal {
 
     public Object getObject(String key) {
         return signal.get(key);
+    }
+
+    public boolean disConnect(IConnect connect) {
+        if (connect == null || !connect.disConnect()) {
+            return false;
+        }
+        return !this.connector.contains(connect) || this.connector.remove(connect);
     }
 
 }

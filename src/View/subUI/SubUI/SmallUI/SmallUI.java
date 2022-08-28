@@ -75,7 +75,7 @@ public class SmallUI extends AbsSubUi {
         if (!hasTest) {
             return;
         }
-        if (!this.uiStatus.isTesting()) {
+        if (this.uiStatus.isTesting()) {
             StringBuilder mess = new StringBuilder("<html><span style=\\\"font-size: 20px\\\">");
             List<FunctionData> dataBoxs = this.uiStatus.getProcessData().getDataBoxs();
             for (FunctionData dataBox : dataBoxs) {

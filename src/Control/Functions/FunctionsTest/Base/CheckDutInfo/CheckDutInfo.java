@@ -18,23 +18,23 @@ import Communicate.Telnet.Telnet;
  * @author Administrator
  */
 public class CheckDutInfo extends AbsFunction {
-
+    
     private final FunctionBase baseFunc;
     private final AnalysisBase analysisBase;
-
+    
     public CheckDutInfo(String itemName) {
         super(itemName);
         this.baseFunc = new FunctionBase(itemName);
         this.analysisBase = new AnalysisBase(itemName);
     }
-
+    
     @Override
     public void setResources(FunctionElement funcConfig, UiStatus uiStatus, FunctionData functionData) {
         super.setResources(funcConfig, uiStatus, functionData); // Generated from nbfs://nbhost/SystemFileSystem/Templates/Classes/Code/OverriddenMethodBody
         this.baseFunc.setResources(funcConfig, uiStatus, functionData);
         this.analysisBase.setResources(funcConfig, uiStatus, functionData);
     }
-
+    
     @Override
     protected boolean test() {
         String ip = this.analysisBase.getIp();
@@ -44,18 +44,23 @@ public class CheckDutInfo extends AbsFunction {
         }
         return check(ip);
     }
-
+    
     private boolean check(String ip) {
         Telnet telnet = this.baseFunc.getTelnet(ip, 23);
-        if (telnet == null || !this.baseFunc.sendCommand(telnet, allConfig.getString("command"))) {
-            return false;
+        try {
+            if (telnet == null || !this.baseFunc.sendCommand(telnet, allConfig.getString("command"))) {
+                return false;
+            }
+            String startkey = allConfig.getString("Startkey");
+            String endkey = allConfig.getString("Endkey");
+            String regex = allConfig.getString("Regex");
+            return checkValue(this.analysisBase.getValue(telnet, startkey, endkey, regex, new TimeMs(1000)));
+        } finally {
+            this.baseFunc.disConnect(telnet);
         }
-        String startkey = allConfig.getString("Startkey");
-        String endkey = allConfig.getString("Endkey");
-        String regex = allConfig.getString("Regex");
-        return checkValue(this.analysisBase.getValue(telnet, startkey, endkey, regex, new TimeMs(1000)));
+        
     }
-
+    
     private boolean checkValue(String value) {
         addLog("Value is: " + value);
         String spec = productData.getString("compareWith");
@@ -63,5 +68,5 @@ public class CheckDutInfo extends AbsFunction {
         setResult(value);
         return spec != null && value != null && spec.equals(value);
     }
-
+    
 }

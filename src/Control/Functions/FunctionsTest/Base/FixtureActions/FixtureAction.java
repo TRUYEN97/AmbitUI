@@ -76,7 +76,7 @@ public class FixtureAction extends AbsFunction {
             ErrorLog.addError(this, e.getMessage());
             return false;
         } finally {
-            comPort.disConnect();
+            this.base.disConnect(comPort);
         }
     }
 

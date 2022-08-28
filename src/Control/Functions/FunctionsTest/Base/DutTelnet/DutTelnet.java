@@ -4,6 +4,7 @@
  */
 package Control.Functions.FunctionsTest.Base.DutTelnet;
 
+import Communicate.IConnect;
 import Control.Functions.AbsFunction;
 import Control.Functions.FunctionsTest.Base.BaseFunction.AnalysisBase;
 import Control.Functions.FunctionsTest.Base.BaseFunction.FunctionBase;
@@ -40,6 +41,6 @@ public class DutTelnet extends AbsFunction {
         if (ip == null) {
             return false;
         }
-        return this.functionBase.getTelnet(ip, 23) != null;
+        return this.functionBase.disConnect(this.functionBase.getTelnet(ip, 23));
     }
 }

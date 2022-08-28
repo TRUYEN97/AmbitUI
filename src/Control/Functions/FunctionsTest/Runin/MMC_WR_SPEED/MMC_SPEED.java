@@ -60,9 +60,7 @@ public class MMC_SPEED extends AbsFunction {
                 ErrorLog.addError(this, e.getMessage());
                 return false;
             } finally {
-                if (telnet != null) {
-                    telnet.disConnect();
-                }
+               this.baseFunc.disConnect(telnet);
             }
             addLog("Telnet", data);
         }
