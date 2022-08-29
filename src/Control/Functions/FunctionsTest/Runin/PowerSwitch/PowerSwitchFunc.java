@@ -33,7 +33,7 @@ public class PowerSwitchFunc extends AbsFunction {
             int index = this.uIInfo.getCOLUMN();
             addLog("CONFIG", "index of switch: " + index);
             int delay = this.allConfig.getInteger("Delay");
-            addLog("CONFIG", "Delay time: " + delay +" s");
+            addLog("CONFIG", "Delay time: " + delay + " s");
             PowerSwitch powerSwitch;
             for (int i = 1; i <= times; i++) {
                 powerSwitch = new PowerSwitch(host, user, pass);
@@ -45,6 +45,7 @@ public class PowerSwitchFunc extends AbsFunction {
             return true;
         } catch (Exception e) {
             e.printStackTrace();
+            ErrorLog.addError(this, e.getLocalizedMessage());
             addLog(e.getMessage());
             ErrorLog.addError(this, e.getMessage());
             return false;
@@ -60,34 +61,35 @@ public class PowerSwitchFunc extends AbsFunction {
     }
 
     private boolean run(PowerSwitch powerSwitch, int index, int delayS) {
-        try {
-            List<String> commands = allConfig.getListJsonArray("Command");
-            for (String command : commands) {
-                try {
-                    if (command.equalsIgnoreCase("on")) {
-                        if (!powerSwitch.setOn(index)) {
-                            return false;
-                        }
-                    } else if (command.equalsIgnoreCase("off")) {
-                        if (!powerSwitch.setOff(index)) {
-                            return false;
-                        }
-                    } else if (command.equalsIgnoreCase("cycle")) {
-                        if (!powerSwitch.setCycle(index)) {
-                            return false;
-                        }
+        List<String> commands = allConfig.getListJsonArray("Command");
+        for (String command : commands) {
+            try {
+                if (command.equalsIgnoreCase("on")) {
+                    if (!powerSwitch.setOn(index)) {
+                        return false;
                     }
-                } finally {
+                } else if (command.equalsIgnoreCase("off")) {
+                    if (!powerSwitch.setOff(index)) {
+                        return false;
+                    }
+                } else if (command.equalsIgnoreCase("cycle")) {
+                    if (!powerSwitch.setCycle(index)) {
+                        return false;
+                    }
+                }
+            } finally {
+                try {
                     addLog("POWER_SWITCH", powerSwitch.getResult());
                     Thread.sleep(delayS * 1000);
+                } catch (InterruptedException ex) {
+                    ex.printStackTrace();
+                    ErrorLog.addError(this, ex.getLocalizedMessage());
+                    addLog(ex.getMessage());
                 }
             }
-            return true;
-        } catch (InterruptedException ex) {
-            ex.printStackTrace();
-            addLog(ex.getMessage());
-            return false;
         }
+        return true;
+
     }
 
     private String createNewIp() throws NumberFormatException {

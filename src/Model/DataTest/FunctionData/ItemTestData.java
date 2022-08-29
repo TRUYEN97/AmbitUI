@@ -93,7 +93,7 @@ public class ItemTestData {
 
     public void endThisTurn() {
         this.loger.addLog("****************************************************");
-        this.loger.addLog(String.format("Item name = %s" , this.data.getString(AllKeyWord.TEST_NAME)));
+        this.loger.addLog(String.format("Item name = %s", this.data.getString(AllKeyWord.TEST_NAME)));
         addLimitData();
         this.loger.addLog(String.format("Value = %s", getResultTest()));
         this.loger.addLog(String.format("Test status = %s", getStatusTest()));
@@ -164,7 +164,8 @@ public class ItemTestData {
         if (isTest()) {
             return timeS.getTime();
         }
-        return this.data.getDouble(AllKeyWord.CYCLE_TIME);
+        Double time = this.data.getDouble(AllKeyWord.CYCLE_TIME);
+        return time == null ?  timeS.getTime(): time;
     }
 
     void setLoger(MyLoger loger) {

@@ -74,7 +74,6 @@ public class FunctionCover extends Thread {
                 ErrorLog.addError(this, ex.getMessage());
             }
             if (getRunTime() >= timeSpec) {
-                this.thread.stop();
                 String mess = String.format("""
                                                                 This function has out of run time!\r
                                                                 Time: %.3f S\r
@@ -83,6 +82,7 @@ public class FunctionCover extends Thread {
                         getRunTime(), timeSpec);
                 this.functionData.addLog(mess);
                 this.functionData.setFail(ErrorCodeElement.SIMPLE);
+                this.thread.stop();
             }
         }
     }
