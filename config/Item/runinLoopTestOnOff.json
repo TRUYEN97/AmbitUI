@@ -1,6 +1,6 @@
 {
     "UUT_MODEL": "eden",
-    "station_type": "OnOff",
+    "station_type": "RUNIN",
     "TIME_OUT_TEST": 11000,
     "INIT": [
         {

@@ -1,0 +1,36 @@
+2022-08-30 19:56:40.817:   ITEM[wps_ok_1] - FUNCTION[PowerSwitchProxy]
+2022-08-30 19:56:40.818:   Turn run: 1
+2022-08-30 19:56:40.819:   [CONFIG] host: 192.168.1.10
+2022-08-30 19:56:40.819:   [CONFIG] user: admin
+2022-08-30 19:56:40.820:   [CONFIG] passWord: 1234
+2022-08-30 19:56:40.820:   [CONFIG] Times: 5
+2022-08-30 19:56:40.820:   [CONFIG] index of switch: 1
+2022-08-30 19:56:40.821:   [CONFIG] Delay time: 5 s
+2022-08-30 19:56:40.836:   cycle Times: 1 - 5
+2022-08-30 19:56:41.133:   [POWER_SWITCH] http://192.168.1.10/outlet?1=OFF
+2022-08-30 19:56:41.133:   [POWER_SWITCH] HTTP/1.1 200 OK
+2022-08-30 19:56:46.287:   [POWER_SWITCH] http://192.168.1.10/outlet?1=ON
+2022-08-30 19:56:46.287:   [POWER_SWITCH] HTTP/1.1 200 OK
+2022-08-30 19:56:51.425:   [POWER_SWITCH] http://192.168.1.10/outlet?1=OFF
+2022-08-30 19:56:51.425:   [POWER_SWITCH] HTTP/1.1 200 OK
+2022-08-30 19:56:56.582:   [POWER_SWITCH] http://192.168.1.10/outlet?1=ON
+2022-08-30 19:56:56.582:   [POWER_SWITCH] HTTP/1.1 200 OK
+2022-08-30 19:57:01.593:   cycle Times: 2 - 5
+2022-08-30 19:57:01.721:   [POWER_SWITCH] http://192.168.1.10/outlet?1=OFF
+2022-08-30 19:57:01.721:   [POWER_SWITCH] HTTP/1.1 200 OK
+2022-08-30 19:57:06.856:   [POWER_SWITCH] http://192.168.1.10/outlet?1=ON
+2022-08-30 19:57:06.857:   [POWER_SWITCH] HTTP/1.1 200 OK
+2022-08-30 19:57:11.051:   This function has out of run time!
+2022-08-30 19:57:11.052:   Time: 30.233 S
+2022-08-30 19:57:11.052:   Spec: 30.0 S
+2022-08-30 19:57:11.053:   Try to stop!!
+2022-08-30 19:57:11.054:   This function has out of run time!
+2022-08-30 19:57:11.055:   Time: 30.236 S
+2022-08-30 19:57:11.055:   Spec: 30.0 S
+2022-08-30 19:57:11.056:   Try to stop!!
+2022-08-30 19:57:11.057:   Error code = -1
+2022-08-30 19:57:11.057:   Error des = wps_ok_1
+2022-08-30 19:57:11.058:   Local error code = 39.3.0
+2022-08-30 19:57:11.058:   Local error des = wps_ok
+2022-08-30 19:57:11.059:   ****************************************************
+2022-08-30 19:57:11.059:   TIME[30.238 s] - STATUS[FAILED]

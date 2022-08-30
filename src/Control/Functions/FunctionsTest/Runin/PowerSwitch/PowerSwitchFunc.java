@@ -35,8 +35,8 @@ public class PowerSwitchFunc extends AbsFunction {
             int delay = this.allConfig.getInteger("Delay");
             addLog("CONFIG", "Delay time: " + delay + " s");
             PowerSwitch powerSwitch;
+            powerSwitch = new PowerSwitch(host, user, pass);
             for (int i = 1; i <= times; i++) {
-                powerSwitch = new PowerSwitch(host, user, pass);
                 addLog(String.format("cycle Times: %d - %d ", i, times));
                 if (!run(powerSwitch, index, delay) || !doSomethings()) {
                     return false;
@@ -74,6 +74,14 @@ public class PowerSwitchFunc extends AbsFunction {
                     }
                 } else if (command.equalsIgnoreCase("cycle")) {
                     if (!powerSwitch.setCycle(index)) {
+                        return false;
+                    }
+                } else if (command.equalsIgnoreCase("onAll")) {
+                    if (!powerSwitch.setOnAll()) {
+                        return false;
+                    }
+                } else if (command.equalsIgnoreCase("offAll")) {
+                    if (!powerSwitch.setOffAll()) {
                         return false;
                     }
                 }
