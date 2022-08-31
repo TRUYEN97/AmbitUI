@@ -93,7 +93,6 @@ public class ItemTestData {
     }
 
     public void end() {
-        writeResultTest();
         if (!isPass()) {
             writeError();
         }
@@ -162,7 +161,7 @@ public class ItemTestData {
         this.loger = loger;
     }
 
-    private void writeResultTest() {
+    public void endTurn() {
         this.loger.addLog("****************************************************");
         this.loger.addLog(String.format("Item name = %s", this.data.getString(AllKeyWord.TEST_NAME)));
         addLimitData();

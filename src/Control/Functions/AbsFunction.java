@@ -67,29 +67,26 @@ public abstract class AbsFunction implements IFunction {
 
     @Override
     public void run() {
-        boolean statusTest = false;
         try {
             start();
-            statusTest = runTest();
+            runTest();
         } finally {
-            end(statusTest);
+            end();
         }
     }
 
-    public boolean runTest() {
+    public void runTest() {
+        boolean status =false;
         try {
-            return test();
+            status = test();
         } catch (Exception e) {
             ErrorLog.addError(this, e.getLocalizedMessage());
             addLog("ERROR", e.getLocalizedMessage());
             e.printStackTrace();
-            return false;
+        }finally{
+            this.analysisResult.checkResult(status, getResult());
+            endTurn();
         }
-    }
-
-    private void end(boolean status) {
-        this.analysisResult.checkResult(status, getResult());
-        this.itemTestData.end();
     }
 
     protected String getItemName() {
@@ -126,6 +123,14 @@ public abstract class AbsFunction implements IFunction {
 
     protected String getResult() {
         return this.itemTestData.getResultTest();
+    }
+
+    private void endTurn() {
+        this.itemTestData.endTurn();
+    }
+
+    public void end() {
+        this.itemTestData.end();
     }
 
 }

@@ -70,7 +70,8 @@ public class Runner implements Runnable {
     public void end(String mess) {
         this.processData.setMessage(mess);
         this.process.stop(mess);
-        this.processData.clearSignal();
+        this.testing = false;
+        this.subUi.endTest();
     }
 
     public void setMode(String mode) {
@@ -78,39 +79,35 @@ public class Runner implements Runnable {
     }
 
     private void prepare() {
+        this.testing = true;
         processData.setStartTime();
         subUi.startTest();
     }
 
     @Override
     public void run() {
-        try {
-            myTimer.start(0);
-            this.testing = true;
-            for (int i = 0; i < loopTest; i++) {
-                try {
-                    prepare();
-                    if (runFunctions(checkFunctions)) {
-                        try {
-                            runFunctions(testFunctions);
-                        } finally {
-                            processData.setFinishTime();
-                        }
-                        runFunctions(endFunctions);
+        this.myTimer.start(0);
+        for (int i = 0; i < loopTest; i++) {
+            try {
+                prepare();
+                if (runFunctions(checkFunctions)) {
+                    try {
+                        runFunctions(testFunctions);
+                    } finally {
+                        processData.setFinishTime();
                     }
-                } finally {
-                    end(null);
+                    runFunctions(endFunctions);
                 }
+            } finally {
+                end(null);
+                clearAllFunctions();
             }
-        } finally {
-            this.testing = false;
-            this.subUi.endTest();
-            this.myTimer.stop();
-            clearAllFunctions();
         }
+        this.myTimer.stop();
     }
 
     private void clearAllFunctions() {
+        this.processData.clearSignal();
         this.checkFunctions.clear();
         this.testFunctions.clear();
         this.endFunctions.clear();
