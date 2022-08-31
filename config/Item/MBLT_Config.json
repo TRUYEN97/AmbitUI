@@ -101,10 +101,26 @@
         },
         {
             "FLAG": true,
-            "TIME_OVER": 360,
+            "TIME_OVER": 3,
             "MULTI": false,
             "IP": "192.168.1.1",
             "test_name": "dut_ping",
+            "FUNC_NAME": "DutPingProxy"
+        },
+        {
+            "FLAG": true,
+            "TIME_OVER": 3,
+            "MULTI": false,
+            "IP": "192.168.1.1",
+            "test_name": "dut_ping_1",
+            "FUNC_NAME": "DutPingProxy"
+        },
+        {
+            "FLAG": true,
+            "TIME_OVER": 3,
+            "MULTI": false,
+            "IP": "192.168.1.1",
+            "test_name": "dut_ping_2",
             "FUNC_NAME": "DutPingProxy"
         },
         {

@@ -9,7 +9,7 @@ import Model.DataSource.ModeTest.ErrorCode.ErrorCodeElement;
 import Model.DataSource.ModeTest.FunctionConfig.FuncAllConfig;
 import MyLoger.MyLoger;
 import Time.TimeBase;
-import Time.WaitTime.Class.TimeS;
+import Time.WaitTime.AbsTime;
 import com.alibaba.fastjson.JSONObject;
 import java.util.Arrays;
 import java.util.List;
@@ -25,20 +25,21 @@ public class ItemTestData {
     private final FuncAllConfig allConfig;
     private final JSONObject data;
     private final JSONObject error;
-    private final TimeS timeS;
+    private AbsTime timer;
+    private double startTime;
     private final List<String> keys;
     private MyLoger loger;
     private boolean testing;
 
     public ItemTestData(FuncAllConfig allConfig) {
         this.allConfig = allConfig;
+        this.startTime = 0;
         this.keys = Arrays.asList(AllKeyWord.TEST_NAME,
                 AllKeyWord.LOWER_LIMIT,
                 AllKeyWord.UPPER_LIMIT,
                 AllKeyWord.UNITS);
         this.data = new JSONObject();
         this.error = new JSONObject();
-        this.timeS = new TimeS();
     }
 
     public JSONObject getData(List<String> keys) {
@@ -54,7 +55,7 @@ public class ItemTestData {
     }
 
     public void start() {
-        this.timeS.start(0);
+        this.startTime = this.timer.getTime();
         this.testing = true;
         isErrorCodeAvailable();
         for (String key : keys) {
@@ -91,29 +92,14 @@ public class ItemTestData {
         }
     }
 
-    public void endThisTurn() {
-        this.loger.addLog("****************************************************");
-        this.loger.addLog(String.format("Item name = %s", this.data.getString(AllKeyWord.TEST_NAME)));
-        addLimitData();
-        this.loger.addLog(String.format("Value = %s", getResultTest()));
-        this.loger.addLog(String.format("Test status = %s", getStatusTest()));
-        this.loger.addLog("-----------------------------------------------------");
-    }
-
-    private void addLimitData() {
-        if (allConfig.getString(AllKeyWord.LIMIT_TYPE) == null) {
-            return;
-        }
-        String limitType = allConfig.getString(AllKeyWord.LIMIT_TYPE);
-        String uperLimit = allConfig.getString(AllKeyWord.UPPER_LIMIT);
-        String lowerLimit = allConfig.getString(AllKeyWord.LOWER_LIMIT);
-        this.loger.addLog(String.format("Limit type = %s", limitType));
-        this.loger.addLog(String.format("Uper limit = %s", uperLimit));
-        this.loger.addLog(String.format("Lowet limit = %s", lowerLimit));
-    }
-
     public void end() {
-        logEnd();
+        writeResultTest();
+        if (!isPass()) {
+            writeError();
+        }
+        this.loger.addLog("****************************************************");
+        this.data.put(AllKeyWord.CYCLE_TIME, String.format("%.3f",getRunTime()));
+        this.data.put(AllKeyWord.FINISH_TIME, new TimeBase().getSimpleDateTime());
         this.testing = false;
     }
 
@@ -136,6 +122,11 @@ public class ItemTestData {
             }
         }
         this.error.putAll(errorCode);
+    }
+
+    public void setPass() {
+        this.error.clear();
+        setTestValue(true);
     }
 
     public void setFail(String errorType) {
@@ -162,36 +153,50 @@ public class ItemTestData {
 
     public double getRunTime() {
         if (isTest()) {
-            return timeS.getTime();
+            return timer.getTime() - this.startTime;
         }
-        Double time = this.data.getDouble(AllKeyWord.CYCLE_TIME);
-        return time == null ?  timeS.getTime(): time;
+        return this.data.getDouble(AllKeyWord.CYCLE_TIME);
     }
 
     void setLoger(MyLoger loger) {
         this.loger = loger;
     }
 
-    private void logEnd() {
-        this.data.put(AllKeyWord.CYCLE_TIME, String.format("%.3f", timeS.getTime()));
-        this.data.put(AllKeyWord.FINISH_TIME, new TimeBase().getSimpleDateTime());
-        if (!isPass()) {
-            this.data.putAll(this.error);
-            String errorCode = this.data.getString(AllKeyWord.ERROR_CODE);
-            String errorDes = this.data.getString(AllKeyWord.ERROR_DES);
-            String localErrorCode = this.data.getString(AllKeyWord.LOCAL_ERROR_CODE);
-            String localErrorDes = this.data.getString(AllKeyWord.LOCAL_ERROR_DES);
-            this.loger.addLog(String.format("Error code = %s", errorCode));
-            this.loger.addLog(String.format("Error des = %s", errorDes));
-            this.loger.addLog(String.format("Local error code = %s", localErrorCode));
-            this.loger.addLog(String.format("Local error des = %s", localErrorDes));
-        }
+    private void writeResultTest() {
         this.loger.addLog("****************************************************");
+        this.loger.addLog(String.format("Item name = %s", this.data.getString(AllKeyWord.TEST_NAME)));
+        addLimitData();
+        this.loger.addLog(String.format("Value = %s", getResultTest()));
+        this.loger.addLog(String.format("Test status = %s", getStatusTest()));
+        this.loger.addLog("-----------------------------------------------------");
     }
 
-    public void setPass() {
-        this.error.clear();
-        setTestValue(true);
+    private void addLimitData() {
+        if (allConfig.getString(AllKeyWord.LIMIT_TYPE) == null) {
+            return;
+        }
+        String limitType = allConfig.getString(AllKeyWord.LIMIT_TYPE);
+        String uperLimit = allConfig.getString(AllKeyWord.UPPER_LIMIT);
+        String lowerLimit = allConfig.getString(AllKeyWord.LOWER_LIMIT);
+        this.loger.addLog(String.format("Limit type = %s", limitType));
+        this.loger.addLog(String.format("Uper limit = %s", uperLimit));
+        this.loger.addLog(String.format("Lowet limit = %s", lowerLimit));
+    }
+
+    private void writeError() {
+        this.data.putAll(this.error);
+        String errorCode = this.data.getString(AllKeyWord.ERROR_CODE);
+        String errorDes = this.data.getString(AllKeyWord.ERROR_DES);
+        String localErrorCode = this.data.getString(AllKeyWord.LOCAL_ERROR_CODE);
+        String localErrorDes = this.data.getString(AllKeyWord.LOCAL_ERROR_DES);
+        this.loger.addLog(String.format("Error code = %s", errorCode));
+        this.loger.addLog(String.format("Error des = %s", errorDes));
+        this.loger.addLog(String.format("Local error code = %s", localErrorCode));
+        this.loger.addLog(String.format("Local error des = %s", localErrorDes));
+    }
+
+    void setTimer(AbsTime timeS) {
+        this.timer = timeS;
     }
 
 }

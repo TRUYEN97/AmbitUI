@@ -15,10 +15,11 @@
     "DISCRETE_TEST": true,
     "LOAD_MODE": [
         {
-            "NAME": "Runin", 
+            "NAME": "MBLT", 
+            "station_type": "MBLT",
             "TYPE_MODE": "Debug",
             "DISCRETE_TEST": true,
-            "AMBIT_CONFIG": "config\\Item\\runinItemConfig.json",
+            "AMBIT_CONFIG": "config\\Item\\MBLT_Config.json",
             "DETAIL": ["TabViewProxy", "TabItemProxy"]
         },
         {

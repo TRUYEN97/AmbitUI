@@ -10,3 +10,5 @@
 2022-08-30 19:46:48.429:   //////////////////////////////////////
 2022-08-30 19:46:48.429:   error in Control.Functions.FunctionsTest.Runin.PowerSwitch.PowerSwitchFunc : null
 2022-08-30 19:46:48.429:   //////////////////////////////////////
+2022-08-30 20:19:48.959:   error in Model.DataSource.ModeTest.FunctionConfig.FuncAllConfig : Missing error code of dut_ping_1 - simple type !!
+2022-08-30 20:19:48.959:   //////////////////////////////////////

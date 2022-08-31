@@ -8,6 +8,7 @@ import Model.AllKeyWord;
 import Model.DataSource.ModeTest.ErrorCode.ErrorCodeElement;
 import Model.ErrorLog;
 import MyLoger.MyLoger;
+import Time.WaitTime.Class.TimeS;
 import java.io.File;
 import java.util.Map;
 import javax.swing.JOptionPane;
@@ -20,11 +21,13 @@ public class FunctionData {
 
     private final MyLoger loger;
     private final ItemTestManager itemTestManager;
+    private final TimeS timeS;
     private Map<String, ItemTestData> finaltemTests;
 
     public FunctionData() {
         this.loger = new MyLoger();
         this.itemTestManager = new ItemTestManager();
+        this.timeS = new TimeS();
     }
 
     public String getItemFunctionName() {
@@ -33,6 +36,7 @@ public class FunctionData {
 
     public void addItemtest(ItemTestData itemTest) {
         itemTest.setLoger(this.loger);
+        itemTest.setTimer(this.timeS);
         this.itemTestManager.addItemtest(itemTest);
     }
 
@@ -68,6 +72,7 @@ public class FunctionData {
     }
 
     public void start(String logPath, String funcName) {
+        this.timeS.start(0);
         if (!this.loger.begin(new File(logPath), true, true)) {
             String mess = "can't delete local function log file of ".concat(getItemFunctionName());
             ErrorLog.addError(mess);
@@ -86,6 +91,7 @@ public class FunctionData {
                 this.getRunTime(), getStatusTest()));
         this.loger.close();
         this.finaltemTests.putAll(itemTestManager.getItemTests());
+        this.timeS.stop();
     }
 
     public String getLog() {

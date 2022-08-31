@@ -26,6 +26,7 @@ public class Runner implements Runnable {
     private final AbsSubUi subUi;
     private final AbsTime myTimer;
     private int loopTest;
+    private boolean testing;
 
     Runner(ProcessData processData, Process process, AbsSubUi subUi) {
         this.checkFunctions = new ArrayList<>();
@@ -38,6 +39,7 @@ public class Runner implements Runnable {
         this.subUi.setClock(myTimer);
         this.processData.setClock(myTimer);
         this.loopTest = 1;
+        this.testing = false;
     }
 
     public void setLoopTest(int times) {
@@ -68,7 +70,6 @@ public class Runner implements Runnable {
     public void end(String mess) {
         this.processData.setMessage(mess);
         this.process.stop(mess);
-        this.subUi.endTest();
         this.processData.clearSignal();
     }
 
@@ -85,6 +86,7 @@ public class Runner implements Runnable {
     public void run() {
         try {
             myTimer.start(0);
+            this.testing = true;
             for (int i = 0; i < loopTest; i++) {
                 try {
                     prepare();
@@ -101,6 +103,9 @@ public class Runner implements Runnable {
                 }
             }
         } finally {
+            this.testing = false;
+            this.subUi.endTest();
+            this.myTimer.stop();
             clearAllFunctions();
         }
     }
@@ -109,6 +114,10 @@ public class Runner implements Runnable {
         this.checkFunctions.clear();
         this.testFunctions.clear();
         this.endFunctions.clear();
+    }
+
+    boolean isTesting() {
+        return testing;
     }
 
 }

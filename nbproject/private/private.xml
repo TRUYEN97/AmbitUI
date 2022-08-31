@@ -3,7 +3,12 @@
     <editor-bookmarks xmlns="http://www.netbeans.org/ns/editor-bookmarks/2" lastBookmarkId="1"/>
     <open-files xmlns="http://www.netbeans.org/ns/projectui-open-files/2">
         <group>
+            <file>file:/D:/Ambit-module/EnginerUI/config/Setting/setting.json</file>
+            <file>file:/D:/Ambit-module/EnginerUI/config/Item/MBLT_Config.json</file>
+            <file>file:/D:/Ambit-module/EnginerUI/src/Model/DataTest/FunctionData/ItemTestData.java</file>
+            <file>file:/D:/Ambit-module/EnginerUI/config/Item/runinLoopTestOnOff.json</file>
             <file>file:/D:/Ambit-module/EnginerUI/src/Control/Functions/FunctionsTest/Runin/PowerSwitch/PowerSwitchFunc.java</file>
+            <file>file:/D:/Ambit-module/EnginerUI/src/Control/Functions/AbsFunction.java</file>
         </group>
     </open-files>
 </project-private>

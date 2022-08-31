@@ -92,7 +92,7 @@ public class PowerSwitchFunc extends AbsFunction {
                 } catch (InterruptedException ex) {
                     ex.printStackTrace();
                     ErrorLog.addError(this, ex.getLocalizedMessage());
-                    addLog(ex.getMessage());
+                    addLog(ex.getLocalizedMessage());
                 }
             }
         }

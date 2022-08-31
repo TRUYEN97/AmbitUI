@@ -85,13 +85,13 @@ class Process implements IFunction {
         }
     }
 
-    private synchronized void waitUntilMultiTaskDone() {
+    private void waitUntilMultiTaskDone() {
         try {
             while (!multiTasking.isEmpty()) {
                 if (hasTaskFailed()) {
                     justFunctionAlwayRun = true;
                 }
-                this.wait(100);
+                Thread.sleep(100);
             }
         } catch (InterruptedException ex) {
         }
@@ -123,6 +123,7 @@ class Process implements IFunction {
             return false;
         } catch (Exception e) {
             e.printStackTrace();
+            ErrorLog.addError(this, e.getLocalizedMessage());
             return true;
         } finally {
             multiTasking.removeAll(funcRemoves);

@@ -15,6 +15,7 @@ import Model.DataSource.ModeTest.FunctionConfig.FunctionElement;
 import Model.DataTest.ProcessTest.ProcessTestSignal;
 import Model.DataTest.ProcessTest.ProductData;
 import Model.DataTest.ProcessTest.UiInformartion;
+import Model.ErrorLog;
 
 /**
  *
@@ -66,28 +67,28 @@ public abstract class AbsFunction implements IFunction {
 
     @Override
     public void run() {
+        boolean statusTest = false;
         try {
             start();
-            runTest();
+            statusTest = runTest();
         } finally {
-            end();
+            end(statusTest);
         }
     }
 
-    public void runTest() {
-        boolean testRs;
+    public boolean runTest() {
         try {
-            testRs = test();
+            return test();
         } catch (Exception e) {
+            ErrorLog.addError(this, e.getLocalizedMessage());
             addLog("ERROR", e.getLocalizedMessage());
             e.printStackTrace();
-            testRs = false;
+            return false;
         }
-        this.analysisResult.checkResult(testRs, getResult());
-        this.itemTestData.endThisTurn();
     }
 
-    void end() {
+    private void end(boolean status) {
+        this.analysisResult.checkResult(status, getResult());
         this.itemTestData.end();
     }
 

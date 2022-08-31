@@ -80,9 +80,7 @@ public class FunctionCover extends Thread {
                                                                 Spec: %s S\r
                                                                 Try to stop!!""",
                         getRunTime(), timeSpec);
-                this.functionData.addLog(mess);
-                this.functionData.setFail(ErrorCodeElement.SIMPLE);
-                this.thread.stop();
+                stopTest(mess);
             }
         }
     }
@@ -105,7 +103,7 @@ public class FunctionCover extends Thread {
             for (int turn = 1; turn <= retry && !function.isPass(); turn++) {
                 this.functionData.addLog(String.format("Turn run: %s ", turn));
                 this.function.setRetry(turn);
-                this.function.runTest();
+                this.function.run();
             }
         } catch (Exception e) {
             e.printStackTrace();
@@ -127,10 +125,6 @@ public class FunctionCover extends Thread {
     }
 
     private void end() {
-        if (this.functionData == null || !this.functionData.isTesting()) {
-            return;
-        }
-        this.function.end();
         this.functionData.end();
         this.thread.stop();
     }

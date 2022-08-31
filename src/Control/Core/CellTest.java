@@ -40,7 +40,7 @@ public class CellTest {
     }
 
     public boolean isTesting() {
-        return thread != null && thread.isAlive();
+        return thread != null && thread.isAlive() && runner.isTesting();
     }
 
     public void testDebugItem(List<String> listItem) {
