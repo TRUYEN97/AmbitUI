@@ -75,7 +75,7 @@ public class SmallUI extends AbsSubUi {
             List<FunctionData> dataBoxs = this.uiStatus.getProcessData().getDataBoxs();
             for (FunctionData dataBox : dataBoxs) {
                 if (dataBox.isTesting()) {
-                    mess.append(String.format("<tr><td>%s</td></tr>", dataBox.getItemFunctionName()));
+                    mess.append(String.format("<tr><td>%s</td></tr>", dataBox.getFunctionName()));
                 }
             }
             mess.append("</span></html>");

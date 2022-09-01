@@ -4,6 +4,7 @@
  */
 package Model.DataTest.FunctionData;
 
+import Model.DataSource.ModeTest.FunctionConfig.FunctionName;
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
@@ -15,7 +16,7 @@ import java.util.Map;
  */
 public class ItemTestManager {
 
-    private final Map<String, ItemTestData> itemTests;
+    private final Map<FunctionName, ItemTestData> itemTests;
     private final List<ItemTestData> listItemTests;
     private ItemTestData thisItem;
 
@@ -28,11 +29,11 @@ public class ItemTestManager {
         return listItemTests;
     }
 
-    public String getItemFunctionName() {
+    public FunctionName getItemFunctionName() {
         return this.thisItem.getItemTestName();
     }
 
-    public Map<String, ItemTestData> getItemTests() {
+    public Map<FunctionName, ItemTestData> getItemTests() {
         return itemTests;
     }
 
@@ -50,7 +51,7 @@ public class ItemTestManager {
         return thisItem;
     }
 
-    public String getItemTestName() {
+    public FunctionName getItemTestName() {
         return thisItem.getItemTestName();
     }
 

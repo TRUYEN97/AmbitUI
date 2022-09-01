@@ -179,7 +179,7 @@ public class BigUI extends AbsSubUi {
     public void updateData() {
         if (list != null) {
             this.Process.setValue(list.size());
-            lbItemName.setText(list.get(list.size()-1).getItemFunctionName());
+            lbItemName.setText(list.get(list.size()-1).getFunctionName().getItemName());
         }
         lbTime.setText(getTestTime());
     }

@@ -43,8 +43,7 @@ class Process implements IFunction {
 
     private FunctionCover createFuncCover(FunctionName function) {
         return new FunctionCover(
-                this.factory.getFunc(function.getFunctions(),
-                        function.getItemName()), uiStatus);
+                this.factory.getFunc(function), uiStatus);
     }
 
     @Override

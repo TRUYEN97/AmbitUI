@@ -71,7 +71,7 @@ public class VoltageTest extends AbsFunction {
                 }
                 String API_ITEM = voltageItems.getString(voltPoint);
                 addLog("PC", String.format("Item: %s | %s | %s", API_ITEM, voltPoint, value));
-                if (API_ITEM != null && !checkItem(API_ITEM, value)) {
+                if (API_ITEM != null && !checkItem(new FunctionName(API_ITEM, ""), value)) {
                     result = false;
                 }
                 if (inline.endsWith(":")) {

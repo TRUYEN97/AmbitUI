@@ -9,6 +9,7 @@ import Control.Functions.FunctionsTest.Base.BaseFunction.AnalysisBase;
 import Control.Functions.FunctionsTest.Base.BaseFunction.FileBaseFunction;
 import Model.AllKeyWord;
 import Model.DataSource.ModeTest.FunctionConfig.FunctionElement;
+import Model.DataSource.ModeTest.FunctionConfig.FunctionName;
 import Model.DataTest.FunctionData.FunctionData;
 import Model.ErrorLog;
 import Model.ManagerUI.UIStatus.UiStatus;
@@ -25,7 +26,7 @@ public class CreateTxt extends AbsFunction {
     private final AnalysisBase analysisBase;
     private final FileBaseFunction fileBaseFunction;
 
-    public CreateTxt(String itemName) {
+    public CreateTxt(FunctionName itemName) {
         super(itemName);
         this.analysisBase = new AnalysisBase(itemName);
         this.fileBaseFunction = new FileBaseFunction(itemName);
@@ -75,7 +76,7 @@ public class CreateTxt extends AbsFunction {
                 if (dataBox.isTesting()) {
                     continue;
                 }
-                addLog(" - add item: " + dataBox.getItemFunctionName());
+                addLog(" - add item: " + dataBox.getFunctionName());
                 loger.add(dataBox.getLog());
                 loger.add("//////////////////////////////////////////////////////////////////\r\n");
             }

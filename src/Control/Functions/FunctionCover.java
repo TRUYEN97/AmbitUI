@@ -39,7 +39,7 @@ public class FunctionCover extends Thread {
     @Override
     public void run() {
         this.function.setResources(this.funcConfig, uiStatus, functionData);
-        this.functionData.start(createLogPath(), this.function.getFunctionName());
+        this.functionData.start(createLogPath());
         try {
             this.thread = new Thread() {
                 @Override

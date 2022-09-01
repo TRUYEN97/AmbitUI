@@ -7,6 +7,7 @@ package Model.DataTest.FunctionData;
 import Model.AllKeyWord;
 import Model.DataSource.ModeTest.ErrorCode.ErrorCodeElement;
 import Model.DataSource.ModeTest.FunctionConfig.FuncAllConfig;
+import Model.DataSource.ModeTest.FunctionConfig.FunctionName;
 import MyLoger.MyLoger;
 import Time.TimeBase;
 import Time.WaitTime.AbsTime;
@@ -76,7 +77,7 @@ public class ItemTestData {
         return data.getString(key);
     }
 
-    public String getItemTestName() {
+    public FunctionName getItemTestName() {
         return this.allConfig.getItemName();
     }
 

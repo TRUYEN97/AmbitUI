@@ -16,7 +16,7 @@ public class CheckDutInfoProxy extends AbsProxy<FunctionName, AbsFunction> {
 
     @Override
     public AbsFunction takeIt() {
-        return new CheckDutInfo(getName());
+        return new CheckDutInfo(getID());
     }
 
 }

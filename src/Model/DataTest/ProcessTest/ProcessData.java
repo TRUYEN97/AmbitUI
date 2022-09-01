@@ -25,8 +25,8 @@ import java.util.Map;
 public class ProcessData {
 
     private final List<FunctionData> listFunctionData;
-    private final Map<String, FunctionData> mapFunctionData;
-    private final Map<String, ItemTestData> mapItemTestData;
+    private final Map<FunctionName, FunctionData> mapFunctionData;
+    private final Map<FunctionName, ItemTestData> mapItemTestData;
     private final UiInformartion informartion;
     private final DataWareHouse data;
     private final TimeBase timeBase;
@@ -108,7 +108,7 @@ public class ProcessData {
         if (isPass()) {
             return message = isDebug() ? "Debug Ok!" : "PASS";
         }
-        return message = String.format("Failed: %s", getFirstFail().getItemFunctionName());
+        return message = String.format("Failed: %s", getFirstFail().getFunctionName());
     }
 
     public void addFunctionData(FunctionData functionData) {
@@ -117,7 +117,7 @@ public class ProcessData {
         }
         functionData.setFinalMapItems(mapItemTestData);
         this.listFunctionData.add(functionData);
-        this.mapFunctionData.put(functionData.getItemFunctionName(), functionData);
+        this.mapFunctionData.put(functionData.getFunctionName(), functionData);
     }
 
     public void setFinishTime() {

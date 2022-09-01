@@ -5,6 +5,7 @@
 package View.subUI.FormDetail.TabItem.ShowLog;
 
 import Model.AllKeyWord;
+import Model.DataSource.ModeTest.FunctionConfig.FunctionName;
 import View.subUI.FormDetail.TabItem.TabItem;
 import Model.DataTest.FunctionData.FunctionData;
 import Model.ManagerUI.UIStatus.UiStatus;
@@ -64,7 +65,7 @@ public class ItemLog extends javax.swing.JFrame {
 
     public void showLog() {
         String index = uiStatus.getName();
-        String funcName = dataBox.getItemFunctionName();
+        FunctionName funcName = dataBox.getFunctionName();
         String sn = uiStatus.getProcessData().getString(AllKeyWord.SN);
         String mlbsn = uiStatus.getProcessData().getString(AllKeyWord.MLBSN);
         String mac = uiStatus.getProcessData().getString(AllKeyWord.MAC);

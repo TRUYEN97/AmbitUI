@@ -277,7 +277,7 @@ public class TabItem extends AbsTabUI {
     }
 
     private void showDataTest(FunctionData dataBox, int row) {
-        editRow(dataBox.getItemFunctionName(), row, ITEM);
+        editRow(dataBox.getFunctionName(), row, ITEM);
         editRow(String.format("%.3f S", dataBox.getRunTime()),
                 row, TIME);
         editRow(getStatus(dataBox), row, STAUS);

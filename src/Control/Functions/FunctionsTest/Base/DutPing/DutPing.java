@@ -8,6 +8,7 @@ import Control.Functions.AbsFunction;
 import Control.Functions.FunctionsTest.Base.BaseFunction.AnalysisBase;
 import Control.Functions.FunctionsTest.Base.BaseFunction.FunctionBase;
 import Model.DataSource.ModeTest.FunctionConfig.FunctionElement;
+import Model.DataSource.ModeTest.FunctionConfig.FunctionName;
 import Model.DataTest.FunctionData.FunctionData;
 import Model.ManagerUI.UIStatus.UiStatus;
 
@@ -20,7 +21,7 @@ public class DutPing extends AbsFunction {
     private final FunctionBase baseFunc;
     private final AnalysisBase analysisBase;
 
-    public DutPing(String itemName) {
+    public DutPing(FunctionName itemName) {
         super(itemName);
         this.baseFunc = new FunctionBase(itemName);
         this.analysisBase = new AnalysisBase(itemName);

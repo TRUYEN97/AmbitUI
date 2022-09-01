@@ -9,6 +9,7 @@ import Control.Functions.FunctionsTest.Base.BaseFunction.AnalysisBase;
 import Control.Functions.FunctionsTest.Base.BaseFunction.FileBaseFunction;
 import Model.AllKeyWord;
 import Model.DataSource.ModeTest.FunctionConfig.FunctionElement;
+import Model.DataSource.ModeTest.FunctionConfig.FunctionName;
 import Model.DataSource.ModeTest.Limit.Limit;
 import Model.DataTest.FunctionData.FunctionData;
 import Model.DataTest.FunctionData.ItemTestData;
@@ -28,7 +29,7 @@ public class CreateJsonApi extends AbsFunction {
     private final AnalysisBase analysisBase;
     private final FileBaseFunction fileBaseFunction;
 
-    public CreateJsonApi(String itemName) {
+    public CreateJsonApi(FunctionName itemName) {
         super(itemName);
         this.analysisBase = new AnalysisBase(itemName);
         this.fileBaseFunction = new FileBaseFunction(itemName);

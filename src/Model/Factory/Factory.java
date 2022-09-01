@@ -90,8 +90,8 @@ public class Factory {
         return this.initFunctions.takeIt(type);
     }
     
-    public AbsFunction getFunc(String functionName, FunctionName itemName) {
-        return this.functions.takeIt(functionName, itemName);
+    public AbsFunction getFunc( FunctionName functionName) {
+        return this.functions.takeIt(functionName.getFunctions(), functionName);
     }
     
     private void addSubUI() {

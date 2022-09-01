@@ -23,7 +23,7 @@ import javax.swing.JOptionPane;
 public class FuncAllConfig {
 
     private final DataWareHouse wareHouse;
-    private final FunctionName itemName;
+    private final FunctionName functionName;
     private FunctionElement functionElement;
     private LimitElement limitElement;
     private Limit limit;
@@ -32,19 +32,19 @@ public class FuncAllConfig {
 
     public FuncAllConfig(FunctionName itemConfig) {
         this.wareHouse = new DataWareHouse();
-        this.itemName = itemConfig;
+        this.functionName = itemConfig;
     }
 
     public void setResources(UiStatus uiStatus, FunctionElement functionElement) {
         this.functionElement = functionElement;
         if (this.functionElement == null) {
             JOptionPane.showMessageDialog(null,
-                    String.format("Missing %s in the function config!", this.itemName));
+                    String.format("Missing %s in the function config!", this.functionName));
             System.exit(0);
         }
         this.limit = uiStatus.getModeTest().getModeTestSource().getLimit();
-        this.limitElement = getLimit(getBaseItem(getItemName()));
-        this.localErrorCode = findLocalErrorCode(uiStatus, getBaseItem(getItemName()));
+        this.limitElement = getLimit(getBaseItem(functionName.getItemName()));
+        this.localErrorCode = findLocalErrorCode(uiStatus, getBaseItem(functionName.getItemName()));
         getAllValueOfConfig();
         getAllValueOfLimit();
     }
@@ -71,7 +71,7 @@ public class FuncAllConfig {
     public JSONObject getLocalErrorCode(String type) {
         if (localErrorCode == null) {
             String mess = String.format("Missing error code of %s - %s type !!",
-                    this.itemName, type);
+                    this.functionName, type);
             JOptionPane.showMessageDialog(null, mess);
             ErrorLog.addError(this, mess);
             return null;
@@ -137,8 +137,8 @@ public class FuncAllConfig {
                 || !this.functionElement.getString(AllKeyWord.UPPER_LIMIT).isBlank());
     }
 
-    public String getItemName() {
-        return itemName.getItemName();
+    public FunctionName getItemName() {
+        return functionName;
     }
 
     public Integer getInteger(String key) {

@@ -6,6 +6,7 @@ package Model.DataTest.FunctionData;
 
 import Model.AllKeyWord;
 import Model.DataSource.ModeTest.ErrorCode.ErrorCodeElement;
+import Model.DataSource.ModeTest.FunctionConfig.FunctionName;
 import Model.ErrorLog;
 import MyLoger.MyLoger;
 import Time.WaitTime.Class.TimeS;
@@ -22,7 +23,7 @@ public class FunctionData {
     private final MyLoger loger;
     private final ItemTestManager itemTestManager;
     private final TimeS timeS;
-    private Map<String, ItemTestData> finaltemTests;
+    private Map<FunctionName, ItemTestData> finaltemTests;
 
     public FunctionData() {
         this.loger = new MyLoger();
@@ -30,7 +31,7 @@ public class FunctionData {
         this.timeS = new TimeS();
     }
 
-    public String getItemFunctionName() {
+    public FunctionName getFunctionName() {
         return this.itemTestManager.getItemTestName();
     }
 
@@ -71,15 +72,15 @@ public class FunctionData {
         return itemTestManager.getThisItem().isTest();
     }
 
-    public void start(String logPath, String funcName) {
+    public void start(String logPath) {
         this.timeS.start(0);
         if (!this.loger.begin(new File(logPath), true, true)) {
-            String mess = "can't delete local function log file of ".concat(getItemFunctionName());
+            String mess = "can't delete local function log file of ".concat(getFunctionName().getItemName());
             ErrorLog.addError(mess);
             JOptionPane.showMessageDialog(null, mess);
         }
         addLog(String.format("ITEM[%s] - FUNCTION[%s]",
-                this.getItemFunctionName(), funcName));
+                this.getFunctionName(), getFunctionName().getFunctions()));
     }
 
     public double getRunTime() {
@@ -122,7 +123,7 @@ public class FunctionData {
         }
     }
 
-    public void setFinalMapItems(Map<String, ItemTestData> mapfunctionData) {
+    public void setFinalMapItems(Map<FunctionName, ItemTestData> mapfunctionData) {
         this.finaltemTests = mapfunctionData;
     }
 
