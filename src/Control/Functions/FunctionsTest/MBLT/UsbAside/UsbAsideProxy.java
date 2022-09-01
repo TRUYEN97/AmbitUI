@@ -5,17 +5,18 @@
 package Control.Functions.FunctionsTest.MBLT.UsbAside;
 
 import Control.Functions.AbsFunction;
+import Model.DataSource.ModeTest.FunctionConfig.FunctionName;
 import Model.Factory.AbsProxy;
 
 /**
  *
  * @author Administrator
  */
-public class UsbAsideProxy extends AbsProxy<AbsFunction>{
+public class UsbAsideProxy extends AbsProxy<FunctionName, AbsFunction>{
 
     @Override
     public AbsFunction takeIt() {
-        return new UsbAside(getName());
+        return new UsbAside(getID());
     }
     
 }

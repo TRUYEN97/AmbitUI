@@ -5,17 +5,18 @@
 package Control.Functions.FunctionsTest.ON_OFF.OpenShortOnOff;
 
 import Control.Functions.AbsFunction;
+import Model.DataSource.ModeTest.FunctionConfig.FunctionName;
 import Model.Factory.AbsProxy;
 
 /**
  *
  * @author Administrator
  */
-public class OpenShortOnOffProxy extends AbsProxy<AbsFunction>{
+public class OpenShortOnOffProxy extends AbsProxy<FunctionName, AbsFunction>{
 
     @Override
     public AbsFunction takeIt() {
-        return new OpenShortOnOff(getName());
+        return new OpenShortOnOff(getID());
     }
     
 }

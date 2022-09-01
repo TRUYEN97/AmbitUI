@@ -15,13 +15,14 @@ import java.util.List;
 /**
  *
  * @author 21AK22
+ * @param <T>
  * @param <AbsElementInfo>
  */
-public abstract class AbsJsonSource<AbsElementInfo> implements IInit {
+public abstract class AbsJsonSource<T, AbsElementInfo> implements IInit {
 
     protected final ReadFileSource readFile;
     protected final List<AbsElementInfo> elements;
-    protected final HashMap<String, AbsElementInfo> mapElemnts;
+    protected final HashMap<T, AbsElementInfo> mapElemnts;
 
     protected AbsJsonSource() {
         this.elements = new ArrayList<>();
@@ -45,7 +46,7 @@ public abstract class AbsJsonSource<AbsElementInfo> implements IInit {
         return false;
     }
 
-    public HashMap<String, AbsElementInfo> getMapElemnts() {
+    public HashMap<T, AbsElementInfo> getMapElemnts() {
         return mapElemnts;
     }
 
@@ -53,11 +54,11 @@ public abstract class AbsJsonSource<AbsElementInfo> implements IInit {
         return elements;
     }
 
-    public AbsElementInfo getElement(String name) {
+    public AbsElementInfo getElement(T name) {
         return this.mapElemnts.get(name);
     }
 
-    public void put(String name, AbsElementInfo element) {
+    public void put(T name, AbsElementInfo element) {
         this.elements.add(element);
         this.mapElemnts.put(name, element);
     }

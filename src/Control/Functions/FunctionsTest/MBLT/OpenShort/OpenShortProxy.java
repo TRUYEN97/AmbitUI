@@ -5,17 +5,18 @@
 package Control.Functions.FunctionsTest.MBLT.OpenShort;
 
 import Control.Functions.AbsFunction;
+import Model.DataSource.ModeTest.FunctionConfig.FunctionName;
 import Model.Factory.AbsProxy;
 
 /**
  *
  * @author Administrator
  */
-public class OpenShortProxy extends AbsProxy<AbsFunction>{
+public class OpenShortProxy extends AbsProxy<FunctionName, AbsFunction>{
 
     @Override
     public AbsFunction takeIt() {
-        return new OpenShort(getName());
+        return new OpenShort(getID());
     }
     
 }

@@ -4,7 +4,9 @@
  */
 package Control.Core;
 
+import Model.DataSource.ModeTest.FunctionConfig.FunctionName;
 import Model.DataSource.ModeTest.ModeTestSource;
+import Model.DataTest.ProcessTest.UiInformartion;
 import Model.ManagerUI.UIStatus.UiStatus;
 import java.util.List;
 
@@ -18,11 +20,13 @@ public class CellTest {
     private ModeTestSource testSource;
     private final Runner runner;
     private Thread thread;
+    private final UiInformartion informartion;
 
     public CellTest(UiStatus uiStatus) {
         this.uiStatus = uiStatus;
         this.runner = new Runner(uiStatus.getProcessData(),
                 new Process(uiStatus), uiStatus.getSubUi());
+        this.informartion = uiStatus.getInfo();
     }
 
     public void start() {
@@ -37,18 +41,24 @@ public class CellTest {
         runner.setEndFunction(this.testSource.getEndFunctions());
         thread = new Thread(runner);
         thread.start();
+        this.informartion.addTestCount();
     }
 
     public boolean isTesting() {
         return thread != null && thread.isAlive() && runner.isTesting();
     }
 
-    public void testDebugItem(List<String> listItem) {
+    public void testDebugItem(List<FunctionName> listItem) {
         if (isTesting()) {
             return;
         }
+        this.informartion.setReadyStatus(false);
         this.testSource = this.uiStatus.getModeTest().getModeTestSource();
-        this.runner.setTestFunction(this.testSource.getSelectedItem(listItem));
+        List<FunctionName> functions = this.testSource.getSelectedItem(listItem);
+        if (functions == null || functions.isEmpty()) {
+            return;
+        }
+        this.runner.setTestFunction(functions);
         this.runner.setMode("Debug");
         this.thread = new Thread(runner);
         this.thread.start();

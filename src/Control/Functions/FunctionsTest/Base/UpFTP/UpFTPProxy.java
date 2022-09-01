@@ -5,17 +5,18 @@
 package Control.Functions.FunctionsTest.Base.UpFTP;
 
 import Control.Functions.AbsFunction;
+import Model.DataSource.ModeTest.FunctionConfig.FunctionName;
 import Model.Factory.AbsProxy;
 
 /**
  *
  * @author Administrator
  */
-public class UpFTPProxy extends AbsProxy<AbsFunction>{
+public class UpFTPProxy extends AbsProxy<FunctionName, AbsFunction>{
 
     @Override
     public AbsFunction takeIt() {
-        return new UpFTP(getName());
+        return new UpFTP(getID());
     }
     
 }

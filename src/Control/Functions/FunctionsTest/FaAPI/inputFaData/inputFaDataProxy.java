@@ -5,17 +5,18 @@
 package Control.Functions.FunctionsTest.FaAPI.inputFaData;
 
 import Control.Functions.AbsFunction;
+import Model.DataSource.ModeTest.FunctionConfig.FunctionName;
 import Model.Factory.AbsProxy;
 
 /**
  *
  * @author Administrator
  */
-public class InputFaDataProxy extends AbsProxy<AbsFunction>{
+public class InputFaDataProxy extends AbsProxy<FunctionName, AbsFunction>{
 
     @Override
     public AbsFunction takeIt() {
-        return new InputFaData(getName());
+        return new InputFaData(getID());
     }
     
 }

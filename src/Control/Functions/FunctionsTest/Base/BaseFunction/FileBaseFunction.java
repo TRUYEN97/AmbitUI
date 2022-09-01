@@ -6,6 +6,7 @@ package Control.Functions.FunctionsTest.Base.BaseFunction;
 
 import Control.Functions.AbsFunction;
 import FileTool.FileService;
+import Model.DataSource.ModeTest.FunctionConfig.FunctionName;
 import com.alibaba.fastjson.JSONObject;
 import java.io.File;
 import java.util.List;
@@ -18,7 +19,7 @@ public class FileBaseFunction extends AbsFunction {
 
     private final FileService fileService;
 
-    public FileBaseFunction(String itemName) {
+    public FileBaseFunction(FunctionName itemName) {
         super(itemName);
         fileService = new FileService();
     }

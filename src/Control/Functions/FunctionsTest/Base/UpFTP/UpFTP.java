@@ -12,6 +12,7 @@ import Model.DataSource.ModeTest.FunctionConfig.FunctionElement;
 import Model.DataTest.FunctionData.FunctionData;
 import Model.ManagerUI.UIStatus.UiStatus;
 import Communicate.FtpClient.FtpClient;
+import Model.DataSource.ModeTest.FunctionConfig.FunctionName;
 import java.io.File;
 import java.util.List;
 
@@ -26,7 +27,7 @@ public class UpFTP extends AbsFunction {
     private final FileBaseFunction fileBaseFunction;
     private FtpClient ftp;
 
-    public UpFTP(String itemName) {
+    public UpFTP(FunctionName itemName) {
         super(itemName);
         this.baseFunc = new FunctionBase(itemName);
         this.analysisBase = new AnalysisBase(itemName);

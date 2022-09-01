@@ -17,6 +17,7 @@ import Model.ManagerUI.UIStatus.UiStatus;
 import Time.WaitTime.Class.TimeS;
 import com.alibaba.fastjson.JSONObject;
 import Communicate.Comport.ComPort;
+import Model.DataSource.ModeTest.FunctionConfig.FunctionName;
 import java.io.File;
 import java.util.List;
 
@@ -30,7 +31,7 @@ public class ThermalShutdown extends AbsFunction {
     private final AnalysisBase analysisBase;
     private final FunctionBase functionBase;
 
-    public ThermalShutdown(String itemName) {
+    public ThermalShutdown(FunctionName itemName) {
         super(itemName);
         this.fixtureAction = new FixtureAction(itemName);
         this.analysisBase = new AnalysisBase(itemName);

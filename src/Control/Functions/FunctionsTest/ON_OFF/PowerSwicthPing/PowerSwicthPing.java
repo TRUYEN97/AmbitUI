@@ -8,6 +8,7 @@ import Control.Functions.FunctionsTest.Base.BaseFunction.AnalysisBase;
 import Control.Functions.FunctionsTest.Base.BaseFunction.FunctionBase;
 import Control.Functions.FunctionsTest.Runin.PowerSwitch.PowerSwitchFunc;
 import Model.DataSource.ModeTest.FunctionConfig.FunctionElement;
+import Model.DataSource.ModeTest.FunctionConfig.FunctionName;
 import Model.DataTest.FunctionData.FunctionData;
 import Model.ManagerUI.UIStatus.UiStatus;
 
@@ -20,7 +21,7 @@ public class PowerSwicthPing extends PowerSwitchFunc{
     private final FunctionBase baseFunc;
     private final AnalysisBase analysisBase;
 
-    public PowerSwicthPing(String itemName) {
+    public PowerSwicthPing(FunctionName itemName) {
         super(itemName);
         this.baseFunc = new FunctionBase(itemName);
         this.analysisBase = new AnalysisBase(itemName);

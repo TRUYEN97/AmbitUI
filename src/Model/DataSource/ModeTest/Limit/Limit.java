@@ -13,7 +13,6 @@ import Model.DataSource.Setting.Setting;
 import Time.WaitTime.Class.TimeS;
 import com.alibaba.fastjson.JSONObject;
 import Communicate.Cmd.Cmd;
-import java.util.List;
 import static java.util.Objects.isNull;
 import java.util.Set;
 import javax.swing.JOptionPane;
@@ -22,7 +21,7 @@ import javax.swing.JOptionPane;
  *
  * @author Administrator
  */
-public class Limit extends AbsJsonSource<LimitElement> {
+public class Limit extends AbsJsonSource<String, LimitElement> {
 
     private static volatile Limit instaince;
 

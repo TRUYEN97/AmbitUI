@@ -7,6 +7,7 @@ package Control.Functions.FunctionsTest.Runin.PowerSwitch;
 import Control.Functions.AbsFunction;
 import Model.ErrorLog;
 import Communicate.PowerSwitch.PowerSwitch;
+import Model.DataSource.ModeTest.FunctionConfig.FunctionName;
 import java.util.List;
 
 /**
@@ -15,7 +16,7 @@ import java.util.List;
  */
 public class PowerSwitchFunc extends AbsFunction {
 
-    public PowerSwitchFunc(String functionName) {
+    public PowerSwitchFunc(FunctionName functionName) {
         super(functionName);
     }
 

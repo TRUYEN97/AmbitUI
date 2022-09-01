@@ -14,6 +14,7 @@ import Model.ManagerUI.UIStatus.UiStatus;
 import Time.WaitTime.Class.TimeMs;
 import Time.WaitTime.Class.TimeS;
 import Communicate.Comport.ComPort;
+import Model.DataSource.ModeTest.FunctionConfig.FunctionName;
 
 /**
  *
@@ -24,7 +25,7 @@ public class UsbAside extends AbsFunction {
     private final FixtureAction fixture;
     private final FunctionBase functionBase;
 
-    public UsbAside(String itemName) {
+    public UsbAside(FunctionName itemName) {
         super(itemName);
         this.fixture = new FixtureAction(itemName);
         this.functionBase = new FunctionBase(itemName);

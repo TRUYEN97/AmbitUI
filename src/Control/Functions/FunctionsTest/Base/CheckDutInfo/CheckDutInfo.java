@@ -12,6 +12,7 @@ import Model.DataTest.FunctionData.FunctionData;
 import Model.ManagerUI.UIStatus.UiStatus;
 import Time.WaitTime.Class.TimeMs;
 import Communicate.Telnet.Telnet;
+import Model.DataSource.ModeTest.FunctionConfig.FunctionName;
 
 /**
  *
@@ -22,7 +23,7 @@ public class CheckDutInfo extends AbsFunction {
     private final FunctionBase baseFunc;
     private final AnalysisBase analysisBase;
     
-    public CheckDutInfo(String itemName) {
+    public CheckDutInfo(FunctionName itemName) {
         super(itemName);
         this.baseFunc = new FunctionBase(itemName);
         this.analysisBase = new AnalysisBase(itemName);

@@ -5,17 +5,18 @@
 package Control.Functions.FunctionsTest.Base.CreateTxtLog;
 
 import Control.Functions.AbsFunction;
+import Model.DataSource.ModeTest.FunctionConfig.FunctionName;
 import Model.Factory.AbsProxy;
 
 /**
  *
  * @author Administrator
  */
-public class CreateTxtProxy extends AbsProxy<AbsFunction>{
+public class CreateTxtProxy extends AbsProxy<FunctionName, AbsFunction>{
 
     @Override
     public AbsFunction takeIt() {
-        return new CreateTxt(getName());
+        return new CreateTxt(getID());
     }
     
 }

@@ -10,6 +10,7 @@
  */
 package View.subUI.FormDetail.TabItem;
 
+import Model.DataSource.ModeTest.FunctionConfig.FunctionName;
 import Model.DataTest.FunctionData.FunctionData;
 import View.subUI.FormDetail.AbsTabUI;
 import View.subUI.FormDetail.TabItem.ShowLog.ItemLog;
@@ -160,7 +161,8 @@ public class TabItem extends AbsTabUI {
     }//GEN-LAST:event_tableItemMouseClicked
 
     private void showItemLogSelected() {
-        FunctionData dataBox = this.uiStatus.getProcessData().getDataBox(getNameITem(this.tableItem.getSelectedRow()));
+        FunctionName functionName = getNameITem(this.tableItem.getSelectedRow());
+        FunctionData dataBox = this.uiStatus.getProcessData().getDataBox(functionName);
         if (dataBox == null) {
             return;
         }
@@ -181,7 +183,7 @@ public class TabItem extends AbsTabUI {
 
     private void showListFunction() {
         initTable(listFunc);
-        for (String funcName : this.uiStatus.getModeTest().getModeTestSource().getItemTestFunctions()) {
+        for (FunctionName funcName : this.uiStatus.getModeTest().getModeTestSource().getItemTestFunctions()) {
             this.tableModel.addRow(new Object[]{this.tableModel.getRowCount(), funcName});
         }
     }
@@ -194,8 +196,8 @@ public class TabItem extends AbsTabUI {
         if (!this.uiStatus.isTesting()) {
             if (evt.getKeyChar() == CTRL_S) {
                 showListFunction();
-            } else if (evt.getKeyChar() == CTRL_D 
-                    && this.uiStatus.getModeTest().isDebugMode() 
+            } else if (evt.getKeyChar() == CTRL_D
+                    && this.uiStatus.getModeTest().isDebugMode()
                     && this.tableItem.getSelectedRowCount() > 0) {
                 this.uiStatus.getCellTest().testDebugItem(getListSelectedItem());
             }
@@ -242,11 +244,11 @@ public class TabItem extends AbsTabUI {
         return functionData.getStatusTest();
     }
 
-    private String getNameITem(int row) {
-        if (row == -1) {
+    private FunctionName getNameITem(int row) {
+        if (row == -1 || row >= this.tableModel.getRowCount()) {
             return null;
         }
-        return this.tableModel.getValueAt(row, this.listFunc.indexOf(ITEM)).toString();
+        return (FunctionName) this.tableModel.getValueAt(row, this.listFunc.indexOf(ITEM));
     }
 
     private synchronized void updateListItemTest() {
@@ -285,8 +287,8 @@ public class TabItem extends AbsTabUI {
         return row < this.itemFinish.size() && this.itemFinish.get(row);
     }
 
-    private List<String> getListSelectedItem() {
-        List<String> result = new ArrayList<>();
+    private List<FunctionName> getListSelectedItem() {
+        List<FunctionName> result = new ArrayList<>();
         for (int selectedRow : this.tableItem.getSelectedRows()) {
             result.add(getNameITem(selectedRow));
         }

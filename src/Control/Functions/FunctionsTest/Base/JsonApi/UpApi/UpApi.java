@@ -12,6 +12,7 @@ import Model.DataSource.ModeTest.FunctionConfig.FunctionElement;
 import Model.DataTest.FunctionData.FunctionData;
 import Model.ManagerUI.UIStatus.UiStatus;
 import Communicate.Cmd.Cmd;
+import Model.DataSource.ModeTest.FunctionConfig.FunctionName;
 import java.util.List;
 
 /**
@@ -24,7 +25,7 @@ public class UpApi extends AbsFunction {
     private final AnalysisBase analysisBase;
     private final FileBaseFunction fileBaseFunction;
 
-    public UpApi(String itemName) {
+    public UpApi(FunctionName itemName) {
         super(itemName);
         this.functionBase = new FunctionBase(itemName);
         this.analysisBase = new AnalysisBase(itemName);

@@ -9,6 +9,7 @@ import Control.Functions.AbsFunction;
 import Control.Functions.FunctionsTest.Base.BaseFunction.AnalysisBase;
 import Control.Functions.FunctionsTest.Base.BaseFunction.FunctionBase;
 import Model.DataSource.ModeTest.FunctionConfig.FunctionElement;
+import Model.DataSource.ModeTest.FunctionConfig.FunctionName;
 import Model.DataTest.FunctionData.FunctionData;
 import Model.ManagerUI.UIStatus.UiStatus;
 
@@ -21,7 +22,7 @@ public class DutTelnet extends AbsFunction {
     private final FunctionBase functionBase;
     private final AnalysisBase analysisBase;
 
-    public DutTelnet(String itemName) {
+    public DutTelnet(FunctionName itemName) {
         super(itemName);
         this.functionBase = new FunctionBase(itemName);
         this.analysisBase = new AnalysisBase(itemName);

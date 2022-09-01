@@ -5,17 +5,18 @@
 package Control.Functions.FunctionsTest.Runin.MMC_WR_SPEED;
 
 import Control.Functions.AbsFunction;
+import Model.DataSource.ModeTest.FunctionConfig.FunctionName;
 import Model.Factory.AbsProxy;
 
 /**
  *
  * @author Administrator
  */
-public class MMC_WR_SPEED_PROXY extends AbsProxy<AbsFunction>{
+public class MMC_WR_SPEED_PROXY extends AbsProxy<FunctionName, AbsFunction>{
 
     @Override
     public AbsFunction takeIt() {
-        return new MMC_WR_SPEED(getName());
+        return new MMC_WR_SPEED(getID());
     }
     
 }

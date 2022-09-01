@@ -12,6 +12,7 @@ import Model.DataTest.FunctionData.FunctionData;
 import Model.ErrorLog;
 import Model.ManagerUI.UIStatus.UiStatus;
 import Communicate.Telnet.Telnet;
+import Model.DataSource.ModeTest.FunctionConfig.FunctionName;
 import java.util.List;
 
 /**
@@ -24,7 +25,7 @@ public class MMC_WR_SPEED extends AbsFunction {
     private final AnalysisBase analysisBase;
     private MMC_SPEED mmc_speed;
 
-    public MMC_WR_SPEED(String itemName) {
+    public MMC_WR_SPEED(FunctionName itemName) {
         super(itemName);
         this.baseFunc = new FunctionBase(itemName);
         this.analysisBase = new AnalysisBase(itemName);

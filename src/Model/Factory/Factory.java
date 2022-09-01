@@ -32,6 +32,7 @@ import Control.Functions.FunctionsTest.ON_OFF.PowerSwicthPing.PowerSwicthPingPro
 import Control.Functions.FunctionsTest.Runin.TelnetReadUntilKey.TelnetReadUntilKeyProxy;
 import Control.Functions.FunctionsTest.Runin.RebootSoft.RebootSoftProxy;
 import Control.Functions.InitPackages.InitProxy.IdPasswordProxy;
+import Model.DataSource.ModeTest.FunctionConfig.FunctionName;
 import View.subUI.FormDetail.AbsTabUI;
 import View.subUI.SubUI.AbsSubUi;
 import View.subUI.FormDetail.TabLog.TabLogProxy;
@@ -48,10 +49,10 @@ import View.subUI.SubUI.SmallUI.SmallUIProxy;
 public class Factory {
     
     private static volatile Factory instance;
-    private final FactoryType<AbsSubUi> subUIFactory;
-    private final FactoryType<AbsTabUI> tabUIFactory;
-    private final FactoryType<IFunction> initFunctions;
-    private final FactoryType<AbsFunction> functions;
+    private final FactoryType<String, AbsSubUi> subUIFactory;
+    private final FactoryType<String, AbsTabUI> tabUIFactory;
+    private final FactoryType<String,IFunction> initFunctions;
+    private final FactoryType<FunctionName, AbsFunction> functions;
     
     private Factory() {
         this.subUIFactory = new FactoryType<>();
@@ -89,7 +90,7 @@ public class Factory {
         return this.initFunctions.takeIt(type);
     }
     
-    public AbsFunction getFunc(String functionName, String itemName) {
+    public AbsFunction getFunc(String functionName, FunctionName itemName) {
         return this.functions.takeIt(functionName, itemName);
     }
     

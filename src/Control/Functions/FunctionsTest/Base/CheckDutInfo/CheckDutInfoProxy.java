@@ -5,13 +5,14 @@
 package Control.Functions.FunctionsTest.Base.CheckDutInfo;
 
 import Control.Functions.AbsFunction;
+import Model.DataSource.ModeTest.FunctionConfig.FunctionName;
 import Model.Factory.AbsProxy;
 
 /**
  *
  * @author Administrator
  */
-public class CheckDutInfoProxy extends AbsProxy<AbsFunction> {
+public class CheckDutInfoProxy extends AbsProxy<FunctionName, AbsFunction> {
 
     @Override
     public AbsFunction takeIt() {

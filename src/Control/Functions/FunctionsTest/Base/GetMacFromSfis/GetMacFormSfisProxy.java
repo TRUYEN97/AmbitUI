@@ -5,13 +5,14 @@
 package Control.Functions.FunctionsTest.Base.GetMacFromSfis;
 
 import Control.Functions.AbsFunction;
+import Model.DataSource.ModeTest.FunctionConfig.FunctionName;
 import Model.Factory.AbsProxy;
 
 /**
  *
  * @author Administrator
  */
-public class GetMacFormSfisProxy extends AbsProxy<AbsFunction> {
+public class GetMacFormSfisProxy extends AbsProxy<FunctionName, AbsFunction> {
 
 
     public GetMacFormSfisProxy() {
@@ -19,7 +20,7 @@ public class GetMacFormSfisProxy extends AbsProxy<AbsFunction> {
     
     @Override
     public GetMacFromSfis takeIt() {
-        return new GetMacFromSfis(getName());
+        return new GetMacFromSfis(getID());
     }
 
 }

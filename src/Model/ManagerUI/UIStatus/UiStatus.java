@@ -31,8 +31,8 @@ public class UiStatus implements IUpdate {
         this.informartion = new UiInformartion(subUi.getName(), column, row, id);
         this.subUi = subUi;
         this.core = core;
-        this.processData = new ProcessData(this.informartion, this);
-        this.cellTest = new CellTest(this);
+        this.processData = new ProcessData(this);
+        this.cellTest = new CellTest( this);
     }
 
     public ProcessData getProcessData() {

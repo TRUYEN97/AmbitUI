@@ -12,6 +12,7 @@ import Model.DataTest.FunctionData.FunctionData;
 import Model.DataTest.FunctionData.ItemTestData;
 import Model.DataSource.ModeTest.FunctionConfig.FuncAllConfig;
 import Model.DataSource.ModeTest.FunctionConfig.FunctionElement;
+import Model.DataSource.ModeTest.FunctionConfig.FunctionName;
 import Model.DataTest.ProcessTest.ProcessTestSignal;
 import Model.DataTest.ProcessTest.ProductData;
 import Model.DataTest.ProcessTest.UiInformartion;
@@ -36,7 +37,7 @@ public abstract class AbsFunction implements IFunction {
     private ItemTestData itemTestData;
     private AnalysisResult analysisResult;
 
-    protected AbsFunction(String itemName) {
+    protected AbsFunction(FunctionName itemName) {
         this.allConfig = new FuncAllConfig(itemName);
         this.retry = 0;
     }
@@ -89,7 +90,7 @@ public abstract class AbsFunction implements IFunction {
         }
     }
 
-    protected String getItemName() {
+    protected FunctionName getItemName() {
         return this.allConfig.getItemName();
     }
 

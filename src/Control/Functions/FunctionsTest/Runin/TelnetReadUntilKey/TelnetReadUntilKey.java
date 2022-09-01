@@ -14,6 +14,7 @@ import Model.ManagerUI.UIStatus.UiStatus;
 import Time.WaitTime.Class.TimeS;
 import AbstractStream.SubClass.ReadStreamOverTime;
 import Communicate.Telnet.Telnet;
+import Model.DataSource.ModeTest.FunctionConfig.FunctionName;
 import java.util.List;
 
 /**
@@ -25,7 +26,7 @@ public class TelnetReadUntilKey extends AbsFunction {
     private final FunctionBase baseFunc;
     private final AnalysisBase analysisBase;
 
-    public TelnetReadUntilKey(String itemName) {
+    public TelnetReadUntilKey(FunctionName itemName) {
         super(itemName);
         this.baseFunc = new FunctionBase(itemName);
         this.analysisBase = new AnalysisBase(itemName);

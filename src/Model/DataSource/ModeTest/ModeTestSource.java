@@ -66,12 +66,12 @@ public class ModeTestSource {
         return this.functionConfig.getEndFuntions();
     }
 
-    public FunctionElement getFunctionsConfig(String item) {
+    public FunctionElement getFunctionsConfig(FunctionName item) {
         return this.functionConfig.getElement(item);
     }
 
-    public List<String> getItemTestFunctions() {
-        return this.functionConfig.getItemTestFunctions();
+    public List<FunctionName> getItemTestFunctions() {
+        return this.functionConfig.getDebugFunctions();
     }
 
     public boolean updateFunctionsConfig() throws HeadlessException {
@@ -119,7 +119,7 @@ public class ModeTestSource {
         return modeConfig.getLoopTest();
     }
 
-    public List<FunctionName> getSelectedItem(List<String> listItem) {
+    public List<FunctionName> getSelectedItem(List<FunctionName> listItem) {
         return  this.functionConfig.getSelectedItem(listItem);
     }
 }

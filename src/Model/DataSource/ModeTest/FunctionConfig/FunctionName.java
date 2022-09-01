@@ -24,5 +24,10 @@ public class FunctionName {
     public String getFunctions() {
         return functions;
     }
+
+    @Override
+    public String toString() {
+        return itemName;
+    }
     
 }

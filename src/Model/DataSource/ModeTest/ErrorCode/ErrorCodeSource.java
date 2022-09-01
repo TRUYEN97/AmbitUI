@@ -11,7 +11,7 @@ import Model.DataSource.DataWareHouse;
  *
  * @author Administrator
  */
-public class ErrorCodeSource extends AbsJsonSource<ErrorCodeElement> {
+public class ErrorCodeSource extends AbsJsonSource<String,ErrorCodeElement> {
 
     private static volatile ErrorCodeSource instaince;
 

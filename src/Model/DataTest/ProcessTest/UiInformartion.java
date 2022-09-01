@@ -16,6 +16,7 @@ public class UiInformartion {
 
     private final DataWareHouse dataWareHouse;
     private final PcInformation pcInformation;
+    private boolean readyStatus;
 
     public UiInformartion(String name, int COLUMN, int ROW, int ID) {
         this.dataWareHouse = new DataWareHouse();
@@ -27,8 +28,18 @@ public class UiInformartion {
         this.dataWareHouse.put(AllKeyWord.COLUMN, COLUMN);
         this.dataWareHouse.put(AllKeyWord.ROW, ROW);
         this.dataWareHouse.put(AllKeyWord.UI_ID, ID);
+        this.readyStatus = true;
     }
 
+    public boolean isReadyStatus() {
+        return readyStatus;
+    }
+
+    public void setReadyStatus(boolean readyStatus) {
+        this.readyStatus = readyStatus;
+    }
+    
+    
     public String getName() {
         return this.getString(AllKeyWord.POSITION);
     }
@@ -45,12 +56,27 @@ public class UiInformartion {
         return this.getInteger(AllKeyWord.UI_ID);
     }
 
+    public int getTestCount() {
+        return getInteger(AllKeyWord.TEST_COUNT, 0);
+    }
+    
+    public int addTestCount() {
+        this.readyStatus = false;
+        int count = getTestCount()+1;
+        this.dataWareHouse.put(AllKeyWord.TEST_COUNT,count);
+        return count;
+    }
+
     public String getString(String key) {
         return this.dataWareHouse.getString(key);
     }
 
     public Integer getInteger(String key) {
         return this.dataWareHouse.getInteger(key);
+    }
+
+    public Integer getInteger(String key, int defaultValue) {
+        return this.dataWareHouse.getInteger(key, defaultValue);
     }
 
     private String getStationType(String pcName) {

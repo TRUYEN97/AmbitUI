@@ -6,7 +6,6 @@ package Control.Functions.FunctionsTest.MBLT.VoltageTest;
 
 import Control.Functions.AbsFunction;
 import Control.Functions.FunctionsTest.Base.BaseFunction.AnalysisBase;
-import Control.Functions.FunctionsTest.Base.BaseFunction.FunctionBase;
 import Control.Functions.FunctionsTest.Base.FixtureActions.FixtureAction;
 import FileTool.FileService;
 import Model.DataSource.ModeTest.FunctionConfig.FunctionElement;
@@ -16,6 +15,7 @@ import Model.ManagerUI.UIStatus.UiStatus;
 import Time.WaitTime.Class.TimeS;
 import com.alibaba.fastjson.JSONObject;
 import Communicate.Comport.ComPort;
+import Model.DataSource.ModeTest.FunctionConfig.FunctionName;
 import java.io.File;
 import java.util.List;
 
@@ -28,7 +28,7 @@ public class VoltageTest extends AbsFunction {
     private final FixtureAction fixtureAction;
     private final AnalysisBase analysisBase;
 
-    public VoltageTest(String itemName) {
+    public VoltageTest(FunctionName itemName) {
         super(itemName);
         this.fixtureAction = new FixtureAction(itemName);
         this.analysisBase = new AnalysisBase(itemName);
@@ -90,7 +90,7 @@ public class VoltageTest extends AbsFunction {
         }
     }
 
-    private boolean checkItem(String API_ITEM, String value) {
+    private boolean checkItem(FunctionName API_ITEM, String value) {
         if (API_ITEM == null) {
             return false;
         }

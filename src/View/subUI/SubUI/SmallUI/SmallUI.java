@@ -18,7 +18,6 @@ public class SmallUI extends AbsSubUi {
 
     private final FormShow formShow;
     private List<FunctionData> list;
-    private boolean hasTest;
 
     /**
      * Creates new form SmallUI
@@ -29,7 +28,6 @@ public class SmallUI extends AbsSubUi {
         super(indexName, 1000);
         initComponents();
         this.lbTime.setToolTipText(indexName);
-        this.hasTest = false;
         this.lbTime.setText(indexName);
         this.formShow = new FormShow();
     }
@@ -72,9 +70,6 @@ public class SmallUI extends AbsSubUi {
 
     private void lbTimeMouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_lbTimeMouseEntered
         // TODO add your handling code here:
-        if (!hasTest) {
-            return;
-        }
         if (this.uiStatus.isTesting()) {
             StringBuilder mess = new StringBuilder("<html><span style=\\\"font-size: 20px\\\">");
             List<FunctionData> dataBoxs = this.uiStatus.getProcessData().getDataBoxs();
@@ -97,7 +92,6 @@ public class SmallUI extends AbsSubUi {
         this.list = uiStatus.getProcessData().getDataBoxs();
         super.startTest(); // Generated from nbfs://nbhost/SystemFileSystem/Templates/Classes/Code/OverriddenMethodBody
         this.lbTime.setBackground(Color.yellow);
-        this.hasTest = true;
         if (this.formShow.isVisible()) {
             this.formShow.dispose();
         }

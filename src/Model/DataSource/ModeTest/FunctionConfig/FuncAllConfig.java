@@ -23,14 +23,14 @@ import javax.swing.JOptionPane;
 public class FuncAllConfig {
 
     private final DataWareHouse wareHouse;
-    private final String itemName;
+    private final FunctionName itemName;
     private FunctionElement functionElement;
     private LimitElement limitElement;
     private Limit limit;
     private ErrorCodeElement localErrorCode;
     private static final String CHECK = ".+_[0-9]+$";
 
-    public FuncAllConfig(String itemConfig) {
+    public FuncAllConfig(FunctionName itemConfig) {
         this.wareHouse = new DataWareHouse();
         this.itemName = itemConfig;
     }
@@ -43,8 +43,8 @@ public class FuncAllConfig {
             System.exit(0);
         }
         this.limit = uiStatus.getModeTest().getModeTestSource().getLimit();
-        this.limitElement = getLimit(getBaseItem(itemName));
-        this.localErrorCode = findLocalErrorCode(uiStatus, getBaseItem(itemName));
+        this.limitElement = getLimit(getBaseItem(getItemName()));
+        this.localErrorCode = findLocalErrorCode(uiStatus, getBaseItem(getItemName()));
         getAllValueOfConfig();
         getAllValueOfLimit();
     }
@@ -138,7 +138,7 @@ public class FuncAllConfig {
     }
 
     public String getItemName() {
-        return itemName;
+        return itemName.getItemName();
     }
 
     public Integer getInteger(String key) {

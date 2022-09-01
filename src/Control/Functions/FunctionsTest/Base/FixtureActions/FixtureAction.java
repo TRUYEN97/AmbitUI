@@ -13,6 +13,7 @@ import Model.ErrorLog;
 import Model.ManagerUI.UIStatus.UiStatus;
 import Time.WaitTime.Class.TimeS;
 import Communicate.Comport.ComPort;
+import Model.DataSource.ModeTest.FunctionConfig.FunctionName;
 import java.util.List;
 
 /**
@@ -24,7 +25,7 @@ public class FixtureAction extends AbsFunction {
     private final FunctionBase base;
     private final AnalysisBase analysisBase;
 
-    public FixtureAction(String itemName) {
+    public FixtureAction(FunctionName itemName) {
         super(itemName);
         this.base = new FunctionBase(itemName);
         this.analysisBase = new AnalysisBase(itemName);

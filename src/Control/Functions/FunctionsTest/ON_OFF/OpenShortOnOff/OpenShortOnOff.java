@@ -8,6 +8,7 @@ import Control.Functions.AbsFunction;
 import Control.Functions.FunctionsTest.MBLT.OpenShort.OpenShort;
 import Control.Functions.FunctionsTest.MBLT.UsbAside.UsbAside;
 import Model.DataSource.ModeTest.FunctionConfig.FunctionElement;
+import Model.DataSource.ModeTest.FunctionConfig.FunctionName;
 import Model.DataTest.FunctionData.FunctionData;
 import Model.ErrorLog;
 import Model.ManagerUI.UIStatus.UiStatus;
@@ -21,7 +22,7 @@ public class OpenShortOnOff extends AbsFunction {
     private final UsbAside aside;
     private final OpenShort openShort;
 
-    public OpenShortOnOff(String itemName) {
+    public OpenShortOnOff(FunctionName itemName) {
         super(itemName);
         this.aside = new UsbAside(itemName);
         this.openShort = new OpenShort(itemName);

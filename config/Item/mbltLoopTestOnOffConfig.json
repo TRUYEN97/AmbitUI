@@ -4,7 +4,7 @@
     "TIME_OUT_TEST": 7000,
     "INIT": [
         {
-            "FLAG": false,
+            "FLAG": true,
             "TIME_OVER": 50,
             "SEND_FORMAT": ["sn", "pcname"],
             "MaxLength": 8,
@@ -14,20 +14,19 @@
             "FUNC_NAME": "SfisFunctionProxy"
         },
         {
-            "FLAG": false,
+            "FLAG": true,
             "CANCEL": "DEBUG",
-            "MULTI_TASK": true,
+            "MULTI": true,
             "FAIL_CONTNIUE": false,
             "TIME_OVER": 1,
             "test_name": "mac",
             "FUNC_NAME": "GetMacFormSfisProxy"
-        }
-    ],
-    "Functions": [
+        },
         {
             "FLAG": true,
             "TIME_OVER": 50,
-            "MULTI_TASK": true,
+            "DISCRETE_TEST": true,
+            "MULTI": false,
             "FixtureCom": "COM5",
             "FixtureBaudRate": 115200,
             "FixtureCommands": ["AT+READ_FIXNUM%", "AT+TESTSTART%",
@@ -36,7 +35,9 @@
             "FixtureWait": 30,
             "test_name": "fixture_close",
             "FUNC_NAME": "FixtureActionProxy"
-        },
+        }
+    ],
+    "Functions": [
         {
             "FLAG": true,
             "Begin": 1,
@@ -46,7 +47,8 @@
                     "FLAG": true,
                     "TIME_OVER": 30,
                     "RETRY": 2,
-                    "MULTI_TASK": true,
+                    "MULTI": false,
+                    "DISCRETE_TEST": true,
                     "FixtureCom": "COM5",
                     "FixtureBaudRate": 115200,
                     "FixtureCommands": ["AT+VBUS_BOFF%", "AT+CC_BOFF%", "AT+VBUS_AON%", "AT+CC_AON%"],
@@ -60,9 +62,10 @@
                 },
                 {
                     "FLAG": true,
-                    "TIME_OVER": 60,
+                    "TIME_OVER": 130,
                     "RETRY": 2,
-                    "MULTI_TASK": true,
+                    "MULTI": false,
+                    "DISCRETE_TEST": true,
                     "FixtureCom": "COM5",
                     "FixtureBaudRate": 115200,
                     "FixtureCommands": ["AT+PORTEJECT%", "AT+PORTINSERT%"],
@@ -78,12 +81,16 @@
                     "FUNC_NAME": "OpenShortProxy"
                 }
             ]
-        },
+        }
+    ],
+    "END": [
         {
             "FLAG": true,
             "TIME_OVER": 30,
             "ALWAYS_RUN": true,
-            "MULTI_TASK": true,
+            "DISCRETE_TEST": true,
+            "WAIT_MULTI_DONE": true,
+            "MULTI": true,
             "FixtureCom": "COM5",
             "FixtureBaudRate": 115200,
             "FixtureCommands": ["AT+BO1_OFF%", "AT+CC_AOFF%", "AT+VBUS_AOFF%", "AT+TESTEND%"],
@@ -91,13 +98,11 @@
             "FixtureWait": 30,
             "test_name": "fixtureOpen",
             "FUNC_NAME": "FixtureActionProxy"
-        }
-    ],
-    "END": [
+        },
         {
-            "FLAG": false,
-            "TIME_OVER": 5,
-            "WAIT_MULTI_DONE": true,
+            "FLAG": true,
+            "TIME_OVER": 50,
+       //     "WAIT_MULTI_DONE": true,
             "MaxLength": 8,
             "SEND_FORMAT": ["sn", "pcname", "status"],
             "SEND_FORMAT_FAIL": ["sn", "pcname", "status", "olderrorcode"],
@@ -108,7 +113,7 @@
         },
         {
             "FLAG": true,
-            "TIME_OVER": 30,
+            "TIME_OVER": 150,
             "ALWAYS_RUN": true,
             "MULTI": false,
             "localFile": "python/log",
@@ -118,8 +123,8 @@
         },
         {
             "FLAG": true,
-            "TIME_OVER": 500,
-            "WAIT_MULTI_DONE": true,
+            "TIME_OVER": 150,
+            //"WAIT_MULTI_DONE": true,
             "ALWAYS_RUN": true,
             "User": "oper",
             "Password": "mfg-oper",

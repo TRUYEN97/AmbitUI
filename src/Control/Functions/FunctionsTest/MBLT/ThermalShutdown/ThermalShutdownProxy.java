@@ -5,17 +5,18 @@
 package Control.Functions.FunctionsTest.MBLT.ThermalShutdown;
 
 import Control.Functions.AbsFunction;
+import Model.DataSource.ModeTest.FunctionConfig.FunctionName;
 import Model.Factory.AbsProxy;
 
 /**
  *
  * @author Administrator
  */
-public class ThermalShutdownProxy extends AbsProxy<AbsFunction>{
+public class ThermalShutdownProxy extends AbsProxy<FunctionName, AbsFunction>{
 
     @Override
     public AbsFunction takeIt() {
-        return new ThermalShutdown(getName());
+        return new ThermalShutdown(getID());
     }
     
 }

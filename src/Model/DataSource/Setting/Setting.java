@@ -15,7 +15,7 @@ import static java.util.Objects.isNull;
  *
  * @author Administrator
  */
-public class Setting extends AbsJsonSource<ModeElement> implements IInit {
+public class Setting extends AbsJsonSource<String, ModeElement> implements IInit {
 
     private static volatile Setting instaince;
 

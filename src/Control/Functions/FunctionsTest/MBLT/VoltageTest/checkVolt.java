@@ -7,6 +7,7 @@ package Control.Functions.FunctionsTest.MBLT.VoltageTest;
 import Control.Functions.AbsFunction;
 import Control.Functions.FunctionsTest.Base.BaseFunction.AnalysisBase;
 import Model.DataSource.ModeTest.FunctionConfig.FunctionElement;
+import Model.DataSource.ModeTest.FunctionConfig.FunctionName;
 import Model.DataTest.FunctionData.FunctionData;
 import Model.ManagerUI.UIStatus.UiStatus;
 
@@ -19,7 +20,7 @@ public class checkVolt extends AbsFunction {
     private final AnalysisBase analysisBase;
     private String value;
 
-    public checkVolt(String itemName) {
+    public checkVolt(FunctionName itemName) {
         super(itemName);
         this.analysisBase = new AnalysisBase(itemName);
     }

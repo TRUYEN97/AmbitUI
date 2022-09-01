@@ -5,17 +5,18 @@
 package Control.Functions.FunctionsTest.Runin.RebootSoft;
 
 import Control.Functions.AbsFunction;
+import Model.DataSource.ModeTest.FunctionConfig.FunctionName;
 import Model.Factory.AbsProxy;
 
 /**
  *
  * @author Administrator
  */
-public class RebootSoftProxy extends AbsProxy<AbsFunction>{
+public class RebootSoftProxy extends AbsProxy<FunctionName, AbsFunction>{
 
     @Override
     public AbsFunction takeIt() {
-        return new RebootSoft(getName());
+        return new RebootSoft(getID());
     }
     
 }

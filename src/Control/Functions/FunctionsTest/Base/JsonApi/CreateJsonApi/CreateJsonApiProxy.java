@@ -5,17 +5,18 @@
 package Control.Functions.FunctionsTest.Base.JsonApi.CreateJsonApi;
 
 import Control.Functions.AbsFunction;
+import Model.DataSource.ModeTest.FunctionConfig.FunctionName;
 import Model.Factory.AbsProxy;
 
 /**
  *
  * @author Administrator
  */
-public class CreateJsonApiProxy extends AbsProxy<AbsFunction>{
+public class CreateJsonApiProxy extends AbsProxy<FunctionName, AbsFunction>{
 
     @Override
     public AbsFunction takeIt() {
-        return new CreateJsonApi(getName());
+        return new CreateJsonApi(getID());
     }
     
 }

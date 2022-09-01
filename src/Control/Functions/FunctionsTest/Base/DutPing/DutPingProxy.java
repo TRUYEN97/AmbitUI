@@ -5,17 +5,18 @@
 package Control.Functions.FunctionsTest.Base.DutPing;
 
 import Control.Functions.AbsFunction;
+import Model.DataSource.ModeTest.FunctionConfig.FunctionName;
 import Model.Factory.AbsProxy;
 
 /**
  *
  * @author Administrator
  */
-public class DutPingProxy extends AbsProxy<AbsFunction>{
+public class DutPingProxy extends AbsProxy<FunctionName, AbsFunction>{
 
     @Override
     public AbsFunction takeIt() {
-        return new DutPing(getName());
+        return new DutPing(getID());
     }
     
 }

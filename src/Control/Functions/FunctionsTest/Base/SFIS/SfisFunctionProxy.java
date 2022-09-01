@@ -5,17 +5,18 @@
 package Control.Functions.FunctionsTest.Base.SFIS;
 
 import Control.Functions.AbsFunction;
+import Model.DataSource.ModeTest.FunctionConfig.FunctionName;
 import Model.Factory.AbsProxy;
 
 /**
  *
  * @author 21AK22
  */
-public class SfisFunctionProxy extends AbsProxy<AbsFunction> {
+public class SfisFunctionProxy extends AbsProxy<FunctionName, AbsFunction> {
 
     @Override
     public AbsFunction takeIt() {
-        return new SfisFunction(getName());
+        return new SfisFunction(getID());
     }
 
 }

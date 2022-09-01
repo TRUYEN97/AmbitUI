@@ -8,27 +8,28 @@ package Model.Factory;
 /**
  *
  * @author Administrator
+ * @param <N>
  * @param <T>
  */
-public abstract class AbsProxy<T> {
+public abstract class AbsProxy<N,T> {
 
     private final String type;
-    private String name;
+    private N id;
 
     public AbsProxy() {
         this.type = this.getClass().getSimpleName();
     }
 
-    public String getName() {
-        return name;
+    public N getID() {
+        return id;
     }
 
     public String getTypeName() {
         return this.type;
     }
     
-    public void setName(String name) {
-        this.name = name;
+    public void setID(N id) {
+        this.id = id;
     }
 
     public abstract T takeIt();

@@ -13,26 +13,26 @@ import javax.swing.JOptionPane;
  * @author Administrator
  * @param <T>
  */
-public class FactoryType<T> {
+public class FactoryType<N, T> {
 
-    private final Map<String, AbsProxy<T>> type;
+    private final Map<String, AbsProxy<N, T>> type;
 
     public FactoryType() {
         this.type = new HashMap<>();
     }
 
-    public void addType(AbsProxy<T> proxyUi) {
+    public void addType(AbsProxy<N, T> proxyUi) {
         this.type.put(proxyUi.getTypeName(), proxyUi);
     }
 
-    public T takeIt(String type, String name) {
+    public T takeIt(String type, N name) {
         if (!this.type.containsKey(type)) {
             JOptionPane.showMessageDialog(null, String.format("Not have: %s in factory !", type));
             System.exit(1);
             return null;
         }
-        AbsProxy<T> proxy = this.type.get(type);
-        proxy.setName(name);
+        AbsProxy<N, T> proxy = this.type.get(type);
+        proxy.setID(name);
         return proxy.takeIt();
     }
 

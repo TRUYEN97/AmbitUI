@@ -11,17 +11,17 @@ import View.subUI.SubUI.AbsSubUi;
  *
  * @author Administrator
  */
-public class BigUIProxy extends AbsProxy<AbsSubUi> {
+public class BigUIProxy extends AbsProxy<String, AbsSubUi> {
 
     public BigUIProxy() {
     }
 
     @Override
     public AbsSubUi takeIt() {
-        if (getName() == null) {
+        if (getID()== null) {
             return null;
         }
-        return new BigUI(getName());
+        return new BigUI(getID());
     }
 
 }

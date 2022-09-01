@@ -5,17 +5,18 @@
 package Control.Functions.FunctionsTest.Runin.MMC_BadBlock;
 
 import Control.Functions.AbsFunction;
+import Model.DataSource.ModeTest.FunctionConfig.FunctionName;
 import Model.Factory.AbsProxy;
 
 /**
  *
  * @author Administrator
  */
-public class MMC_BadBlockProxy extends AbsProxy<AbsFunction>{
+public class MMC_BadBlockProxy extends AbsProxy<FunctionName, AbsFunction>{
 
     @Override
     public AbsFunction takeIt() {
-        return new MMC_BadBlock(getName());
+        return new MMC_BadBlock(getID());
     }
     
 }

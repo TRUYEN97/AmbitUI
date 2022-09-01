@@ -93,4 +93,8 @@ public class FunctionElement extends AbsElementInfo {
         return this.warehouse.getBoolean(AllKeyWord.ALWAYSRUN);
     }
 
+    public boolean isDiscreteFunc() {
+        return this.warehouse.getBoolean(AllKeyWord.DISCRETE_TEST);
+    }
+
 }

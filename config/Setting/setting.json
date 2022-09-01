@@ -19,7 +19,7 @@
             "station_type": "MBLT",
             "TYPE_MODE": "Debug",
             "DISCRETE_TEST": true,
-            "AMBIT_CONFIG": "config\\Item\\MBLT_Config.json",
+            "AMBIT_CONFIG": "config\\Item\\mbltLoopTestOnOffConfig.json",
             "DETAIL": ["TabViewProxy", "TabItemProxy"]
         },
         {

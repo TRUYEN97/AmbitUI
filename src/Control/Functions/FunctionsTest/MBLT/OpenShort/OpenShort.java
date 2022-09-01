@@ -15,6 +15,7 @@ import Model.ManagerUI.UIStatus.UiStatus;
 import Time.WaitTime.Class.TimeMs;
 import Time.WaitTime.Class.TimeS;
 import Communicate.Comport.ComPort;
+import Model.DataSource.ModeTest.FunctionConfig.FunctionName;
 
 /**
  *
@@ -26,7 +27,7 @@ public class OpenShort extends AbsFunction {
     private final FunctionBase functionBase;
     private final AnalysisBase analysisBase;
 
-    public OpenShort(String itemName) {
+    public OpenShort(FunctionName itemName) {
         super(itemName);
         this.functionBase = new FunctionBase(itemName);
         this.fixtureAction = new FixtureAction(itemName);

@@ -5,17 +5,18 @@
 package Control.Functions.FunctionsTest.Runin.CheckCommandTelnet;
 
 import Control.Functions.AbsFunction;
+import Model.DataSource.ModeTest.FunctionConfig.FunctionName;
 import Model.Factory.AbsProxy;
 
 /**
  *
  * @author Administrator
  */
-public class CheckCommandTelnetProxy extends AbsProxy<AbsFunction>{
+public class CheckCommandTelnetProxy extends AbsProxy<FunctionName, AbsFunction>{
 
     @Override
     public AbsFunction takeIt() {
-        return new CheckCommandTelnet(getName());
+        return new CheckCommandTelnet(getID());
     }
     
 }

@@ -13,6 +13,7 @@ import Model.ErrorLog;
 import Model.ManagerUI.UIStatus.UiStatus;
 import Time.WaitTime.Class.TimeMs;
 import Communicate.Telnet.Telnet;
+import Model.DataSource.ModeTest.FunctionConfig.FunctionName;
 
 /**
  *
@@ -23,7 +24,7 @@ public class CheckCommandTelnet extends AbsFunction {
     private final FunctionBase functionBase;
     private final AnalysisBase analysisBase;
 
-    public CheckCommandTelnet(String itemName) {
+    public CheckCommandTelnet(FunctionName itemName) {
         super(itemName);
         this.functionBase = new FunctionBase(itemName);
         this.analysisBase = new AnalysisBase(itemName);

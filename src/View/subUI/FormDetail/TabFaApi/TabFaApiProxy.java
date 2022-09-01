@@ -11,7 +11,7 @@ import View.subUI.FormDetail.AbsTabUI;
  *
  * @author Administrator
  */
-public class TabFaApiProxy extends AbsProxy<AbsTabUI> {
+public class TabFaApiProxy extends AbsProxy<String, AbsTabUI> {
 
     @Override
     public AbsTabUI takeIt() {

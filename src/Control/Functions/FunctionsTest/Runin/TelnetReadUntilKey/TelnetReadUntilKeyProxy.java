@@ -5,17 +5,18 @@
 package Control.Functions.FunctionsTest.Runin.TelnetReadUntilKey;
 
 import Control.Functions.AbsFunction;
+import Model.DataSource.ModeTest.FunctionConfig.FunctionName;
 import Model.Factory.AbsProxy;
 
 /**
  *
  * @author Administrator
  */
-public class TelnetReadUntilKeyProxy extends AbsProxy<AbsFunction>{
+public class TelnetReadUntilKeyProxy extends AbsProxy<FunctionName, AbsFunction>{
 
     @Override
     public AbsFunction takeIt() {
-        return new TelnetReadUntilKey(getName());
+        return new TelnetReadUntilKey(getID());
     }
     
 }

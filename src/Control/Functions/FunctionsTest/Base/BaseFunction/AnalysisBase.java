@@ -12,6 +12,7 @@ import Time.WaitTime.Class.TimeS;
 import Communicate.Comport.ComPort;
 import DHCP.DhcpData;
 import Communicate.IReadable;
+import Model.DataSource.ModeTest.FunctionConfig.FunctionName;
 import java.util.List;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
@@ -22,7 +23,7 @@ import java.util.regex.Pattern;
  */
 public class AnalysisBase extends AbsFunction {
 
-    public AnalysisBase(String itemName) {
+    public AnalysisBase(FunctionName itemName) {
         super(itemName);
     }
 

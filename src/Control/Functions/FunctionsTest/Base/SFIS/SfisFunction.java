@@ -12,6 +12,7 @@ import Model.ErrorLog;
 import SfisAPI17.SfisAPI;
 import com.alibaba.fastjson.JSONObject;
 import DHCP.DhcpData;
+import Model.DataSource.ModeTest.FunctionConfig.FunctionName;
 import java.util.List;
 
 /**
@@ -25,7 +26,7 @@ public class SfisFunction extends AbsFunction {
     private static final String SEND_FORMAT = "SEND_FORMAT";
     private static final String SEND_FORMAT_FAIL = "SEND_FORMAT_FAIL";
 
-    public SfisFunction(String functionName) {
+    public SfisFunction(FunctionName functionName) {
         super(functionName);
         this.sfisAPI = new SfisAPI();
     }

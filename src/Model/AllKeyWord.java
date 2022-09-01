@@ -99,18 +99,5 @@ public class AllKeyWord {
     public static final String LOCAL_ERROR_DES = "local_error_des";
     public static final String LOOP_FUNC = "LoopTimes";
     public static final String BEGIN = "Begin";
-
-
-//    public static final List<String> MODE_KEY = Arrays.asList(
-//            STATION_TYPE, DHCP, COLUMN, ROW, DETAIL, DISCRETE_TEST, TYPE_UI, NAME, TYPE_MODE,
-//            INIT_FUNC, PN_NAME, LOOP_TEST, LOCAL_LOG, AMBIT_CONFIG);
-
-//    public static final List<String> FUNC_KEYS = Arrays.asList(FAIL_CONTNIUE,
-//            UUT_MODEL, COM, BAUDRATE, FLAG, CANCEL, TIME_OVER,
-//            RETRY, TEST_NAME, FUNC_NAME, UPPER_LIMIT, LOWER_LIMIT,
-//            MULTI_TASK, LIMIT_TYPE,WAIT_MULTI_DONE, TIME_OUT_TEST);
-
-//    public static final List<String> LIMIT_KEYS = Arrays.asList(MODEL, TIME_STAMP,
-//            LIMITS_VALIDATION, ID, TEST_NAME, LIMIT_TYPE, REQUIRED,
-//            LOWER_LIMIT, UPPER_LIMIT, UNITS, ERROR_CODE, LOCKED);
+    public static final String TEST_COUNT = "TestCount";
 }

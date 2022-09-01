@@ -12,7 +12,7 @@ import Model.Interface.IFunction;
  *
  * @author Administrator
  */
-public class IdPasswordProxy extends AbsProxy<IFunction>{
+public class IdPasswordProxy extends AbsProxy<String, IFunction>{
 
     public IdPasswordProxy() {
     }

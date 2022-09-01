@@ -1,6 +1,0 @@
-{
-  "limitPath": "config\\dataSource\\Init\\limits.json",
-  "ErroCodePath": "config\\dataSource\\Init\\ErrorCode.json",
-  "Sfis": "config\\Sfis\\SFIS.txt",
-  "Setting": "config\\Setting\\setting.json"
-}

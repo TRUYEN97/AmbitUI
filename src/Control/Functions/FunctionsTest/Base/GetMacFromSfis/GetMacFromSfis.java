@@ -7,6 +7,7 @@ package Control.Functions.FunctionsTest.Base.GetMacFromSfis;
 import Control.Functions.AbsFunction;
 import Control.Functions.FunctionsTest.Base.BaseFunction.FunctionBase;
 import Model.DataSource.ModeTest.FunctionConfig.FunctionElement;
+import Model.DataSource.ModeTest.FunctionConfig.FunctionName;
 import Model.DataTest.FunctionData.FunctionData;
 import Model.ManagerUI.UIStatus.UiStatus;
 
@@ -18,7 +19,7 @@ public class GetMacFromSfis extends AbsFunction {
 
     private final FunctionBase baseFunc;
 
-    public GetMacFromSfis(String itemName) {
+    public GetMacFromSfis(FunctionName itemName) {
         super(itemName);
         this.baseFunc = new FunctionBase(itemName);
     }

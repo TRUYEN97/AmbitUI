@@ -5,17 +5,18 @@
 package Control.Functions.FunctionsTest.ON_OFF.AsideOnOffPing;
 
 import Control.Functions.AbsFunction;
+import Model.DataSource.ModeTest.FunctionConfig.FunctionName;
 import Model.Factory.AbsProxy;
 
 /**
  *
  * @author Administrator
  */
-public class AsideOnOffPingProxy extends AbsProxy<AbsFunction>{
+public class AsideOnOffPingProxy extends AbsProxy<FunctionName, AbsFunction>{
 
     @Override
     public AbsFunction takeIt() {
-        return new AsideOnOffPing(getName());
+        return new AsideOnOffPing(getID());
     }
     
 }

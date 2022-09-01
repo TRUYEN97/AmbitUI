@@ -100,10 +100,10 @@ public class Runner implements Runnable {
                 }
             } finally {
                 end(null);
-                clearAllFunctions();
             }
         }
         this.myTimer.stop();
+        clearAllFunctions();
     }
 
     private void clearAllFunctions() {

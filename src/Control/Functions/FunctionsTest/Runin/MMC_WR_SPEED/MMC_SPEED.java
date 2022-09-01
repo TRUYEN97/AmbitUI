@@ -12,6 +12,7 @@ import Model.DataTest.FunctionData.FunctionData;
 import Model.ErrorLog;
 import Model.ManagerUI.UIStatus.UiStatus;
 import Communicate.Telnet.Telnet;
+import Model.DataSource.ModeTest.FunctionConfig.FunctionName;
 
 /**
  *
@@ -26,7 +27,7 @@ public class MMC_SPEED extends AbsFunction {
     private String block;
     private String key;
 
-    public MMC_SPEED(String itemName) {
+    public MMC_SPEED(FunctionName itemName) {
         super(itemName);
         this.baseFunc = new FunctionBase(itemName);
         this.analysisBase = new AnalysisBase(itemName);

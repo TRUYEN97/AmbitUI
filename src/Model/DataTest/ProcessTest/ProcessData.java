@@ -6,6 +6,7 @@ package Model.DataTest.ProcessTest;
 
 import Model.AllKeyWord;
 import Model.DataSource.DataWareHouse;
+import Model.DataSource.ModeTest.FunctionConfig.FunctionName;
 import Model.DataTest.FunctionData.FunctionData;
 import Model.DataTest.FunctionData.ItemTestData;
 import Model.ManagerUI.UIStatus.UiStatus;
@@ -35,7 +36,7 @@ public class ProcessData {
     private String message;
     private AbsTime myTimer;
 
-    public ProcessData(UiInformartion informartion, UiStatus uiStatus) {
+    public ProcessData( UiStatus uiStatus) {
         this.listFunctionData = new ArrayList<>();
         this.mapItemTestData = new HashMap<>();
         this.mapFunctionData = new HashMap<>();
@@ -44,7 +45,8 @@ public class ProcessData {
         this.productData = new ProductData();
         this.timeBase = new TimeBase();
         this.uiStatus = uiStatus;
-        this.informartion = informartion;
+        this.informartion = uiStatus.getInfo();
+        this.message = "Ready";
     }
 
     public List<FunctionData> getDataBoxs() {
@@ -72,11 +74,11 @@ public class ProcessData {
         return this.listFunctionData.get(index);
     }
 
-    public FunctionData getDataBox(String item) {
+    public FunctionData getDataBox(FunctionName item) {
         if (item == null) {
             return null;
         }
-        return mapFunctionData.get(item);
+        return mapFunctionData.get(item.getItemName());
     }
 
     public void setMessage(String message) {
@@ -104,9 +106,9 @@ public class ProcessData {
             return message;
         }
         if (isPass()) {
-            return isDebug() ? "Debug Ok!" : "PASS";
+            return message = isDebug() ? "Debug Ok!" : "PASS";
         }
-        return String.format("Failed: %s", getFirstFail().getItemFunctionName());
+        return message = String.format("Failed: %s", getFirstFail().getItemFunctionName());
     }
 
     public void addFunctionData(FunctionData functionData) {
@@ -140,7 +142,7 @@ public class ProcessData {
         this.data.put(AllKeyWord.START_DAY, timeBase.getDate());
     }
 
-    public void reset() {
+    private void reset() {
         this.message = null;
         this.listFunctionData.clear();
         this.mapItemTestData.clear();

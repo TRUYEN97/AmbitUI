@@ -5,17 +5,18 @@
 package Control.Functions.FunctionsTest.ON_OFF.PowerSwicthPing;
 
 import Control.Functions.AbsFunction;
+import Model.DataSource.ModeTest.FunctionConfig.FunctionName;
 import Model.Factory.AbsProxy;
 
 /**
  *
  * @author Administrator
  */
-public class PowerSwicthPingProxy extends AbsProxy<AbsFunction>{
+public class PowerSwicthPingProxy extends AbsProxy<FunctionName, AbsFunction>{
 
     @Override
     public AbsFunction takeIt() {
-        return new PowerSwicthPing(getName());
+        return new PowerSwicthPing(getID());
     }
     
 }
