@@ -77,7 +77,7 @@ public class MMC_WR_SPEED extends AbsFunction {
         for (int i = 0; i < itemsSize; i++) {
             String item = items.get(i);
             addLog("PC", item);
-            mmc_speed = new MMC_SPEED(item);
+            mmc_speed = new MMC_SPEED(new FunctionName(item, ""));
             mmc_speed.setResources(this.functionElement, uiStatus, functionData);
             mmc_speed.setData(response, blocks.get(i), KeyWords.get(i));
             mmc_speed.run();
