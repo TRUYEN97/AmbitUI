@@ -6,6 +6,7 @@ package Control.Functions.FunctionsTest.FaAPI.inputFaData;
 
 import Control.Functions.AbsFunction;
 import Model.DataSource.ModeTest.FunctionConfig.FunctionName;
+import Model.DataTest.FunctionParameters;
 import Model.ErrorLog;
 import View.subUI.FormDetail.TabFaApi.TabFaApi;
 import com.alibaba.fastjson.JSONObject;
@@ -20,8 +21,12 @@ public class InputFaData extends AbsFunction {
 
     private TabFaApi faApi;
 
-    public InputFaData(FunctionName itemName) {
-        super(itemName);
+    public InputFaData(FunctionParameters parameters) {
+        this(parameters, null);
+    }
+    
+    public InputFaData(FunctionParameters parameters, String item) {
+        super(parameters, item);
     }
 
     @Override

@@ -7,13 +7,10 @@ package Control.Functions.FunctionsTest.Runin.CheckCommandTelnet;
 import Control.Functions.AbsFunction;
 import Control.Functions.FunctionsTest.Base.BaseFunction.AnalysisBase;
 import Control.Functions.FunctionsTest.Base.BaseFunction.FunctionBase;
-import Model.DataSource.ModeTest.FunctionConfig.FunctionElement;
-import Model.DataTest.FunctionData.FunctionData;
 import Model.ErrorLog;
-import Model.ManagerUI.UIStatus.UiStatus;
 import Time.WaitTime.Class.TimeMs;
 import Communicate.Telnet.Telnet;
-import Model.DataSource.ModeTest.FunctionConfig.FunctionName;
+import Model.DataTest.FunctionParameters;
 
 /**
  *
@@ -24,17 +21,14 @@ public class CheckCommandTelnet extends AbsFunction {
     private final FunctionBase functionBase;
     private final AnalysisBase analysisBase;
 
-    public CheckCommandTelnet(FunctionName itemName) {
-        super(itemName);
-        this.functionBase = new FunctionBase(itemName);
-        this.analysisBase = new AnalysisBase(itemName);
+    public CheckCommandTelnet(FunctionParameters parameters) {
+        this(parameters, null);
     }
-
-    @Override
-    public void setResources(FunctionElement funcConfig, UiStatus uiStatus, FunctionData functionData) {
-        super.setResources(funcConfig, uiStatus, functionData); // Generated from nbfs://nbhost/SystemFileSystem/Templates/Classes/Code/OverriddenMethodBody
-        this.functionBase.setResources(funcConfig, uiStatus, functionData);
-        this.analysisBase.setResources(funcConfig, uiStatus, functionData);
+    
+    public CheckCommandTelnet(FunctionParameters parameters, String item) {
+        super(parameters, item);
+        this.functionBase = new FunctionBase(parameters, item);
+        this.analysisBase = new AnalysisBase(parameters, item);
     }
 
     @Override

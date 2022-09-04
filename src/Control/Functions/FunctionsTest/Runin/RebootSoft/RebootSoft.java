@@ -7,10 +7,7 @@ package Control.Functions.FunctionsTest.Runin.RebootSoft;
 import Control.Functions.AbsFunction;
 import Control.Functions.FunctionsTest.Base.BaseFunction.AnalysisBase;
 import Control.Functions.FunctionsTest.Base.BaseFunction.FunctionBase;
-import Model.DataSource.ModeTest.FunctionConfig.FunctionElement;
-import Model.DataSource.ModeTest.FunctionConfig.FunctionName;
-import Model.DataTest.FunctionData.FunctionData;
-import Model.ManagerUI.UIStatus.UiStatus;
+import Model.DataTest.FunctionParameters;
 
 /**
  *
@@ -21,17 +18,14 @@ public class RebootSoft extends AbsFunction {
     private final FunctionBase functionBase;
     private final AnalysisBase analysisBase;
 
-    public RebootSoft(FunctionName itemName) {
-        super(itemName);
-        this.functionBase = new FunctionBase(itemName);
-        this.analysisBase = new AnalysisBase(itemName);
+    public RebootSoft(FunctionParameters parameters) {
+        this(parameters, null);
     }
-
-     @Override
-    public void setResources(FunctionElement funcConfig, UiStatus uiStatus, FunctionData functionData) {
-        super.setResources(funcConfig, uiStatus, functionData); // Generated from nbfs://nbhost/SystemFileSystem/Templates/Classes/Code/OverriddenMethodBody
-        this.functionBase.setResources(funcConfig, uiStatus, functionData);
-        this.analysisBase.setResources(funcConfig, uiStatus, functionData);
+    
+    public RebootSoft(FunctionParameters parameters, String item) {
+        super(parameters, item);
+        this.functionBase = new FunctionBase(parameters, item);
+        this.analysisBase = new AnalysisBase(parameters, item);
     }
 
     @Override

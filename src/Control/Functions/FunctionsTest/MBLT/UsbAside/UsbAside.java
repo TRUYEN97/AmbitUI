@@ -7,14 +7,11 @@ package Control.Functions.FunctionsTest.MBLT.UsbAside;
 import Control.Functions.AbsFunction;
 import Control.Functions.FunctionsTest.Base.BaseFunction.FunctionBase;
 import Control.Functions.FunctionsTest.Base.FixtureActions.FixtureAction;
-import Model.DataSource.ModeTest.FunctionConfig.FunctionElement;
-import Model.DataTest.FunctionData.FunctionData;
 import Model.ErrorLog;
-import Model.ManagerUI.UIStatus.UiStatus;
 import Time.WaitTime.Class.TimeMs;
 import Time.WaitTime.Class.TimeS;
 import Communicate.Comport.ComPort;
-import Model.DataSource.ModeTest.FunctionConfig.FunctionName;
+import Model.DataTest.FunctionParameters;
 
 /**
  *
@@ -25,17 +22,14 @@ public class UsbAside extends AbsFunction {
     private final FixtureAction fixture;
     private final FunctionBase functionBase;
 
-    public UsbAside(FunctionName itemName) {
-        super(itemName);
-        this.fixture = new FixtureAction(itemName);
-        this.functionBase = new FunctionBase(itemName);
+    public UsbAside(FunctionParameters parameters) {
+        this(parameters, null);
     }
-
-    @Override
-    public void setResources(FunctionElement functionElement, UiStatus uiStatus, FunctionData functionData) {
-        super.setResources(functionElement, uiStatus, functionData); // Generated from nbfs://nbhost/SystemFileSystem/Templates/Classes/Code/OverriddenMethodBody
-        this.fixture.setResources(functionElement, uiStatus, functionData);
-        this.functionBase.setResources(functionElement, uiStatus, functionData);
+    
+    public UsbAside(FunctionParameters parameters, String item) {
+        super(parameters, item);
+        this.fixture = new FixtureAction(parameters, item);
+        this.functionBase = new FunctionBase(parameters, item);
     }
 
     @Override

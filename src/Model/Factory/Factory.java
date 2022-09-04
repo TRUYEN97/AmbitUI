@@ -23,6 +23,7 @@ import Control.Functions.FunctionsTest.MBLT.OpenShort.OpenShortProxy;
 import Control.Functions.FunctionsTest.MBLT.ThermalShutdown.ThermalShutdownProxy;
 import Control.Functions.FunctionsTest.MBLT.UsbAside.UsbAsideProxy;
 import Control.Functions.FunctionsTest.MBLT.VoltageTest.VoltageTestProxy;
+import Control.Functions.FunctionsTest.MBLT.VoltageTest.checkVoltProxy;
 import Control.Functions.FunctionsTest.ON_OFF.AsideOnOffPing.AsideOnOffPingProxy;
 import Control.Functions.FunctionsTest.ON_OFF.OpenShortOnOff.OpenShortOnOffProxy;
 import Control.Functions.FunctionsTest.Runin.CheckCommandTelnet.CheckCommandTelnetProxy;
@@ -32,7 +33,7 @@ import Control.Functions.FunctionsTest.ON_OFF.PowerSwicthPing.PowerSwicthPingPro
 import Control.Functions.FunctionsTest.Runin.TelnetReadUntilKey.TelnetReadUntilKeyProxy;
 import Control.Functions.FunctionsTest.Runin.RebootSoft.RebootSoftProxy;
 import Control.Functions.InitPackages.InitProxy.IdPasswordProxy;
-import Model.DataSource.ModeTest.FunctionConfig.FunctionName;
+import Model.DataTest.FunctionParameters;
 import View.subUI.FormDetail.AbsTabUI;
 import View.subUI.SubUI.AbsSubUi;
 import View.subUI.FormDetail.TabLog.TabLogProxy;
@@ -52,7 +53,7 @@ public class Factory {
     private final FactoryType<String, AbsSubUi> subUIFactory;
     private final FactoryType<String, AbsTabUI> tabUIFactory;
     private final FactoryType<String,IFunction> initFunctions;
-    private final FactoryType<FunctionName, AbsFunction> functions;
+    private final FactoryType<FunctionParameters, AbsFunction> functions;
     
     private Factory() {
         this.subUIFactory = new FactoryType<>();
@@ -90,8 +91,8 @@ public class Factory {
         return this.initFunctions.takeIt(type);
     }
     
-    public AbsFunction getFunc( FunctionName functionName) {
-        return this.functions.takeIt(functionName.getFunctions(), functionName);
+    public AbsFunction getFunc( String functionName, FunctionParameters functionParameters) {
+        return this.functions.takeIt(functionName, functionParameters);
     }
     
     private void addSubUI() {
@@ -130,12 +131,12 @@ public class Factory {
         this.functions.addType(new CreateJsonApiProxy());
         this.functions.addType(new MMC_WR_SPEED_PROXY());
         this.functions.addType(new PowerSwicthPingProxy());
-        this.functions.addType(new FixtureActionProxy());
         this.functions.addType(new OpenShortProxy());
         this.functions.addType(new UsbAsideProxy());
         this.functions.addType(new OpenShortOnOffProxy());
         this.functions.addType(new AsideOnOffPingProxy());
         this.functions.addType(new VoltageTestProxy());
         this.functions.addType(new ThermalShutdownProxy());
+        this.functions.addType(new checkVoltProxy());
     }
 }

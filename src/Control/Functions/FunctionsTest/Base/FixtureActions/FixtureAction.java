@@ -7,13 +7,12 @@ package Control.Functions.FunctionsTest.Base.FixtureActions;
 import Control.Functions.AbsFunction;
 import Control.Functions.FunctionsTest.Base.BaseFunction.AnalysisBase;
 import Control.Functions.FunctionsTest.Base.BaseFunction.FunctionBase;
-import Model.DataSource.ModeTest.FunctionConfig.FunctionElement;
-import Model.DataTest.FunctionData.FunctionData;
 import Model.ErrorLog;
 import Model.ManagerUI.UIStatus.UiStatus;
 import Time.WaitTime.Class.TimeS;
 import Communicate.Comport.ComPort;
 import Model.DataSource.ModeTest.FunctionConfig.FunctionName;
+import Model.DataTest.FunctionParameters;
 import java.util.List;
 
 /**
@@ -25,18 +24,16 @@ public class FixtureAction extends AbsFunction {
     private final FunctionBase base;
     private final AnalysisBase analysisBase;
 
-    public FixtureAction(FunctionName itemName) {
-        super(itemName);
-        this.base = new FunctionBase(itemName);
-        this.analysisBase = new AnalysisBase(itemName);
+    public FixtureAction(FunctionParameters parameters) {
+        this(parameters, null);
+    }
+    
+    public FixtureAction(FunctionParameters parameters, String item) {
+        super(parameters, item);
+        this.base = new FunctionBase(parameters, item);
+        this.analysisBase = new AnalysisBase(parameters, item);
     }
 
-    @Override
-    public void setResources(FunctionElement funcConfig, UiStatus uiStatus, FunctionData functionData) {
-        super.setResources(funcConfig, uiStatus, functionData); // Generated from nbfs://nbhost/SystemFileSystem/Templates/Classes/Code/OverriddenMethodBody
-        this.base.setResources(funcConfig, uiStatus, functionData);
-        this.analysisBase.setResources(funcConfig, uiStatus, functionData);
-    }
 
     @Override
     public boolean test() {

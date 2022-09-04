@@ -267,7 +267,7 @@ public class TabItem extends AbsTabUI {
                 showDataTest(dataBox, row);
             } else {
                 showDataTest(dataBox, row);
-                editRow(dataBox.getErrorCode(), row, ERROR_CODE);
+                editRow(dataBox.getLocalErrorCode(), row, ERROR_CODE);
                 editRow(dataBox.getCusErrorCode(), row, CUS_ERROR_CODE);
             }
             if (!dataBox.isTesting()) {

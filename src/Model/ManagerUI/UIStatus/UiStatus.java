@@ -7,9 +7,10 @@ package Model.ManagerUI.UIStatus;
 import Model.DataTest.ProcessTest.ProcessData;
 import Control.Core.Core;
 import Control.Core.ModeTest;
-import Control.Core.CellTest;
-import Model.DataTest.ProcessTest.InputData;
-import Model.DataTest.ProcessTest.UiInformartion;
+import Control.Core.RunTest.CellTest;
+import Model.DataSource.Tool.TestTimer;
+import Model.DataTest.InputData;
+import Model.DataTest.UiInformartion;
 import Model.Interface.IUpdate;
 import View.subUI.SubUI.AbsSubUi;
 import static java.util.Objects.isNull;
@@ -25,14 +26,17 @@ public class UiStatus implements IUpdate {
     private final Core core;
     private final ProcessData processData;
     private final CellTest cellTest;
+    private final TestTimer testTimer;
     private ModeTest modeTest;
 
     public UiStatus(AbsSubUi subUi, Core core, int id, int row, int column) {
+        this.testTimer = new TestTimer();
         this.informartion = new UiInformartion(subUi.getName(), column, row, id);
         this.subUi = subUi;
         this.core = core;
-        this.processData = new ProcessData(this);
-        this.cellTest = new CellTest( this);
+        this.subUi.setClock(testTimer);
+        this.processData = new ProcessData(this, this.testTimer);
+        this.cellTest = new CellTest( this,this.testTimer);
     }
 
     public ProcessData getProcessData() {

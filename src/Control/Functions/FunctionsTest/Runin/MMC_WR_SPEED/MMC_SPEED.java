@@ -7,12 +7,10 @@ package Control.Functions.FunctionsTest.Runin.MMC_WR_SPEED;
 import Control.Functions.AbsFunction;
 import Control.Functions.FunctionsTest.Base.BaseFunction.AnalysisBase;
 import Control.Functions.FunctionsTest.Base.BaseFunction.FunctionBase;
-import Model.DataSource.ModeTest.FunctionConfig.FunctionElement;
-import Model.DataTest.FunctionData.FunctionData;
 import Model.ErrorLog;
 import Model.ManagerUI.UIStatus.UiStatus;
 import Communicate.Telnet.Telnet;
-import Model.DataSource.ModeTest.FunctionConfig.FunctionName;
+import Model.DataTest.FunctionParameters;
 
 /**
  *
@@ -27,17 +25,14 @@ public class MMC_SPEED extends AbsFunction {
     private String block;
     private String key;
 
-    public MMC_SPEED(FunctionName itemName) {
-        super(itemName);
-        this.baseFunc = new FunctionBase(itemName);
-        this.analysisBase = new AnalysisBase(itemName);
+    public MMC_SPEED(FunctionParameters parameters) {
+        this(parameters, null);
     }
-
-    @Override
-    public void setResources(FunctionElement funcConfig, UiStatus uiStatus, FunctionData functionData) {
-        super.setResources(funcConfig, uiStatus, functionData); // Generated from nbfs://nbhost/SystemFileSystem/Templates/Classes/Code/OverriddenMethodBody
-        this.baseFunc.setResources(funcConfig, uiStatus, functionData);
-        this.analysisBase.setResources(funcConfig, uiStatus, functionData);
+    
+    public MMC_SPEED(FunctionParameters parameters, String item) {
+        super(parameters, item);
+        this.baseFunc = new FunctionBase(parameters, item);
+        this.analysisBase = new AnalysisBase(parameters, item);
     }
 
     @Override

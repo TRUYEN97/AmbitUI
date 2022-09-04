@@ -8,14 +8,11 @@ import Control.Functions.AbsFunction;
 import Control.Functions.FunctionsTest.Base.BaseFunction.AnalysisBase;
 import Control.Functions.FunctionsTest.Base.FixtureActions.FixtureAction;
 import FileTool.FileService;
-import Model.DataSource.ModeTest.FunctionConfig.FunctionElement;
-import Model.DataTest.FunctionData.FunctionData;
 import Model.ErrorLog;
-import Model.ManagerUI.UIStatus.UiStatus;
 import Time.WaitTime.Class.TimeS;
 import com.alibaba.fastjson.JSONObject;
 import Communicate.Comport.ComPort;
-import Model.DataSource.ModeTest.FunctionConfig.FunctionName;
+import Model.DataTest.FunctionParameters;
 import java.io.File;
 import java.util.List;
 
@@ -28,17 +25,14 @@ public class VoltageTest extends AbsFunction {
     private final FixtureAction fixtureAction;
     private final AnalysisBase analysisBase;
 
-    public VoltageTest(FunctionName itemName) {
-        super(itemName);
-        this.fixtureAction = new FixtureAction(itemName);
-        this.analysisBase = new AnalysisBase(itemName);
+    public VoltageTest(FunctionParameters parameters) {
+        this(parameters, null);
     }
-
-    @Override
-    public void setResources(FunctionElement functionElement, UiStatus uiStatus, FunctionData functionData) {
-        super.setResources(functionElement, uiStatus, functionData); // Generated from nbfs://nbhost/SystemFileSystem/Templates/Classes/Code/OverriddenMethodBody
-        this.fixtureAction.setResources(functionElement, uiStatus, functionData);
-        this.analysisBase.setResources(functionElement, uiStatus, functionData);
+    
+    public VoltageTest(FunctionParameters parameters, String item) {
+        super(parameters, item);
+        this.fixtureAction = new FixtureAction(parameters, item);
+        this.analysisBase = new AnalysisBase(parameters, item);
     }
 
     @Override
@@ -71,7 +65,7 @@ public class VoltageTest extends AbsFunction {
                 }
                 String API_ITEM = voltageItems.getString(voltPoint);
                 addLog("PC", String.format("Item: %s | %s | %s", API_ITEM, voltPoint, value));
-                if (API_ITEM != null && !checkItem(new FunctionName(API_ITEM, ""), value)) {
+                if (API_ITEM != null && !checkItem(API_ITEM, value)) {
                     result = false;
                 }
                 if (inline.endsWith(":")) {
@@ -90,13 +84,12 @@ public class VoltageTest extends AbsFunction {
         }
     }
 
-    private boolean checkItem(FunctionName API_ITEM, String value) {
-        if (API_ITEM == null) {
+    private boolean checkItem(String item, String value) {
+        if (item == null) {
             return false;
         }
         checkVolt checkVolt;
-        checkVolt = new checkVolt(API_ITEM);
-        checkVolt.setResources(functionElement, uiStatus, functionData);
+        checkVolt = new checkVolt(functionParameters, item);
         checkVolt.setValue(value);
         checkVolt.run();
         return checkVolt.isPass();

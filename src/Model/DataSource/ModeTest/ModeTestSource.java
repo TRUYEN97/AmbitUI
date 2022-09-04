@@ -5,8 +5,8 @@
 package Model.DataSource.ModeTest;
 
 import Model.DataSource.ModeTest.ErrorCode.ErrorCodeSource;
+import Model.DataSource.ModeTest.FunctionConfig.AmbitConfig;
 import Model.DataSource.ModeTest.FunctionConfig.FunctionConfig;
-import Model.DataSource.ModeTest.FunctionConfig.FunctionElement;
 import Model.DataSource.ModeTest.FunctionConfig.FunctionName;
 import Model.DataSource.ModeTest.Limit.Limit;
 import Model.DataSource.Setting.ModeElement;
@@ -22,12 +22,12 @@ public class ModeTestSource {
 
     private Limit limit;
     private ErrorCodeSource errorCode;
-    private final FunctionConfig functionConfig;
+    private final AmbitConfig functionConfig;
     private final ModeElement modeConfig;
 
     public ModeTestSource(ModeElement modeInfo) {
         this.modeConfig = modeInfo;
-        this.functionConfig = new FunctionConfig();
+        this.functionConfig = new AmbitConfig();
     }
 
     public ModeElement getModeConfig() {
@@ -66,7 +66,7 @@ public class ModeTestSource {
         return this.functionConfig.getEndFuntions();
     }
 
-    public FunctionElement getFunctionsConfig(FunctionName item) {
+    public FunctionConfig getFunctionsConfig(FunctionName item) {
         return this.functionConfig.getElement(item);
     }
 

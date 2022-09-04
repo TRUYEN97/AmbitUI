@@ -1,0 +1,26 @@
+2022-09-04 19:58:37.610:   ITEM[fixtureOpen] - FUNCTION[FixtureActionProxy]
+2022-09-04 19:58:37.611:   Turn run: 1
+2022-09-04 19:58:37.611:   [ComPort] Connect to : COM5
+2022-09-04 19:58:37.611:   [ComPort] BaudRate is: 115200
+2022-09-04 19:58:37.681:   [ComPort] Connect COM5 ok
+2022-09-04 19:58:37.681:   [Config] keyWord: [OK]
+2022-09-04 19:58:37.681:   [Config] Time: 6
+2022-09-04 19:58:37.681:   [PC] True keys: [OK]
+2022-09-04 19:58:37.681:   [ComPort] Send command: AT+BO1_OFF%
+2022-09-04 19:58:37.795:   [Config] keyWords: [OK]
+2022-09-04 19:58:40.647:   This function will be stop! Because This function has out of run time!
+2022-09-04 19:58:40.647:   Time: 3.036 S
+2022-09-04 19:58:40.648:   Spec: 3 S
+2022-09-04 19:58:40.648:   Try to stop!!
+2022-09-04 19:58:40.649:   [PC] Disconnect ComPort ok
+2022-09-04 19:58:40.649:   ****************************************************
+2022-09-04 19:58:40.649:   Item name = fixtureOpen
+2022-09-04 19:58:40.649:   Value = failed
+2022-09-04 19:58:40.649:   Test status = failed
+2022-09-04 19:58:40.650:   -----------------------------------------------------
+2022-09-04 19:58:40.650:   Error code = -1
+2022-09-04 19:58:40.650:   Error des = fixtureOpen
+2022-09-04 19:58:40.650:   Local error code = FIX01
+2022-09-04 19:58:40.650:   Local error des = fixtureOpen
+2022-09-04 19:58:40.651:   ****************************************************
+2022-09-04 19:58:40.651:   TIME[3.040 s] - STATUS[FAILED]

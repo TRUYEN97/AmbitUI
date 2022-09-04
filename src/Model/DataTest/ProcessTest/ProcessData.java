@@ -4,14 +4,15 @@
  */
 package Model.DataTest.ProcessTest;
 
+import Model.DataTest.UiInformartion;
 import Model.AllKeyWord;
 import Model.DataSource.DataWareHouse;
 import Model.DataSource.ModeTest.FunctionConfig.FunctionName;
+import Model.DataSource.Tool.IgetTime;
 import Model.DataTest.FunctionData.FunctionData;
 import Model.DataTest.FunctionData.ItemTestData;
 import Model.ManagerUI.UIStatus.UiStatus;
 import Time.TimeBase;
-import Time.WaitTime.AbsTime;
 import com.alibaba.fastjson.JSONObject;
 import java.util.ArrayList;
 import java.util.HashMap;
@@ -22,11 +23,12 @@ import java.util.Map;
  *
  * @author 21AK22
  */
-public class ProcessData {
+public class ProcessData implements IgetTime{
 
     private final List<FunctionData> listFunctionData;
     private final Map<FunctionName, FunctionData> mapFunctionData;
-    private final Map<FunctionName, ItemTestData> mapItemTestData;
+    private final Map<String, ItemTestData> mapItemTestData;
+    private final Map<String, ItemTestData> faidItems;
     private final UiInformartion informartion;
     private final DataWareHouse data;
     private final TimeBase timeBase;
@@ -34,16 +36,18 @@ public class ProcessData {
     private final ProductData productData;
     private final UiStatus uiStatus;
     private String message;
-    private AbsTime myTimer;
+    private final IgetTime testTimer;
 
-    public ProcessData( UiStatus uiStatus) {
+    public ProcessData( UiStatus uiStatus, IgetTime testTimer) {
         this.listFunctionData = new ArrayList<>();
         this.mapItemTestData = new HashMap<>();
+        this.faidItems = new HashMap<>();
         this.mapFunctionData = new HashMap<>();
         this.data = new DataWareHouse();
         this.signal = new ProcessTestSignal();
         this.productData = new ProductData();
         this.timeBase = new TimeBase();
+        this.testTimer = testTimer;
         this.uiStatus = uiStatus;
         this.informartion = uiStatus.getInfo();
         this.message = "Ready";
@@ -78,7 +82,7 @@ public class ProcessData {
         if (item == null) {
             return null;
         }
-        return mapFunctionData.get(item.getItemName());
+        return mapFunctionData.get(item);
     }
 
     public void setMessage(String message) {
@@ -106,32 +110,23 @@ public class ProcessData {
             return message;
         }
         if (isPass()) {
-            return message = isDebug() ? "Debug Ok!" : "PASS";
+            return message = "Done!";
         }
         return message = String.format("Failed: %s", getFirstFail().getFunctionName());
-    }
-
-    public void addFunctionData(FunctionData functionData) {
-        if (functionData == null || this.listFunctionData.contains(functionData)) {
-            return;
-        }
-        functionData.setFinalMapItems(mapItemTestData);
-        this.listFunctionData.add(functionData);
-        this.mapFunctionData.put(functionData.getFunctionName(), functionData);
     }
 
     public void setFinishTime() {
         this.data.put(AllKeyWord.FINISH_TIME, timeBase.getSimpleDateTime());
         this.data.put(AllKeyWord.FINISH_DAY, timeBase.getDate());
-        if (myTimer != null) {
-            this.data.put(AllKeyWord.CYCLE_TIME, String.format("%.3f", myTimer.getTime() / 1000));
+        if (testTimer != null) {
+            this.data.put(AllKeyWord.CYCLE_TIME, String.format("%.3f", getRuntime() / 1000));
         }
         FunctionData testData = getFirstFail();
         if (testData == null) {
             this.data.put(AllKeyWord.STATUS, ItemTestData.PASS);
         } else {
             this.data.put(AllKeyWord.STATUS, ItemTestData.FAIL);
-            this.data.put(AllKeyWord.ERROR_CODE, testData.getErrorCode());
+            this.data.put(AllKeyWord.ERROR_CODE, testData.getLocalErrorCode());
             this.data.put(AllKeyWord.ERROR_DES, testData.getErrorDes());
         }
     }
@@ -146,6 +141,7 @@ public class ProcessData {
         this.message = null;
         this.listFunctionData.clear();
         this.mapItemTestData.clear();
+        this.faidItems.clear();
         this.mapFunctionData.clear();
     }
 
@@ -180,11 +176,6 @@ public class ProcessData {
         this.productData.clear();
     }
 
-    public boolean isDebug() {
-        String mode = this.data.getString(AllKeyWord.MODE);
-        return mode == null || mode.equalsIgnoreCase("debug");
-    }
-
     public void setMode(String mode) {
         if (this.data == null) {
             return;
@@ -192,14 +183,20 @@ public class ProcessData {
         this.data.put(AllKeyWord.MODE, mode);
     }
 
-    public void setClock(AbsTime myTimer) {
-        this.myTimer = myTimer;
-    }
-
-    public double getRunTime() {
-        if (this.myTimer == null) {
+    @Override
+    public double getRuntime() {
+        if (this.testTimer == null) {
             return 0;
         }
-        return myTimer.getTime();
+        return testTimer.getRuntime();
+    }
+
+    public void addFunctionData(FunctionData functionData) {
+        if (functionData == null || this.listFunctionData.contains(functionData)) {
+            return;
+        }
+        functionData.setFinalMapItems(mapItemTestData);
+        this.listFunctionData.add(functionData);
+        this.mapFunctionData.put(functionData.getFunctionName(), functionData);
     }
 }

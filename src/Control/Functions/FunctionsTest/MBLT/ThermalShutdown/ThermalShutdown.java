@@ -8,16 +8,14 @@ import Control.Functions.AbsFunction;
 import Control.Functions.FunctionsTest.Base.BaseFunction.AnalysisBase;
 import Control.Functions.FunctionsTest.Base.BaseFunction.FunctionBase;
 import Control.Functions.FunctionsTest.Base.FixtureActions.FixtureAction;
-import Control.Functions.FunctionsTest.MBLT.VoltageTest.checkVolt;
 import FileTool.FileService;
-import Model.DataSource.ModeTest.FunctionConfig.FunctionElement;
-import Model.DataTest.FunctionData.FunctionData;
 import Model.ErrorLog;
 import Model.ManagerUI.UIStatus.UiStatus;
 import Time.WaitTime.Class.TimeS;
 import com.alibaba.fastjson.JSONObject;
 import Communicate.Comport.ComPort;
 import Model.DataSource.ModeTest.FunctionConfig.FunctionName;
+import Model.DataTest.FunctionParameters;
 import java.io.File;
 import java.util.List;
 
@@ -31,20 +29,17 @@ public class ThermalShutdown extends AbsFunction {
     private final AnalysisBase analysisBase;
     private final FunctionBase functionBase;
 
-    public ThermalShutdown(FunctionName itemName) {
-        super(itemName);
-        this.fixtureAction = new FixtureAction(itemName);
-        this.analysisBase = new AnalysisBase(itemName);
-        this.functionBase = new FunctionBase(itemName);
+    public ThermalShutdown(FunctionParameters parameters) {
+        this(parameters, null);
     }
-
-    @Override
-    public void setResources(FunctionElement functionElement, UiStatus uiStatus, FunctionData functionData) {
-        super.setResources(functionElement, uiStatus, functionData); // Generated from nbfs://nbhost/SystemFileSystem/Templates/Classes/Code/OverriddenMethodBody
-        this.fixtureAction.setResources(functionElement, uiStatus, functionData);
-        this.analysisBase.setResources(functionElement, uiStatus, functionData);
-        this.functionBase.setResources(functionElement, uiStatus, functionData);
+    
+    public ThermalShutdown(FunctionParameters parameters, String item) {
+        super(parameters, item);
+        this.fixtureAction = new FixtureAction(parameters, item);
+        this.analysisBase = new AnalysisBase(parameters, item);
+        this.functionBase = new FunctionBase(parameters, item);
     }
+ 
 
     @Override
     protected boolean test() {

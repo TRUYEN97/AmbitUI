@@ -7,10 +7,9 @@ package Model.DataTest.FunctionData;
 import Model.AllKeyWord;
 import Model.DataSource.ModeTest.ErrorCode.ErrorCodeElement;
 import Model.DataSource.ModeTest.FunctionConfig.FuncAllConfig;
-import Model.DataSource.ModeTest.FunctionConfig.FunctionName;
+import Model.DataSource.Tool.IgetTime;
 import MyLoger.MyLoger;
 import Time.TimeBase;
-import Time.WaitTime.AbsTime;
 import com.alibaba.fastjson.JSONObject;
 import java.util.Arrays;
 import java.util.List;
@@ -26,14 +25,15 @@ public class ItemTestData {
     private final FuncAllConfig allConfig;
     private final JSONObject data;
     private final JSONObject error;
-    private AbsTime timer;
+    private final IgetTime timer;
     private double startTime;
+    private double testTime;
     private final List<String> keys;
-    private MyLoger loger;
+    private final MyLoger loger;
     private boolean testing;
 
-    public ItemTestData(FuncAllConfig allConfig) {
-        this.allConfig = allConfig;
+    public ItemTestData(FuncAllConfig allConfig, FunctionData functionData, IgetTime timer) {
+         this.allConfig = allConfig;
         this.startTime = 0;
         this.keys = Arrays.asList(AllKeyWord.TEST_NAME,
                 AllKeyWord.LOWER_LIMIT,
@@ -41,6 +41,8 @@ public class ItemTestData {
                 AllKeyWord.UNITS);
         this.data = new JSONObject();
         this.error = new JSONObject();
+        this.loger = functionData.getLoger();
+        this.timer = timer;
     }
 
     public JSONObject getData(List<String> keys) {
@@ -56,7 +58,7 @@ public class ItemTestData {
     }
 
     public void start() {
-        this.startTime = this.timer.getTime();
+        this.startTime = this.timer.getRuntime();
         this.testing = true;
         isErrorCodeAvailable();
         for (String key : keys) {
@@ -77,7 +79,7 @@ public class ItemTestData {
         return data.getString(key);
     }
 
-    public FunctionName getItemTestName() {
+    public String getItemName() {
         return this.allConfig.getItemName();
     }
 
@@ -98,14 +100,14 @@ public class ItemTestData {
             writeError();
         }
         this.loger.addLog("****************************************************");
-        this.data.put(AllKeyWord.CYCLE_TIME, String.format("%.3f",getRunTime()));
+        this.data.put(AllKeyWord.CYCLE_TIME, String.format("%.3f", testTime = getRunTime()));
         this.data.put(AllKeyWord.FINISH_TIME, new TimeBase().getSimpleDateTime());
         this.testing = false;
     }
 
     private void setErrorCode() {
         String errorCode = allConfig.getString(AllKeyWord.ERROR_CODE);
-        this.error.put(AllKeyWord.ERROR_DES, this.allConfig.getItemName());
+        this.error.put(AllKeyWord.ERROR_DES, this.allConfig.getString(AllKeyWord.TEST_NAME));
         if (errorCode != null && !errorCode.isBlank()) {
             this.error.put(AllKeyWord.ERROR_CODE, errorCode);
         } else {
@@ -153,13 +155,9 @@ public class ItemTestData {
 
     public double getRunTime() {
         if (isTest()) {
-            return timer.getTime() - this.startTime;
+            return timer.getRuntime()- this.startTime;
         }
-        return this.data.getDouble(AllKeyWord.CYCLE_TIME);
-    }
-
-    void setLoger(MyLoger loger) {
-        this.loger = loger;
+        return testTime;
     }
 
     public void endTurn() {
@@ -193,10 +191,6 @@ public class ItemTestData {
         this.loger.addLog(String.format("Error des = %s", errorDes));
         this.loger.addLog(String.format("Local error code = %s", localErrorCode));
         this.loger.addLog(String.format("Local error des = %s", localErrorDes));
-    }
-
-    void setTimer(AbsTime timeS) {
-        this.timer = timeS;
     }
 
 }

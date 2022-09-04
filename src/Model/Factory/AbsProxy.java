@@ -20,7 +20,7 @@ public abstract class AbsProxy<N,T> {
         this.type = this.getClass().getSimpleName();
     }
 
-    public N getID() {
+    public N getParameter() {
         return id;
     }
 

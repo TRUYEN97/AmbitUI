@@ -8,11 +8,10 @@ import Control.Functions.AbsFunction;
 import Control.Functions.FunctionsTest.Base.BaseFunction.AnalysisBase;
 import Control.Functions.FunctionsTest.Base.BaseFunction.FileBaseFunction;
 import Control.Functions.FunctionsTest.Base.BaseFunction.FunctionBase;
-import Model.DataSource.ModeTest.FunctionConfig.FunctionElement;
-import Model.DataTest.FunctionData.FunctionData;
 import Model.ManagerUI.UIStatus.UiStatus;
 import Communicate.FtpClient.FtpClient;
 import Model.DataSource.ModeTest.FunctionConfig.FunctionName;
+import Model.DataTest.FunctionParameters;
 import java.io.File;
 import java.util.List;
 
@@ -27,20 +26,17 @@ public class UpFTP extends AbsFunction {
     private final FileBaseFunction fileBaseFunction;
     private FtpClient ftp;
 
-    public UpFTP(FunctionName itemName) {
-        super(itemName);
-        this.baseFunc = new FunctionBase(itemName);
-        this.analysisBase = new AnalysisBase(itemName);
-        this.fileBaseFunction = new FileBaseFunction(itemName);
+    public UpFTP(FunctionParameters parameters) {
+        this(parameters, null);
+    }
+    
+    public UpFTP(FunctionParameters parameters, String item) {
+        super(parameters, item);
+        this.baseFunc = new FunctionBase(parameters, item);
+        this.analysisBase = new AnalysisBase(parameters, item);
+        this.fileBaseFunction = new FileBaseFunction(parameters, item);
     }
 
-    @Override
-    public void setResources(FunctionElement funcConfig, UiStatus uiStatus, FunctionData functionData) {
-        super.setResources(funcConfig, uiStatus, functionData); // Generated from nbfs://nbhost/SystemFileSystem/Templates/Classes/Code/OverriddenMethodBody
-        this.baseFunc.setResources(funcConfig, uiStatus, functionData);
-        this.analysisBase.setResources(funcConfig, uiStatus, functionData);
-        this.fileBaseFunction.setResources(funcConfig, uiStatus, functionData);
-    }
 
     @Override
     public boolean test() {

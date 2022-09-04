@@ -18,10 +18,10 @@ public class BigUIProxy extends AbsProxy<String, AbsSubUi> {
 
     @Override
     public AbsSubUi takeIt() {
-        if (getID()== null) {
+        if (getParameter()== null) {
             return null;
         }
-        return new BigUI(getID());
+        return new BigUI(getParameter());
     }
 
 }

@@ -8,9 +8,9 @@ import Control.Functions.AbsFunction;
 import Control.Functions.FunctionsTest.Base.BaseFunction.AnalysisBase;
 import Control.Functions.FunctionsTest.Base.BaseFunction.FileBaseFunction;
 import Model.AllKeyWord;
-import Model.DataSource.ModeTest.FunctionConfig.FunctionElement;
 import Model.DataSource.ModeTest.FunctionConfig.FunctionName;
 import Model.DataTest.FunctionData.FunctionData;
+import Model.DataTest.FunctionParameters;
 import Model.ErrorLog;
 import Model.ManagerUI.UIStatus.UiStatus;
 import MyLoger.MyLoger;
@@ -26,17 +26,14 @@ public class CreateTxt extends AbsFunction {
     private final AnalysisBase analysisBase;
     private final FileBaseFunction fileBaseFunction;
 
-    public CreateTxt(FunctionName itemName) {
-        super(itemName);
-        this.analysisBase = new AnalysisBase(itemName);
-        this.fileBaseFunction = new FileBaseFunction(itemName);
+    public CreateTxt(FunctionParameters parameters) {
+        this(parameters,  null);
     }
-
-    @Override
-    public void setResources(FunctionElement funcConfig, UiStatus uiStatus, FunctionData functionData) {
-        super.setResources(funcConfig, uiStatus, functionData); // Generated from nbfs://nbhost/SystemFileSystem/Templates/Classes/Code/OverriddenMethodBody
-        this.fileBaseFunction.setResources(funcConfig, uiStatus, functionData);
-        this.analysisBase.setResources(funcConfig, uiStatus, functionData);
+    
+    public CreateTxt(FunctionParameters parameters, String item) {
+        super(parameters,  item);
+        this.analysisBase = new AnalysisBase(parameters,  item);
+        this.fileBaseFunction = new FileBaseFunction(parameters, item);
     }
 
     @Override
@@ -98,7 +95,7 @@ public class CreateTxt extends AbsFunction {
         loger.add(String.format("End test at = %s\r\n", processData.getString(AllKeyWord.FINISH_TIME)));
         loger.add(String.format("Status = %s\r\n", processData.getString(AllKeyWord.STATUS)));
         loger.add(String.format("Test time = %s s\r\n", processData.getString(AllKeyWord.CYCLE_TIME)));
-        loger.add(String.format("Final test time = %.3f s\r\n", processData.getRunTime() / 1000));
+        loger.add(String.format("Final test time = %.3f s\r\n", processData.getRuntime()));
         loger.add(String.format("Station = %s\r\n", processData.getString(AllKeyWord.STATION_NAME)));
         loger.add(String.format("Localtion = %s\r\n", processData.getString(AllKeyWord.INDEX)));
         loger.add(String.format("HHSN = %s\r\n", processData.getString(AllKeyWord.SN)));

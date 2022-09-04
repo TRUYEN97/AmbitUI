@@ -5,18 +5,18 @@
 package Control.Functions.FunctionsTest.Base.FixtureActions;
 
 import Control.Functions.AbsFunction;
-import Model.DataSource.ModeTest.FunctionConfig.FunctionName;
+import Model.DataTest.FunctionParameters;
 import Model.Factory.AbsProxy;
 
 /**
  *
  * @author Administrator
  */
-public class FixtureActionProxy extends AbsProxy<FunctionName, AbsFunction>{
+public class FixtureActionProxy extends AbsProxy<FunctionParameters, AbsFunction>{
 
     @Override
     public AbsFunction takeIt() {
-        return new FixtureAction(getID());
+        return new FixtureAction(getParameter());
     }
     
 }

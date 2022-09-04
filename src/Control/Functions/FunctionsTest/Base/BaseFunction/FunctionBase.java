@@ -16,7 +16,7 @@ import Communicate.ISender;
 import Communicate.Telnet.Telnet;
 import Communicate.FtpClient.FtpClient;
 import Communicate.IConnect;
-import Model.DataSource.ModeTest.FunctionConfig.FunctionName;
+import Model.DataTest.FunctionParameters;
 
 /**
  *
@@ -24,8 +24,12 @@ import Model.DataSource.ModeTest.FunctionConfig.FunctionName;
  */
 public class FunctionBase extends AbsFunction {
 
-    public FunctionBase(FunctionName itemName) {
-        super(itemName);
+    public FunctionBase(FunctionParameters parameters) {
+        super(parameters, null);
+    }
+    
+    public FunctionBase(FunctionParameters parameters, String item) {
+        super(parameters, item);
     }
 
     @Override

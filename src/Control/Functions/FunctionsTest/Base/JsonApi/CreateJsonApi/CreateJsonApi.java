@@ -8,12 +8,9 @@ import Control.Functions.AbsFunction;
 import Control.Functions.FunctionsTest.Base.BaseFunction.AnalysisBase;
 import Control.Functions.FunctionsTest.Base.BaseFunction.FileBaseFunction;
 import Model.AllKeyWord;
-import Model.DataSource.ModeTest.FunctionConfig.FunctionElement;
-import Model.DataSource.ModeTest.FunctionConfig.FunctionName;
 import Model.DataSource.ModeTest.Limit.Limit;
-import Model.DataTest.FunctionData.FunctionData;
 import Model.DataTest.FunctionData.ItemTestData;
-import Model.ManagerUI.UIStatus.UiStatus;
+import Model.DataTest.FunctionParameters;
 import com.alibaba.fastjson.JSONArray;
 import com.alibaba.fastjson.JSONObject;
 import java.util.List;
@@ -29,18 +26,16 @@ public class CreateJsonApi extends AbsFunction {
     private final AnalysisBase analysisBase;
     private final FileBaseFunction fileBaseFunction;
 
-    public CreateJsonApi(FunctionName itemName) {
-        super(itemName);
-        this.analysisBase = new AnalysisBase(itemName);
-        this.fileBaseFunction = new FileBaseFunction(itemName);
+    public CreateJsonApi(FunctionParameters parameters) {
+        this(parameters, null);
+    }
+    
+    public CreateJsonApi(FunctionParameters parameters, String item) {
+        super(parameters, item);
+        this.analysisBase = new AnalysisBase(parameters, item);
+        this.fileBaseFunction = new FileBaseFunction(parameters, item);
     }
 
-    @Override
-    public void setResources(FunctionElement funcConfig, UiStatus uiStatus, FunctionData functionData) {
-        super.setResources(funcConfig, uiStatus, functionData); // Generated from nbfs://nbhost/SystemFileSystem/Templates/Classes/Code/OverriddenMethodBody
-        this.fileBaseFunction.setResources(funcConfig, uiStatus, functionData);
-        this.analysisBase.setResources(funcConfig, uiStatus, functionData);
-    }
 
     @Override
     protected boolean test() {

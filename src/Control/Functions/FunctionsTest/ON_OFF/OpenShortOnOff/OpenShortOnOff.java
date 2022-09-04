@@ -7,9 +7,8 @@ package Control.Functions.FunctionsTest.ON_OFF.OpenShortOnOff;
 import Control.Functions.AbsFunction;
 import Control.Functions.FunctionsTest.MBLT.OpenShort.OpenShort;
 import Control.Functions.FunctionsTest.MBLT.UsbAside.UsbAside;
-import Model.DataSource.ModeTest.FunctionConfig.FunctionElement;
 import Model.DataSource.ModeTest.FunctionConfig.FunctionName;
-import Model.DataTest.FunctionData.FunctionData;
+import Model.DataTest.FunctionParameters;
 import Model.ErrorLog;
 import Model.ManagerUI.UIStatus.UiStatus;
 
@@ -22,17 +21,14 @@ public class OpenShortOnOff extends AbsFunction {
     private final UsbAside aside;
     private final OpenShort openShort;
 
-    public OpenShortOnOff(FunctionName itemName) {
-        super(itemName);
-        this.aside = new UsbAside(itemName);
-        this.openShort = new OpenShort(itemName);
+    public OpenShortOnOff(FunctionParameters parameters) {
+        this(parameters, null);
     }
-
-    @Override
-    public void setResources(FunctionElement funcConfig, UiStatus uiStatus, FunctionData functionData) {
-        super.setResources(funcConfig, uiStatus, functionData); // Generated from nbfs://nbhost/SystemFileSystem/Templates/Classes/Code/OverriddenMethodBody
-        this.aside.setResources(funcConfig, uiStatus, functionData);
-        this.openShort.setResources(funcConfig, uiStatus, functionData);
+    
+    public OpenShortOnOff(FunctionParameters parameters, String item) {
+        super(parameters, item);
+        this.aside = new UsbAside(parameters, item);
+        this.openShort = new OpenShort(parameters, item);
     }
 
     @Override

@@ -7,12 +7,9 @@ package Control.Functions.FunctionsTest.Base.CheckDutInfo;
 import Control.Functions.AbsFunction;
 import Control.Functions.FunctionsTest.Base.BaseFunction.AnalysisBase;
 import Control.Functions.FunctionsTest.Base.BaseFunction.FunctionBase;
-import Model.DataSource.ModeTest.FunctionConfig.FunctionElement;
-import Model.DataTest.FunctionData.FunctionData;
-import Model.ManagerUI.UIStatus.UiStatus;
 import Time.WaitTime.Class.TimeMs;
 import Communicate.Telnet.Telnet;
-import Model.DataSource.ModeTest.FunctionConfig.FunctionName;
+import Model.DataTest.FunctionParameters;
 
 /**
  *
@@ -23,17 +20,14 @@ public class CheckDutInfo extends AbsFunction {
     private final FunctionBase baseFunc;
     private final AnalysisBase analysisBase;
     
-    public CheckDutInfo(FunctionName itemName) {
-        super(itemName);
-        this.baseFunc = new FunctionBase(itemName);
-        this.analysisBase = new AnalysisBase(itemName);
+    public CheckDutInfo(FunctionParameters parameters) {
+        this(parameters, null);
     }
     
-    @Override
-    public void setResources(FunctionElement funcConfig, UiStatus uiStatus, FunctionData functionData) {
-        super.setResources(funcConfig, uiStatus, functionData); // Generated from nbfs://nbhost/SystemFileSystem/Templates/Classes/Code/OverriddenMethodBody
-        this.baseFunc.setResources(funcConfig, uiStatus, functionData);
-        this.analysisBase.setResources(funcConfig, uiStatus, functionData);
+    public CheckDutInfo(FunctionParameters parameters, String item) {
+        super(parameters, item);
+        this.baseFunc = new FunctionBase(parameters, item);
+        this.analysisBase = new AnalysisBase(parameters, item);
     }
     
     @Override

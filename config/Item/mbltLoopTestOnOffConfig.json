@@ -32,7 +32,7 @@
             "FixtureCommands": ["AT+READ_FIXNUM%", "AT+TESTSTART%",
                 "AT+VBUS_BOFF%", "AT+CC_BOFF%", "AT+VBUS_AON%", "AT+CC_AON%"],
             "FixtureKeys": ["pcname", "OK"],
-            "FixtureWait": 30,
+            "FixtureWait": 6,
             "test_name": "fixture_close",
             "FUNC_NAME": "FixtureActionProxy"
         }
@@ -46,7 +46,7 @@
                 {
                     "FLAG": true,
                     "TIME_OVER": 30,
-                    "RETRY": 2,
+                    "RETRY": 1,
                     "MULTI": false,
                     "DISCRETE_TEST": true,
                     "FixtureCom": "COM5",
@@ -62,8 +62,8 @@
                 },
                 {
                     "FLAG": true,
-                    "TIME_OVER": 130,
-                    "RETRY": 2,
+                    "TIME_OVER": 150,
+                    "RETRY": 1,
                     "MULTI": false,
                     "DISCRETE_TEST": true,
                     "FixtureCom": "COM5",
@@ -95,7 +95,7 @@
             "FixtureBaudRate": 115200,
             "FixtureCommands": ["AT+BO1_OFF%", "AT+CC_AOFF%", "AT+VBUS_AOFF%", "AT+TESTEND%"],
             "FixtureKeys": ["OK"],
-            "FixtureWait": 30,
+            "FixtureWait": 6,
             "test_name": "fixtureOpen",
             "FUNC_NAME": "FixtureActionProxy"
         },

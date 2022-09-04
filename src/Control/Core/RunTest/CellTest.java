@@ -2,11 +2,12 @@
  * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
  * Click nbfs://nbhost/SystemFileSystem/Templates/Classes/Class.java to edit this template
  */
-package Control.Core;
+package Control.Core.RunTest;
 
 import Model.DataSource.ModeTest.FunctionConfig.FunctionName;
 import Model.DataSource.ModeTest.ModeTestSource;
-import Model.DataTest.ProcessTest.UiInformartion;
+import Model.DataSource.Tool.TestTimer;
+import Model.DataTest.UiInformartion;
 import Model.ManagerUI.UIStatus.UiStatus;
 import java.util.List;
 
@@ -22,10 +23,9 @@ public class CellTest {
     private Thread thread;
     private final UiInformartion informartion;
 
-    public CellTest(UiStatus uiStatus) {
+    public CellTest(UiStatus uiStatus, TestTimer testTimer) {
         this.uiStatus = uiStatus;
-        this.runner = new Runner(uiStatus.getProcessData(),
-                new Process(uiStatus), uiStatus.getSubUi());
+        this.runner = new Runner(uiStatus, testTimer);
         this.informartion = uiStatus.getInfo();
     }
 
@@ -69,6 +69,5 @@ public class CellTest {
             return;
         }
         runner.end("STOP TEST");
-        this.thread.stop();
     }
 }

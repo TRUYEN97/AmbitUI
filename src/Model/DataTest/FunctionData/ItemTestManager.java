@@ -16,7 +16,7 @@ import java.util.Map;
  */
 public class ItemTestManager {
 
-    private final Map<FunctionName, ItemTestData> itemTests;
+    private final Map<String, ItemTestData> itemTests;
     private final List<ItemTestData> listItemTests;
     private ItemTestData thisItem;
 
@@ -29,11 +29,11 @@ public class ItemTestManager {
         return listItemTests;
     }
 
-    public FunctionName getItemFunctionName() {
-        return this.thisItem.getItemTestName();
+    public String getFunctionName() {
+        return this.thisItem.getItemName();
     }
 
-    public Map<FunctionName, ItemTestData> getItemTests() {
+    public Map<String, ItemTestData> getItemTests() {
         return itemTests;
     }
 
@@ -41,18 +41,14 @@ public class ItemTestManager {
         if (this.itemTests.isEmpty()) {
             this.thisItem = itemTest;
         }
-        if (!this.itemTests.containsKey(itemTest.getItemTestName())) {
+        if (!this.itemTests.containsKey(itemTest.getItemName())) {
             this.listItemTests.add(itemTest);
-            this.itemTests.put(itemTest.getItemTestName(), itemTest);
+            this.itemTests.put(itemTest.getItemName(), itemTest);
         }
     }
 
     public ItemTestData getThisItem() {
         return thisItem;
-    }
-
-    public FunctionName getItemTestName() {
-        return thisItem.getItemTestName();
     }
 
     public ItemTestData getFirstFail() {
@@ -70,7 +66,7 @@ public class ItemTestManager {
         return null;
     }
 
-    public ItemTestData getItemTest(String itemName) {
+    public ItemTestData getItemTest(FunctionName itemName) {
         return itemTests.get(itemName);
     }
 

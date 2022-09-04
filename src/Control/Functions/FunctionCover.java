@@ -4,14 +4,11 @@
  */
 package Control.Functions;
 
-import Control.Core.ModeTest;
+import Model.AllKeyWord;
 import Model.DataSource.ModeTest.ErrorCode.ErrorCodeElement;
-import Model.DataSource.ModeTest.FunctionConfig.FunctionElement;
-import Model.DataSource.Setting.Setting;
+import Model.DataSource.ModeTest.FunctionConfig.FuncAllConfig;
 import Model.DataTest.FunctionData.FunctionData;
 import Model.ErrorLog;
-import Model.ManagerUI.UIStatus.UiStatus;
-import View.subUI.SubUI.AbsSubUi;
 
 /**
  *
@@ -21,51 +18,55 @@ public class FunctionCover extends Thread {
 
     private final AbsFunction function;
     private final FunctionData functionData;
-    private final FunctionElement funcConfig;
-    private final ModeTest modeTest;
-    private final AbsSubUi subUi;
-    private final UiStatus uiStatus;
+    private final FuncAllConfig allConfig;
     private Thread thread;
+    private boolean stop;
 
-    public FunctionCover(AbsFunction function, UiStatus uiStatus) {
+    public FunctionCover(AbsFunction function) {
         this.function = function;
-        this.uiStatus = uiStatus;
-        this.modeTest = uiStatus.getModeTest();
-        this.subUi = uiStatus.getSubUi();
-        this.functionData = new FunctionData();
-        this.funcConfig = modeTest.getModeTestSource().getFunctionsConfig(function.getItemName());
+        this.functionData = function.functionParameters.getFunctionData();
+        this.allConfig = function.allConfig;
     }
 
     @Override
     public void run() {
-        this.function.setResources(this.funcConfig, uiStatus, functionData);
-        this.functionData.start(createLogPath());
         try {
-            this.thread = new Thread() {
-                @Override
-                public void run() {
-                    runTest();
-                }
-            };
-            this.thread.start();
-            checkOutTime();
+            functionData.start();
+            runTest();
         } catch (Exception e) {
             e.printStackTrace();
             ErrorLog.addError(this, e.getMessage());
         } finally {
-            end();
+            this.functionData.end();
         }
     }
 
-    private String createLogPath() {
-        String settingPath = Setting.getInstance().getFunctionsLocalLogPath();
-        return String.format("%s/%s/%s_%s.txt",
-                settingPath,this.subUi.getName(),
-                this.function.getItemName(),this.function.getFunctionName());
+    private void runTest() {
+        try {
+            this.function.start();
+            this.stop = false;
+            int testTimes = allConfig.getInteger(AllKeyWord.RETRY, 0) + 1;
+            for (int turn = 1; turn <= testTimes && !function.isPass() && !this.stop; turn++) {
+                this.functionData.addLog(String.format("Turn run: %s ", turn));
+                this.thread = new Thread() {
+                    @Override
+                    public void run() {
+                        function.runTest();
+                    }
+                };
+                this.thread.start();
+                checkOutTime();
+            }
+        } catch (Exception e) {
+            e.printStackTrace();
+            ErrorLog.addError(e.getLocalizedMessage());
+            this.functionData.addLog(e.getMessage());
+        } finally {
+            this.function.end();
+        }
     }
-
     private void checkOutTime() {
-        final double timeSpec = this.funcConfig.getTimeOutFunction();
+        final Integer timeSpec = this.allConfig.getInteger(AllKeyWord.TIME_OVER, Integer.MAX_VALUE);
         while (this.thread.isAlive()) {
             try {
                 this.thread.join(1000);
@@ -73,91 +74,52 @@ public class FunctionCover extends Thread {
                 ex.printStackTrace();
                 ErrorLog.addError(this, ex.getMessage());
             }
-            if (getRunTime() >= timeSpec) {
+            final double runtime = functionData.getRunTime();
+            if (runtime >= timeSpec) {
                 String mess = String.format("""
                                                                 This function has out of run time!\r
                                                                 Time: %.3f S\r
                                                                 Spec: %s S\r
                                                                 Try to stop!!""",
-                        getRunTime(), timeSpec);
+                        runtime, timeSpec);
                 stopTest(mess);
             }
         }
     }
 
-    private double getRunTime() {
-        return functionData.getRunTime();
-    }
-
-    private void runTest() {
-        try {
-            this.function.start();
-            if (isModeSkip()) {
-                this.functionData.addLog("Mode Skip: " + modeTest.toString());
-                this.functionData.addLog("This function will be canceled because the mode is " + modeTest.toString());
-                this.functionData.setResult("Canceled");
-                this.functionData.setStatus(true);
-                return;
-            }
-            int retry = getRetry() ;
-            for (int turn = 1; turn <= retry && !function.isPass(); turn++) {
-                this.functionData.addLog(String.format("Turn run: %s ", turn));
-                this.function.setRetry(turn);
-                this.function.runTest();
-            }
-        } catch (Exception e) {
-            e.printStackTrace();
-            ErrorLog.addError(e.getLocalizedMessage());
-            this.functionData.addLog(e.getMessage());
-        }finally{
-            this.function.end();
-        }
-    }
 
     public AbsFunction getFunction() {
         return function;
     }
 
     public boolean isMutiTasking() {
-        return funcConfig.isMutiTasking();
+        return allConfig.getBoolean(AllKeyWord.MULTI_TASK, false);
     }
 
     public boolean isSkipFail() {
-        return funcConfig.isSkipFail();
-    }
-
-    private void end() {
-        this.functionData.end();
-        this.thread.stop();
-    }
-
-    private int getRetry() {
-        if (funcConfig != null) {
-            return funcConfig.getRetry();
-        }
-        return 1;
-    }
-
-    private boolean isModeSkip() {
-        String modeSkip = this.funcConfig.getModeCancel();
-        return modeSkip != null && !modeSkip.isBlank() && modeSkip.equals(modeTest.toString());
+        return allConfig.getBoolean(AllKeyWord.FAIL_CONTNIUE, false);
     }
 
     public void stopTest(String mess) {
         if (this.thread != null && this.thread.isAlive()) {
             if (mess != null) {
                 this.functionData.addLog("This function will be stop! Because " + mess);
+                this.functionData.setFail(ErrorCodeElement.SIMPLE);
             }
-            this.functionData.setFail(ErrorCodeElement.SIMPLE);
-            end();
+            this.stop = true;
+            this.thread.stop();
         }
     }
 
     public boolean isWaitUntilMultiDone() {
-        return funcConfig.isUntilMultiDone();
+        return allConfig.getBoolean(AllKeyWord.WAIT_MULTI_DONE, false);
     }
 
     public boolean isAlwaysRun() {
-        return funcConfig.isAlwaysRun();
+        return allConfig.getBoolean(AllKeyWord.ALWAYSRUN, false);
+    }
+
+    public boolean isPass() {
+        return this.function.isPass();
     }
 }

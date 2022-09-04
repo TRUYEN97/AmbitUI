@@ -12,7 +12,7 @@ import Model.ErrorLog;
 import SfisAPI17.SfisAPI;
 import com.alibaba.fastjson.JSONObject;
 import DHCP.DhcpData;
-import Model.DataSource.ModeTest.FunctionConfig.FunctionName;
+import Model.DataTest.FunctionParameters;
 import java.util.List;
 
 /**
@@ -26,8 +26,12 @@ public class SfisFunction extends AbsFunction {
     private static final String SEND_FORMAT = "SEND_FORMAT";
     private static final String SEND_FORMAT_FAIL = "SEND_FORMAT_FAIL";
 
-    public SfisFunction(FunctionName functionName) {
-        super(functionName);
+    public SfisFunction(FunctionParameters functionName) {
+        this(functionName, null);
+    }
+    
+    public SfisFunction(FunctionParameters functionName, String item) {
+        super(functionName, item);
         this.sfisAPI = new SfisAPI();
     }
 
@@ -128,7 +132,7 @@ public class SfisFunction extends AbsFunction {
         } else {
             this.addLog(res.getString(AllKeyWord.MESSAGE));
             this.processData.setMessage(res.getString(AllKeyWord.MESSAGE));
-            this.subUi.showSfisMessager(res.getString(AllKeyWord.MESSAGE));
+            this.subUI.showSfisMessager(res.getString(AllKeyWord.MESSAGE));
             return false;
         }
     }
@@ -190,7 +194,7 @@ public class SfisFunction extends AbsFunction {
         try {
             JSONObject res = JSONObject.parseObject(response);
             this.processData.setMessage(res.getString(AllKeyWord.MESSAGE));
-            this.subUi.showSfisMessager(res.getString(AllKeyWord.MESSAGE));
+            this.subUI.showSfisMessager(res.getString(AllKeyWord.MESSAGE));
             return res.getString(AllKeyWord.RESULT).equals(PASS);
         } catch (Exception e) {
             e.printStackTrace();

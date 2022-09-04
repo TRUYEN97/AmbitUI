@@ -5,18 +5,18 @@
 package Control.Functions.FunctionsTest.MBLT.VoltageTest;
 
 import Control.Functions.AbsFunction;
-import Model.DataSource.ModeTest.FunctionConfig.FunctionName;
+import Model.DataTest.FunctionParameters;
 import Model.Factory.AbsProxy;
 
 /**
  *
  * @author Administrator
  */
-public class VoltageTestProxy extends AbsProxy<FunctionName, AbsFunction>{
+public class VoltageTestProxy extends AbsProxy<FunctionParameters, AbsFunction>{
 
     @Override
     public AbsFunction takeIt() {
-        return new VoltageTest(getID());
+        return new VoltageTest(getParameter());
     }
     
 }

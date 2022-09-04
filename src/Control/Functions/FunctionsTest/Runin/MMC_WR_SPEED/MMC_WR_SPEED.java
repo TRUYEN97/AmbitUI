@@ -7,12 +7,9 @@ package Control.Functions.FunctionsTest.Runin.MMC_WR_SPEED;
 import Control.Functions.AbsFunction;
 import Control.Functions.FunctionsTest.Base.BaseFunction.AnalysisBase;
 import Control.Functions.FunctionsTest.Base.BaseFunction.FunctionBase;
-import Model.DataSource.ModeTest.FunctionConfig.FunctionElement;
-import Model.DataTest.FunctionData.FunctionData;
 import Model.ErrorLog;
-import Model.ManagerUI.UIStatus.UiStatus;
 import Communicate.Telnet.Telnet;
-import Model.DataSource.ModeTest.FunctionConfig.FunctionName;
+import Model.DataTest.FunctionParameters;
 import java.util.List;
 
 /**
@@ -25,18 +22,16 @@ public class MMC_WR_SPEED extends AbsFunction {
     private final AnalysisBase analysisBase;
     private MMC_SPEED mmc_speed;
 
-    public MMC_WR_SPEED(FunctionName itemName) {
-        super(itemName);
-        this.baseFunc = new FunctionBase(itemName);
-        this.analysisBase = new AnalysisBase(itemName);
+    public MMC_WR_SPEED(FunctionParameters parameters) {
+        this(parameters, null);
+    }
+    
+    public MMC_WR_SPEED(FunctionParameters parameters, String item) {
+        super(parameters, item);
+        this.baseFunc = new FunctionBase(parameters, item);
+        this.analysisBase = new AnalysisBase(parameters, item);
     }
 
-    @Override
-    public void setResources(FunctionElement funcConfig, UiStatus uiStatus, FunctionData functionData) {
-        super.setResources(funcConfig, uiStatus, functionData); // Generated from nbfs://nbhost/SystemFileSystem/Templates/Classes/Code/OverriddenMethodBody
-        this.baseFunc.setResources(funcConfig, uiStatus, functionData);
-        this.analysisBase.setResources(funcConfig, uiStatus, functionData);
-    }
 
     @Override
     protected boolean test() {
@@ -77,8 +72,7 @@ public class MMC_WR_SPEED extends AbsFunction {
         for (int i = 0; i < itemsSize; i++) {
             String item = items.get(i);
             addLog("PC", item);
-            mmc_speed = new MMC_SPEED(new FunctionName(item, ""));
-            mmc_speed.setResources(this.functionElement, uiStatus, functionData);
+            mmc_speed = new MMC_SPEED(functionParameters, item);
             mmc_speed.setData(response, blocks.get(i), KeyWords.get(i));
             mmc_speed.run();
             if (!mmc_speed.isPass()) {

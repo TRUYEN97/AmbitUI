@@ -11,6 +11,7 @@ import javax.swing.JOptionPane;
 /**
  *
  * @author Administrator
+ * @param <N>
  * @param <T>
  */
 public class FactoryType<N, T> {

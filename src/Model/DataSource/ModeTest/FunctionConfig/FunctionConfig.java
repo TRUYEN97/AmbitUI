@@ -5,155 +5,92 @@
 package Model.DataSource.ModeTest.FunctionConfig;
 
 import Model.AllKeyWord;
-import Model.DataSource.AbsJsonSource;
-import Model.DataSource.DataWareHouse;
+import Model.DataSource.AbsElementInfo;
 import com.alibaba.fastjson.JSONObject;
-import java.util.ArrayList;
 import java.util.List;
+import java.util.Set;
 
 /**
  *
  * @author 21AK22
  */
-public class FunctionConfig extends AbsJsonSource<FunctionName, FunctionElement> {
-    
-    private final List<FunctionName> functionInit;
-    private final List<FunctionName> functionTest;
-    private final List<FunctionName> funtionEnd;
-    private final List<FunctionName> discreteFunctions;
-    
-    public FunctionConfig() {
-        super();
-        this.functionInit = new ArrayList<>();
-        this.functionTest = new ArrayList<>();
-        this.funtionEnd = new ArrayList<>();
-        this.discreteFunctions = new ArrayList<>();
+public class FunctionConfig extends AbsElementInfo {
+
+    public FunctionConfig(JSONObject base, JSONObject config) {
+        super(null, base, config);
     }
-    
-    @Override
-    protected boolean getData() {
-        DataWareHouse wareHouse = readFile.getData();
-        clearAllList();
-        getFunctionIn(wareHouse,
-                wareHouse.getListJson(AllKeyWord.INIT),
-                functionInit, discreteFunctions, null);
-        getFunctionIn(wareHouse,
-                wareHouse.getListJson(AllKeyWord.FUNCTIONS),
-                functionTest, discreteFunctions, null);
-        getFunctionIn(wareHouse,
-                wareHouse.getListJson(AllKeyWord.END),
-                funtionEnd, discreteFunctions, null);
-        return !this.elements.isEmpty();
+
+    public String getFunctionName() {
+        return this.warehouse.getString(AllKeyWord.FUNC_NAME);
     }
-    
-    private void getFunctionIn(DataWareHouse baseData, List<JSONObject> listInfo,
-            List<FunctionName> testFunctions, List<FunctionName> debugFunctions, Integer times) {
-        for (JSONObject modeInfo : listInfo) {
-            if (!isActive(modeInfo)) {
-                continue;
-            }
-            if (isLoopFunctions(modeInfo)) {
-                getLoopFuction(baseData, modeInfo, testFunctions, debugFunctions, times);
-            } else if (modeInfo.containsKey(AllKeyWord.TEST_NAME)) {
-                if (times != null) {
-                    createNewItem(modeInfo, times);
-                }
-                FunctionElement funcElm = new FunctionElement(baseData.toJson(), modeInfo);
-                FunctionName functionName = new FunctionName(funcElm.getItemName(), funcElm.getFunctionName());
-                put(functionName, funcElm);
-                testFunctions.add(functionName);
-                if (funcElm.isDiscreteFunc()) {
-                    debugFunctions.add(functionName);
-                }
-            }
+
+    public String getItemName() {
+        return this.warehouse.getString(AllKeyWord.TEST_NAME);
+    }
+
+    public boolean isMutiTasking() {
+        return this.warehouse.getBoolean(AllKeyWord.MULTI_TASK);
+    }
+
+    public int getRetry() {
+        if (this.warehouse.getInteger(AllKeyWord.RETRY) == null) {
+            return 1;
         }
+        return this.warehouse.getInteger(AllKeyWord.RETRY);
     }
-    
-    private void createNewItem(JSONObject modeInfo, int times) {
-        String oldName = modeInfo.getString(AllKeyWord.TEST_NAME);
-        if (oldName.matches(".+_[0-9]+$")) {
-            String newItemName = String.format("%s_%s",
-                    oldName.substring(0, oldName.lastIndexOf("_")), times);
-            modeInfo.put(AllKeyWord.TEST_NAME, newItemName);
-        } else {
-            String newItemName = String.format("%s_%s", oldName, times);
-            modeInfo.put(AllKeyWord.TEST_NAME, newItemName);
-        }
-    }
-    
-    private void getLoopFuction(DataWareHouse baseData, JSONObject modeInfo,
-            List<FunctionName> list, List<FunctionName> debugFunctions, Integer times) {
-        int heso = times == null ? 1 : times;
-        DataWareHouse wareHouse = new DataWareHouse(modeInfo);
-        final int begin = wareHouse.getInteger(AllKeyWord.BEGIN, 0) * heso;
-        final int loopTimes = wareHouse.getInteger(AllKeyWord.LOOP_FUNC, 1) + begin;
-        List<JSONObject> functions = wareHouse.getListJson(AllKeyWord.FUNCTIONS);
-        for (int i = begin; i < loopTimes; i++) {
-            getFunctionIn(baseData, functions, list, debugFunctions, i);
-        }
-    }
-    
-    private static boolean isLoopFunctions(JSONObject modeInfo) {
-        return modeInfo.containsKey(AllKeyWord.LOOP_FUNC) && modeInfo.containsKey(AllKeyWord.FUNCTIONS);
-    }
-    
-    private static Boolean isActive(JSONObject modeInfo) {
-        return modeInfo.getBoolean(AllKeyWord.FLAG);
-    }
-    
-    public long getTimeOutTest() {
-        Long timeout = this.readFile.getData().getLong(AllKeyWord.TIME_OUT_TEST);
-        if (timeout == null) {
+
+    public long getTimeOutFunction() {
+        if (this.warehouse.getLong(AllKeyWord.TIME_OVER) == null) {
             return Long.MAX_VALUE;
         }
-        return timeout * 1000;
+        return this.warehouse.getLong(AllKeyWord.TIME_OVER);
     }
-    
-    public List<FunctionName> getCheckFunctions() {
-        return functionInit;
-    }
-    
-    public List<FunctionName> getTestFunctions() {
-        return functionTest;
-    }
-    
-    public List<FunctionName> getDebugFunctions() {
-        return new ArrayList<>(discreteFunctions);
-    }
-    
-    public String getStationName() {
-        return this.readFile.getData().getString(AllKeyWord.STATION_TYPE);
-    }
-    
-    public List<FunctionName> getEndFuntions() {
-        return funtionEnd;
-    }
-    
-    private void clearAllList() {
-        this.functionInit.clear();
-        this.functionTest.clear();
-        this.funtionEnd.clear();
-        this.discreteFunctions.clear();
-    }
-    
-    public List<FunctionName> getSelectedItem(List<FunctionName> listItem) {
-        if (listItem == null) {
-            return discreteFunctions;
+
+    public long getTimeOutTest() {
+        if (this.warehouse.getLong(AllKeyWord.TIME_OUT_TEST) == null) {
+            return Long.MAX_VALUE;
         }
-        if (discreteFunctions.containsAll(listItem)) {
-            return listItem;
-        }
-        return null;
+        return this.warehouse.getLong(AllKeyWord.TIME_OUT_TEST) * 1000;
     }
-    
-    private List<FunctionName> putSelectFunctionNames(List<FunctionName> listItem, List<FunctionName> base) {
-        List<FunctionName> result = new ArrayList<>();
-        for (FunctionName functionName : listItem) {
-            if (base.contains(functionName)) {
-                result.add(functionName);
-            }
-        }
-        return result;
+
+    public boolean isSkipFail() {
+        return warehouse.getBoolean(AllKeyWord.FAIL_CONTNIUE);
     }
-    
+
+    boolean isActive() {
+        return warehouse.getBoolean(AllKeyWord.FLAG);
+    }
+
+    public String getString(String key) {
+        return warehouse.getString(key);
+    }
+
+    public List<String> getListString(String key) {
+        return warehouse.getListJsonArray(key);
+    }
+
+    public Set<String> getListItem() {
+        return warehouse.toJson().keySet();
+    }
+
+    public boolean isUntilMultiDone() {
+        return warehouse.getBoolean(AllKeyWord.WAIT_MULTI_DONE);
+    }
+
+    public Object getObject(String key) {
+        return warehouse.get(key);
+    }
+
+    public JSONObject getJson() {
+        return this.warehouse.toJson();
+    }
+
+    public boolean isAlwaysRun() {
+        return this.warehouse.getBoolean(AllKeyWord.ALWAYSRUN);
+    }
+
+    public boolean isDiscreteFunc() {
+        return this.warehouse.getBoolean(AllKeyWord.DISCRETE_TEST);
+    }
+
 }

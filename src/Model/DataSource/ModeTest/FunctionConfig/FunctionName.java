@@ -10,19 +10,19 @@ package Model.DataSource.ModeTest.FunctionConfig;
  */
 public class FunctionName {
     private final String itemName;
-    private final String functions;
+    private final String function;
 
-    public FunctionName(String itemName, String functions) {
+    public FunctionName(String itemName, String function) {
         this.itemName = itemName;
-        this.functions = functions;
+        this.function = function;
     }
 
     public String getItemName() {
         return itemName;
     }
 
-    public String getFunctions() {
-        return functions;
+    public String getFunctionName() {
+        return function;
     }
 
     @Override

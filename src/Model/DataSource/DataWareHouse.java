@@ -157,12 +157,16 @@ public class DataWareHouse {
         }
     }
 
-    public boolean getBoolean(String key) {
+    public boolean getBoolean(String key, boolean defaultValue) {
         try {
             return coreData.getBooleanValue(key);
         } catch (Exception e) {
-            return false;
+            return defaultValue;
         }
+    }
+    
+    public boolean getBoolean(String key) {
+        return getBoolean(key, false);
     }
 
     public Object get(String key) {

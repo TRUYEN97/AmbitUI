@@ -7,9 +7,11 @@ package Model.DataTest.FunctionData;
 import Model.AllKeyWord;
 import Model.DataSource.ModeTest.ErrorCode.ErrorCodeElement;
 import Model.DataSource.ModeTest.FunctionConfig.FunctionName;
+import Model.DataSource.Setting.Setting;
+import Model.DataSource.Tool.IgetTime;
 import Model.ErrorLog;
+import Model.ManagerUI.UIStatus.UiStatus;
 import MyLoger.MyLoger;
-import Time.WaitTime.Class.TimeS;
 import java.io.File;
 import java.util.Map;
 import javax.swing.JOptionPane;
@@ -22,27 +24,25 @@ public class FunctionData {
 
     private final MyLoger loger;
     private final ItemTestManager itemTestManager;
-    private final TimeS timeS;
-    private Map<FunctionName, ItemTestData> finaltemTests;
+    private final FunctionName functionName;
+    private final UiStatus uiStatus;
+    private final IgetTime testTimer;
+    private Map<String, ItemTestData> finaltemTests;
 
-    public FunctionData() {
+    public FunctionData(UiStatus uiStatus, FunctionName functionName) {
         this.loger = new MyLoger();
         this.itemTestManager = new ItemTestManager();
-        this.timeS = new TimeS();
+        this.uiStatus = uiStatus;
+        this.functionName = functionName;
+        this.testTimer = this.uiStatus.getProcessData();
     }
 
     public FunctionName getFunctionName() {
-        return this.itemTestManager.getItemTestName();
+        return this.functionName;
     }
 
     public void addItemtest(ItemTestData itemTest) {
-        itemTest.setLoger(this.loger);
-        itemTest.setTimer(this.timeS);
         this.itemTestManager.addItemtest(itemTest);
-    }
-
-    public ItemTestData getItemTest(String itemName) {
-        return this.itemTestManager.getItemTest(itemName);
     }
 
     public void setResult(String resultTest) {
@@ -72,15 +72,21 @@ public class FunctionData {
         return itemTestManager.getThisItem().isTest();
     }
 
-    public void start(String logPath) {
-        this.timeS.start(0);
-        if (!this.loger.begin(new File(logPath), true, true)) {
-            String mess = "can't delete local function log file of ".concat(getFunctionName().getItemName());
+    public void start() {
+        if (!this.loger.begin(new File(createLogPath()), true, true)) {
+            String mess = "can't delete local function log file of ".concat(functionName.getItemName());
             ErrorLog.addError(mess);
             JOptionPane.showMessageDialog(null, mess);
         }
         addLog(String.format("ITEM[%s] - FUNCTION[%s]",
-                this.getFunctionName(), getFunctionName().getFunctions()));
+                this.functionName, functionName.getFunctionName()));
+    }
+    
+    private String createLogPath() {
+        String settingPath = Setting.getInstance().getFunctionsLocalLogPath();
+        return String.format("%s/%s/%s_%s.txt",
+                settingPath, this.uiStatus.getName(),
+                this.functionName.getFunctionName(), this.functionName.getItemName());
     }
 
     public double getRunTime() {
@@ -92,7 +98,6 @@ public class FunctionData {
                 this.getRunTime(), getStatusTest()));
         this.loger.close();
         this.finaltemTests.putAll(itemTestManager.getItemTests());
-        this.timeS.stop();
     }
 
     public String getLog() {
@@ -123,11 +128,11 @@ public class FunctionData {
         }
     }
 
-    public void setFinalMapItems(Map<FunctionName, ItemTestData> mapfunctionData) {
+    public void setFinalMapItems(Map<String, ItemTestData> mapfunctionData) {
         this.finaltemTests = mapfunctionData;
     }
 
-    public String getErrorCode() {
+    public String getLocalErrorCode() {
         if (isPass()) {
             return null;
         }

@@ -6,10 +6,7 @@ package Control.Functions.FunctionsTest.Base.GetMacFromSfis;
 
 import Control.Functions.AbsFunction;
 import Control.Functions.FunctionsTest.Base.BaseFunction.FunctionBase;
-import Model.DataSource.ModeTest.FunctionConfig.FunctionElement;
-import Model.DataSource.ModeTest.FunctionConfig.FunctionName;
-import Model.DataTest.FunctionData.FunctionData;
-import Model.ManagerUI.UIStatus.UiStatus;
+import Model.DataTest.FunctionParameters;
 
 /**
  *
@@ -19,15 +16,15 @@ public class GetMacFromSfis extends AbsFunction {
 
     private final FunctionBase baseFunc;
 
-    public GetMacFromSfis(FunctionName itemName) {
-        super(itemName);
-        this.baseFunc = new FunctionBase(itemName);
+    public GetMacFromSfis(FunctionParameters functionParameters) {
+        this(functionParameters, null);
     }
+    
+    
 
-    @Override
-    public void setResources(FunctionElement funcConfig, UiStatus uiStatus, FunctionData functionData) {
-        super.setResources(funcConfig, uiStatus, functionData); // Generated from nbfs://nbhost/SystemFileSystem/Templates/Classes/Code/OverriddenMethodBody
-        this.baseFunc.setResources(funcConfig, uiStatus, functionData);
+    public GetMacFromSfis(FunctionParameters parameters, String item) {
+        super(parameters, item);
+        this.baseFunc = new FunctionBase(parameters, item);
     }
 
     @Override

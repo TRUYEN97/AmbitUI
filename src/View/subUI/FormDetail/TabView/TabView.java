@@ -83,11 +83,7 @@ public class TabView extends AbsTabUI {
         super.endTest(); // Generated from nbfs://nbhost/SystemFileSystem/Templates/Classes/Code/OverriddenMethodBody
         showMess(this.uiStatus.getProcessData().getMassage());
         if (this.uiStatus.getProcessData().isPass()) {
-            if (this.uiStatus.getProcessData().isDebug()) {
-                this.lbStatus.setBackground(Color.WHITE);
-            } else {
-                this.lbStatus.setBackground(Color.GREEN);
-            }
+            this.lbStatus.setBackground(Color.GREEN);
         } else {
             this.lbStatus.setBackground(Color.red);
         }

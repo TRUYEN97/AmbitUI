@@ -14,6 +14,7 @@ import Model.ErrorLog;
 import Model.ManagerUI.UIStatus.UiStatus;
 import com.alibaba.fastjson.JSONObject;
 import java.util.List;
+import java.util.Set;
 import javax.swing.JOptionPane;
 
 /**
@@ -22,60 +23,53 @@ import javax.swing.JOptionPane;
  */
 public class FuncAllConfig {
 
+    private static final String CHECK_BASE_ITEM = ".+_[0-9]+$";
     private final DataWareHouse wareHouse;
-    private final FunctionName functionName;
-    private FunctionElement functionElement;
-    private LimitElement limitElement;
-    private Limit limit;
-    private ErrorCodeElement localErrorCode;
-    private static final String CHECK = ".+_[0-9]+$";
+    private final FunctionConfig functionConfig;
+    private final LimitElement limitElement;
+    private final Limit limit;
+    private final ErrorCodeElement localErrorCode;
+    private final String itemName;
 
-    public FuncAllConfig(FunctionName itemConfig) {
+    public FuncAllConfig(UiStatus uiStatus, FunctionConfig functionConfig, String itemName) {
         this.wareHouse = new DataWareHouse();
-        this.functionName = itemConfig;
-    }
-
-    public void setResources(UiStatus uiStatus, FunctionElement functionElement) {
-        this.functionElement = functionElement;
-        if (this.functionElement == null) {
-            JOptionPane.showMessageDialog(null,
-                    String.format("Missing %s in the function config!", this.functionName));
-            System.exit(0);
-        }
+        this.functionConfig = functionConfig;
         this.limit = uiStatus.getModeTest().getModeTestSource().getLimit();
-        this.limitElement = getLimit(getBaseItem(functionName.getItemName()));
-        this.localErrorCode = findLocalErrorCode(uiStatus, getBaseItem(functionName.getItemName()));
+        if (itemName == null) {
+            this.itemName = functionConfig.getItemName();
+        } else {
+            this.itemName = itemName;
+        }
+        this.limitElement = findLimit(getBaseItem(this.itemName));
+        this.localErrorCode = findLocalErrorCode(uiStatus, getBaseItem(this.itemName));
         getAllValueOfConfig();
         getAllValueOfLimit();
     }
 
     private ErrorCodeElement findLocalErrorCode(UiStatus uiStatus, String itemName) {
         ErrorCodeSource codeSource = uiStatus.getModeTest().getModeTestSource().getErrorCodeSource();
-        if (codeSource == null) {
+        if (codeSource == null || codeSource.getElement(itemName) == null) {
+            String mess = String.format("Missing error code of %s !!",
+                    this.itemName);
+            JOptionPane.showMessageDialog(null, mess);
+            ErrorLog.addError(this, mess);
             return null;
         }
         return codeSource.getElement(itemName);
     }
 
     private String getBaseItem(String itemName) {
-        if (itemName.matches(CHECK) && getLimit(itemName) == null) {
+        if (itemName.matches(CHECK_BASE_ITEM) && findLimit(itemName) == null) {
             return itemName.substring(0, itemName.lastIndexOf("_"));
         }
         return itemName;
     }
 
-    private LimitElement getLimit(String nameItem) {
+    private LimitElement findLimit(String nameItem) {
         return this.limit.getElement(nameItem);
     }
 
     public JSONObject getLocalErrorCode(String type) {
-        if (localErrorCode == null) {
-            String mess = String.format("Missing error code of %s - %s type !!",
-                    this.functionName, type);
-            JOptionPane.showMessageDialog(null, mess);
-            ErrorLog.addError(this, mess);
-            return null;
-        }
         return this.localErrorCode.getErrorType(type);
     }
 
@@ -87,7 +81,7 @@ public class FuncAllConfig {
     }
 
     private void getAllValueOfConfig() {
-        this.wareHouse.putAll(this.functionElement.getJson());
+        this.wareHouse.putAll(this.functionConfig.getJson());
     }
 
     public Limit getLimits() {
@@ -95,7 +89,11 @@ public class FuncAllConfig {
     }
 
     public String getFunctionName() {
-        return this.functionElement.getFunctionName();
+        return this.functionConfig.getFunctionName();
+    }
+
+    public String getItemName() {
+        return this.functionConfig.getItemName();
     }
 
     public String getString(String key) {
@@ -131,14 +129,10 @@ public class FuncAllConfig {
     }
 
     private boolean funcConfigAvailable() {
-        return this.functionElement != null
-                && this.functionElement.getString(AllKeyWord.LIMIT_TYPE) != null
-                && (!this.functionElement.getString(AllKeyWord.LOWER_LIMIT).isBlank()
-                || !this.functionElement.getString(AllKeyWord.UPPER_LIMIT).isBlank());
-    }
-
-    public FunctionName getItemName() {
-        return functionName;
+        return this.functionConfig != null
+                && this.functionConfig.getString(AllKeyWord.LIMIT_TYPE) != null
+                && (!this.functionConfig.getString(AllKeyWord.LOWER_LIMIT).isBlank()
+                || !this.functionConfig.getString(AllKeyWord.UPPER_LIMIT).isBlank());
     }
 
     public Integer getInteger(String key) {
@@ -148,5 +142,17 @@ public class FuncAllConfig {
     public Integer getInteger(String key, int defaultV) {
         Integer value = getInteger(key);
         return value == null ? defaultV : value;
+    }
+
+    public boolean getBoolean(String key) {
+        return this.wareHouse.getBoolean(key);
+    }
+
+    public boolean getBoolean(String key, boolean defaultValue) {
+        return this.wareHouse.getBoolean(key, defaultValue);
+    }
+
+    public Set<String> getListItemName() {
+        return limit.getListItemName();
     }
 }

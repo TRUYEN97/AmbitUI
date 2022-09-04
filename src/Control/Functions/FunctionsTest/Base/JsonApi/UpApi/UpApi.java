@@ -8,11 +8,10 @@ import Control.Functions.AbsFunction;
 import Control.Functions.FunctionsTest.Base.BaseFunction.AnalysisBase;
 import Control.Functions.FunctionsTest.Base.BaseFunction.FileBaseFunction;
 import Control.Functions.FunctionsTest.Base.BaseFunction.FunctionBase;
-import Model.DataSource.ModeTest.FunctionConfig.FunctionElement;
-import Model.DataTest.FunctionData.FunctionData;
 import Model.ManagerUI.UIStatus.UiStatus;
 import Communicate.Cmd.Cmd;
 import Model.DataSource.ModeTest.FunctionConfig.FunctionName;
+import Model.DataTest.FunctionParameters;
 import java.util.List;
 
 /**
@@ -25,19 +24,15 @@ public class UpApi extends AbsFunction {
     private final AnalysisBase analysisBase;
     private final FileBaseFunction fileBaseFunction;
 
-    public UpApi(FunctionName itemName) {
-        super(itemName);
-        this.functionBase = new FunctionBase(itemName);
-        this.analysisBase = new AnalysisBase(itemName);
-        this.fileBaseFunction = new FileBaseFunction(itemName);
+    public UpApi(FunctionParameters parameters) {
+        this(parameters, null);
     }
-
-     @Override
-    public void setResources(FunctionElement funcConfig, UiStatus uiStatus, FunctionData functionData) {
-        super.setResources(funcConfig, uiStatus, functionData); // Generated from nbfs://nbhost/SystemFileSystem/Templates/Classes/Code/OverriddenMethodBody
-        this.functionBase.setResources(funcConfig, uiStatus, functionData);
-        this.fileBaseFunction.setResources(funcConfig, uiStatus, functionData);
-        this.analysisBase.setResources(funcConfig, uiStatus, functionData);
+    
+    public UpApi(FunctionParameters parameters, String item) {
+        super(parameters, item);
+        this.functionBase = new FunctionBase(parameters, item);
+        this.analysisBase = new AnalysisBase(parameters, item);
+        this.fileBaseFunction = new FileBaseFunction(parameters, item);
     }
 
     @Override

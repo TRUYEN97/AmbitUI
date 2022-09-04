@@ -7,11 +7,8 @@ package Control.Functions.FunctionsTest.ON_OFF.AsideOnOffPing;
 import Control.Functions.AbsFunction;
 import Control.Functions.FunctionsTest.Base.DutPing.DutPing;
 import Control.Functions.FunctionsTest.MBLT.UsbAside.UsbAside;
-import Model.DataSource.ModeTest.FunctionConfig.FunctionElement;
-import Model.DataSource.ModeTest.FunctionConfig.FunctionName;
-import Model.DataTest.FunctionData.FunctionData;
+import Model.DataTest.FunctionParameters;
 import Model.ErrorLog;
-import Model.ManagerUI.UIStatus.UiStatus;
 
 /**
  *
@@ -21,17 +18,15 @@ public class AsideOnOffPing extends AbsFunction{
 
     private final UsbAside aside;
     private final DutPing dutPing;
-    public AsideOnOffPing(FunctionName itemName) {
-        super(itemName);
-        this.aside = new UsbAside(itemName);
-        this.dutPing = new DutPing(itemName);
+    
+    public AsideOnOffPing(FunctionParameters parameters) {
+        this(parameters, null);
     }
-
-    @Override
-    public void setResources(FunctionElement functionElement, UiStatus uiStatus, FunctionData functionData) {
-        super.setResources(functionElement, uiStatus, functionData); // Generated from nbfs://nbhost/SystemFileSystem/Templates/Classes/Code/OverriddenMethodBody
-        this.aside.setResources(functionElement, uiStatus, functionData);
-        this.dutPing.setResources(functionElement, uiStatus, functionData);
+    
+    public AsideOnOffPing(FunctionParameters parameters, String item) {
+        super(parameters, item);
+        this.aside = new UsbAside(parameters, item);
+        this.dutPing = new DutPing(parameters, item);
     }
     
 

@@ -1,0 +1,4 @@
+2022-09-03 19:06:41.685:   error in Control.Core.Process : Cannot invoke "Model.DataTest.FunctionData.FunctionData.addItemtest(Model.DataTest.FunctionData.ItemTestData)" because "this.functionData" is null
+2022-09-03 19:06:41.685:   //////////////////////////////////////
+2022-09-03 19:08:33.593:   error in Control.Functions.FunctionsTest.Base.FixtureActions.FixtureAction : Cannot invoke "Object.toString()" because "str" is null
+2022-09-03 19:08:33.593:   //////////////////////////////////////

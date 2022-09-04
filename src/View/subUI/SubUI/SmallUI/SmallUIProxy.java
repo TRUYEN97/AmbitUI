@@ -18,10 +18,10 @@ public class SmallUIProxy extends AbsProxy<String, AbsSubUi> {
 
     @Override
     public AbsSubUi takeIt() {
-        if (getID() == null) {
+        if (getParameter() == null) {
             return null;
         }
-        return new SmallUI(getID());
+        return new SmallUI(getParameter());
     }
 
 }

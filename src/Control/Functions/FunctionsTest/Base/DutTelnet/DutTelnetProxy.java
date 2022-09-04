@@ -5,18 +5,18 @@
 package Control.Functions.FunctionsTest.Base.DutTelnet;
 
 import Control.Functions.AbsFunction;
-import Model.DataSource.ModeTest.FunctionConfig.FunctionName;
+import Model.DataTest.FunctionParameters;
 import Model.Factory.AbsProxy;
 
 /**
  *
  * @author Administrator
  */
-public class DutTelnetProxy extends AbsProxy<FunctionName, AbsFunction>{
+public class DutTelnetProxy extends AbsProxy<FunctionParameters, AbsFunction>{
 
     @Override
     public AbsFunction takeIt() {
-        return new DutTelnet(getID());
+        return new DutTelnet(getParameter());
     }
     
 }

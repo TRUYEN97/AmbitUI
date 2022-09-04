@@ -6,9 +6,10 @@ package Control.Functions.FunctionsTest.MBLT.VoltageTest;
 
 import Control.Functions.AbsFunction;
 import Control.Functions.FunctionsTest.Base.BaseFunction.AnalysisBase;
-import Model.DataSource.ModeTest.FunctionConfig.FunctionElement;
+import Model.DataSource.ModeTest.FunctionConfig.FunctionConfig;
 import Model.DataSource.ModeTest.FunctionConfig.FunctionName;
 import Model.DataTest.FunctionData.FunctionData;
+import Model.DataTest.FunctionParameters;
 import Model.ManagerUI.UIStatus.UiStatus;
 
 /**
@@ -20,15 +21,13 @@ public class checkVolt extends AbsFunction {
     private final AnalysisBase analysisBase;
     private String value;
 
-    public checkVolt(FunctionName itemName) {
-        super(itemName);
-        this.analysisBase = new AnalysisBase(itemName);
+    public checkVolt(FunctionParameters parameters, String item) {
+        super(parameters, item);
+        this.analysisBase = new AnalysisBase(parameters, item);
     }
-
-    @Override
-    public void setResources(FunctionElement functionElement, UiStatus uiStatus, FunctionData functionData) {
-        super.setResources(functionElement, uiStatus, functionData); // Generated from nbfs://nbhost/SystemFileSystem/Templates/Classes/Code/OverriddenMethodBody
-        this.analysisBase.setResources(functionElement, uiStatus, functionData);
+    
+    public checkVolt(FunctionParameters parameters) {
+        this(parameters, null);
     }
 
     @Override

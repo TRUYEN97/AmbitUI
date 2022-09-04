@@ -10,9 +10,8 @@ import Control.Functions.FunctionsTest.Base.BaseFunction.FileBaseFunction;
 import Control.Functions.FunctionsTest.Base.BaseFunction.FunctionBase;
 import Control.Functions.FunctionsTest.FaAPI.CreateFaJson.KeyWordFaAPI.FUNC_KEY;
 import Model.AllKeyWord;
-import Model.DataSource.ModeTest.FunctionConfig.FunctionElement;
 import Model.DataSource.ModeTest.FunctionConfig.FunctionName;
-import Model.DataTest.FunctionData.FunctionData;
+import Model.DataTest.FunctionParameters;
 import Model.ManagerUI.UIStatus.UiStatus;
 import com.alibaba.fastjson.JSONArray;
 import com.alibaba.fastjson.JSONObject;
@@ -27,19 +26,16 @@ public class CreateFaJson extends AbsFunction {
     private final AnalysisBase analysisBase;
     private final FileBaseFunction fileBaseFunction;
 
-    public CreateFaJson(FunctionName itemName) {
-        super(itemName);
-        this.baseFunc = new FunctionBase(itemName);
-        this.analysisBase = new AnalysisBase(itemName);
-        this.fileBaseFunction = new FileBaseFunction(itemName);
+    
+    public CreateFaJson(FunctionParameters parameters) {
+        this(parameters, null);
     }
-
-     @Override
-    public void setResources(FunctionElement funcConfig, UiStatus uiStatus, FunctionData functionData) {
-        super.setResources(funcConfig, uiStatus, functionData); // Generated from nbfs://nbhost/SystemFileSystem/Templates/Classes/Code/OverriddenMethodBody
-        this.baseFunc.setResources(funcConfig, uiStatus, functionData);
-        this.analysisBase.setResources(funcConfig, uiStatus, functionData);
-        this.fileBaseFunction.setResources(funcConfig, uiStatus, functionData);
+    
+    public CreateFaJson(FunctionParameters parameters, String item) {
+        super(parameters, item);
+        this.baseFunc = new FunctionBase(parameters, item);
+        this.analysisBase = new AnalysisBase(parameters, item);
+        this.fileBaseFunction = new FileBaseFunction(parameters, item);
     }
 
     @Override

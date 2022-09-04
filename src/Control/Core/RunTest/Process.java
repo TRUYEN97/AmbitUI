@@ -2,29 +2,31 @@
  * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
  * Click nbfs://nbhost/SystemFileSystem/Templates/Classes/Class.java to edit this template
  */
-package Control.Core;
+package Control.Core.RunTest;
 
 import Control.Functions.FunctionCover;
+import Model.DataSource.ModeTest.FunctionConfig.FunctionConfig;
 import Model.DataSource.ModeTest.FunctionConfig.FunctionName;
+import Model.DataTest.FunctionData.FunctionData;
+import Model.DataTest.FunctionParameters;
 import Model.ErrorLog;
 import Model.Factory.Factory;
-import Model.Interface.IFunction;
 import Model.ManagerUI.UIStatus.UiStatus;
 import java.util.ArrayList;
 import java.util.List;
+import javax.swing.JOptionPane;
 
 /**
  *
  * @author Administrator
  */
-class Process implements IFunction {
+class Process implements Runnable {
 
     private final List<FunctionCover> multiTasking;
     private final List<FunctionName> functions;
     private final Factory factory;
     private final UiStatus uiStatus;
     private boolean justFunctionAlwayRun;
-    private boolean result;
     private boolean test;
 
     public Process(UiStatus uiStatus) {
@@ -35,20 +37,16 @@ class Process implements IFunction {
     }
 
     public void setListFunc(List<FunctionName> functions) {
-        this.result = true;
         this.justFunctionAlwayRun = false;
         this.functions.clear();
         this.functions.addAll(functions);
     }
 
-    private FunctionCover createFuncCover(FunctionName function) {
+    private FunctionCover createFuncCover(FunctionName functionName) {
+        FunctionParameters parameters = getFunctionConfig(functionName);
         return new FunctionCover(
-                this.factory.getFunc(function), uiStatus);
-    }
-
-    @Override
-    public boolean isPass() {
-        return result && !justFunctionAlwayRun;
+                this.factory.getFunc(functionName.getFunctionName(),
+                        parameters));
     }
 
     @Override
@@ -56,16 +54,19 @@ class Process implements IFunction {
         try {
             test = true;
             FunctionCover funcCover;
-            for (FunctionName functionName : functions) {
-                funcCover = createFuncCover(functionName);
-                if (justFunctionAlwayRun && !funcCover.isAlwaysRun()) {
+            FunctionName functionName;
+            for (int i = 0; i < functions.size(); i++) {
+                functionName = functions.get(i);
+                if (justFunctionAlwayRun && !isAlwaysRun(functionName)) {
                     continue;
                 }
+                funcCover = createFuncCover(functionName);
                 if (funcCover.isWaitUntilMultiDone()) {
                     waitUntilMultiTaskDone();
                 }
-                funcCover.start();
                 multiTasking.add(funcCover);
+                funcCover.setDaemon(true);
+                funcCover.start();
                 if (funcCover.isMutiTasking()) {
                     continue;
                 }
@@ -85,23 +86,17 @@ class Process implements IFunction {
     }
 
     private void waitUntilMultiTaskDone() {
-        try {
-            while (!multiTasking.isEmpty()) {
-                if (hasTaskFailed()) {
-                    justFunctionAlwayRun = true;
-                }
-                Thread.sleep(100);
+        while (!multiTasking.isEmpty()) {
+            if (hasTaskFailed()) {
+                justFunctionAlwayRun = true;
             }
-        } catch (InterruptedException ex) {
         }
     }
 
     void stop(String mess) {
-        functions.clear();
         if (multiTasking.isEmpty()) {
             return;
         }
-        result = false;
         for (FunctionCover functionCover : multiTasking) {
             functionCover.stopTest(mess);
         }
@@ -113,10 +108,7 @@ class Process implements IFunction {
             for (FunctionCover cover : multiTasking) {
                 if (!cover.isAlive()) {
                     funcRemoves.add(cover);
-                    if (!cover.getFunction().isPass()) {
-                        result = false;
-                        return !cover.isSkipFail();
-                    }
+                    return !cover.isPass() && !cover.isSkipFail();
                 }
             }
             return false;
@@ -129,8 +121,22 @@ class Process implements IFunction {
         }
     }
 
-    @Override
     public boolean isTesting() {
         return test;
+    }
+
+    private FunctionParameters getFunctionConfig(FunctionName functionName) {
+        FunctionConfig config = uiStatus.getModeTest().getModeTestSource().getFunctionsConfig(functionName);
+        if (config == null) {
+            JOptionPane.showMessageDialog(null,
+                    String.format("Missing %s in the function config!", functionName));
+            System.exit(0);
+        }
+        return new FunctionParameters(config, uiStatus, new FunctionData(uiStatus, functionName));
+    }
+
+    private boolean isAlwaysRun(FunctionName functionName) {
+        FunctionConfig config = uiStatus.getModeTest().getModeTestSource().getFunctionsConfig(functionName);
+        return config.isAlwaysRun();
     }
 }
