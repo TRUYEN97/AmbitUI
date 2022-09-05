@@ -54,6 +54,7 @@ public class FunctionCover extends Thread {
                         function.runTest();
                     }
                 };
+                this.thread.setDaemon(false);
                 this.thread.start();
                 checkOutTime();
             }

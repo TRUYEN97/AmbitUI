@@ -61,7 +61,7 @@ public class ModeTest implements IInit, IUpdate {
 
     @Override
     public boolean update() {
-        return this.testSource.updateFunctionsConfig();
+        return this.testSource.updateFunctionsConfig() && this.testSource.updateLimitsConfig();
     }
 
     public boolean isDebugMode() {

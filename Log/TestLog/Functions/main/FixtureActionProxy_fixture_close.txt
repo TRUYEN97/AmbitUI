@@ -1,29 +1,16 @@
-2022-09-04 19:58:34.589:   ITEM[fixture_close] - FUNCTION[FixtureActionProxy]
-2022-09-04 19:58:34.590:   Turn run: 1
-2022-09-04 19:58:34.590:   [ComPort] Connect to : COM5
-2022-09-04 19:58:34.590:   [ComPort] BaudRate is: 115200
-2022-09-04 19:58:34.682:   [ComPort] Connect COM5 ok
-2022-09-04 19:58:34.682:   [Config] keyWord: [pcname, OK]
-2022-09-04 19:58:34.683:   [Config] Time: 6
-2022-09-04 19:58:34.683:   [PC] True keys: [Dell-E7280, OK]
-2022-09-04 19:58:34.683:   [ComPort] Send command: AT+READ_FIXNUM%
-2022-09-04 19:58:34.790:   [Config] keyWords: [Dell-E7280, OK]
-2022-09-04 19:58:37.606:   This function will be stop! Because This function has out of run time!
-2022-09-04 19:58:37.606:   Time: 3.017 S
-2022-09-04 19:58:37.607:   Spec: 3 S
-2022-09-04 19:58:37.607:   Try to stop!!
-2022-09-04 19:58:37.607:   [PC] Disconnect ComPort ok
-2022-09-04 19:58:37.608:   ****************************************************
-2022-09-04 19:58:37.608:   Item name = FIXTURE_CLOSE
-2022-09-04 19:58:37.608:   Limit type = BOOL
-2022-09-04 19:58:37.608:   Uper limit =
-2022-09-04 19:58:37.608:   Lowet limit =
-2022-09-04 19:58:37.608:   Value = failed
-2022-09-04 19:58:37.608:   Test status = failed
-2022-09-04 19:58:37.608:   -----------------------------------------------------
-2022-09-04 19:58:37.608:   Error code = 1.11
-2022-09-04 19:58:37.609:   Error des = FIXTURE_CLOSE
-2022-09-04 19:58:37.609:   Local error code = FIX00
-2022-09-04 19:58:37.609:   Local error des = fixture_close
-2022-09-04 19:58:37.609:   ****************************************************
-2022-09-04 19:58:37.609:   TIME[3.020 s] - STATUS[FAILED]
+2022-09-05 07:42:20.473:   ITEM[fixture_close] - FUNCTION[FixtureActionProxy]
+2022-09-05 07:42:20.474:   Turn run: 1
+2022-09-05 07:42:20.477:   [ComPort] Connect to : COM5
+2022-09-05 07:42:20.477:   [ComPort] BaudRate is: 115200
+2022-09-05 07:42:20.484:   [ComPort] Connect COM5 failed
+2022-09-05 07:42:20.484:   ****************************************************
+2022-09-05 07:42:20.484:   Item name = fixture_close
+2022-09-05 07:42:20.484:   Value = failed
+2022-09-05 07:42:20.485:   Test status = failed
+2022-09-05 07:42:20.485:   -----------------------------------------------------
+2022-09-05 07:42:20.486:   Error code = -1
+2022-09-05 07:42:20.486:   Error des = fixture_close
+2022-09-05 07:42:20.486:   Local error code = FIX00
+2022-09-05 07:42:20.486:   Local error des = fixture_close
+2022-09-05 07:42:20.486:   ****************************************************
+2022-09-05 07:42:20.487:   TIME[0.012 s] - STATUS[FAILED]

@@ -88,4 +88,8 @@ public class ModeElement extends AbsElementInfo {
         Integer value = this.warehouse.getInteger(AllKeyWord.LOOP_TEST);
         return value == null || value < 1 ? 1 : value;
     }
+
+    public String getLocalLimitPath() {
+        return this.warehouse.getString(AllKeyWord.LIMIT_PATH);
+    }
 }

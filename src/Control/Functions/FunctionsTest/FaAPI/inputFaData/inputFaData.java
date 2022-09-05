@@ -5,7 +5,6 @@
 package Control.Functions.FunctionsTest.FaAPI.inputFaData;
 
 import Control.Functions.AbsFunction;
-import Model.DataSource.ModeTest.FunctionConfig.FunctionName;
 import Model.DataTest.FunctionParameters;
 import Model.ErrorLog;
 import View.subUI.FormDetail.TabFaApi.TabFaApi;

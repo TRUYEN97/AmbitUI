@@ -10,6 +10,7 @@ import Model.DataSource.ModeTest.FunctionConfig.FunctionConfig;
 import Model.DataSource.ModeTest.FunctionConfig.FunctionName;
 import Model.DataSource.ModeTest.Limit.Limit;
 import Model.DataSource.Setting.ModeElement;
+import Model.DataSource.Setting.Setting;
 import java.awt.HeadlessException;
 import java.util.List;
 import javax.swing.JOptionPane;
@@ -20,14 +21,16 @@ import javax.swing.JOptionPane;
  */
 public class ModeTestSource {
 
-    private Limit limit;
-    private ErrorCodeSource errorCode;
+    private final Limit limit;
+    private final ErrorCodeSource errorCode;
     private final AmbitConfig functionConfig;
     private final ModeElement modeConfig;
 
     public ModeTestSource(ModeElement modeInfo) {
         this.modeConfig = modeInfo;
         this.functionConfig = new AmbitConfig();
+        this.limit = new Limit();
+        this.errorCode = ErrorCodeSource.getInstance();
     }
 
     public ModeElement getModeConfig() {
@@ -75,27 +78,50 @@ public class ModeTestSource {
     }
 
     public boolean updateFunctionsConfig() throws HeadlessException {
-        if (!checkAmbitConfig()) {
-            JOptionPane.showMessageDialog(null, "Update functionsConfig failed!");
+        String configFile = modeConfig.getAmbitConfigPath();
+        if (!checkAmbitConfig(configFile)) {
+            JOptionPane.showMessageDialog(null, 
+                    "Update functionsConfig failed! Local file: " + configFile);
             return false;
         }
         if (!checkStationName()) {
             JOptionPane.showMessageDialog(null,
-                    "Station setting and station functionsConfig are different!");
+                    "Station setting and station in functionsConfig different! Local file: " + configFile);
             return false;
         }
-        this.limit = Limit.getInstance();
-        this.errorCode = ErrorCodeSource.getInstance();
+        return true;
+    }
+    
+    public boolean updateLimitsConfig() throws HeadlessException {
+        String pathFile = modeConfig.getLocalLimitPath();
+        String command = Setting.getInstance().getUpdateLimitCommand();
+        if (!updateLimit(pathFile,command )) {
+            String mess = String.format("Update limits failed!\r\nLocal: %s\r\ncommand: %s", pathFile, command);
+            JOptionPane.showMessageDialog(null, mess);
+            return false;
+        }
         return true;
     }
 
-    private boolean checkAmbitConfig() {
-        var filePath = modeConfig.getAmbitConfigPath();
-        if (filePath == null) {
+    private boolean updateLimit(String path, String cmd) {
+        if (this.limit == null) {
             return false;
         }
-        this.functionConfig.setPath(filePath);
-        return (this.functionConfig != null && this.functionConfig.init());
+        if (cmd == null) {
+            JOptionPane.showMessageDialog(null, "no set limit for test.");
+            return true;
+        }
+        this.limit.setPath(path);
+        this.limit.setUpdateCommand(cmd);
+        return this.limit.init();
+    }
+
+    private boolean checkAmbitConfig(String file) {
+        if (file == null || this.functionConfig == null) {
+            return false;
+        }
+        this.functionConfig.setPath(file);
+        return this.functionConfig.init();
     }
 
     private boolean checkStationName() {
@@ -120,6 +146,6 @@ public class ModeTestSource {
     }
 
     public List<FunctionName> getSelectedItem(List<FunctionName> listItem) {
-        return  this.functionConfig.getSelectedItem(listItem);
+        return this.functionConfig.getSelectedItem(listItem);
     }
 }

@@ -9,8 +9,6 @@ import Model.AllKeyWord;
 import Model.ErrorLog;
 import Model.DataSource.AbsJsonSource;
 import Model.DataSource.DataWareHouse;
-import Model.DataSource.Setting.Setting;
-import Time.WaitTime.Class.TimeS;
 import com.alibaba.fastjson.JSONObject;
 import Communicate.Cmd.Cmd;
 import static java.util.Objects.isNull;
@@ -23,33 +21,20 @@ import javax.swing.JOptionPane;
  */
 public class Limit extends AbsJsonSource<String, LimitElement> {
 
-    private static volatile Limit instaince;
+    private String updateCmd;
 
-    private Limit() {
+    public Limit() {
         super();
-    }
-
-    public static Limit getInstance() {
-        Limit ins = Limit.instaince;
-        if (ins == null) {
-            synchronized (Limit.class) {
-                ins = Limit.instaince;
-                if (ins == null) {
-                    Limit.instaince = ins = new Limit();
-                }
-            }
-        }
-        return ins;
     }
 
     @Override
     public boolean init() {
-        if (update()) {
-            return true;
-        }
-        JOptionPane.showMessageDialog(null,
-                "Update limit file failed!\r\nRead limit in local file.");
-        return super.init();
+        return update() && super.init();
+    }
+
+    public AbsJsonSource setUpdateCommand(String cmd) {
+        this.updateCmd = cmd;
+        return this;
     }
 
     public Set<String> getListItemName() {
@@ -80,17 +65,13 @@ public class Limit extends AbsJsonSource<String, LimitElement> {
     }
 
     private boolean update() {
-        String command = Setting.getInstance().getUpdateLimitCommand();
         Cmd cmd = new Cmd();
-        cmd.sendCommand(command);
-        String newLimit = getNewLimit(cmd.readAll(new TimeS(5)));
+        cmd.sendCommand(updateCmd);
+        String newLimit = getNewLimit(cmd.readAll());
         if (newLimit == null) {
             return false;
         }
-        if (!saveToFile(readFile.getPath(), newLimit)) {
-            return false;
-        }
-        return readFile.setData(newLimit) && resetData() && getData();
+        return saveToFile(readFile.getPath(), newLimit);
     }
 
     private String getNewLimit(String response) {
@@ -124,7 +105,6 @@ public class Limit extends AbsJsonSource<String, LimitElement> {
     }
 
     private boolean saveToFile(String path, String newLimit) {
-        System.out.println(newLimit);
         return new FileService().saveFile(path, newLimit);
     }
 

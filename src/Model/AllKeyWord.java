@@ -4,15 +4,16 @@
  */
 package Model;
 
-import java.util.Arrays;
-import java.util.List;
-
 /**
  *
  * @author Administrator
  */
-public class AllKeyWord {
+public final class AllKeyWord {
 
+    private AllKeyWord() {
+    }
+
+    
     public static final String MODEL = "model";
     public static final String STATION_TYPE = "station_type";
     public static final String STATION_NAME = "station_name";
@@ -89,12 +90,10 @@ public class AllKeyWord {
     public static final String LOCAL_FUNCTION_LOG = "LOCAL_FUNCTION_LOG";
     public static final String LOCAL_LOG = "LOCAL_LOG";
     public static final String GIAI_DOAN = "GIAI_DOAN";
-    public static final String FTP_USER = "FtpUser";
-    public static final String FTP_PASSWORD = "FtpPassword";
-    public static final String FTP_PORT = "FtpPort";
     public static final String POSITION = "position";
     public static final String FTP_HOST = "FtpHost";
-    public static final String LIMIT_CMD = "LimitCMD";
+    public static final String LIMIT_PATH = "LimitPath";
+    public static final String UPDATE_LIMIT_CMD = "LimitUpdate";
     public static final String LOCAL_ERROR_CODE = "local_error_code";
     public static final String LOCAL_ERROR_DES = "local_error_des";
     public static final String LOOP_FUNC = "LoopTimes";

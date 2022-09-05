@@ -1,6 +1,6 @@
 {
     "UUT_MODEL": "eden",
-    "station_type": "RUNIN",
+    "station_type": "OnOff",
     "TIME_OUT_TEST": 11000,
     "INIT": [
         {
@@ -15,7 +15,8 @@
         },
         {
             "FLAG": true,
-            "TIME_OVER": 30,
+            "TIME_OVER": 50,
+	    "DISCRETE_TEST": true,
             "MULTI": false,
             "host": "192.168.1.10",
             "user": "admin",
@@ -35,7 +36,8 @@
             "Functions": [
                 {
             	"FLAG": true,
-            	"TIME_OVER": 30,
+            	"TIME_OVER": 50,
+		"DISCRETE_TEST": true,
             	"MULTI": false,
             	"host": "192.168.1.10",
             	"user": "admin",
@@ -48,19 +50,22 @@
         	},
                 {
             	"FLAG": true,
-            	"TIME_OVER": 120,
+            	"TIME_OVER": 150,
             	"MULTI": false,
+		"DISCRETE_TEST": true,
             	"IP": "192.168.1.1",
             	"test_name": "dut_ping",
             	"FUNC_NAME": "DutPingProxy"
         	}
             ]
-        },
+        }
+    ],
+    "END": [
         {
             "FLAG": true,
-            "TIME_OVER": 30,
-            "MULTI": false,
-            "ALWAYS_RUN": false,
+            "TIME_OVER": 50,
+            "MULTI": true,
+	    "DISCRETE_TEST": true,
             "host": "192.168.1.10",
             "user": "admin",
             "password": "1234",
@@ -69,12 +74,10 @@
             "Command": ["off"],
             "test_name": "ReleasePowerSwitchOutlet",
             "FUNC_NAME": "PowerSwitchProxy"
-        }
-    ],
-    "END": [
+        },
         {
             "FLAG": true,
-            "TIME_OVER": 5,
+            "TIME_OVER": 50,
             "WAIT_MULTI_DONE": true,
             "MaxLength": 8,
             "SEND_FORMAT": ["sn", "pcname", "status"],
@@ -86,7 +89,7 @@
         },
         {
             "FLAG": true,
-            "TIME_OVER": 30,
+            "TIME_OVER": 150,
             "ALWAYS_RUN": true,
             "MULTI": false,
             "localFile": "python/log",
@@ -96,7 +99,7 @@
         },
         {
             "FLAG": true,
-            "TIME_OVER": 5,
+            "TIME_OVER": 150,
             "WAIT_MULTI_DONE": true,
             "ALWAYS_RUN": true,
             "User": "oper",

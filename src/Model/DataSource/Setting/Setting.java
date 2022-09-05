@@ -65,24 +65,12 @@ public class Setting extends AbsJsonSource<String, ModeElement> implements IInit
         return this.readFile.getData().getString(AllKeyWord.LOCAL_LOG);
     }
 
-    public String getFtpHost() {
-        return this.readFile.getData().getString(AllKeyWord.FTP_HOST);
-    }
-
-    public int getFtpPort() {
-        return this.readFile.getData().getInteger(AllKeyWord.FTP_PORT);
-    }
-
-    public String getFtpPassWord() {
-        return this.readFile.getData().getString(AllKeyWord.FTP_PASSWORD);
-    }
-
-    public String getFtpUser() {
-        return this.readFile.getData().getString(AllKeyWord.FTP_USER);
-    }
-
     public String getUpdateLimitCommand() {
-        return this.readFile.getData().getString(AllKeyWord.LIMIT_CMD);
+        return this.readFile.getData().getString(AllKeyWord.UPDATE_LIMIT_CMD);
+    }
+    
+    public String getLimitPath() {
+        return this.readFile.getData().getString(AllKeyWord.LIMIT_PATH);
     }
 
     public boolean isOnDHCP() {

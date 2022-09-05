@@ -39,20 +39,12 @@ public class InfoBase implements IInit {
         return ins;
     }
 
-    public String getPathOfLimit() {
-        return getValueOf("limitPath");
-    }
-
     public String getPathOfErroCode() {
         return getValueOf("ErroCodePath");
     }
 
     public String getPathOfAmbitconfig() {
         return getValueOf("ambitconfigPath");
-    }
-
-    public String getPathOfSfis() {
-        return getValueOf("Sfis");
     }
 
     public String getPathOfSetting() {
@@ -67,10 +59,6 @@ public class InfoBase implements IInit {
             e.printStackTrace();
             ErrorLog.addError(this, e.getLocalizedMessage());
         }
-    }
-
-    public String getCommandForLimit() {
-        return getString("CommandLimit");
     }
 
     private String getValueOf(String key) {
