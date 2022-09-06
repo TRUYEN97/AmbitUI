@@ -45,11 +45,11 @@ public class MMC_SPEED extends AbsFunction {
             }
             try {
                 telnet = this.baseFunc.getTelnet(ip, 23);
-                if (!this.baseFunc.sendCommand(telnet, this.allConfig.getString("command"))) {
+                if (!this.baseFunc.sendCommand(telnet, this.config.getString("command"))) {
                     return false;
                 }
-                int time = this.allConfig.getInteger("Time", 5);
-                String until = this.allConfig.getString("ReadUntil");
+                int time = this.config.getInteger("Time", 5);
+                String until = this.config.getString("ReadUntil");
                 data = this.analysisBase.getUntil(telnet, until, time);
             } catch (Exception e) {
                 e.printStackTrace();
@@ -78,11 +78,11 @@ public class MMC_SPEED extends AbsFunction {
 
     private boolean checkConfig() {
         if (block == null) {
-            block = allConfig.getString("Block");
+            block = config.getString("Block");
         }
         addLog("Config", "Block: " + block);
         if (key == null) {
-            key = this.allConfig.getString("KeyWord");
+            key = this.config.getString("KeyWord");
         }
         addLog("Config", "KeyWord: " + key);
         return key != null && block != null;

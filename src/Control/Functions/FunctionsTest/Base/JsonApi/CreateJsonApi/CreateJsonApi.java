@@ -54,7 +54,7 @@ public class CreateJsonApi extends AbsFunction {
 
     private JSONObject getRootJson() {
         JSONObject root = new JSONObject();
-        List<String> keyBases = allConfig.getListJsonArray("BaseKeys");
+        List<String> keyBases = config.getListJsonArray("BaseKeys");
         for (String keyBase : keyBases) {
             addValueTo(root, keyBase);
         }
@@ -71,8 +71,8 @@ public class CreateJsonApi extends AbsFunction {
     private JSONArray getTestsData(boolean statusTest) {
         JSONArray tests = new JSONArray();
         JSONObject itemTest;
-        List<String> testKeys = allConfig.getListJsonArray("TestKeys");
-        Limit limit = allConfig.getLimits();
+        List<String> testKeys = config.getListJsonArray("TestKeys");
+        Limit limit = config.getLimits();
         for (String itemName : limit.getListItemName()) {
             itemTest = this.processData.getItemData(itemName, testKeys);
             if (itemTest != null) {

@@ -31,15 +31,15 @@ public class FileBaseFunction extends AbsFunction {
     }
 
     public boolean saveJson(JSONObject data) {
-        String filePath = this.allConfig.getString("localFile");
-        List<String> elementName = this.allConfig.getListJsonArray("ElementName");
+        String filePath = this.config.getString("localFile");
+        List<String> elementName = this.config.getListJsonArray("ElementName");
         String nameFile = this.createNameFile(elementName,".json");
         return saveFile(filePath, nameFile, formatJson(data.toJSONString()));
     }
 
     public boolean saveTxt(String data) {
-        String filePath = this.allConfig.getString("localFile");
-        List<String> elementName = this.allConfig.getListJsonArray("ElementName");
+        String filePath = this.config.getString("localFile");
+        List<String> elementName = this.config.getListJsonArray("ElementName");
         String nameFile = this.createNameFile( elementName, ".txt");
         return saveFile(filePath, nameFile, data);
     }

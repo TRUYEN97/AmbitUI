@@ -22,7 +22,7 @@ import View.subUI.SubUI.AbsSubUi;
  */
 public abstract class AbsFunction implements IFunction {
 
-    protected final FuncAllConfig allConfig;
+    protected final FuncAllConfig config;
     protected final ProcessData processData;
     protected final ProcessTestSignal testSignal;
     protected final ProductData productData;
@@ -36,13 +36,14 @@ public abstract class AbsFunction implements IFunction {
 
     protected AbsFunction(FunctionParameters functionParameters, String itemName) {
         this.functionParameters = functionParameters;
-        this.allConfig = new FuncAllConfig(functionParameters.getUiStatus(),
-                functionParameters.getFunctionConfig(), itemName);
         this.functionData = functionParameters.getFunctionData();
-        this.itemTestData = new ItemTestData(allConfig,  this.functionData,
-                functionParameters.getUiStatus().getProcessData());
-        this.functionData.addItemtest(itemTestData);
-        this.analysisResult = new AnalysisResult(itemTestData, allConfig);
+        if (itemName == null) {
+            itemName = this.functionData.getFunctionName().getItemName();
+        }
+        this.functionData.addItemtest(itemName);
+        this.itemTestData = this.functionData.getItemData(itemName);
+        this.config = this.itemTestData.getAllConfig();
+        this.analysisResult = new AnalysisResult(itemTestData);
         this.subUI = functionParameters.getUiStatus().getSubUi();
         this.uIInfo = functionParameters.getUiStatus().getInfo();
         this.processData = functionParameters.getUiStatus().getProcessData();

@@ -32,8 +32,8 @@ public class ItemTestData {
     private final MyLoger loger;
     private boolean testing;
 
-    public ItemTestData(FuncAllConfig allConfig, FunctionData functionData, IgetTime timer) {
-         this.allConfig = allConfig;
+    public ItemTestData(FuncAllConfig allConfig, MyLoger loger, IgetTime timer) {
+        this.allConfig = allConfig;
         this.startTime = 0;
         this.keys = Arrays.asList(AllKeyWord.TEST_NAME,
                 AllKeyWord.LOWER_LIMIT,
@@ -41,7 +41,7 @@ public class ItemTestData {
                 AllKeyWord.UNITS);
         this.data = new JSONObject();
         this.error = new JSONObject();
-        this.loger = functionData.getLoger();
+        this.loger = loger;
         this.timer = timer;
     }
 
@@ -155,7 +155,7 @@ public class ItemTestData {
 
     public double getRunTime() {
         if (isTest()) {
-            return timer.getRuntime()- this.startTime;
+            return timer.getRuntime() - this.startTime;
         }
         return testTime;
     }
@@ -191,6 +191,10 @@ public class ItemTestData {
         this.loger.addLog(String.format("Error des = %s", errorDes));
         this.loger.addLog(String.format("Local error code = %s", localErrorCode));
         this.loger.addLog(String.format("Local error des = %s", localErrorDes));
+    }
+
+    public FuncAllConfig getAllConfig() {
+        return allConfig;
     }
 
 }

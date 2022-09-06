@@ -41,9 +41,9 @@ public class FixtureAction extends AbsFunction {
         if (comPort == null) {
             return false;
         }
-        List<String> commands = this.allConfig.getListJsonArray("FixtureCommands");
-        List<String> keyWords = this.allConfig.getListJsonArray("FixtureKeys");
-        int time = this.allConfig.getInteger("FixtureWait", 1);
+        List<String> commands = this.config.getListJsonArray("FixtureCommands");
+        List<String> keyWords = this.config.getListJsonArray("FixtureKeys");
+        int time = this.config.getInteger("FixtureWait", 1);
         return sendCommand(comPort, commands, keyWords, time);
     }
 
@@ -84,8 +84,8 @@ public class FixtureAction extends AbsFunction {
     }
 
     public ComPort getComport() {
-        String com = this.allConfig.getString("FixtureCom");
-        int baud = this.allConfig.getInteger("FixtureBaudRate", 9600);
+        String com = this.config.getString("FixtureCom");
+        int baud = this.config.getInteger("FixtureBaudRate", 9600);
         return this.base.getComport(com, baud);
     }
 

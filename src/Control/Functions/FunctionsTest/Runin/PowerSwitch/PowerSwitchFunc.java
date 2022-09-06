@@ -29,15 +29,15 @@ public class PowerSwitchFunc extends AbsFunction {
         try {
             String host = getHost();
             addLog("CONFIG", "host: " + host);
-            String user = this.allConfig.getString("user");
+            String user = this.config.getString("user");
             addLog("CONFIG", "user: " + user);
-            String pass = this.allConfig.getString("password");
+            String pass = this.config.getString("password");
             addLog("CONFIG", "passWord: " + pass);
-            int times = this.allConfig.getInteger("Times");
+            int times = this.config.getInteger("Times");
             addLog("CONFIG", "Times: " + times);
             int index = this.uIInfo.getCOLUMN();
             addLog("CONFIG", "index of switch: " + index);
-            int delay = this.allConfig.getInteger("Delay");
+            int delay = this.config.getInteger("Delay");
             addLog("CONFIG", "Delay time: " + delay + " s");
             PowerSwitch powerSwitch;
             powerSwitch = new PowerSwitch(host, user, pass);
@@ -66,7 +66,7 @@ public class PowerSwitchFunc extends AbsFunction {
     }
 
     private boolean run(PowerSwitch powerSwitch, int index, int delayS) {
-        List<String> commands = allConfig.getListJsonArray("Command");
+        List<String> commands = config.getListJsonArray("Command");
         for (String command : commands) {
             try {
                 if (command.equalsIgnoreCase("on")) {
@@ -112,17 +112,17 @@ public class PowerSwitchFunc extends AbsFunction {
     }
 
     private String getIP() {
-        String ipDefault = this.allConfig.getString("host");
+        String ipDefault = this.config.getString("host");
         return ipDefault.substring(ipDefault.lastIndexOf(".") + 1, ipDefault.length());
     }
 
     private String getNetIp() {
-        String ipDefault = this.allConfig.getString("host");
+        String ipDefault = this.config.getString("host");
         return ipDefault.substring(0, ipDefault.lastIndexOf("."));
     }
 
     private boolean isNotIP() {
-        String ip = this.allConfig.getString("host");
+        String ip = this.config.getString("host");
         return ip == null || !ip.matches("\\b((25[0-5]|2[0-4][0-9]|[01]?[0-9][0-9]?)(\\.|$)){4}\\b");
     }
 

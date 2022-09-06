@@ -46,16 +46,16 @@ public class OpenShort extends AbsFunction {
     public boolean stopAutoboot() {
         String dutCom;
         int dutBaud;
-        dutCom = this.allConfig.getString("DutCom");
-        dutBaud = this.allConfig.getInteger("DutBaudRate", 9600);
+        dutCom = this.config.getString("DutCom");
+        dutBaud = this.config.getInteger("DutBaudRate", 9600);
         ComPort dut = this.functionBase.getComport(dutCom, dutBaud);
         if (dut == null) {
             return false;
         }
         try {
-            String keyWord = this.allConfig.getString("DutKey");
+            String keyWord = this.config.getString("DutKey");
             addLog("Config", String.format("Key word: %s", keyWord));
-            int time = this.allConfig.getInteger("DutWait", 1);
+            int time = this.config.getInteger("DutWait", 1);
             addLog("Config", String.format("Test about %s s", time));
             TimeS timer = new TimeS(time);
             String line;
@@ -85,11 +85,11 @@ public class OpenShort extends AbsFunction {
     public boolean getCurrent() {
         ComPort fixture = this.fixtureAction.getComport();
         try {
-            String command = this.allConfig.getString("CurrentTest");
+            String command = this.config.getString("CurrentTest");
             if (fixture == null || !this.functionBase.sendCommand(fixture, command)) {
                 return false;
             }
-            String regex = this.allConfig.getString("CurrentRegex");
+            String regex = this.config.getString("CurrentRegex");
             String value = this.analysisBase.getValue(fixture, regex, new TimeS(1));
             if (this.analysisBase.isNumber(value)) {
                 double ampe = Double.parseDouble(value) / 1000.0;

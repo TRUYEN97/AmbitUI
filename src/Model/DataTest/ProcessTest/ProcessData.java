@@ -23,7 +23,7 @@ import java.util.Map;
  *
  * @author 21AK22
  */
-public class ProcessData implements IgetTime{
+public class ProcessData implements IgetTime {
 
     private final List<FunctionData> listFunctionData;
     private final Map<FunctionName, FunctionData> mapFunctionData;
@@ -38,7 +38,7 @@ public class ProcessData implements IgetTime{
     private String message;
     private final IgetTime testTimer;
 
-    public ProcessData( UiStatus uiStatus, IgetTime testTimer) {
+    public ProcessData(UiStatus uiStatus, IgetTime testTimer) {
         this.listFunctionData = new ArrayList<>();
         this.mapItemTestData = new HashMap<>();
         this.faidItems = new HashMap<>();
@@ -119,7 +119,7 @@ public class ProcessData implements IgetTime{
         this.data.put(AllKeyWord.FINISH_TIME, timeBase.getSimpleDateTime());
         this.data.put(AllKeyWord.FINISH_DAY, timeBase.getDate());
         if (testTimer != null) {
-            this.data.put(AllKeyWord.CYCLE_TIME, String.format("%.3f", getRuntime() / 1000));
+            this.data.put(AllKeyWord.CYCLE_TIME, String.format("%.3f", getRuntime()));
         }
         FunctionData testData = getFirstFail();
         if (testData == null) {
@@ -195,8 +195,11 @@ public class ProcessData implements IgetTime{
         if (functionData == null || this.listFunctionData.contains(functionData)) {
             return;
         }
-        functionData.setFinalMapItems(mapItemTestData);
         this.listFunctionData.add(functionData);
         this.mapFunctionData.put(functionData.getFunctionName(), functionData);
+    }
+
+    public void putAllItem(Map<String, ItemTestData> itemTests) {
+        this.mapItemTestData.putAll(itemTests);
     }
 }

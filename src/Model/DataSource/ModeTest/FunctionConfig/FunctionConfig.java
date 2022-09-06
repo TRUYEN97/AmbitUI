@@ -16,15 +16,22 @@ import java.util.Set;
  */
 public class FunctionConfig extends AbsElementInfo {
 
+    private final FunctionName functionName;
+    
     public FunctionConfig(JSONObject base, JSONObject config) {
         super(null, base, config);
+        this.functionName = new FunctionName(getItemName(), getFunctionName());
+    }
+    
+    public FunctionName getfFunctionName(){
+        return functionName;
     }
 
-    public String getFunctionName() {
+    public final String getFunctionName() {
         return this.warehouse.getString(AllKeyWord.FUNC_NAME);
     }
 
-    public String getItemName() {
+    public final String getItemName() {
         return this.warehouse.getString(AllKeyWord.TEST_NAME);
     }
 

@@ -39,7 +39,7 @@ public class RebootSoft extends AbsFunction {
     }
 
     private boolean cycleReboot(String ip) {
-        int times = this.allConfig.getInteger("Times");
+        int times = this.config.getInteger("Times");
         addLog("CONFIG", "Times: " + times);
         for (int i = 1; i <= times; i++) {
             addLog(String.format("cycle Times: %d - %d ", i, times));

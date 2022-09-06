@@ -40,10 +40,10 @@ public class UpFTP extends AbsFunction {
 
     @Override
     public boolean test() {
-        String user = this.allConfig.getString("User");
-        String passWord = this.allConfig.getString("Password");
-        String host = this.allConfig.getString("Host");
-        int port = this.allConfig.getInteger("Port", 21);
+        String user = this.config.getString("User");
+        String passWord = this.config.getString("Password");
+        String host = this.config.getString("Host");
+        int port = this.config.getInteger("Port", 21);
         ftp = this.baseFunc.initFtp(user, passWord, host, port);
         if (ftp == null) {
             return false;
@@ -58,18 +58,18 @@ public class UpFTP extends AbsFunction {
     }
 
     private String craeteFtpPath() {
-        List<String> elementName = this.allConfig.getListJsonArray("FtpName");
-        List<String> elementPath = this.allConfig.getListJsonArray("FtpPath");
+        List<String> elementName = this.config.getListJsonArray("FtpName");
+        List<String> elementPath = this.config.getListJsonArray("FtpPath");
         String dir = this.fileBaseFunction.createDirPath(elementPath);
-        String name = this.fileBaseFunction.createNameFile(elementName, allConfig.getString("FtpType"));
+        String name = this.fileBaseFunction.createNameFile(elementName, config.getString("FtpType"));
         return String.format("%s/%s", dir, name);
     }
 
     private String craeteLocalPath() {
-        List<String> elementName = this.allConfig.getListJsonArray("LocalName");
-        List<String> elementPath = this.allConfig.getListJsonArray("LocalPath");
+        List<String> elementName = this.config.getListJsonArray("LocalName");
+        List<String> elementPath = this.config.getListJsonArray("LocalPath");
         String dir = this.fileBaseFunction.createDirPath(elementPath);
-        String name = this.fileBaseFunction.createNameFile(elementName, allConfig.getString("LocalType"));
+        String name = this.fileBaseFunction.createNameFile(elementName, config.getString("LocalType"));
         return String.format("%s/%s", dir, name);
     }
 

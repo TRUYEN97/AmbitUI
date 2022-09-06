@@ -46,7 +46,7 @@ public class MMC_WR_SPEED extends AbsFunction {
         }
         String response;
         try {
-            String command = this.allConfig.getString("command");
+            String command = this.config.getString("command");
             if (!this.baseFunc.sendCommand(telnet, command)) {
                 return false;
             }
@@ -58,9 +58,9 @@ public class MMC_WR_SPEED extends AbsFunction {
         } finally {
             this.baseFunc.disConnect(telnet);
         }
-        List<String> items = this.allConfig.getListJsonArray("ItemNames");
-        List<String> blocks = this.allConfig.getListJsonArray("Block");
-        List<String> KeyWords = this.allConfig.getListJsonArray("KeyWord");
+        List<String> items = this.config.getListJsonArray("ItemNames");
+        List<String> blocks = this.config.getListJsonArray("Block");
+        List<String> KeyWords = this.config.getListJsonArray("KeyWord");
         addLog("Config", "Items: " + items);
         addLog("Config", "Block: " + blocks);
         addLog("Config", "KeyWord: " + blocks);
@@ -83,8 +83,8 @@ public class MMC_WR_SPEED extends AbsFunction {
     }
 
     private String getResponse(Telnet telnet) {
-        int time = this.allConfig.getInteger("Time", 5);
-        String until = this.allConfig.getString("ReadUntil");
+        int time = this.config.getInteger("Time", 5);
+        String until = this.config.getString("ReadUntil");
         return this.analysisBase.getUntil(telnet, until, time);
     }
 

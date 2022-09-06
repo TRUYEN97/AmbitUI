@@ -43,12 +43,12 @@ public class CheckDutInfo extends AbsFunction {
     private boolean check(String ip) {
         Telnet telnet = this.baseFunc.getTelnet(ip, 23);
         try {
-            if (telnet == null || !this.baseFunc.sendCommand(telnet, allConfig.getString("command"))) {
+            if (telnet == null || !this.baseFunc.sendCommand(telnet, config.getString("command"))) {
                 return false;
             }
-            String startkey = allConfig.getString("Startkey");
-            String endkey = allConfig.getString("Endkey");
-            String regex = allConfig.getString("Regex");
+            String startkey = config.getString("Startkey");
+            String endkey = config.getString("Endkey");
+            String regex = config.getString("Regex");
             return checkValue(this.analysisBase.getValue(telnet, startkey, endkey, regex, new TimeMs(1000)));
         } finally {
             this.baseFunc.disConnect(telnet);

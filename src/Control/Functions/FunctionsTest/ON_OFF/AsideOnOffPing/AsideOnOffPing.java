@@ -33,7 +33,7 @@ public class AsideOnOffPing extends AbsFunction{
     @Override
     protected boolean test() {
          try {
-            int times = this.allConfig.getInteger("CycleTimes",1);
+            int times = this.config.getInteger("CycleTimes",1);
             addLog("CONFIG", "Times: " + times);
             for (int i = 1; i <= times; i++) {
                 addLog(String.format("cycle Times: %d - %d ", i, times));

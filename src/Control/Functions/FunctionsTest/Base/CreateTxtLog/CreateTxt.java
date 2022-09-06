@@ -8,11 +8,9 @@ import Control.Functions.AbsFunction;
 import Control.Functions.FunctionsTest.Base.BaseFunction.AnalysisBase;
 import Control.Functions.FunctionsTest.Base.BaseFunction.FileBaseFunction;
 import Model.AllKeyWord;
-import Model.DataSource.ModeTest.FunctionConfig.FunctionName;
 import Model.DataTest.FunctionData.FunctionData;
 import Model.DataTest.FunctionParameters;
 import Model.ErrorLog;
-import Model.ManagerUI.UIStatus.UiStatus;
 import MyLoger.MyLoger;
 import java.io.File;
 import java.util.List;
@@ -44,8 +42,8 @@ public class CreateTxt extends AbsFunction {
     private boolean saveFileZip() {
         addLog("Save file zip!");
         try {
-            String filePath = this.allConfig.getString("localFile");
-            List<String> elementName = this.allConfig.getListJsonArray("ElementName");
+            String filePath = this.config.getString("localFile");
+            List<String> elementName = this.config.getListJsonArray("ElementName");
             String zipFile = this.fileBaseFunction.createNameFile(elementName, ".zip");
             String txtFile = this.fileBaseFunction.createNameFile(elementName, ".txt");
             return this.fileBaseFunction.saveZip(filePath, zipFile, txtFile);
@@ -60,8 +58,8 @@ public class CreateTxt extends AbsFunction {
         addLog("Save file txt!");
         MyLoger loger = new MyLoger();
         try {
-            String filePath = this.allConfig.getString("localFile");
-            List<String> elementName = this.allConfig.getListJsonArray("ElementName");
+            String filePath = this.config.getString("localFile");
+            List<String> elementName = this.config.getListJsonArray("ElementName");
             String txtFile = this.fileBaseFunction.createNameFile(elementName, ".txt");
             String path = String.format("%s/%s", filePath, txtFile);
             if (!loger.begin(new File(path), true, true)) {

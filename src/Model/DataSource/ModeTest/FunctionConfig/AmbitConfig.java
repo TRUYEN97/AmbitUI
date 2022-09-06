@@ -16,12 +16,12 @@ import java.util.List;
  * @author 21AK22
  */
 public class AmbitConfig extends AbsJsonSource<FunctionName, FunctionConfig> {
-    
+
     private final List<FunctionName> functionInit;
     private final List<FunctionName> functionTest;
     private final List<FunctionName> funtionEnd;
     private final List<FunctionName> discreteFunctions;
-    
+
     public AmbitConfig() {
         super();
         this.functionInit = new ArrayList<>();
@@ -29,7 +29,7 @@ public class AmbitConfig extends AbsJsonSource<FunctionName, FunctionConfig> {
         this.funtionEnd = new ArrayList<>();
         this.discreteFunctions = new ArrayList<>();
     }
-    
+
     @Override
     protected boolean getData() {
         DataWareHouse wareHouse = readFile.getData();
@@ -45,7 +45,7 @@ public class AmbitConfig extends AbsJsonSource<FunctionName, FunctionConfig> {
                 funtionEnd, discreteFunctions, null);
         return !this.elements.isEmpty();
     }
-    
+
     private void getFunctionIn(DataWareHouse baseData, List<JSONObject> listInfo,
             List<FunctionName> testFunctions, List<FunctionName> debugFunctions, Integer times) {
         for (JSONObject modeInfo : listInfo) {
@@ -59,7 +59,7 @@ public class AmbitConfig extends AbsJsonSource<FunctionName, FunctionConfig> {
                     createNewItem(modeInfo, times);
                 }
                 FunctionConfig funcElm = new FunctionConfig(baseData.toJson(), modeInfo);
-                FunctionName functionName = new FunctionName(funcElm.getItemName(), funcElm.getFunctionName());
+                FunctionName functionName = funcElm.getfFunctionName();
                 put(functionName, funcElm);
                 testFunctions.add(functionName);
                 if (funcElm.isDiscreteFunc()) {
@@ -68,7 +68,7 @@ public class AmbitConfig extends AbsJsonSource<FunctionName, FunctionConfig> {
             }
         }
     }
-    
+
     private void createNewItem(JSONObject modeInfo, int times) {
         String oldName = modeInfo.getString(AllKeyWord.TEST_NAME);
         if (oldName.matches(".+_[0-9]+$")) {
@@ -80,7 +80,7 @@ public class AmbitConfig extends AbsJsonSource<FunctionName, FunctionConfig> {
             modeInfo.put(AllKeyWord.TEST_NAME, newItemName);
         }
     }
-    
+
     private void getLoopFuction(DataWareHouse baseData, JSONObject modeInfo,
             List<FunctionName> list, List<FunctionName> debugFunctions, Integer times) {
         int heso = times == null ? 1 : times;
@@ -92,15 +92,15 @@ public class AmbitConfig extends AbsJsonSource<FunctionName, FunctionConfig> {
             getFunctionIn(baseData, functions, list, debugFunctions, i);
         }
     }
-    
+
     private static boolean isLoopFunctions(JSONObject modeInfo) {
         return modeInfo.containsKey(AllKeyWord.LOOP_FUNC) && modeInfo.containsKey(AllKeyWord.FUNCTIONS);
     }
-    
+
     private static Boolean isActive(JSONObject modeInfo) {
         return modeInfo.getBoolean(AllKeyWord.FLAG);
     }
-    
+
     public long getTimeOutTest() {
         Long timeout = this.readFile.getData().getLong(AllKeyWord.TIME_OUT_TEST);
         if (timeout == null) {
@@ -108,34 +108,34 @@ public class AmbitConfig extends AbsJsonSource<FunctionName, FunctionConfig> {
         }
         return timeout * 1000;
     }
-    
+
     public List<FunctionName> getCheckFunctions() {
         return functionInit;
     }
-    
+
     public List<FunctionName> getTestFunctions() {
         return functionTest;
     }
-    
+
     public List<FunctionName> getDebugFunctions() {
         return new ArrayList<>(discreteFunctions);
     }
-    
+
     public String getStationName() {
         return this.readFile.getData().getString(AllKeyWord.STATION_TYPE);
     }
-    
+
     public List<FunctionName> getEndFuntions() {
         return funtionEnd;
     }
-    
+
     private void clearAllList() {
         this.functionInit.clear();
         this.functionTest.clear();
         this.funtionEnd.clear();
         this.discreteFunctions.clear();
     }
-    
+
     public List<FunctionName> getSelectedItem(List<FunctionName> listItem) {
         if (listItem == null) {
             return discreteFunctions;
@@ -145,7 +145,7 @@ public class AmbitConfig extends AbsJsonSource<FunctionName, FunctionConfig> {
         }
         return null;
     }
-    
+
     private List<FunctionName> putSelectFunctionNames(List<FunctionName> listItem, List<FunctionName> base) {
         List<FunctionName> result = new ArrayList<>();
         for (FunctionName functionName : listItem) {
@@ -155,5 +155,5 @@ public class AmbitConfig extends AbsJsonSource<FunctionName, FunctionConfig> {
         }
         return result;
     }
-    
+
 }

@@ -1,102 +1,25 @@
-2022-09-04 18:21:43.365:   ITEM[openshort_2] - FUNCTION[OpenShortProxy]
-2022-09-04 18:21:43.366:   Turn run: 1
-2022-09-04 18:21:43.368:   [ComPort] Connect to : COM4
-2022-09-04 18:21:43.368:   [ComPort] BaudRate is: 115200
-2022-09-04 18:21:43.383:   [ComPort] Connect COM4 ok
-2022-09-04 18:21:43.383:   [Config] Key word: IPQ807x#
-2022-09-04 18:21:43.383:   [Config] Test about 6 s
-2022-09-04 18:21:43.921:   [DUT] 
-2022-09-04 18:21:46.381:   This function will be stop! Because This function has out of run time!
-2022-09-04 18:21:46.381:   Time: 3.014 S
-2022-09-04 18:21:46.381:   Spec: 3 S
-2022-09-04 18:21:46.381:   Try to stop!!
-2022-09-04 18:21:47.098:   This function will be stop! Because STOP TEST
-2022-09-04 18:21:47.385:   This function will be stop! Because This function has out of run time!
-2022-09-04 18:21:47.385:   Time: 4.019 S
-2022-09-04 18:21:47.385:   Spec: 3 S
-2022-09-04 18:21:47.386:   Try to stop!!
-2022-09-04 18:21:48.401:   This function will be stop! Because This function has out of run time!
-2022-09-04 18:21:48.401:   Time: 5.035 S
-2022-09-04 18:21:48.402:   Spec: 3 S
-2022-09-04 18:21:48.402:   Try to stop!!
-2022-09-04 18:21:49.409:   This function will be stop! Because This function has out of run time!
-2022-09-04 18:21:49.409:   Time: 6.043 S
-2022-09-04 18:21:49.409:   Spec: 3 S
-2022-09-04 18:21:49.409:   Try to stop!!
-2022-09-04 18:21:50.422:   This function will be stop! Because This function has out of run time!
-2022-09-04 18:21:50.422:   Time: 7.056 S
-2022-09-04 18:21:50.422:   Spec: 3 S
-2022-09-04 18:21:50.423:   Try to stop!!
-2022-09-04 18:21:51.437:   This function will be stop! Because This function has out of run time!
-2022-09-04 18:21:51.437:   Time: 8.071 S
-2022-09-04 18:21:51.437:   Spec: 3 S
-2022-09-04 18:21:51.437:   Try to stop!!
-2022-09-04 18:21:52.452:   This function will be stop! Because This function has out of run time!
-2022-09-04 18:21:52.452:   Time: 9.086 S
-2022-09-04 18:21:52.453:   Spec: 3 S
-2022-09-04 18:21:52.453:   Try to stop!!
-2022-09-04 18:21:53.467:   This function will be stop! Because This function has out of run time!
-2022-09-04 18:21:53.467:   Time: 10.101 S
-2022-09-04 18:21:53.468:   Spec: 3 S
-2022-09-04 18:21:53.468:   Try to stop!!
-2022-09-04 18:21:54.274:   This function will be stop! Because STOP TEST
-2022-09-04 18:21:54.478:   This function will be stop! Because This function has out of run time!
-2022-09-04 18:21:54.479:   Time: 11.112 S
-2022-09-04 18:21:54.479:   Spec: 3 S
-2022-09-04 18:21:54.479:   Try to stop!!
-2022-09-04 18:21:55.491:   This function will be stop! Because This function has out of run time!
-2022-09-04 18:21:55.491:   Time: 12.125 S
-2022-09-04 18:21:55.491:   Spec: 3 S
-2022-09-04 18:21:55.491:   Try to stop!!
-2022-09-04 18:21:56.501:   This function will be stop! Because This function has out of run time!
-2022-09-04 18:21:56.501:   Time: 13.135 S
-2022-09-04 18:21:56.502:   Spec: 3 S
-2022-09-04 18:21:56.502:   Try to stop!!
-2022-09-04 18:21:57.515:   This function will be stop! Because This function has out of run time!
-2022-09-04 18:21:57.515:   Time: 14.149 S
-2022-09-04 18:21:57.515:   Spec: 3 S
-2022-09-04 18:21:57.515:   Try to stop!!
-2022-09-04 18:21:58.517:   This function will be stop! Because This function has out of run time!
-2022-09-04 18:21:58.517:   Time: 15.151 S
-2022-09-04 18:21:58.518:   Spec: 3 S
-2022-09-04 18:21:58.518:   Try to stop!!
-2022-09-04 18:21:59.532:   This function will be stop! Because This function has out of run time!
-2022-09-04 18:21:59.532:   Time: 16.166 S
-2022-09-04 18:21:59.532:   Spec: 3 S
-2022-09-04 18:21:59.532:   Try to stop!!
-2022-09-04 18:22:00.547:   This function will be stop! Because This function has out of run time!
-2022-09-04 18:22:00.547:   Time: 17.181 S
-2022-09-04 18:22:00.547:   Spec: 3 S
-2022-09-04 18:22:00.547:   Try to stop!!
-2022-09-04 18:22:01.563:   This function will be stop! Because This function has out of run time!
-2022-09-04 18:22:01.563:   Time: 18.197 S
-2022-09-04 18:22:01.563:   Spec: 3 S
-2022-09-04 18:22:01.563:   Try to stop!!
-2022-09-04 18:22:02.578:   This function will be stop! Because This function has out of run time!
-2022-09-04 18:22:02.578:   Time: 19.212 S
-2022-09-04 18:22:02.578:   Spec: 3 S
-2022-09-04 18:22:02.579:   Try to stop!!
-2022-09-04 18:22:03.594:   This function will be stop! Because This function has out of run time!
-2022-09-04 18:22:03.594:   Time: 20.228 S
-2022-09-04 18:22:03.594:   Spec: 3 S
-2022-09-04 18:22:03.594:   Try to stop!!
-2022-09-04 18:22:04.609:   This function will be stop! Because This function has out of run time!
-2022-09-04 18:22:04.609:   Time: 21.243 S
-2022-09-04 18:22:04.609:   Spec: 3 S
-2022-09-04 18:22:04.609:   Try to stop!!
-2022-09-04 18:22:05.623:   This function will be stop! Because This function has out of run time!
-2022-09-04 18:22:05.623:   Time: 22.257 S
-2022-09-04 18:22:05.623:   Spec: 3 S
-2022-09-04 18:22:05.623:   Try to stop!!
-2022-09-04 18:22:06.636:   This function will be stop! Because This function has out of run time!
-2022-09-04 18:22:06.636:   Time: 23.270 S
-2022-09-04 18:22:06.636:   Spec: 3 S
-2022-09-04 18:22:06.636:   Try to stop!!
-2022-09-04 18:22:07.638:   This function will be stop! Because This function has out of run time!
-2022-09-04 18:22:07.639:   Time: 24.272 S
-2022-09-04 18:22:07.639:   Spec: 3 S
-2022-09-04 18:22:07.639:   Try to stop!!
-2022-09-04 18:22:08.641:   This function will be stop! Because This function has out of run time!
-2022-09-04 18:22:08.641:   Time: 25.275 S
-2022-09-04 18:22:08.641:   Spec: 3 S
-2022-09-04 18:22:08.641:   Try to stop!!
+2022-09-06 16:19:57.235:   ITEM[openshort_2] - FUNCTION[OpenShortProxy]
+2022-09-06 16:19:57.235:   Turn run: 1
+2022-09-06 16:19:57.237:   [ComPort] Connect to : COM4
+2022-09-06 16:19:57.237:   [ComPort] BaudRate is: 115200
+2022-09-06 16:19:57.239:   [ComPort] Connect COM4 failed
+2022-09-06 16:19:57.239:   ****************************************************
+2022-09-06 16:19:57.239:   Item name = openshort_2
+2022-09-06 16:19:57.239:   Value = failed
+2022-09-06 16:19:57.240:   Test status = failed
+2022-09-06 16:19:57.240:   -----------------------------------------------------
+2022-09-06 16:19:57.240:   Turn run: 2
+2022-09-06 16:19:57.241:   [ComPort] Connect to : COM5
+2022-09-06 16:19:57.242:   [ComPort] BaudRate is: 115200
+2022-09-06 16:19:57.245:   [ComPort] Connect COM5 failed
+2022-09-06 16:19:57.245:   ****************************************************
+2022-09-06 16:19:57.245:   Item name = openshort_2
+2022-09-06 16:19:57.245:   Value = failed
+2022-09-06 16:19:57.245:   Test status = failed
+2022-09-06 16:19:57.246:   -----------------------------------------------------
+2022-09-06 16:19:57.246:   Error code = -1
+2022-09-06 16:19:57.246:   Error des = openshort_2
+2022-09-06 16:19:57.246:   Local error code = 16.T524.1.1.1
+2022-09-06 16:19:57.246:   Local error des = openshort
+2022-09-06 16:19:57.246:   ****************************************************
+2022-09-06 16:19:57.247:   TIME[0.011 s] - STATUS[FAILED]

@@ -51,7 +51,7 @@ public class CreateFaJson extends AbsFunction {
     }
 
     private JSONObject getFaJsonData() {
-        String key = this.allConfig.getString("KEY_WORD");
+        String key = this.config.getString("KEY_WORD");
         addLog("Get FA json data in signal!");
         addLog("Get with key: " + key);
         var data = this.testSignal.getObject(key);

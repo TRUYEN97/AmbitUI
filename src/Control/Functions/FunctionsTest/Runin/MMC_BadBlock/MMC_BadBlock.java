@@ -46,9 +46,9 @@ public class MMC_BadBlock extends AbsFunction {
     private boolean check(String ip) {
         Telnet telnet = this.baseFunc.getTelnet(ip, 23);
         try {
-            String startkey = allConfig.getString("Startkey");
-            String endkey = allConfig.getString("Endkey");
-            List<String> commands = this.allConfig.getListJsonArray("command");
+            String startkey = config.getString("Startkey");
+            String endkey = config.getString("Endkey");
+            List<String> commands = this.config.getListJsonArray("command");
             if (commands == null || commands.isEmpty()) {
                 addLog("ERROR", "command in config is null or empty!");
                 return false;

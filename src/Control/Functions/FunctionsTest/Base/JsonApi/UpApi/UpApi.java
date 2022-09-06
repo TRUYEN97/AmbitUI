@@ -37,14 +37,14 @@ public class UpApi extends AbsFunction {
 
     @Override
     protected boolean test() {
-        String command = this.allConfig.getString("Command");
-        List<String> elementName = this.allConfig.getListJsonArray("ElementName");
+        String command = this.config.getString("Command");
+        List<String> elementName = this.config.getListJsonArray("ElementName");
         String nameFile = this.fileBaseFunction.createNameFile(elementName,"");
         Cmd cmd = new Cmd();
         if (!this.functionBase.sendCommand(cmd, command + nameFile)) {
             return false;
         }
-        String spec = allConfig.getString("Spec");
+        String spec = config.getString("Spec");
         String response = cmd.readAll();
         addLog("Cmd", response);
         return response.trim().endsWith(spec);

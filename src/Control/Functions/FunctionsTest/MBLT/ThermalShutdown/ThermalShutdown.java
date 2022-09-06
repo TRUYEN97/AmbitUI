@@ -43,11 +43,11 @@ public class ThermalShutdown extends AbsFunction {
 
     @Override
     protected boolean test() {
-        String outLow = this.allConfig.getString("PowerLowCMD");
+        String outLow = this.config.getString("PowerLowCMD");
         addLog("Config", "PowerLowCMD: " + outLow);
-        String outHigh = this.allConfig.getString("PowerHighCMD");
+        String outHigh = this.config.getString("PowerHighCMD");
         addLog("Config", "PowerHighCMD: " + outHigh);
-        String command = this.allConfig.getString("Command");
+        String command = this.config.getString("Command");
         addLog("Config", "Command: " + command);
         ComPort fixture = this.fixtureAction.getComport();
         try {
@@ -60,7 +60,7 @@ public class ThermalShutdown extends AbsFunction {
             }
             JSONObject voltageItems = getVoltageItems();
             String inline;
-            List<String> skipTP = this.allConfig.getListJsonArray("SkipTP");
+            List<String> skipTP = this.config.getListJsonArray("SkipTP");
             addLog("Config", "Skip point: " + skipTP);
             boolean result = true;
             while ((inline = fixture.readLine(new TimeS(1))) != null) {
@@ -119,7 +119,7 @@ public class ThermalShutdown extends AbsFunction {
     }
 
     private JSONObject getVoltageItems() {
-        String path = this.allConfig.getString("FileVoltageItems");
+        String path = this.config.getString("FileVoltageItems");
         addLog("Config", path);
         String volList = new FileService().readFile(new File(path));
         JSONObject voltageItems = JSONObject.parseObject(volList);

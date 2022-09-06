@@ -37,12 +37,12 @@ public class CheckCommandTelnet extends AbsFunction {
         Telnet telnet = null;
         try {
             if (ip == null || (telnet = this.functionBase.getTelnet(ip, 23)) == null
-                    || !this.functionBase.sendCommand(telnet, allConfig.getString("command"))) {
+                    || !this.functionBase.sendCommand(telnet, config.getString("command"))) {
                 return false;
             }
-            String startkey = allConfig.getString("Startkey");
-            String endkey = allConfig.getString("Endkey");
-            String regex = allConfig.getString("Regex");
+            String startkey = config.getString("Startkey");
+            String endkey = config.getString("Endkey");
+            String regex = config.getString("Regex");
             String value = this.analysisBase.getValue(telnet, startkey, endkey, regex, new TimeMs(1000));
             if (value == null) {
                 return false;

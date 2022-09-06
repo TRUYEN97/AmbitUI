@@ -122,7 +122,7 @@ public class AnalysisBase extends AbsFunction {
             return DhcpData.getInstance().getIP(mac);
         }
         addLog("Get IP from the function config with key is \"IP\".");
-        return allConfig.getString("IP");
+        return config.getString("IP");
     }
 
     public Integer string2Integer(String value) {

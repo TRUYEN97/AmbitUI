@@ -55,14 +55,14 @@ public class TelnetReadUntilKey extends AbsFunction {
     }
 
     private boolean runTest(Telnet telnet) {
-        List<String> commands = this.allConfig.getListJsonArray("command");
+        List<String> commands = this.config.getListJsonArray("command");
         if (commands.isEmpty()) {
             addLog("ERROR", "Commands is empty!");
             return false;
         }
-        String readUntil = this.allConfig.getString("keyWord");
-        String spec = this.allConfig.getString("keyWord");
-        Integer time = this.allConfig.getInteger("Time");
+        String readUntil = this.config.getString("keyWord");
+        String spec = this.config.getString("keyWord");
+        Integer time = this.config.getInteger("Time");
         if (time == null) {
             addLog("Config", "Time == null !!");
             return false;

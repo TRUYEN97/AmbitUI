@@ -25,7 +25,7 @@ public class FunctionCover extends Thread {
     public FunctionCover(AbsFunction function) {
         this.function = function;
         this.functionData = function.functionParameters.getFunctionData();
-        this.allConfig = function.allConfig;
+        this.allConfig = function.config;
     }
 
     @Override
@@ -54,7 +54,6 @@ public class FunctionCover extends Thread {
                         function.runTest();
                     }
                 };
-                this.thread.setDaemon(false);
                 this.thread.start();
                 checkOutTime();
             }
@@ -63,12 +62,16 @@ public class FunctionCover extends Thread {
             ErrorLog.addError(e.getLocalizedMessage());
             this.functionData.addLog(e.getMessage());
         } finally {
+            if (this.thread != null && this.thread.isAlive()) {
+                this.thread.stop();
+            }
             this.function.end();
         }
     }
+
     private void checkOutTime() {
         final Integer timeSpec = this.allConfig.getInteger(AllKeyWord.TIME_OVER, Integer.MAX_VALUE);
-        while (this.thread.isAlive()) {
+        while (this.thread != null && this.thread.isAlive()) {
             try {
                 this.thread.join(1000);
             } catch (InterruptedException ex) {
@@ -87,7 +90,6 @@ public class FunctionCover extends Thread {
             }
         }
     }
-
 
     public AbsFunction getFunction() {
         return function;

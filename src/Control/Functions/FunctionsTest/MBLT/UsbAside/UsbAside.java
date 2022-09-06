@@ -37,9 +37,9 @@ public class UsbAside extends AbsFunction {
         if (!this.fixture.test()) {
             return false;
         }
-        String dutCom = this.allConfig.getString("DutCom");
-        int dutBaud = this.allConfig.getInteger("DutBaudRate", 9600);
-        int dutWait = this.allConfig.getInteger("DutWait", 1);
+        String dutCom = this.config.getString("DutCom");
+        int dutBaud = this.config.getInteger("DutBaudRate", 9600);
+        int dutWait = this.config.getInteger("DutWait", 1);
         addLog("Config", String.format("Test about %s s", dutWait));
         ComPort dut = this.functionBase.getComport(dutCom, dutBaud);
         if (dut == null) {

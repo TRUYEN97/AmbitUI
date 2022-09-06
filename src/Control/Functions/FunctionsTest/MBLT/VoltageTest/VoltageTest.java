@@ -37,7 +37,7 @@ public class VoltageTest extends AbsFunction {
 
     @Override
     protected boolean test() {
-        String command = this.allConfig.getString("Command");
+        String command = this.config.getString("Command");
         addLog("Config", "Command: " + command);
         ComPort fixture = this.fixtureAction.getComport();
         if (fixture == null || !fixture.sendCommand(command)) {
@@ -45,7 +45,7 @@ public class VoltageTest extends AbsFunction {
         }
         try {
             JSONObject voltageItems = getVoltageItems();
-            List<String> skipTP = this.allConfig.getListJsonArray("SkipTP");
+            List<String> skipTP = this.config.getListJsonArray("SkipTP");
             addLog("Config", "Skip point: " + skipTP);
             String inline;
             boolean result = true;
@@ -96,7 +96,7 @@ public class VoltageTest extends AbsFunction {
     }
 
     private JSONObject getVoltageItems() {
-        String path = this.allConfig.getString("FileVoltageItems");
+        String path = this.config.getString("FileVoltageItems");
         addLog("Config", path);
         String volList = new FileService().readFile(new File(path));
         JSONObject voltageItems = JSONObject.parseObject(volList);

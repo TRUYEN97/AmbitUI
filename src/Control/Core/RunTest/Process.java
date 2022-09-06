@@ -65,7 +65,6 @@ class Process implements Runnable {
                     waitUntilMultiTaskDone();
                 }
                 multiTasking.add(funcCover);
-                funcCover.setDaemon(true);
                 funcCover.start();
                 if (funcCover.isMutiTasking()) {
                     continue;
@@ -132,7 +131,8 @@ class Process implements Runnable {
                     String.format("Missing %s in the function config!", functionName));
             System.exit(0);
         }
-        return new FunctionParameters(config, uiStatus, new FunctionData(uiStatus, functionName));
+        return new FunctionParameters(config, uiStatus,
+                new FunctionData(uiStatus, config));
     }
 
     private boolean isAlwaysRun(FunctionName functionName) {

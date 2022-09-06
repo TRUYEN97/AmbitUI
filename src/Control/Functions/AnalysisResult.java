@@ -20,9 +20,9 @@ public class AnalysisResult {
     private final ItemTestData itemTestData;
     private final FuncAllConfig allConfig;
 
-    public AnalysisResult(ItemTestData itemTestData, FuncAllConfig allConfig) {
+    public AnalysisResult(ItemTestData itemTestData) {
         this.itemTestData = itemTestData;
-        this.allConfig = allConfig;
+        this.allConfig = itemTestData.getAllConfig();
     }
 
     public void checkResult(boolean status, String result) {

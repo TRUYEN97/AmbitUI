@@ -37,8 +37,8 @@ public class SfisFunction extends AbsFunction {
 
     @Override
     public boolean test() {
-        String url = this.allConfig.getString("URL");
-        String type = this.allConfig.getString("SFIS_TYPE");
+        String url = this.config.getString("URL");
+        String type = this.config.getString("SFIS_TYPE");
         if (url == null || url.isBlank()) {
             addLog("URL_CHECK_SN is null or emtpty!");
             return false;
@@ -75,8 +75,8 @@ public class SfisFunction extends AbsFunction {
 
     private String createCommand(String keyWord) {
         JSONObject command = new JSONObject();
-        List<String> listKey = this.allConfig.getListJsonArray(keyWord);
-        int maxLength = this.allConfig.getInteger("MaxLength", -1);
+        List<String> listKey = this.config.getListJsonArray(keyWord);
+        int maxLength = this.config.getInteger("MaxLength", -1);
         addLog("Input", "Input: " + this.processData.getString(AllKeyWord.SN));
         addLog("Config", "MaxLength: " + maxLength);
         addLog(keyWord, listKey);
@@ -88,6 +88,9 @@ public class SfisFunction extends AbsFunction {
             String value = this.processData.getString(key);
             key = key.toUpperCase();
             addLog("key: " + key + " = " + value);
+            if(value == null){
+                continue;
+            }
             if (key.equalsIgnoreCase(AllKeyWord.STATUS)) {
                 command.put(key, value.equals(ItemTestData.PASS) ? PASS : FAIL);
             } else if (maxLength != -1
@@ -114,7 +117,7 @@ public class SfisFunction extends AbsFunction {
         JSONObject res = JSONObject.parseObject(response);
         if (res.getString(AllKeyWord.RESULT).equals(PASS)) {
             JSONObject data = res.getJSONObject(AllKeyWord.DATA);
-            List<String> listKey = this.allConfig.getListJsonArray(DATA_FORMAT);
+            List<String> listKey = this.config.getListJsonArray(DATA_FORMAT);
             addLog(DATA_FORMAT, listKey);
             if (!listKey.isEmpty() && !dataContainKeys(data, listKey)) {
                 addLog("Error", "Sfis is not enough data.");

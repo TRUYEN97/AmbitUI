@@ -55,7 +55,7 @@ public class InputFaData extends AbsFunction {
         try {
             addLog("Add select json data to signal!");
             JSONObject data = faApi.getData();
-            String keyWord = this.allConfig.getString("KEY_WORD");
+            String keyWord = this.config.getString("KEY_WORD");
             addLog(data.toJSONString());
             this.testSignal.put(keyWord, faApi.getData());
             addLog("keyword: " + keyWord);
