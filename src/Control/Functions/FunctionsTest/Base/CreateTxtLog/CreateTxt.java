@@ -15,8 +15,6 @@ import MyLoger.MyLoger;
 import java.io.File;
 import java.io.IOException;
 import java.util.List;
-import java.util.logging.Level;
-import java.util.logging.Logger;
 
 /**
  *
@@ -100,13 +98,13 @@ public class CreateTxt extends AbsFunction {
         loger.add("===================================================================\r\n");
         loger.add(String.format("Start at = %s\r\n", processData.getString(AllKeyWord.START_TIME)));
         loger.add(String.format("End test at = %s\r\n", processData.getString(AllKeyWord.FINISH_TIME)));
-        loger.add(String.format("Status = %s\r\n", processData.getString(AllKeyWord.STATUS)));
+        loger.add(String.format("Status = %s\r\n", processData.getString(AllKeyWord.SFIS.SFIS_STATUS)));
         loger.add(String.format("Test time = %s s\r\n", processData.getString(AllKeyWord.CYCLE_TIME)));
         loger.add(String.format("Final test time = %.3f s\r\n", processData.getRuntime()));
         loger.add(String.format("Station = %s\r\n", processData.getString(AllKeyWord.STATION_NAME)));
         loger.add(String.format("Localtion = %s\r\n", processData.getString(AllKeyWord.INDEX)));
-        loger.add(String.format("HHSN = %s\r\n", processData.getString(AllKeyWord.SN)));
-        loger.add(String.format("DEVICESN = %s\r\n", processData.getString(AllKeyWord.MLBSN)));
+        loger.add(String.format("HHSN = %s\r\n", processData.getString(AllKeyWord.SFIS.SFIS_SN)));
+        loger.add(String.format("DEVICESN = %s\r\n", processData.getString(AllKeyWord.SFIS.SFIS_MLBSN)));
         loger.add("===================================================================\r\n");
     }
 

@@ -21,8 +21,6 @@ import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
-import java.util.logging.Level;
-import java.util.logging.Logger;
 import javax.swing.JOptionPane;
 
 /**
@@ -129,14 +127,26 @@ public class FunctionData {
     }
 
     public void end() {
+        this.addLog(String.format("TIME[%.3f s] - STATUS[%S]",
+                this.getRunTime(), getStatusTest()));
+        giveItemToProcessData();
+    }
+
+    public void closeLoger() {
         try {
-            this.addLog(String.format("TIME[%.3f s] - STATUS[%S]",
-                    this.getRunTime(), getStatusTest()));
-            this.processData.putAllItem(itemTests);
             this.loger.close();
         } catch (IOException ex) {
             ex.printStackTrace();
             ErrorLog.addError(this, ex.getLocalizedMessage());
+        }
+    }
+
+    private void giveItemToProcessData() {
+        this.processData.putAllItem(itemTests);
+        for (ItemTestData itemTest : listItemTests) {
+            if (!itemTest.isPass()) {
+                this.processData.addFailItem(itemTest);
+            }
         }
     }
 
@@ -172,28 +182,21 @@ public class FunctionData {
         if (isPass()) {
             return null;
         }
-        return this.getFisrtFailed().getString(AllKeyWord.LOCAL_ERROR_CODE);
+        return this.getFisrtFailed().getLocalErrorCode();
     }
 
     public String getErrorDes() {
         if (isPass()) {
             return null;
         }
-        return this.getFisrtFailed().getString(AllKeyWord.ERROR_DES);
+        return this.getFisrtFailed().getErrorDes();
     }
 
-    public String getErrorLocalDes() {
+    public String getLimitsErrorCode() {
         if (isPass()) {
             return null;
         }
-        return this.getFisrtFailed().getString(AllKeyWord.LOCAL_ERROR_DES);
-    }
-
-    public String getCusErrorCode() {
-        if (isPass()) {
-            return null;
-        }
-        return this.getFisrtFailed().getString(AllKeyWord.ERROR_CODE);
+        return this.getFisrtFailed().getLimitsErrorCode();
     }
 
     public ItemTestData getFisrtFailed() {

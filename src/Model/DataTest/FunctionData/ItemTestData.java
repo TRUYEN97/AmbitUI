@@ -84,12 +84,12 @@ public class ItemTestData {
     }
 
     public boolean isPass() {
-        String stt = this.data.getString(AllKeyWord.STATUS);
+        String stt = this.data.getString(AllKeyWord.SFIS.SFIS_STATUS);
         return (stt != null && stt.equals(PASS));
     }
 
     private void setTestValue(boolean isPass) {
-        this.data.put(AllKeyWord.STATUS, isPass ? PASS : FAIL);
+        this.data.put(AllKeyWord.SFIS.SFIS_STATUS, isPass ? PASS : FAIL);
         if (getResultTest() == null) {
             this.data.put(AllKeyWord.TEST_VALUE, isPass ? PASS : FAIL);
         }
@@ -146,7 +146,7 @@ public class ItemTestData {
     }
 
     public String getStatusTest() {
-        return this.data.getString(AllKeyWord.STATUS);
+        return this.data.getString(AllKeyWord.SFIS.SFIS_STATUS);
     }
 
     public boolean isTest() {
@@ -183,18 +183,25 @@ public class ItemTestData {
 
     private void writeError() {
         this.data.putAll(this.error);
-        String errorCode = this.data.getString(AllKeyWord.ERROR_CODE);
-        String errorDes = this.data.getString(AllKeyWord.ERROR_DES);
-        String localErrorCode = this.data.getString(AllKeyWord.LOCAL_ERROR_CODE);
-        String localErrorDes = this.data.getString(AllKeyWord.LOCAL_ERROR_DES);
-        this.loger.addLog(String.format("Error code = %s", errorCode));
-        this.loger.addLog(String.format("Error des = %s", errorDes));
-        this.loger.addLog(String.format("Local error code = %s", localErrorCode));
-        this.loger.addLog(String.format("Local error des = %s", localErrorDes));
+        this.loger.addLog(String.format("Error code = %s", getLimitsErrorCode()));
+        this.loger.addLog(String.format("Error des = %s", getErrorDes()));
+        this.loger.addLog(String.format("Local error code = %s", getLocalErrorCode()));
+        this.loger.addLog(String.format("Local error des = %s", getErrorDes()));
     }
 
     public FuncAllConfig getAllConfig() {
         return allConfig;
     }
 
+    public String getLimitsErrorCode() {
+        return this.data.getString(AllKeyWord.ERROR_CODE);
+    }
+    
+    public String getLocalErrorCode() {
+        return this.data.getString(AllKeyWord.SFIS.SFIS_ERRORCODE);
+    }
+
+    public String getErrorDes() {
+        return this.data.getString(AllKeyWord.ERROR_DES);
+    }
 }

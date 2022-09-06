@@ -13,7 +13,21 @@ public final class AllKeyWord {
     private AllKeyWord() {
     }
 
-    
+    public static class SFIS {
+
+        public static final String SFIS_FAIL_PC = "failedpc";
+        public static final String SFIS_DEBUG_PC = "debugpc";
+        public static final String SFIS_COUNTTEST = "counttest";
+        public static final String SFIS_SN = "sn";
+        public static final String SFIS_MLBSN = "mlbsn";
+        public static final String SFIS_ERRORCODE = "errorcode";
+        public static final String SFIS_ERRORDES = "errorDes";
+        public static final String SFIS_OLD_ERRORCODE = "olderrorcode";
+        public static final String SFIS_STATUS = "status";
+        public static final String SFIS_PC_NAME = "pcname";
+        public static final String SFIS_MAC = "ethernetmac";
+    }
+
     public static final String MODEL = "model";
     public static final String STATION_TYPE = "station_type";
     public static final String STATION_NAME = "station_name";
@@ -30,7 +44,6 @@ public final class AllKeyWord {
     public static final String UPPER_LIMIT = "upper_limit";
     public static final String UNITS = "units";
     public static final String ERROR_CODE = "error_code";
-    public static final String FA_ERROR_CODE = "errorcode";
     public static final String ERROR_DES = "error_details";
     public static final String COM = "COM";
     public static final String BAUDRATE = "BAUDRATE";
@@ -50,18 +63,8 @@ public final class AllKeyWord {
     public static final String MATCH = "MATCH";
     public static final String LIMIT = "LIMIT";
     public static final String BOOL = "BOOL";
-    public static final String FAIL_PC = "failedpc";
     public static final String MODE = "mode";
-    public static final String DEBUG_PC = "debugpc";
-    public static final String COUNTTEST = "counttest";
-    public static final String SN = "sn";
-    public static final String MLBSN = "mlbsn";
-    public static final String ERRORCODE = "errorcode";
-    public static final String OLD_ERRORCODE = "olderrorcode";
-    public static final String PC_NAME = "pcname";
     public static final String IP = "Ip";
-    public static final String MAC = "ethernetmac";
-    public static final String STATUS = "status";
     public static final String INDEX = "index";
     public static final String RESULT = "result";
     public static final String MESSAGE = "message";
@@ -94,8 +97,6 @@ public final class AllKeyWord {
     public static final String FTP_HOST = "FtpHost";
     public static final String LIMIT_PATH = "LimitPath";
     public static final String UPDATE_LIMIT_CMD = "LimitUpdate";
-    public static final String LOCAL_ERROR_CODE = "local_error_code";
-    public static final String LOCAL_ERROR_DES = "local_error_des";
     public static final String LOOP_FUNC = "LoopTimes";
     public static final String BEGIN = "Begin";
     public static final String TEST_COUNT = "TestCount";

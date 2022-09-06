@@ -41,6 +41,7 @@ public class FunctionCover extends Thread {
             ErrorLog.addError(this, e.getMessage());
         } finally {
             this.functionData.end();
+            this.functionData.closeLoger();
         }
     }
 

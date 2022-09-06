@@ -8,7 +8,6 @@ import View.subUI.FormDetail.TabFaApi.TabFaApiProxy;
 import Control.Functions.AbsFunction;
 import Control.Functions.FunctionsTest.Base.CheckDutInfo.CheckDutInfoProxy;
 import Control.Functions.FunctionsTest.Base.CreateTxtLog.CreateTxtProxy;
-import Control.Functions.FunctionsTest.FaAPI.CreateFaJson.CreateFaJsonProxy;
 import Control.Functions.FunctionsTest.Base.GetMacFromSfis.GetMacFormSfisProxy;
 import Control.Functions.FunctionsTest.Base.DutPing.DutPingProxy;
 import Control.Functions.FunctionsTest.Base.DutTelnet.DutTelnetProxy;
@@ -16,7 +15,6 @@ import Control.Functions.FunctionsTest.Base.FixtureActions.FixtureActionProxy;
 import Control.Functions.FunctionsTest.Base.JsonApi.CreateJsonApi.CreateJsonApiProxy;
 import Control.Functions.FunctionsTest.Base.JsonApi.UpApi.UpApiProxy;
 import Control.Functions.FunctionsTest.Base.SFIS.SfisFunctionProxy;
-import Control.Functions.FunctionsTest.FaAPI.inputFaData.InputFaDataProxy;
 import Control.Functions.FunctionsTest.Runin.PowerSwitch.PowerSwitchProxy;
 import Control.Functions.FunctionsTest.Base.UpFTP.UpFTPProxy;
 import Control.Functions.FunctionsTest.MBLT.OpenShort.OpenShortProxy;
@@ -114,8 +112,6 @@ public class Factory {
     private void addFunc() {
         this.functions.addType(new SfisFunctionProxy());
         this.functions.addType(new GetMacFormSfisProxy());
-        this.functions.addType(new InputFaDataProxy());
-        this.functions.addType(new CreateFaJsonProxy());
         this.functions.addType(new CreateTxtProxy());
         this.functions.addType(new UpApiProxy());
         this.functions.addType(new UpFTPProxy());

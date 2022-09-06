@@ -28,7 +28,7 @@ public class ProcessData implements IgetTime {
     private final List<FunctionData> listFunctionData;
     private final Map<FunctionName, FunctionData> mapFunctionData;
     private final Map<String, ItemTestData> mapItemTestData;
-    private final Map<String, ItemTestData> faidItems;
+    private final List<ItemTestData> faidItems;
     private final UiInformartion informartion;
     private final DataWareHouse data;
     private final TimeBase timeBase;
@@ -40,9 +40,9 @@ public class ProcessData implements IgetTime {
 
     public ProcessData(UiStatus uiStatus, IgetTime testTimer) {
         this.listFunctionData = new ArrayList<>();
-        this.mapItemTestData = new HashMap<>();
-        this.faidItems = new HashMap<>();
         this.mapFunctionData = new HashMap<>();
+        this.mapItemTestData = new HashMap<>();
+        this.faidItems = new ArrayList<>();
         this.data = new DataWareHouse();
         this.signal = new ProcessTestSignal();
         this.productData = new ProductData();
@@ -96,13 +96,11 @@ public class ProcessData implements IgetTime {
         return getFirstFail() == null;
     }
 
-    public FunctionData getFirstFail() {
-        for (FunctionData dataBox : listFunctionData) {
-            if (!dataBox.isTesting() && !dataBox.isPass() ) {
-                return dataBox;
-            }
+    public ItemTestData getFirstFail() {
+        if (this.faidItems.isEmpty()) {
+            return null;
         }
-        return null;
+        return this.faidItems.get(0);
     }
 
     public String getMassage() {
@@ -112,7 +110,7 @@ public class ProcessData implements IgetTime {
         if (isPass()) {
             return message = "Done!";
         }
-        return message = String.format("Failed: %s", getFirstFail().getFunctionName());
+        return message = String.format("Failed: %s", getFirstFail().getItemName());
     }
 
     public void setFinishTime() {
@@ -121,27 +119,31 @@ public class ProcessData implements IgetTime {
         if (testTimer != null) {
             this.data.put(AllKeyWord.CYCLE_TIME, String.format("%.3f", getRuntime()));
         }
-        FunctionData testData = getFirstFail();
-        if (testData == null) {
-            this.data.put(AllKeyWord.STATUS, ItemTestData.PASS);
+        ItemTestData itemFailed = getFirstFail();
+        if (itemFailed == null) {
+            this.data.put(AllKeyWord.SFIS.SFIS_STATUS, ItemTestData.PASS);
         } else {
-            this.data.put(AllKeyWord.STATUS, ItemTestData.FAIL);
-            this.data.put(AllKeyWord.ERROR_CODE, testData.getLocalErrorCode());
-            this.data.put(AllKeyWord.ERROR_DES, testData.getErrorDes());
+            this.data.put(AllKeyWord.SFIS.SFIS_STATUS, ItemTestData.FAIL);
+            this.data.put(AllKeyWord.ERROR_CODE, itemFailed.getLimitsErrorCode());
+            this.data.put(AllKeyWord.ERROR_DES, itemFailed.getErrorDes());
         }
     }
 
     public void setStartTime() {
-        reset();
+        resetFunctionsData();
+        resetItemsData();
+        this.message = null;
         this.data.put(AllKeyWord.START_TIME, timeBase.getSimpleDateTime());
         this.data.put(AllKeyWord.START_DAY, timeBase.getDate());
     }
 
-    private void reset() {
-        this.message = null;
-        this.listFunctionData.clear();
+    private void resetItemsData() {
         this.mapItemTestData.clear();
         this.faidItems.clear();
+    }
+
+    private void resetFunctionsData() {
+        this.listFunctionData.clear();
         this.mapFunctionData.clear();
     }
 
@@ -174,6 +176,13 @@ public class ProcessData implements IgetTime {
         this.signal.clear();
         this.signal.disConnectAll();
         this.productData.clear();
+        closeAllLoger();
+    }
+
+    private void closeAllLoger() {
+        for (FunctionData functionData : listFunctionData) {
+            functionData.closeLoger();
+        }
     }
 
     public void setMode(String mode) {
@@ -201,5 +210,9 @@ public class ProcessData implements IgetTime {
 
     public void putAllItem(Map<String, ItemTestData> itemTests) {
         this.mapItemTestData.putAll(itemTests);
+    }
+
+    public void addFailItem(ItemTestData itemTestData) {
+        this.faidItems.add(itemTestData);
     }
 }

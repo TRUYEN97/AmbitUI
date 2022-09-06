@@ -49,7 +49,7 @@ public class CreateJsonApi extends AbsFunction {
     }
 
     private static boolean isPass(JSONObject root) {
-        return root.getString(AllKeyWord.STATUS).equals(ItemTestData.PASS);
+        return root.getString(AllKeyWord.SFIS.SFIS_STATUS).equals(ItemTestData.PASS);
     }
 
     private JSONObject getRootJson() {

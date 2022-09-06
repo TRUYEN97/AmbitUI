@@ -47,11 +47,11 @@ public class TabFaApi extends AbsTabUI {
         initListResonCode("resonCode.txt");
         AutoCompleteDecorator.decorate(cbbLocation);
         this.keys = new HashMap<>();
-        this.keys.put("- Fail at", AllKeyWord.FAIL_PC);
-        this.keys.put("- Debug at", AllKeyWord.DEBUG_PC);
-        this.keys.put("- Error code ", AllKeyWord.FA_ERROR_CODE);
+        this.keys.put("- Fail at", AllKeyWord.SFIS.SFIS_FAIL_PC);
+        this.keys.put("- Debug at", AllKeyWord.SFIS.SFIS_DEBUG_PC);
+        this.keys.put("- Error code ", AllKeyWord.SFIS.SFIS_ERRORCODE);
         this.keys.put("- Error Des ", AllKeyWord.ERROR_DES);
-        this.keys.put("- Count", AllKeyWord.COUNTTEST);
+        this.keys.put("- Count", AllKeyWord.SFIS.SFIS_COUNTTEST);
     }
 
     private void initListLocation(String path) {

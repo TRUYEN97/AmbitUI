@@ -66,9 +66,9 @@ public class ItemLog extends javax.swing.JFrame {
     public void showLog() {
         String index = uiStatus.getName();
         FunctionName funcName = dataBox.getFunctionName();
-        String sn = uiStatus.getProcessData().getString(AllKeyWord.SN);
-        String mlbsn = uiStatus.getProcessData().getString(AllKeyWord.MLBSN);
-        String mac = uiStatus.getProcessData().getString(AllKeyWord.MAC);
+        String sn = uiStatus.getProcessData().getString(AllKeyWord.SFIS.SFIS_SN);
+        String mlbsn = uiStatus.getProcessData().getString(AllKeyWord.SFIS.SFIS_MLBSN);
+        String mac = uiStatus.getProcessData().getString(AllKeyWord.SFIS.SFIS_MAC);
         String title = String.format("%s %s %s %s %s", index, funcName,
                 sn == null ? "" : sn, mlbsn == null ? "" : mlbsn, mac == null ? "" : mac);
         this.setTitle(title);
