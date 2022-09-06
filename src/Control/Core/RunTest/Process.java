@@ -11,6 +11,7 @@ import Model.DataTest.FunctionData.FunctionData;
 import Model.DataTest.FunctionParameters;
 import Model.ErrorLog;
 import Model.Factory.Factory;
+import Model.Interface.IFunction;
 import Model.ManagerUI.UIStatus.UiStatus;
 import java.util.ArrayList;
 import java.util.List;
@@ -20,7 +21,7 @@ import javax.swing.JOptionPane;
  *
  * @author Administrator
  */
-class Process implements Runnable {
+class Process implements IFunction {
 
     private final List<FunctionCover> multiTasking;
     private final List<FunctionName> functions;
@@ -28,16 +29,18 @@ class Process implements Runnable {
     private final UiStatus uiStatus;
     private boolean justFunctionAlwayRun;
     private boolean test;
+    private boolean pass;
 
     public Process(UiStatus uiStatus) {
         this.multiTasking = new ArrayList<>();
         this.functions = new ArrayList<>();
         this.factory = Factory.getInstance();
         this.uiStatus = uiStatus;
+        this.pass = false;
+        this.test = false;
     }
 
     public void setListFunc(List<FunctionName> functions) {
-        this.justFunctionAlwayRun = false;
         this.functions.clear();
         this.functions.addAll(functions);
     }
@@ -52,7 +55,9 @@ class Process implements Runnable {
     @Override
     public void run() {
         try {
-            test = true;
+            this.justFunctionAlwayRun = false;
+            this.test = true;
+            this.pass = true;
             FunctionCover funcCover;
             FunctionName functionName;
             for (int i = 0; i < functions.size(); i++) {
@@ -99,6 +104,7 @@ class Process implements Runnable {
         for (FunctionCover functionCover : multiTasking) {
             functionCover.stopTest(mess);
         }
+        this.functions.clear();
     }
 
     private boolean hasTaskFailed() {
@@ -107,7 +113,10 @@ class Process implements Runnable {
             for (FunctionCover cover : multiTasking) {
                 if (!cover.isAlive()) {
                     funcRemoves.add(cover);
-                    return !cover.isPass() && !cover.isSkipFail();
+                    if (!cover.isPass()) {
+                        this.pass = false;
+                        return !cover.isSkipFail();
+                    }
                 }
             }
             return false;
@@ -120,6 +129,7 @@ class Process implements Runnable {
         }
     }
 
+    @Override
     public boolean isTesting() {
         return test;
     }
@@ -138,5 +148,10 @@ class Process implements Runnable {
     private boolean isAlwaysRun(FunctionName functionName) {
         FunctionConfig config = uiStatus.getModeTest().getModeTestSource().getFunctionsConfig(functionName);
         return config.isAlwaysRun();
+    }
+
+    @Override
+    public boolean isPass() {
+        return pass && !justFunctionAlwayRun;
     }
 }

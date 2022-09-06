@@ -16,10 +16,13 @@ import Model.ErrorLog;
 import Model.ManagerUI.UIStatus.UiStatus;
 import MyLoger.MyLoger;
 import java.io.File;
+import java.io.IOException;
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 import javax.swing.JOptionPane;
 
 /**
@@ -51,7 +54,7 @@ public class FunctionData {
         addItemData(functionName.getItemName(), thisItem);
     }
 
-    private void addItemData( String itemName, ItemTestData itemData) {
+    private void addItemData(String itemName, ItemTestData itemData) {
         this.itemTests.put(itemName, itemData);
         this.listItemTests.add(itemData);
     }
@@ -99,15 +102,19 @@ public class FunctionData {
         return thisItem.isTest();
     }
 
-    public void start() {
-        if (!this.loger.begin(new File(createLogPath()), true, true)) {
-            String mess = String.format("can't delete local function log file of %s - %s",
-                    functionName.getItemName(), uiStatus.getInfo().getName());
+    public boolean start() {
+        try {
+            this.loger.begin(new File(createLogPath()), true, true);
+        } catch (IOException ex) {
+            String mess = String.format("can't delete local function log file of %s - %s\r\n%s",
+                    functionName.getItemName(), uiStatus.getInfo().getName(), ex.getLocalizedMessage());
             ErrorLog.addError(this, mess);
             JOptionPane.showMessageDialog(null, mess);
+            return false;
         }
         addLog(String.format("ITEM[%s] - FUNCTION[%s]",
                 this.functionName, functionName.getFunctionName()));
+        return true;
     }
 
     private String createLogPath() {
@@ -122,10 +129,15 @@ public class FunctionData {
     }
 
     public void end() {
-        this.addLog(String.format("TIME[%.3f s] - STATUS[%S]",
-                this.getRunTime(), getStatusTest()));
-        this.loger.close();
-        this.processData.putAllItem(itemTests);
+        try {
+            this.addLog(String.format("TIME[%.3f s] - STATUS[%S]",
+                    this.getRunTime(), getStatusTest()));
+            this.processData.putAllItem(itemTests);
+            this.loger.close();
+        } catch (IOException ex) {
+            ex.printStackTrace();
+            ErrorLog.addError(this, ex.getLocalizedMessage());
+        }
     }
 
     public String getLog() {

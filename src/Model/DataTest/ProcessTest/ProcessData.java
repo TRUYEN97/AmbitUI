@@ -98,7 +98,7 @@ public class ProcessData implements IgetTime {
 
     public FunctionData getFirstFail() {
         for (FunctionData dataBox : listFunctionData) {
-            if (!dataBox.isPass() && !dataBox.isTesting()) {
+            if (!dataBox.isTesting() && !dataBox.isPass() ) {
                 return dataBox;
             }
         }

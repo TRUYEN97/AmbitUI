@@ -13,7 +13,10 @@ import Model.DataTest.FunctionParameters;
 import Model.ErrorLog;
 import MyLoger.MyLoger;
 import java.io.File;
+import java.io.IOException;
 import java.util.List;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 
 /**
  *
@@ -25,12 +28,12 @@ public class CreateTxt extends AbsFunction {
     private final FileBaseFunction fileBaseFunction;
 
     public CreateTxt(FunctionParameters parameters) {
-        this(parameters,  null);
+        this(parameters, null);
     }
-    
+
     public CreateTxt(FunctionParameters parameters, String item) {
-        super(parameters,  item);
-        this.analysisBase = new AnalysisBase(parameters,  item);
+        super(parameters, item);
+        this.analysisBase = new AnalysisBase(parameters, item);
         this.fileBaseFunction = new FileBaseFunction(parameters, item);
     }
 
@@ -62,15 +65,15 @@ public class CreateTxt extends AbsFunction {
             List<String> elementName = this.config.getListJsonArray("ElementName");
             String txtFile = this.fileBaseFunction.createNameFile(elementName, ".txt");
             String path = String.format("%s/%s", filePath, txtFile);
-            if (!loger.begin(new File(path), true, true)) {
-                addLog("Error", "Open file log failed!");
+            try {
+                loger.begin(new File(path), true, true);
+            } catch (IOException ex) {
+                addLog("Error", ex.getLocalizedMessage());
+                ErrorLog.addError(this, ex.getLocalizedMessage());
                 return false;
             }
             createInfo(loger);
             for (FunctionData dataBox : processData.getDataBoxs()) {
-                if (dataBox.isTesting()) {
-                    continue;
-                }
                 addLog(" - add item: " + dataBox.getFunctionName());
                 loger.add(dataBox.getLog());
                 loger.add("//////////////////////////////////////////////////////////////////\r\n");
@@ -79,11 +82,17 @@ public class CreateTxt extends AbsFunction {
             return true;
         } catch (Exception e) {
             e.printStackTrace();
-            addLog("Save file txt failed: " + e.getMessage());
-            ErrorLog.addError(this, e.getMessage());
+            addLog("Save file txt failed: " + e.getLocalizedMessage());
+            ErrorLog.addError(this, e.getLocalizedMessage());
             return false;
         } finally {
-            loger.close();
+            try {
+                loger.close();
+            } catch (IOException ex) {
+                addLog("Error", ex.getLocalizedMessage());
+                ErrorLog.addError(this, ex.getLocalizedMessage());
+                return false;
+            }
         }
     }
 

@@ -11,9 +11,11 @@ import Model.DataSource.Setting.ModeElement;
 import Time.TimeBase;
 import View.UIView;
 import DHCP.DHCP;
+import Model.ErrorLog;
 import java.io.File;
 import java.util.ArrayList;
 import java.util.List;
+import javax.swing.JOptionPane;
 
 /**
  *
@@ -79,6 +81,9 @@ public class Engine {
         if ( this.dhcp.setNetIP(netIP) && this.dhcp.init(createFilePath())) {
             new Thread(this.dhcp).start();
         }
+        String mess = String.format("can't begin the DHCP!\r\n%s", netIP);
+        ErrorLog.addError(this, mess);
+        JOptionPane.showMessageDialog(null, mess);
     }
 
     private File createFilePath() {

@@ -69,5 +69,6 @@ public class CellTest {
             return;
         }
         runner.end("STOP TEST");
+        this.thread.stop();
     }
 }

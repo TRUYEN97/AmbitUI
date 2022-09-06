@@ -62,7 +62,7 @@ public class Runner implements Runnable {
     private boolean runFunctions(List<FunctionName> functions) {
         process.setListFunc(functions);
         process.run();
-        return processData.isPass();
+        return process.isPass();
     }
 
     public void setMode(String mode) {

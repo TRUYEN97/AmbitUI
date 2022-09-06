@@ -177,7 +177,7 @@ public class BigUI extends AbsSubUi {
 
     @Override
     public void updateData() {
-        if (list != null) {
+        if (list != null && !list.isEmpty()) {
             this.Process.setValue(list.size());
             lbItemName.setText(list.get(list.size()-1).getFunctionName().getItemName());
         }

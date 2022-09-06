@@ -31,7 +31,10 @@ public class FunctionCover extends Thread {
     @Override
     public void run() {
         try {
-            functionData.start();
+            if (!functionData.start()) {
+                this.functionData.setFail(ErrorCodeElement.SIMPLE);
+                return;
+            }
             runTest();
         } catch (Exception e) {
             e.printStackTrace();

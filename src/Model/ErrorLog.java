@@ -7,6 +7,7 @@ package Model;
 import MyLoger.MyLoger;
 import Time.TimeBase;
 import java.io.File;
+import java.io.IOException;
 
 /**
  *
@@ -17,9 +18,13 @@ public class ErrorLog {
     private static final MyLoger loger = new MyLoger();
 
     static {
-        String filePath = String.format("Log\\ErrorLog\\%s.txt",
-                new TimeBase().getDate());
-        ErrorLog.loger.begin(new File(filePath), true);
+        try {
+            String filePath = String.format("Log\\ErrorLog\\%s.txt",
+                    new TimeBase().getDate());
+            ErrorLog.loger.begin(new File(filePath), true);
+        } catch (IOException ex) {
+            ex.printStackTrace();
+        }
     }
 
     public static void addError(String error) {
