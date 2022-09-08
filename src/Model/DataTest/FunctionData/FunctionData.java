@@ -4,7 +4,6 @@
  */
 package Model.DataTest.FunctionData;
 
-import Model.AllKeyWord;
 import Model.DataSource.ModeTest.ErrorCode.ErrorCodeElement;
 import Model.DataSource.ModeTest.FunctionConfig.FuncAllConfig;
 import Model.DataSource.ModeTest.FunctionConfig.FunctionConfig;
@@ -21,6 +20,8 @@ import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 import javax.swing.JOptionPane;
 
 /**
@@ -81,11 +82,21 @@ public class FunctionData {
     }
 
     public void addLog(Object str) {
-        this.loger.addLog(str);
+        try {
+            this.loger.addLog(str);
+        } catch (IOException ex) {
+            ErrorLog.addError(this, ex.getLocalizedMessage());
+            ex.printStackTrace();
+        }
     }
 
     public void addLog(String key, Object str) {
-        this.loger.addLog(key, str);
+        try {
+            this.loger.addLog(key, str);
+        } catch (IOException ex) {
+            ErrorLog.addError(this, ex.getLocalizedMessage());
+            ex.printStackTrace();
+        }
     }
 
     public String getResultTest() {

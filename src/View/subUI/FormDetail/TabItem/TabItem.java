@@ -13,7 +13,7 @@ package View.subUI.FormDetail.TabItem;
 import Model.DataSource.ModeTest.FunctionConfig.FunctionName;
 import Model.DataTest.FunctionData.FunctionData;
 import View.subUI.FormDetail.AbsTabUI;
-import View.subUI.FormDetail.TabItem.ShowLog.ItemLog;
+import View.subUI.FormDetail.TabItem.ShowLog.ShowLog;
 import java.awt.event.KeyEvent;
 import java.util.ArrayList;
 import java.util.HashMap;
@@ -39,7 +39,7 @@ public class TabItem extends AbsTabUI {
     private static final String CUS_ERROR_CODE = "Cus error code";
     private final Vector<String> testColumn;
     private final Vector<String> listFunc;
-    private final Map<FunctionData, ItemLog> itemLogs;
+    private final Map<FunctionData, ShowLog> itemLogs;
     private DefaultTableModel tableModel;
     private final List<Boolean> itemFinish;
 
@@ -169,7 +169,7 @@ public class TabItem extends AbsTabUI {
         if (itemLogs.containsKey(dataBox)) {
             itemLogs.get(dataBox).showLog();
         } else {
-            ItemLog itemLog = new ItemLog(this);
+            ShowLog itemLog = new ShowLog(this);
             itemLog.setDataBox(dataBox, uiStatus);
             itemLog.showLog();
             itemLogs.put(dataBox, itemLog);
@@ -211,7 +211,10 @@ public class TabItem extends AbsTabUI {
 
     @Override
     public void startTest() {
-        this.itemLogs.clear();
+        for (ShowLog itemLog : itemLogs.values()) {
+            itemLog.dispose();
+        }
+        itemLogs.clear();
         initTable(testColumn);
         super.startTest();
     }
@@ -299,5 +302,9 @@ public class TabItem extends AbsTabUI {
         return JOptionPane.showConfirmDialog(null,
                 "Chọn \"Yes\" để dừng test", "Messager",
                 JOptionPane.YES_NO_OPTION) == JOptionPane.YES_OPTION;
+    }
+
+    public void removeShowLog(FunctionData key) {
+        this.itemLogs.remove(key);
     }
 }

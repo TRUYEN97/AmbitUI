@@ -126,6 +126,8 @@ public class ProcessData implements IgetTime {
             this.data.put(AllKeyWord.SFIS.SFIS_STATUS, ItemTestData.FAIL);
             this.data.put(AllKeyWord.ERROR_CODE, itemFailed.getLimitsErrorCode());
             this.data.put(AllKeyWord.ERROR_DES, itemFailed.getErrorDes());
+            this.data.put(AllKeyWord.SFIS.SFIS_ERRORCODE, itemFailed.getLocalErrorCode());
+            this.data.put(AllKeyWord.SFIS.SFIS_ERRORDES, itemFailed.getLocalErrorDes());
         }
     }
 
@@ -213,6 +215,9 @@ public class ProcessData implements IgetTime {
     }
 
     public void addFailItem(ItemTestData itemTestData) {
+        if (this.faidItems.contains(itemTestData)) {
+            return;
+        }
         this.faidItems.add(itemTestData);
     }
 }

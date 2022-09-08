@@ -73,7 +73,8 @@ public class CreateTxt extends AbsFunction {
             createInfo(loger);
             for (FunctionData dataBox : processData.getDataBoxs()) {
                 addLog(" - add item: " + dataBox.getFunctionName());
-                loger.add(dataBox.getLog());
+                String log = dataBox.getLog();
+                loger.add(log == null ? "\r\n" : log);
                 loger.add("//////////////////////////////////////////////////////////////////\r\n");
             }
             addLog("Save file txt in " + path);
@@ -94,7 +95,7 @@ public class CreateTxt extends AbsFunction {
         }
     }
 
-    private void createInfo(MyLoger loger) {
+    private void createInfo(MyLoger loger) throws IOException {
         loger.add("===================================================================\r\n");
         loger.add(String.format("Start at = %s\r\n", processData.getString(AllKeyWord.START_TIME)));
         loger.add(String.format("End test at = %s\r\n", processData.getString(AllKeyWord.FINISH_TIME)));

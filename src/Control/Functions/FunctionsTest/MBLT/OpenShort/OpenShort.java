@@ -37,7 +37,7 @@ public class OpenShort extends AbsFunction {
 
     @Override
     public boolean test() {
-        if ((retry > 1 && !reConnectPortFixture()) || !stopAutoboot()) {
+        if ((turn > 1 && !reConnectPortFixture()) || !stopAutoboot()) {
             return false;
         }
         return getCurrent();

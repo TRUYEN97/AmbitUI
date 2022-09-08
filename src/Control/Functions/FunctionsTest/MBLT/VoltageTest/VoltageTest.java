@@ -91,7 +91,7 @@ public class VoltageTest extends AbsFunction {
         checkVolt checkVolt;
         checkVolt = new checkVolt(functionParameters, item);
         checkVolt.setValue(value);
-        checkVolt.run();
+        checkVolt.runTest();
         return checkVolt.isPass();
     }
 

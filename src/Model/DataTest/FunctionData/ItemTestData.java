@@ -8,9 +8,11 @@ import Model.AllKeyWord;
 import Model.DataSource.ModeTest.ErrorCode.ErrorCodeElement;
 import Model.DataSource.ModeTest.FunctionConfig.FuncAllConfig;
 import Model.DataSource.Tool.IgetTime;
+import Model.ErrorLog;
 import MyLoger.MyLoger;
 import Time.TimeBase;
 import com.alibaba.fastjson.JSONObject;
+import java.io.IOException;
 import java.util.Arrays;
 import java.util.List;
 
@@ -99,10 +101,19 @@ public class ItemTestData {
         if (!isPass()) {
             writeError();
         }
-        this.loger.addLog("****************************************************");
+        this.addLog("****************************************************");
         this.data.put(AllKeyWord.CYCLE_TIME, String.format("%.3f", testTime = getRunTime()));
         this.data.put(AllKeyWord.FINISH_TIME, new TimeBase().getSimpleDateTime());
         this.testing = false;
+    }
+
+    private void addLog(String str) {
+        try {
+            this.loger.addLog(str);
+        } catch (IOException ex) {
+            ex.printStackTrace();
+            ErrorLog.addError(this, ex.getLocalizedMessage());
+        }
     }
 
     private void setErrorCode() {
@@ -161,12 +172,12 @@ public class ItemTestData {
     }
 
     public void endTurn() {
-        this.loger.addLog("****************************************************");
-        this.loger.addLog(String.format("Item name = %s", this.data.getString(AllKeyWord.TEST_NAME)));
+        this.addLog("****************************************************");
+        this.addLog(String.format("Item name = %s", this.data.getString(AllKeyWord.TEST_NAME)));
         addLimitData();
-        this.loger.addLog(String.format("Value = %s", getResultTest()));
-        this.loger.addLog(String.format("Test status = %s", getStatusTest()));
-        this.loger.addLog("-----------------------------------------------------");
+        this.addLog(String.format("Value = %s", getResultTest()));
+        this.addLog(String.format("Test status = %s", getStatusTest()));
+        this.addLog("-----------------------------------------------------");
     }
 
     private void addLimitData() {
@@ -176,17 +187,17 @@ public class ItemTestData {
         String limitType = allConfig.getString(AllKeyWord.LIMIT_TYPE);
         String uperLimit = allConfig.getString(AllKeyWord.UPPER_LIMIT);
         String lowerLimit = allConfig.getString(AllKeyWord.LOWER_LIMIT);
-        this.loger.addLog(String.format("Limit type = %s", limitType));
-        this.loger.addLog(String.format("Uper limit = %s", uperLimit));
-        this.loger.addLog(String.format("Lowet limit = %s", lowerLimit));
+        this.addLog(String.format("Limit type = %s", limitType));
+        this.addLog(String.format("Uper limit = %s", uperLimit));
+        this.addLog(String.format("Lowet limit = %s", lowerLimit));
     }
 
     private void writeError() {
         this.data.putAll(this.error);
-        this.loger.addLog(String.format("Error code = %s", getLimitsErrorCode()));
-        this.loger.addLog(String.format("Error des = %s", getErrorDes()));
-        this.loger.addLog(String.format("Local error code = %s", getLocalErrorCode()));
-        this.loger.addLog(String.format("Local error des = %s", getErrorDes()));
+        this.addLog(String.format("Error code = %s", getLimitsErrorCode()));
+        this.addLog(String.format("Error des = %s", getErrorDes()));
+        this.addLog(String.format("Local error code = %s", getLocalErrorCode()));
+        this.addLog(String.format("Local error des = %s", getLocalErrorDes()));
     }
 
     public FuncAllConfig getAllConfig() {
@@ -196,12 +207,16 @@ public class ItemTestData {
     public String getLimitsErrorCode() {
         return this.data.getString(AllKeyWord.ERROR_CODE);
     }
-    
+
+    public String getErrorDes() {
+        return this.data.getString(AllKeyWord.ERROR_DES);
+    }
+
     public String getLocalErrorCode() {
         return this.data.getString(AllKeyWord.SFIS.SFIS_ERRORCODE);
     }
 
-    public String getErrorDes() {
-        return this.data.getString(AllKeyWord.ERROR_DES);
+    public String getLocalErrorDes() {
+        return this.data.getString(AllKeyWord.SFIS.SFIS_ERRORDES);
     }
 }

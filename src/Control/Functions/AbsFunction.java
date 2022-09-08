@@ -32,7 +32,7 @@ public abstract class AbsFunction implements IFunction {
     private final AnalysisResult analysisResult;
     protected final FunctionParameters functionParameters;
     private final FunctionData functionData;
-    protected int retry;
+    protected int turn;
 
     protected AbsFunction(FunctionParameters functionParameters, String itemName) {
         this.functionParameters = functionParameters;
@@ -49,22 +49,13 @@ public abstract class AbsFunction implements IFunction {
         this.processData = functionParameters.getUiStatus().getProcessData();
         this.testSignal = processData.getSignal();
         this.productData = processData.getProductData();
-        this.retry = 0;
+        this.turn = 1;
     }
 
     @Override
     public void run() {
-        try {
-            start();
-            runTest();
-        } finally {
-            end();
-        }
-    }
-
-    public void runTest() {
         boolean status = false;
-        this.retry++;
+        this.addLog(String.format("Turn run: %s ", turn++));
         try {
             status = test();
         } catch (Exception e) {
@@ -74,6 +65,15 @@ public abstract class AbsFunction implements IFunction {
         } finally {
             this.analysisResult.checkResult(status, getResult());
             endTurn();
+        }
+    }
+
+    public void runTest() {
+        try {
+            start();
+            run();
+        } finally {
+            end();
         }
     }
 

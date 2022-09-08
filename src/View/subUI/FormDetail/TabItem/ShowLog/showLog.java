@@ -10,6 +10,7 @@ import View.subUI.FormDetail.TabItem.TabItem;
 import Model.DataTest.FunctionData.FunctionData;
 import Model.ManagerUI.UIStatus.UiStatus;
 import java.awt.event.ActionEvent;
+import java.awt.event.ActionListener;
 import java.awt.event.MouseEvent;
 import java.util.Queue;
 import javax.swing.Timer;
@@ -19,7 +20,7 @@ import javax.swing.text.DefaultCaret;
  *
  * @author Administrator
  */
-public class ItemLog extends javax.swing.JFrame {
+public class ShowLog extends javax.swing.JFrame {
 
     /**
      * Creates new form ItemLog
@@ -29,8 +30,9 @@ public class ItemLog extends javax.swing.JFrame {
     private Queue<String> queueLog;
     private final Timer timer;
     private final TabItem tabItem;
+    private final StringBuffer buffer;
 
-    public ItemLog(TabItem tabItem) {
+    public ShowLog(TabItem tabItem) {
         //<editor-fold defaultstate="collapsed" desc=" Look and feel setting code (optional) ">
         /* If Nimbus (introduced in Java SE 6) is not available, stay with the default look and feel.
          * For details see http://download.oracle.com/javase/tutorial/uiswing/lookandfeel/plaf.html 
@@ -43,14 +45,21 @@ public class ItemLog extends javax.swing.JFrame {
                 }
             }
         } catch (ClassNotFoundException | InstantiationException | IllegalAccessException | javax.swing.UnsupportedLookAndFeelException ex) {
-            java.util.logging.Logger.getLogger(ItemLog.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(ShowLog.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         }
         //</editor-fold>
         initComponents();
         this.tabItem = tabItem;
-        this.timer = new Timer(1000, (ActionEvent e) -> {
+        this.buffer = new StringBuffer();
+        this.timer = new Timer(500, (ActionEvent e) -> {
+            ShowLog.this.timer.stop();
             while (!queueLog.isEmpty()) {
-                this.txtLog.append(queueLog.poll());
+                ShowLog.this.buffer.append(queueLog.poll());
+            }
+            ShowLog.this.txtLog.append(buffer.toString());
+            buffer.setLength(0);
+            if (dataBox.isTesting()) {
+                ShowLog.this.timer.start();
             }
         });
     }
@@ -74,6 +83,7 @@ public class ItemLog extends javax.swing.JFrame {
         this.setTitle(title);
         setVisible(true);
         if (dataBox.isTesting()) {
+            this.queueLog = dataBox.getLoger().getQueueLog();
             this.timer.start();
         } else {
             this.txtLog.setText(dataBox.getLog());
@@ -130,12 +140,14 @@ public class ItemLog extends javax.swing.JFrame {
     private void formWindowClosed(java.awt.event.WindowEvent evt) {//GEN-FIRST:event_formWindowClosed
         // TODO add your handling code here:
         stopTimer();
+        this.tabItem.removeShowLog(this.dataBox);
+        this.dispose();
     }//GEN-LAST:event_formWindowClosed
 
     private void txtLogMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_txtLogMouseClicked
         // TODO add your handling code here:
         if (evt.getButton() == MouseEvent.BUTTON3 && evt.getClickCount() > 1) {
-            if (!this.txtLog.getText().isBlank()) {
+            if (this.txtLog.getDocument().getLength() > 0) {
                 txtLog.setCaretPosition(this.txtLog.getDocument().getLength());
             }
             DefaultCaret caret = (DefaultCaret) txtLog.getCaret();
@@ -146,7 +158,7 @@ public class ItemLog extends javax.swing.JFrame {
     /**
      * @param args the command line arguments
      */
-    private void stopTimer() {
+    public void stopTimer() {
         this.timer.stop();
     }
 
@@ -158,6 +170,5 @@ public class ItemLog extends javax.swing.JFrame {
     public void setDataBox(FunctionData dataBox, UiStatus uiStatus) {
         this.uiStatus = uiStatus;
         this.dataBox = dataBox;
-        this.queueLog = dataBox.getLoger().getQueueLog();
     }
 }

@@ -28,7 +28,11 @@ public class ErrorLog {
     }
 
     public static void addError(String error) {
-        ErrorLog.loger.addLog(error + "\r\n//////////////////////////////////////");
+        try {
+            ErrorLog.loger.addLog(error + "\r\n//////////////////////////////////////");
+        } catch (IOException ex) {
+            ex.printStackTrace();
+        }
     }
 
     public static void addError(Object object, String error) {

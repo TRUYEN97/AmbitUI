@@ -78,12 +78,14 @@ public class Engine {
         String netIP = this.setting.getDhcpNetIP();
         this.view.showMessager("////DHCP//////\r\nSet net IP: " + netIP);
         this.dhcp.setView(this.view.getTextMess());
-        if ( this.dhcp.setNetIP(netIP) && this.dhcp.init(createFilePath())) {
+        if (this.dhcp.setNetIP(netIP) && this.dhcp.init(createFilePath())) {
             new Thread(this.dhcp).start();
+        } else {
+            String mess = String.format("Can't start the DHCP!\r\n%s", netIP);
+            ErrorLog.addError(this, mess);
+            JOptionPane.showMessageDialog(null, mess);
+            System.exit(0);
         }
-        String mess = String.format("can't begin the DHCP!\r\n%s", netIP);
-        ErrorLog.addError(this, mess);
-        JOptionPane.showMessageDialog(null, mess);
     }
 
     private File createFilePath() {

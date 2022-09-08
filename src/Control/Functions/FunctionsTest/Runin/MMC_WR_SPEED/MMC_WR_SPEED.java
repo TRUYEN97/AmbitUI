@@ -74,7 +74,7 @@ public class MMC_WR_SPEED extends AbsFunction {
             addLog("PC", item);
             mmc_speed = new MMC_SPEED(functionParameters, item);
             mmc_speed.setData(response, blocks.get(i), KeyWords.get(i));
-            mmc_speed.run();
+            mmc_speed.runTest();
             if (!mmc_speed.isPass()) {
                 return false;
             }

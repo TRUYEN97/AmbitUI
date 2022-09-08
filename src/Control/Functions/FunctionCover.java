@@ -51,13 +51,7 @@ public class FunctionCover extends Thread {
             this.stop = false;
             int testTimes = allConfig.getInteger(AllKeyWord.RETRY, 0) + 1;
             for (int turn = 1; turn <= testTimes && !function.isPass() && !this.stop; turn++) {
-                this.functionData.addLog(String.format("Turn run: %s ", turn));
-                this.thread = new Thread() {
-                    @Override
-                    public void run() {
-                        function.runTest();
-                    }
-                };
+                this.thread = new Thread(function);
                 this.thread.start();
                 checkOutTime();
             }
@@ -66,9 +60,6 @@ public class FunctionCover extends Thread {
             ErrorLog.addError(e.getLocalizedMessage());
             this.functionData.addLog(e.getMessage());
         } finally {
-            if (this.thread != null && this.thread.isAlive()) {
-                this.thread.stop();
-            }
             this.function.end();
         }
     }
