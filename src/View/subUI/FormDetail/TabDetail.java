@@ -45,6 +45,7 @@ public class TabDetail extends AbsUI implements IUpdate {
     public AbsSubUi getBoss() {
         return this.boss;
     }
+    
 
     /**
      * This method is called from within the constructor to initialize the form.

@@ -9,23 +9,31 @@ import Model.DataSource.ModeTest.ErrorCode.ErrorCodeElement;
 import Model.DataSource.ModeTest.FunctionConfig.FuncAllConfig;
 import Model.DataTest.FunctionData.FunctionData;
 import Model.ErrorLog;
+import java.util.concurrent.ExecutionException;
+import java.util.concurrent.ExecutorService;
+import java.util.concurrent.Executors;
+import java.util.concurrent.Future;
+import java.util.concurrent.TimeUnit;
+import java.util.concurrent.TimeoutException;
 
 /**
  *
  * @author 21AK22
  */
-public class FunctionCover extends Thread {
+public class FunctionCover implements Runnable {
 
     private final AbsFunction function;
     private final FunctionData functionData;
     private final FuncAllConfig allConfig;
-    private Thread thread;
+    private final ExecutorService pool;
+    private Future future;
     private boolean stop;
 
     public FunctionCover(AbsFunction function) {
         this.function = function;
         this.functionData = function.functionParameters.getFunctionData();
         this.allConfig = function.config;
+        this.pool = Executors.newSingleThreadExecutor();
     }
 
     @Override
@@ -42,6 +50,7 @@ public class FunctionCover extends Thread {
         } finally {
             this.functionData.end();
             this.functionData.closeLoger();
+            this.pool.shutdownNow();
         }
     }
 
@@ -51,38 +60,17 @@ public class FunctionCover extends Thread {
             this.stop = false;
             int testTimes = allConfig.getInteger(AllKeyWord.RETRY, 0) + 1;
             for (int turn = 1; turn <= testTimes && !function.isPass() && !this.stop; turn++) {
-                this.thread = new Thread(function);
-                this.thread.start();
-                checkOutTime();
+                future = this.pool.submit(function);
+                checkOutTime(future);
             }
         } catch (Exception e) {
             e.printStackTrace();
             ErrorLog.addError(e.getLocalizedMessage());
             this.functionData.addLog(e.getMessage());
+            this.functionData.setFail(ErrorCodeElement.SIMPLE);
         } finally {
             this.function.end();
-        }
-    }
-
-    private void checkOutTime() {
-        final Integer timeSpec = this.allConfig.getInteger(AllKeyWord.TIME_OVER, Integer.MAX_VALUE);
-        while (this.thread != null && this.thread.isAlive()) {
-            try {
-                this.thread.join(1000);
-            } catch (InterruptedException ex) {
-                ex.printStackTrace();
-                ErrorLog.addError(this, ex.getMessage());
-            }
-            final double runtime = functionData.getRunTime();
-            if (runtime >= timeSpec) {
-                String mess = String.format("""
-                                                                This function has out of run time!\r
-                                                                Time: %.3f S\r
-                                                                Spec: %s S\r
-                                                                Try to stop!!""",
-                        runtime, timeSpec);
-                stopTest(mess);
-            }
+            future = null;
         }
     }
 
@@ -99,13 +87,13 @@ public class FunctionCover extends Thread {
     }
 
     public void stopTest(String mess) {
-        if (this.thread != null && this.thread.isAlive()) {
+        if (this.future != null) {
             if (mess != null) {
-                this.functionData.addLog("This function will be stop! Because " + mess);
+                this.functionData.addLog("This function will be stopped! Because " + mess);
                 this.functionData.setFail(ErrorCodeElement.SIMPLE);
             }
+            this.future.cancel(true);
             this.stop = true;
-            this.thread.stop();
         }
     }
 
@@ -119,5 +107,29 @@ public class FunctionCover extends Thread {
 
     public boolean isPass() {
         return this.function.isPass();
+    }
+
+    private void checkOutTime(Future<?> future) {
+        final Integer timeSpec = this.allConfig.getInteger(AllKeyWord.TIME_OVER, Integer.MAX_VALUE);
+        while (future != null && (!future.isDone() || this.function.isTesting())) {
+            final double runtime = functionData.getRunTime();
+            if (runtime >= timeSpec) {
+                String mess = String.format("""
+                                                                This function has out of run time!\r
+                                                                Time: %.3f S\r
+                                                                Spec: %s S\r
+                                                                Try to stop!!""",
+                        runtime, timeSpec);
+                stopTest(mess);
+            }
+            try {
+                future.get(1, TimeUnit.SECONDS);
+            } catch (InterruptedException | ExecutionException | TimeoutException ex) {
+                if (!(ex instanceof TimeoutException)) {
+                    ex.printStackTrace();
+                    ErrorLog.addError(this, ex.getMessage());
+                }
+            }
+        }
     }
 }

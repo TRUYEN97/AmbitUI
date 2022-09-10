@@ -58,13 +58,9 @@ public abstract class AbsFunction implements IFunction {
         this.addLog(String.format("Turn run: %s ", turn++));
         try {
             status = test();
-        } catch (Exception e) {
-            ErrorLog.addError(this, e.getLocalizedMessage());
-            addLog("ERROR", e.getLocalizedMessage());
-            e.printStackTrace();
-        } finally {
+        }finally {
             this.analysisResult.checkResult(status, getResult());
-            endTurn();
+            this.itemTestData.endTurn();
         }
     }
 
@@ -111,10 +107,6 @@ public abstract class AbsFunction implements IFunction {
 
     protected void addLog(String key, Object log) {
         this.functionData.addLog(key, log);
-    }
-
-    private void endTurn() {
-        this.itemTestData.endTurn();
     }
 
 }

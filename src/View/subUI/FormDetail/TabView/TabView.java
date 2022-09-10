@@ -74,19 +74,31 @@ public class TabView extends AbsTabUI {
 
     @Override
     public void startTest() {
-        super.startTest(); // Generated from nbfs://nbhost/SystemFileSystem/Templates/Classes/Code/OverriddenMethodBody
+        super.startTest();
         this.lbStatus.setBackground(Color.yellow);
     }
 
     @Override
     public void endTest() {
-        super.endTest(); // Generated from nbfs://nbhost/SystemFileSystem/Templates/Classes/Code/OverriddenMethodBody
-        showMess(this.uiStatus.getProcessData().getMassage());
+        super.endTest();
+        String mess = this.uiStatus.getProcessData().getMassage();
         if (this.uiStatus.getProcessData().isPass()) {
-            this.lbStatus.setBackground(Color.GREEN);
+            showPass(mess);
         } else {
-            this.lbStatus.setBackground(Color.red);
+            showFail(mess);
         }
+    }
+
+    private void showFail(String mess) {
+        this.lbStatus.setBackground(Color.red);
+        showMess(String.format("%sFailed: %s",
+                mess == null ? "" : mess.concat("\r\n"),
+                this.uiStatus.getProcessData().getFirstFail().getItemName()));
+    }
+
+    private void showPass(String mess) {
+        this.lbStatus.setBackground(Color.GREEN);
+        showMess(String.format("%s", mess == null ? "Done!": mess));
     }
 
     @Override
@@ -96,8 +108,6 @@ public class TabView extends AbsTabUI {
         }
         if (this.uiStatus.isTesting()) {
             showItemTesting();
-        } else {
-            showMess(this.uiStatus.getProcessData().getMassage());
         }
 
     }

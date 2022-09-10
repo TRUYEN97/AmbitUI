@@ -104,13 +104,7 @@ public class ProcessData implements IgetTime {
     }
 
     public String getMassage() {
-        if (this.uiStatus.isTesting() || message != null) {
-            return message;
-        }
-        if (isPass()) {
-            return message = "Done!";
-        }
-        return message = String.format("Failed: %s", getFirstFail().getItemName());
+        return message;
     }
 
     public void setFinishTime() {

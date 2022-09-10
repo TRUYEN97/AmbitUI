@@ -16,6 +16,7 @@ package View.subUI.FormDetail;
  */
 public class FormShow extends javax.swing.JFrame {
 
+    private TabDetail tabDetail; 
     /**
      * Creates new form Detail
      *
@@ -25,12 +26,14 @@ public class FormShow extends javax.swing.JFrame {
     }
 
     public void showDetail(TabDetail tabDetail) {
+        this.tabDetail = tabDetail;
         java.awt.EventQueue.invokeLater(() -> {
             add(tabDetail);
             setTitle(tabDetail.getBoss().getName());
             setVisible(true);
         });
     }
+    
 
     /**
      * This method is called from within the constructor to initialize the form.

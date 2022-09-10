@@ -14,7 +14,13 @@ import Model.Factory.Factory;
 import Model.Interface.IFunction;
 import Model.ManagerUI.UIStatus.UiStatus;
 import java.util.ArrayList;
+import java.util.HashMap;
+import java.util.Iterator;
 import java.util.List;
+import java.util.Map;
+import java.util.concurrent.ExecutorService;
+import java.util.concurrent.Executors;
+import java.util.concurrent.Future;
 import javax.swing.JOptionPane;
 
 /**
@@ -23,20 +29,24 @@ import javax.swing.JOptionPane;
  */
 class Process implements IFunction {
 
-    private final List<FunctionCover> multiTasking;
+    private final Map<Future, FunctionCover> multiTasking;
     private final List<FunctionName> functions;
     private final Factory factory;
     private final UiStatus uiStatus;
+    private final ExecutorService pool;
     private boolean justFunctionAlwayRun;
     private boolean test;
+    private boolean stop;
     private boolean pass;
 
     public Process(UiStatus uiStatus) {
-        this.multiTasking = new ArrayList<>();
+        this.multiTasking = new HashMap<>();
         this.functions = new ArrayList<>();
         this.factory = Factory.getInstance();
         this.uiStatus = uiStatus;
+        this.pool = Executors.newCachedThreadPool();
         this.pass = false;
+        this.stop = false;
         this.test = false;
     }
 
@@ -58,10 +68,13 @@ class Process implements IFunction {
             this.justFunctionAlwayRun = false;
             this.test = true;
             this.pass = true;
+            this.stop = false;
             FunctionCover funcCover;
-            FunctionName functionName;
-            for (int i = 0; i < functions.size(); i++) {
-                functionName = functions.get(i);
+            Future future;
+            for (FunctionName functionName : functions) {
+                if (this.stop) {
+                    break;
+                }
                 if (justFunctionAlwayRun && !isAlwaysRun(functionName)) {
                     continue;
                 }
@@ -69,12 +82,12 @@ class Process implements IFunction {
                 if (funcCover.isWaitUntilMultiDone()) {
                     waitUntilMultiTaskDone();
                 }
-                multiTasking.add(funcCover);
-                funcCover.start();
+                future = this.pool.submit(funcCover);
+                multiTasking.put(future, funcCover);
                 if (funcCover.isMutiTasking()) {
                     continue;
                 }
-                funcCover.join();
+                future.get();
                 if (hasTaskFailed()) {
                     justFunctionAlwayRun = true;
                 }
@@ -101,18 +114,21 @@ class Process implements IFunction {
         if (multiTasking.isEmpty()) {
             return;
         }
-        for (FunctionCover functionCover : multiTasking) {
-            functionCover.stopTest(mess);
+        for (Future future : multiTasking.keySet()) {
+            multiTasking.get(future).stopTest(mess);
         }
         this.functions.clear();
+        this.pool.shutdownNow();
     }
 
     private boolean hasTaskFailed() {
-        List<FunctionCover> funcRemoves = new ArrayList<>();
+        List<Future> futureRemoves = new ArrayList<>();
+        FunctionCover cover;
         try {
-            for (FunctionCover cover : multiTasking) {
-                if (!cover.isAlive()) {
-                    funcRemoves.add(cover);
+            for (Future future : multiTasking.keySet()) {
+                if (future.isCancelled() || future.isDone()) {
+                    futureRemoves.add(future);
+                    cover = multiTasking.get(future);
                     if (!cover.isPass()) {
                         this.pass = false;
                         return !cover.isSkipFail();
@@ -125,7 +141,9 @@ class Process implements IFunction {
             ErrorLog.addError(this, e.getLocalizedMessage());
             return true;
         } finally {
-            multiTasking.removeAll(funcRemoves);
+            for (Future futureRemove : futureRemoves) {
+                multiTasking.remove(futureRemove);
+            }
         }
     }
 

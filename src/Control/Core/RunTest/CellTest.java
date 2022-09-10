@@ -10,6 +10,9 @@ import Model.DataSource.Tool.TestTimer;
 import Model.DataTest.UiInformartion;
 import Model.ManagerUI.UIStatus.UiStatus;
 import java.util.List;
+import java.util.concurrent.ExecutorService;
+import java.util.concurrent.Executors;
+import java.util.concurrent.Future;
 
 /**
  *
@@ -20,13 +23,15 @@ public class CellTest {
     private final UiStatus uiStatus;
     private ModeTestSource testSource;
     private final Runner runner;
-    private Thread thread;
+    private final ExecutorService pool;
+    private Future future;
     private final UiInformartion informartion;
 
     public CellTest(UiStatus uiStatus, TestTimer testTimer) {
         this.uiStatus = uiStatus;
         this.runner = new Runner(uiStatus, testTimer);
         this.informartion = uiStatus.getInfo();
+        this.pool = Executors.newSingleThreadExecutor();
     }
 
     public void start() {
@@ -39,13 +44,12 @@ public class CellTest {
         runner.setCheckFunction(this.testSource.getCheckFunctions());
         runner.setTestFunction(this.testSource.getTestFunctions());
         runner.setEndFunction(this.testSource.getEndFunctions());
-        thread = new Thread(runner);
-        thread.start();
+        this.future = this.pool.submit(runner);
         this.informartion.addTestCount();
     }
 
     public boolean isTesting() {
-        return thread != null && thread.isAlive() && runner.isTesting();
+        return future != null && !future.isDone();
     }
 
     public void testDebugItem(List<FunctionName> listItem) {
@@ -60,8 +64,7 @@ public class CellTest {
         }
         this.runner.setTestFunction(functions);
         this.runner.setMode("Debug");
-        this.thread = new Thread(runner);
-        this.thread.start();
+        this.future = this.pool.submit(runner);
     }
 
     public void stopTest() {
@@ -69,6 +72,6 @@ public class CellTest {
             return;
         }
         runner.end("STOP TEST");
-        this.thread.stop();
+        this.future.cancel(true);
     }
 }

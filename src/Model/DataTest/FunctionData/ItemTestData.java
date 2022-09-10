@@ -174,16 +174,15 @@ public class ItemTestData {
     public void endTurn() {
         this.addLog("****************************************************");
         this.addLog(String.format("Item name = %s", this.data.getString(AllKeyWord.TEST_NAME)));
-        addLimitData();
+        if (allConfig.getString(AllKeyWord.LIMIT_TYPE) != null) {
+            addLimitData();
+        }
         this.addLog(String.format("Value = %s", getResultTest()));
         this.addLog(String.format("Test status = %s", getStatusTest()));
         this.addLog("-----------------------------------------------------");
     }
 
     private void addLimitData() {
-        if (allConfig.getString(AllKeyWord.LIMIT_TYPE) == null) {
-            return;
-        }
         String limitType = allConfig.getString(AllKeyWord.LIMIT_TYPE);
         String uperLimit = allConfig.getString(AllKeyWord.UPPER_LIMIT);
         String lowerLimit = allConfig.getString(AllKeyWord.LOWER_LIMIT);
