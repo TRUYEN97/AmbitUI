@@ -53,22 +53,22 @@ public class Setting extends AbsJsonSource<String, ModeElement> implements IInit
         return this.readFile.getData().getString(AllKeyWord.DHCP);
     }
 
-    public String getGiaiDoan() {
-        return this.readFile.getData().getString(AllKeyWord.GIAI_DOAN);
-    }
-
-    public String getFunctionsLocalLogPath() {
-        return this.readFile.getData().getString(AllKeyWord.LOCAL_FUNCTION_LOG);
+    public String getProgress() {
+        return this.readFile.getData().getString(AllKeyWord.PROGRESS);
     }
 
     public String getLocalLogPath() {
-        return this.readFile.getData().getString(AllKeyWord.LOCAL_LOG);
+        String local = this.readFile.getData().getString(AllKeyWord.LOCAL_LOG);
+        if (local == null) {
+            return "Log/TestLog";
+        }
+        return local;
     }
 
     public String getUpdateLimitCommand() {
         return this.readFile.getData().getString(AllKeyWord.UPDATE_LIMIT_CMD);
     }
-    
+
     public String getLimitPath() {
         return this.readFile.getData().getString(AllKeyWord.LIMIT_PATH);
     }

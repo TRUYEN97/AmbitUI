@@ -22,11 +22,11 @@ public class InputData {
     }
 
     public void setInput(String input) {
-        this.data.put(AllKeyWord.SFIS.SFIS_SN, input.toUpperCase());
+        this.data.put(AllKeyWord.SFIS.SN, input.toUpperCase());
     }
 
     public String getInput() {
-        return this.data.getString(AllKeyWord.SFIS.SFIS_SN);
+        return this.data.getString(AllKeyWord.SFIS.SN);
     }
 
     public String getIndex() {

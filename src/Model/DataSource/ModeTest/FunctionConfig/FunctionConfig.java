@@ -28,29 +28,29 @@ public class FunctionConfig extends AbsElementInfo {
     }
 
     public final String getFunctionName() {
-        return this.warehouse.getString(AllKeyWord.FUNC_NAME);
+        return this.warehouse.getString(AllKeyWord.CONFIG.FUNC_NAME);
     }
 
     public final String getItemName() {
-        return this.warehouse.getString(AllKeyWord.TEST_NAME);
+        return this.warehouse.getString(AllKeyWord.CONFIG.TEST_NAME);
     }
 
     public boolean isMutiTasking() {
-        return this.warehouse.getBoolean(AllKeyWord.MULTI_TASK);
+        return this.warehouse.getBoolean(AllKeyWord.CONFIG.MULTI_TASK);
     }
 
     public int getRetry() {
-        if (this.warehouse.getInteger(AllKeyWord.RETRY) == null) {
+        if (this.warehouse.getInteger(AllKeyWord.CONFIG.RETRY) == null) {
             return 1;
         }
-        return this.warehouse.getInteger(AllKeyWord.RETRY);
+        return this.warehouse.getInteger(AllKeyWord.CONFIG.RETRY);
     }
 
     public long getTimeOutFunction() {
-        if (this.warehouse.getLong(AllKeyWord.TIME_OVER) == null) {
+        if (this.warehouse.getLong(AllKeyWord.CONFIG.TIME_OUT) == null) {
             return Long.MAX_VALUE;
         }
-        return this.warehouse.getLong(AllKeyWord.TIME_OVER);
+        return this.warehouse.getLong(AllKeyWord.CONFIG.TIME_OUT);
     }
 
     public long getTimeOutTest() {
@@ -61,11 +61,11 @@ public class FunctionConfig extends AbsElementInfo {
     }
 
     public boolean isSkipFail() {
-        return warehouse.getBoolean(AllKeyWord.FAIL_CONTNIUE);
+        return warehouse.getBoolean(AllKeyWord.CONFIG.FAIL_CONTNIUE);
     }
 
     boolean isActive() {
-        return warehouse.getBoolean(AllKeyWord.FLAG);
+        return warehouse.getBoolean(AllKeyWord.CONFIG.FLAG);
     }
 
     public String getString(String key) {
@@ -81,7 +81,7 @@ public class FunctionConfig extends AbsElementInfo {
     }
 
     public boolean isUntilMultiDone() {
-        return warehouse.getBoolean(AllKeyWord.WAIT_MULTI_DONE);
+        return warehouse.getBoolean(AllKeyWord.CONFIG.WAIT_MULTI_DONE);
     }
 
     public Object getObject(String key) {
@@ -93,11 +93,11 @@ public class FunctionConfig extends AbsElementInfo {
     }
 
     public boolean isAlwaysRun() {
-        return this.warehouse.getBoolean(AllKeyWord.ALWAYSRUN);
+        return this.warehouse.getBoolean(AllKeyWord.CONFIG.ALWAYS_RUN);
     }
 
     public boolean isDiscreteFunc() {
-        return this.warehouse.getBoolean(AllKeyWord.DISCRETE_TEST);
+        return this.warehouse.getBoolean(AllKeyWord.CONFIG.DEBUG_ABLE);
     }
 
 }

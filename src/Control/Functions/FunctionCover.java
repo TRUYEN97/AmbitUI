@@ -9,11 +9,6 @@ import Model.DataSource.ModeTest.ErrorCode.ErrorCodeElement;
 import Model.DataSource.ModeTest.FunctionConfig.FuncAllConfig;
 import Model.DataTest.FunctionData.FunctionData;
 import Model.ErrorLog;
-import java.util.concurrent.ExecutionException;
-import java.util.concurrent.ExecutorService;
-import java.util.concurrent.Executors;
-import java.util.concurrent.Future;
-import java.util.concurrent.TimeUnit;
 import java.util.concurrent.TimeoutException;
 
 /**
@@ -25,15 +20,13 @@ public class FunctionCover implements Runnable {
     private final AbsFunction function;
     private final FunctionData functionData;
     private final FuncAllConfig allConfig;
-    private final ExecutorService pool;
-    private Future future;
+    private Thread thread;
     private boolean stop;
 
     public FunctionCover(AbsFunction function) {
         this.function = function;
         this.functionData = function.functionParameters.getFunctionData();
         this.allConfig = function.config;
-        this.pool = Executors.newSingleThreadExecutor();
     }
 
     @Override
@@ -50,7 +43,6 @@ public class FunctionCover implements Runnable {
         } finally {
             this.functionData.end();
             this.functionData.closeLoger();
-            this.pool.shutdownNow();
         }
     }
 
@@ -58,19 +50,20 @@ public class FunctionCover implements Runnable {
         try {
             this.function.start();
             this.stop = false;
-            int testTimes = allConfig.getInteger(AllKeyWord.RETRY, 0) + 1;
+            int testTimes = allConfig.getInteger(AllKeyWord.CONFIG.RETRY, 0) + 1;
             for (int turn = 1; turn <= testTimes && !function.isPass() && !this.stop; turn++) {
-                future = this.pool.submit(function);
-                checkOutTime(future);
+                this.thread = new Thread(function);
+                this.thread.start();
+                checkOutTime();
+                this.function.endTurn();
             }
         } catch (Exception e) {
             e.printStackTrace();
             ErrorLog.addError(e.getLocalizedMessage());
             this.functionData.addLog(e.getMessage());
-            this.functionData.setFail(ErrorCodeElement.SIMPLE);
         } finally {
             this.function.end();
-            future = null;
+            thread = null;
         }
     }
 
@@ -79,55 +72,56 @@ public class FunctionCover implements Runnable {
     }
 
     public boolean isMutiTasking() {
-        return allConfig.getBoolean(AllKeyWord.MULTI_TASK, false);
+        return allConfig.getBoolean(AllKeyWord.CONFIG.MULTI_TASK, false);
     }
 
     public boolean isSkipFail() {
-        return allConfig.getBoolean(AllKeyWord.FAIL_CONTNIUE, false);
+        return allConfig.getBoolean(AllKeyWord.CONFIG.FAIL_CONTNIUE, false);
     }
 
     public void stopTest(String mess) {
-        if (this.future != null) {
+        while (thread != null && thread.isAlive()) {
             if (mess != null) {
-                this.functionData.addLog("This function will be stopped! Because " + mess);
+                this.functionData.addLog(String.format("""
+                                                       This function will be stopped! Because %s\r
+                                                       Time: %.3f S""", mess, 
+                        functionData.getRunTime()));
                 this.functionData.setFail(ErrorCodeElement.SIMPLE);
             }
-            this.future.cancel(true);
+            this.thread.stop();
             this.stop = true;
         }
     }
 
     public boolean isWaitUntilMultiDone() {
-        return allConfig.getBoolean(AllKeyWord.WAIT_MULTI_DONE, false);
+        return allConfig.getBoolean(AllKeyWord.CONFIG.WAIT_MULTI_DONE, false);
     }
 
     public boolean isAlwaysRun() {
-        return allConfig.getBoolean(AllKeyWord.ALWAYSRUN, false);
+        return allConfig.getBoolean(AllKeyWord.CONFIG.ALWAYS_RUN, false);
     }
 
     public boolean isPass() {
         return this.function.isPass();
     }
 
-    private void checkOutTime(Future<?> future) {
-        final Integer timeSpec = this.allConfig.getInteger(AllKeyWord.TIME_OVER, Integer.MAX_VALUE);
-        while (future != null && (!future.isDone() || this.function.isTesting())) {
-            final double runtime = functionData.getRunTime();
-            if (runtime >= timeSpec) {
-                String mess = String.format("""
-                                                                This function has out of run time!\r
-                                                                Time: %.3f S\r
-                                                                Spec: %s S\r
-                                                                Try to stop!!""",
-                        runtime, timeSpec);
-                stopTest(mess);
-            }
+    private void checkOutTime() {
+        final Integer timeSpec = this.allConfig.getInteger(AllKeyWord.CONFIG.TIME_OUT, Integer.MAX_VALUE);
+        while (thread != null && thread.isAlive()) {
             try {
-                future.get(1, TimeUnit.SECONDS);
-            } catch (InterruptedException | ExecutionException | TimeoutException ex) {
+                this.thread.join(1000);
+                final double runtime = functionData.getRunTime();
+                if (runtime >= timeSpec) {
+                    String mess = String.format("""
+                                                                it has timed out!\r
+                                                                Spec: %s S\r
+                                                                Try to stop!!""", timeSpec);
+                    stopTest(mess);
+                }
+            } catch (Exception ex) {
                 if (!(ex instanceof TimeoutException)) {
                     ex.printStackTrace();
-                    ErrorLog.addError(this, ex.getMessage());
+                    ErrorLog.addError(this, ex.getLocalizedMessage());
                 }
             }
         }

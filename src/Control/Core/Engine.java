@@ -65,7 +65,7 @@ public class Engine {
     private void showUI() {
         this.view.showIp(pcInfor.getIp());
         this.view.showPcName(pcInfor.getPcName());
-        this.view.showGiaiDoan(setting.getGiaiDoan());
+        this.view.showGiaiDoan(setting.getProgress());
         java.awt.EventQueue.invokeLater(() -> {
             this.view.setVisible(true);
         });

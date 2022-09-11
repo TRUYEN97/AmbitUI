@@ -49,7 +49,7 @@ public class CreateJsonApi extends AbsFunction {
     }
 
     private static boolean isPass(JSONObject root) {
-        return root.getString(AllKeyWord.SFIS.SFIS_STATUS).equals(ItemTestData.PASS);
+        return root.getString(AllKeyWord.SFIS.STATUS).equals(ItemTestData.PASS);
     }
 
     private JSONObject getRootJson() {
@@ -78,7 +78,7 @@ public class CreateJsonApi extends AbsFunction {
             if (itemTest != null) {
                 addLog("PC", "ItemTest: " + itemName + " = " + itemTest.toJSONString());
                 tests.add(itemTest);
-            } else if (limit.getItem(itemName).getInteger(AllKeyWord.REQUIRED) == 1 && statusTest) {
+            } else if (limit.getItem(itemName).getInteger(AllKeyWord.CONFIG.REQUIRED) == 1 && statusTest) {
                 String mess = String.format("Missing \"%s\" item test!", itemName);
                 addLog("PC", mess);
                 JOptionPane.showMessageDialog(null, mess);

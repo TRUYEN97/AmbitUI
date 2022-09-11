@@ -115,13 +115,13 @@ public class ProcessData implements IgetTime {
         }
         ItemTestData itemFailed = getFirstFail();
         if (itemFailed == null) {
-            this.data.put(AllKeyWord.SFIS.SFIS_STATUS, ItemTestData.PASS);
+            this.data.put(AllKeyWord.SFIS.STATUS, ItemTestData.PASS);
         } else {
-            this.data.put(AllKeyWord.SFIS.SFIS_STATUS, ItemTestData.FAIL);
-            this.data.put(AllKeyWord.ERROR_CODE, itemFailed.getLimitsErrorCode());
-            this.data.put(AllKeyWord.ERROR_DES, itemFailed.getErrorDes());
-            this.data.put(AllKeyWord.SFIS.SFIS_ERRORCODE, itemFailed.getLocalErrorCode());
-            this.data.put(AllKeyWord.SFIS.SFIS_ERRORDES, itemFailed.getLocalErrorDes());
+            this.data.put(AllKeyWord.SFIS.STATUS, ItemTestData.FAIL);
+            this.data.put(AllKeyWord.CONFIG.ERROR_CODE, itemFailed.getLimitsErrorCode());
+            this.data.put(AllKeyWord.CONFIG.ERROR_DES, itemFailed.getErrorDes());
+            this.data.put(AllKeyWord.SFIS.ERRORCODE, itemFailed.getLocalErrorCode());
+            this.data.put(AllKeyWord.SFIS.ERRORDES, itemFailed.getLocalErrorDes());
         }
     }
 

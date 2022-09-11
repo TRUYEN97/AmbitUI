@@ -113,7 +113,7 @@ public class FuncAllConfig {
     }
 
     public String getTestType() {
-        return wareHouse.getString(AllKeyWord.LIMIT_TYPE);
+        return wareHouse.getString(AllKeyWord.CONFIG.LIMIT_TYPE);
     }
 
     public boolean isLimitAvailable() {
@@ -122,17 +122,17 @@ public class FuncAllConfig {
 
     private boolean limitFileAvailable() {
         return this.limitElement != null
-                && this.limitElement.getInteger(AllKeyWord.REQUIRED) != null
-                && this.limitElement.getInteger(AllKeyWord.REQUIRED) > 0
-                && (!this.limitElement.getString(AllKeyWord.LOWER_LIMIT).isBlank()
-                || !this.limitElement.getString(AllKeyWord.UPPER_LIMIT).isBlank());
+                && this.limitElement.getInteger(AllKeyWord.CONFIG.REQUIRED) != null
+                && this.limitElement.getInteger(AllKeyWord.CONFIG.REQUIRED) > 0
+                && (!this.limitElement.getString(AllKeyWord.CONFIG.LOWER_LIMIT).isBlank()
+                || !this.limitElement.getString(AllKeyWord.CONFIG.UPPER_LIMIT).isBlank());
     }
 
     private boolean funcConfigAvailable() {
         return this.functionConfig != null
-                && this.functionConfig.getString(AllKeyWord.LIMIT_TYPE) != null
-                && (!this.functionConfig.getString(AllKeyWord.LOWER_LIMIT).isBlank()
-                || !this.functionConfig.getString(AllKeyWord.UPPER_LIMIT).isBlank());
+                && this.functionConfig.getString(AllKeyWord.CONFIG.LIMIT_TYPE) != null
+                && (!this.functionConfig.getString(AllKeyWord.CONFIG.LOWER_LIMIT).isBlank()
+                || !this.functionConfig.getString(AllKeyWord.CONFIG.UPPER_LIMIT).isBlank());
     }
 
     public Integer getInteger(String key) {

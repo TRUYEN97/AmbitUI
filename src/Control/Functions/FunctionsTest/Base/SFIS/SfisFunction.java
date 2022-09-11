@@ -64,7 +64,7 @@ public class SfisFunction extends AbsFunction {
 
     private String getCommand(String type) {
         String command;
-        String status = this.processData.getString(AllKeyWord.SFIS.SFIS_STATUS);
+        String status = this.processData.getString(AllKeyWord.SFIS.STATUS);
         if (type == null || (status != null && status.equals(ItemTestData.PASS))) {
             command = this.createCommand(SEND_FORMAT);
         } else {
@@ -77,7 +77,7 @@ public class SfisFunction extends AbsFunction {
         JSONObject command = new JSONObject();
         List<String> listKey = this.config.getListJsonArray(keyWord);
         int maxLength = this.config.getInteger("MaxLength", -1);
-        addLog("Input", "Input: " + this.processData.getString(AllKeyWord.SFIS.SFIS_SN));
+        addLog("Input", "Input: " + this.processData.getString(AllKeyWord.SFIS.SN));
         addLog("Config", "MaxLength: " + maxLength);
         addLog(keyWord, listKey);
         if (listKey == null || listKey.isEmpty()) {
@@ -91,10 +91,10 @@ public class SfisFunction extends AbsFunction {
             if(value == null){
                 continue;
             }
-            if (key.equalsIgnoreCase(AllKeyWord.SFIS.SFIS_STATUS)) {
+            if (key.equalsIgnoreCase(AllKeyWord.SFIS.STATUS)) {
                 command.put(key, value.equals(ItemTestData.PASS) ? PASS : FAIL);
             } else if (maxLength != -1
-                    && key.equalsIgnoreCase(AllKeyWord.SFIS.SFIS_SN)
+                    && key.equalsIgnoreCase(AllKeyWord.SFIS.SN)
                     && value.length() > maxLength) {
                 command.put(key, value.substring(0, maxLength));
             } else {
@@ -116,7 +116,7 @@ public class SfisFunction extends AbsFunction {
         }
         JSONObject res = JSONObject.parseObject(response);
         if (res.getString(AllKeyWord.RESULT).equals(PASS)) {
-            JSONObject data = res.getJSONObject(AllKeyWord.DATA);
+            JSONObject data = res.getJSONObject(AllKeyWord.SFIS.DATA);
             List<String> listKey = this.config.getListJsonArray(DATA_FORMAT);
             addLog(DATA_FORMAT, listKey);
             if (!listKey.isEmpty() && !dataContainKeys(data, listKey)) {
@@ -143,7 +143,7 @@ public class SfisFunction extends AbsFunction {
     private boolean getDataToProductInfo(JSONObject data) {
         String value;
         for (String key : data.keySet()) {
-            if (key.equals(AllKeyWord.SFIS.SFIS_MAC)) {
+            if (key.equals(AllKeyWord.SFIS.MAC)) {
                 value = createTrueMac(getValueInData(data, key));
             } else {
                 value = getValueInData(data, key);
@@ -176,7 +176,7 @@ public class SfisFunction extends AbsFunction {
     }
 
     private boolean putMacDHCP() {
-        String mac = this.processData.getString(AllKeyWord.SFIS.SFIS_MAC);
+        String mac = this.processData.getString(AllKeyWord.SFIS.MAC);
         if (mac == null || mac.isBlank()
                 || !DhcpData.getInstance().put(mac, uIInfo.getID())) {
             return false;

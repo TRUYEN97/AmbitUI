@@ -21,7 +21,7 @@ public class UiInformartion {
     public UiInformartion(String name, int COLUMN, int ROW, int ID) {
         this.dataWareHouse = new DataWareHouse();
         this.pcInformation = PcInformation.getInstance();
-        this.dataWareHouse.put(AllKeyWord.SFIS.SFIS_PC_NAME, this.pcInformation.getPcName());
+        this.dataWareHouse.put(AllKeyWord.SFIS.PC_NAME, this.pcInformation.getPcName());
         this.dataWareHouse.put(AllKeyWord.STATION_NAME, this.pcInformation.getPcName());
         this.dataWareHouse.put(AllKeyWord.STATION_TYPE, getStationType(this.pcInformation.getPcName()));
         this.dataWareHouse.put(AllKeyWord.POSITION, name);

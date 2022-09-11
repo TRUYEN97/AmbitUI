@@ -64,7 +64,7 @@ public class ModeTest implements IInit, IUpdate {
         return this.testSource.updateFunctionsConfig() && this.testSource.updateLimitsConfig();
     }
 
-    public boolean isDebugMode() {
-        return testSource.isDiscreteTest();
+    public boolean canDebug() {
+        return testSource.canDebug();
     }
 }

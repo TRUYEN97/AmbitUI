@@ -49,38 +49,46 @@ public class ModeTestSource {
         return modeConfig.getModeType();
     }
 
-    public boolean isDiscreteTest() {
-        return modeConfig.isDiscreteTest();
+    public boolean canDebug() {
+        return modeConfig.canDebug();
     }
 
     public long getTimeOutTest() {
         return functionConfig.getTimeOutTest();
     }
 
-    public List<FunctionName> getTestFunctions() {
-        return this.functionConfig.getTestFunctions();
-    }
-
     public List<FunctionName> getCheckFunctions() {
         return this.functionConfig.getCheckFunctions();
+    }
+
+    public List<FunctionName> getTestFunctions() {
+        return this.functionConfig.getTestFunctions();
     }
 
     public List<FunctionName> getEndFunctions() {
         return this.functionConfig.getEndFuntions();
     }
 
-    public FunctionConfig getFunctionsConfig(FunctionName item) {
-        return this.functionConfig.getElement(item);
+    public List<FunctionName> getFinalFunctions() {
+        return this.functionConfig.getFinalFuntions();
     }
 
     public List<FunctionName> getItemTestFunctions() {
         return this.functionConfig.getDebugFunctions();
     }
 
+    public FunctionConfig getFunctionsConfig(FunctionName item) {
+        return this.functionConfig.getElement(item);
+    }
+
+    public List<FunctionName> getSelectedItem(List<FunctionName> listItem) {
+        return this.functionConfig.getSelectedItem(listItem);
+    }
+
     public boolean updateFunctionsConfig() throws HeadlessException {
         String configFile = modeConfig.getAmbitConfigPath();
         if (!checkAmbitConfig(configFile)) {
-            JOptionPane.showMessageDialog(null, 
+            JOptionPane.showMessageDialog(null,
                     "Update functionsConfig failed! Local file: " + configFile);
             return false;
         }
@@ -91,11 +99,11 @@ public class ModeTestSource {
         }
         return true;
     }
-    
+
     public boolean updateLimitsConfig() throws HeadlessException {
         String pathFile = modeConfig.getLocalLimitPath();
         String command = Setting.getInstance().getUpdateLimitCommand();
-        if (!updateLimit(pathFile,command )) {
+        if (!updateLimit(pathFile, command)) {
             String mess = String.format("Update limits failed!\r\nLocal: %s\r\ncommand: %s", pathFile, command);
             JOptionPane.showMessageDialog(null, mess);
             return false;
@@ -143,9 +151,5 @@ public class ModeTestSource {
 
     public int getLoopTest() {
         return modeConfig.getLoopTest();
-    }
-
-    public List<FunctionName> getSelectedItem(List<FunctionName> listItem) {
-        return this.functionConfig.getSelectedItem(listItem);
     }
 }

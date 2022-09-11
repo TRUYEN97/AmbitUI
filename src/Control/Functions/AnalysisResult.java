@@ -64,10 +64,10 @@ public class AnalysisResult {
 
     private boolean checkMatchType(String result) {
         try {
-            if (getMatch(result, AllKeyWord.LOWER_LIMIT)) {
+            if (getMatch(result, AllKeyWord.CONFIG.LOWER_LIMIT)) {
                 return true;
             }
-            return getMatch(result, AllKeyWord.UPPER_LIMIT);
+            return getMatch(result, AllKeyWord.CONFIG.UPPER_LIMIT);
         } catch (Exception e) {
             e.printStackTrace();
             ErrorLog.addError(this, e.getMessage());
@@ -105,8 +105,8 @@ public class AnalysisResult {
         if (isRequired(2)) {
             return null;
         }
-        String upString = allConfig.getString(AllKeyWord.UPPER_LIMIT);
-        String lowString = allConfig.getString(AllKeyWord.LOWER_LIMIT);
+        String upString = allConfig.getString(AllKeyWord.CONFIG.UPPER_LIMIT);
+        String lowString = allConfig.getString(AllKeyWord.CONFIG.LOWER_LIMIT);
         Double upper = cvtString2Num(upString);
         Double lower = cvtString2Num(lowString);
         Double value = cvtString2Num(result);
@@ -129,7 +129,7 @@ public class AnalysisResult {
     }
 
     private boolean isRequired(int num) {
-        Integer required = allConfig.getInteger(AllKeyWord.REQUIRED);
+        Integer required = allConfig.getInteger(AllKeyWord.CONFIG.REQUIRED);
         return required != null && required == num;
     }
 

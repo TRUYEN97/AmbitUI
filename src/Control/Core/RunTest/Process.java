@@ -14,10 +14,11 @@ import Model.Factory.Factory;
 import Model.Interface.IFunction;
 import Model.ManagerUI.UIStatus.UiStatus;
 import java.util.ArrayList;
+import java.util.ConcurrentModificationException;
 import java.util.HashMap;
-import java.util.Iterator;
 import java.util.List;
 import java.util.Map;
+import java.util.concurrent.ExecutionException;
 import java.util.concurrent.ExecutorService;
 import java.util.concurrent.Executors;
 import java.util.concurrent.Future;
@@ -69,6 +70,9 @@ class Process implements IFunction {
             this.test = true;
             this.pass = true;
             this.stop = false;
+            if (functions.isEmpty()) {
+                return;
+            }
             FunctionCover funcCover;
             Future future;
             for (FunctionName functionName : functions) {
@@ -92,8 +96,7 @@ class Process implements IFunction {
                     justFunctionAlwayRun = true;
                 }
             }
-        } catch (Exception ex) {
-            ex.printStackTrace();
+        } catch (InterruptedException | ConcurrentModificationException | ExecutionException ex) {
             ErrorLog.addError(this, ex.getMessage());
         } finally {
             waitUntilMultiTaskDone();
@@ -118,7 +121,6 @@ class Process implements IFunction {
             multiTasking.get(future).stopTest(mess);
         }
         this.functions.clear();
-        this.pool.shutdownNow();
     }
 
     private boolean hasTaskFailed() {
@@ -126,7 +128,7 @@ class Process implements IFunction {
         FunctionCover cover;
         try {
             for (Future future : multiTasking.keySet()) {
-                if (future.isCancelled() || future.isDone()) {
+                if (future.isDone()) {
                     futureRemoves.add(future);
                     cover = multiTasking.get(future);
                     if (!cover.isPass()) {
@@ -137,7 +139,6 @@ class Process implements IFunction {
             }
             return false;
         } catch (Exception e) {
-            e.printStackTrace();
             ErrorLog.addError(this, e.getLocalizedMessage());
             return true;
         } finally {

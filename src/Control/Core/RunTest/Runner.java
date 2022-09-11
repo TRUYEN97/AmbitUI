@@ -21,6 +21,7 @@ public class Runner implements Runnable {
     private final List<FunctionName> checkFunctions;
     private final List<FunctionName> testFunctions;
     private final List<FunctionName> endFunctions;
+    private final List<FunctionName> finalFunctions;
     private final ProcessData processData;
     private final Process process;
     private final AbsSubUi subUi;
@@ -32,6 +33,7 @@ public class Runner implements Runnable {
         this.checkFunctions = new ArrayList<>();
         this.testFunctions = new ArrayList<>();
         this.endFunctions = new ArrayList<>();
+        this.finalFunctions = new ArrayList<>();
         this.processData = uiStatus.getProcessData();
         this.process = new Process(uiStatus);
         this.subUi = uiStatus.getSubUi();
@@ -44,19 +46,28 @@ public class Runner implements Runnable {
         this.loopTest = times;
     }
 
-    public void setCheckFunction(List<FunctionName> funcs) {
-        this.checkFunctions.clear();
-        this.checkFunctions.addAll(funcs);
+    public void setCheckFunctions(List<FunctionName> funcs) {
+        add2List(checkFunctions, funcs);
     }
 
-    public void setTestFunction(List<FunctionName> funcs) {
-        this.testFunctions.clear();
-        this.testFunctions.addAll(funcs);
+    public void setTestFunctions(List<FunctionName> funcs) {
+        add2List(testFunctions, funcs);
     }
 
-    public void setEndFunction(List<FunctionName> funcs) {
-        this.endFunctions.clear();
-        this.endFunctions.addAll(funcs);
+    public void setEndFunctions(List<FunctionName> funcs) {
+        add2List(endFunctions, funcs);
+    }
+
+    public void setFinalFunctions(List<FunctionName> funcs) {
+        add2List(finalFunctions, funcs);
+    }
+
+    private void add2List(List<FunctionName> list, List<FunctionName> funcs) {
+        if (list == null || funcs == null || funcs.isEmpty()) {
+            return;
+        }
+        list.clear();
+        list.addAll(funcs);
     }
 
     private boolean runFunctions(List<FunctionName> functions) {
@@ -87,6 +98,7 @@ public class Runner implements Runnable {
                     processData.setFinishTime();
                 }
                 runFunctions(endFunctions);
+                runFunctions(finalFunctions);
             }
         }
         end();
@@ -110,6 +122,7 @@ public class Runner implements Runnable {
         this.checkFunctions.clear();
         this.testFunctions.clear();
         this.endFunctions.clear();
+        this.finalFunctions.clear();
     }
 
     boolean isTesting() {

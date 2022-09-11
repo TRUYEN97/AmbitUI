@@ -41,7 +41,7 @@ public class BigUI extends AbsSubUi {
 
     @Override
     public boolean update() {
-        debugMode = this.uiStatus.getModeTest().isDebugMode();
+        debugMode = this.uiStatus.getModeTest().canDebug();
         this.btTest.setEnabled(debugMode);
         return super.update(); // Generated from nbfs://nbhost/SystemFileSystem/Templates/Classes/Code/OverriddenMethodBody
     }
@@ -153,7 +153,7 @@ public class BigUI extends AbsSubUi {
 
     private void btTestActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btTestActionPerformed
         // TODO add your handling code here:
-        this.uiStatus.getCellTest().testDebugItem(null);
+        this.uiStatus.getCellTest().testDebugItem();
     }//GEN-LAST:event_btTestActionPerformed
 
     private void PanelUpKeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_PanelUpKeyTyped

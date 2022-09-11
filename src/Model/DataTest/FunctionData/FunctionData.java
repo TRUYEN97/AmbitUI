@@ -20,8 +20,6 @@ import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
-import java.util.logging.Level;
-import java.util.logging.Logger;
 import javax.swing.JOptionPane;
 
 /**
@@ -127,8 +125,8 @@ public class FunctionData {
     }
 
     private String createLogPath() {
-        String settingPath = Setting.getInstance().getFunctionsLocalLogPath();
-        return String.format("%s/%s/%s_%s.txt",
+        String settingPath = Setting.getInstance().getLocalLogPath();
+        return String.format("%s/functions/%s/%s_%s.txt",
                 settingPath, this.uiStatus.getName(),
                 this.functionName.getFunctionName(), this.functionName.getItemName());
     }

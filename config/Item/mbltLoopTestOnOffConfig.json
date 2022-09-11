@@ -1,32 +1,30 @@
 {
-    "UUT_MODEL": "eden",
     "station_type": "MBLT",
-    "TIME_OUT_TEST": 7000,
-    "INIT": [
+    "time_out_test": 7000,
+    "init": [
         {
-            "FLAG": true,
-            "TIME_OVER": 50,
+            "flag": true,
+            "time_out": 50,
             "SEND_FORMAT": ["sn", "pcname"],
             "MaxLength": 8,
             "DATA_FORMAT": ["sn", "mlbsn", "pnname", "ethernetmac", "olderrorcode"],
             "URL": "http://10.90.0.40/sfcapi/api/connect",
             "test_name": "gen_node",
-            "FUNC_NAME": "SfisFunctionProxy"
+            "func_name": "SfisFunctionProxy"
         },
         {
-            "FLAG": true,
-            "CANCEL": "DEBUG",
-            "MULTI": true,
+            "flag": true,
+            "multi": true,
             "FAIL_CONTNIUE": false,
-            "TIME_OVER": 1,
+            "time_out": 1,
             "test_name": "mac",
-            "FUNC_NAME": "GetMacFormSfisProxy"
+            "func_name": "GetMacFormSfisProxy"
         },
         {
-            "FLAG": true,
-            "TIME_OVER": 50,
-            "DISCRETE_TEST": true,
-            "MULTI": false,
+            "flag": true,
+            "time_out": 30,
+            "debug_able": true,
+            "multi": false,
             "FixtureCom": "COM5",
             "FixtureBaudRate": 115200,
             "FixtureCommands": ["AT+READ_FIXNUM%", "AT+TESTSTART%",
@@ -34,21 +32,21 @@
             "FixtureKeys": ["pcname", "OK"],
             "FixtureWait": 6,
             "test_name": "fixture_close",
-            "FUNC_NAME": "FixtureActionProxy"
+            "func_name": "FixtureActionProxy"
         }
     ],
-    "Functions": [
+    "functions": [
         {
-            "FLAG": true,
-            "Begin": 1,
-            "LoopTimes": 20,
-            "Functions": [
+            "flag": true,
+            "begin": 1,
+            "loop_times": 20,
+            "functions": [
                 {
-                    "FLAG": true,
-                    "TIME_OVER": 30,
-                    "RETRY": 1,
-                    "MULTI": true,
-                    "DISCRETE_TEST": true,
+                    "flag": true,
+                    "time_out": 30,
+                    "retry": 1,
+                    "multi": true,
+                    "debug_able": true,
                     "FixtureCom": "COM5",
                     "FixtureBaudRate": 115200,
                     "FixtureCommands": ["AT+VBUS_BOFF%", "AT+CC_BOFF%", "AT+VBUS_AON%", "AT+CC_AON%"],
@@ -58,14 +56,14 @@
                     "DutBaudRate": 115200,
                     "DutWait": 10,
                     "test_name": "usb_aside",
-                    "FUNC_NAME": "UsbAsideProxy"
+                    "func_name": "UsbAsideProxy"
                 },
                 {
-                    "FLAG": true,
-                    "TIME_OVER": 150,
-                    "RETRY": 1,
-                    "MULTI": true,
-                    "DISCRETE_TEST": true,
+                    "flag": true,
+                    "time_out": 150,
+                    "retry": 1,
+                    "multi": true,
+                    "debug_able": true,
                     "FixtureCom": "COM5",
                     "FixtureBaudRate": 115200,
                     "FixtureCommands": ["AT+PORTEJECT%", "AT+PORTINSERT%"],
@@ -78,54 +76,56 @@
                     "CurrentTest": "AT+VBUS_CUR%",
                     "CurrentRegex": "[0-9]+\\.?[0-9]*$",
                     "test_name": "openshort",
-                    "FUNC_NAME": "OpenShortProxy"
+                    "func_name": "OpenShortProxy"
                 }
             ]
         }
     ],
-    "END": [
+    "end": [
         {
-            "FLAG": true,
-            "TIME_OVER": 30,
-            "ALWAYS_RUN": true,
-            "DISCRETE_TEST": true,
-            "WAIT_MULTI_DONE": true,
-            "MULTI": true,
+            "flag": true,
+            "time_out": 30,
+            "always_run": true,
+            "debug_able": true,
+            "wait_multi_done": true,
+            "multi": true,
             "FixtureCom": "COM5",
             "FixtureBaudRate": 115200,
             "FixtureCommands": ["AT+BO1_OFF%", "AT+CC_AOFF%", "AT+VBUS_AOFF%", "AT+TESTEND%"],
             "FixtureKeys": ["OK"],
             "FixtureWait": 6,
             "test_name": "fixtureOpen",
-            "FUNC_NAME": "FixtureActionProxy"
+            "func_name": "FixtureActionProxy"
         },
         {
-            "FLAG": true,
-            "TIME_OVER": 50,
-       //     "WAIT_MULTI_DONE": true,
-            "MaxLength": 8,
+            "flag": true,
+            "time_out": 50,
+            //     "wait_multi_done": true,
+                    "MaxLength": 8,
             "SEND_FORMAT": ["sn", "pcname", "status"],
             "SEND_FORMAT_FAIL": ["sn", "pcname", "status", "olderrorcode"],
             "URL": "http://10.90.0.40/sfcapi/api/connectfinal",
             "SFIS_TYPE": "SendResult",
             "test_name": "SendToSfis",
-            "FUNC_NAME": "SfisFunctionProxy"
-        },
+            "func_name": "SfisFunctionProxy"
+        }
+    ],
+    "final": [
         {
-            "FLAG": true,
-            "TIME_OVER": 150,
-            "ALWAYS_RUN": true,
-            "MULTI": false,
+            "flag": true,
+            "time_out": 150,
+            "always_run": true,
+            "multi": false,
             "localFile": "python/log",
             "ElementName": ["mlbsn", "station_name", "mode", "serial"],
             "test_name": "CreateTxtAndZipLogFinal",
-            "FUNC_NAME": "CreateTxtProxy" 
+            "func_name": "CreateTxtProxy" 
         },
         {
-            "FLAG": true,
-            "TIME_OVER": 150,
-            //"WAIT_MULTI_DONE": true,
-            "ALWAYS_RUN": true,
+            "flag": true,
+            "time_out": 150,
+            //"wait_multi_done": true,
+                    "always_run": true,
             "User": "oper",
             "Password": "mfg-oper",
             "Host": "10.90.2.168",
@@ -137,7 +137,7 @@
             "LocalName": ["mlbsn", "station_name", "mode", "serial"],
             "LocalType": ".txt",
             "test_name": "UpFTPFinal",
-            "FUNC_NAME": "UpFTPProxy"
+            "func_name": "UpFTPProxy"
         }
     ]
 }

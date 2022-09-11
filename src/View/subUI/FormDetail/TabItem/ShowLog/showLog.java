@@ -10,7 +10,6 @@ import View.subUI.FormDetail.TabItem.TabItem;
 import Model.DataTest.FunctionData.FunctionData;
 import Model.ManagerUI.UIStatus.UiStatus;
 import java.awt.event.ActionEvent;
-import java.awt.event.ActionListener;
 import java.awt.event.MouseEvent;
 import java.util.Queue;
 import javax.swing.Timer;
@@ -75,9 +74,9 @@ public class ShowLog extends javax.swing.JFrame {
     public void showLog() {
         String index = uiStatus.getName();
         FunctionName funcName = dataBox.getFunctionName();
-        String sn = uiStatus.getProcessData().getString(AllKeyWord.SFIS.SFIS_SN);
-        String mlbsn = uiStatus.getProcessData().getString(AllKeyWord.SFIS.SFIS_MLBSN);
-        String mac = uiStatus.getProcessData().getString(AllKeyWord.SFIS.SFIS_MAC);
+        String sn = uiStatus.getProcessData().getString(AllKeyWord.SFIS.SN);
+        String mlbsn = uiStatus.getProcessData().getString(AllKeyWord.SFIS.MLBSN);
+        String mac = uiStatus.getProcessData().getString(AllKeyWord.SFIS.MAC);
         String title = String.format("%s %s %s %s %s", index, funcName,
                 sn == null ? "" : sn, mlbsn == null ? "" : mlbsn, mac == null ? "" : mac);
         this.setTitle(title);

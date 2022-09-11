@@ -119,7 +119,7 @@ public class FunctionBase extends AbsFunction {
     }
 
     public String getMac() {
-        String mac = this.productData.getString(AllKeyWord.SFIS.SFIS_MAC);
+        String mac = this.productData.getString(AllKeyWord.SFIS.MAC);
         if (mac == null || ((mac.length() != 17 && mac.contains(":")) || (mac.length() != 12 && !mac.contains(":")))) {
             addLog("MAC is invalid: " + mac);
             return null;

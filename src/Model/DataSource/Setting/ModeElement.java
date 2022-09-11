@@ -29,7 +29,7 @@ public class ModeElement extends AbsElementInfo {
     }
 
     public String getPnName() {
-        return this.warehouse.getString(AllKeyWord.PN_NAME);
+        return this.warehouse.getString(AllKeyWord.NAME_APP);
     }
 
     public String getAmbitConfigPath() {
@@ -49,7 +49,7 @@ public class ModeElement extends AbsElementInfo {
     }
 
     public List<String> getIniFunc() {
-        return this.warehouse.getListJsonArray(AllKeyWord.INIT_FUNC);
+        return this.warehouse.getListJsonArray(AllKeyWord.CHANGE_FUNC);
     }
 
     public int getRow() {
@@ -80,12 +80,12 @@ public class ModeElement extends AbsElementInfo {
         return (getColumn() * getRow()) > 1;
     }
 
-    public boolean isDiscreteTest() {
-        return this.warehouse.getBoolean(AllKeyWord.DISCRETE_TEST);
+    public boolean canDebug() {
+        return this.warehouse.getBoolean(AllKeyWord.CONFIG.DEBUG_ABLE);
     }
 
     public int getLoopTest() {
-        Integer value = this.warehouse.getInteger(AllKeyWord.LOOP_TEST);
+        Integer value = this.warehouse.getInteger(AllKeyWord.CONFIG.LOOP_TEST);
         return value == null || value < 1 ? 1 : value;
     }
 

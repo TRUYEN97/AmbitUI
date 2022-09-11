@@ -17,16 +17,18 @@ import java.util.List;
  */
 public class AmbitConfig extends AbsJsonSource<FunctionName, FunctionConfig> {
 
-    private final List<FunctionName> functionInit;
-    private final List<FunctionName> functionTest;
-    private final List<FunctionName> funtionEnd;
+    private final List<FunctionName> initFunctions;
+    private final List<FunctionName> testFunctions;
+    private final List<FunctionName> endFunctions;
+    private final List<FunctionName> finalFunctions;
     private final List<FunctionName> discreteFunctions;
 
     public AmbitConfig() {
         super();
-        this.functionInit = new ArrayList<>();
-        this.functionTest = new ArrayList<>();
-        this.funtionEnd = new ArrayList<>();
+        this.initFunctions = new ArrayList<>();
+        this.testFunctions = new ArrayList<>();
+        this.endFunctions = new ArrayList<>();
+        this.finalFunctions = new ArrayList<>();
         this.discreteFunctions = new ArrayList<>();
     }
 
@@ -35,14 +37,17 @@ public class AmbitConfig extends AbsJsonSource<FunctionName, FunctionConfig> {
         DataWareHouse wareHouse = readFile.getData();
         clearAllList();
         getFunctionIn(wareHouse,
-                wareHouse.getListJson(AllKeyWord.INIT),
-                functionInit, discreteFunctions, null);
+                wareHouse.getListJson(AllKeyWord.CONFIG.INIT),
+                initFunctions, discreteFunctions, null);
         getFunctionIn(wareHouse,
-                wareHouse.getListJson(AllKeyWord.FUNCTIONS),
-                functionTest, discreteFunctions, null);
+                wareHouse.getListJson(AllKeyWord.CONFIG.FUNCTIONS),
+                testFunctions, discreteFunctions, null);
         getFunctionIn(wareHouse,
-                wareHouse.getListJson(AllKeyWord.END),
-                funtionEnd, discreteFunctions, null);
+                wareHouse.getListJson(AllKeyWord.CONFIG.END),
+                endFunctions, discreteFunctions, null);
+        getFunctionIn(wareHouse,
+                wareHouse.getListJson(AllKeyWord.CONFIG.FINAL),
+                finalFunctions, discreteFunctions, null);
         return !this.elements.isEmpty();
     }
 
@@ -54,7 +59,7 @@ public class AmbitConfig extends AbsJsonSource<FunctionName, FunctionConfig> {
             }
             if (isLoopFunctions(modeInfo)) {
                 getLoopFuction(baseData, modeInfo, testFunctions, debugFunctions, times);
-            } else if (modeInfo.containsKey(AllKeyWord.TEST_NAME)) {
+            } else if (modeInfo.containsKey(AllKeyWord.CONFIG.TEST_NAME)) {
                 if (times != null) {
                     createNewItem(modeInfo, times);
                 }
@@ -70,14 +75,14 @@ public class AmbitConfig extends AbsJsonSource<FunctionName, FunctionConfig> {
     }
 
     private void createNewItem(JSONObject modeInfo, int times) {
-        String oldName = modeInfo.getString(AllKeyWord.TEST_NAME);
+        String oldName = modeInfo.getString(AllKeyWord.CONFIG.TEST_NAME);
         if (oldName.matches(".+_[0-9]+$")) {
             String newItemName = String.format("%s_%s",
                     oldName.substring(0, oldName.lastIndexOf("_")), times);
-            modeInfo.put(AllKeyWord.TEST_NAME, newItemName);
+            modeInfo.put(AllKeyWord.CONFIG.TEST_NAME, newItemName);
         } else {
             String newItemName = String.format("%s_%s", oldName, times);
-            modeInfo.put(AllKeyWord.TEST_NAME, newItemName);
+            modeInfo.put(AllKeyWord.CONFIG.TEST_NAME, newItemName);
         }
     }
 
@@ -85,20 +90,20 @@ public class AmbitConfig extends AbsJsonSource<FunctionName, FunctionConfig> {
             List<FunctionName> list, List<FunctionName> debugFunctions, Integer times) {
         int heso = times == null ? 1 : times;
         DataWareHouse wareHouse = new DataWareHouse(modeInfo);
-        final int begin = wareHouse.getInteger(AllKeyWord.BEGIN, 0) * heso;
-        final int loopTimes = wareHouse.getInteger(AllKeyWord.LOOP_FUNC, 1) + begin;
-        List<JSONObject> functions = wareHouse.getListJson(AllKeyWord.FUNCTIONS);
+        final int begin = wareHouse.getInteger(AllKeyWord.CONFIG.BEGIN, 0) * heso;
+        final int loopTimes = wareHouse.getInteger(AllKeyWord.CONFIG.LOOP_FUNC, 1) + begin;
+        List<JSONObject> functions = wareHouse.getListJson(AllKeyWord.CONFIG.FUNCTIONS);
         for (int i = begin; i < loopTimes; i++) {
             getFunctionIn(baseData, functions, list, debugFunctions, i);
         }
     }
 
     private static boolean isLoopFunctions(JSONObject modeInfo) {
-        return modeInfo.containsKey(AllKeyWord.LOOP_FUNC) && modeInfo.containsKey(AllKeyWord.FUNCTIONS);
+        return modeInfo.containsKey(AllKeyWord.CONFIG.LOOP_FUNC) && modeInfo.containsKey(AllKeyWord.CONFIG.FUNCTIONS);
     }
 
     private static Boolean isActive(JSONObject modeInfo) {
-        return modeInfo.getBoolean(AllKeyWord.FLAG);
+        return modeInfo.getBoolean(AllKeyWord.CONFIG.FLAG);
     }
 
     public long getTimeOutTest() {
@@ -110,11 +115,19 @@ public class AmbitConfig extends AbsJsonSource<FunctionName, FunctionConfig> {
     }
 
     public List<FunctionName> getCheckFunctions() {
-        return functionInit;
+        return new ArrayList<>(initFunctions);
     }
 
     public List<FunctionName> getTestFunctions() {
-        return functionTest;
+        return new ArrayList<>(testFunctions);
+    }
+
+    public List<FunctionName> getEndFuntions() {
+        return new ArrayList<>(endFunctions);
+    }
+
+    public List<FunctionName> getFinalFuntions() {
+        return new ArrayList<>(finalFunctions);
     }
 
     public List<FunctionName> getDebugFunctions() {
@@ -125,14 +138,11 @@ public class AmbitConfig extends AbsJsonSource<FunctionName, FunctionConfig> {
         return this.readFile.getData().getString(AllKeyWord.STATION_TYPE);
     }
 
-    public List<FunctionName> getEndFuntions() {
-        return funtionEnd;
-    }
-
     private void clearAllList() {
-        this.functionInit.clear();
-        this.functionTest.clear();
-        this.funtionEnd.clear();
+        this.initFunctions.clear();
+        this.testFunctions.clear();
+        this.endFunctions.clear();
+        this.finalFunctions.clear();
         this.discreteFunctions.clear();
     }
 

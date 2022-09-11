@@ -12,6 +12,7 @@ package View.subUI.FormDetail.TabItem;
 
 import Model.DataSource.ModeTest.FunctionConfig.FunctionName;
 import Model.DataTest.FunctionData.FunctionData;
+import Model.ErrorLog;
 import View.subUI.FormDetail.AbsTabUI;
 import View.subUI.FormDetail.TabItem.ShowLog.ShowLog;
 import java.awt.event.KeyEvent;
@@ -31,12 +32,12 @@ import javax.swing.table.DefaultTableModel;
  */
 public class TabItem extends AbsTabUI {
 
-    private static final String STAUS = "Staus";
-    private static final String TIME = "Time";
-    private static final String ITEM = "Item";
-    private static final String STT = "STT";
-    private static final String ERROR_CODE = "Error code";
-    private static final String CUS_ERROR_CODE = "Cus error code";
+    private static final String STATUS_COULMN = "Status";
+    private static final String TIME_COULMN = "Time";
+    private static final String ITEM_COULMN = "Item";
+    private static final String STT_COULMN = "STT";
+    private static final String ERROR_CODE_COULMN = "Error code";
+    private static final String CUS_ERROR_CODE_COULMN = "Cus error code";
     private final Vector<String> testColumn;
     private final Vector<String> listFunc;
     private final Map<FunctionData, ShowLog> itemLogs;
@@ -61,17 +62,17 @@ public class TabItem extends AbsTabUI {
     }
 
     private void addListClomn() {
-        this.listFunc.add(STT);
-        this.listFunc.add(ITEM);
+        this.listFunc.add(STT_COULMN);
+        this.listFunc.add(ITEM_COULMN);
     }
 
     private void addTestClomn() {
-        this.testColumn.add(STT);
-        this.testColumn.add(ITEM);
-        this.testColumn.add(TIME);
-        this.testColumn.add(STAUS);
-        this.testColumn.add(CUS_ERROR_CODE);
-        this.testColumn.add(ERROR_CODE);
+        this.testColumn.add(STT_COULMN);
+        this.testColumn.add(ITEM_COULMN);
+        this.testColumn.add(TIME_COULMN);
+        this.testColumn.add(STATUS_COULMN);
+        this.testColumn.add(CUS_ERROR_CODE_COULMN);
+        this.testColumn.add(ERROR_CODE_COULMN);
     }
 
     private void initTable(Vector<String> column) {
@@ -197,9 +198,9 @@ public class TabItem extends AbsTabUI {
             if (evt.getKeyChar() == CTRL_S) {
                 showListFunction();
             } else if (evt.getKeyChar() == CTRL_D
-                    && this.uiStatus.getModeTest().isDebugMode()
+                    && this.uiStatus.getModeTest().canDebug()
                     && this.tableItem.getSelectedRowCount() > 0) {
-                this.uiStatus.getCellTest().testDebugItem(getListSelectedItem());
+                this.uiStatus.getCellTest().testDebugItem(getListSelectedItem(), null);
             }
         } else if (evt.getKeyChar() == CTRL_Q && isAccepToStopTest()) {
             this.uiStatus.getCellTest().stopTest();
@@ -251,39 +252,43 @@ public class TabItem extends AbsTabUI {
         if (row == -1 || row >= this.tableModel.getRowCount()) {
             return null;
         }
-        return (FunctionName) this.tableModel.getValueAt(row, this.listFunc.indexOf(ITEM));
+        return (FunctionName) this.tableModel.getValueAt(row, this.listFunc.indexOf(ITEM_COULMN));
     }
 
     private synchronized void updateListItemTest() {
         if (!this.isVisible()) {
             return;
         }
-        List<FunctionData> dataBoxs = this.uiStatus.getProcessData().getDataBoxs();
-        for (FunctionData dataBox : dataBoxs) {
-            int row = dataBoxs.indexOf(dataBox);
-            if (isHasFinish(row)) {
-                continue;
+        try {
+            List<FunctionData> dataBoxs = this.uiStatus.getProcessData().getDataBoxs();
+            for (FunctionData dataBox : dataBoxs) {
+                int row = dataBoxs.indexOf(dataBox);
+                if (isHasFinish(row)) {
+                    continue;
+                }
+                if (row > this.tableModel.getRowCount() - 1) {
+                    this.tableModel.addRow(new Object[]{this.tableModel.getRowCount()});
+                    this.itemFinish.add(false);
+                    showDataTest(dataBox, row);
+                } else {
+                    showDataTest(dataBox, row);
+                }
+                if (!dataBox.isTesting()) {
+                    this.itemFinish.set(row, true);
+                }
             }
-            if (row > this.tableModel.getRowCount() - 1) {
-                this.tableModel.addRow(new Object[]{this.tableModel.getRowCount()});
-                this.itemFinish.add(false);
-                showDataTest(dataBox, row);
-            } else {
-                showDataTest(dataBox, row);
-                editRow(dataBox.getLocalErrorCode(), row, ERROR_CODE);
-                editRow(dataBox.getLimitsErrorCode(), row, CUS_ERROR_CODE);
-            }
-            if (!dataBox.isTesting()) {
-                this.itemFinish.set(row, true);
-            }
+        } catch (Exception e) {
+            ErrorLog.addError(this, e.getLocalizedMessage());
         }
     }
 
     private void showDataTest(FunctionData dataBox, int row) {
-        editRow(dataBox.getFunctionName(), row, ITEM);
+        editRow(dataBox.getFunctionName(), row, ITEM_COULMN);
         editRow(String.format("%.3f S", dataBox.getRunTime()),
-                row, TIME);
-        editRow(getStatus(dataBox), row, STAUS);
+                row, TIME_COULMN);
+        editRow(getStatus(dataBox), row, STATUS_COULMN);
+        editRow(dataBox.getLocalErrorCode(), row, ERROR_CODE_COULMN);
+        editRow(dataBox.getLimitsErrorCode(), row, CUS_ERROR_CODE_COULMN);
     }
 
     private boolean isHasFinish(int row) {

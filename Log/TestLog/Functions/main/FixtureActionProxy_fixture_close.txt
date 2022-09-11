@@ -1,16 +1,23 @@
-2022-09-10 17:14:47.219:   ITEM[fixture_close] - FUNCTION[FixtureActionProxy]
-2022-09-10 17:14:47.220:   Turn run: 1
-2022-09-10 17:14:47.220:   [ComPort] Connect to : COM5
-2022-09-10 17:14:47.220:   [ComPort] BaudRate is: 115200
-2022-09-10 17:14:47.221:   [ComPort] Connect COM5 failed
-2022-09-10 17:14:47.221:   ****************************************************
-2022-09-10 17:14:47.221:   Item name = fixture_close
-2022-09-10 17:14:47.221:   Value = failed
-2022-09-10 17:14:47.221:   Test status = failed
-2022-09-10 17:14:47.221:   -----------------------------------------------------
-2022-09-10 17:14:47.221:   Error code = -1
-2022-09-10 17:14:47.221:   Error des = fixture_close
-2022-09-10 17:14:47.221:   Local error code = FIX00
-2022-09-10 17:14:47.222:   Local error des = fixture_close
-2022-09-10 17:14:47.222:   ****************************************************
-2022-09-10 17:14:47.222:   TIME[0.003 s] - STATUS[FAILED]
+2022-09-10 22:25:18.316:   ITEM[fixture_close] - FUNCTION[FixtureActionProxy]
+2022-09-10 22:25:18.317:   Turn: 1
+2022-09-10 22:25:18.317:   [ComPort] Connect to : COM5
+2022-09-10 22:25:18.317:   [ComPort] BaudRate is: 115200
+2022-09-10 22:25:18.433:   [ComPort] Connect COM5 ok
+2022-09-10 22:25:18.433:   [Config] keyWord: [pcname, OK]
+2022-09-10 22:25:18.433:   [Config] Time: 6
+2022-09-10 22:25:18.434:   [PC] True keys: [Dell-E7280, OK]
+2022-09-10 22:25:18.434:   [ComPort] Send command: AT+READ_FIXNUM%
+2022-09-10 22:25:18.543:   [Config] keyWords: [Dell-E7280, OK]
+2022-09-10 22:25:24.545:  [ComPort] null
+2022-09-10 22:25:24.545:   [PC] Disconnect ComPort ok
+2022-09-10 22:25:24.545:   ****************************************************
+2022-09-10 22:25:24.545:   Item name = fixture_close
+2022-09-10 22:25:24.545:   Value = failed
+2022-09-10 22:25:24.545:   Test status = failed
+2022-09-10 22:25:24.545:   -----------------------------------------------------
+2022-09-10 22:25:24.545:   Error code = -1
+2022-09-10 22:25:24.545:   Error des = fixture_close
+2022-09-10 22:25:24.546:   Local error code = FIX00
+2022-09-10 22:25:24.546:   Local error des = fixture_close
+2022-09-10 22:25:24.546:   ****************************************************
+2022-09-10 22:25:24.546:   TIME[6.229 s] - STATUS[FAILED]

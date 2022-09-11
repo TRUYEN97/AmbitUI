@@ -63,6 +63,7 @@ public class CreateTxt extends AbsFunction {
             List<String> elementName = this.config.getListJsonArray("ElementName");
             String txtFile = this.fileBaseFunction.createNameFile(elementName, ".txt");
             String path = String.format("%s/%s", filePath, txtFile);
+            addLog("DIR", path);
             try {
                 loger.begin(new File(path), true, true);
             } catch (IOException ex) {
@@ -77,7 +78,7 @@ public class CreateTxt extends AbsFunction {
                 loger.add(log == null ? "\r\n" : log);
                 loger.add("//////////////////////////////////////////////////////////////////\r\n");
             }
-            addLog("Save file txt in " + path);
+            addLog("PC", "Save file txt at " + path);
             return true;
         } catch (Exception e) {
             e.printStackTrace();
@@ -99,13 +100,13 @@ public class CreateTxt extends AbsFunction {
         loger.add("===================================================================\r\n");
         loger.add(String.format("Start at = %s\r\n", processData.getString(AllKeyWord.START_TIME)));
         loger.add(String.format("End test at = %s\r\n", processData.getString(AllKeyWord.FINISH_TIME)));
-        loger.add(String.format("Status = %s\r\n", processData.getString(AllKeyWord.SFIS.SFIS_STATUS)));
+        loger.add(String.format("Status = %s\r\n", processData.getString(AllKeyWord.SFIS.STATUS)));
         loger.add(String.format("Test time = %s s\r\n", processData.getString(AllKeyWord.CYCLE_TIME)));
         loger.add(String.format("Final test time = %.3f s\r\n", processData.getRuntime()));
         loger.add(String.format("Station = %s\r\n", processData.getString(AllKeyWord.STATION_NAME)));
         loger.add(String.format("Localtion = %s\r\n", processData.getString(AllKeyWord.INDEX)));
-        loger.add(String.format("HHSN = %s\r\n", processData.getString(AllKeyWord.SFIS.SFIS_SN)));
-        loger.add(String.format("DEVICESN = %s\r\n", processData.getString(AllKeyWord.SFIS.SFIS_MLBSN)));
+        loger.add(String.format("HHSN = %s\r\n", processData.getString(AllKeyWord.SFIS.SN)));
+        loger.add(String.format("DEVICESN = %s\r\n", processData.getString(AllKeyWord.SFIS.MLBSN)));
         loger.add("===================================================================\r\n");
     }
 

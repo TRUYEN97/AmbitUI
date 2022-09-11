@@ -113,7 +113,7 @@ public class AnalysisBase extends AbsFunction {
 
     public String getIp() {
         if (Setting.getInstance().isOnDHCP()) {
-            String mac = this.processData.getString(AllKeyWord.SFIS.SFIS_MAC);
+            String mac = this.processData.getString(AllKeyWord.SFIS.MAC);
             if (mac == null) {
                 addLog("It's DHCP mode but MAC is null!");
                 return null;

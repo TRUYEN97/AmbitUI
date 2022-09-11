@@ -1,40 +1,38 @@
 {
     "station_type": "RUNIN",
-   // "DHCP": "172.168.1.251",
-    "ROW": 1,
-    "COLUMN": 1,
-    "LOOP_TEST": 1,
-    "GIAI_DOAN": "PVT",
-    "PN_NAME": "810-00900",
-    "TYPE_UI": "BigUIProxy",
-    "LOCAL_LOG": "Log\\TestLog",
-    "LOCAL_FUNCTION_LOG": "Log\\TestLog\\Functions",
-    "DETAIL": ["TabViewProxy", "TabItemProxy", "TabLogProxy"],
-    "LimitPath": "config\\dataSource\\Init\\limits.json",
-   // "LimitUpdate": "cd python && eero_api_limits_eden.py Runin",
-    "DETAIL": ["TabViewProxy", "TabFaApiProxy", "TabItemProxy"],
-    "DISCRETE_TEST": true,
-    "LOAD_MODE": [
+   // "dhcp": "172.168.1.251",
+    "row": 1,
+    "column": 1,
+    "loop_test": 1,
+    "progress": "PVT",
+    "name_app": "810-00900",
+    "type_ui": "BigUIProxy",
+    "local_log": "Log\\TestLog",
+    "detail": ["TabViewProxy", "TabItemProxy", "TabLogProxy"],
+    "limit_path": "config\\dataSource\\Init\\limits.json",
+   // "limit_update": "cd python && eero_api_limits_eden.py Runin",
+    "debug_able": true,
+    "load_mode": [
         {
-            "NAME": "MBLT", 
+            "name": "MBLT", 
             "station_type": "MBLT",
-            "TYPE_MODE": "Debug",
-            "DISCRETE_TEST": true,
-            "AMBIT_CONFIG": "config\\Item\\mbltLoopTestOnOffConfig.json",
-            "DETAIL": ["TabViewProxy", "TabItemProxy"]
+            "type_mode": "Debug",
+            "debug_able": true,
+            "ambit_config": "config\\Item\\mbltLoopTestOnOffConfig.json",
+            "detail": ["TabViewProxy", "TabItemProxy"]
         },
         {
-            "NAME": "MBLT",
+            "name": "MBLT",
             "station_type": "MBLT",
-            "TYPE_MODE": "Debug",
-            "AMBIT_CONFIG": "config\\Item\\mbltOnOffConfig.json",
-            "DETAIL": ["TabViewProxy", "TabItemProxy"]
+            "type_mode": "Debug",
+            "ambit_config": "config\\Item\\mbltOnOffConfig.json",
+            "detail": ["TabViewProxy", "TabItemProxy"]
         },
         {
-            "NAME": "Fa API",
-            "TYPE_MODE": "FA_API",
-            "AMBIT_CONFIG": "config\\Item\\runinLoopTestOnOff.json",
-            "DETAIL": ["TabViewProxy", "TabFaApiProxy", "TabItemProxy"]
+            "name": "Fa API",
+            "type_mode": "FA_API",
+            "ambit_config": "config\\Item\\runinLoopTestOnOff.json",
+            "detail": ["TabViewProxy", "TabFaApiProxy", "TabItemProxy"]
         }
     ]
 }

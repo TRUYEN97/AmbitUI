@@ -21,7 +21,6 @@ import java.util.concurrent.Future;
 public class CellTest {
 
     private final UiStatus uiStatus;
-    private ModeTestSource testSource;
     private final Runner runner;
     private final ExecutorService pool;
     private Future future;
@@ -38,12 +37,13 @@ public class CellTest {
         if (isTesting()) {
             return;
         }
-        testSource = this.uiStatus.getModeTest().getModeTestSource();
+        ModeTestSource testSource = this.uiStatus.getModeTest().getModeTestSource();
         runner.setMode(this.uiStatus.getModeTest().getModeType());
-        runner.setLoopTest(this.testSource.getLoopTest());
-        runner.setCheckFunction(this.testSource.getCheckFunctions());
-        runner.setTestFunction(this.testSource.getTestFunctions());
-        runner.setEndFunction(this.testSource.getEndFunctions());
+        runner.setLoopTest(testSource.getLoopTest());
+        runner.setCheckFunctions(testSource.getCheckFunctions());
+        runner.setTestFunctions(testSource.getTestFunctions());
+        runner.setEndFunctions(testSource.getEndFunctions());
+        runner.setFinalFunctions(testSource.getFinalFunctions());
         this.future = this.pool.submit(runner);
         this.informartion.addTestCount();
     }
@@ -52,19 +52,24 @@ public class CellTest {
         return future != null && !future.isDone();
     }
 
-    public void testDebugItem(List<FunctionName> listItem) {
+    public void testDebugItem(List<FunctionName> listItem, List<FunctionName> listFinalItem) {
         if (isTesting()) {
             return;
         }
-        this.informartion.setReadyStatus(false);
-        this.testSource = this.uiStatus.getModeTest().getModeTestSource();
-        List<FunctionName> functions = this.testSource.getSelectedItem(listItem);
+        ModeTestSource testSource = this.uiStatus.getModeTest().getModeTestSource();
+        List<FunctionName> functions = testSource.getSelectedItem(listItem);
         if (functions == null || functions.isEmpty()) {
             return;
         }
-        this.runner.setTestFunction(functions);
+        this.runner.setTestFunctions(functions);
+        runner.setFinalFunctions(listFinalItem);
         this.runner.setMode("Debug");
         this.future = this.pool.submit(runner);
+    }
+
+    public void testDebugItem() {
+        ModeTestSource testSource = this.uiStatus.getModeTest().getModeTestSource();
+        testDebugItem(null,testSource.getFinalFunctions());
     }
 
     public void stopTest() {
