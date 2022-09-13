@@ -15,6 +15,7 @@ import java.awt.HeadlessException;
 import java.awt.Image;
 import java.awt.Toolkit;
 import java.awt.event.ItemEvent;
+import java.io.File;
 import java.util.List;
 import javax.swing.DefaultComboBoxModel;
 import javax.swing.DefaultListCellRenderer;
@@ -51,6 +52,7 @@ public class UIView extends javax.swing.JFrame {
         }
         initComponents();
         setIcon();
+        this.setTitle(new File(System.getProperty("user.dir")).getName());
         this.comboBoxModel = (DefaultComboBoxModel) this.cbbModeTest.getModel();
     }
 
@@ -164,7 +166,6 @@ public class UIView extends javax.swing.JFrame {
         BoardSubUI = new javax.swing.JPanel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
-        setTitle("AmbitUI");
         addWindowListener(new java.awt.event.WindowAdapter() {
             public void windowOpened(java.awt.event.WindowEvent evt) {
                 formWindowOpened(evt);
