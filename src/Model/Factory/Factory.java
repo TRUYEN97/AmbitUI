@@ -7,7 +7,7 @@ package Model.Factory;
 import View.subUI.FormDetail.TabFaApi.TabFaApiProxy;
 import Control.Functions.AbsFunction;
 import Control.Functions.FunctionsTest.Base.CheckDutInfo.CheckDutInfoProxy;
-import Control.Functions.FunctionsTest.Base.CreateTxtLog.CreateTxtProxy;
+import Control.Functions.FunctionsTest.Base.TxtLog.CreateLog.CreateTxtProxy;
 import Control.Functions.FunctionsTest.Base.GetMacFromSfis.GetMacFormSfisProxy;
 import Control.Functions.FunctionsTest.Base.DutPing.DutPingProxy;
 import Control.Functions.FunctionsTest.Base.DutTelnet.DutTelnetProxy;

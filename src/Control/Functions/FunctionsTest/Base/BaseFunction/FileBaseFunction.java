@@ -57,6 +57,7 @@ public class FileBaseFunction extends AbsFunction {
     public boolean saveZip(String dirPath, String zipName, String fileName) {
         String zipPath = String.format("%s\\%s", dirPath, zipName);
         String filePath = String.format("%s\\%s", dirPath, fileName);
+        addLog("PC", String.format("%s -> %s", filePath, zipPath));
         if (fileService.zipFile(zipPath, new File(filePath))) {
             addLog("PC", String.format("Save data in: %s ok", zipPath));
             return true;

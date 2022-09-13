@@ -118,7 +118,7 @@
             "multi": false,
             "localFile": "python/log",
             "ElementName": ["mlbsn", "station_name", "mode", "serial"],
-            "test_name": "CreateTxtAndZipLogFinal",
+            "test_name": "CreateTxt",
             "func_name": "CreateTxtProxy" 
         },
         {
@@ -136,7 +136,7 @@
             "LocalPath": ["python/log"],
             "LocalName": ["mlbsn", "station_name", "mode", "serial"],
             "LocalType": ".txt",
-            "test_name": "UpFTPFinal",
+            "test_name": "UpFTP",
             "func_name": "UpFTPProxy"
         }
     ]

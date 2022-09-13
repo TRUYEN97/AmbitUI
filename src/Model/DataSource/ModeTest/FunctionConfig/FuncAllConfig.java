@@ -70,6 +70,9 @@ public class FuncAllConfig {
     }
 
     public JSONObject getLocalErrorCode(String type) {
+        if(this.localErrorCode == null){
+            return null;
+        }
         return this.localErrorCode.getErrorType(type);
     }
 

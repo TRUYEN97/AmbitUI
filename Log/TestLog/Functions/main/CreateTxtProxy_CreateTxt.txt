@@ -1,0 +1,16 @@
+2022-09-12 09:47:11.209:   ITEM[CreateTxt] - FUNCTION[CreateTxtProxy]
+2022-09-12 09:47:11.209:   Turn: 1
+2022-09-12 09:47:11.210:   Save file txt!
+2022-09-12 09:47:11.210:   [PC] ElementName: [mlbsn, station_name, mode, serial]
+2022-09-12 09:47:11.210:   [DIR] python/log/mlbsn_MBLT-720_Debug_serial.txt
+2022-09-12 09:47:11.211:   - add item: fixture_close
+2022-09-12 09:47:11.215:   - add item: fixtureOpen
+2022-09-12 09:47:11.218:   - add item: CreateTxt
+2022-09-12 09:47:11.222:   [PC] Save file txt at python/log/mlbsn_MBLT-720_Debug_serial.txt
+2022-09-12 09:47:11.222:   ****************************************************
+2022-09-12 09:47:11.222:   Item name = CreateTxt
+2022-09-12 09:47:11.223:   Value = passed
+2022-09-12 09:47:11.223:   Test status = passed
+2022-09-12 09:47:11.223:   -----------------------------------------------------
+2022-09-12 09:47:11.223:   ****************************************************
+2022-09-12 09:47:11.223:   TIME[0.014 s] - STATUS[PASSED]

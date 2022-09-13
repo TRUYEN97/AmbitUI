@@ -1,0 +1,24 @@
+{
+    "station_type": "onoff",
+    "dhcp": "172.168.1.251",
+    "row": 1,
+    "column": 1,
+    "loop_test": 1,
+    "progress": "MP",
+    "name_app": "830|810",
+    "type_ui": "SmallUIProxy",
+    "local_log": "Log\\TestLog",
+    "detail": ["TabViewProxy", "TabItemProxy", "TabLogProxy"],
+   // "limit_path": "config\\dataSource\\Init\\limits.json",
+   // "limit_update": "cd python && eero_api_limits_eden.py Runin",
+    "debug_able": true,
+    "load_mode": [
+        {
+            "name": "ON_OFF", 
+            "type_mode": "Debug",
+            "debug_able": true,
+            "ambit_config": "config\\Item\\runinLoopTestOnOff.json",
+            "detail": ["TabViewProxy", "TabItemProxy"]
+        }
+    ]
+}

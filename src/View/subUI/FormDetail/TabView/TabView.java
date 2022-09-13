@@ -113,7 +113,7 @@ public class TabView extends AbsTabUI {
     }
 
     private void showMess(String text) {
-        String mess = String.format("<html>%s</html>", text);
+        String mess = String.format("<html><center>%s<center></html>", text);
         this.lbStatus.setText(mess);
     }
 

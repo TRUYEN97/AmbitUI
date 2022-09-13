@@ -62,15 +62,10 @@ public class ItemTestData {
     public void start() {
         this.startTime = this.timer.getRuntime();
         this.testing = true;
-        isErrorCodeAvailable();
         for (String key : keys) {
             this.data.put(key, allConfig.getString(key));
         }
         this.data.put(AllKeyWord.START_TIME, new TimeBase().getSimpleDateTime());
-    }
-
-    private boolean isErrorCodeAvailable() {
-        return this.allConfig.getLocalErrorCode(ErrorCodeElement.SIMPLE) != null;
     }
 
     public void put(String key, String value) {

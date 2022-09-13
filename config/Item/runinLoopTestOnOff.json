@@ -1,23 +1,22 @@
 {
-    "UUT_MODEL": "eden",
     "station_type": "OnOff",
-    "TIME_OUT_TEST": 11000,
-    "INIT": [
+    "time_out_test": 11000,
+    "init": [
         {
-            "FLAG": true,
-            "TIME_OVER": 50,
+            "flag": true,
+            "time_out": 50,
             "SEND_FORMAT": ["sn", "pcname"],
             "MaxLength": 8,
             "DATA_FORMAT": ["sn", "mlbsn", "pnname", "ethernetmac", "olderrorcode"],
             "URL": "http://10.90.0.40/sfcapi/api/connect",
             "test_name": "gen_node",
-            "FUNC_NAME": "SfisFunctionProxy"
+            "func_name": "SfisFunctionProxy"
         },
         {
-            "FLAG": true,
-            "TIME_OVER": 50,
-	    "DISCRETE_TEST": true,
-            "MULTI": false,
+            "flag": true,
+            "time_out": 50,
+            "debug_able": true,
+            "multi": false,
             "host": "192.168.1.10",
             "user": "admin",
             "password": "1234",
@@ -25,47 +24,47 @@
             "Delay": 5,
             "Command": ["off", "on"],
             "test_name": "wps_ok",
-            "FUNC_NAME": "PowerSwitchProxy"
+            "func_name": "PowerSwitchProxy"
         }
     ],
-    "Functions": [
-         {
-            "FLAG": true,
-            "Begin": 1,
-            "LoopTimes": 20,
-            "Functions": [
+    "functions": [
+        {
+            "flag": true,
+            "begin": 1,
+            "loop_times": 20,
+            "functions": [
                 {
-            	"FLAG": true,
-            	"TIME_OVER": 50,
-		"DISCRETE_TEST": true,
-            	"MULTI": false,
-            	"host": "192.168.1.10",
-            	"user": "admin",
-            	"password": "1234",
-            	"Times": 1,
-            	"Delay": 5,
-            	"Command": ["off", "on"],
-            	"test_name": "wps_ok",
-            	"FUNC_NAME": "PowerSwitchProxy"
-        	},
+                    "flag": true,
+                    "time_out": 50,
+                    "debug_able": true,
+                    "multi": false,
+                    "host": "192.168.1.10",
+                    "user": "admin",
+                    "password": "1234",
+                    "Times": 1,
+                    "Delay": 5,
+                    "Command": ["off", "on"],
+                    "test_name": "wps_ok",
+                    "func_name": "PowerSwitchProxy"
+                },
                 {
-            	"FLAG": true,
-            	"TIME_OVER": 150,
-            	"MULTI": false,
-		"DISCRETE_TEST": true,
-            	"IP": "192.168.1.1",
-            	"test_name": "dut_ping",
-            	"FUNC_NAME": "DutPingProxy"
-        	}
+                    "flag": true,
+                    "time_out": 150,
+                    "multi": false,
+                    "debug_able": true,
+                    "IP": "192.168.1.1",
+                    "test_name": "dut_ping",
+                    "func_name": "DutPingProxy"
+                }
             ]
         }
     ],
-    "END": [
+    "end": [
         {
-            "FLAG": true,
-            "TIME_OVER": 50,
-            "MULTI": true,
-	    "DISCRETE_TEST": true,
+            "flag": true,
+            "time_out": 50,
+            "multi": true,
+            "debug_able": true,
             "host": "192.168.1.10",
             "user": "admin",
             "password": "1234",
@@ -73,35 +72,37 @@
             "Delay": 1,
             "Command": ["off"],
             "test_name": "ReleasePowerSwitchOutlet",
-            "FUNC_NAME": "PowerSwitchProxy"
+            "func_name": "PowerSwitchProxy"
         },
         {
-            "FLAG": true,
-            "TIME_OVER": 50,
-            "WAIT_MULTI_DONE": true,
+            "flag": true,
+            "time_out": 50,
+            "WAIT_multi_DONE": true,
             "MaxLength": 8,
             "SEND_FORMAT": ["sn", "pcname", "status"],
             "SEND_FORMAT_FAIL": ["sn", "pcname", "status", "olderrorcode"],
             "URL": "http://10.90.0.40/sfcapi/api/connectfinal",
             "SFIS_TYPE": "SendResult",
             "test_name": "SendToSfis",
-            "FUNC_NAME": "SfisFunctionProxy"
-        },
+            "func_name": "SfisFunctionProxy"
+        }
+    ],
+    "final": [
         {
-            "FLAG": true,
-            "TIME_OVER": 150,
-            "ALWAYS_RUN": true,
-            "MULTI": false,
-            "localFile": "python/log",
+            "flag": true,
+            "time_out": 150,
+            "always_run": true,
+            "multi": false,
+            "localFile": "Log/TestLog",
             "ElementName": ["mlbsn", "station_name", "mode", "serial"],
-            "test_name": "CreateTxtAndZipLogFinal",
-            "FUNC_NAME": "CreateTxtProxy" 
+            "test_name": "CreateTxt",
+            "func_name": "CreateTxtProxy" 
         },
         {
-            "FLAG": true,
-            "TIME_OVER": 150,
-            "WAIT_MULTI_DONE": true,
-            "ALWAYS_RUN": true,
+            "flag": true,
+            "time_out": 150,
+            //"wait_multi_done": true,
+            "always_run": true,
             "User": "oper",
             "Password": "mfg-oper",
             "Host": "10.90.2.168",
@@ -109,11 +110,11 @@
             "FtpPath": ["data/eden", "pnname", "station_type", "start_day", "station_name", "status"],
             "FtpName": ["mlbsn", "sn", "mode", "status", "finish_day"],
             "FtpType": ".txt",
-            "LocalPath": ["python/log"],
+            "LocalPath": ["Log/TestLog"],
             "LocalName": ["mlbsn", "station_name", "mode", "serial"],
             "LocalType": ".txt",
             "test_name": "UpFTPFinal",
-            "FUNC_NAME": "UpFTPProxy"
+            "func_name": "UpFTPProxy"
         }
     ]
 }

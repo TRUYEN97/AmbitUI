@@ -12,6 +12,8 @@ import View.subUI.SubUI.AbsSubUi;
 import java.awt.Component;
 import java.awt.GridLayout;
 import java.awt.HeadlessException;
+import java.awt.Image;
+import java.awt.Toolkit;
 import java.awt.event.ItemEvent;
 import java.util.List;
 import javax.swing.DefaultComboBoxModel;
@@ -48,7 +50,13 @@ public class UIView extends javax.swing.JFrame {
             ex.printStackTrace();
         }
         initComponents();
+        setIcon();
         this.comboBoxModel = (DefaultComboBoxModel) this.cbbModeTest.getModel();
+    }
+
+    private void setIcon() {
+        Image image = Toolkit.getDefaultToolkit().createImage("icon/icon.png");
+        this.setIconImage(image);
     }
 
     public void showPcName(String pcName) {

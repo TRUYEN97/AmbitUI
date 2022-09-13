@@ -53,12 +53,6 @@
             "errorDes": "UpFTP"
         }
     },
-    "UpFTPFinal": {
-        "simple": {
-            "errorcode": "UpFtp1",
-            "errorDes": "UpFTPFinal"
-        }
-    },
     "CreateJsonLog": {
         "simple": {
             "errorcode": "json0",
@@ -71,16 +65,16 @@
             "errorDes": "ReleasePowerSwitchOutlet"
         }
     },
-    "CreateTxtAndZipLog": {
+    "CreateTxt": {
         "simple": {
             "errorcode": "TXT0",
-            "errorDes": "CreateTxtAndZipLog"
+            "errorDes": "CreateTxt"
         }
     },
-    "CreateTxtAndZipLogFinal": {
+    "ZipLog": {
         "simple": {
-            "errorcode": "TXT01",
-            "errorDes": "CreateTxtAndZipLogFinal"
+            "errorcode": "ZIPT0",
+            "errorDes": "ZipLog"
         }
     },
     "UpAPI": {

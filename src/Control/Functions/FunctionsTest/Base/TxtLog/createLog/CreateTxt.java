@@ -2,10 +2,9 @@
  * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
  * Click nbfs://nbhost/SystemFileSystem/Templates/Classes/Class.java to edit this template
  */
-package Control.Functions.FunctionsTest.Base.CreateTxtLog;
+package Control.Functions.FunctionsTest.Base.TxtLog.CreateLog;
 
 import Control.Functions.AbsFunction;
-import Control.Functions.FunctionsTest.Base.BaseFunction.AnalysisBase;
 import Control.Functions.FunctionsTest.Base.BaseFunction.FileBaseFunction;
 import Model.AllKeyWord;
 import Model.DataTest.FunctionData.FunctionData;
@@ -21,8 +20,7 @@ import java.util.List;
  * @author Administrator
  */
 public class CreateTxt extends AbsFunction {
-
-    private final AnalysisBase analysisBase;
+    
     private final FileBaseFunction fileBaseFunction;
 
     public CreateTxt(FunctionParameters parameters) {
@@ -31,28 +29,12 @@ public class CreateTxt extends AbsFunction {
 
     public CreateTxt(FunctionParameters parameters, String item) {
         super(parameters, item);
-        this.analysisBase = new AnalysisBase(parameters, item);
         this.fileBaseFunction = new FileBaseFunction(parameters, item);
     }
 
     @Override
     protected boolean test() {
-        return saveTxtFile() && saveFileZip();
-    }
-
-    private boolean saveFileZip() {
-        addLog("Save file zip!");
-        try {
-            String filePath = this.config.getString("localFile");
-            List<String> elementName = this.config.getListJsonArray("ElementName");
-            String zipFile = this.fileBaseFunction.createNameFile(elementName, ".zip");
-            String txtFile = this.fileBaseFunction.createNameFile(elementName, ".txt");
-            return this.fileBaseFunction.saveZip(filePath, zipFile, txtFile);
-        } catch (Exception e) {
-            addLog("Save file zip failed: " + e.getMessage());
-            ErrorLog.addError(this, e.getMessage());
-            return false;
-        }
+        return saveTxtFile();
     }
 
     private boolean saveTxtFile() {
