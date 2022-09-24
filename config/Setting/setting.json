@@ -13,7 +13,8 @@
     "debug_able": true,
     "load_mode": [
         {
-            "name": "MBLT", 
+            "name": "810-00910", 
+            "name_app": "810-00900",
             "station_type": "MBLT",
             "type_mode": "Debug",
             "debug_able": true,
@@ -21,16 +22,19 @@
             "detail": ["TabViewProxy", "TabItemProxy"]
         },
         {
-            "name": "MBLT",
+            "name": "810-00910",
             "station_type": "MBLT",
+            "name_app": "810-00901",
             "type_mode": "Debug",
             "ambit_config": "config\\Item\\mbltOnOffConfig.json",
             "detail": ["TabViewProxy", "TabItemProxy"]
         },
         {
             "name": "Fa API",
+            "name_app": "810-00910",
+            "station_type": "MBLT",
             "type_mode": "FA_API",
-            "ambit_config": "config\\Item\\runinLoopTestOnOff.json",
+            "ambit_config": "config\\Item\\mbltLoopTestOnOffConfig.json",
             "detail": ["TabViewProxy", "TabFaApiProxy", "TabItemProxy"]
         }
     ]
