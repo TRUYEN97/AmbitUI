@@ -18,13 +18,13 @@ public abstract class AbsModeTime{
 
     public AbsModeTime(String name) {
         this.name = name;
-        timeBase = new TimeBase();
+        timeBase = new TimeBase(TimeBase.UTC);
     }
    
     public abstract String getValue();
     
     public void upDate(){
-        timeBase = new TimeBase();
+        timeBase = new TimeBase(TimeBase.UTC);
     }
     
 }

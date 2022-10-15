@@ -20,7 +20,7 @@ public class ErrorLog {
     static {
         try {
             String filePath = String.format("Log\\ErrorLog\\%s.txt",
-                    new TimeBase().getDate());
+                    new TimeBase(TimeBase.UTC).getDate());
             ErrorLog.loger.begin(new File(filePath), true);
         } catch (IOException ex) {
             ex.printStackTrace();

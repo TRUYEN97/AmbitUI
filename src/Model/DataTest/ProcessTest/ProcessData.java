@@ -46,7 +46,7 @@ public class ProcessData implements IgetTime {
         this.data = new DataWareHouse();
         this.signal = new ProcessTestSignal();
         this.productData = new ProductData();
-        this.timeBase = new TimeBase();
+        this.timeBase = new TimeBase(TimeBase.UTC);
         this.testTimer = testTimer;
         this.uiStatus = uiStatus;
         this.informartion = uiStatus.getInfo();

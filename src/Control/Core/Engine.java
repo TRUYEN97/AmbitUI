@@ -91,6 +91,6 @@ public class Engine {
     private File createFilePath() {
         String localLog = Setting.getInstance().getLocalLogPath();
         return new File(String.format("%s/DHCP/%s.txt",
-                localLog, new TimeBase().getDate()));
+                localLog, new TimeBase(TimeBase.UTC).getDate()));
     }
 }

@@ -65,7 +65,7 @@ public class ItemTestData {
         for (String key : keys) {
             this.data.put(key, allConfig.getString(key));
         }
-        this.data.put(AllKeyWord.START_TIME, new TimeBase().getSimpleDateTime());
+        this.data.put(AllKeyWord.START_TIME, new TimeBase(TimeBase.UTC).getSimpleDateTime());
     }
 
     public void put(String key, String value) {
@@ -98,7 +98,7 @@ public class ItemTestData {
         }
         this.addLog("****************************************************");
         this.data.put(AllKeyWord.CYCLE_TIME, String.format("%.3f", testTime = getRunTime()));
-        this.data.put(AllKeyWord.FINISH_TIME, new TimeBase().getSimpleDateTime());
+        this.data.put(AllKeyWord.FINISH_TIME, new TimeBase(TimeBase.UTC).getSimpleDateTime());
         this.testing = false;
     }
 
