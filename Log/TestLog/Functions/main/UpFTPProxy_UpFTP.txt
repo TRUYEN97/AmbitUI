@@ -1,23 +1,23 @@
-2022-09-26 13:19:10.152:   ITEM[UpFTP] - FUNCTION[UpFTPProxy]
-2022-09-26 13:19:10.154:   Turn: 1
-2022-09-26 13:19:10.154:   [PC] Connect to ftp!!
-2022-09-26 13:19:10.154:   [Config] User: oper
-2022-09-26 13:19:10.155:   [Config] PassWord: mfg-oper
-2022-09-26 13:19:10.155:   [Config] Host: 10.90.2.168
-2022-09-26 13:19:10.156:   [Config] Port: 21
-2022-09-26 13:19:10.282:   [PC] Connect to ftp ok!!
-2022-09-26 13:19:10.282:   [PC] ElementName: [data/eden, pnname, station_type, start_day, station_name, status]
-2022-09-26 13:19:10.282:   [PC] ElementName: [mlbsn, sn, mode, status, finish_day]
-2022-09-26 13:19:10.282:   [PC] ElementName: [python/log]
-2022-09-26 13:19:10.282:   [PC] ElementName: [mlbsn, station_name, mode, serial]
-2022-09-26 13:19:10.282:   [Config] Local: python\log\mlbsn_MBLT-720_Debug_serial.txt
-2022-09-26 13:19:10.282:   [Config] Ftp: data/eden/pnname/MBLT/26-09-2022/MBLT-720/failed/mlbsn_sn_Debug_failed_26-09-2022.txt
-2022-09-26 13:19:10.435:   Up file to FTP done!
-2022-09-26 13:19:10.436:   [PC] Disconnect FtpClient ok
-2022-09-26 13:19:10.436:   ****************************************************
-2022-09-26 13:19:10.436:   Item name = UpFTP
-2022-09-26 13:19:10.436:   Value = passed
-2022-09-26 13:19:10.436:   Test status = passed
-2022-09-26 13:19:10.436:   -----------------------------------------------------
-2022-09-26 13:19:10.437:   ****************************************************
-2022-09-26 13:19:10.437:   TIME[0.285 s] - STATUS[PASSED]
+2022-10-24 01:24:57.208:   ITEM[UpFTP] - FUNCTION[UpFTPProxy]
+2022-10-24 01:24:57.209:   Turn: 1
+2022-10-24 01:24:57.209:   [PC] Connect to ftp!!
+2022-10-24 01:24:57.210:   [Config] User: oper
+2022-10-24 01:24:57.210:   [Config] PassWord: mfg-oper
+2022-10-24 01:24:57.210:   [Config] Host: 10.90.2.168
+2022-10-24 01:24:57.210:   [Config] Port: 21
+2022-10-24 01:24:57.299:   [PC] Connect to ftp ok!!
+2022-10-24 01:24:57.299:   [PC] ElementName: [data/eden, pnname, station_type, start_day, station_name, status]
+2022-10-24 01:24:57.299:   [PC] ElementName: [mlbsn, sn, mode, status, finish_day]
+2022-10-24 01:24:57.299:   [PC] ElementName: [python/log]
+2022-10-24 01:24:57.299:   [PC] ElementName: [mlbsn, station_name, mode, serial]
+2022-10-24 01:24:57.299:   [Config] Local: python\log\mlbsn_REPAIR-7801_Debug_serial.txt
+2022-10-24 01:24:57.299:   [Config] Ftp: data/eden/pnname/REPAIR/24-10-2022/REPAIR-7801/failed/mlbsn_sn_Debug_failed_24-10-2022.txt
+2022-10-24 01:24:57.364:   Up file to FTP done!
+2022-10-24 01:24:57.365:   [PC] Disconnect FtpClient ok
+2022-10-24 01:24:57.365:   ****************************************************
+2022-10-24 01:24:57.365:   Item name = UpFTP
+2022-10-24 01:24:57.365:   Value = passed
+2022-10-24 01:24:57.366:   Test status = passed
+2022-10-24 01:24:57.366:   -----------------------------------------------------
+2022-10-24 01:24:57.366:   ****************************************************
+2022-10-24 01:24:57.366:   TIME[0.157 s] - STATUS[PASSED]

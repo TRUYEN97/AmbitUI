@@ -1,0 +1,114 @@
+{
+    "station_type": "SFT",
+    "time_out_test": 7000,
+    "init": [
+    ],
+    "functions": [
+        {
+            "flag": true,
+            "time_out": 30,
+            "debug_able": true,
+            "multi": false,
+            "FixtureCom": "COM5",
+            "FixtureBaudRate": 115200,
+            "FixtureCommands": ["AT+TESTSTART%",
+                "AT+VBUS_BOFF%", "AT+CC_BOFF%", "AT+VBUS_BON%", "AT+CC_BON%"],
+            "FixtureKeys": ["OK"],
+            "FixtureWait": 30,
+            "test_name": "fixture_close",
+            "func_name": "FixtureActionProxy"
+        },
+        {
+            "flag": true,
+            "time_out": 150,
+            "multi": false,
+            "debug_able": true,
+            "IP": "192.168.1.1",
+            "test_name": "dut_ping",
+            "func_name": "DutPingProxy"
+        },
+        {
+            "flag": true,
+            "begin": 1,
+            "loop_times": 160,
+            "debug_able": true,
+            "functions": [
+                {
+                    "flag": true,
+                    "time_out": 3605,
+                    "debug_able": true,
+                    "time_point_key": "time_point",
+                    "step_timeS": "3600",
+                    "led_r": ["i2cset -f -y 0 0x30 0x70 0x00",
+                        "i2cset -f -y 0 0x30 0x04 0x00", 
+                        "i2cset -f -y 0 0x30 0x03 0x00",
+                        "i2cset -f -y 0 0x30 0x02 0x00",
+                        "i2cset -f -y 0 0x30 0x0e 0x00", 
+                        "i2cset -f -y 0 0x30 0x04 0xff"],
+                    "led_g": ["i2cset -f -y 0 0x30 0x70 0x00",
+                        "i2cset -f -y 0 0x30 0x04 0x00",
+                        "i2cset -f -y 0 0x30 0x03 0x00",
+                        "i2cset -f -y 0 0x30 0x02 0x00",
+                        "i2cset -f -y 0 0x30 0x0e 0x00",
+                        "i2cset -f -y 0 0x30 0x03 0xc8"],
+                    "led_b": ["i2cset -f -y 0 0x30 0x70 0x00",
+                        "i2cset -f -y 0 0x30 0x04 0x00",
+                        "i2cset -f -y 0 0x30 0x03 0x00",
+                        "i2cset -f -y 0 0x30 0x02 0x00",
+                        "i2cset -f -y 0 0x30 0x0e 0x00",
+                        "i2cset -f -y 0 0x30 0x02 0xc8"],
+                    "led_w": ["i2cset -f -y 0 0x30 0x70 0x00",
+                        "i2cset -f -y 0 0x30 0x04 0x00",
+                        "i2cset -f -y 0 0x30 0x03 0x00",
+                        "i2cset -f -y 0 0x30 0x02 0x00",
+                        "i2cset -f -y 0 0x30 0x0e 0x00",
+                        "i2cset -f -y 0 0x30 0x0e 0xc8"],
+                    "led_off": ["i2cset -f -y 0 0x30 0x70 0x00",
+                        "i2cset -f -y 0 0x30 0x04 0x00",
+                        "i2cset -f -y 0 0x30 0x03 0x00",
+                        "i2cset -f -y 0 0x30 0x02 0x00",
+                        "i2cset -f -y 0 0x30 0x0e 0x00"],
+                    "check_led_cmd": "AT+LEDPARAMETER%",
+                    "logCSV": "led_roobot.csv",
+                    "IP": "192.168.1.1",
+                    "dut_com": "COM5",
+                    "braud": 115200,
+                    "test_name": "CheckLed_W_1H",
+                    "func_name": "CheckLed_W_1H_Proxy"
+                }
+            ]
+        }
+    ],
+    "end": [
+
+    ],
+    "final": [
+        {
+            "flag": true,
+            "time_out": 150,
+            "always_run": true,
+            "multi": false,
+            "localFile": "python/log",
+            "ElementName": ["mlbsn", "station_name", "mode", "serial"],
+            "test_name": "CreateTxt",
+            "func_name": "CreateTxtProxy" 
+        },
+        {
+            "flag": true,
+            "time_out": 150,
+            "always_run": true,
+            "User": "oper",
+            "Password": "mfg-oper",
+            "Host": "10.90.2.168",
+            "Port": 21,
+            "FtpPath": ["data/eden", "pnname", "station_type", "start_day", "station_name", "status"],
+            "FtpName": ["mlbsn", "sn", "mode", "status", "finish_day"],
+            "FtpType": ".txt",
+            "LocalPath": ["python/log"],
+            "LocalName": ["mlbsn", "station_name", "mode", "serial"],
+            "LocalType": ".txt",
+            "test_name": "UpFTP",
+            "func_name": "UpFTPProxy"
+        }
+    ]
+}

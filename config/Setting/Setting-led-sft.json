@@ -1,0 +1,32 @@
+{
+   // "dhcp": "172.168.1.251",
+    "row": 1,
+    "column": 1,
+    "loop_test": 1,
+    "progress": "TEST",
+    "name_app": "LED-SFT",
+    "type_ui": "BigUIProxy",
+    "local_log": "Log\\TestLog",
+    "detail": ["TabViewProxy", "TabItemProxy", "TabLogProxy"],
+    "limit_path": "config\\dataSource\\Init\\limits.json",
+   // "limit_update": "cd python && eero_api_limits_eden.py Runin",
+    "debug_able": true,
+    "load_mode": [
+        {
+            "name": "ON-LED-W",
+            "station_type": "SFT",
+   //         "name_app": "810-00901",
+            "type_mode": "Debug",
+            "ambit_config": "config\\Item\\LED_SFT_LED_W.json",
+            "detail": ["TabViewProxy", "TabItemProxy"]
+        },
+        {
+            "name": "Reboot-LED-W", 
+       //     "name_app": "810-00900",
+            "station_type": "SFT",
+            "type_mode": "Debug",
+            "ambit_config": "config\\Item\\LED_SFT_REBOOT.json",
+            "detail": ["TabViewProxy", "TabItemProxy"]
+        }
+    ]
+}

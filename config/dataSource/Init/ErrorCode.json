@@ -11,6 +11,30 @@
             "errorDes": "fixture_close"
         }
     },
+    "golden_file": {
+        "simple": {
+            "errorcode": "FIX00",
+            "errorDes": "fixture_close"
+        }
+    },
+    "CheckLed_W_1H": {
+        "simple": {
+            "errorcode": "ledW0",
+            "errorDes": "CheckLed_W_1H"
+        }
+    },
+    "reboot": {
+        "simple": {
+            "errorcode": "reboot00",
+            "errorDes": "reboot"
+        }
+    },
+    "RebootCheckLed1H": {
+        "simple": {
+            "errorcode": "LED_w_reboot",
+            "errorDes": "RebootCheckLed1H"
+        }
+    },
     "fixtureOpen": {
         "simple": {
             "errorcode": "FIX01",

@@ -135,8 +135,11 @@ public class DataWareHouse {
 
     public List<JSONObject> getListJson(String key) {
         List<JSONObject> result = new ArrayList<>();
-        for (var object : coreData.getJSONArray(key)) {
-            result.add((JSONObject) object);
+        var arr = coreData.getJSONArray(key);
+        if (arr != null) {
+            for (var object : arr) {
+                result.add((JSONObject) object);
+            }
         }
         return result;
     }
@@ -164,7 +167,7 @@ public class DataWareHouse {
             return defaultValue;
         }
     }
-    
+
     public boolean getBoolean(String key) {
         return getBoolean(key, false);
     }

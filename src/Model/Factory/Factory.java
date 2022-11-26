@@ -12,6 +12,7 @@ import Control.Functions.FunctionsTest.Base.GetMacFromSfis.GetMacFormSfisProxy;
 import Control.Functions.FunctionsTest.Base.DutPing.DutPingProxy;
 import Control.Functions.FunctionsTest.Base.DutTelnet.DutTelnetProxy;
 import Control.Functions.FunctionsTest.Base.FixtureActions.FixtureActionProxy;
+import Control.Functions.FunctionsTest.Base.GoldenFile.GoldenFileProxy;
 import Control.Functions.FunctionsTest.Base.JsonApi.CreateJsonApi.CreateJsonApiProxy;
 import Control.Functions.FunctionsTest.Base.JsonApi.UpApi.UpApiProxy;
 import Control.Functions.FunctionsTest.Base.SFIS.SfisFunctionProxy;
@@ -28,6 +29,8 @@ import Control.Functions.FunctionsTest.Runin.CheckCommandTelnet.CheckCommandTeln
 import Control.Functions.FunctionsTest.Runin.MMC_BadBlock.MMC_BadBlockProxy;
 import Control.Functions.FunctionsTest.Runin.MMC_WR_SPEED.MMC_WR_SPEED_PROXY;
 import Control.Functions.FunctionsTest.ON_OFF.PowerSwicthPing.PowerSwicthPingProxy;
+import Control.Functions.FunctionsTest.Other.CheckLed_W_1H_SFT.CheckLed_W_1H_Proxy;
+import Control.Functions.FunctionsTest.Other.Reboot_CheckLed1H_SFT.Reboot_CheckLed1H_SFT_Proxy;
 import Control.Functions.FunctionsTest.Runin.TelnetReadUntilKey.TelnetReadUntilKeyProxy;
 import Control.Functions.FunctionsTest.Runin.RebootSoft.RebootSoftProxy;
 import Control.Functions.InitPackages.InitProxy.IdPasswordProxy;
@@ -134,5 +137,8 @@ public class Factory {
         this.functions.addType(new VoltageTestProxy());
         this.functions.addType(new ThermalShutdownProxy());
         this.functions.addType(new checkVoltProxy());
+        this.functions.addType(new CheckLed_W_1H_Proxy());
+        this.functions.addType(new Reboot_CheckLed1H_SFT_Proxy());
+        this.functions.addType(new GoldenFileProxy());
     }
 }

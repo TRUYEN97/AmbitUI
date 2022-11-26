@@ -1,16 +1,13 @@
 {
-    "station_type": "OnOff",
+    "station_type": "PE",
     "time_out_test": 11000,
     "init": [
         {
             "flag": true,
             "time_out": 50,
-            "SEND_FORMAT": ["sn", "pcname"],
-            "MaxLength": 8,
-            "DATA_FORMAT": ["sn", "mlbsn", "pnname", "ethernetmac", "olderrorcode"],
-            "URL": "http://10.90.0.40/sfcapi/api/connect",
-            "test_name": "gen_node",
-            "func_name": "SfisFunctionProxy"
+            "golden_file": "config/dataSource/init/golden.json",
+            "test_name": "golden_file",
+            "func_name": "GoldenFileProxy"
         },
         {
             "flag": true,
@@ -30,33 +27,26 @@
     "functions": [
         {
             "flag": true,
-            "begin": 1,
-            "loop_times": 20,
-            "functions": [
-                {
-                    "flag": true,
-                    "time_out": 50,
-                    "debug_able": true,
-                    "multi": false,
-                    "host": "192.168.1.10",
-                    "user": "admin",
-                    "password": "1234",
-                    "Times": 1,
-                    "Delay": 5,
-                    "Command": ["off", "on"],
-                    "test_name": "wps_ok",
-                    "func_name": "PowerSwitchProxy"
-                },
-                {
-                    "flag": true,
-                    "time_out": 150,
-                    "multi": false,
-                    "debug_able": true,
-                    "IP": "192.168.1.1",
-                    "test_name": "dut_ping",
-                    "func_name": "DutPingProxy"
-                }
-            ]
+            "time_out": 150,
+            "multi": false,
+            "debug_able": true,
+            "IP": "192.168.1.1",
+            "test_name": "dut_ping",
+            "func_name": "DutPingProxy"
+        },
+        {
+            "flag": true,
+            "time_out": 20000,
+            "multi": false,
+            "IP": "192.168.1.1",
+            "command": ["stressapptest -s 7200 -M 300 -m 5 -C 5 -W -l test_ddr_01.log",
+                "stressapptest -s 7200 --cc_test -M 300 -v 20 --cc_line_size 8192 --stop_on_errors -l test_ddr_02.log",
+                "stressapptest -s 200 -f /tmp/file1 -f /tmp/file2 -M 100 -l test_ddr_03.log"],
+            "keyWord": "Status: PASS - please verify no corrected errors",
+            "ReadUntil": "root@eero-test:/#",
+            "Time": 8000,
+            "test_name": "ram_stress",
+            "func_name": "TelnetReadUntilKeyProxy"
         }
     ],
     "end": [
@@ -73,18 +63,6 @@
             "Command": ["off"],
             "test_name": "ReleasePowerSwitchOutlet",
             "func_name": "PowerSwitchProxy"
-        },
-        {
-            "flag": true,
-            "time_out": 50,
-            "WAIT_multi_DONE": true,
-            "MaxLength": 8,
-            "SEND_FORMAT": ["sn", "pcname", "status"],
-            "SEND_FORMAT_FAIL": ["sn", "pcname", "status", "olderrorcode"],
-            "URL": "http://10.90.0.40/sfcapi/api/connectfinal",
-            "SFIS_TYPE": "SendResult",
-            "test_name": "SendToSfis",
-            "func_name": "SfisFunctionProxy"
         }
     ],
     "final": [
@@ -101,7 +79,6 @@
         {
             "flag": true,
             "time_out": 150,
-            //"wait_multi_done": true,
             "always_run": true,
             "User": "oper",
             "Password": "mfg-oper",

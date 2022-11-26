@@ -1,16 +1,16 @@
-2022-09-26 13:19:10.088:   ITEM[CreateTxt] - FUNCTION[CreateTxtProxy]
-2022-09-26 13:19:10.089:   Turn: 1
-2022-09-26 13:19:10.089:   Save file txt!
-2022-09-26 13:19:10.090:   [PC] ElementName: [mlbsn, station_name, mode, serial]
-2022-09-26 13:19:10.090:   [DIR] python/log/mlbsn_MBLT-720_Debug_serial.txt
-2022-09-26 13:19:10.091:   - add item: fixture_close
-2022-09-26 13:19:10.100:   - add item: fixtureOpen
-2022-09-26 13:19:10.107:   - add item: CreateTxt
-2022-09-26 13:19:10.146:   [PC] Save file txt at python/log/mlbsn_MBLT-720_Debug_serial.txt
-2022-09-26 13:19:10.147:   ****************************************************
-2022-09-26 13:19:10.148:   Item name = CreateTxt
-2022-09-26 13:19:10.148:   Value = passed
-2022-09-26 13:19:10.148:   Test status = passed
-2022-09-26 13:19:10.149:   -----------------------------------------------------
-2022-09-26 13:19:10.149:   ****************************************************
-2022-09-26 13:19:10.150:   TIME[0.060 s] - STATUS[PASSED]
+2022-10-24 01:24:57.172:   ITEM[CreateTxt] - FUNCTION[CreateTxtProxy]
+2022-10-24 01:24:57.174:   Turn: 1
+2022-10-24 01:24:57.174:   Save file txt!
+2022-10-24 01:24:57.175:   [PC] ElementName: [mlbsn, station_name, mode, serial]
+2022-10-24 01:24:57.176:   [DIR] python/log/mlbsn_REPAIR-7801_Debug_serial.txt
+2022-10-24 01:24:57.177:   - add item: fixture_close
+2022-10-24 01:24:57.184:   - add item: fixtureOpen
+2022-10-24 01:24:57.189:   - add item: CreateTxt
+2022-10-24 01:24:57.206:   [PC] Save file txt at python/log/mlbsn_REPAIR-7801_Debug_serial.txt
+2022-10-24 01:24:57.206:   ****************************************************
+2022-10-24 01:24:57.207:   Item name = CreateTxt
+2022-10-24 01:24:57.207:   Value = passed
+2022-10-24 01:24:57.207:   Test status = passed
+2022-10-24 01:24:57.207:   -----------------------------------------------------
+2022-10-24 01:24:57.207:   ****************************************************
+2022-10-24 01:24:57.207:   TIME[0.034 s] - STATUS[PASSED]
