@@ -64,10 +64,6 @@ public class FunctionConfig extends AbsElementInfo {
         return warehouse.getBoolean(AllKeyWord.CONFIG.FAIL_CONTNIUE);
     }
 
-    boolean isActive() {
-        return warehouse.getBoolean(AllKeyWord.CONFIG.FLAG);
-    }
-
     public String getString(String key) {
         return warehouse.getString(key);
     }

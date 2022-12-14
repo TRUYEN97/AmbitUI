@@ -71,7 +71,7 @@ public class Core {
     }
 
     private boolean updateMode(ModeTest modeTest) {
-        if (modeTest != null && modeTest.init() && modeTest.update()) {
+        if (modeTest != null && modeTest.init()) {
             this.currMode = modeTest;
             if (drawBoardUI.isNewFormUI() && uIManager.isNotTest()) {
                 drawBoardUI.setting();

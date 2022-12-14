@@ -200,7 +200,7 @@ public class TabItem extends AbsTabUI {
             } else if (evt.getKeyChar() == CTRL_D
                     && this.uiStatus.getModeTest().canDebug()
                     && this.tableItem.getSelectedRowCount() > 0) {
-                this.uiStatus.getCellTest().testDebugItem(getListSelectedItem(), null);
+                this.uiStatus.getCellTest().testDebugItem(getListSelectedItem());
             }
         } else if (evt.getKeyChar() == CTRL_Q && isAccepToStopTest()) {
             this.uiStatus.getCellTest().stopTest();

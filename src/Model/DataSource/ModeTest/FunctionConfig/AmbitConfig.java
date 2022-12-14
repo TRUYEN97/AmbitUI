@@ -145,25 +145,15 @@ public class AmbitConfig extends AbsJsonSource<FunctionName, FunctionConfig> {
         this.finalFunctions.clear();
         this.discreteFunctions.clear();
     }
-
+    
     public List<FunctionName> getSelectedItem(List<FunctionName> listItem) {
         if (listItem == null) {
-            return discreteFunctions;
+            return getDebugFunctions();
         }
         if (discreteFunctions.containsAll(listItem)) {
             return listItem;
         }
         return null;
-    }
-
-    private List<FunctionName> putSelectFunctionNames(List<FunctionName> listItem, List<FunctionName> base) {
-        List<FunctionName> result = new ArrayList<>();
-        for (FunctionName functionName : listItem) {
-            if (base.contains(functionName)) {
-                result.add(functionName);
-            }
-        }
-        return result;
     }
 
 }

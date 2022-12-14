@@ -84,6 +84,10 @@ public class ModeTestSource {
     public List<FunctionName> getSelectedItem(List<FunctionName> listItem) {
         return this.functionConfig.getSelectedItem(listItem);
     }
+    
+    public List<FunctionName> getDebugFunctions() {
+        return this.functionConfig.getDebugFunctions();
+    }
 
     public boolean updateFunctionsConfig() throws HeadlessException {
         String configFile = modeConfig.getAmbitConfigPath();

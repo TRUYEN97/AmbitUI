@@ -41,6 +41,10 @@ public class Runner implements Runnable {
         this.loopTest = 1;
         this.testing = false;
     }
+    
+    public void setLocalDebug(boolean localdebug){
+        this.process.setLocalDebug(localdebug);
+    }
 
     public void setLoopTest(int times) {
         this.loopTest = times;
@@ -82,8 +86,8 @@ public class Runner implements Runnable {
 
     private void prepare() {
         this.testing = true;
-        processData.setStartTime();
-        subUi.startTest();
+        this.processData.setStartTime();
+        this.subUi.startTest();
     }
 
     @Override

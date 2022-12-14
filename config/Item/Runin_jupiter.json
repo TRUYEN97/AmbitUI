@@ -1,6 +1,6 @@
 {
     "station_type": "RUNIN",
-    "TIME_OUT_TEST": 7000,
+    "time_out_test": 7000,
     "int": [
         {
             "flag": true,
@@ -33,7 +33,7 @@
             "func_name": "PowerSwitchProxy"
         }
     ],
-    "Functions": [
+    "functions": [
         {
             "flag": true,
             "time_out": 360,
@@ -79,29 +79,6 @@
         {
             "flag": true,
             "time_out": 10,
-            "multi": false,
-            "always_run": false,
-            "IP": "192.168.1.1",
-            "command": "cat /sys/bus/i2c/devices/0-0030/name",
-            "Regex": "^([a-z|A-Z]|[0-9])+$",
-            "test_name": "led_vendor",
-            "func_name": "CheckCommandTelnetProxy"
-        },
-        {
-            "flag": true,
-            "time_out": 10,
-            "multi": true,
-            "always_run": false,
-            "IP": "192.168.1.1",
-            "command": "dmesg|grep 'PHY ID'",
-            "Startkey": "eth1's PHY ID is",
-            "Endkey": "",
-            "test_name": "phy_model",
-            "func_name": "CheckCommandTelnetProxy"
-        },
-        {
-            "flag": true,
-            "time_out": 10,
             "multi": true,
             "always_run": false,
             "IP": "192.168.1.1",
@@ -119,7 +96,7 @@
             "IP": "192.168.1.1",
             "command": "cat /sys/devices/virtual/thermal/thermal_zone1/temp",
             "Regex": "^[0-9]+$",
-            "test_name": "temp_cpu_0",
+            "test_name": "temp_cpu",
             "func_name": "CheckCommandTelnetProxy"
         },
         {
@@ -231,7 +208,7 @@
         }
 
     ],
-    "END": [
+    "end": [
         {
             "flag": true,
             "time_out": 30,

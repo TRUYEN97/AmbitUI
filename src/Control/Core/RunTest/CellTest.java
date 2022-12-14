@@ -44,6 +44,7 @@ public class CellTest {
         runner.setTestFunctions(testSource.getTestFunctions());
         runner.setEndFunctions(testSource.getEndFunctions());
         runner.setFinalFunctions(testSource.getFinalFunctions());
+        this.runner.setLocalDebug(false);
         this.future = this.pool.submit(runner);
         this.informartion.addTestCount();
     }
@@ -52,7 +53,7 @@ public class CellTest {
         return future != null && !future.isDone();
     }
 
-    public void testDebugItem(List<FunctionName> listItem, List<FunctionName> listFinalItem) {
+    public void testDebugItem(List<FunctionName> listItem) {
         if (isTesting()) {
             return;
         }
@@ -62,14 +63,26 @@ public class CellTest {
             return;
         }
         this.runner.setTestFunctions(functions);
-        runner.setFinalFunctions(listFinalItem);
+        this.runner.setLocalDebug(true);
         this.runner.setMode("Debug");
         this.future = this.pool.submit(runner);
     }
+ 
 
     public void testDebugItem() {
+        if (isTesting()) {
+            return;
+        }
         ModeTestSource testSource = this.uiStatus.getModeTest().getModeTestSource();
-        testDebugItem(null,testSource.getFinalFunctions());
+        List<FunctionName> functions = testSource.getDebugFunctions();
+        if (functions == null || functions.isEmpty()) {
+            return;
+        }
+        this.runner.setTestFunctions(functions);
+        this.runner.setFinalFunctions(testSource.getFinalFunctions());
+        this.runner.setLocalDebug(false);
+        this.runner.setMode("Debug");
+        this.future = this.pool.submit(runner);
     }
 
     public void stopTest() {

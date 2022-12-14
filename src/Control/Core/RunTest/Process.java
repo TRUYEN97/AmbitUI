@@ -39,6 +39,7 @@ class Process implements IFunction {
     private boolean test;
     private boolean stop;
     private boolean pass;
+    private boolean localdebug;
 
     public Process(UiStatus uiStatus) {
         this.multiTasking = new HashMap<>();
@@ -51,6 +52,18 @@ class Process implements IFunction {
         this.test = false;
     }
 
+    public Process() {
+        this.multiTasking = null;
+        this.functions = null;
+        this.factory = null;
+        this.uiStatus = null;
+        this.pool = null;
+    }
+
+    public void setLocalDebug(boolean localdebug) {
+        this.localdebug = localdebug;
+    }
+    
     public void setListFunc(List<FunctionName> functions) {
         this.functions.clear();
         this.functions.addAll(functions);
@@ -79,7 +92,7 @@ class Process implements IFunction {
                 if (this.stop) {
                     break;
                 }
-                if (justFunctionAlwayRun && !isAlwaysRun(functionName)) {
+                if (justFunctionAlwayRun && !isAlwaysRun(functionName) && !localdebug) {
                     continue;
                 }
                 funcCover = createFuncCover(functionName);
@@ -101,7 +114,7 @@ class Process implements IFunction {
         } finally {
             waitUntilMultiTaskDone();
             this.functions.clear();
-            test = false;
+            this.test = false;
         }
     }
 

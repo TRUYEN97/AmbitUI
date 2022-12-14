@@ -6,6 +6,7 @@ package Control.Functions.FunctionsTest.Base.BaseFunction;
 
 import Control.Functions.AbsFunction;
 import FileTool.FileService;
+import FileTool.Zip;
 import Model.DataTest.FunctionParameters;
 import com.alibaba.fastjson.JSONObject;
 import java.io.File;
@@ -18,10 +19,12 @@ import java.util.List;
 public class FileBaseFunction extends AbsFunction {
 
     private final FileService fileService;
+    private final Zip zip;
 
     public FileBaseFunction(FunctionParameters parameters, String item) {
         super(parameters, item);
         fileService = new FileService();
+        zip = new Zip();
     }
 
     @Override
@@ -58,7 +61,7 @@ public class FileBaseFunction extends AbsFunction {
         String zipPath = String.format("%s\\%s", dirPath, zipName);
         String filePath = String.format("%s\\%s", dirPath, fileName);
         addLog("PC", String.format("%s -> %s", filePath, zipPath));
-        if (fileService.zipFile(zipPath, new File(filePath))) {
+        if (zip.zipFile(zipPath, new File(filePath))) {
             addLog("PC", String.format("Save data in: %s ok", zipPath));
             return true;
         }
