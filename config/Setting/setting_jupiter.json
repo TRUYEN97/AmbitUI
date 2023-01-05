@@ -1,0 +1,29 @@
+{
+    "station_type": "RUNIN",
+    //"dhcp": "172.168.0.251",
+    "row": 12,
+    "column": 8,
+    "loop_test": 1,
+    "progress": "EVT",
+    "name_app": "RUNIN",
+    "type_ui": "SmallUIProxy",
+    "local_log": "Log\\TestLog",
+    "detail": ["TabViewProxy", "TabItemProxy"],
+    //"limit_path": "config\\dataSource\\Init\\limits.json",
+    //"limit_update": "cd python && eero_api_limits_eden.py Runin",
+    "debug_able": true,
+    "load_mode": [
+        {
+            "name": "PRODUCTION", 
+            "type_mode": "production",
+            "debug_able": false,
+            "ambit_config": "config\\Item\\Runin_jupiter_production.json"
+        },
+        {
+            "name": "DEBUG", 
+            "type_mode": "Debug",
+            "debug_able": true,
+            "ambit_config": "config\\Item\\Runin_jupiter_debug.json"
+        }
+    ]
+}

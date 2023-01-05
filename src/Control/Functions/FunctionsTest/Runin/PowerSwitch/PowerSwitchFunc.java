@@ -4,9 +4,9 @@
  */
 package Control.Functions.FunctionsTest.Runin.PowerSwitch;
 
+import Communicate.Impl.PowerSwitch.PowerSwitch;
 import Control.Functions.AbsFunction;
 import Model.ErrorLog;
-import Communicate.PowerSwitch.PowerSwitch;
 import Model.DataTest.FunctionParameters;
 import java.util.List;
 
@@ -19,7 +19,7 @@ public class PowerSwitchFunc extends AbsFunction {
     public PowerSwitchFunc(FunctionParameters parameters) {
         super(parameters, null);
     }
-    
+
     public PowerSwitchFunc(FunctionParameters parameters, String item) {
         super(parameters, item);
     }
@@ -69,25 +69,31 @@ public class PowerSwitchFunc extends AbsFunction {
         List<String> commands = config.getListJsonArray("Command");
         for (String command : commands) {
             try {
-                if (command.equalsIgnoreCase("on")) {
-                    if (!powerSwitch.setOn(index)) {
-                        return false;
+                switch (command) {
+                    case "on" -> {
+                        if (!powerSwitch.setOn(index)) {
+                            return false;
+                        }
                     }
-                } else if (command.equalsIgnoreCase("off")) {
-                    if (!powerSwitch.setOff(index)) {
-                        return false;
+                    case "off" -> {
+                        if (!powerSwitch.setOff(index)) {
+                            return false;
+                        }
                     }
-                } else if (command.equalsIgnoreCase("cycle")) {
-                    if (!powerSwitch.setCycle(index)) {
-                        return false;
+                    case "cycle" -> {
+                        if (!powerSwitch.setCycle(index)) {
+                            return false;
+                        }
                     }
-                } else if (command.equalsIgnoreCase("onAll")) {
-                    if (!powerSwitch.setOnAll()) {
-                        return false;
+                    case "onAll" -> {
+                        if (!powerSwitch.setOffAll()) {
+                            return false;
+                        }
                     }
-                } else if (command.equalsIgnoreCase("offAll")) {
-                    if (!powerSwitch.setOffAll()) {
-                        return false;
+                    case "offAll" -> {
+                        if (!powerSwitch.setOffAll()) {
+                            return false;
+                        }
                     }
                 }
             } finally {

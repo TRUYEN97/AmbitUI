@@ -4,12 +4,11 @@
  */
 package Control.Functions.FunctionsTest.Runin.MMC_WR_SPEED;
 
+import Communicate.Impl.Telnet.Telnet;
 import Control.Functions.AbsFunction;
 import Control.Functions.FunctionsTest.Base.BaseFunction.AnalysisBase;
 import Control.Functions.FunctionsTest.Base.BaseFunction.FunctionBase;
 import Model.ErrorLog;
-import Model.ManagerUI.UIStatus.UiStatus;
-import Communicate.Telnet.Telnet;
 import Model.DataTest.FunctionParameters;
 
 /**
@@ -20,7 +19,6 @@ public class MMC_SPEED extends AbsFunction {
 
     private final FunctionBase baseFunc;
     private final AnalysisBase analysisBase;
-    private Telnet telnet;
     private String data;
     private String block;
     private String key;
@@ -28,7 +26,7 @@ public class MMC_SPEED extends AbsFunction {
     public MMC_SPEED(FunctionParameters parameters) {
         this(parameters, null);
     }
-    
+
     public MMC_SPEED(FunctionParameters parameters, String item) {
         super(parameters, item);
         this.baseFunc = new FunctionBase(parameters, item);
@@ -43,8 +41,7 @@ public class MMC_SPEED extends AbsFunction {
             if (ip == null) {
                 return false;
             }
-            try {
-                telnet = this.baseFunc.getTelnet(ip, 23);
+            try ( Telnet telnet = this.baseFunc.getTelnet(ip, 23)) {
                 if (!this.baseFunc.sendCommand(telnet, this.config.getString("command"))) {
                     return false;
                 }
@@ -55,8 +52,6 @@ public class MMC_SPEED extends AbsFunction {
                 e.printStackTrace();
                 ErrorLog.addError(this, e.getMessage());
                 return false;
-            } finally {
-               this.baseFunc.disConnect(telnet);
             }
             addLog("Telnet", data);
         }

@@ -8,6 +8,7 @@ import Control.Functions.AbsFunction;
 import Control.Functions.FunctionsTest.Base.BaseFunction.AnalysisBase;
 import Control.Functions.FunctionsTest.Base.BaseFunction.FunctionBase;
 import Model.DataTest.FunctionParameters;
+import Model.ErrorLog;
 
 /**
  *
@@ -21,7 +22,7 @@ public class RebootSoft extends AbsFunction {
     public RebootSoft(FunctionParameters parameters) {
         this(parameters, null);
     }
-    
+
     public RebootSoft(FunctionParameters parameters, String item) {
         super(parameters, item);
         this.functionBase = new FunctionBase(parameters, item);
@@ -41,13 +42,19 @@ public class RebootSoft extends AbsFunction {
     private boolean cycleReboot(String ip) {
         int times = this.config.getInteger("Times");
         addLog("CONFIG", "Times: " + times);
-        for (int i = 1; i <= times; i++) {
-            addLog(String.format("cycle Times: %d - %d ", i, times));
-            if (!this.functionBase.rebootSoft(ip) || !this.functionBase.pingTo(ip, 200)) {
-                return false;
+        try {
+            for (int i = 1; i <= times; i++) {
+                addLog(String.format("cycle Times: %d - %d ", i, times));
+                if (!this.functionBase.rebootSoft(ip) || !this.functionBase.pingTo(ip, 200)) {
+                    return false;
+                }
             }
+            return true;
+        } catch (Exception e) {
+            e.printStackTrace();
+            ErrorLog.addError(this, e.getLocalizedMessage());
+            return false;
         }
-        return true;
     }
 
 }

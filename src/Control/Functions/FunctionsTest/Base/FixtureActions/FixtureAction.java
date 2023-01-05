@@ -4,14 +4,12 @@
  */
 package Control.Functions.FunctionsTest.Base.FixtureActions;
 
+import Communicate.Impl.Comport.ComPort;
 import Control.Functions.AbsFunction;
 import Control.Functions.FunctionsTest.Base.BaseFunction.AnalysisBase;
 import Control.Functions.FunctionsTest.Base.BaseFunction.FunctionBase;
 import Model.ErrorLog;
-import Model.ManagerUI.UIStatus.UiStatus;
 import Time.WaitTime.Class.TimeS;
-import Communicate.Comport.ComPort;
-import Model.DataSource.ModeTest.FunctionConfig.FunctionName;
 import Model.DataTest.FunctionParameters;
 import java.util.List;
 
@@ -27,24 +25,28 @@ public class FixtureAction extends AbsFunction {
     public FixtureAction(FunctionParameters parameters) {
         this(parameters, null);
     }
-    
+
     public FixtureAction(FunctionParameters parameters, String item) {
         super(parameters, item);
         this.base = new FunctionBase(parameters, item);
         this.analysisBase = new AnalysisBase(parameters, item);
     }
 
-
     @Override
     public boolean test() {
-        ComPort comPort = getComport();
-        if (comPort == null) {
+        try ( ComPort comPort = getComport()) {
+            if (comPort == null) {
+                return false;
+            }
+            List<String> commands = this.config.getListJsonArray("FixtureCommands");
+            List<String> keyWords = this.config.getListJsonArray("FixtureKeys");
+            int time = this.config.getInteger("FixtureWait", 1);
+            return sendCommand(comPort, commands, keyWords, time);
+        } catch (Exception e) {
+            e.printStackTrace();
+            ErrorLog.addError(this, e.getMessage());
             return false;
         }
-        List<String> commands = this.config.getListJsonArray("FixtureCommands");
-        List<String> keyWords = this.config.getListJsonArray("FixtureKeys");
-        int time = this.config.getInteger("FixtureWait", 1);
-        return sendCommand(comPort, commands, keyWords, time);
     }
 
     public boolean sendCommand(ComPort comPort, List<String> commands, List<String> keyWords, int time) {
@@ -73,8 +75,6 @@ public class FixtureAction extends AbsFunction {
             e.printStackTrace();
             ErrorLog.addError(this, e.getMessage());
             return false;
-        } finally {
-            this.base.disConnect(comPort);
         }
     }
 

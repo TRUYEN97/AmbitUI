@@ -4,16 +4,18 @@
  */
 package Control.Functions.FunctionsTest.Base.UpFTP;
 
+import Communicate.Impl.FtpClient.FtpClient;
 import Control.Functions.AbsFunction;
 import Control.Functions.FunctionsTest.Base.BaseFunction.AnalysisBase;
 import Control.Functions.FunctionsTest.Base.BaseFunction.FileBaseFunction;
 import Control.Functions.FunctionsTest.Base.BaseFunction.FunctionBase;
-import Model.ManagerUI.UIStatus.UiStatus;
-import Communicate.FtpClient.FtpClient;
-import Model.DataSource.ModeTest.FunctionConfig.FunctionName;
 import Model.DataTest.FunctionParameters;
+import Model.ErrorLog;
 import java.io.File;
+import java.io.IOException;
 import java.util.List;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 
 /**
  *
@@ -24,12 +26,11 @@ public class UpFTP extends AbsFunction {
     private final FunctionBase baseFunc;
     private final AnalysisBase analysisBase;
     private final FileBaseFunction fileBaseFunction;
-    private FtpClient ftp;
 
     public UpFTP(FunctionParameters parameters) {
         this(parameters, null);
     }
-    
+
     public UpFTP(FunctionParameters parameters, String item) {
         super(parameters, item);
         this.baseFunc = new FunctionBase(parameters, item);
@@ -37,23 +38,24 @@ public class UpFTP extends AbsFunction {
         this.fileBaseFunction = new FileBaseFunction(parameters, item);
     }
 
-
     @Override
     public boolean test() {
-        String user = this.config.getString("User");
-        String passWord = this.config.getString("Password");
-        String host = this.config.getString("Host");
-        int port = this.config.getInteger("Port", 21);
-        ftp = this.baseFunc.initFtp(user, passWord, host, port);
-        if (ftp == null) {
-            return false;
-        }
         try {
+            String user = this.config.getString("User");
+            String passWord = this.config.getString("Password");
+            String host = this.config.getString("Host");
+            int port = this.config.getInteger("Port", 21);
+            FtpClient ftp = this.baseFunc.initFtp(user, passWord, host, port);
+            if (ftp == null) {
+                return false;
+            }
             String FtpPath = craeteFtpPath();
             String localPath = craeteLocalPath();
-            return upFile(localPath, FtpPath);
-        } finally {
-            this.baseFunc.disConnect(ftp);
+            return upFile(ftp, localPath, FtpPath);
+        } catch (IOException ex) {
+            ex.printStackTrace();
+            ErrorLog.addError(this, ex.getMessage());
+            return false;
         }
     }
 
@@ -73,7 +75,7 @@ public class UpFTP extends AbsFunction {
         return String.format("%s/%s", dir, name);
     }
 
-    private boolean upFile(String local, String ftpFile) {
+    private boolean upFile(FtpClient ftp, String local, String ftpFile) {
         if (local == null) {
             addLog("Config", "Directory of local is null");
             return false;

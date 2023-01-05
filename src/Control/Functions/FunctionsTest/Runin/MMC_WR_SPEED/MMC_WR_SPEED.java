@@ -4,11 +4,11 @@
  */
 package Control.Functions.FunctionsTest.Runin.MMC_WR_SPEED;
 
+import Communicate.Impl.Telnet.Telnet;
 import Control.Functions.AbsFunction;
 import Control.Functions.FunctionsTest.Base.BaseFunction.AnalysisBase;
 import Control.Functions.FunctionsTest.Base.BaseFunction.FunctionBase;
 import Model.ErrorLog;
-import Communicate.Telnet.Telnet;
 import Model.DataTest.FunctionParameters;
 import java.util.List;
 
@@ -25,13 +25,12 @@ public class MMC_WR_SPEED extends AbsFunction {
     public MMC_WR_SPEED(FunctionParameters parameters) {
         this(parameters, null);
     }
-    
+
     public MMC_WR_SPEED(FunctionParameters parameters, String item) {
         super(parameters, item);
         this.baseFunc = new FunctionBase(parameters, item);
         this.analysisBase = new AnalysisBase(parameters, item);
     }
-
 
     @Override
     protected boolean test() {
@@ -40,12 +39,11 @@ public class MMC_WR_SPEED extends AbsFunction {
         if (ip == null) {
             return false;
         }
-        Telnet telnet = this.baseFunc.getTelnet(ip, 23);
-        if (telnet == null) {
-            return false;
-        }
         String response;
-        try {
+        try (Telnet telnet = this.baseFunc.getTelnet(ip, 23)){
+            if (telnet == null) {
+                return false;
+            }
             String command = this.config.getString("command");
             if (!this.baseFunc.sendCommand(telnet, command)) {
                 return false;
@@ -55,8 +53,6 @@ public class MMC_WR_SPEED extends AbsFunction {
             e.printStackTrace();
             ErrorLog.addError(this, e.getMessage());
             return false;
-        } finally {
-            this.baseFunc.disConnect(telnet);
         }
         List<String> items = this.config.getListJsonArray("ItemNames");
         List<String> blocks = this.config.getListJsonArray("Block");

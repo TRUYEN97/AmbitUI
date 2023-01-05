@@ -4,6 +4,7 @@
  */
 package Control.Functions.FunctionsTest.MBLT.OpenShort;
 
+import Communicate.Impl.Comport.ComPort;
 import Control.Functions.AbsFunction;
 import Control.Functions.FunctionsTest.Base.BaseFunction.AnalysisBase;
 import Control.Functions.FunctionsTest.Base.BaseFunction.FunctionBase;
@@ -11,7 +12,6 @@ import Control.Functions.FunctionsTest.Base.FixtureActions.FixtureAction;
 import Model.ErrorLog;
 import Time.WaitTime.Class.TimeMs;
 import Time.WaitTime.Class.TimeS;
-import Communicate.Comport.ComPort;
 import Model.DataTest.FunctionParameters;
 
 /**
@@ -27,7 +27,7 @@ public class OpenShort extends AbsFunction {
     public OpenShort(FunctionParameters parameters) {
         this(parameters, null);
     }
-    
+
     public OpenShort(FunctionParameters parameters, String item) {
         super(parameters, item);
         this.functionBase = new FunctionBase(parameters, item);
@@ -48,11 +48,10 @@ public class OpenShort extends AbsFunction {
         int dutBaud;
         dutCom = this.config.getString("DutCom");
         dutBaud = this.config.getInteger("DutBaudRate", 9600);
-        ComPort dut = this.functionBase.getComport(dutCom, dutBaud);
-        if (dut == null) {
-            return false;
-        }
-        try {
+        try ( ComPort dut = this.functionBase.getComport(dutCom, dutBaud)) {
+            if (dut == null) {
+                return false;
+            }
             String keyWord = this.config.getString("DutKey");
             addLog("Config", String.format("Key word: %s", keyWord));
             int time = this.config.getInteger("DutWait", 1);
@@ -73,8 +72,6 @@ public class OpenShort extends AbsFunction {
             e.printStackTrace();
             ErrorLog.addError(this, e.getMessage());
             return false;
-        } finally {
-            this.functionBase.disConnect(dut);
         }
     }
 
@@ -83,8 +80,7 @@ public class OpenShort extends AbsFunction {
     }
 
     public boolean getCurrent() {
-        ComPort fixture = this.fixtureAction.getComport();
-        try {
+        try(ComPort fixture = this.fixtureAction.getComport()) {
             String command = this.config.getString("CurrentTest");
             if (fixture == null || !this.functionBase.sendCommand(fixture, command)) {
                 return false;
@@ -102,10 +98,6 @@ public class OpenShort extends AbsFunction {
             e.printStackTrace();
             ErrorLog.addError(this, e.getMessage());
             return false;
-        } finally {
-            if (fixture != null) {
-                fixture.disConnect();
-            }
         }
     }
 }

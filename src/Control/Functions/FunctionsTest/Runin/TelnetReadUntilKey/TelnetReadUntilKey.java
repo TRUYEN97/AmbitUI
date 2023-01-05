@@ -10,7 +10,7 @@ import Control.Functions.FunctionsTest.Base.BaseFunction.FunctionBase;
 import Model.ErrorLog;
 import Time.WaitTime.Class.TimeS;
 import AbstractStream.SubClass.ReadStreamOverTime;
-import Communicate.Telnet.Telnet;
+import Communicate.Impl.Telnet.Telnet;
 import Model.DataTest.FunctionParameters;
 import java.util.List;
 
@@ -26,7 +26,7 @@ public class TelnetReadUntilKey extends AbsFunction {
     public TelnetReadUntilKey(FunctionParameters parameters) {
         this(parameters, null);
     }
-    
+
     public TelnetReadUntilKey(FunctionParameters parameters, String item) {
         super(parameters, item);
         this.baseFunc = new FunctionBase(parameters, item);
@@ -36,10 +36,9 @@ public class TelnetReadUntilKey extends AbsFunction {
     @Override
     protected boolean test() {
         String ip = this.analysisBase.getIp();
-        Telnet telnet = null;
-        try {
+        try ( Telnet telnet = this.baseFunc.getTelnet(ip, 23, new ReadStreamOverTime())) {
             addLog("IP: " + ip);
-            if (ip == null || (telnet = this.baseFunc.getTelnet(ip, 23, new ReadStreamOverTime())) == null) {
+            if (ip == null || telnet == null) {
                 return false;
             }
             return runTest(telnet);
@@ -47,10 +46,6 @@ public class TelnetReadUntilKey extends AbsFunction {
             e.printStackTrace();
             ErrorLog.addError(this, e.getMessage());
             return false;
-        } finally {
-            if (telnet != null) {
-                telnet.disConnect();
-            }
         }
     }
 
