@@ -4,13 +4,13 @@
  */
 package Control.Functions.FunctionsTest.MBLT.UsbAside;
 
+import Communicate.Impl.Comport.ComPort;
 import Control.Functions.AbsFunction;
 import Control.Functions.FunctionsTest.Base.BaseFunction.FunctionBase;
 import Control.Functions.FunctionsTest.Base.FixtureActions.FixtureAction;
 import Model.ErrorLog;
 import Time.WaitTime.Class.TimeMs;
 import Time.WaitTime.Class.TimeS;
-import Communicate.Comport.ComPort;
 import Model.DataTest.FunctionParameters;
 
 /**
@@ -25,7 +25,7 @@ public class UsbAside extends AbsFunction {
     public UsbAside(FunctionParameters parameters) {
         this(parameters, null);
     }
-    
+
     public UsbAside(FunctionParameters parameters, String item) {
         super(parameters, item);
         this.fixture = new FixtureAction(parameters, item);
@@ -41,11 +41,10 @@ public class UsbAside extends AbsFunction {
         int dutBaud = this.config.getInteger("DutBaudRate", 9600);
         int dutWait = this.config.getInteger("DutWait", 1);
         addLog("Config", String.format("Test about %s s", dutWait));
-        ComPort dut = this.functionBase.getComport(dutCom, dutBaud);
-        if (dut == null) {
-            return false;
-        }
-        try {
+        try ( ComPort dut = this.functionBase.getComport(dutCom, dutBaud)) {
+            if (dut == null) {
+                return false;
+            }
             TimeS timer = new TimeS(dutWait);
             String line;
             while (timer.onTime()) {
@@ -60,8 +59,6 @@ public class UsbAside extends AbsFunction {
             e.printStackTrace();
             ErrorLog.addError(this, e.getMessage());
             return false;
-        } finally {
-            this.functionBase.disConnect(dut);
         }
     }
 

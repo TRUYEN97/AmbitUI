@@ -4,16 +4,20 @@
  */
 package Control.Functions.FunctionsTest.Other.Reboot_CheckLed1H_SFT;
 
-import Communicate.Comport.ComPort;
-import Communicate.Telnet.Telnet;
+import Communicate.Impl.Comport.ComPort;
+import Communicate.Impl.Telnet.Telnet;
 import Control.Functions.AbsFunction;
 import Control.Functions.FunctionsTest.Base.BaseFunction.FunctionBase;
 import FileTool.FileService;
 import Model.DataTest.FunctionParameters;
+import Model.ErrorLog;
 import Time.TimeBase;
 import Time.WaitTime.Class.TimeS;
+import java.io.IOException;
 import java.util.Date;
 import java.util.List;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 
 /**
  *
@@ -59,14 +63,13 @@ public class Reboot_CheckLed1H_SFT extends AbsFunction {
 
     private void checkLed() {
         String ip = this.config.getString("IP");
-        Telnet telnet = this.functionBase.getTelnet(ip, 23);
         String comName = this.config.getString("dut_com");
         int braud = this.config.getInteger("braud", 115200);
-        ComPort com = this.functionBase.getComport(comName, braud);
-        if (telnet == null || com == null) {
-            return;
-        }
-        try {
+
+        try ( Telnet telnet = this.functionBase.getTelnet(ip, 23);  ComPort com = this.functionBase.getComport(comName, braud)) {
+            if (telnet == null || com == null) {
+                return;
+            }
             String getLedValueCmd = this.config.getString("check_led_cmd");
             addLog("PC", "Led R");
             String ledRValue = getLedValue(telnet, com, "led_r", getLedValueCmd);
@@ -85,9 +88,9 @@ public class Reboot_CheckLed1H_SFT extends AbsFunction {
             addLog("VALUE", ledOffValue);
             addLog("PC", "Save csv");
             this.csvLog.add(ledRValue, ledGValue, ledBValue, ledWValue, ledOffValue);
-        } finally {
-            this.functionBase.disConnect(telnet);
-            this.functionBase.disConnect(com);
+        } catch (IOException ex) {
+            ex.printStackTrace();
+            ErrorLog.addError(this, ex.getMessage());
         }
     }
 

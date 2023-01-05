@@ -170,7 +170,6 @@ public class ProcessData implements IgetTime {
     public void clearSignal() {
         this.data.clear();
         this.signal.clear();
-        this.signal.disConnectAll();
         this.productData.clear();
         closeAllLoger();
     }

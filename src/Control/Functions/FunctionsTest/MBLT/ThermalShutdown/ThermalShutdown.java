@@ -4,17 +4,15 @@
  */
 package Control.Functions.FunctionsTest.MBLT.ThermalShutdown;
 
+import Communicate.Impl.Comport.ComPort;
 import Control.Functions.AbsFunction;
 import Control.Functions.FunctionsTest.Base.BaseFunction.AnalysisBase;
 import Control.Functions.FunctionsTest.Base.BaseFunction.FunctionBase;
 import Control.Functions.FunctionsTest.Base.FixtureActions.FixtureAction;
 import FileTool.FileService;
 import Model.ErrorLog;
-import Model.ManagerUI.UIStatus.UiStatus;
 import Time.WaitTime.Class.TimeS;
 import com.alibaba.fastjson.JSONObject;
-import Communicate.Comport.ComPort;
-import Model.DataSource.ModeTest.FunctionConfig.FunctionName;
 import Model.DataTest.FunctionParameters;
 import java.io.File;
 import java.util.List;
@@ -32,14 +30,13 @@ public class ThermalShutdown extends AbsFunction {
     public ThermalShutdown(FunctionParameters parameters) {
         this(parameters, null);
     }
-    
+
     public ThermalShutdown(FunctionParameters parameters, String item) {
         super(parameters, item);
         this.fixtureAction = new FixtureAction(parameters, item);
         this.analysisBase = new AnalysisBase(parameters, item);
         this.functionBase = new FunctionBase(parameters, item);
     }
- 
 
     @Override
     protected boolean test() {
@@ -49,59 +46,56 @@ public class ThermalShutdown extends AbsFunction {
         addLog("Config", "PowerHighCMD: " + outHigh);
         String command = this.config.getString("Command");
         addLog("Config", "Command: " + command);
-        ComPort fixture = this.fixtureAction.getComport();
-        try {
+        try ( ComPort fixture = this.fixtureAction.getComport()) {
             if (fixture == null || !this.functionBase.sendCommand(fixture, outLow)) {
                 return false;
             }
-            delay();
-            if (!this.functionBase.sendCommand(fixture, command)) {
-                return false;
+            try {
+                delay();
+                if (!this.functionBase.sendCommand(fixture, command)) {
+                    return false;
+                }
+                return getValue(fixture);
+            } finally {
+                delay();
+                this.functionBase.sendCommand(fixture, outHigh);
+                delay();
             }
-            JSONObject voltageItems = getVoltageItems();
-            String inline;
-            List<String> skipTP = this.config.getListJsonArray("SkipTP");
-            addLog("Config", "Skip point: " + skipTP);
-            boolean result = true;
-            while ((inline = fixture.readLine(new TimeS(1))) != null) {
-                addLog("PC", "-------------------------------------");
-                addLog("Comport", inline);
-                if (!inline.startsWith("TP") || !inline.contains("=")) {
-                    continue;
-                }
-                if (inline.contains(",")) {
-                    inline = inline.replaceAll(",", ".");
-                }
-                String voltPoint = this.analysisBase.findGroup(inline, "^TP[0-9]+");
-                if (skipTP.contains(voltPoint)) {
-                    continue;
-                }
-                Double value = Double.valueOf(this.analysisBase.findGroup(inline, "\\-?[0-9]+\\.[0-9]+"));
-                addLog("PC", String.format("Item: %s | %s", voltPoint, value));
-                result = checkVoltPoint(voltageItems, voltPoint, value);
-                if (inline.endsWith(":")) {
-                    break;
-                }
-            }
-            return result;
         } catch (Exception e) {
             e.printStackTrace();
             addLog("ERROR", e.getMessage());
             ErrorLog.addError(this, e.getMessage());
             return false;
-        } finally {
-            try {
-                this.functionBase.sendCommand(fixture, outHigh);
-                delay();
-            } catch (Exception e) {
-                e.printStackTrace();
-                addLog("ERROR", e.getMessage());
-                ErrorLog.addError(this, e.getMessage());
+        }
+    }
+
+    private boolean getValue(final ComPort fixture) throws NumberFormatException {
+        JSONObject voltageItems = getVoltageItems();
+        String inline;
+        List<String> skipTP = this.config.getListJsonArray("SkipTP");
+        addLog("Config", "Skip point: " + skipTP);
+        boolean result = true;
+        while ((inline = fixture.readLine(new TimeS(1))) != null) {
+            addLog("PC", "-------------------------------------");
+            addLog("Comport", inline);
+            if (!inline.startsWith("TP") || !inline.contains("=")) {
+                continue;
             }
-            if (fixture != null) {
-                fixture.disConnect();
+            if (inline.contains(",")) {
+                inline = inline.replaceAll(",", ".");
+            }
+            String voltPoint = this.analysisBase.findGroup(inline, "^TP[0-9]+");
+            if (skipTP.contains(voltPoint)) {
+                continue;
+            }
+            Double value = Double.valueOf(this.analysisBase.findGroup(inline, "\\-?[0-9]+\\.[0-9]+"));
+            addLog("PC", String.format("Item: %s | %s", voltPoint, value));
+            result = checkVoltPoint(voltageItems, voltPoint, value);
+            if (inline.endsWith(":")) {
+                break;
             }
         }
+        return result;
     }
 
     private void delay() {

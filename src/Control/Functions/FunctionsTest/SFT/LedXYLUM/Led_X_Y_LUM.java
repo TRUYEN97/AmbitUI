@@ -4,13 +4,11 @@
  */
 package Control.Functions.FunctionsTest.SFT.LedXYLUM;
 
-import Communicate.Telnet.Telnet;
 import Control.Functions.AbsFunction;
 import Control.Functions.FunctionsTest.Base.BaseFunction.FunctionBase;
 import FileTool.FileService;
 import Model.DataTest.FunctionParameters;
 import Time.TimeBase;
-import java.util.Date;
 
 /**
  *

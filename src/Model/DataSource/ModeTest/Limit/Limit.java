@@ -4,13 +4,13 @@
  */
 package Model.DataSource.ModeTest.Limit;
 
+import Communicate.Impl.Cmd.Cmd;
 import FileTool.FileService;
 import Model.AllKeyWord;
 import Model.ErrorLog;
 import Model.DataSource.AbsJsonSource;
 import Model.DataSource.DataWareHouse;
 import com.alibaba.fastjson.JSONObject;
-import Communicate.Cmd.Cmd;
 import static java.util.Objects.isNull;
 import java.util.Set;
 import javax.swing.JOptionPane;
@@ -65,13 +65,18 @@ public class Limit extends AbsJsonSource<String, LimitElement> {
     }
 
     private boolean update() {
-        Cmd cmd = new Cmd();
-        cmd.sendCommand(updateCmd);
-        String newLimit = getNewLimit(cmd.readAll());
-        if (newLimit == null) {
+        try ( Cmd cmd = new Cmd()) {
+            cmd.sendCommand(updateCmd);
+            String newLimit = getNewLimit(cmd.readAll());
+            if (newLimit == null) {
+                return false;
+            }
+            return saveToFile(readFile.getPath(), newLimit);
+        } catch (Exception e) {
+            e.printStackTrace();
+            ErrorLog.addError(this, e.getLocalizedMessage());
             return false;
         }
-        return saveToFile(readFile.getPath(), newLimit);
     }
 
     private String getNewLimit(String response) {

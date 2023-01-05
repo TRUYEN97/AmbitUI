@@ -4,6 +4,7 @@
  */
 package Control.Functions.FunctionsTest.MBLT.VoltageTest;
 
+import Communicate.Impl.Comport.ComPort;
 import Control.Functions.AbsFunction;
 import Control.Functions.FunctionsTest.Base.BaseFunction.AnalysisBase;
 import Control.Functions.FunctionsTest.Base.FixtureActions.FixtureAction;
@@ -11,7 +12,6 @@ import FileTool.FileService;
 import Model.ErrorLog;
 import Time.WaitTime.Class.TimeS;
 import com.alibaba.fastjson.JSONObject;
-import Communicate.Comport.ComPort;
 import Model.DataTest.FunctionParameters;
 import java.io.File;
 import java.util.List;
@@ -28,7 +28,7 @@ public class VoltageTest extends AbsFunction {
     public VoltageTest(FunctionParameters parameters) {
         this(parameters, null);
     }
-    
+
     public VoltageTest(FunctionParameters parameters, String item) {
         super(parameters, item);
         this.fixtureAction = new FixtureAction(parameters, item);
@@ -39,11 +39,10 @@ public class VoltageTest extends AbsFunction {
     protected boolean test() {
         String command = this.config.getString("Command");
         addLog("Config", "Command: " + command);
-        ComPort fixture = this.fixtureAction.getComport();
-        if (fixture == null || !fixture.sendCommand(command)) {
-            return false;
-        }
-        try {
+        try ( ComPort fixture = this.fixtureAction.getComport()) {
+            if (fixture == null || !fixture.sendCommand(command)) {
+                return false;
+            }
             JSONObject voltageItems = getVoltageItems();
             List<String> skipTP = this.config.getListJsonArray("SkipTP");
             addLog("Config", "Skip point: " + skipTP);
@@ -79,8 +78,6 @@ public class VoltageTest extends AbsFunction {
             e.printStackTrace();
             ErrorLog.addError(this, e.getMessage());
             return false;
-        } finally {
-            fixture.disConnect();
         }
     }
 

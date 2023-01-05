@@ -4,11 +4,12 @@
  */
 package Control.Functions.FunctionsTest.Base.DutTelnet;
 
+import Communicate.Impl.Telnet.Telnet;
 import Control.Functions.AbsFunction;
 import Control.Functions.FunctionsTest.Base.BaseFunction.AnalysisBase;
 import Control.Functions.FunctionsTest.Base.BaseFunction.FunctionBase;
 import Model.DataTest.FunctionParameters;
-import Model.ManagerUI.UIStatus.UiStatus;
+import Model.ErrorLog;
 
 /**
  *
@@ -22,7 +23,7 @@ public class DutTelnet extends AbsFunction {
     public DutTelnet(FunctionParameters parameters) {
         this(parameters, null);
     }
-    
+
     public DutTelnet(FunctionParameters parameters, String item) {
         super(parameters, item);
         this.functionBase = new FunctionBase(parameters, item);
@@ -36,6 +37,12 @@ public class DutTelnet extends AbsFunction {
         if (ip == null) {
             return false;
         }
-        return this.functionBase.disConnect(this.functionBase.getTelnet(ip, 23));
+        try ( Telnet telnet = this.functionBase.getTelnet(ip, 23)) {
+            return telnet != null;
+        } catch (Exception e) {
+            e.printStackTrace();
+            ErrorLog.addError(this, e.getMessage());
+            return false;
+        }
     }
 }

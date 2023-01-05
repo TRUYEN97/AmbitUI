@@ -4,32 +4,33 @@
  */
 package Control.Functions.FunctionsTest.Base.CheckDutInfo;
 
+import Communicate.Impl.Telnet.Telnet;
 import Control.Functions.AbsFunction;
 import Control.Functions.FunctionsTest.Base.BaseFunction.AnalysisBase;
 import Control.Functions.FunctionsTest.Base.BaseFunction.FunctionBase;
 import Time.WaitTime.Class.TimeMs;
-import Communicate.Telnet.Telnet;
 import Model.DataTest.FunctionParameters;
+import Model.ErrorLog;
 
 /**
  *
  * @author Administrator
  */
 public class CheckDutInfo extends AbsFunction {
-    
+
     private final FunctionBase baseFunc;
     private final AnalysisBase analysisBase;
-    
+
     public CheckDutInfo(FunctionParameters parameters) {
         this(parameters, null);
     }
-    
+
     public CheckDutInfo(FunctionParameters parameters, String item) {
         super(parameters, item);
         this.baseFunc = new FunctionBase(parameters, item);
         this.analysisBase = new AnalysisBase(parameters, item);
     }
-    
+
     @Override
     protected boolean test() {
         String ip = this.analysisBase.getIp();
@@ -39,10 +40,9 @@ public class CheckDutInfo extends AbsFunction {
         }
         return check(ip);
     }
-    
+
     private boolean check(String ip) {
-        Telnet telnet = this.baseFunc.getTelnet(ip, 23);
-        try {
+        try ( Telnet telnet = this.baseFunc.getTelnet(ip, 23)) {
             if (telnet == null || !this.baseFunc.sendCommand(telnet, config.getString("command"))) {
                 return false;
             }
@@ -50,12 +50,13 @@ public class CheckDutInfo extends AbsFunction {
             String endkey = config.getString("Endkey");
             String regex = config.getString("Regex");
             return checkValue(this.analysisBase.getValue(telnet, startkey, endkey, regex, new TimeMs(1000)));
-        } finally {
-            this.baseFunc.disConnect(telnet);
+        } catch (Exception e) {
+            e.printStackTrace();
+            ErrorLog.addError(this, e.getMessage());
+            return false;
         }
-        
     }
-    
+
     private boolean checkValue(String value) {
         addLog("Value is: " + value);
         String spec = productData.getString("compareWith");
@@ -63,5 +64,5 @@ public class CheckDutInfo extends AbsFunction {
         setResult(value);
         return spec != null && value != null && spec.equals(value);
     }
-    
+
 }

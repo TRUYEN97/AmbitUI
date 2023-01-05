@@ -4,12 +4,11 @@
  */
 package Control.Functions.FunctionsTest.Runin.MMC_BadBlock;
 
+import Communicate.Impl.Telnet.Telnet;
 import Control.Functions.AbsFunction;
 import Control.Functions.FunctionsTest.Base.BaseFunction.FunctionBase;
 import Control.Functions.FunctionsTest.Base.BaseFunction.AnalysisBase;
 import Model.ErrorLog;
-import Model.ManagerUI.UIStatus.UiStatus;
-import Communicate.Telnet.Telnet;
 import Model.DataTest.FunctionParameters;
 import java.util.List;
 
@@ -44,8 +43,7 @@ public class MMC_BadBlock extends AbsFunction {
     }
 
     private boolean check(String ip) {
-        Telnet telnet = this.baseFunc.getTelnet(ip, 23);
-        try {
+        try (Telnet telnet = this.baseFunc.getTelnet(ip, 23)){
             String startkey = config.getString("Startkey");
             String endkey = config.getString("Endkey");
             List<String> commands = this.config.getListJsonArray("command");
@@ -58,8 +56,6 @@ public class MMC_BadBlock extends AbsFunction {
             e.printStackTrace();
             ErrorLog.addError(this, e.getMessage());
             return false;
-        } finally {
-            this.baseFunc.disConnect(telnet);
         }
     }
 
