@@ -91,7 +91,7 @@ public class FunctionBase extends AbsFunction {
         return comPort;
     }
 
-    public boolean rebootSoft(String ip) throws IOException {
+    public boolean rebootSoft(String ip, int waitTime) throws IOException {
         try ( Telnet telnet = getTelnet(ip, 23)) {
             addLog("Telnet", "send reboot...");
             if (!sendCommand(telnet, "reboot")) {
@@ -99,13 +99,17 @@ public class FunctionBase extends AbsFunction {
                 return false;
             }
             addLog("Telnet", telnet.readAll(new TimeS(3)));
-            if (pingTo(ip, 1)) {
-                addLog("Telnet", "Reboot failed!");
-                return false;
-            }
-            addLog("Telnet", "Reboot ok!");
-            return true;
+            TimeS waitToSleepTime = new TimeS(waitTime);
+            do {
+                if (!pingTo(ip, 1)) {
+                    addLog("Telnet", "Reboot ok!");
+                    return true;
+                }
+            } while (waitToSleepTime.onTime());
+            addLog("Telnet", "Reboot failed!");
+            return false;
         }
+
     }
 
     public String getMac() {
@@ -131,9 +135,12 @@ public class FunctionBase extends AbsFunction {
     public boolean pingTo(String ip, int times) {
         Cmd cmd = new Cmd();
         String command1 = String.format("ping %s -n 1", ip);
+        String arp = String.format("arp -d %s", ip);
         for (int i = 1; i <= times; i++) {
             addLog("Cmd", "------------------------------------ " + i);
             try {
+                sendCommand(cmd, arp);
+                addLog("Cmd", cmd.readAll().trim());
                 if (sendCommand(cmd, command1)) {
                     String response = cmd.readAll().trim();
                     addLog("Cmd", response);

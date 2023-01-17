@@ -40,14 +40,11 @@ public class RebootSoft extends AbsFunction {
     }
 
     private boolean cycleReboot(String ip) {
-        int times = this.config.getInteger("Times");
-        addLog("CONFIG", "Times: " + times);
+        int time = this.config.getInteger("time", 5);
+        addLog("CONFIG", "Time: " + time);
         try {
-            for (int i = 1; i <= times; i++) {
-                addLog(String.format("cycle Times: %d - %d ", i, times));
-                if (!this.functionBase.rebootSoft(ip) || !this.functionBase.pingTo(ip, 200)) {
-                    return false;
-                }
+            if (!this.functionBase.rebootSoft(ip, time) || !this.functionBase.pingTo(ip, 200)) {
+                return false;
             }
             return true;
         } catch (Exception e) {

@@ -1,8 +1,8 @@
 {
     "station_type": "onoff",
     "dhcp": "172.168.1.251",
-    "row": 1,
-    "column": 1,
+    "row": 9,
+    "column": 9,
     "loop_test": 1,
     "progress": "MP",
     "name_app": "830|810",

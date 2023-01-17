@@ -47,8 +47,9 @@ public class GoldenFile extends AbsFunction {
                 return false;
             }
             for (String key : snGolden.keySet()) {
-                this.productData.put(key, snGolden.getString(key));
-                addLog("GOLDEN", String.format("key: %s - value: %s", key, snInput));
+                String value = snGolden.getString(key);
+                this.productData.put(key, value);
+                addLog("GOLDEN", String.format("key: %s - value: %s", key, value));
             }
             if (Setting.getInstance().isOnDHCP() && !putMacDHCP()) {
                 addLog("Get MAC from SFIS for DHCP failed!");

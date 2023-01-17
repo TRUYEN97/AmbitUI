@@ -36,7 +36,8 @@ public class DutPing extends AbsFunction {
         if (ip == null) {
             return false;
         }
-        return this.baseFunc.pingTo(ip, 50);
+        int timePing = config.getInteger("time_ping", 50);
+        return this.baseFunc.pingTo(ip, timePing);
     }
     
 }

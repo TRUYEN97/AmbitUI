@@ -35,23 +35,28 @@ public class CheckCommandTelnet extends AbsFunction {
     protected boolean test() {
         String ip = this.analysisBase.getIp();
         try ( Telnet telnet = this.functionBase.getTelnet(ip, 23)) {
-            if (!this.functionBase.sendCommand(telnet, config.getString("command"))) {
-                return false;
-            }
-            String startkey = config.getString("Startkey");
-            String endkey = config.getString("Endkey");
-            String regex = config.getString("Regex");
-            String value = this.analysisBase.getValue(telnet, startkey, endkey, regex, new TimeMs(1000));
-            if (value == null) {
-                return false;
-            }
+            String value = getTempCPU(telnet, config.getString("command"));
             setResult(value);
-            return true;
+            return value != null;
         } catch (Exception e) {
             e.printStackTrace();
             ErrorLog.addError(this, e.getMessage());
             return false;
         }
+    }
+
+    public String getTempCPU(final Telnet telnet, String command) {
+        if (!this.functionBase.sendCommand(telnet, command)) {
+            return null;
+        }
+        String startkey = config.getString("Startkey");
+        String endkey = config.getString("Endkey");
+        String regex = config.getString("Regex");
+        String value = this.analysisBase.getValue(telnet, startkey, endkey, regex, new TimeMs(1000));
+        if (value == null) {
+            return null;
+        }
+        return value;
     }
 
 }

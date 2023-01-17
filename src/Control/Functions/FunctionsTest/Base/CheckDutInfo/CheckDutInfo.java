@@ -58,9 +58,11 @@ public class CheckDutInfo extends AbsFunction {
     }
 
     private boolean checkValue(String value) {
-        addLog("Value is: " + value);
-        String spec = productData.getString("compareWith");
-        addLog("Spec is: " + spec);
+        addLog("PC", "Value is: " + value);
+        String key = this.config.getString("compare");
+        addLog("CONFIG", "compare: " + key);
+        String spec = productData.getString(key);
+        addLog("PC", "Spec is: " + spec);
         setResult(value);
         return spec != null && value != null && spec.equals(value);
     }

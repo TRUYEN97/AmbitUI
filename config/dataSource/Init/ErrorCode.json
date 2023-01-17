@@ -766,5 +766,35 @@
                     "errorcode": "11.2.2.2",
                     "errorDes": "emmc_speed_write_tooHigh"
                 }
+            },
+    "temp_cpu": 
+            {
+                "simple": {
+                    "errorcode": "32.3.0",
+                    "errorDes": "temp_cpu"
+                },
+                "low": {
+                    "errorcode": "32.3.3.1",
+                    "errorDes": "temp_cpu_tooLow"
+                },
+                "high": {
+                    "errorcode": "32.3.3.2",
+                    "errorDes": "temp_cpu_tooHigh"
+                }
+            },
+    "temp_cpu1": 
+            {
+                "simple": {
+                    "errorcode": "32.4.0",
+                    "errorDes": "temp_cpu1"
+                },
+                "low": {
+                    "errorcode": "32.4.1",
+                    "errorDes": "temp_cpu1_tooLow"
+                },
+                "high": {
+                    "errorcode": "32.4.2",
+                    "errorDes": "temp_cpu1_tooHigh"
+                }
             }
 }

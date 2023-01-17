@@ -33,6 +33,7 @@ import Control.Functions.FunctionsTest.Other.CheckLed_W_1H_SFT.CheckLed_W_1H_Pro
 import Control.Functions.FunctionsTest.Other.Reboot_CheckLed1H_SFT.Reboot_CheckLed1H_SFT_Proxy;
 import Control.Functions.FunctionsTest.Runin.TelnetReadUntilKey.TelnetReadUntilKeyProxy;
 import Control.Functions.FunctionsTest.Runin.RebootSoft.RebootSoftProxy;
+import Control.Functions.FunctionsTest.Runin.TempCPU.TempCPUProxy;
 import Control.Functions.InitPackages.InitProxy.IdPasswordProxy;
 import Model.DataTest.FunctionParameters;
 import View.subUI.FormDetail.AbsTabUI;
@@ -140,5 +141,6 @@ public class Factory {
         this.functions.addType(new CheckLed_W_1H_Proxy());
         this.functions.addType(new Reboot_CheckLed1H_SFT_Proxy());
         this.functions.addType(new GoldenFileProxy());
+        this.functions.addType(new TempCPUProxy());
     }
 }

@@ -117,6 +117,7 @@ public class FunctionCover implements Runnable {
                                                                 Spec: %s S\r
                                                                 Try to stop!!""", timeSpec);
                     stopTest(mess);
+                    Thread.sleep(1000);
                 }
             } catch (Exception ex) {
                 if (!(ex instanceof TimeoutException)) {
