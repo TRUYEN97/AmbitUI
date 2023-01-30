@@ -64,7 +64,7 @@ public class CheckDutInfo extends AbsFunction {
         String spec = productData.getString(key);
         addLog("PC", "Spec is: " + spec);
         setResult(value);
-        return spec != null && value != null && spec.equals(value);
+        return spec != null && value != null && spec.equalsIgnoreCase(value);
     }
 
 }

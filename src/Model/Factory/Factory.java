@@ -15,6 +15,7 @@ import Control.Functions.FunctionsTest.Base.FixtureActions.FixtureActionProxy;
 import Control.Functions.FunctionsTest.Base.GoldenFile.GoldenFileProxy;
 import Control.Functions.FunctionsTest.Base.JsonApi.CreateJsonApi.CreateJsonApiProxy;
 import Control.Functions.FunctionsTest.Base.JsonApi.UpApi.UpApiProxy;
+import Control.Functions.FunctionsTest.Base.MyDas.MydasProxy;
 import Control.Functions.FunctionsTest.Base.SFIS.SfisFunctionProxy;
 import Control.Functions.FunctionsTest.Runin.PowerSwitch.PowerSwitchProxy;
 import Control.Functions.FunctionsTest.Base.UpFTP.UpFTPProxy;
@@ -142,5 +143,6 @@ public class Factory {
         this.functions.addType(new Reboot_CheckLed1H_SFT_Proxy());
         this.functions.addType(new GoldenFileProxy());
         this.functions.addType(new TempCPUProxy());
+        this.functions.addType(new MydasProxy());
     }
 }

@@ -5,10 +5,28 @@
             "errorDes": "SFIS_CHECK_ERROR"
         }
     },
+    "reset_power": {
+        "simple": {
+            "errorcode": "RESET00",
+            "errorDes": "reset_power"
+        }
+    },
+    "CreateTxtAndZipLog": {
+        "simple": {
+            "errorcode": "CreTxtAndZip",
+            "errorDes": "CreateTxtAndZipLog"
+        }
+    },
     "fixture_close": {
         "simple": {
             "errorcode": "FIX00",
             "errorDes": "fixture_close"
+        }
+    },
+    "fixtureOpen": {
+        "simple": {
+            "errorcode": "FIX01",
+            "errorDes": "fixtureOpen"
         }
     },
     "golden_file": {
@@ -71,10 +89,34 @@
             "errorDes": "PowerSwitch_Ping"
         }
     },
+    "TEMP_MARVEL_ETH": {
+        "simple": {
+            "errorcode": "TEMP_MARVEL_ETH",
+            "errorDes": "TEMP_MARVEL_ETH"
+        }
+    },
+    "Mydas": {
+        "simple": {
+            "errorcode": "Mydas",
+            "errorDes": "Mydas"
+        }
+    },
     "UpFTP": {
         "simple": {
             "errorcode": "UpFtp",
             "errorDes": "UpFTP"
+        }
+    },
+    "UpTxtFTP": {
+        "simple": {
+            "errorcode": "UpTxtFtp",
+            "errorDes": "UpTxtFTP"
+        }
+    },
+    "UpJsonFTP": {
+        "simple": {
+            "errorcode": "UpJsonFtp",
+            "errorDes": "UpJsonFTP"
         }
     },
     "CreateJsonLog": {

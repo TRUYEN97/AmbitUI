@@ -1,15 +1,12 @@
 {
     "station_type": "onoff",
     "init": [
-        {
+         {
             "flag": true,
             "time_out": 50,
-            "SEND_FORMAT": ["sn", "pcname"],
-            "MaxLength": 8,
-            "DATA_FORMAT": ["sn", "mlbsn", "pnname", "ethernetmac", "olderrorcode"],
-            "URL": "http://10.90.100.20/sfcapi/api/connect",
-            "test_name": "gen_node",
-            "func_name": "SfisFunctionProxy"
+            "golden_file": "config/dataSource/init/golden.json",
+            "test_name": "golden_file",
+            "func_name": "GoldenFileProxy"
         },
         {
             "flag": true,
@@ -74,18 +71,6 @@
             "Command": ["off"],
             "test_name": "ReleasePowerSwitchOutlet",
             "func_name": "PowerSwitchProxy"
-        },
-        {
-            "flag": true,
-            "time_out": 50,
-            "wait_multi_done": true,
-            "MaxLength": 8,
-            "SEND_FORMAT": ["sn", "pcname", "status"],
-            "SEND_FORMAT_FAIL": ["sn", "pcname", "status", "olderrorcode"],
-            "URL": "http://10.90.100.20/sfcapi/api/connectfinal",
-            "SFIS_TYPE": "SendResult",
-            "test_name": "SendToSfis",
-            "func_name": "SfisFunctionProxy"
         }
     ],
     "final": [

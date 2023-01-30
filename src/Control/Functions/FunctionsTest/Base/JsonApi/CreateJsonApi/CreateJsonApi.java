@@ -9,6 +9,7 @@ import Control.Functions.FunctionsTest.Base.BaseFunction.AnalysisBase;
 import Control.Functions.FunctionsTest.Base.BaseFunction.FileBaseFunction;
 import Model.AllKeyWord;
 import Model.DataSource.ModeTest.Limit.Limit;
+import Model.DataTest.FunctionData.FunctionData;
 import Model.DataTest.FunctionData.ItemTestData;
 import Model.DataTest.FunctionParameters;
 import com.alibaba.fastjson.JSONArray;
@@ -29,18 +30,24 @@ public class CreateJsonApi extends AbsFunction {
     public CreateJsonApi(FunctionParameters parameters) {
         this(parameters, null);
     }
-    
+
     public CreateJsonApi(FunctionParameters parameters, String item) {
         super(parameters, item);
         this.analysisBase = new AnalysisBase(parameters, item);
         this.fileBaseFunction = new FileBaseFunction(parameters, item);
     }
 
-
     @Override
     protected boolean test() {
-        JSONObject root = getRootJson();
-        JSONArray tests = getTestsData(isPass(root));
+        JSONObject root;
+        JSONArray tests;
+        boolean followLomit = this.config.getBoolean("followLimit", true);
+        root = getRootJson();
+        if (followLomit) {
+            tests = getTestsDataFollowLomit(isPass(root));
+        } else {
+            tests = getTestsData();
+        }
         if (tests == null) {
             return false;
         }
@@ -48,13 +55,14 @@ public class CreateJsonApi extends AbsFunction {
         return this.fileBaseFunction.saveJson(root);
     }
 
-    private static boolean isPass(JSONObject root) {
+    private boolean isPass(JSONObject root) {
         return root.getString(AllKeyWord.SFIS.STATUS).equals(ItemTestData.PASS);
     }
 
     private JSONObject getRootJson() {
         JSONObject root = new JSONObject();
-        List<String> keyBases = config.getListJsonArray("BaseKeys");
+        List<String> keyBases;
+        keyBases = config.getListJsonArray("BaseKeys");
         for (String keyBase : keyBases) {
             addValueTo(root, keyBase);
         }
@@ -68,7 +76,7 @@ public class CreateJsonApi extends AbsFunction {
         addLog("PC", "-----------------------------------------");
     }
 
-    private JSONArray getTestsData(boolean statusTest) {
+    private JSONArray getTestsDataFollowLomit(boolean statusTest) {
         JSONArray tests = new JSONArray();
         JSONObject itemTest;
         List<String> testKeys = config.getListJsonArray("TestKeys");
@@ -83,6 +91,22 @@ public class CreateJsonApi extends AbsFunction {
                 addLog("PC", mess);
                 JOptionPane.showMessageDialog(null, mess);
                 return null;
+            } else {
+                addLog("PC", "ItemTest: " + itemName + " = null");
+            }
+        }
+        return tests;
+    }
+
+    private JSONArray getTestsData() {
+        JSONArray tests = new JSONArray();
+        JSONObject itemTest;
+        List<String> testKeys = config.getListJsonArray("TestKeys");
+        for (FunctionData itemName : this.processData.getDataBoxs()) {
+            itemTest = this.processData.getItemData(itemName.getFunctionName().getItemName(), testKeys);
+            if (itemTest != null) {
+                addLog("PC", "ItemTest: " + itemName + " = " + itemTest.toJSONString());
+                tests.add(itemTest);
             } else {
                 addLog("PC", "ItemTest: " + itemName + " = null");
             }

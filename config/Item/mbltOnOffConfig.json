@@ -5,8 +5,7 @@
             "flag": true,
             "time_out": 50,
             "SEND_FORMAT": ["sn", "pcname"],
-            "MaxLength": 8,
-            "DATA_FORMAT": ["sn", "mlbsn", "pnname", "ethernetmac", "olderrorcode"],
+            "DATA_FORMAT": ["mlbsn", "ethernetmac", "pnname", "olderrorcode"],
             "URL": "http://10.90.100.20/sfcapi/api/connect",
             "test_name": "gen_node",
             "func_name": "SfisFunctionProxy"
@@ -14,16 +13,16 @@
         {
             "flag": true,
             "time_out": 50,
-            "debug_able": true,
             "multi": false,
-            "host": "192.168.1.10",
-            "user": "admin",
-            "password": "1234",
-            "Times": 1,
-            "Delay": 5,
-            "Command": ["off", "on"],
-            "test_name": "wps_ok",
-            "func_name": "PowerSwitchProxy"
+            "debug_able": true,
+            "FixtureCom": "COM5",
+            "FixtureBaudRate": 115200,
+            "FixtureCommands": ["AT+READ_FIXNUM%", "AT+TESTSTART%",
+                "AT+VBUS_BOFF%", "AT+CC_BOFF%", "AT+VBUS_AON%", "AT+CC_AON%"],
+            "FixtureKeys": ["pcname", "IO_OK", "OK"],
+            "FixtureWait": 30,
+            "test_name": "fixture_close",
+            "func_name": "FixtureActionProxy"
         }
     ],
     "functions": [
@@ -35,21 +34,22 @@
                 {
                     "flag": true,
                     "time_out": 50,
-                    "debug_able": true,
                     "multi": false,
-                    "host": "192.168.1.10",
-                    "user": "admin",
-                    "password": "1234",
-                    "Times": 1,
-                    "Delay": 5,
-                    "Command": ["off", "on"],
-                    "test_name": "wps_ok",
-                    "func_name": "PowerSwitchProxy"
+                    "debug_able": true,
+            	      "always_run": true,
+                    "FixtureCom": "COM5",
+                    "FixtureBaudRate": 115200,
+                    "FixtureCommands": ["AT+VBUS_BOFF%", "AT+CC_BOFF%", "AT+VBUS_AON%", "AT+CC_AON%"],
+                    "FixtureKeys": ["pcname", "OK"],
+                    "FixtureWait": 30,
+                    "test_name": "reset_power",
+                    "func_name": "FixtureActionProxy"
                 },
                 {
                     "flag": true,
                     "retry": 1,
                     "time_out": 300,
+                    "always_run": true,
                     "multi": false,
                     "debug_able": true,
                     "time_ping": 30,
@@ -61,19 +61,19 @@
         }
     ],
     "end": [
-        {
+         {
             "flag": true,
             "time_out": 50,
             "multi": false,
             "debug_able": true,
-            "host": "192.168.1.10",
-            "user": "admin",
-            "password": "1234",
-            "Times": 1,
-            "Delay": 1,
-            "Command": ["off"],
-            "test_name": "ReleasePowerSwitchOutlet",
-            "func_name": "PowerSwitchProxy"
+            "FixtureCom": "COM5",
+            "FixtureBaudRate": 115200,
+            "FixtureCommands": ["AT+TESTEND%",
+                "AT+VBUS_BOFF%", "AT+CC_BOFF%", "AT+VBUS_AOFF%", "AT+CC_AOFF%"],
+            "FixtureKeys": ["pcname", "IO_OK", "OK"],
+            "FixtureWait": 30,
+            "test_name": "fixtureOpen",
+            "func_name": "FixtureActionProxy"
         },
         {
             "flag": true,

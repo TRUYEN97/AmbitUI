@@ -11,7 +11,9 @@ import Model.DataSource.Setting.ModeElement;
 import Time.TimeBase;
 import View.UIView;
 import DHCP.DHCP;
+import FileTool.FileService;
 import Model.ErrorLog;
+import com.alibaba.fastjson.JSONObject;
 import java.io.File;
 import java.util.ArrayList;
 import java.util.List;
@@ -48,7 +50,20 @@ public class Engine {
         setMode();
         showUI();
     }
-
+//    public static void main(String[] args) {
+//        FileService  fileService = new FileService();
+//        String data = fileService.readFile(new File("C:\\Users\\Administrator\\Desktop\\OnOff-runin\\config\\dataSource\\test/gd.txt"));
+//        JSONObject rs = new JSONObject();
+//        JSONObject sn;
+//        for (String line : data.split("\r\n")) {
+//            String[] elm = line.split(",");
+//            sn = new JSONObject();
+//            sn.put("mlbsn", elm[1]);
+//            sn.put("ethernetmac", elm[2]);
+//            rs.put(elm[0], sn);
+//        }
+//        System.out.println(rs);
+//    }
     private void getAllMode() {
         for (ModeElement modeInfo : setting.getElments()) {
             ModeTest modeTest = new ModeTest(modeInfo);

@@ -1,13 +1,13 @@
 {
     "station_type": "RUNIN",
-    "TIME_OUT_TEST": 7000,
-    "int": [
+    "time_out_test": 7000,
+    "init": [
         {
             "flag": true,
             "time_out": 50,
             "SEND_FORMAT": ["sn", "pcname"],
             "DATA_FORMAT": ["mlbsn", "ethernetmac", "pnname", "model", "smode"],
-            "URL": "http://10.90.0.40/sfcapi/api/connect",
+            "URL": "http://10.90.100.20/sfcapi/api/connect",
             "test_name": "gen_node",
             "func_name": "SfisFunctionProxy"
         },
@@ -22,23 +22,26 @@
         {
             "flag": true,
             "time_out": 30,
+            "debug_able": true,
             "multi": false,
             "host": "192.168.1.10",
             "user": "admin",
             "password": "1234",
             "Times": 1,
             "Delay": 3,
-            "Command": ["on"],
+            "Command": ["off", "on"],
             "test_name": "wps_ok",
             "func_name": "PowerSwitchProxy"
         }
     ],
-    "Functions": [
+    "functions": [
         {
             "flag": true,
             "time_out": 360,
             "multi": false,
             "IP": "192.168.1.1",
+            "debug_able": true,
+            "time_ping": 30,
             "test_name": "dut_ping",
             "func_name": "DutPingProxy"
         },
@@ -46,6 +49,7 @@
             "flag": true,
             "time_out": 10,
             "multi": false,
+            "debug_able": true,
             "IP": "192.168.1.1",
             "test_name": "dut_telnet",
             "func_name": "DutTelnetProxy"
@@ -54,6 +58,7 @@
             "flag": true,
             "time_out": 10,
             "multi": true,
+            "debug_able": true,
             "always_run": false,
             "IP": "192.168.1.1",
             "command": "fw_printenv  serial",
@@ -67,6 +72,7 @@
             "flag": true,
             "time_out": 10,
             "multi": true,
+            "debug_able": true,
             "always_run": false,
             "IP": "192.168.1.1",
             "command": "fw_printenv  mac",
@@ -80,6 +86,7 @@
             "flag": true,
             "time_out": 10,
             "multi": false,
+            "debug_able": true,
             "always_run": false,
             "IP": "192.168.1.1",
             "command": "cat /sys/bus/i2c/devices/0-0030/name",
@@ -91,6 +98,7 @@
             "flag": true,
             "time_out": 10,
             "multi": true,
+            "debug_able": true,
             "always_run": false,
             "IP": "192.168.1.1",
             "command": "dmesg|grep 'PHY ID'",
@@ -103,6 +111,7 @@
             "flag": true,
             "time_out": 10,
             "multi": true,
+            "debug_able": true,
             "always_run": false,
             "IP": "192.168.1.1",
             "command": "fwversion",
@@ -115,6 +124,7 @@
             "flag": true,
             "time_out": 10,
             "multi": true,
+            "debug_able": true,
             "always_run": false,
             "IP": "192.168.1.1",
             "command": "cat /sys/devices/virtual/thermal/thermal_zone1/temp",
@@ -126,6 +136,7 @@
             "flag": true,
             "time_out": 300,
             "retry": 3,
+            "debug_able": true,
             "multi": true,
             "Times": 3,
             "test_name": "reboot_soft",
@@ -135,6 +146,7 @@
             "flag": true,
             "time_out": 1200,
             "multi": false,
+            "debug_able": true,
             "host": "192.168.1.10",
             "user": "admin",
             "password": "1234",
@@ -147,6 +159,7 @@
         {
             "flag": true,
             "time_out": 120,
+            "debug_able": true,
             "multi": false,
             "IP": "192.168.1.1",
             "test_name": "dut_ping_1",
@@ -155,6 +168,7 @@
         {
             "flag": true,
             "time_out": 3000,
+            "debug_able": true,
             "multi": false,
             "IP": "192.168.1.1",
             "command": ["stressapptest -s 600 -M 300 -m 5 -C 5 -W -l test_ddr_01.log",
@@ -169,6 +183,7 @@
         {
             "flag": true,
             "time_out": 3000,
+            "debug_able": true,
             "multi": false,
             "IP": "192.168.1.1",
             "command": ["stress --cpu 8 --io 4 --vm 2 --vm-bytes 128M --timeout 1800s"],
@@ -181,6 +196,7 @@
         {
             "flag": true,
             "time_out": 1200,
+            "debug_able": true,
             "multi": false,
             "IP": "192.168.1.1",
             "command": ["badblocks -svw /dev/mmcblk0p17", "badblocks -svw /dev/mmcblk0p20"],
@@ -193,6 +209,7 @@
         {
             "flag": true,
             "time_out": 300,
+            "debug_able": true,
             "multi": false,
             "IP": "192.168.1.1",
             "ItemNames": ["emmc_speed_read", "emmc_speed_write"],
@@ -207,6 +224,7 @@
         {
             "flag": true,
             "time_out": 10,
+            "debug_able": true,
             "multi": false,
             "always_run": true,
             "IP": "192.168.1.1",
@@ -218,6 +236,7 @@
         {
             "flag": true,
             "time_out": 30,
+            "debug_able": true,
             "multi": false,
             "always_run": false,
             "host": "192.168.1.10",
@@ -231,7 +250,7 @@
         }
 
     ],
-    "END": [
+    "end": [
         {
             "flag": true,
             "time_out": 30,
@@ -270,11 +289,24 @@
             "flag": false,
             "time_out": 5,
             "wait_multi_done": true,
-            "SEND_FORMAT": ["mlbsn", "pcname", "status", "mode"],
-            "URL": "http://10.90.10.20/sfcapi/api/connectfinal",
+            "SEND_FORMAT": ["sn", "pcname", "status"],
+            "URL": "http://10.90.100.20/sfcapi/api/connectfinal",
             "SFIS_TYPE": "SendResult",
             "test_name": "SendToSfis",
             "func_name": "SfisFunctionProxy"
+        },
+        {
+            "flag": true,
+            "time_out": 150,
+            "always_run": true,
+            "multi": false,
+            "IP": "10.90.100.168",
+            "Product": "Trieste",
+            "FtpPath": ["data/Trieste", "pnname", "station_type", "mode", "start_day", "station_name", "status", "text"],
+            "FtpName": ["mlbsn", "sn", "mode", "status", "mode", "finish_time"],
+            "MydasElem": ["mlbsn", "status", "ftppath", "mode", "V1.0.0.0", "pcname", "cycle_time", "start_time", "ethernetmac", "ethernetmac"],
+            "test_name": "Mydas",
+            "func_name": "MydasProxy" 
         }
     ],
     "final": [
@@ -284,9 +316,25 @@
             "always_run": true,
             "multi": false,
             "localFile": "Log/TestLog",
-            "ElementName": ["mlbsn", "station_name", "mode", "serial"],
+            "ElementName": ["mlbsn", "sn", "mode", "status", "mode", "finish_time"],
             "test_name": "CreateTxt",
             "func_name": "CreateTxtProxy" 
+        },
+        {
+            "flag": true,
+            "time_out": 30,
+            "multi": true,
+            "always_run": true,
+            "followLimit": false,
+            "BaseKeys": ["error_details", "status", "finish_time",
+                "test_software_version", "start_time", "station_type",
+                "error_code", "serial", "mode", "station_name", "position", "cycle_time"],
+            "TestKeys": ["upper_limit", "lower_limit", "status", "finish_time", "test_name",
+                "error_code", "start_time", "test_value", "units", "cycle_time"],
+            "localFile": "Log/TestLog",
+            "ElementName": ["mlbsn", "sn", "mode", "status", "mode", "finish_time"],
+            "test_name": "CreateJsonLog",
+            "func_name": "CreateJsonApiProxy" 
         },
         {
             "flag": true,
@@ -294,15 +342,15 @@
             "always_run": true,
             "User": "oper",
             "Password": "mfg-oper",
-            "Host": "10.90.10.168",
+            "Host": "10.90.100.168",
             "Port": 21,
-            "FtpPath": ["data/jupiter", "pnname", "station_type", "mode", "start_day", "station_name", "status", "text"],
-            "FtpName": ["mlbsn", "sn", "mode", "status", "finish_day"],
+            "FtpPath": ["data/Trieste", "pnname", "station_type", "mode", "start_day", "station_name", "status", "text"],
+            "FtpName": ["mlbsn", "sn", "mode", "status", "mode", "finish_time"],
             "FtpType": ".txt",
             "LocalPath": ["Log/TestLog"],
-            "LocalName": ["mlbsn", "station_name", "mode", "serial"],
+            "LocalName": ["mlbsn", "sn", "mode", "status", "mode", "finish_time"],
             "LocalType": ".txt",
-            "test_name": "UpFTP",
+            "test_name": "UpTxtFTP",
             "func_name": "UpFTPProxy"
         },
         {
@@ -310,16 +358,17 @@
             "time_out": 150,
             "always_run": true,
             "User": "oper",
+            "always_run": true,
             "Password": "mfg-oper",
-            "Host": "10.90.10.168",
+            "Host": "10.90.100.168",
             "Port": 21,
-            "FtpPath": ["data/jupiter", "pnname", "station_type", "mode", "start_day", "station_name", "status", "JSON"],
-            "FtpName": ["mlbsn", "sn", "mode", "status", "finish_day"],
-            "FtpType": ".txt",
+            "FtpPath": ["data/Trieste", "pnname", "station_type", "mode", "start_day", "station_name", "status", "JSON"],
+            "FtpName": ["mlbsn", "sn", "mode", "status", "mode", "finish_time"],
+            "FtpType": ".json",
             "LocalPath": ["Log/TestLog"],
-            "LocalName": ["mlbsn", "station_name", "mode", "serial"],
-            "LocalType": ".txt",
-            "test_name": "UpFTP",
+            "ElementName": ["mlbsn", "sn", "mode", "status", "mode", "finish_time"],
+            "LocalType": ".json",
+            "test_name": "UpJsonFTP",
             "func_name": "UpFTPProxy"
         }
     ]
