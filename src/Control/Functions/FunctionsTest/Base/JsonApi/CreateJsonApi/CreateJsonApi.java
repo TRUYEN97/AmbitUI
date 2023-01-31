@@ -70,7 +70,12 @@ public class CreateJsonApi extends AbsFunction {
     }
 
     private void addValueTo(Map data, String key) {
-        String value = this.processData.getString(key);
+        String value;
+        if (key != null && key.equalsIgnoreCase("serial")) {
+            value = this.processData.getString("mlbsn");
+        } else {
+            value = this.processData.getString(key);
+        }
         addLog("PC", "Root: " + key + " = " + value);
         data.put(key, value == null ? "" : value);
         addLog("PC", "-----------------------------------------");

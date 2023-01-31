@@ -274,13 +274,13 @@
             "multi": false,
             "localFile": "Log/TestLog",
             "ElementName": ["mlbsn", "sn", "mode", "status", "mode", "finish_time"],
-            "test_name": "CreateTxt",
+            "test_name": "CreateTxt_1",
             "func_name": "CreateTxtProxy" 
         },
         {
             "flag": true,
             "time_out": 30,
-            "multi": true,
+            "multi": false,
             "always_run": true,
             "followLimit": false,
             "BaseKeys": ["error_details", "status", "finish_time",
@@ -290,7 +290,7 @@
                 "error_code", "start_time", "test_value", "units", "cycle_time"],
             "localFile": "Log/TestLog",
             "ElementName": ["mlbsn", "sn", "mode", "status", "mode", "finish_time"],
-            "test_name": "CreateJsonLog",
+            "test_name": "CreateJson_1",
             "func_name": "CreateJsonApiProxy" 
         },
         {
@@ -301,7 +301,7 @@
             "Password": "mfg-oper",
             "Host": "10.90.10.168",
             "Port": 21,
-            "FtpPath": ["data/jupiter", "pnname", "station_type", "mode", "start_day", "station_name", "status", "text"],
+            "FtpPath": ["data/Jupiter", "pnname", "station_type", "mode", "start_day", "station_name", "status", "text"],
             "FtpName": ["mlbsn", "sn", "mode", "status", "mode", "finish_time"],
             "FtpType": ".txt",
             "LocalPath": ["Log/TestLog"],
@@ -319,11 +319,11 @@
             "Password": "mfg-oper",
             "Host": "10.90.10.168",
             "Port": 21,
-            "FtpPath": ["data/Trieste", "pnname", "station_type", "mode", "start_day", "station_name", "status", "JSON"],
+            "FtpPath": ["data/Jupiter", "pnname", "station_type", "mode", "start_day", "station_name", "status", "JSON"],
             "FtpName": ["mlbsn", "sn", "mode", "status", "mode", "finish_time"],
             "FtpType": ".json",
             "LocalPath": ["Log/TestLog"],
-            "ElementName": ["mlbsn", "sn", "mode", "status", "mode", "finish_time"],
+            "LocalName": ["mlbsn", "sn", "mode", "status", "mode", "finish_time"],
             "LocalType": ".json",
             "test_name": "UpJsonFTP",
             "func_name": "UpFTPProxy"

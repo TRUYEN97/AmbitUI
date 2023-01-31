@@ -20,7 +20,7 @@ import java.util.List;
  * @author Administrator
  */
 public class CreateTxt extends AbsFunction {
-    
+
     private final FileBaseFunction fileBaseFunction;
 
     public CreateTxt(FunctionParameters parameters) {
@@ -39,8 +39,7 @@ public class CreateTxt extends AbsFunction {
 
     private boolean saveTxtFile() {
         addLog("Save file txt!");
-        MyLoger loger = new MyLoger();
-        try {
+        try ( MyLoger loger = new MyLoger()) {
             String filePath = this.config.getString("localFile");
             List<String> elementName = this.config.getListJsonArray("ElementName");
             String txtFile = this.fileBaseFunction.createNameFile(elementName, ".txt");
@@ -67,14 +66,6 @@ public class CreateTxt extends AbsFunction {
             addLog("Save file txt failed: " + e.getLocalizedMessage());
             ErrorLog.addError(this, e.getLocalizedMessage());
             return false;
-        } finally {
-            try {
-                loger.close();
-            } catch (IOException ex) {
-                addLog("Error", ex.getLocalizedMessage());
-                ErrorLog.addError(this, ex.getLocalizedMessage());
-                return false;
-            }
         }
     }
 

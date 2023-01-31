@@ -79,7 +79,7 @@ public final class AllKeyWord {
     public static final String START_DAY = "start_day";
     public static final String FINISH_TIME = "finish_time";
     public static final String FINISH_DAY = "finish_day";
-    public static final String CYCLE_TIME = "cyctime";
+    public static final String CYCLE_TIME = "cycle_time";
     public static final String CYCLE_TIME_FINAL = "cyctime_final";
     public static final String TEST_VALUE = "test_value";
     public static final String AMBIT_CONFIG = "ambit_config";

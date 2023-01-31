@@ -48,7 +48,7 @@ public class FileBaseFunction extends AbsFunction {
     }
    
     public boolean saveFile(String dirPath, String nameFile, String data) {
-        String filePath = String.format("%s%s%s", dirPath,File.pathSeparator, nameFile);
+        String filePath = String.format("%s/%s", dirPath, nameFile);
         if (fileService.saveFile(filePath, data)) {
             addLog("PC", String.format("Save data in: %s ok", filePath));
             return true;

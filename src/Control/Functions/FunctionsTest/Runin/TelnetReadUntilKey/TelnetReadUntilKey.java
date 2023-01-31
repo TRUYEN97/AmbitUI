@@ -65,7 +65,7 @@ public class TelnetReadUntilKey extends AbsFunction {
         for (String command : commands) {
             addLog("Config", "Waiting for about" + time + " s");
             if (!this.baseFunc.sendCommand(telnet, command)
-                    || !this.analysisBase.isResponseContainKey(telnet, spec, readUntil, new TimeS(time))) {
+                    || !this.analysisBase.isResponseContainKeyAndShow(telnet, spec, readUntil, new TimeS(time))) {
                 return false;
             }
         }

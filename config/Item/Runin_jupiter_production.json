@@ -241,11 +241,10 @@
 
     ],
     "end": [
-        {
+       {
             "flag": true,
             "time_out": 30,
-            "multi": true,
-            "followLimit": true,
+            "multi": false,
             "BaseKeys": ["error_details", "status", "finish_time",
                 "test_software_version", "start_time", "station_type",
                 "error_code", "serial", "mode", "station_name", "position"],
@@ -253,7 +252,7 @@
                 "error_code", "start_time", "test_value", "units"],
             "localFile": "python/log",
             "ElementName": ["mlbsn", "station_name", "mode"],
-            "test_name": "CreateJsonLog",
+            "test_name": "CreateJson",
             "func_name": "CreateJsonApiProxy" 
         },
         {
@@ -262,8 +261,17 @@
             "multi": false,
             "localFile": "python/log",
             "ElementName": ["mlbsn", "station_name", "mode", "serial"],
-            "test_name": "CreateTxtAndZipLog",
+            "test_name": "CreateTxt",
             "func_name": "CreateTxtProxy" 
+        },
+        {
+            "flag": true,
+            "time_out": 30,
+            "multi": false,
+            "localFile": "python/log",
+            "ElementName": ["mlbsn", "station_name", "mode", "serial"],
+            "test_name": "CreateZip",
+            "func_name": "ZipFileProxy" 
         },
         {
             "flag": true,
@@ -277,14 +285,28 @@
             "func_name": "UpApiProxy" 
         },
         {
-            "flag": false,
+            "flag": true,
             "time_out": 5,
             "wait_multi_done": true,
-            "SEND_FORMAT": ["mlbsn", "pcname", "status"],
+            "SEND_FORMAT": ["sn", "pcname", "status"],
             "URL": "http://10.90.10.20/sfcapi/api/connectfinal",
             "SFIS_TYPE": "SendResult",
             "test_name": "SendToSfis",
             "func_name": "SfisFunctionProxy"
+        },
+        {
+            "flag": true,
+            "time_out": 150,
+            "always_run": false,
+            "multi": false,
+            "IP": "10.90.10.168",
+            "product": "Trieste",
+            "FtpPath": ["data/Trieste", "pnname", "station_type", "mode", "start_day", "station_name", "status", "text"],
+            "FtpName": ["mlbsn", "sn", "mode", "status", "mode", "finish_time"],
+            "FtpType": ".txt",
+            "MydasElem": ["mlbsn", "status", "ftppath", "mode", "V1.0.0.0", "pcname", "cycle_time", "start_time", "ethernetmac", "ethernetmac"],
+            "test_name": "Mydas",
+            "func_name": "MydasProxy" 
         }
     ],
     "final": [
@@ -294,40 +316,24 @@
             "always_run": true,
             "multi": false,
             "localFile": "Log/TestLog",
-            "ElementName": ["mlbsn", "serial", "station_name", "mode", "finish_time"],
-            "test_name": "CreateTxt",
+            "ElementName": ["mlbsn", "sn", "mode", "status", "mode", "finish_time"],
+            "test_name": "CreateTxt_1",
             "func_name": "CreateTxtProxy" 
         },
         {
             "flag": true,
-            "time_out": 150,
-            "always_run": true,
-            "User": "oper",
-            "Password": "mfg-oper",
-            "Host": "10.90.10.168",
-            "Port": 21,
-            "FtpPath": ["data/jupiter", "pnname", "station_type", "mode", "start_day", "station_name", "status", "text"],
-            "FtpName": ["mlbsn", "sn", "mode", "status", "finish_time"],
-            "FtpType": ".txt",
-            "LocalPath": ["Log/TestLog"],
-            "ElementName": ["mlbsn", "serial", "station_name", "mode", "finish_time"],
-            "LocalType": ".txt",
-            "test_name": "UpFTP",
-            "func_name": "UpFTPProxy"
-        },
-        {
-            "flag": true,
             "time_out": 30,
-            "multi": true,
+            "multi": false,
+            "always_run": true,
             "followLimit": false,
             "BaseKeys": ["error_details", "status", "finish_time",
                 "test_software_version", "start_time", "station_type",
                 "error_code", "serial", "mode", "station_name", "position", "cycle_time"],
             "TestKeys": ["upper_limit", "lower_limit", "status", "finish_time", "test_name",
                 "error_code", "start_time", "test_value", "units", "cycle_time"],
-            "localFile": "python/log",
-            "ElementName": ["mlbsn", "serial", "station_name", "mode", "finish_time"],
-            "test_name": "CreateJsonLog",
+            "localFile": "Log/TestLog",
+            "ElementName": ["mlbsn", "sn", "mode", "status", "mode", "finish_time"],
+            "test_name": "CreateJson_1",
             "func_name": "CreateJsonApiProxy" 
         },
         {
@@ -338,13 +344,31 @@
             "Password": "mfg-oper",
             "Host": "10.90.10.168",
             "Port": 21,
-            "FtpPath": ["data/jupiter", "pnname", "station_type", "mode", "start_day", "station_name", "status", "JSON"],
-            "FtpName": ["mlbsn", "sn", "mode", "status", "finish_time"],
+            "FtpPath": ["data/Jupiter", "pnname", "station_type", "mode", "start_day", "station_name", "status", "text"],
+            "FtpName": ["mlbsn", "sn", "mode", "status", "mode", "finish_time"],
+            "FtpType": ".txt",
+            "LocalPath": ["Log/TestLog"],
+            "LocalName": ["mlbsn", "sn", "mode", "status", "mode", "finish_time"],
+            "LocalType": ".txt",
+            "test_name": "UpTxtFTP",
+            "func_name": "UpFTPProxy"
+        },
+        {
+            "flag": true,
+            "time_out": 150,
+            "always_run": true,
+            "User": "oper",
+            "always_run": true,
+            "Password": "mfg-oper",
+            "Host": "10.90.10.168",
+            "Port": 21,
+            "FtpPath": ["data/Jupiter", "pnname", "station_type", "mode", "start_day", "station_name", "status", "JSON"],
+            "FtpName": ["mlbsn", "sn", "mode", "status", "mode", "finish_time"],
             "FtpType": ".json",
             "LocalPath": ["Log/TestLog"],
-            "ElementName": ["mlbsn", "serial", "station_name", "mode", "finish_time"],
+            "LocalName": ["mlbsn", "sn", "mode", "status", "mode", "finish_time"],
             "LocalType": ".json",
-            "test_name": "UpFTP",
+            "test_name": "UpJsonFTP",
             "func_name": "UpFTPProxy"
         }
     ]

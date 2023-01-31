@@ -111,6 +111,44 @@ public class AnalysisBase extends AbsFunction {
         }
     }
 
+    public boolean isResponseContainKeyAndShow(IReadable readable, String spec, String readUntil, AbsTime time) {
+        try {
+
+            if (readUntil == null) {
+                addLog("Config", "Read until == null !!");
+                return false;
+            }
+            if (spec == null) {
+                addLog("Config", "spec == null !!");
+                return false;
+            }
+            String response = readShowUntil(readable, readUntil,  time);
+            if(response != null && response.contains(spec)){
+                return true;
+            }else{
+                addLog( "PC", "Response no content spec");
+                return  false;
+            }
+        } finally {
+            addLog("CONFIG", String.format("Spec: \"%s\"", spec));
+        }
+    }
+
+    private String readShowUntil(IReadable readable, String readUntil, AbsTime time) {
+        String readableName = readable.getClass().getSimpleName();
+        StringBuilder respose = new StringBuilder();
+        time.update();
+        while (time.onTime()) {
+            String line = readable.readLine();
+            addLog(readableName, line);
+            respose.append(line).append("\r\n");
+            if (line != null && line.contains(readUntil)) {
+                break;
+            }
+        }
+        return respose.toString();
+    }
+
     public String getIp() {
         if (Setting.getInstance().isOnDHCP()) {
             String mac = this.processData.getString(AllKeyWord.SFIS.MAC);
@@ -131,7 +169,7 @@ public class AnalysisBase extends AbsFunction {
             return null;
         }
         try {
-            int result = Integer.valueOf(value);
+            int result = Integer.parseInt(value);
             addLog("PC", "Convert sucessed! value: " + result);
             return result;
         } catch (NumberFormatException e) {
@@ -146,7 +184,7 @@ public class AnalysisBase extends AbsFunction {
             return null;
         }
         try {
-            double result = Double.valueOf(value);
+            double result = Double.parseDouble(value);
             addLog("PC", "Convert sucessed! value: " + result);
             return result;
         } catch (NumberFormatException e) {

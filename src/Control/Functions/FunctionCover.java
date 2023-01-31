@@ -10,6 +10,8 @@ import Model.DataSource.ModeTest.FunctionConfig.FuncAllConfig;
 import Model.DataTest.FunctionData.FunctionData;
 import Model.ErrorLog;
 import java.util.concurrent.TimeoutException;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 
 /**
  *
@@ -81,16 +83,24 @@ public class FunctionCover implements Runnable {
 
     public void stopTest(String mess) {
         while (thread != null && thread.isAlive()) {
+            try {
+                this.thread.join(500);
+            } catch (InterruptedException ex) {
+            }
             if (mess != null) {
                 this.functionData.addLog(String.format("""
                                                        This function will be stopped! Because %s\r
-                                                       Time: %.3f S""", mess, 
+                                                       Time: %.3f S""", mess,
                         functionData.getRunTime()));
                 this.functionData.setFail(ErrorCodeElement.SIMPLE);
             }
             this.thread.stop();
-            this.stop = true;
+            try {
+                Thread.sleep(1000);
+            } catch (InterruptedException ex) {
+            }
         }
+        this.stop = true;
     }
 
     public boolean isWaitUntilMultiDone() {

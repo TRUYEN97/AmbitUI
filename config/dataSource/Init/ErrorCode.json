@@ -17,6 +17,12 @@
             "errorDes": "CreateTxtAndZipLog"
         }
     },
+    "CreateJson": {
+        "simple": {
+            "errorcode": "CreateJson",
+            "errorDes": "CreateJson"
+        }
+    },
     "fixture_close": {
         "simple": {
             "errorcode": "FIX00",
@@ -129,6 +135,12 @@
         "simple": {
             "errorcode": "json0",
             "errorDes": "ReleasePowerSwitchOutlet"
+        }
+    },
+    "CreateZip": {
+        "simple": {
+            "errorcode": "ZIP0",
+            "errorDes": "CreateZip"
         }
     },
     "CreateTxt": {
