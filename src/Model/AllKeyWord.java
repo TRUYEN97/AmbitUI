@@ -57,6 +57,7 @@ public final class AllKeyWord {
         public static final String MULTI_TASK = "multi";
     }
 
+    public static final String TEST_NAME = "test_name";
     public static final String MATCH = "MATCH";
     public static final String LIMIT = "LIMIT";
     public static final String BOOL = "BOOL";

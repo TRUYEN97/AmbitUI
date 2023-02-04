@@ -28,18 +28,19 @@ public class ProcessData implements IgetTime {
     private final List<FunctionData> listFunctionData;
     private final Map<FunctionName, FunctionData> mapFunctionData;
     private final Map<String, ItemTestData> mapItemTestData;
+    private final List<ItemTestData> listItemTestData;
     private final List<ItemTestData> faidItems;
     private final UiInformartion informartion;
     private final DataWareHouse data;
     private final TimeBase timeBase;
     private final ProcessTestSignal signal;
     private final ProductData productData;
-    private final UiStatus uiStatus;
     private String message;
     private final IgetTime testTimer;
 
     public ProcessData(UiStatus uiStatus, IgetTime testTimer) {
         this.listFunctionData = new ArrayList<>();
+        this.listItemTestData = new ArrayList<>();
         this.mapFunctionData = new HashMap<>();
         this.mapItemTestData = new HashMap<>();
         this.faidItems = new ArrayList<>();
@@ -48,13 +49,16 @@ public class ProcessData implements IgetTime {
         this.productData = new ProductData();
         this.timeBase = new TimeBase(TimeBase.UTC);
         this.testTimer = testTimer;
-        this.uiStatus = uiStatus;
         this.informartion = uiStatus.getInfo();
         this.message = "Ready";
     }
 
     public List<FunctionData> getDataBoxs() {
         return listFunctionData;
+    }
+
+    public List<ItemTestData> getListItemTestData() {
+        return listItemTestData;
     }
 
     public JSONObject getItemData(String itemName, List<String> keys) {
@@ -113,6 +117,17 @@ public class ProcessData implements IgetTime {
         if (testTimer != null) {
             this.data.put(AllKeyWord.CYCLE_TIME, String.format("%.3f", getRuntime()));
         }
+        setEndTestStatus();
+    }
+
+    public void setFinishTimeFinal() {
+        if (testTimer != null) {
+            this.data.put(AllKeyWord.CYCLE_TIME_FINAL, String.format("%.3f", getRuntime()));
+        }
+        setEndTestStatus();
+    }
+
+    private void setEndTestStatus() {
         ItemTestData itemFailed = getFirstFail();
         if (itemFailed == null) {
             this.data.put(AllKeyWord.SFIS.STATUS, ItemTestData.PASS);
@@ -135,6 +150,7 @@ public class ProcessData implements IgetTime {
 
     private void resetItemsData() {
         this.mapItemTestData.clear();
+        this.listItemTestData.clear();
         this.faidItems.clear();
     }
 
@@ -171,13 +187,6 @@ public class ProcessData implements IgetTime {
         this.data.clear();
         this.signal.clear();
         this.productData.clear();
-        closeAllLoger();
-    }
-
-    private void closeAllLoger() {
-        for (FunctionData functionData : listFunctionData) {
-            functionData.closeLoger();
-        }
     }
 
     public void setMode(String mode) {
@@ -196,15 +205,23 @@ public class ProcessData implements IgetTime {
     }
 
     public void addFunctionData(FunctionData functionData) {
-        if (functionData == null || this.listFunctionData.contains(functionData)) {
+        if (functionData == null) {
+            throw new NullPointerException("functionData == null");
+        }
+        FunctionName functionName = functionData.getFunctionName();
+        if (functionName == null || this.mapFunctionData.containsKey(functionName)) {
+            throw new NullPointerException("functionName == null");
+        }
+        if (this.mapFunctionData.containsKey(functionName)) {
             return;
         }
         this.listFunctionData.add(functionData);
-        this.mapFunctionData.put(functionData.getFunctionName(), functionData);
+        this.mapFunctionData.put(functionName, functionData);
     }
 
-    public void putAllItem(Map<String, ItemTestData> itemTests) {
+    public void putAllItem(Map<String, ItemTestData> itemTests, List<ItemTestData> listFunctionData) {
         this.mapItemTestData.putAll(itemTests);
+        this.listItemTestData.addAll(listFunctionData);
     }
 
     public void addFailItem(ItemTestData itemTestData) {
@@ -213,4 +230,29 @@ public class ProcessData implements IgetTime {
         }
         this.faidItems.add(itemTestData);
     }
+
+    public List<ItemTestData> getFaidItems() {
+        return faidItems;
+    }
+
+    public void endTest() {
+        if (isPass()) {
+            setMessage(message == null ? "Finished!" : message);
+            return;
+        }
+        StringBuilder faildItemName = new StringBuilder("Items\r\n");
+        int i = 0;
+        for (ItemTestData failItemData : getFaidItems()) {
+            if (i++ == 4) {
+                faildItemName.append("...").append("\r\n");
+                break;
+            }
+            faildItemName.append("- ").append(failItemData.getItemName()).append(": ")
+                    .append(failItemData.getLocalErrorCode()).append("\r\n");
+        }
+        setMessage(String.format("%s\"%s\"",
+                faildItemName,
+                message == null ? "..." : message));
+    }
+
 }

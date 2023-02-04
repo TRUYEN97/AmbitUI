@@ -40,7 +40,7 @@ public class MMC_WR_SPEED extends AbsFunction {
             return false;
         }
         String response;
-        try (Telnet telnet = this.baseFunc.getTelnet(ip, 23)){
+        try ( Telnet telnet = this.baseFunc.getTelnet(ip, 23)) {
             if (telnet == null) {
                 return false;
             }
@@ -60,15 +60,15 @@ public class MMC_WR_SPEED extends AbsFunction {
         addLog("Config", "Items: " + items);
         addLog("Config", "Block: " + blocks);
         addLog("Config", "KeyWord: " + blocks);
-        return RunSubItems(items, response, blocks, KeyWords);
+        return runSubItems(items, response, blocks, KeyWords);
     }
 
-    private boolean RunSubItems(List<String> items, String response, List<String> blocks, List<String> KeyWords) {
+    private boolean runSubItems(List<String> items, String response, List<String> blocks, List<String> KeyWords) {
         int itemsSize = items.size();
         for (int i = 0; i < itemsSize; i++) {
             String item = items.get(i);
             addLog("PC", item);
-            mmc_speed = new MMC_SPEED(functionParameters, item);
+            mmc_speed = new MMC_SPEED(functionParameters, createChildItemName(item));
             mmc_speed.setData(response, blocks.get(i), KeyWords.get(i));
             mmc_speed.runTest();
             if (!mmc_speed.isPass()) {

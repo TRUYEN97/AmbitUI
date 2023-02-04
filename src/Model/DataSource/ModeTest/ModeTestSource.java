@@ -4,6 +4,7 @@
  */
 package Model.DataSource.ModeTest;
 
+import FileTool.FileService;
 import Model.DataSource.ModeTest.ErrorCode.ErrorCodeSource;
 import Model.DataSource.ModeTest.FunctionConfig.AmbitConfig;
 import Model.DataSource.ModeTest.FunctionConfig.FunctionConfig;
@@ -12,6 +13,8 @@ import Model.DataSource.ModeTest.Limit.Limit;
 import Model.DataSource.Setting.ModeElement;
 import Model.DataSource.Setting.Setting;
 import java.awt.HeadlessException;
+import java.io.File;
+import java.io.FileWriter;
 import java.util.List;
 import javax.swing.JOptionPane;
 
@@ -84,7 +87,7 @@ public class ModeTestSource {
     public List<FunctionName> getSelectedItem(List<FunctionName> listItem) {
         return this.functionConfig.getSelectedItem(listItem);
     }
-    
+
     public List<FunctionName> getDebugFunctions() {
         return this.functionConfig.getDebugFunctions();
     }
@@ -119,13 +122,32 @@ public class ModeTestSource {
         if (this.limit == null) {
             return false;
         }
-        if (cmd == null) {
+        if (cmd == null || cmd.isBlank() || path == null || path.isBlank()) {
             JOptionPane.showMessageDialog(null, "no set limit for test.");
             return true;
+        }
+        if (!checkFileLimit(path)) {
+            return false;
         }
         this.limit.setPath(path);
         this.limit.setUpdateCommand(cmd);
         return this.limit.init();
+    }
+
+    private boolean checkFileLimit(String path) throws HeadlessException {
+        File limit = new File(path);
+        if (!limit.getParentFile().exists() && !limit.mkdirs()) {
+            JOptionPane.showConfirmDialog(null, String.format("Create '%s' failed!", limit.getPath()));
+        }
+        if (!limit.exists()) {
+            try (final FileWriter rt = new FileWriter(limit)) {
+                rt.write("");
+            } catch (Exception e) {
+                e.printStackTrace();
+                return false;
+            }
+        }
+        return true;
     }
 
     private boolean checkAmbitConfig(String file) {

@@ -6,6 +6,7 @@ package Control.Core.RunTest;
 
 import Model.DataSource.ModeTest.FunctionConfig.FunctionName;
 import Model.DataSource.Tool.TestTimer;
+import Model.DataTest.FunctionData.ItemTestData;
 import Model.DataTest.ProcessTest.ProcessData;
 import Model.ManagerUI.UIStatus.UiStatus;
 import View.subUI.SubUI.AbsSubUi;
@@ -41,8 +42,8 @@ public class Runner implements Runnable {
         this.loopTest = 1;
         this.testing = false;
     }
-    
-    public void setLocalDebug(boolean localdebug){
+
+    public void setLocalDebug(boolean localdebug) {
         this.process.setLocalDebug(localdebug);
     }
 
@@ -101,14 +102,18 @@ public class Runner implements Runnable {
                 } finally {
                     processData.setFinishTime();
                 }
-                runFunctions(endFunctions);
+                try {
+                    runFunctions(endFunctions);
+                } finally {
+                    processData.setFinishTimeFinal();
+                }
                 runFunctions(finalFunctions);
             }
         }
         end();
     }
 
-    public void end(String mess) {
+    public void stopTest(String mess) {
         this.processData.setMessage(mess);
         this.process.stop(mess);
         end();
@@ -116,6 +121,7 @@ public class Runner implements Runnable {
 
     private void end() {
         this.testing = false;
+        this.processData.endTest();
         this.subUi.endTest();
         this.testTimer.stop();
         clearAllFunctions();
@@ -127,10 +133,6 @@ public class Runner implements Runnable {
         this.testFunctions.clear();
         this.endFunctions.clear();
         this.finalFunctions.clear();
-    }
-
-    boolean isTesting() {
-        return testing;
     }
 
 }

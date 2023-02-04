@@ -13,6 +13,31 @@
         },
         {
             "flag": true,
+            "multi": false,
+            "always_run": false,
+            "time_out": 10,
+            "elems": [
+                {
+                    "key": "pnname",
+                    "target": "810-01100",
+                    "messenger": "Sản phẩm không phải là: 810-01100"
+                },
+                {
+                    "key": "smode",
+                    "target": "Production",
+                    "messenger": "Sản phẩm không phải là hàng MP"
+                },
+                {
+                    "key": "typemodel",
+                    "target": "",
+                    "messenger": "Sản phẩm không phải là hàng simple"
+                }
+            ],
+            "test_name": "CheckProduct",
+            "func_name": "CheckProductProxy"
+        },
+        {
+            "flag": true,
             "multi": true,
             "always_run": false,
             "time_out": 1,
@@ -138,7 +163,9 @@
             "retry": 3,
             "debug_able": true,
             "multi": false,
-            "Times": 3,
+            "IP": "192.168.1.1",
+            "waitTime": 40,
+            "pingTimes": 40,
             "test_name": "reboot_soft",
             "func_name": "RebootSoftProxy"
         },
@@ -164,6 +191,19 @@
             "IP": "192.168.1.1",
             "test_name": "dut_ping_1",
             "func_name": "DutPingProxy"
+        },    
+        {
+            "flag": true,
+            "time_out": 1500,
+            "debug_able": true,
+            "multi": false,
+            "IP": "192.168.1.1",
+            "command": ["badblocks -svw /dev/mmcblk0p17", "badblocks -svw /dev/mmcblk0p20"],
+            "Startkey": "Pass completed,",
+            "Endkey": "bad blocks found",
+            "ReadUntil": "root@eero-test:/#",
+            "test_name": "emmc_badblocks",
+            "func_name": "MMC_BadBlockProxy"
         },
         {
             "flag": true,
@@ -192,20 +232,7 @@
             "Time": 2500,
             "test_name": "cpu_stress",
             "func_name": "TelnetReadUntilKeyProxy"
-        },     
-        {
-            "flag": true,
-            "time_out": 1500,
-            "debug_able": true,
-            "multi": false,
-            "IP": "192.168.1.1",
-            "command": ["badblocks -svw /dev/mmcblk0p17", "badblocks -svw /dev/mmcblk0p20"],
-            "Startkey": "Pass completed,",
-            "Endkey": "bad blocks found",
-            "ReadUntil": "root@eero-test:/#",
-            "test_name": "emmc_badblocks",
-            "func_name": "MMC_BadBlockProxy"
-        },
+        }, 
         {
             "flag": true,
             "time_out": 300,
@@ -226,27 +253,20 @@
             "time_out": 10,
             "debug_able": true,
             "multi": false,
-            "always_run": true,
             "IP": "192.168.1.1",
             "command": "cat /sys/devices/virtual/thermal/thermal_zone1/temp",
             "Regex": "^[0-9]+$",
-            "test_name": "temp_cpu1",
+            "test_name": "temp_cpu",
             "func_name": "CheckCommandTelnetProxy"
         },
         {
             "flag": true,
-            "time_out": 30,
+            "time_out": 10,
             "debug_able": true,
             "multi": false,
-            "always_run": false,
-            "host": "192.168.1.10",
-            "user": "admin",
-            "password": "1234",
-            "Times": 1,
-            "Delay": 1,
-            "Command": ["off"],
-            "test_name": "ReleasePowerSwitchOutlet",
-            "func_name": "PowerSwitchProxy"
+            "always_run": true,
+            "test_name": "shop_floor",
+            "func_name": "VirFunctionProxy"
         }
 
     ],
@@ -255,6 +275,7 @@
             "flag": true,
             "time_out": 30,
             "multi": false,
+            "followLimit": true,
             "BaseKeys": ["error_details", "status", "finish_time",
                 "test_software_version", "start_time", "station_type",
                 "error_code", "serial", "mode", "station_name", "position"],
@@ -287,7 +308,6 @@
             "flag": true,
             "time_out": 30,
             "multi": false,
-            "always_run": true,
             "Command": "cd python && eero_API_client.py log/",
             "ElementName": ["mlbsn", "station_name", "mode"],
             "Spec": "200",
@@ -299,6 +319,7 @@
             "time_out": 5,
             "wait_multi_done": true,
             "SEND_FORMAT": ["sn", "pcname", "status"],
+            "SEND_FORMAT_FAIL": ["sn", "pcname", "status", "errorcode"],
             "URL": "http://10.90.100.20/sfcapi/api/connectfinal",
             "SFIS_TYPE": "SendResult",
             "test_name": "SendToSfis",
@@ -312,9 +333,9 @@
             "IP": "10.90.100.168",
             "product": "Trieste",
             "FtpPath": ["data/Trieste", "pnname", "station_type", "mode", "start_day", "station_name", "status", "text"],
-            "FtpName": ["mlbsn", "sn", "mode", "status", "mode", "finish_time"],
+            "FtpName": ["mlbsn", "sn", "position", "status", "mode", "finish_time"],
             "FtpType": ".txt",
-            "MydasElem": ["mlbsn", "status", "ftppath", "mode", "V1.0.0.0", "pcname", "cycle_time", "start_time", "ethernetmac", "ethernetmac"],
+            "MydasElem": ["mlbsn", "status", "ftppath", "mode", "test_software_version", "pcname", "cycle_time", "start_time", "ethernetmac", "ethernetmac"],
             "test_name": "Mydas",
             "func_name": "MydasProxy" 
         }
@@ -326,7 +347,7 @@
             "always_run": true,
             "multi": false,
             "localFile": "Log/TestLog",
-            "ElementName": ["mlbsn", "sn", "mode", "status", "mode", "finish_time"],
+            "ElementName": ["mlbsn", "sn", "position", "status", "mode", "finish_time"],
             "test_name": "CreateTxt_1",
             "func_name": "CreateTxtProxy" 
         },
@@ -338,11 +359,11 @@
             "followLimit": false,
             "BaseKeys": ["error_details", "status", "finish_time",
                 "test_software_version", "start_time", "station_type",
-                "error_code", "serial", "mode", "station_name", "position", "cycle_time"],
+                "error_code", "serial", "mode", "station_name", "position", "cycle_time", "cyctime_final"],
             "TestKeys": ["upper_limit", "lower_limit", "status", "finish_time", "test_name",
                 "error_code", "start_time", "test_value", "units", "cycle_time"],
             "localFile": "Log/TestLog",
-            "ElementName": ["mlbsn", "sn", "mode", "status", "mode", "finish_time"],
+            "ElementName": ["mlbsn", "sn", "position", "status", "mode", "finish_time"],
             "test_name": "CreateJson_1",
             "func_name": "CreateJsonApiProxy" 
         },
@@ -355,10 +376,10 @@
             "Host": "10.90.100.168",
             "Port": 21,
             "FtpPath": ["data/Trieste", "pnname", "station_type", "mode", "start_day", "station_name", "status", "text"],
-            "FtpName": ["mlbsn", "sn", "mode", "status", "mode", "finish_time"],
+            "FtpName": ["mlbsn", "sn", "position", "status", "mode", "finish_time"],
             "FtpType": ".txt",
             "LocalPath": ["Log/TestLog"],
-            "LocalName": ["mlbsn", "sn", "mode", "status", "mode", "finish_time"],
+            "LocalName": ["mlbsn", "sn", "position", "status", "mode", "finish_time"],
             "LocalType": ".txt",
             "test_name": "UpTxtFTP",
             "func_name": "UpFTPProxy"
@@ -373,13 +394,28 @@
             "Host": "10.90.100.168",
             "Port": 21,
             "FtpPath": ["data/Trieste", "pnname", "station_type", "mode", "start_day", "station_name", "status", "JSON"],
-            "FtpName": ["mlbsn", "sn", "mode", "status", "mode", "finish_time"],
+            "FtpName": ["mlbsn", "sn", "position", "status", "mode", "finish_time"],
             "FtpType": ".json",
             "LocalPath": ["Log/TestLog"],
-            "LocalName": ["mlbsn", "sn", "mode", "status", "mode", "finish_time"],
+            "LocalName": ["mlbsn", "sn", "position", "status", "mode", "finish_time"],
             "LocalType": ".json",
             "test_name": "UpJsonFTP",
             "func_name": "UpFTPProxy"
+        },
+        {
+            "flag": true,
+            "time_out": 30,
+            "debug_able": true,
+            "multi": false,
+            "always_run": true,
+            "host": "192.168.1.10",
+            "user": "admin",
+            "password": "1234",
+            "Times": 1,
+            "Delay": 1,
+            "Command": ["off"],
+            "test_name": "ReleasePowerSwitchOutlet",
+            "func_name": "PowerSwitchProxy"
         }
     ]
 }

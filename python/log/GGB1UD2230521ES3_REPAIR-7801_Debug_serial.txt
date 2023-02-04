@@ -1,0 +1,1339 @@
+===================================================================
+Start at = 2023-02-03 09:02:10
+End test at = 2023-02-03 10:15:38
+Status = passed
+Test time = 4407.644 s
+Final test time = 4407.669 s
+Station = REPAIR-7801
+Localtion = A1
+HHSN = A
+DEVICESN = GGB1UD2230521ES3
+===================================================================
+//////////////////////////- ID[0] -//////////////////////////
+2023-02-03 09:02:10.657:   ITEM[golden_file] - FUNCTION[GoldenFileProxy]
+2023-02-03 09:02:10.658:   Turn: 1
+2023-02-03 09:02:10.658:   [config] config/dataSource/init/golden.json
+2023-02-03 09:02:10.659:   [Input] Input: A
+2023-02-03 09:02:10.660:   [GOLDEN] key: mlbsn - value: GGB1UD2230521ES3
+2023-02-03 09:02:10.660:   [GOLDEN] key: ethernetmac - value: d4:3f:32:b8:10:80
+2023-02-03 09:02:10.661:   add data to production info done.
+2023-02-03 09:02:10.661:   ****************************************************
+2023-02-03 09:02:10.661:   Item name = golden_file
+2023-02-03 09:02:10.661:   Value = passed
+2023-02-03 09:02:10.662:   Test status = passed
+2023-02-03 09:02:10.662:   -----------------------------------------------------
+2023-02-03 09:02:10.662:   ****************************************************
+2023-02-03 09:02:10.663:   TIME[0.005 s] - STATUS[PASSED]
+//////////////////////////////////////////////////////////////
+//////////////////////////- ID[1] -//////////////////////////
+2023-02-03 09:02:10.666:   ITEM[dut_ping] - FUNCTION[DutPingProxy]
+2023-02-03 09:02:10.667:   Turn: 1
+2023-02-03 09:02:10.667:   Get IP from the function config with key is "IP".
+2023-02-03 09:02:10.667:   IP: 192.168.1.1
+2023-02-03 09:02:10.670:   [Cmd] ------------------------------------ 1
+2023-02-03 09:02:10.671:   [Cmd] Send command: arp -d 192.168.1.1
+2023-02-03 09:02:10.711:   [Cmd] 
+2023-02-03 09:02:10.711:   [Cmd] Send command: ping 192.168.1.1 -n 1
+2023-02-03 09:02:10.742:   [Cmd] Pinging 192.168.1.1 with 32 bytes of data:
+2023-02-03 09:02:10.742:   [Cmd] Reply from 192.168.1.1: bytes=32 time=1ms TTL=64
+2023-02-03 09:02:10.742:   [Cmd] 
+2023-02-03 09:02:10.743:   [Cmd] Ping statistics for 192.168.1.1:
+2023-02-03 09:02:10.743:   [Cmd] Packets: Sent = 1, Received = 1, Lost = 0 (0% loss),
+2023-02-03 09:02:10.743:   [Cmd] Approximate round trip times in milli-seconds:
+2023-02-03 09:02:10.743:   [Cmd] Minimum = 1ms, Maximum = 1ms, Average = 1ms
+2023-02-03 09:02:10.743:   [Cmd] ------------------------------------
+2023-02-03 09:02:10.744:   ****************************************************
+2023-02-03 09:02:10.744:   Item name = dut_ping
+2023-02-03 09:02:10.744:   Value = passed
+2023-02-03 09:02:10.744:   Test status = passed
+2023-02-03 09:02:10.744:   -----------------------------------------------------
+2023-02-03 09:02:10.744:   ****************************************************
+2023-02-03 09:02:10.745:   TIME[0.079 s] - STATUS[PASSED]
+//////////////////////////////////////////////////////////////
+//////////////////////////- ID[2] -//////////////////////////
+2023-02-03 09:02:10.745:   ITEM[dut_telnet] - FUNCTION[DutTelnetProxy]
+2023-02-03 09:02:10.746:   Turn: 1
+2023-02-03 09:02:10.746:   Get IP from the function config with key is "IP".
+2023-02-03 09:02:10.747:   IP: 192.168.1.1
+2023-02-03 09:02:10.795:   [PC] Connect to host: 192.168.1.1
+2023-02-03 09:02:10.795:   [PC] Port is: 23
+2023-02-03 09:02:10.796:   [Cmd] ------------------------------------ 1
+2023-02-03 09:02:10.796:   [Cmd] Send command: arp -d 192.168.1.1
+2023-02-03 09:02:10.827:   [Cmd] 
+2023-02-03 09:02:10.828:   [Cmd] Send command: ping 192.168.1.1 -n 1
+2023-02-03 09:02:10.857:   [Cmd] Pinging 192.168.1.1 with 32 bytes of data:
+2023-02-03 09:02:10.857:   [Cmd] Reply from 192.168.1.1: bytes=32 time=1ms TTL=64
+2023-02-03 09:02:10.857:   [Cmd] 
+2023-02-03 09:02:10.858:   [Cmd] Ping statistics for 192.168.1.1:
+2023-02-03 09:02:10.858:   [Cmd] Packets: Sent = 1, Received = 1, Lost = 0 (0% loss),
+2023-02-03 09:02:10.858:   [Cmd] Approximate round trip times in milli-seconds:
+2023-02-03 09:02:10.858:   [Cmd] Minimum = 1ms, Maximum = 1ms, Average = 1ms
+2023-02-03 09:02:10.858:   [Cmd] ------------------------------------
+2023-02-03 09:02:10.981:   [Telnet] === IMPORTANT ============================
+2023-02-03 09:02:10.981:   [Telnet] Use 'passwd' to set your login password!
+2023-02-03 09:02:10.982:   [Telnet] ------------------------------------------
+2023-02-03 09:02:10.982:   [Telnet] 
+2023-02-03 09:02:10.983:   [Telnet] 
+2023-02-03 09:02:10.983:   [Telnet] BusyBox v1.30.1 () built-in shell (ash)
+2023-02-03 09:02:10.984:   [Telnet] 
+2023-02-03 09:02:10.985:   [Telnet] MM           NM                    MMMMMMM          M       M
+2023-02-03 09:02:10.985:   [Telnet] $MMMMM        MMMMM                MMMMMMMMMMM      MMM     MMM
+2023-02-03 09:02:10.986:   [Telnet] MMMMMMMM     MM MMMMM.              MMMMM:MMMMMM:   MMMM   MMMMM
+2023-02-03 09:02:10.987:   [Telnet] MMMM= MMMMMM  MMM   MMMM       MMMMM   MMMM  MMMMMM   MMMM  MMMMM'
+2023-02-03 09:02:10.988:   [Telnet] MMMM=  MMMMM MMMM    MM       MMMMM    MMMM    MMMM   MMMMNMMMMM
+2023-02-03 09:02:10.988:   [Telnet] MMMM=   MMMM  MMMMM          MMMMM     MMMM    MMMM   MMMMMMMM
+2023-02-03 09:02:10.989:   [Telnet] MMMM=   MMMM   MMMMMM       MMMMM      MMMM    MMMM   MMMMMMMMM
+2023-02-03 09:02:10.989:   [Telnet] MMMM=   MMMM     MMMMM,    NMMMMMMMM   MMMM    MMMM   MMMMMMMMMMM
+2023-02-03 09:02:10.990:   [Telnet] MMMM=   MMMM      MMMMMM   MMMMMMMM    MMMM    MMMM   MMMM  MMMMMM
+2023-02-03 09:02:10.991:   [Telnet] MMMM=   MMMM   MM    MMMM    MMMM      MMMM    MMMM   MMMM    MMMM
+2023-02-03 09:02:10.992:   [Telnet] MMMM$ ,MMMMM  MMMMM  MMMM    MMM       MMMM   MMMMM   MMMM    MMMM
+2023-02-03 09:02:10.992:   [Telnet] MMMMMMM:      MMMMMMM     M         MMMMMMMMMMMM  MMMMMMM MMMMMMM
+2023-02-03 09:02:10.993:   [Telnet] MMMMMM       MMMMN     M           MMMMMMMMM      MMMM    MMMM
+2023-02-03 09:02:10.993:   [Telnet] MMMM          M                    MMMMMMM        M       M
+2023-02-03 09:02:10.994:   [Telnet] M
+2023-02-03 09:02:10.994:   [Telnet] ---------------------------------------------------------------
+2023-02-03 09:02:10.995:   [Telnet] For those about to rock... (Chaos Calmer, unknown)
+2023-02-03 09:02:10.995:   [Telnet] ---------------------------------------------------------------
+2023-02-03 09:02:10.995:   [Telnet] root@eero-test:/#
+2023-02-03 09:02:11.101:   [Telnet] root@eero-test:/#
+2023-02-03 09:02:11.104:   ****************************************************
+2023-02-03 09:02:11.105:   Item name = dut_telnet
+2023-02-03 09:02:11.106:   Value = passed
+2023-02-03 09:02:11.107:   Test status = passed
+2023-02-03 09:02:11.108:   -----------------------------------------------------
+2023-02-03 09:02:11.108:   ****************************************************
+2023-02-03 09:02:11.110:   TIME[0.363 s] - STATUS[PASSED]
+//////////////////////////////////////////////////////////////
+//////////////////////////- ID[3] -//////////////////////////
+2023-02-03 09:02:11.112:   ITEM[sn_ok] - FUNCTION[CheckDutInfoProxy]
+2023-02-03 09:02:11.112:   Turn: 1
+2023-02-03 09:02:11.112:   Get IP from the function config with key is "IP".
+2023-02-03 09:02:11.113:   IP: 192.168.1.1
+2023-02-03 09:02:11.113:   [PC] Connect to host: 192.168.1.1
+2023-02-03 09:02:11.113:   [PC] Port is: 23
+2023-02-03 09:02:11.113:   [Cmd] ------------------------------------ 1
+2023-02-03 09:02:11.113:   [Cmd] Send command: arp -d 192.168.1.1
+2023-02-03 09:02:11.144:   [Cmd] 
+2023-02-03 09:02:11.145:   [Cmd] Send command: ping 192.168.1.1 -n 1
+2023-02-03 09:02:11.174:   [Cmd] Pinging 192.168.1.1 with 32 bytes of data:
+2023-02-03 09:02:11.175:   [Cmd] Reply from 192.168.1.1: bytes=32 time=1ms TTL=64
+2023-02-03 09:02:11.175:   [Cmd] 
+2023-02-03 09:02:11.175:   [Cmd] Ping statistics for 192.168.1.1:
+2023-02-03 09:02:11.175:   [Cmd] Packets: Sent = 1, Received = 1, Lost = 0 (0% loss),
+2023-02-03 09:02:11.175:   [Cmd] Approximate round trip times in milli-seconds:
+2023-02-03 09:02:11.175:   [Cmd] Minimum = 1ms, Maximum = 1ms, Average = 1ms
+2023-02-03 09:02:11.175:   [Cmd] ------------------------------------
+2023-02-03 09:02:11.289:   [Telnet] === IMPORTANT ============================
+2023-02-03 09:02:11.290:   [Telnet] Use 'passwd' to set your login password!
+2023-02-03 09:02:11.291:   [Telnet] ------------------------------------------
+2023-02-03 09:02:11.292:   [Telnet] 
+2023-02-03 09:02:11.293:   [Telnet] 
+2023-02-03 09:02:11.293:   [Telnet] BusyBox v1.30.1 () built-in shell (ash)
+2023-02-03 09:02:11.294:   [Telnet] 
+2023-02-03 09:02:11.294:   [Telnet] MM           NM                    MMMMMMM          M       M
+2023-02-03 09:02:11.294:   [Telnet] $MMMMM        MMMMM                MMMMMMMMMMM      MMM     MMM
+2023-02-03 09:02:11.294:   [Telnet] MMMMMMMM     MM MMMMM.              MMMMM:MMMMMM:   MMMM   MMMMM
+2023-02-03 09:02:11.294:   [Telnet] MMMM= MMMMMM  MMM   MMMM       MMMMM   MMMM  MMMMMM   MMMM  MMMMM'
+2023-02-03 09:02:11.295:   [Telnet] MMMM=  MMMMM MMMM    MM       MMMMM    MMMM    MMMM   MMMMNMMMMM
+2023-02-03 09:02:11.295:   [Telnet] MMMM=   MMMM  MMMMM          MMMMM     MMMM    MMMM   MMMMMMMM
+2023-02-03 09:02:11.295:   [Telnet] MMMM=   MMMM   MMMMMM       MMMMM      MMMM    MMMM   MMMMMMMMM
+2023-02-03 09:02:11.295:   [Telnet] MMMM=   MMMM     MMMMM,    NMMMMMMMM   MMMM    MMMM   MMMMMMMMMMM
+2023-02-03 09:02:11.295:   [Telnet] MMMM=   MMMM      MMMMMM   MMMMMMMM    MMMM    MMMM   MMMM  MMMMMM
+2023-02-03 09:02:11.295:   [Telnet] MMMM=   MMMM   MM    MMMM    MMMM      MMMM    MMMM   MMMM    MMMM
+2023-02-03 09:02:11.295:   [Telnet] MMMM$ ,MMMMM  MMMMM  MMMM    MMM       MMMM   MMMMM   MMMM    MMMM
+2023-02-03 09:02:11.295:   [Telnet] MMMMMMM:      MMMMMMM     M         MMMMMMMMMMMM  MMMMMMM MMMMMMM
+2023-02-03 09:02:11.296:   [Telnet] MMMMMM       MMMMN     M           MMMMMMMMM      MMMM    MMMM
+2023-02-03 09:02:11.296:   [Telnet] MMMM          M                    MMMMMMM        M       M
+2023-02-03 09:02:11.296:   [Telnet] M
+2023-02-03 09:02:11.296:   [Telnet] ---------------------------------------------------------------
+2023-02-03 09:02:11.296:   [Telnet] For those about to rock... (Chaos Calmer, unknown)
+2023-02-03 09:02:11.296:   [Telnet] ---------------------------------------------------------------
+2023-02-03 09:02:11.296:   [Telnet] root@eero-test:/#
+2023-02-03 09:02:11.397:   [Telnet] root@eero-test:/#
+2023-02-03 09:02:11.397:   [Telnet] Send command: fw_printenv  serial
+2023-02-03 09:02:11.506:   [Telnet] fw_printenv  serial
+2023-02-03 09:02:11.507:   [Telnet] serial=GGB1UD2230521ES3
+2023-02-03 09:02:11.508:   [CONFIG] Start key: "serial="
+2023-02-03 09:02:11.508:   [CONFIG] End key: ""
+2023-02-03 09:02:11.509:   [CONFIG] Regex: "null"
+2023-02-03 09:02:11.510:   [PC] Value: "GGB1UD2230521ES3"
+2023-02-03 09:02:11.511:   [PC] Value is: GGB1UD2230521ES3
+2023-02-03 09:02:11.511:   [CONFIG] compare key: mlbsn
+2023-02-03 09:02:11.511:   [PC] Spec is: GGB1UD2230521ES3
+2023-02-03 09:02:11.512:   ****************************************************
+2023-02-03 09:02:11.512:   Item name = sn_ok
+2023-02-03 09:02:11.512:   Value = GGB1UD2230521ES3
+2023-02-03 09:02:11.512:   Test status = passed
+2023-02-03 09:02:11.513:   -----------------------------------------------------
+2023-02-03 09:02:11.513:   ****************************************************
+2023-02-03 09:02:11.513:   TIME[0.401 s] - STATUS[PASSED]
+//////////////////////////////////////////////////////////////
+//////////////////////////- ID[4] -//////////////////////////
+2023-02-03 09:02:11.514:   ITEM[mac_ok] - FUNCTION[CheckDutInfoProxy]
+2023-02-03 09:02:11.514:   Turn: 1
+2023-02-03 09:02:11.514:   Get IP from the function config with key is "IP".
+2023-02-03 09:02:11.515:   IP: 192.168.1.1
+2023-02-03 09:02:11.515:   [PC] Connect to host: 192.168.1.1
+2023-02-03 09:02:11.515:   [PC] Port is: 23
+2023-02-03 09:02:11.515:   [Cmd] ------------------------------------ 1
+2023-02-03 09:02:11.515:   [Cmd] Send command: arp -d 192.168.1.1
+2023-02-03 09:02:11.546:   [Cmd] 
+2023-02-03 09:02:11.547:   [Cmd] Send command: ping 192.168.1.1 -n 1
+2023-02-03 09:02:11.576:   [Cmd] Pinging 192.168.1.1 with 32 bytes of data:
+2023-02-03 09:02:11.576:   [Cmd] Reply from 192.168.1.1: bytes=32 time=1ms TTL=64
+2023-02-03 09:02:11.577:   [Cmd] 
+2023-02-03 09:02:11.577:   [Cmd] Ping statistics for 192.168.1.1:
+2023-02-03 09:02:11.577:   [Cmd] Packets: Sent = 1, Received = 1, Lost = 0 (0% loss),
+2023-02-03 09:02:11.577:   [Cmd] Approximate round trip times in milli-seconds:
+2023-02-03 09:02:11.577:   [Cmd] Minimum = 1ms, Maximum = 1ms, Average = 1ms
+2023-02-03 09:02:11.577:   [Cmd] ------------------------------------
+2023-02-03 09:02:11.681:   [Telnet] === IMPORTANT ============================
+2023-02-03 09:02:11.681:   [Telnet] Use 'passwd' to set your login password!
+2023-02-03 09:02:11.681:   [Telnet] ------------------------------------------
+2023-02-03 09:02:11.681:   [Telnet] 
+2023-02-03 09:02:11.682:   [Telnet] 
+2023-02-03 09:02:11.682:   [Telnet] BusyBox v1.30.1 () built-in shell (ash)
+2023-02-03 09:02:11.682:   [Telnet] 
+2023-02-03 09:02:11.682:   [Telnet] MM           NM                    MMMMMMM          M       M
+2023-02-03 09:02:11.682:   [Telnet] $MMMMM        MMMMM                MMMMMMMMMMM      MMM     MMM
+2023-02-03 09:02:11.682:   [Telnet] MMMMMMMM     MM MMMMM.              MMMMM:MMMMMM:   MMMM   MMMMM
+2023-02-03 09:02:11.682:   [Telnet] MMMM= MMMMMM  MMM   MMMM       MMMMM   MMMM  MMMMMM   MMMM  MMMMM'
+2023-02-03 09:02:11.682:   [Telnet] MMMM=  MMMMM MMMM    MM       MMMMM    MMMM    MMMM   MMMMNMMMMM
+2023-02-03 09:02:11.682:   [Telnet] MMMM=   MMMM  MMMMM          MMMMM     MMMM    MMMM   MMMMMMMM
+2023-02-03 09:02:11.683:   [Telnet] MMMM=   MMMM   MMMMMM       MMMMM      MMMM    MMMM   MMMMMMMMM
+2023-02-03 09:02:11.683:   [Telnet] MMMM=   MMMM     MMMMM,    NMMMMMMMM   MMMM    MMMM   MMMMMMMMMMM
+2023-02-03 09:02:11.683:   [Telnet] MMMM=   MMMM      MMMMMM   MMMMMMMM    MMMM    MMMM   MMMM  MMMMMM
+2023-02-03 09:02:11.683:   [Telnet] MMMM=   MMMM   MM    MMMM    MMMM      MMMM    MMMM   MMMM    MMMM
+2023-02-03 09:02:11.683:   [Telnet] MMMM$ ,MMMMM  MMMMM  MMMM    MMM       MMMM   MMMMM   MMMM    MMMM
+2023-02-03 09:02:11.683:   [Telnet] MMMMMMM:      MMMMMMM     M         MMMMMMMMMMMM  MMMMMMM MMMMMMM
+2023-02-03 09:02:11.683:   [Telnet] MMMMMM       MMMMN     M           MMMMMMMMM      MMMM    MMMM
+2023-02-03 09:02:11.683:   [Telnet] MMMM          M                    MMMMMMM        M       M
+2023-02-03 09:02:11.683:   [Telnet] M
+2023-02-03 09:02:11.684:   [Telnet] ---------------------------------------------------------------
+2023-02-03 09:02:11.684:   [Telnet] For those about to rock... (Chaos Calmer, unknown)
+2023-02-03 09:02:11.684:   [Telnet] ---------------------------------------------------------------
+2023-02-03 09:02:11.684:   [Telnet] root@eero-test:/#
+2023-02-03 09:02:11.787:   [Telnet] root@eero-test:/#
+2023-02-03 09:02:11.787:   [Telnet] Send command: fw_printenv  mac
+2023-02-03 09:02:11.896:   [Telnet] fw_printenv  mac
+2023-02-03 09:02:11.897:   [Telnet] mac=d4:3f:32:b8:10:80
+2023-02-03 09:02:11.897:   [CONFIG] Start key: "mac="
+2023-02-03 09:02:11.898:   [CONFIG] End key: ""
+2023-02-03 09:02:11.898:   [CONFIG] Regex: "null"
+2023-02-03 09:02:11.899:   [PC] Value: "d4:3f:32:b8:10:80"
+2023-02-03 09:02:11.899:   [PC] Value is: d4:3f:32:b8:10:80
+2023-02-03 09:02:11.900:   [CONFIG] compare key: ethernetmac
+2023-02-03 09:02:11.900:   [PC] Spec is: d4:3f:32:b8:10:80
+2023-02-03 09:02:11.901:   ****************************************************
+2023-02-03 09:02:11.902:   Item name = mac_ok
+2023-02-03 09:02:11.903:   Value = d4:3f:32:b8:10:80
+2023-02-03 09:02:11.904:   Test status = passed
+2023-02-03 09:02:11.904:   -----------------------------------------------------
+2023-02-03 09:02:11.905:   ****************************************************
+2023-02-03 09:02:11.906:   TIME[0.391 s] - STATUS[PASSED]
+//////////////////////////////////////////////////////////////
+//////////////////////////- ID[5] -//////////////////////////
+2023-02-03 09:02:11.908:   ITEM[phy_model] - FUNCTION[CheckCommandTelnetProxy]
+2023-02-03 09:02:11.910:   Turn: 1
+2023-02-03 09:02:11.911:   Get IP from the function config with key is "IP".
+2023-02-03 09:02:11.911:   [PC] Connect to host: 192.168.1.1
+2023-02-03 09:02:11.912:   [PC] Port is: 23
+2023-02-03 09:02:11.912:   [Cmd] ------------------------------------ 1
+2023-02-03 09:02:11.912:   [Cmd] Send command: arp -d 192.168.1.1
+2023-02-03 09:02:11.952:   [Cmd] 
+2023-02-03 09:02:11.952:   [Cmd] Send command: ping 192.168.1.1 -n 1
+2023-02-03 09:02:11.981:   [Cmd] Pinging 192.168.1.1 with 32 bytes of data:
+2023-02-03 09:02:11.981:   [Cmd] Reply from 192.168.1.1: bytes=32 time=1ms TTL=64
+2023-02-03 09:02:11.982:   [Cmd] 
+2023-02-03 09:02:11.982:   [Cmd] Ping statistics for 192.168.1.1:
+2023-02-03 09:02:11.982:   [Cmd] Packets: Sent = 1, Received = 1, Lost = 0 (0% loss),
+2023-02-03 09:02:11.982:   [Cmd] Approximate round trip times in milli-seconds:
+2023-02-03 09:02:11.982:   [Cmd] Minimum = 1ms, Maximum = 1ms, Average = 1ms
+2023-02-03 09:02:11.982:   [Cmd] ------------------------------------
+2023-02-03 09:02:12.099:   [Telnet] === IMPORTANT ============================
+2023-02-03 09:02:12.100:   [Telnet] Use 'passwd' to set your login password!
+2023-02-03 09:02:12.101:   [Telnet] ------------------------------------------
+2023-02-03 09:02:12.101:   [Telnet] 
+2023-02-03 09:02:12.102:   [Telnet] 
+2023-02-03 09:02:12.102:   [Telnet] BusyBox v1.30.1 () built-in shell (ash)
+2023-02-03 09:02:12.103:   [Telnet] 
+2023-02-03 09:02:12.103:   [Telnet] MM           NM                    MMMMMMM          M       M
+2023-02-03 09:02:12.104:   [Telnet] $MMMMM        MMMMM                MMMMMMMMMMM      MMM     MMM
+2023-02-03 09:02:12.104:   [Telnet] MMMMMMMM     MM MMMMM.              MMMMM:MMMMMM:   MMMM   MMMMM
+2023-02-03 09:02:12.105:   [Telnet] MMMM= MMMMMM  MMM   MMMM       MMMMM   MMMM  MMMMMM   MMMM  MMMMM'
+2023-02-03 09:02:12.105:   [Telnet] MMMM=  MMMMM MMMM    MM       MMMMM    MMMM    MMMM   MMMMNMMMMM
+2023-02-03 09:02:12.106:   [Telnet] MMMM=   MMMM  MMMMM          MMMMM     MMMM    MMMM   MMMMMMMM
+2023-02-03 09:02:12.106:   [Telnet] MMMM=   MMMM   MMMMMM       MMMMM      MMMM    MMMM   MMMMMMMMM
+2023-02-03 09:02:12.107:   [Telnet] MMMM=   MMMM     MMMMM,    NMMMMMMMM   MMMM    MMMM   MMMMMMMMMMM
+2023-02-03 09:02:12.107:   [Telnet] MMMM=   MMMM      MMMMMM   MMMMMMMM    MMMM    MMMM   MMMM  MMMMMM
+2023-02-03 09:02:12.108:   [Telnet] MMMM=   MMMM   MM    MMMM    MMMM      MMMM    MMMM   MMMM    MMMM
+2023-02-03 09:02:12.108:   [Telnet] MMMM$ ,MMMMM  MMMMM  MMMM    MMM       MMMM   MMMMM   MMMM    MMMM
+2023-02-03 09:02:12.109:   [Telnet] MMMMMMM:      MMMMMMM     M         MMMMMMMMMMMM  MMMMMMM MMMMMMM
+2023-02-03 09:02:12.109:   [Telnet] MMMMMM       MMMMN     M           MMMMMMMMM      MMMM    MMMM
+2023-02-03 09:02:12.110:   [Telnet] MMMM          M                    MMMMMMM        M       M
+2023-02-03 09:02:12.110:   [Telnet] M
+2023-02-03 09:02:12.111:   [Telnet] ---------------------------------------------------------------
+2023-02-03 09:02:12.111:   [Telnet] For those about to rock... (Chaos Calmer, unknown)
+2023-02-03 09:02:12.112:   [Telnet] ---------------------------------------------------------------
+2023-02-03 09:02:12.112:   [Telnet] root@eero-test:/#
+2023-02-03 09:02:12.223:   [Telnet] root@eero-test:/#
+2023-02-03 09:02:12.224:   [Telnet] Send command: dmesg|grep 'PHY ID'
+2023-02-03 09:02:12.331:   [Telnet] dmesg|grep 'PHY ID'
+2023-02-03 09:02:12.332:   [Telnet] [   13.961278] Ethernet port eth0's PHY ID is 0x4dd0c0
+2023-02-03 09:02:12.332:   [Telnet] [   13.967892] Ethernet port eth1's PHY ID is 0x4dd101
+2023-02-03 09:02:12.333:   [CONFIG] Start key: "eth1's PHY ID is"
+2023-02-03 09:02:12.333:   [CONFIG] End key: ""
+2023-02-03 09:02:12.334:   [CONFIG] Regex: "null"
+2023-02-03 09:02:12.334:   [PC] Value: "0x4dd101"
+2023-02-03 09:02:12.336:   ****************************************************
+2023-02-03 09:02:12.336:   Item name = phy_model
+2023-02-03 09:02:12.336:   Value = 0x4dd101
+2023-02-03 09:02:12.336:   Test status = passed
+2023-02-03 09:02:12.336:   -----------------------------------------------------
+2023-02-03 09:02:12.336:   ****************************************************
+2023-02-03 09:02:12.337:   TIME[0.427 s] - STATUS[PASSED]
+//////////////////////////////////////////////////////////////
+//////////////////////////- ID[6] -//////////////////////////
+2023-02-03 09:02:12.337:   ITEM[test_image_version] - FUNCTION[CheckCommandTelnetProxy]
+2023-02-03 09:02:12.338:   Turn: 1
+2023-02-03 09:02:12.338:   Get IP from the function config with key is "IP".
+2023-02-03 09:02:12.338:   [PC] Connect to host: 192.168.1.1
+2023-02-03 09:02:12.338:   [PC] Port is: 23
+2023-02-03 09:02:12.338:   [Cmd] ------------------------------------ 1
+2023-02-03 09:02:12.338:   [Cmd] Send command: arp -d 192.168.1.1
+2023-02-03 09:02:12.368:   [Cmd] 
+2023-02-03 09:02:12.369:   [Cmd] Send command: ping 192.168.1.1 -n 1
+2023-02-03 09:02:12.397:   [Cmd] Pinging 192.168.1.1 with 32 bytes of data:
+2023-02-03 09:02:12.398:   [Cmd] Reply from 192.168.1.1: bytes=32 time=1ms TTL=64
+2023-02-03 09:02:12.398:   [Cmd] 
+2023-02-03 09:02:12.398:   [Cmd] Ping statistics for 192.168.1.1:
+2023-02-03 09:02:12.398:   [Cmd] Packets: Sent = 1, Received = 1, Lost = 0 (0% loss),
+2023-02-03 09:02:12.398:   [Cmd] Approximate round trip times in milli-seconds:
+2023-02-03 09:02:12.398:   [Cmd] Minimum = 1ms, Maximum = 1ms, Average = 1ms
+2023-02-03 09:02:12.398:   [Cmd] ------------------------------------
+2023-02-03 09:02:12.503:   [Telnet] === IMPORTANT ============================
+2023-02-03 09:02:12.504:   [Telnet] Use 'passwd' to set your login password!
+2023-02-03 09:02:12.504:   [Telnet] ------------------------------------------
+2023-02-03 09:02:12.504:   [Telnet] 
+2023-02-03 09:02:12.504:   [Telnet] 
+2023-02-03 09:02:12.504:   [Telnet] BusyBox v1.30.1 () built-in shell (ash)
+2023-02-03 09:02:12.505:   [Telnet] 
+2023-02-03 09:02:12.505:   [Telnet] MM           NM                    MMMMMMM          M       M
+2023-02-03 09:02:12.505:   [Telnet] $MMMMM        MMMMM                MMMMMMMMMMM      MMM     MMM
+2023-02-03 09:02:12.505:   [Telnet] MMMMMMMM     MM MMMMM.              MMMMM:MMMMMM:   MMMM   MMMMM
+2023-02-03 09:02:12.505:   [Telnet] MMMM= MMMMMM  MMM   MMMM       MMMMM   MMMM  MMMMMM   MMMM  MMMMM'
+2023-02-03 09:02:12.505:   [Telnet] MMMM=  MMMMM MMMM    MM       MMMMM    MMMM    MMMM   MMMMNMMMMM
+2023-02-03 09:02:12.506:   [Telnet] MMMM=   MMMM  MMMMM          MMMMM     MMMM    MMMM   MMMMMMMM
+2023-02-03 09:02:12.506:   [Telnet] MMMM=   MMMM   MMMMMM       MMMMM      MMMM    MMMM   MMMMMMMMM
+2023-02-03 09:02:12.506:   [Telnet] MMMM=   MMMM     MMMMM,    NMMMMMMMM   MMMM    MMMM   MMMMMMMMMMM
+2023-02-03 09:02:12.506:   [Telnet] MMMM=   MMMM      MMMMMM   MMMMMMMM    MMMM    MMMM   MMMM  MMMMMM
+2023-02-03 09:02:12.506:   [Telnet] MMMM=   MMMM   MM    MMMM    MMMM      MMMM    MMMM   MMMM    MMMM
+2023-02-03 09:02:12.507:   [Telnet] MMMM$ ,MMMMM  MMMMM  MMMM    MMM       MMMM   MMMMM   MMMM    MMMM
+2023-02-03 09:02:12.507:   [Telnet] MMMMMMM:      MMMMMMM     M         MMMMMMMMMMMM  MMMMMMM MMMMMMM
+2023-02-03 09:02:12.507:   [Telnet] MMMMMM       MMMMN     M           MMMMMMMMM      MMMM    MMMM
+2023-02-03 09:02:12.507:   [Telnet] MMMM          M                    MMMMMMM        M       M
+2023-02-03 09:02:12.507:   [Telnet] M
+2023-02-03 09:02:12.507:   [Telnet] ---------------------------------------------------------------
+2023-02-03 09:02:12.507:   [Telnet] For those about to rock... (Chaos Calmer, unknown)
+2023-02-03 09:02:12.508:   [Telnet] ---------------------------------------------------------------
+2023-02-03 09:02:12.508:   [Telnet] root@eero-test:/#
+2023-02-03 09:02:12.612:   [Telnet] root@eero-test:/#
+2023-02-03 09:02:12.612:   [Telnet] Send command: fwversion
+2023-02-03 09:02:12.721:   [Telnet] fwversion
+2023-02-03 09:02:12.721:   [Telnet] Ambit test image version:V1.3.0.74
+2023-02-03 09:02:12.721:   [CONFIG] Start key: "Ambit test image version:V"
+2023-02-03 09:02:12.721:   [CONFIG] End key: ""
+2023-02-03 09:02:12.721:   [CONFIG] Regex: "null"
+2023-02-03 09:02:12.722:   [PC] Value: "1.3.0.74"
+2023-02-03 09:02:12.722:   ****************************************************
+2023-02-03 09:02:12.722:   Item name = test_image_version
+2023-02-03 09:02:12.722:   Value = 1.3.0.74
+2023-02-03 09:02:12.722:   Test status = passed
+2023-02-03 09:02:12.722:   -----------------------------------------------------
+2023-02-03 09:02:12.723:   ****************************************************
+2023-02-03 09:02:12.723:   TIME[0.386 s] - STATUS[PASSED]
+//////////////////////////////////////////////////////////////
+//////////////////////////- ID[7] -//////////////////////////
+2023-02-03 09:02:12.724:   ITEM[temp_cpu_0] - FUNCTION[CheckCommandTelnetProxy]
+2023-02-03 09:02:12.724:   Turn: 1
+2023-02-03 09:02:12.724:   Get IP from the function config with key is "IP".
+2023-02-03 09:02:12.725:   [PC] Connect to host: 192.168.1.1
+2023-02-03 09:02:12.725:   [PC] Port is: 23
+2023-02-03 09:02:12.726:   [Cmd] ------------------------------------ 1
+2023-02-03 09:02:12.726:   [Cmd] Send command: arp -d 192.168.1.1
+2023-02-03 09:02:12.757:   [Cmd] 
+2023-02-03 09:02:12.758:   [Cmd] Send command: ping 192.168.1.1 -n 1
+2023-02-03 09:02:12.788:   [Cmd] Pinging 192.168.1.1 with 32 bytes of data:
+2023-02-03 09:02:12.788:   [Cmd] Reply from 192.168.1.1: bytes=32 time=1ms TTL=64
+2023-02-03 09:02:12.788:   [Cmd] 
+2023-02-03 09:02:12.788:   [Cmd] Ping statistics for 192.168.1.1:
+2023-02-03 09:02:12.789:   [Cmd] Packets: Sent = 1, Received = 1, Lost = 0 (0% loss),
+2023-02-03 09:02:12.789:   [Cmd] Approximate round trip times in milli-seconds:
+2023-02-03 09:02:12.789:   [Cmd] Minimum = 1ms, Maximum = 1ms, Average = 1ms
+2023-02-03 09:02:12.789:   [Cmd] ------------------------------------
+2023-02-03 09:02:12.892:   [Telnet] === IMPORTANT ============================
+2023-02-03 09:02:12.892:   [Telnet] Use 'passwd' to set your login password!
+2023-02-03 09:02:12.892:   [Telnet] ------------------------------------------
+2023-02-03 09:02:12.892:   [Telnet] 
+2023-02-03 09:02:12.893:   [Telnet] 
+2023-02-03 09:02:12.893:   [Telnet] BusyBox v1.30.1 () built-in shell (ash)
+2023-02-03 09:02:12.893:   [Telnet] 
+2023-02-03 09:02:12.893:   [Telnet] MM           NM                    MMMMMMM          M       M
+2023-02-03 09:02:12.894:   [Telnet] $MMMMM        MMMMM                MMMMMMMMMMM      MMM     MMM
+2023-02-03 09:02:12.894:   [Telnet] MMMMMMMM     MM MMMMM.              MMMMM:MMMMMM:   MMMM   MMMMM
+2023-02-03 09:02:12.894:   [Telnet] MMMM= MMMMMM  MMM   MMMM       MMMMM   MMMM  MMMMMM   MMMM  MMMMM'
+2023-02-03 09:02:12.894:   [Telnet] MMMM=  MMMMM MMMM    MM       MMMMM    MMMM    MMMM   MMMMNMMMMM
+2023-02-03 09:02:12.894:   [Telnet] MMMM=   MMMM  MMMMM          MMMMM     MMMM    MMMM   MMMMMMMM
+2023-02-03 09:02:12.895:   [Telnet] MMMM=   MMMM   MMMMMM       MMMMM      MMMM    MMMM   MMMMMMMMM
+2023-02-03 09:02:12.895:   [Telnet] MMMM=   MMMM     MMMMM,    NMMMMMMMM   MMMM    MMMM   MMMMMMMMMMM
+2023-02-03 09:02:12.895:   [Telnet] MMMM=   MMMM      MMMMMM   MMMMMMMM    MMMM    MMMM   MMMM  MMMMMM
+2023-02-03 09:02:12.895:   [Telnet] MMMM=   MMMM   MM    MMMM    MMMM      MMMM    MMMM   MMMM    MMMM
+2023-02-03 09:02:12.895:   [Telnet] MMMM$ ,MMMMM  MMMMM  MMMM    MMM       MMMM   MMMMM   MMMM    MMMM
+2023-02-03 09:02:12.896:   [Telnet] MMMMMMM:      MMMMMMM     M         MMMMMMMMMMMM  MMMMMMM MMMMMMM
+2023-02-03 09:02:12.896:   [Telnet] MMMMMM       MMMMN     M           MMMMMMMMM      MMMM    MMMM
+2023-02-03 09:02:12.896:   [Telnet] MMMM          M                    MMMMMMM        M       M
+2023-02-03 09:02:12.896:   [Telnet] M
+2023-02-03 09:02:12.896:   [Telnet] ---------------------------------------------------------------
+2023-02-03 09:02:12.896:   [Telnet] For those about to rock... (Chaos Calmer, unknown)
+2023-02-03 09:02:12.896:   [Telnet] ---------------------------------------------------------------
+2023-02-03 09:02:12.896:   [Telnet] root@eero-test:/#
+2023-02-03 09:02:13.001:   [Telnet] root@eero-test:/#
+2023-02-03 09:02:13.001:   [Telnet] Send command: cat /sys/devices/virtual/thermal/thermal_zone1/temp
+2023-02-03 09:02:13.110:   [Telnet] cat /sys/devices/virtual/thermal/thermal_zone1/temp
+2023-02-03 09:02:13.111:   [Telnet] 43
+2023-02-03 09:02:13.112:   [CONFIG] Start key: "null"
+2023-02-03 09:02:13.112:   [CONFIG] End key: "null"
+2023-02-03 09:02:13.112:   [CONFIG] Regex: "^[0-9]+$"
+2023-02-03 09:02:13.113:   [PC] Value: "43"
+2023-02-03 09:02:13.114:   ****************************************************
+2023-02-03 09:02:13.115:   Item name = temp_cpu_0
+2023-02-03 09:02:13.115:   Value = 43
+2023-02-03 09:02:13.116:   Test status = passed
+2023-02-03 09:02:13.116:   -----------------------------------------------------
+2023-02-03 09:02:13.117:   ****************************************************
+2023-02-03 09:02:13.118:   TIME[0.393 s] - STATUS[PASSED]
+//////////////////////////////////////////////////////////////
+//////////////////////////- ID[8] -//////////////////////////
+2023-02-03 09:02:13.130:   ITEM[dut_ping_1] - FUNCTION[DutPingProxy]
+2023-02-03 09:02:13.132:   Turn: 1
+2023-02-03 09:02:13.133:   Get IP from the function config with key is "IP".
+2023-02-03 09:02:13.133:   IP: 192.168.1.1
+2023-02-03 09:02:13.134:   [Cmd] ------------------------------------ 1
+2023-02-03 09:02:13.134:   [Cmd] Send command: arp -d 192.168.1.1
+2023-02-03 09:02:13.190:   [Cmd] 
+2023-02-03 09:02:13.191:   [Cmd] Send command: ping 192.168.1.1 -n 1
+2023-02-03 09:02:13.220:   [Cmd] Pinging 192.168.1.1 with 32 bytes of data:
+2023-02-03 09:02:13.220:   [Cmd] Reply from 192.168.1.1: bytes=32 time=1ms TTL=64
+2023-02-03 09:02:13.220:   [Cmd] 
+2023-02-03 09:02:13.221:   [Cmd] Ping statistics for 192.168.1.1:
+2023-02-03 09:02:13.221:   [Cmd] Packets: Sent = 1, Received = 1, Lost = 0 (0% loss),
+2023-02-03 09:02:13.221:   [Cmd] Approximate round trip times in milli-seconds:
+2023-02-03 09:02:13.221:   [Cmd] Minimum = 1ms, Maximum = 1ms, Average = 1ms
+2023-02-03 09:02:13.221:   [Cmd] ------------------------------------
+2023-02-03 09:02:13.221:   ****************************************************
+2023-02-03 09:02:13.222:   Item name = dut_ping_1
+2023-02-03 09:02:13.222:   Value = passed
+2023-02-03 09:02:13.222:   Test status = passed
+2023-02-03 09:02:13.222:   -----------------------------------------------------
+2023-02-03 09:02:13.222:   ****************************************************
+2023-02-03 09:02:13.222:   TIME[0.091 s] - STATUS[PASSED]
+//////////////////////////////////////////////////////////////
+//////////////////////////- ID[9] -//////////////////////////
+2023-02-03 09:02:13.223:   ITEM[ram_stress] - FUNCTION[TelnetReadUntilKeyProxy]
+2023-02-03 09:02:13.223:   Turn: 1
+2023-02-03 09:02:13.224:   Get IP from the function config with key is "IP".
+2023-02-03 09:02:13.224:   IP: 192.168.1.1
+2023-02-03 09:02:13.224:   [PC] Connect to host: 192.168.1.1
+2023-02-03 09:02:13.224:   [PC] Port is: 23
+2023-02-03 09:02:13.224:   [Cmd] ------------------------------------ 1
+2023-02-03 09:02:13.224:   [Cmd] Send command: arp -d 192.168.1.1
+2023-02-03 09:02:13.255:   [Cmd] 
+2023-02-03 09:02:13.255:   [Cmd] Send command: ping 192.168.1.1 -n 1
+2023-02-03 09:02:13.285:   [Cmd] Pinging 192.168.1.1 with 32 bytes of data:
+2023-02-03 09:02:13.285:   [Cmd] Reply from 192.168.1.1: bytes=32 time=1ms TTL=64
+2023-02-03 09:02:13.285:   [Cmd] 
+2023-02-03 09:02:13.285:   [Cmd] Ping statistics for 192.168.1.1:
+2023-02-03 09:02:13.285:   [Cmd] Packets: Sent = 1, Received = 1, Lost = 0 (0% loss),
+2023-02-03 09:02:13.286:   [Cmd] Approximate round trip times in milli-seconds:
+2023-02-03 09:02:13.286:   [Cmd] Minimum = 1ms, Maximum = 1ms, Average = 1ms
+2023-02-03 09:02:13.286:   [Cmd] ------------------------------------
+2023-02-03 09:02:13.392:   [Telnet] === IMPORTANT ============================
+2023-02-03 09:02:13.392:   [Telnet] Use 'passwd' to set your login password!
+2023-02-03 09:02:13.392:   [Telnet] ------------------------------------------
+2023-02-03 09:02:13.393:   [Telnet] 
+2023-02-03 09:02:13.393:   [Telnet] 
+2023-02-03 09:02:13.393:   [Telnet] BusyBox v1.30.1 () built-in shell (ash)
+2023-02-03 09:02:13.393:   [Telnet] 
+2023-02-03 09:02:13.393:   [Telnet] MM           NM                    MMMMMMM          M       M
+2023-02-03 09:02:13.393:   [Telnet] $MMMMM        MMMMM                MMMMMMMMMMM      MMM     MMM
+2023-02-03 09:02:13.393:   [Telnet] MMMMMMMM     MM MMMMM.              MMMMM:MMMMMM:   MMMM   MMMMM
+2023-02-03 09:02:13.393:   [Telnet] MMMM= MMMMMM  MMM   MMMM       MMMMM   MMMM  MMMMMM   MMMM  MMMMM'
+2023-02-03 09:02:13.393:   [Telnet] MMMM=  MMMMM MMMM    MM       MMMMM    MMMM    MMMM   MMMMNMMMMM
+2023-02-03 09:02:13.393:   [Telnet] MMMM=   MMMM  MMMMM          MMMMM     MMMM    MMMM   MMMMMMMM
+2023-02-03 09:02:13.394:   [Telnet] MMMM=   MMMM   MMMMMM       MMMMM      MMMM    MMMM   MMMMMMMMM
+2023-02-03 09:02:13.394:   [Telnet] MMMM=   MMMM     MMMMM,    NMMMMMMMM   MMMM    MMMM   MMMMMMMMMMM
+2023-02-03 09:02:13.394:   [Telnet] MMMM=   MMMM      MMMMMM   MMMMMMMM    MMMM    MMMM   MMMM  MMMMMM
+2023-02-03 09:02:13.394:   [Telnet] MMMM=   MMMM   MM    MMMM    MMMM      MMMM    MMMM   MMMM    MMMM
+2023-02-03 09:02:13.394:   [Telnet] MMMM$ ,MMMMM  MMMMM  MMMM    MMM       MMMM   MMMMM   MMMM    MMMM
+2023-02-03 09:02:13.394:   [Telnet] MMMMMMM:      MMMMMMM     M         MMMMMMMMMMMM  MMMMMMM MMMMMMM
+2023-02-03 09:02:13.394:   [Telnet] MMMMMM       MMMMN     M           MMMMMMMMM      MMMM    MMMM
+2023-02-03 09:02:13.394:   [Telnet] MMMM          M                    MMMMMMM        M       M
+2023-02-03 09:02:13.394:   [Telnet] M
+2023-02-03 09:02:13.394:   [Telnet] ---------------------------------------------------------------
+2023-02-03 09:02:13.394:   [Telnet] For those about to rock... (Chaos Calmer, unknown)
+2023-02-03 09:02:13.394:   [Telnet] ---------------------------------------------------------------
+2023-02-03 09:02:13.395:   [Telnet] root@eero-test:/#
+2023-02-03 09:02:13.502:   [Telnet] root@eero-test:/#
+2023-02-03 09:02:13.503:   [Config] Waiting for about1200 s
+2023-02-03 09:02:13.503:   [Telnet] Send command: stressapptest -s 600 -M 300 -m 5 -C 5 -W -l test_ddr_01.log
+2023-02-03 09:02:13.507:   [Telnet] stressapptest -s 600 -M 300 -m 5 -C 5 -W -l test_ddr_01.log
+2023-02-03 09:02:13.686:   [Telnet] 2022/06/16-02:31:20(UTC) Log: Commandline - stressapptest -s 600 -M 300 -m 5 -C 5 -W -l test_ddr_01.log
+2023-02-03 09:02:13.738:   [Telnet] 2022/06/16-02:31:20(UTC) Stats: SAT revision 1.0.7_autoconf, 32 bit binary
+2023-02-03 09:02:13.738:   [Telnet] 2022/06/16-02:31:20(UTC) Log: adrian @ ubuntu-16-RD on Wed May  4 10:45:26 CST 2022 from open source release
+2023-02-03 09:02:13.738:   [Telnet] 2022/06/16-02:31:20(UTC) Log: 1 nodes, 2 cpus.
+2023-02-03 09:02:13.738:   [Telnet] 2022/06/16-02:31:20(UTC) Log: Flooring memory allocation to multiple of 4: 300MB
+2023-02-03 09:02:13.738:   [Telnet] 2022/06/16-02:31:20(UTC) Log: Prefer plain malloc memory allocation.
+2023-02-03 09:02:13.738:   [Telnet] 2022/06/16-02:31:20(UTC) Log: Using mmap() allocation at 0x6424a000.
+2023-02-03 09:02:13.739:   [Telnet] 2022/06/16-02:31:20(UTC) Stats: Starting SAT, 300M, 600 seconds
+2023-02-03 09:02:14.158:   [Telnet] 2022/06/16-02:31:21(UTC) Log: Region mask: 0x1
+2023-02-03 09:02:24.160:   [Telnet] 2022/06/16-02:31:31(UTC) Log: Seconds remaining: 590
+2023-02-03 09:02:34.160:   [Telnet] 2022/06/16-02:31:41(UTC) Log: Seconds remaining: 580
+2023-02-03 09:02:44.161:   [Telnet] 2022/06/16-02:31:51(UTC) Log: Seconds remaining: 570
+2023-02-03 09:02:54.161:   [Telnet] 2022/06/16-02:32:01(UTC) Log: Seconds remaining: 560
+2023-02-03 09:03:04.161:   [Telnet] 2022/06/16-02:32:11(UTC) Log: Seconds remaining: 550
+2023-02-03 09:03:14.162:   [Telnet] 2022/06/16-02:32:21(UTC) Log: Seconds remaining: 540
+2023-02-03 09:03:24.162:   [Telnet] 2022/06/16-02:32:31(UTC) Log: Seconds remaining: 530
+2023-02-03 09:03:34.162:   [Telnet] 2022/06/16-02:32:41(UTC) Log: Seconds remaining: 520
+2023-02-03 09:03:44.162:   [Telnet] 2022/06/16-02:32:51(UTC) Log: Seconds remaining: 510
+2023-02-03 09:03:54.162:   [Telnet] 2022/06/16-02:33:01(UTC) Log: Seconds remaining: 500
+2023-02-03 09:04:04.163:   [Telnet] 2022/06/16-02:33:11(UTC) Log: Seconds remaining: 490
+2023-02-03 09:04:14.164:   [Telnet] 2022/06/16-02:33:21(UTC) Log: Seconds remaining: 480
+2023-02-03 09:04:24.163:   [Telnet] 2022/06/16-02:33:31(UTC) Log: Seconds remaining: 470
+2023-02-03 09:04:34.164:   [Telnet] 2022/06/16-02:33:41(UTC) Log: Seconds remaining: 460
+2023-02-03 09:04:44.164:   [Telnet] 2022/06/16-02:33:51(UTC) Log: Seconds remaining: 450
+2023-02-03 09:04:54.164:   [Telnet] 2022/06/16-02:34:01(UTC) Log: Seconds remaining: 440
+2023-02-03 09:05:04.165:   [Telnet] 2022/06/16-02:34:11(UTC) Log: Seconds remaining: 430
+2023-02-03 09:05:14.165:   [Telnet] 2022/06/16-02:34:21(UTC) Log: Seconds remaining: 420
+2023-02-03 09:05:24.165:   [Telnet] 2022/06/16-02:34:31(UTC) Log: Seconds remaining: 410
+2023-02-03 09:05:34.166:   [Telnet] 2022/06/16-02:34:41(UTC) Log: Seconds remaining: 400
+2023-02-03 09:05:44.166:   [Telnet] 2022/06/16-02:34:51(UTC) Log: Seconds remaining: 390
+2023-02-03 09:05:54.167:   [Telnet] 2022/06/16-02:35:01(UTC) Log: Seconds remaining: 380
+2023-02-03 09:06:04.167:   [Telnet] 2022/06/16-02:35:11(UTC) Log: Seconds remaining: 370
+2023-02-03 09:06:14.183:   [Telnet] 2022/06/16-02:35:21(UTC) Log: Seconds remaining: 360
+2023-02-03 09:06:24.167:   [Telnet] 2022/06/16-02:35:31(UTC) Log: Seconds remaining: 350
+2023-02-03 09:06:34.168:   [Telnet] 2022/06/16-02:35:41(UTC) Log: Seconds remaining: 340
+2023-02-03 09:06:44.169:   [Telnet] 2022/06/16-02:35:51(UTC) Log: Seconds remaining: 330
+2023-02-03 09:06:54.169:   [Telnet] 2022/06/16-02:36:01(UTC) Log: Seconds remaining: 320
+2023-02-03 09:07:04.170:   [Telnet] 2022/06/16-02:36:11(UTC) Log: Seconds remaining: 310
+2023-02-03 09:07:14.170:   [Telnet] 2022/06/16-02:36:21(UTC) Log: Seconds remaining: 300
+2023-02-03 09:07:24.170:   [Telnet] 2022/06/16-02:36:31(UTC) Log: Seconds remaining: 290
+2023-02-03 09:07:34.170:   [Telnet] 2022/06/16-02:36:41(UTC) Log: Seconds remaining: 280
+2023-02-03 09:07:44.170:   [Telnet] 2022/06/16-02:36:51(UTC) Log: Seconds remaining: 270
+2023-02-03 09:07:54.170:   [Telnet] 2022/06/16-02:37:01(UTC) Log: Seconds remaining: 260
+2023-02-03 09:08:04.172:   [Telnet] 2022/06/16-02:37:11(UTC) Log: Seconds remaining: 250
+2023-02-03 09:08:14.172:   [Telnet] 2022/06/16-02:37:21(UTC) Log: Seconds remaining: 240
+2023-02-03 09:08:24.171:   [Telnet] 2022/06/16-02:37:31(UTC) Log: Seconds remaining: 230
+2023-02-03 09:08:34.172:   [Telnet] 2022/06/16-02:37:41(UTC) Log: Seconds remaining: 220
+2023-02-03 09:08:44.172:   [Telnet] 2022/06/16-02:37:51(UTC) Log: Seconds remaining: 210
+2023-02-03 09:08:54.172:   [Telnet] 2022/06/16-02:38:01(UTC) Log: Seconds remaining: 200
+2023-02-03 09:09:04.173:   [Telnet] 2022/06/16-02:38:11(UTC) Log: Seconds remaining: 190
+2023-02-03 09:09:14.174:   [Telnet] 2022/06/16-02:38:21(UTC) Log: Seconds remaining: 180
+2023-02-03 09:09:24.173:   [Telnet] 2022/06/16-02:38:31(UTC) Log: Seconds remaining: 170
+2023-02-03 09:09:34.174:   [Telnet] 2022/06/16-02:38:41(UTC) Log: Seconds remaining: 160
+2023-02-03 09:09:44.174:   [Telnet] 2022/06/16-02:38:51(UTC) Log: Seconds remaining: 150
+2023-02-03 09:09:54.174:   [Telnet] 2022/06/16-02:39:01(UTC) Log: Seconds remaining: 140
+2023-02-03 09:10:04.175:   [Telnet] 2022/06/16-02:39:11(UTC) Log: Seconds remaining: 130
+2023-02-03 09:10:14.175:   [Telnet] 2022/06/16-02:39:21(UTC) Log: Seconds remaining: 120
+2023-02-03 09:10:24.176:   [Telnet] 2022/06/16-02:39:31(UTC) Log: Seconds remaining: 110
+2023-02-03 09:10:34.176:   [Telnet] 2022/06/16-02:39:41(UTC) Log: Seconds remaining: 100
+2023-02-03 09:10:44.176:   [Telnet] 2022/06/16-02:39:51(UTC) Log: Seconds remaining: 90
+2023-02-03 09:10:54.177:   [Telnet] 2022/06/16-02:40:01(UTC) Log: Seconds remaining: 80
+2023-02-03 09:11:04.176:   [Telnet] 2022/06/16-02:40:11(UTC) Log: Seconds remaining: 70
+2023-02-03 09:11:14.177:   [Telnet] 2022/06/16-02:40:21(UTC) Log: Seconds remaining: 60
+2023-02-03 09:11:24.178:   [Telnet] 2022/06/16-02:40:31(UTC) Log: Seconds remaining: 50
+2023-02-03 09:11:34.178:   [Telnet] 2022/06/16-02:40:41(UTC) Log: Seconds remaining: 40
+2023-02-03 09:11:44.179:   [Telnet] 2022/06/16-02:40:51(UTC) Log: Seconds remaining: 30
+2023-02-03 09:11:54.179:   [Telnet] 2022/06/16-02:41:01(UTC) Log: Seconds remaining: 20
+2023-02-03 09:12:04.181:   [Telnet] 2022/06/16-02:41:11(UTC) Log: Seconds remaining: 10
+2023-02-03 09:14:11.149:   [Telnet] 2022/06/16-02:43:18(UTC) Stats: Found 0 hardware incidents
+2023-02-03 09:14:11.204:   [Telnet] 2022/06/16-02:43:18(UTC) Stats: Completed: 102106.00M in 716.81s 142.44MB/s, with 0 hardware incidents, 0 errors
+2023-02-03 09:14:11.204:   [Telnet] 2022/06/16-02:43:18(UTC) Stats: Memory Copy: 102106.00M at 170.17MB/s
+2023-02-03 09:14:11.205:   [Telnet] 2022/06/16-02:43:18(UTC) Stats: File Copy: 0.00M at 0.00MB/s
+2023-02-03 09:14:11.205:   [Telnet] 2022/06/16-02:43:18(UTC) Stats: Net Copy: 0.00M at 0.00MB/s
+2023-02-03 09:14:11.206:   [Telnet] 2022/06/16-02:43:18(UTC) Stats: Data Check: 0.00M at 0.00MB/s
+2023-02-03 09:14:11.206:   [Telnet] 2022/06/16-02:43:18(UTC) Stats: Invert Data: 0.00M at 0.00MB/s
+2023-02-03 09:14:11.207:   [Telnet] 2022/06/16-02:43:18(UTC) Stats: Disk: 0.00M at 0.00MB/s
+2023-02-03 09:14:11.207:   [Telnet] 2022/06/16-02:43:18(UTC)
+2023-02-03 09:14:11.207:   [Telnet] 2022/06/16-02:43:18(UTC) Status: PASS - please verify no corrected errors
+2023-02-03 09:14:11.208:   [CONFIG] Spec: "Status: PASS - please verify no corrected errors"
+2023-02-03 09:14:11.208:   [Config] Waiting for about1200 s
+2023-02-03 09:14:11.209:   [Telnet] Send command: stressapptest -s 600 --cc_test -M 300 -v 20 --cc_line_size 8192 --stop_on_errors -l test_ddr_02.log
+2023-02-03 09:14:11.211:   [Telnet] stressapptest -s 600 --cc_test -M 300 -v 20 --cc_line_size 8192 --stop_on_errors -l test_ddr_02.log
+2023-02-03 09:14:11.265:   [Telnet] 2022/06/16-02:43:18(UTC)
+2023-02-03 09:14:11.311:   [Telnet] root@eero-test:/# stressapptest -s 600 --cc_test -M 300 -v 20 --cc_line_size 819
+2023-02-03 09:14:11.311:   [Telnet] 
+2023-02-03 09:14:11.311:   [Telnet] 2 --stop_on_errors -l test_ddr_02.log
+2023-02-03 09:14:11.359:   [Telnet] 2022/06/16-02:43:18(UTC) Log: Commandline - stressapptest -s 600 --cc_test -M 300 -v 20 --cc_line_size 8192 --stop_on_errors -l test_ddr_02.log
+2023-02-03 09:14:11.359:   [Telnet] 2022/06/16-02:43:18(UTC) Stats: SAT revision 1.0.7_autoconf, 32 bit binary
+2023-02-03 09:14:11.360:   [Telnet] 2022/06/16-02:43:18(UTC) Log: adrian @ ubuntu-16-RD on Wed May  4 10:45:26 CST 2022 from open source release
+2023-02-03 09:14:11.360:   [Telnet] 2022/06/16-02:43:18(UTC) Log: 1 nodes, 2 cpus.
+2023-02-03 09:14:11.361:   [Telnet] 2022/06/16-02:43:18(UTC) Log: Defaulting to 2 copy threads
+2023-02-03 09:14:11.361:   [Telnet] 2022/06/16-02:43:18(UTC) Log: Flooring memory allocation to multiple of 4: 300MB
+2023-02-03 09:14:11.362:   [Telnet] 2022/06/16-02:43:18(UTC) Log: /proc/sys/vm/nr_hugepages read did not provide data
+2023-02-03 09:14:11.405:   [Telnet] 2022/06/16-02:43:18(UTC) Log: Prefer plain malloc memory allocation.
+2023-02-03 09:14:11.405:   [Telnet] 2022/06/16-02:43:18(UTC) Log: Using mmap() allocation at 0x641af000.
+2023-02-03 09:14:11.405:   [Telnet] 2022/06/16-02:43:18(UTC) Stats: Starting SAT, 300M, 600 seconds
+2023-02-03 09:14:11.405:   [Telnet] 2022/06/16-02:43:18(UTC) Log: initialized 120 data patterns
+2023-02-03 09:14:11.406:   [Telnet] 2022/06/16-02:43:18(UTC) Log: Allocating pages, Total: 300 Free: 120
+2023-02-03 09:14:11.406:   [Telnet] 2022/06/16-02:43:18(UTC) Starting Fill threads: 8 threads, 0 pages
+2023-02-03 09:14:11.406:   [Telnet] 2022/06/16-02:43:18(UTC) Starting Fill Threads 0: 0 pages
+2023-02-03 09:14:11.406:   [Telnet] 2022/06/16-02:43:18(UTC) Starting Fill Threads 1: 0 pages
+2023-02-03 09:14:11.406:   [Telnet] 2022/06/16-02:43:18(UTC) Starting Fill Threads 2: 0 pages
+2023-02-03 09:14:11.451:   [Telnet] 2022/06/16-02:43:18(UTC) Starting Fill Threads 3: 0 pages
+2023-02-03 09:14:11.452:   [Telnet] 2022/06/16-02:43:18(UTC) Starting Fill Threads 4: 0 pages
+2023-02-03 09:14:11.452:   [Telnet] 2022/06/16-02:43:18(UTC) Starting Fill Threads 5: 0 pages
+2023-02-03 09:14:11.453:   [Telnet] 2022/06/16-02:43:18(UTC) Starting Fill Threads 6: 0 pages
+2023-02-03 09:14:11.453:   [Telnet] 2022/06/16-02:43:18(UTC) Starting Fill Threads 7: 0 pages
+2023-02-03 09:14:11.454:   [Telnet] 2022/06/16-02:43:18(UTC) Log: Thread 0 running on core ID 1 mask 3 (3).
+2023-02-03 09:14:11.454:   [Telnet] 2022/06/16-02:43:18(UTC) Log: Starting fill thread 0
+2023-02-03 09:14:11.454:   [Telnet] 2022/06/16-02:43:18(UTC) Log: Thread 1 running on core ID 1 mask 3 (3).
+2023-02-03 09:14:11.455:   [Telnet] 2022/06/16-02:43:18(UTC) Log: Thread 3 running on core ID 0 mask 3 (3).
+2023-02-03 09:14:11.498:   [Telnet] 2022/06/16-02:43:18(UTC) Log: Starting fill thread 3
+2023-02-03 09:14:11.498:   [Telnet] 2022/06/16-02:43:18(UTC) Log: Starting fill thread 1
+2023-02-03 09:14:11.498:   [Telnet] 2022/06/16-02:43:18(UTC) Log: Thread 7 running on core ID 1 mask 3 (3).
+2023-02-03 09:14:11.499:   [Telnet] 2022/06/16-02:43:18(UTC) Log: Starting fill thread 7
+2023-02-03 09:14:11.499:   [Telnet] 2022/06/16-02:43:18(UTC) Log: Thread 6 running on core ID 1 mask 3 (3).
+2023-02-03 09:14:11.500:   [Telnet] 2022/06/16-02:43:18(UTC) Log: Starting fill thread 6
+2023-02-03 09:14:11.500:   [Telnet] 2022/06/16-02:43:18(UTC) Log: Thread 5 running on core ID 1 mask 3 (3).
+2023-02-03 09:14:11.500:   [Telnet] 2022/06/16-02:43:18(UTC) Log: Starting fill thread 5
+2023-02-03 09:14:11.501:   [Telnet] 2022/06/16-02:43:18(UTC) Log: Thread 4 running on core ID 1 mask 3 (3).
+2023-02-03 09:14:11.545:   [Telnet] 2022/06/16-02:43:18(UTC) Log: Starting fill thread 4
+2023-02-03 09:14:11.546:   [Telnet] 2022/06/16-02:43:18(UTC) Log: Thread 2 running on core ID 0 mask 3 (3).
+2023-02-03 09:14:11.546:   [Telnet] 2022/06/16-02:43:18(UTC) Log: Starting fill thread 2
+2023-02-03 09:14:11.590:   [Telnet] 2022/06/16-02:43:18(UTC) Log: Completed 3: Fill thread. Status 1, 37 pages filled
+2023-02-03 09:14:11.815:   [Telnet] 2022/06/16-02:43:18(UTC) Log: Completed 0: Fill thread. Status 1, 37 pages filled
+2023-02-03 09:14:11.869:   [Telnet] 2022/06/16-02:43:18(UTC) Log: Completed 2: Fill thread. Status 1, 37 pages filled
+2023-02-03 09:14:11.870:   [Telnet] 2022/06/16-02:43:18(UTC) Log: Completed 1: Fill thread. Status 1, 37 pages filled
+2023-02-03 09:14:11.870:   [Telnet] 2022/06/16-02:43:18(UTC) Log: Completed 7: Fill thread. Status 1, 41 pages filled
+2023-02-03 09:14:11.871:   [Telnet] 2022/06/16-02:43:18(UTC) Log: Completed 6: Fill thread. Status 1, 37 pages filled
+2023-02-03 09:14:11.871:   [Telnet] 2022/06/16-02:43:18(UTC) Log: Completed 4: Fill thread. Status 1, 37 pages filled
+2023-02-03 09:14:11.871:   [Telnet] 2022/06/16-02:43:18(UTC) Log: Completed 5: Fill thread. Status 1, 37 pages filled
+2023-02-03 09:14:11.872:   [Telnet] 2022/06/16-02:43:18(UTC) Log: Done filling pages.
+2023-02-03 09:14:11.872:   [Telnet] 2022/06/16-02:43:18(UTC) Log: Allocating pages.
+2023-02-03 09:14:11.915:   [Telnet] 2022/06/16-02:43:18(UTC) Log: Done allocating pages.
+2023-02-03 09:14:11.916:   [Telnet] 2022/06/16-02:43:18(UTC) Log: Region 0: 300.
+2023-02-03 09:14:11.916:   [Telnet] 2022/06/16-02:43:18(UTC) Log: Region mask: 0x1
+2023-02-03 09:14:11.916:   [Telnet] 2022/06/16-02:43:18(UTC) Log: Installing signal handlers
+2023-02-03 09:14:11.917:   [Telnet] 2022/06/16-02:43:18(UTC) Log: Launching worker threads
+2023-02-03 09:14:11.917:   [Telnet] 2022/06/16-02:43:18(UTC) Log: Starting worker threads
+2023-02-03 09:14:11.961:   [Telnet] 2022/06/16-02:43:18(UTC) Log: Starting invert threads
+2023-02-03 09:14:11.962:   [Telnet] 2022/06/16-02:43:18(UTC) Log: Starting disk stress threads
+2023-02-03 09:14:11.962:   [Telnet] 2022/06/16-02:43:18(UTC) Log: Starting cpu stress threads
+2023-02-03 09:14:11.963:   [Telnet] 2022/06/16-02:43:18(UTC) Log: Starting cpu cache coherency threads
+2023-02-03 09:14:11.963:   [Telnet] 2022/06/16-02:43:18(UTC) Log: Initializing WorkerStatus objects
+2023-02-03 09:14:11.963:   [Telnet] 2022/06/16-02:43:18(UTC) Log: Spawning worker threads
+2023-02-03 09:14:11.964:   [Telnet] 2022/06/16-02:43:18(UTC) Log: Spawning thread 1
+2023-02-03 09:14:11.964:   [Telnet] 2022/06/16-02:43:18(UTC) Log: available CPU mask - 3
+2023-02-03 09:14:12.008:   [Telnet] 2022/06/16-02:43:18(UTC) Log: Thread 1 running on core ID 0 mask 1 (1).
+2023-02-03 09:14:12.009:   [Telnet] 2022/06/16-02:43:18(UTC) Log: Starting copy thread 1: cpu 1, mem ffffffff
+2023-02-03 09:14:12.009:   [Telnet] 2022/06/16-02:43:18(UTC) Log: Spawning thread 2
+2023-02-03 09:14:12.010:   [Telnet] 2022/06/16-02:43:18(UTC) Log: Spawning thread 0
+2023-02-03 09:14:12.010:   [Telnet] 2022/06/16-02:43:18(UTC) Log: Spawning thread 3
+2023-02-03 09:14:12.010:   [Telnet] 2022/06/16-02:43:18(UTC) Log: Spawning thread 4
+2023-02-03 09:14:12.011:   [Telnet] 2022/06/16-02:43:18(UTC) Log: Starting countdown with 600 seconds
+2023-02-03 09:14:12.011:   [Telnet] 2022/06/16-02:43:18(UTC) Log: available CPU mask - 3
+2023-02-03 09:14:12.012:   [Telnet] 2022/06/16-02:43:18(UTC) Log: Thread 2 running on core ID 1 mask 2 (2).
+2023-02-03 09:14:12.054:   [Telnet] 2022/06/16-02:43:18(UTC) Log: Starting copy thread 2: cpu 2, mem ffffffff
+2023-02-03 09:14:12.055:   [Telnet] 2022/06/16-02:43:18(UTC) Log: Thread 0 running on core ID 0 mask 3 (3).
+2023-02-03 09:14:12.055:   [Telnet] 2022/06/16-02:43:18(UTC) Log: Starting system error poll thread 0
+2023-02-03 09:14:12.056:   [Telnet] 2022/06/16-02:43:18(UTC) Log: available CPU mask - 3
+2023-02-03 09:14:12.056:   [Telnet] 2022/06/16-02:43:18(UTC) Log: Thread 3 running on core ID 0 mask 1 (1).
+2023-02-03 09:14:12.057:   [Telnet] 2022/06/16-02:43:18(UTC) Log: Starting the Cache Coherency thread 0
+2023-02-03 09:14:12.057:   [Telnet] 2022/06/16-02:43:18(UTC) Log: available CPU mask - 3
+2023-02-03 09:14:12.057:   [Telnet] 2022/06/16-02:43:18(UTC) Log: Thread 4 running on core ID 1 mask 2 (2).
+2023-02-03 09:14:12.101:   [Telnet] 2022/06/16-02:43:18(UTC) Log: Starting the Cache Coherency thread 1
+2023-02-03 09:14:21.841:   [Telnet] 2022/06/16-02:43:28(UTC) Log: Seconds remaining: 590
+2023-02-03 09:14:31.841:   [Telnet] 2022/06/16-02:43:38(UTC) Log: Seconds remaining: 580
+2023-02-03 09:14:41.842:   [Telnet] 2022/06/16-02:43:48(UTC) Log: Seconds remaining: 570
+2023-02-03 09:14:51.842:   [Telnet] 2022/06/16-02:43:58(UTC) Log: Seconds remaining: 560
+2023-02-03 09:15:01.843:   [Telnet] 2022/06/16-02:44:08(UTC) Log: Seconds remaining: 550
+2023-02-03 09:15:11.844:   [Telnet] 2022/06/16-02:44:18(UTC) Log: Seconds remaining: 540
+2023-02-03 09:15:21.845:   [Telnet] 2022/06/16-02:44:28(UTC) Log: Seconds remaining: 530
+2023-02-03 09:15:31.845:   [Telnet] 2022/06/16-02:44:38(UTC) Log: Seconds remaining: 520
+2023-02-03 09:15:41.846:   [Telnet] 2022/06/16-02:44:48(UTC) Log: Seconds remaining: 510
+2023-02-03 09:15:51.846:   [Telnet] 2022/06/16-02:44:58(UTC) Log: Seconds remaining: 500
+2023-02-03 09:16:01.847:   [Telnet] 2022/06/16-02:45:08(UTC) Log: Seconds remaining: 490
+2023-02-03 09:16:11.847:   [Telnet] 2022/06/16-02:45:18(UTC) Log: Seconds remaining: 480
+2023-02-03 09:16:21.848:   [Telnet] 2022/06/16-02:45:28(UTC) Log: Seconds remaining: 470
+2023-02-03 09:16:31.848:   [Telnet] 2022/06/16-02:45:38(UTC) Log: Seconds remaining: 460
+2023-02-03 09:16:41.849:   [Telnet] 2022/06/16-02:45:48(UTC) Log: Seconds remaining: 450
+2023-02-03 09:16:51.849:   [Telnet] 2022/06/16-02:45:58(UTC) Log: Seconds remaining: 440
+2023-02-03 09:17:01.864:   [Telnet] 2022/06/16-02:46:08(UTC) Log: Seconds remaining: 430
+2023-02-03 09:17:11.850:   [Telnet] 2022/06/16-02:46:18(UTC) Log: Seconds remaining: 420
+2023-02-03 09:17:21.850:   [Telnet] 2022/06/16-02:46:28(UTC) Log: Seconds remaining: 410
+2023-02-03 09:17:31.850:   [Telnet] 2022/06/16-02:46:38(UTC) Log: Seconds remaining: 400
+2023-02-03 09:17:41.853:   [Telnet] 2022/06/16-02:46:48(UTC) Log: Seconds remaining: 390
+2023-02-03 09:17:51.853:   [Telnet] 2022/06/16-02:46:58(UTC) Log: Seconds remaining: 380
+2023-02-03 09:18:01.854:   [Telnet] 2022/06/16-02:47:08(UTC) Log: Seconds remaining: 370
+2023-02-03 09:18:11.855:   [Telnet] 2022/06/16-02:47:18(UTC) Log: Seconds remaining: 360
+2023-02-03 09:18:21.855:   [Telnet] 2022/06/16-02:47:28(UTC) Log: Seconds remaining: 350
+2023-02-03 09:18:31.856:   [Telnet] 2022/06/16-02:47:38(UTC) Log: Seconds remaining: 340
+2023-02-03 09:18:41.857:   [Telnet] 2022/06/16-02:47:48(UTC) Log: Seconds remaining: 330
+2023-02-03 09:18:51.856:   [Telnet] 2022/06/16-02:47:58(UTC) Log: Seconds remaining: 320
+2023-02-03 09:19:01.857:   [Telnet] 2022/06/16-02:48:08(UTC) Log: Seconds remaining: 310
+2023-02-03 09:19:11.857:   [Telnet] 2022/06/16-02:48:18(UTC) Log: Seconds remaining: 300
+2023-02-03 09:19:21.859:   [Telnet] 2022/06/16-02:48:28(UTC) Log: Seconds remaining: 290
+2023-02-03 09:19:31.859:   [Telnet] 2022/06/16-02:48:38(UTC) Log: Seconds remaining: 280
+2023-02-03 09:19:41.861:   [Telnet] 2022/06/16-02:48:48(UTC) Log: Seconds remaining: 270
+2023-02-03 09:19:51.861:   [Telnet] 2022/06/16-02:48:58(UTC) Log: Seconds remaining: 260
+2023-02-03 09:20:01.861:   [Telnet] 2022/06/16-02:49:08(UTC) Log: Seconds remaining: 250
+2023-02-03 09:20:11.862:   [Telnet] 2022/06/16-02:49:18(UTC) Log: Seconds remaining: 240
+2023-02-03 09:20:21.862:   [Telnet] 2022/06/16-02:49:28(UTC) Log: Seconds remaining: 230
+2023-02-03 09:20:31.863:   [Telnet] 2022/06/16-02:49:38(UTC) Log: Seconds remaining: 220
+2023-02-03 09:20:41.863:   [Telnet] 2022/06/16-02:49:48(UTC) Log: Seconds remaining: 210
+2023-02-03 09:20:51.864:   [Telnet] 2022/06/16-02:49:58(UTC) Log: Seconds remaining: 200
+2023-02-03 09:21:01.864:   [Telnet] 2022/06/16-02:50:08(UTC) Log: Seconds remaining: 190
+2023-02-03 09:21:11.864:   [Telnet] 2022/06/16-02:50:18(UTC) Log: Seconds remaining: 180
+2023-02-03 09:21:21.864:   [Telnet] 2022/06/16-02:50:28(UTC) Log: Seconds remaining: 170
+2023-02-03 09:21:31.865:   [Telnet] 2022/06/16-02:50:38(UTC) Log: Seconds remaining: 160
+2023-02-03 09:21:41.866:   [Telnet] 2022/06/16-02:50:48(UTC) Log: Seconds remaining: 150
+2023-02-03 09:21:51.865:   [Telnet] 2022/06/16-02:50:58(UTC) Log: Seconds remaining: 140
+2023-02-03 09:22:01.866:   [Telnet] 2022/06/16-02:51:08(UTC) Log: Seconds remaining: 130
+2023-02-03 09:22:11.866:   [Telnet] 2022/06/16-02:51:18(UTC) Log: Seconds remaining: 120
+2023-02-03 09:22:21.867:   [Telnet] 2022/06/16-02:51:28(UTC) Log: Seconds remaining: 110
+2023-02-03 09:22:31.869:   [Telnet] 2022/06/16-02:51:38(UTC) Log: Seconds remaining: 100
+2023-02-03 09:22:41.869:   [Telnet] 2022/06/16-02:51:48(UTC) Log: Seconds remaining: 90
+2023-02-03 09:22:51.868:   [Telnet] 2022/06/16-02:51:58(UTC) Log: Seconds remaining: 80
+2023-02-03 09:23:01.870:   [Telnet] 2022/06/16-02:52:08(UTC) Log: Seconds remaining: 70
+2023-02-03 09:23:11.870:   [Telnet] 2022/06/16-02:52:18(UTC) Log: Seconds remaining: 60
+2023-02-03 09:23:21.870:   [Telnet] 2022/06/16-02:52:28(UTC) Log: Seconds remaining: 50
+2023-02-03 09:23:31.870:   [Telnet] 2022/06/16-02:52:38(UTC) Log: Seconds remaining: 40
+2023-02-03 09:23:41.871:   [Telnet] 2022/06/16-02:52:48(UTC) Log: Seconds remaining: 30
+2023-02-03 09:23:51.886:   [Telnet] 2022/06/16-02:52:58(UTC) Log: Seconds remaining: 20
+2023-02-03 09:24:01.873:   [Telnet] 2022/06/16-02:53:08(UTC) Log: Seconds remaining: 10
+2023-02-03 09:24:11.872:   [Telnet] 2022/06/16-02:53:18(UTC) Log: Joining worker threads
+2023-02-03 09:24:11.925:   [Telnet] 2022/06/16-02:53:18(UTC) Log: Joining thread 1
+2023-02-03 09:24:11.926:   [Telnet] 2022/06/16-02:53:18(UTC) Log: Completed 1: Copy thread. Status 1, 137619 pages copied
+2023-02-03 09:24:11.926:   [Telnet] 2022/06/16-02:53:18(UTC) Log: Completed 2: Copy thread. Status 1, 146254 pages copied
+2023-02-03 09:24:11.927:   [Telnet] 2022/06/16-02:53:18(UTC) Log: Joining thread 2
+2023-02-03 09:24:11.927:   [Telnet] 2022/06/16-02:53:18(UTC) Log: Joining thread 0
+2023-02-03 09:24:11.928:   [Telnet] 2022/06/16-02:53:18(UTC) Stats: CC Thread(0): Time=600034867 us, Increments=363684000, Increments/sec = 606104.778241
+2023-02-03 09:24:11.928:   [Telnet] 2022/06/16-02:53:18(UTC) Log: Finished CPU Cache Coherency thread 0:
+2023-02-03 09:24:11.971:   [Telnet] 2022/06/16-02:53:18(UTC) Stats: CC Thread(1): Time=600029992 us, Increments=376988000, Increments/sec = 628281.927614
+2023-02-03 09:24:11.972:   [Telnet] 2022/06/16-02:53:18(UTC) Log: Finished CPU Cache Coherency thread 1:
+2023-02-03 09:24:11.972:   [Telnet] 2022/06/16-02:53:18(UTC) Log: Finished system error poll thread 0: 1421200028 errors
+2023-02-03 09:24:11.972:   [Telnet] 2022/06/16-02:53:18(UTC) Log: Joining thread 3
+2023-02-03 09:24:11.973:   [Telnet] 2022/06/16-02:53:18(UTC) Log: Joining thread 4
+2023-02-03 09:24:11.973:   [Telnet] 2022/06/16-02:53:18(UTC) Log:  Reads per page histogram
+2023-02-03 09:24:11.974:   [Telnet] 2022/06/16-02:53:18(UTC) Log:           512 -         1024:          300
+2023-02-03 09:24:12.018:   [Telnet] 2022/06/16-02:53:18(UTC) Log: Finished countdown, begin to result check
+2023-02-03 09:24:12.018:   [Telnet] 2022/06/16-02:53:18(UTC) Log: Finished countdown, begin to result check
+2023-02-03 09:24:12.018:   [Telnet] 2022/06/16-02:53:18(UTC) Log: Finished countdown, begin to result check
+2023-02-03 09:24:12.018:   [Telnet] 2022/06/16-02:53:18(UTC) Log: Finished countdown, begin to result check
+2023-02-03 09:24:12.018:   [Telnet] 2022/06/16-02:53:18(UTC) Log: Finished countdown, begin to result check
+2023-02-03 09:24:12.018:   [Telnet] 2022/06/16-02:53:18(UTC) Log: Finished countdown, begin to result check
+2023-02-03 09:24:12.018:   [Telnet] 2022/06/16-02:53:18(UTC) Log: Finished countdown, begin to result check
+2023-02-03 09:24:12.018:   [Telnet] 2022/06/16-02:53:18(UTC) Log: Finished countdown, begin to result check
+2023-02-03 09:24:12.018:   [Telnet] 2022/06/16-02:53:18(UTC) Log: Finished countdown, begin to result check
+2023-02-03 09:24:12.065:   [Telnet] 2022/06/16-02:53:18(UTC) Log: Spawning thread 5
+2023-02-03 09:24:12.065:   [Telnet] 2022/06/16-02:53:18(UTC) Log: Spawning thread 6
+2023-02-03 09:24:12.065:   [Telnet] 2022/06/16-02:53:18(UTC) Log: Spawning thread 7
+2023-02-03 09:24:12.066:   [Telnet] 2022/06/16-02:53:18(UTC) Log: Thread 5 running on core ID 0 mask 3 (3).
+2023-02-03 09:24:12.066:   [Telnet] 2022/06/16-02:53:18(UTC) Log: Spawning thread 8
+2023-02-03 09:24:12.066:   [Telnet] 2022/06/16-02:53:18(UTC) Log: Spawning thread 9
+2023-02-03 09:24:12.066:   [Telnet] 2022/06/16-02:53:18(UTC) Log: Thread 6 running on core ID 0 mask 3 (3).
+2023-02-03 09:24:12.066:   [Telnet] 2022/06/16-02:53:18(UTC) Log: Starting Check thread 5
+2023-02-03 09:24:12.066:   [Telnet] 2022/06/16-02:53:18(UTC) Log: Spawning thread 10
+2023-02-03 09:24:12.066:   [Telnet] 2022/06/16-02:53:18(UTC) Log: Thread 8 running on core ID 0 mask 3 (3).
+2023-02-03 09:24:12.112:   [Telnet] 2022/06/16-02:53:18(UTC) Log: Spawning thread 11
+2023-02-03 09:24:12.113:   [Telnet] 2022/06/16-02:53:18(UTC) Log: Spawning thread 12
+2023-02-03 09:24:12.113:   [Telnet] 2022/06/16-02:53:18(UTC) Log: Starting Check thread 6
+2023-02-03 09:24:12.113:   [Telnet] 2022/06/16-02:53:18(UTC) Log: Joining thread 5
+2023-02-03 09:24:12.113:   [Telnet] 2022/06/16-02:53:18(UTC) Log: Thread 7 running on core ID 1 mask 3 (3).
+2023-02-03 09:24:12.114:   [Telnet] 2022/06/16-02:53:18(UTC) Log: Starting Check thread 7
+2023-02-03 09:24:12.114:   [Telnet] 2022/06/16-02:53:18(UTC) Log: Thread 9 running on core ID 0 mask 3 (3).
+2023-02-03 09:24:12.114:   [Telnet] 2022/06/16-02:53:18(UTC) Log: Starting Check thread 9
+2023-02-03 09:24:12.114:   [Telnet] 2022/06/16-02:53:18(UTC) Log: Starting Check thread 8
+2023-02-03 09:24:12.115:   [Telnet] 2022/06/16-02:53:18(UTC) Log: Thread 10 running on core ID 1 mask 3 (3).
+2023-02-03 09:24:12.159:   [Telnet] 2022/06/16-02:53:18(UTC) Log: Starting Check thread 10
+2023-02-03 09:24:12.159:   [Telnet] 2022/06/16-02:53:18(UTC) Log: Thread 12 running on core ID 0 mask 3 (3).
+2023-02-03 09:24:12.160:   [Telnet] 2022/06/16-02:53:18(UTC) Log: Starting Check thread 12
+2023-02-03 09:24:12.160:   [Telnet] 2022/06/16-02:53:18(UTC) Log: Thread 11 running on core ID 0 mask 3 (3).
+2023-02-03 09:24:12.161:   [Telnet] 2022/06/16-02:53:18(UTC) Log: Starting Check thread 11
+2023-02-03 09:24:12.161:   [Telnet] 2022/06/16-02:53:18(UTC) Log: Completed 10: Check thread. Status 1, 34 pages checked
+2023-02-03 09:24:12.162:   [Telnet] 2022/06/16-02:53:18(UTC) Log: Completed 9: Check thread. Status 1, 35 pages checked
+2023-02-03 09:24:12.206:   [Telnet] 2022/06/16-02:53:18(UTC) Log: Completed 7: Check thread. Status 1, 38 pages checked
+2023-02-03 09:24:12.207:   [Telnet] 2022/06/16-02:53:18(UTC) Log: Completed 11: Check thread. Status 1, 11 pages checked
+2023-02-03 09:24:12.207:   [Telnet] 2022/06/16-02:53:18(UTC) Log: Completed 5: Check thread. Status 1, 17 pages checked
+2023-02-03 09:24:12.208:   [Telnet] 2022/06/16-02:53:18(UTC) Log: Completed 8: Check thread. Status 1, 16 pages checked
+2023-02-03 09:24:12.208:   [Telnet] 2022/06/16-02:53:18(UTC) Log: Joining thread 6
+2023-02-03 09:24:12.208:   [Telnet] 2022/06/16-02:53:18(UTC) Log: Completed 6: Check thread. Status 1, 17 pages checked
+2023-02-03 09:24:12.209:   [Telnet] 2022/06/16-02:53:18(UTC) Log: Joining thread 7
+2023-02-03 09:24:12.209:   [Telnet] 2022/06/16-02:53:18(UTC) Log: Joining thread 8
+2023-02-03 09:24:12.210:   [Telnet] 2022/06/16-02:53:18(UTC) Log: Joining thread 9
+2023-02-03 09:24:12.210:   [Telnet] 2022/06/16-02:53:18(UTC) Log: Joining thread 10
+2023-02-03 09:24:12.210:   [Telnet] 2022/06/16-02:53:18(UTC) Log: Joining thread 11
+2023-02-03 09:24:12.252:   [Telnet] 2022/06/16-02:53:18(UTC) Log: Joining thread 12
+2023-02-03 09:24:12.253:   [Telnet] 2022/06/16-02:53:18(UTC) Log: Completed 12: Check thread. Status 1, 12 pages checked
+2023-02-03 09:24:12.253:   [Telnet] 2022/06/16-02:53:18(UTC) Log: Join all outstanding threads
+2023-02-03 09:24:12.253:   [Telnet] 2022/06/16-02:53:18(UTC) Log: Reaping thread status 1
+2023-02-03 09:24:12.254:   [Telnet] 2022/06/16-02:53:18(UTC) Log: Thread 1 found 0 hardware incidents
+2023-02-03 09:24:12.254:   [Telnet] 2022/06/16-02:53:18(UTC) Log: Reaping thread status 2
+2023-02-03 09:24:12.255:   [Telnet] 2022/06/16-02:53:18(UTC) Log: Thread 2 found 0 hardware incidents
+2023-02-03 09:24:12.255:   [Telnet] 2022/06/16-02:53:18(UTC) Log: Reaping thread status 0
+2023-02-03 09:24:12.255:   [Telnet] 2022/06/16-02:53:18(UTC) Log: Thread 0 found 0 hardware incidents
+2023-02-03 09:24:12.256:   [Telnet] 2022/06/16-02:53:18(UTC) Log: Reaping thread status 3
+2023-02-03 09:24:12.298:   [Telnet] 2022/06/16-02:53:18(UTC) Log: Thread 3 found 0 hardware incidents
+2023-02-03 09:24:12.298:   [Telnet] 2022/06/16-02:53:18(UTC) Log: Reaping thread status 4
+2023-02-03 09:24:12.299:   [Telnet] 2022/06/16-02:53:18(UTC) Log: Thread 4 found 0 hardware incidents
+2023-02-03 09:24:12.299:   [Telnet] 2022/06/16-02:53:18(UTC) Log: Reaping thread status 5
+2023-02-03 09:24:12.300:   [Telnet] 2022/06/16-02:53:18(UTC) Log: Thread 5 found 0 hardware incidents
+2023-02-03 09:24:12.300:   [Telnet] 2022/06/16-02:53:18(UTC) Log: Reaping thread status 6
+2023-02-03 09:24:12.300:   [Telnet] 2022/06/16-02:53:18(UTC) Log: Thread 6 found 0 hardware incidents
+2023-02-03 09:24:12.301:   [Telnet] 2022/06/16-02:53:18(UTC) Log: Reaping thread status 7
+2023-02-03 09:24:12.301:   [Telnet] 2022/06/16-02:53:18(UTC) Log: Thread 7 found 0 hardware incidents
+2023-02-03 09:24:12.301:   [Telnet] 2022/06/16-02:53:18(UTC) Log: Reaping thread status 8
+2023-02-03 09:24:12.302:   [Telnet] 2022/06/16-02:53:18(UTC) Log: Thread 8 found 0 hardware incidents
+2023-02-03 09:24:12.345:   [Telnet] 2022/06/16-02:53:18(UTC) Log: Reaping thread status 9
+2023-02-03 09:24:12.345:   [Telnet] 2022/06/16-02:53:18(UTC) Log: Thread 9 found 0 hardware incidents
+2023-02-03 09:24:12.346:   [Telnet] 2022/06/16-02:53:18(UTC) Log: Reaping thread status 10
+2023-02-03 09:24:12.346:   [Telnet] 2022/06/16-02:53:18(UTC) Log: Thread 10 found 0 hardware incidents
+2023-02-03 09:24:12.347:   [Telnet] 2022/06/16-02:53:18(UTC) Log: Reaping thread status 11
+2023-02-03 09:24:12.347:   [Telnet] 2022/06/16-02:53:18(UTC) Log: Thread 11 found 0 hardware incidents
+2023-02-03 09:24:12.347:   [Telnet] 2022/06/16-02:53:18(UTC) Log: Reaping thread status 12
+2023-02-03 09:24:12.348:   [Telnet] 2022/06/16-02:53:18(UTC) Log: Thread 12 found 0 hardware incidents
+2023-02-03 09:24:12.392:   [Telnet] 2022/06/16-02:53:18(UTC) Stats: Found 0 hardware incidents
+2023-02-03 09:24:12.393:   [Telnet] 2022/06/16-02:53:18(UTC) Stats: Completed: 567746.00M in 600.08s 946.12MB/s, with 0 hardware incidents, 0 errors
+2023-02-03 09:24:12.393:   [Telnet] 2022/06/16-02:53:18(UTC) Stats: Memory Copy: 567746.00M at 946.17MB/s
+2023-02-03 09:24:12.394:   [Telnet] 2022/06/16-02:53:18(UTC) Stats: File Copy: 0.00M at 0.00MB/s
+2023-02-03 09:24:12.394:   [Telnet] 2022/06/16-02:53:18(UTC) Stats: Net Copy: 0.00M at 0.00MB/s
+2023-02-03 09:24:12.394:   [Telnet] 2022/06/16-02:53:18(UTC) Stats: Data Check: 0.00M at 0.00MB/s
+2023-02-03 09:24:12.395:   [Telnet] 2022/06/16-02:53:18(UTC) Stats: Invert Data: 0.00M at 0.00MB/s
+2023-02-03 09:24:12.438:   [Telnet] 2022/06/16-02:53:18(UTC) Stats: Disk: 0.00M at 0.00MB/s
+2023-02-03 09:24:12.439:   [Telnet] 2022/06/16-02:53:18(UTC) Log: Deleting worker threads
+2023-02-03 09:24:12.439:   [Telnet] 2022/06/16-02:53:18(UTC) Log: Deleting thread 1
+2023-02-03 09:24:12.439:   [Telnet] 2022/06/16-02:53:18(UTC) Log: Deleting thread 2
+2023-02-03 09:24:12.440:   [Telnet] 2022/06/16-02:53:18(UTC) Log: Deleting thread 0
+2023-02-03 09:24:12.440:   [Telnet] 2022/06/16-02:53:18(UTC) Log: Deleting thread 3
+2023-02-03 09:24:12.440:   [Telnet] 2022/06/16-02:53:18(UTC) Log: Deleting thread 4
+2023-02-03 09:24:12.441:   [Telnet] 2022/06/16-02:53:18(UTC) Log: Destroying WorkerStatus objects
+2023-02-03 09:24:12.485:   [Telnet] 2022/06/16-02:53:18(UTC) Log: Uninstalling signal handlers
+2023-02-03 09:24:12.485:   [Telnet] 2022/06/16-02:53:18(UTC)
+2023-02-03 09:24:12.486:   [Telnet] 2022/06/16-02:53:18(UTC) Status: PASS - please verify no corrected errors
+2023-02-03 09:24:12.486:   [CONFIG] Spec: "Status: PASS - please verify no corrected errors"
+2023-02-03 09:24:12.487:   [Config] Waiting for about1200 s
+2023-02-03 09:24:12.487:   [Telnet] Send command: stressapptest -s 600 -f /tmp/file1 -f /tmp/file2 -M 100 -l test_ddr_03.log
+2023-02-03 09:24:12.488:   [Telnet] 2022/06/16-02:53:18(UTC)
+2023-02-03 09:24:12.489:   [Telnet] stressapptest -s 600 -f /tmp/file1 -f /tmp/file2 -M 100 -l test_ddr_03.log
+2023-02-03 09:24:12.534:   [Telnet] root@eero-test:/# stressapptest -s 600 -f /tmp/file1 -f /tmp/file2 -M 100 -l tes
+2023-02-03 09:24:12.534:   [Telnet] 
+2023-02-03 09:24:12.534:   [Telnet] t_ddr_03.log
+2023-02-03 09:24:12.579:   [Telnet] 2022/06/16-02:53:19(UTC) Log: Commandline - stressapptest -s 600 -f /tmp/file1 -f /tmp/file2 -M 100 -l test_ddr_03.log
+2023-02-03 09:24:12.626:   [Telnet] 2022/06/16-02:53:19(UTC) Stats: SAT revision 1.0.7_autoconf, 32 bit binary
+2023-02-03 09:24:12.626:   [Telnet] 2022/06/16-02:53:19(UTC) Log: adrian @ ubuntu-16-RD on Wed May  4 10:45:26 CST 2022 from open source release
+2023-02-03 09:24:12.626:   [Telnet] 2022/06/16-02:53:19(UTC) Log: 1 nodes, 2 cpus.
+2023-02-03 09:24:12.626:   [Telnet] 2022/06/16-02:53:19(UTC) Log: Defaulting to 2 copy threads
+2023-02-03 09:24:12.626:   [Telnet] 2022/06/16-02:53:19(UTC) Log: Flooring memory allocation to multiple of 4: 100MB
+2023-02-03 09:24:12.673:   [Telnet] 2022/06/16-02:53:19(UTC) Log: Prefer plain malloc memory allocation.
+2023-02-03 09:24:12.673:   [Telnet] 2022/06/16-02:53:19(UTC) Log: Using mmap() allocation at 0x70a3f000.
+2023-02-03 09:24:12.674:   [Telnet] 2022/06/16-02:53:19(UTC) Stats: Starting SAT, 100M, 600 seconds
+2023-02-03 09:24:12.727:   [Telnet] 2022/06/16-02:53:19(UTC) Log: Region mask: 0x1
+2023-02-03 09:24:22.732:   [Telnet] 2022/06/16-02:53:29(UTC) Log: Seconds remaining: 590
+2023-02-03 09:24:32.732:   [Telnet] 2022/06/16-02:53:39(UTC) Log: Seconds remaining: 580
+2023-02-03 09:24:42.734:   [Telnet] 2022/06/16-02:53:49(UTC) Log: Seconds remaining: 570
+2023-02-03 09:24:52.735:   [Telnet] 2022/06/16-02:53:59(UTC) Log: Seconds remaining: 560
+2023-02-03 09:25:02.735:   [Telnet] 2022/06/16-02:54:09(UTC) Log: Seconds remaining: 550
+2023-02-03 09:25:12.736:   [Telnet] 2022/06/16-02:54:19(UTC) Log: Seconds remaining: 540
+2023-02-03 09:25:22.736:   [Telnet] 2022/06/16-02:54:29(UTC) Log: Seconds remaining: 530
+2023-02-03 09:25:32.738:   [Telnet] 2022/06/16-02:54:39(UTC) Log: Seconds remaining: 520
+2023-02-03 09:25:42.736:   [Telnet] 2022/06/16-02:54:49(UTC) Log: Seconds remaining: 510
+2023-02-03 09:25:52.739:   [Telnet] 2022/06/16-02:54:59(UTC) Log: Seconds remaining: 500
+2023-02-03 09:26:02.739:   [Telnet] 2022/06/16-02:55:09(UTC) Log: Seconds remaining: 490
+2023-02-03 09:26:12.741:   [Telnet] 2022/06/16-02:55:19(UTC) Log: Seconds remaining: 480
+2023-02-03 09:26:22.741:   [Telnet] 2022/06/16-02:55:29(UTC) Log: Seconds remaining: 470
+2023-02-03 09:26:32.743:   [Telnet] 2022/06/16-02:55:39(UTC) Log: Seconds remaining: 460
+2023-02-03 09:26:42.744:   [Telnet] 2022/06/16-02:55:49(UTC) Log: Seconds remaining: 450
+2023-02-03 09:26:52.743:   [Telnet] 2022/06/16-02:55:59(UTC) Log: Seconds remaining: 440
+2023-02-03 09:27:02.744:   [Telnet] 2022/06/16-02:56:09(UTC) Log: Seconds remaining: 430
+2023-02-03 09:27:12.745:   [Telnet] 2022/06/16-02:56:19(UTC) Log: Seconds remaining: 420
+2023-02-03 09:27:22.743:   [Telnet] 2022/06/16-02:56:29(UTC) Log: Seconds remaining: 410
+2023-02-03 09:27:32.743:   [Telnet] 2022/06/16-02:56:39(UTC) Log: Seconds remaining: 400
+2023-02-03 09:27:42.747:   [Telnet] 2022/06/16-02:56:49(UTC) Log: Seconds remaining: 390
+2023-02-03 09:27:52.748:   [Telnet] 2022/06/16-02:56:59(UTC) Log: Seconds remaining: 380
+2023-02-03 09:28:02.749:   [Telnet] 2022/06/16-02:57:09(UTC) Log: Seconds remaining: 370
+2023-02-03 09:28:12.749:   [Telnet] 2022/06/16-02:57:19(UTC) Log: Seconds remaining: 360
+2023-02-03 09:28:22.751:   [Telnet] 2022/06/16-02:57:29(UTC) Log: Seconds remaining: 350
+2023-02-03 09:28:32.751:   [Telnet] 2022/06/16-02:57:39(UTC) Log: Seconds remaining: 340
+2023-02-03 09:28:42.753:   [Telnet] 2022/06/16-02:57:49(UTC) Log: Seconds remaining: 330
+2023-02-03 09:28:52.753:   [Telnet] 2022/06/16-02:57:59(UTC) Log: Seconds remaining: 320
+2023-02-03 09:29:02.754:   [Telnet] 2022/06/16-02:58:09(UTC) Log: Seconds remaining: 310
+2023-02-03 09:29:12.756:   [Telnet] 2022/06/16-02:58:19(UTC) Log: Seconds remaining: 300
+2023-02-03 09:29:22.756:   [Telnet] 2022/06/16-02:58:29(UTC) Log: Seconds remaining: 290
+2023-02-03 09:29:32.757:   [Telnet] 2022/06/16-02:58:39(UTC) Log: Seconds remaining: 280
+2023-02-03 09:29:42.757:   [Telnet] 2022/06/16-02:58:49(UTC) Log: Seconds remaining: 270
+2023-02-03 09:29:52.755:   [Telnet] 2022/06/16-02:58:59(UTC) Log: Seconds remaining: 260
+2023-02-03 09:30:02.759:   [Telnet] 2022/06/16-02:59:09(UTC) Log: Seconds remaining: 250
+2023-02-03 09:30:12.760:   [Telnet] 2022/06/16-02:59:19(UTC) Log: Seconds remaining: 240
+2023-02-03 09:30:22.760:   [Telnet] 2022/06/16-02:59:29(UTC) Log: Seconds remaining: 230
+2023-02-03 09:30:32.761:   [Telnet] 2022/06/16-02:59:39(UTC) Log: Seconds remaining: 220
+2023-02-03 09:30:42.762:   [Telnet] 2022/06/16-02:59:49(UTC) Log: Seconds remaining: 210
+2023-02-03 09:30:52.763:   [Telnet] 2022/06/16-02:59:59(UTC) Log: Seconds remaining: 200
+2023-02-03 09:31:02.769:   [Telnet] 2022/06/16-03:00:09(UTC) Log: Seconds remaining: 190
+2023-02-03 09:31:12.769:   [Telnet] 2022/06/16-03:00:19(UTC) Log: Seconds remaining: 180
+2023-02-03 09:31:22.770:   [Telnet] 2022/06/16-03:00:29(UTC) Log: Seconds remaining: 170
+2023-02-03 09:31:32.776:   [Telnet] 2022/06/16-03:00:39(UTC) Log: Seconds remaining: 160
+2023-02-03 09:31:42.774:   [Telnet] 2022/06/16-03:00:49(UTC) Log: Seconds remaining: 150
+2023-02-03 09:31:52.776:   [Telnet] 2022/06/16-03:00:59(UTC) Log: Seconds remaining: 140
+2023-02-03 09:32:02.777:   [Telnet] 2022/06/16-03:01:09(UTC) Log: Seconds remaining: 130
+2023-02-03 09:32:12.774:   [Telnet] 2022/06/16-03:01:19(UTC) Log: Seconds remaining: 120
+2023-02-03 09:32:22.774:   [Telnet] 2022/06/16-03:01:29(UTC) Log: Seconds remaining: 110
+2023-02-03 09:32:32.779:   [Telnet] 2022/06/16-03:01:39(UTC) Log: Seconds remaining: 100
+2023-02-03 09:32:42.779:   [Telnet] 2022/06/16-03:01:49(UTC) Log: Seconds remaining: 90
+2023-02-03 09:32:52.780:   [Telnet] 2022/06/16-03:01:59(UTC) Log: Seconds remaining: 80
+2023-02-03 09:33:02.780:   [Telnet] 2022/06/16-03:02:09(UTC) Log: Seconds remaining: 70
+2023-02-03 09:33:12.782:   [Telnet] 2022/06/16-03:02:19(UTC) Log: Seconds remaining: 60
+2023-02-03 09:33:22.783:   [Telnet] 2022/06/16-03:02:29(UTC) Log: Seconds remaining: 50
+2023-02-03 09:33:32.786:   [Telnet] 2022/06/16-03:02:39(UTC) Log: Seconds remaining: 40
+2023-02-03 09:33:42.785:   [Telnet] 2022/06/16-03:02:49(UTC) Log: Seconds remaining: 30
+2023-02-03 09:33:52.796:   [Telnet] 2022/06/16-03:02:59(UTC) Log: Seconds remaining: 20
+2023-02-03 09:34:02.786:   [Telnet] 2022/06/16-03:03:09(UTC) Log: Seconds remaining: 10
+2023-02-03 09:34:12.900:   [Telnet] 2022/06/16-03:03:19(UTC) Stats: Found 0 hardware incidents
+2023-02-03 09:34:12.949:   [Telnet] 2022/06/16-03:03:19(UTC) Stats: Completed: 626572.00M in 600.14s 1044.05MB/s, with 0 hardware incidents, 0 errors
+2023-02-03 09:34:12.951:   [Telnet] 2022/06/16-03:03:19(UTC) Stats: Memory Copy: 527084.00M at 878.36MB/s
+2023-02-03 09:34:12.951:   [Telnet] 2022/06/16-03:03:19(UTC) Stats: File Copy: 99488.00M at 165.78MB/s
+2023-02-03 09:34:12.951:   [Telnet] 2022/06/16-03:03:19(UTC) Stats: Net Copy: 0.00M at 0.00MB/s
+2023-02-03 09:34:12.951:   [Telnet] 2022/06/16-03:03:19(UTC) Stats: Data Check: 0.00M at 0.00MB/s
+2023-02-03 09:34:12.951:   [Telnet] 2022/06/16-03:03:19(UTC) Stats: Invert Data: 0.00M at 0.00MB/s
+2023-02-03 09:34:12.952:   [Telnet] 2022/06/16-03:03:19(UTC) Stats: Disk: 0.00M at 0.00MB/s
+2023-02-03 09:34:12.952:   [Telnet] 2022/06/16-03:03:19(UTC)
+2023-02-03 09:34:12.952:   [Telnet] 2022/06/16-03:03:19(UTC) Status: PASS - please verify no corrected errors
+2023-02-03 09:34:12.953:   [CONFIG] Spec: "Status: PASS - please verify no corrected errors"
+2023-02-03 09:34:12.955:   ****************************************************
+2023-02-03 09:34:12.955:   Item name = ram_stress
+2023-02-03 09:34:12.955:   Value = passed
+2023-02-03 09:34:12.955:   Test status = passed
+2023-02-03 09:34:12.956:   -----------------------------------------------------
+2023-02-03 09:34:12.956:   ****************************************************
+2023-02-03 09:34:12.957:   TIME[1919.734 s] - STATUS[PASSED]
+//////////////////////////////////////////////////////////////
+//////////////////////////- ID[10] -//////////////////////////
+2023-02-03 09:34:12.960:   ITEM[cpu_stress] - FUNCTION[TelnetReadUntilKeyProxy]
+2023-02-03 09:34:12.961:   Turn: 1
+2023-02-03 09:34:12.962:   Get IP from the function config with key is "IP".
+2023-02-03 09:34:12.962:   IP: 192.168.1.1
+2023-02-03 09:34:12.963:   [PC] Connect to host: 192.168.1.1
+2023-02-03 09:34:12.963:   [PC] Port is: 23
+2023-02-03 09:34:12.963:   [Cmd] ------------------------------------ 1
+2023-02-03 09:34:12.964:   [Cmd] Send command: arp -d 192.168.1.1
+2023-02-03 09:34:13.014:   [Cmd] 
+2023-02-03 09:34:13.014:   [Cmd] Send command: ping 192.168.1.1 -n 1
+2023-02-03 09:34:13.045:   [Cmd] Pinging 192.168.1.1 with 32 bytes of data:
+2023-02-03 09:34:13.045:   [Cmd] Reply from 192.168.1.1: bytes=32 time=1ms TTL=64
+2023-02-03 09:34:13.045:   [Cmd] 
+2023-02-03 09:34:13.045:   [Cmd] Ping statistics for 192.168.1.1:
+2023-02-03 09:34:13.045:   [Cmd] Packets: Sent = 1, Received = 1, Lost = 0 (0% loss),
+2023-02-03 09:34:13.045:   [Cmd] Approximate round trip times in milli-seconds:
+2023-02-03 09:34:13.045:   [Cmd] Minimum = 1ms, Maximum = 1ms, Average = 1ms
+2023-02-03 09:34:13.045:   [Cmd] ------------------------------------
+2023-02-03 09:34:13.371:   [Telnet] === IMPORTANT ============================
+2023-02-03 09:34:13.372:   [Telnet] Use 'passwd' to set your login password!
+2023-02-03 09:34:13.372:   [Telnet] ------------------------------------------
+2023-02-03 09:34:13.372:   [Telnet] 
+2023-02-03 09:34:13.373:   [Telnet] 
+2023-02-03 09:34:13.373:   [Telnet] BusyBox v1.30.1 () built-in shell (ash)
+2023-02-03 09:34:13.373:   [Telnet] 
+2023-02-03 09:34:13.374:   [Telnet] MM           NM                    MMMMMMM          M       M
+2023-02-03 09:34:13.374:   [Telnet] $MMMMM        MMMMM                MMMMMMMMMMM      MMM     MMM
+2023-02-03 09:34:13.375:   [Telnet] MMMMMMMM     MM MMMMM.              MMMMM:MMMMMM:   MMMM   MMMMM
+2023-02-03 09:34:13.375:   [Telnet] MMMM= MMMMMM  MMM   MMMM       MMMMM   MMMM  MMMMMM   MMMM  MMMMM'
+2023-02-03 09:34:13.375:   [Telnet] MMMM=  MMMMM MMMM    MM       MMMMM    MMMM    MMMM   MMMMNMMMMM
+2023-02-03 09:34:13.375:   [Telnet] MMMM=   MMMM  MMMMM          MMMMM     MMMM    MMMM   MMMMMMMM
+2023-02-03 09:34:13.375:   [Telnet] MMMM=   MMMM   MMMMMM       MMMMM      MMMM    MMMM   MMMMMMMMM
+2023-02-03 09:34:13.375:   [Telnet] MMMM=   MMMM     MMMMM,    NMMMMMMMM   MMMM    MMMM   MMMMMMMMMMM
+2023-02-03 09:34:13.376:   [Telnet] MMMM=   MMMM      MMMMMM   MMMMMMMM    MMMM    MMMM   MMMM  MMMMMM
+2023-02-03 09:34:13.376:   [Telnet] MMMM=   MMMM   MM    MMMM    MMMM      MMMM    MMMM   MMMM    MMMM
+2023-02-03 09:34:13.376:   [Telnet] MMMM$ ,MMMMM  MMMMM  MMMM    MMM       MMMM   MMMMM   MMMM    MMMM
+2023-02-03 09:34:13.376:   [Telnet] MMMMMMM:      MMMMMMM     M         MMMMMMMMMMMM  MMMMMMM MMMMMMM
+2023-02-03 09:34:13.376:   [Telnet] MMMMMM       MMMMN     M           MMMMMMMMM      MMMM    MMMM
+2023-02-03 09:34:13.376:   [Telnet] MMMM          M                    MMMMMMM        M       M
+2023-02-03 09:34:13.376:   [Telnet] M
+2023-02-03 09:34:13.376:   [Telnet] ---------------------------------------------------------------
+2023-02-03 09:34:13.376:   [Telnet] For those about to rock... (Chaos Calmer, unknown)
+2023-02-03 09:34:13.377:   [Telnet] ---------------------------------------------------------------
+2023-02-03 09:34:13.377:   [Telnet] root@eero-test:/#
+2023-02-03 09:34:13.479:   [Telnet] root@eero-test:/#
+2023-02-03 09:34:13.479:   [Config] Waiting for about2500 s
+2023-02-03 09:34:13.479:   [Telnet] Send command: stress --cpu 8 --io 4 --vm 2 --vm-bytes 128M --timeout 1800s
+2023-02-03 09:34:13.526:   [Telnet] stress --cpu 8 --io 4 --vm 2 --vm-bytes 128M --timeout 1800s
+2023-02-03 09:34:13.527:   [Telnet] stress: info: [3086] dispatching hogs: 8 cpu, 4 io, 2 vm, 0 hdd
+2023-02-03 10:04:13.494:   [Telnet] stress: info: [3086] successful run completed in 1800s
+2023-02-03 10:04:13.495:   [CONFIG] Spec: "successful run completed in"
+2023-02-03 10:04:13.496:   ****************************************************
+2023-02-03 10:04:13.497:   Item name = cpu_stress
+2023-02-03 10:04:13.498:   Value = passed
+2023-02-03 10:04:13.498:   Test status = passed
+2023-02-03 10:04:13.498:   -----------------------------------------------------
+2023-02-03 10:04:13.499:   ****************************************************
+2023-02-03 10:04:13.499:   TIME[1800.539 s] - STATUS[PASSED]
+//////////////////////////////////////////////////////////////
+//////////////////////////- ID[11] -//////////////////////////
+2023-02-03 10:04:13.502:   ITEM[emmc_badblocks] - FUNCTION[MMC_BadBlockProxy]
+2023-02-03 10:04:13.504:   Turn: 1
+2023-02-03 10:04:13.504:   Get IP from the function config with key is "IP".
+2023-02-03 10:04:13.506:   IP: 192.168.1.1
+2023-02-03 10:04:13.506:   [PC] Connect to host: 192.168.1.1
+2023-02-03 10:04:13.506:   [PC] Port is: 23
+2023-02-03 10:04:13.507:   [Cmd] ------------------------------------ 1
+2023-02-03 10:04:13.507:   [Cmd] Send command: arp -d 192.168.1.1
+2023-02-03 10:04:13.540:   [Cmd] 
+2023-02-03 10:04:13.540:   [Cmd] Send command: ping 192.168.1.1 -n 1
+2023-02-03 10:04:13.571:   [Cmd] Pinging 192.168.1.1 with 32 bytes of data:
+2023-02-03 10:04:13.571:   [Cmd] Reply from 192.168.1.1: bytes=32 time=1ms TTL=64
+2023-02-03 10:04:13.571:   [Cmd] 
+2023-02-03 10:04:13.572:   [Cmd] Ping statistics for 192.168.1.1:
+2023-02-03 10:04:13.572:   [Cmd] Packets: Sent = 1, Received = 1, Lost = 0 (0% loss),
+2023-02-03 10:04:13.572:   [Cmd] Approximate round trip times in milli-seconds:
+2023-02-03 10:04:13.572:   [Cmd] Minimum = 1ms, Maximum = 1ms, Average = 1ms
+2023-02-03 10:04:13.572:   [Cmd] ------------------------------------
+2023-02-03 10:04:13.689:   [Telnet] === IMPORTANT ============================
+2023-02-03 10:04:13.690:   [Telnet] Use 'passwd' to set your login password!
+2023-02-03 10:04:13.690:   [Telnet] ------------------------------------------
+2023-02-03 10:04:13.690:   [Telnet] 
+2023-02-03 10:04:13.691:   [Telnet] 
+2023-02-03 10:04:13.691:   [Telnet] BusyBox v1.30.1 () built-in shell (ash)
+2023-02-03 10:04:13.691:   [Telnet] 
+2023-02-03 10:04:13.692:   [Telnet] MM           NM                    MMMMMMM          M       M
+2023-02-03 10:04:13.692:   [Telnet] $MMMMM        MMMMM                MMMMMMMMMMM      MMM     MMM
+2023-02-03 10:04:13.692:   [Telnet] MMMMMMMM     MM MMMMM.              MMMMM:MMMMMM:   MMMM   MMMMM
+2023-02-03 10:04:13.693:   [Telnet] MMMM= MMMMMM  MMM   MMMM       MMMMM   MMMM  MMMMMM   MMMM  MMMMM'
+2023-02-03 10:04:13.693:   [Telnet] MMMM=  MMMMM MMMM    MM       MMMMM    MMMM    MMMM   MMMMNMMMMM
+2023-02-03 10:04:13.693:   [Telnet] MMMM=   MMMM  MMMMM          MMMMM     MMMM    MMMM   MMMMMMMM
+2023-02-03 10:04:13.694:   [Telnet] MMMM=   MMMM   MMMMMM       MMMMM      MMMM    MMMM   MMMMMMMMM
+2023-02-03 10:04:13.694:   [Telnet] MMMM=   MMMM     MMMMM,    NMMMMMMMM   MMMM    MMMM   MMMMMMMMMMM
+2023-02-03 10:04:13.694:   [Telnet] MMMM=   MMMM      MMMMMM   MMMMMMMM    MMMM    MMMM   MMMM  MMMMMM
+2023-02-03 10:04:13.695:   [Telnet] MMMM=   MMMM   MM    MMMM    MMMM      MMMM    MMMM   MMMM    MMMM
+2023-02-03 10:04:13.695:   [Telnet] MMMM$ ,MMMMM  MMMMM  MMMM    MMM       MMMM   MMMMM   MMMM    MMMM
+2023-02-03 10:04:13.695:   [Telnet] MMMMMMM:      MMMMMMM     M         MMMMMMMMMMMM  MMMMMMM MMMMMMM
+2023-02-03 10:04:13.696:   [Telnet] MMMMMM       MMMMN     M           MMMMMMMMM      MMMM    MMMM
+2023-02-03 10:04:13.696:   [Telnet] MMMM          M                    MMMMMMM        M       M
+2023-02-03 10:04:13.697:   [Telnet] M
+2023-02-03 10:04:13.697:   [Telnet] ---------------------------------------------------------------
+2023-02-03 10:04:13.698:   [Telnet] For those about to rock... (Chaos Calmer, unknown)
+2023-02-03 10:04:13.698:   [Telnet] ---------------------------------------------------------------
+2023-02-03 10:04:13.698:   [Telnet] root@eero-test:/#
+2023-02-03 10:04:13.813:   [Telnet] root@eero-test:/#
+2023-02-03 10:04:13.814:   [Telnet] Send command: badblocks -svw /dev/mmcblk0p17
+2023-02-03 10:04:13.816:   [Telnet] badblocks -svw /dev/mmcblk0p17
+2023-02-03 10:04:13.936:   [Telnet] Checking for bad blocks in read-write mode
+2023-02-03 10:04:13.937:   [Telnet] From block 0 to 770047
+2023-02-03 10:05:01.276:   [Telnet] Testing with pattern 0xaa:   0.00% done, 0:00 elapsed. (0/0/0 errors)  2.11% done, 0:01 elapsed. (0/0/0 errors)  4.23% done, 0:02 elapsed. (0/0/0 errors)  6.36% done, 0:03 elapsed. (0/0/0 errors)  8.48% done, 0:04 elapsed. (0/0/0 errors) 10.58% done, 0:05 elapsed. (0/0/0 errors) 12.70% done, 0:06 elapsed. (0/0/0 errors) 14.82% done, 0:07 elapsed. (0/0/0 errors) 16.95% done, 0:08 elapsed. (0/0/0 errors) 19.07% done, 0:09 elapsed. (0/0/0 errors) 21.20% done, 0:10 elapsed. (0/0/0 errors) 23.33% done, 0:11 elapsed. (0/0/0 errors) 25.46% done, 0:12 elapsed. (0/0/0 errors) 27.58% done, 0:13 elapsed. (0/0/0 errors) 29.71% done, 0:14 elapsed. (0/0/0 errors) 31.84% done, 0:15 elapsed. (0/0/0 errors) 33.97% done, 0:16 elapsed. (0/0/0 errors) 36.10% done, 0:17 elapsed. (0/0/0 errors) 38.22% done, 0:18 elapsed. (0/0/0 errors) 40.35% done, 0:19 elapsed. (0/0/0 errors) 42.48% done, 0:20 elapsed. (0/0/0 errors) 44.61% done, 0:21 elapsed. (0/0/0 errors) 46.73% done, 0:22 elapsed. (0/0/0 errors) 48.86% done, 0:24 elapsed. (0/0/0 errors) 50.99% done, 0:25 elapsed. (0/0/0 errors) 53.12% done, 0:26 elapsed. (0/0/0 errors) 55.24% done, 0:27 elapsed. (0/0/0 errors) 57.37% done, 0:28 elapsed. (0/0/0 errors) 59.50% done, 0:29 elapsed. (0/0/0 errors) 61.63% done, 0:30 elapsed. (0/0/0 errors) 63.76% done, 0:31 elapsed. (0/0/0 errors) 65.88% done, 0:32 elapsed. (0/0/0 errors) 68.01% done, 0:33 elapsed. (0/0/0 errors) 70.14% done, 0:34 elapsed. (0/0/0 errors) 72.27% done, 0:35 elapsed. (0/0/0 errors) 74.39% done, 0:36 elapsed. (0/0/0 errors) 76.52% done, 0:37 elapsed. (0/0/0 errors) 78.65% done, 0:38 elapsed. (0/0/0 errors) 80.78% done, 0:39 elapsed. (0/0/0 errors) 82.90% done, 0:40 elapsed. (0/0/0 errors) 85.02% done, 0:41 elapsed. (0/0/0 errors) 87.15% done, 0:42 elapsed. (0/0/0 errors) 89.28% done, 0:43 elapsed. (0/0/0 errors) 91.41% done, 0:44 elapsed. (0/0/0 errors) 93.53% done, 0:45 elapsed. (0/0/0 errors) 95.66% done, 0:46 elapsed. (0/0/0 errors) 97.79% done, 0:47 elapsed. (0/0/0 errors) 99.92% done, 0:48 elapsed. (0/0/0 errors)done
+2023-02-03 10:05:28.077:   [Telnet] Reading and comparing:   0.00% done, 0:48 elapsed. (0/0/0 errors)  3.73% done, 0:49 elapsed. (0/0/0 errors)  7.48% done, 0:50 elapsed. (0/0/0 errors) 11.23% done, 0:51 elapsed. (0/0/0 errors) 14.94% done, 0:52 elapsed. (0/0/0 errors) 18.65% done, 0:53 elapsed. (0/0/0 errors) 22.36% done, 0:54 elapsed. (0/0/0 errors) 26.06% done, 0:55 elapsed. (0/0/0 errors) 29.78% done, 0:56 elapsed. (0/0/0 errors) 33.49% done, 0:57 elapsed. (0/0/0 errors) 37.20% done, 0:58 elapsed. (0/0/0 errors) 40.91% done, 0:59 elapsed. (0/0/0 errors) 44.61% done, 1:00 elapsed. (0/0/0 errors) 48.33% done, 1:01 elapsed. (0/0/0 errors) 52.04% done, 1:02 elapsed. (0/0/0 errors) 55.74% done, 1:03 elapsed. (0/0/0 errors) 59.52% done, 1:04 elapsed. (0/0/0 errors) 63.29% done, 1:05 elapsed. (0/0/0 errors) 67.06% done, 1:06 elapsed. (0/0/0 errors) 70.80% done, 1:07 elapsed. (0/0/0 errors) 74.55% done, 1:08 elapsed. (0/0/0 errors) 78.30% done, 1:09 elapsed. (0/0/0 errors) 82.06% done, 1:10 elapsed. (0/0/0 errors) 85.84% done, 1:11 elapsed. (0/0/0 errors) 89.61% done, 1:12 elapsed. (0/0/0 errors) 93.33% done, 1:13 elapsed. (0/0/0 errors) 97.04% done, 1:14 elapsed. (0/0/0 errors)done
+2023-02-03 10:06:18.403:   [Telnet] Testing with pattern 0x55:   0.00% done, 1:15 elapsed. (0/0/0 errors)  1.99% done, 1:16 elapsed. (0/0/0 errors)  3.97% done, 1:17 elapsed. (0/0/0 errors)  5.97% done, 1:18 elapsed. (0/0/0 errors)  7.96% done, 1:19 elapsed. (0/0/0 errors)  9.97% done, 1:20 elapsed. (0/0/0 errors) 11.97% done, 1:21 elapsed. (0/0/0 errors) 13.95% done, 1:22 elapsed. (0/0/0 errors) 15.95% done, 1:23 elapsed. (0/0/0 errors) 17.89% done, 1:24 elapsed. (0/0/0 errors) 19.90% done, 1:25 elapsed. (0/0/0 errors) 21.90% done, 1:26 elapsed. (0/0/0 errors) 23.88% done, 1:27 elapsed. (0/0/0 errors) 25.88% done, 1:28 elapsed. (0/0/0 errors) 27.86% done, 1:29 elapsed. (0/0/0 errors) 29.85% done, 1:30 elapsed. (0/0/0 errors) 31.83% done, 1:31 elapsed. (0/0/0 errors) 33.84% done, 1:32 elapsed. (0/0/0 errors) 35.85% done, 1:33 elapsed. (0/0/0 errors) 37.82% done, 1:34 elapsed. (0/0/0 errors) 39.80% done, 1:35 elapsed. (0/0/0 errors) 41.77% done, 1:36 elapsed. (0/0/0 errors) 43.77% done, 1:37 elapsed. (0/0/0 errors) 45.78% done, 1:38 elapsed. (0/0/0 errors) 47.74% done, 1:39 elapsed. (0/0/0 errors) 49.75% done, 1:40 elapsed. (0/0/0 errors) 51.74% done, 1:41 elapsed. (0/0/0 errors) 53.73% done, 1:42 elapsed. (0/0/0 errors) 55.72% done, 1:43 elapsed. (0/0/0 errors) 57.73% done, 1:44 elapsed. (0/0/0 errors) 59.73% done, 1:45 elapsed. (0/0/0 errors) 61.74% done, 1:46 elapsed. (0/0/0 errors) 63.75% done, 1:47 elapsed. (0/0/0 errors) 65.74% done, 1:48 elapsed. (0/0/0 errors) 67.74% done, 1:49 elapsed. (0/0/0 errors) 69.72% done, 1:50 elapsed. (0/0/0 errors) 71.73% done, 1:51 elapsed. (0/0/0 errors) 73.70% done, 1:52 elapsed. (0/0/0 errors) 75.71% done, 1:53 elapsed. (0/0/0 errors) 77.68% done, 1:54 elapsed. (0/0/0 errors) 79.64% done, 1:55 elapsed. (0/0/0 errors) 81.65% done, 1:56 elapsed. (0/0/0 errors) 83.63% done, 1:57 elapsed. (0/0/0 errors) 85.64% done, 1:58 elapsed. (0/0/0 errors) 87.62% done, 1:59 elapsed. (0/0/0 errors) 89.62% done, 2:00 elapsed. (0/0/0 errors) 91.63% done, 2:01 elapsed. (0/0/0 errors) 93.62% done, 2:02 elapsed. (0/0/0 errors) 95.64% done, 2:03 elapsed. (0/0/0 errors) 97.61% done, 2:04 elapsed. (0/0/0 errors) 99.62% done, 2:05 elapsed. (0/0/0 errors)done
+2023-02-03 10:06:45.181:   [Telnet] Reading and comparing:   0.00% done, 2:05 elapsed. (0/0/0 errors)  3.70% done, 2:06 elapsed. (0/0/0 errors)  7.41% done, 2:07 elapsed. (0/0/0 errors) 11.13% done, 2:08 elapsed. (0/0/0 errors) 14.86% done, 2:09 elapsed. (0/0/0 errors) 18.61% done, 2:10 elapsed. (0/0/0 errors) 22.32% done, 2:11 elapsed. (0/0/0 errors) 26.02% done, 2:12 elapsed. (0/0/0 errors) 29.74% done, 2:13 elapsed. (0/0/0 errors) 33.45% done, 2:14 elapsed. (0/0/0 errors) 37.17% done, 2:15 elapsed. (0/0/0 errors) 40.88% done, 2:16 elapsed. (0/0/0 errors) 44.58% done, 2:17 elapsed. (0/0/0 errors) 48.30% done, 2:18 elapsed. (0/0/0 errors) 52.01% done, 2:19 elapsed. (0/0/0 errors) 55.72% done, 2:20 elapsed. (0/0/0 errors) 59.48% done, 2:21 elapsed. (0/0/0 errors) 63.26% done, 2:22 elapsed. (0/0/0 errors) 67.03% done, 2:23 elapsed. (0/0/0 errors) 70.80% done, 2:24 elapsed. (0/0/0 errors) 74.58% done, 2:25 elapsed. (0/0/0 errors) 78.35% done, 2:26 elapsed. (0/0/0 errors) 82.12% done, 2:27 elapsed. (0/0/0 errors) 85.90% done, 2:28 elapsed. (0/0/0 errors) 89.67% done, 2:29 elapsed. (0/0/0 errors) 93.44% done, 2:30 elapsed. (0/0/0 errors) 97.20% done, 2:31 elapsed. (0/0/0 errors)done
+2023-02-03 10:07:35.374:   [Telnet] Testing with pattern 0xff:   0.00% done, 2:32 elapsed. (0/0/0 errors)  1.99% done, 2:33 elapsed. (0/0/0 errors)  3.98% done, 2:34 elapsed. (0/0/0 errors)  5.99% done, 2:35 elapsed. (0/0/0 errors)  7.96% done, 2:36 elapsed. (0/0/0 errors)  9.97% done, 2:37 elapsed. (0/0/0 errors) 11.98% done, 2:38 elapsed. (0/0/0 errors) 13.98% done, 2:39 elapsed. (0/0/0 errors) 15.99% done, 2:40 elapsed. (0/0/0 errors) 17.98% done, 2:41 elapsed. (0/0/0 errors) 20.00% done, 2:42 elapsed. (0/0/0 errors) 21.98% done, 2:43 elapsed. (0/0/0 errors) 23.99% done, 2:44 elapsed. (0/0/0 errors) 25.97% done, 2:45 elapsed. (0/0/0 errors) 27.99% done, 2:46 elapsed. (0/0/0 errors) 29.98% done, 2:47 elapsed. (0/0/0 errors) 32.00% done, 2:48 elapsed. (0/0/0 errors) 33.98% done, 2:49 elapsed. (0/0/0 errors) 35.99% done, 2:50 elapsed. (0/0/0 errors) 37.97% done, 2:51 elapsed. (0/0/0 errors) 39.95% done, 2:52 elapsed. (0/0/0 errors) 41.96% done, 2:53 elapsed. (0/0/0 errors) 43.95% done, 2:54 elapsed. (0/0/0 errors) 45.96% done, 2:55 elapsed. (0/0/0 errors) 47.95% done, 2:56 elapsed. (0/0/0 errors) 49.95% done, 2:57 elapsed. (0/0/0 errors) 51.94% done, 2:58 elapsed. (0/0/0 errors) 53.95% done, 2:59 elapsed. (0/0/0 errors) 55.95% done, 3:00 elapsed. (0/0/0 errors) 57.96% done, 3:01 elapsed. (0/0/0 errors) 59.97% done, 3:02 elapsed. (0/0/0 errors) 61.97% done, 3:03 elapsed. (0/0/0 errors) 63.99% done, 3:04 elapsed. (0/0/0 errors) 66.00% done, 3:05 elapsed. (0/0/0 errors) 68.00% done, 3:06 elapsed. (0/0/0 errors) 70.02% done, 3:07 elapsed. (0/0/0 errors) 72.02% done, 3:08 elapsed. (0/0/0 errors) 74.03% done, 3:09 elapsed. (0/0/0 errors) 76.04% done, 3:10 elapsed. (0/0/0 errors) 78.02% done, 3:11 elapsed. (0/0/0 errors) 80.03% done, 3:12 elapsed. (0/0/0 errors) 82.01% done, 3:13 elapsed. (0/0/0 errors) 84.03% done, 3:14 elapsed. (0/0/0 errors) 85.98% done, 3:15 elapsed. (0/0/0 errors) 87.99% done, 3:16 elapsed. (0/0/0 errors) 89.99% done, 3:17 elapsed. (0/0/0 errors) 92.00% done, 3:18 elapsed. (0/0/0 errors) 94.01% done, 3:19 elapsed. (0/0/0 errors) 96.02% done, 3:20 elapsed. (0/0/0 errors) 97.99% done, 3:21 elapsed. (0/0/0 errors) 99.97% done, 3:22 elapsed. (0/0/0 errors)done
+2023-02-03 10:08:02.287:   [Telnet] Reading and comparing:   0.00% done, 3:22 elapsed. (0/0/0 errors)  3.70% done, 3:23 elapsed. (0/0/0 errors)  7.41% done, 3:24 elapsed. (0/0/0 errors) 11.12% done, 3:25 elapsed. (0/0/0 errors) 14.82% done, 3:26 elapsed. (0/0/0 errors) 18.53% done, 3:27 elapsed. (0/0/0 errors) 22.24% done, 3:28 elapsed. (0/0/0 errors) 25.96% done, 3:29 elapsed. (0/0/0 errors) 29.67% done, 3:30 elapsed. (0/0/0 errors) 33.39% done, 3:31 elapsed. (0/0/0 errors) 37.08% done, 3:32 elapsed. (0/0/0 errors) 40.80% done, 3:33 elapsed. (0/0/0 errors) 44.51% done, 3:34 elapsed. (0/0/0 errors) 48.22% done, 3:35 elapsed. (0/0/0 errors) 51.94% done, 3:36 elapsed. (0/0/0 errors) 55.65% done, 3:37 elapsed. (0/0/0 errors) 59.36% done, 3:38 elapsed. (0/0/0 errors) 63.07% done, 3:39 elapsed. (0/0/0 errors) 66.79% done, 3:40 elapsed. (0/0/0 errors) 70.53% done, 3:41 elapsed. (0/0/0 errors) 74.29% done, 3:42 elapsed. (0/0/0 errors) 78.01% done, 3:43 elapsed. (0/0/0 errors) 81.72% done, 3:44 elapsed. (0/0/0 errors) 85.43% done, 3:45 elapsed. (0/0/0 errors) 89.15% done, 3:46 elapsed. (0/0/0 errors) 92.84% done, 3:47 elapsed. (0/0/0 errors) 96.56% done, 3:48 elapsed. (0/0/0 errors)done
+2023-02-03 10:08:52.590:   [Telnet] Testing with pattern 0x00:   0.00% done, 3:49 elapsed. (0/0/0 errors)  2.00% done, 3:50 elapsed. (0/0/0 errors)  3.98% done, 3:51 elapsed. (0/0/0 errors)  5.99% done, 3:52 elapsed. (0/0/0 errors)  7.97% done, 3:53 elapsed. (0/0/0 errors)  9.97% done, 3:54 elapsed. (0/0/0 errors) 11.98% done, 3:55 elapsed. (0/0/0 errors) 13.99% done, 3:56 elapsed. (0/0/0 errors) 15.99% done, 3:57 elapsed. (0/0/0 errors) 17.97% done, 3:58 elapsed. (0/0/0 errors) 19.98% done, 3:59 elapsed. (0/0/0 errors) 21.95% done, 4:00 elapsed. (0/0/0 errors) 23.95% done, 4:01 elapsed. (0/0/0 errors) 25.94% done, 4:02 elapsed. (0/0/0 errors) 27.93% done, 4:03 elapsed. (0/0/0 errors) 29.95% done, 4:04 elapsed. (0/0/0 errors) 31.95% done, 4:05 elapsed. (0/0/0 errors) 33.93% done, 4:06 elapsed. (0/0/0 errors) 35.90% done, 4:07 elapsed. (0/0/0 errors) 37.91% done, 4:08 elapsed. (0/0/0 errors) 39.89% done, 4:09 elapsed. (0/0/0 errors) 41.89% done, 4:10 elapsed. (0/0/0 errors) 43.89% done, 4:11 elapsed. (0/0/0 errors) 45.89% done, 4:12 elapsed. (0/0/0 errors) 47.89% done, 4:13 elapsed. (0/0/0 errors) 49.87% done, 4:14 elapsed. (0/0/0 errors) 51.88% done, 4:15 elapsed. (0/0/0 errors) 53.86% done, 4:16 elapsed. (0/0/0 errors) 55.86% done, 4:17 elapsed. (0/0/0 errors) 57.81% done, 4:18 elapsed. (0/0/0 errors) 59.79% done, 4:19 elapsed. (0/0/0 errors) 61.79% done, 4:20 elapsed. (0/0/0 errors) 63.77% done, 4:21 elapsed. (0/0/0 errors) 65.78% done, 4:22 elapsed. (0/0/0 errors) 67.77% done, 4:23 elapsed. (0/0/0 errors) 69.76% done, 4:24 elapsed. (0/0/0 errors) 71.77% done, 4:25 elapsed. (0/0/0 errors) 73.75% done, 4:26 elapsed. (0/0/0 errors) 75.76% done, 4:27 elapsed. (0/0/0 errors) 77.73% done, 4:28 elapsed. (0/0/0 errors) 79.75% done, 4:29 elapsed. (0/0/0 errors) 81.72% done, 4:30 elapsed. (0/0/0 errors) 83.73% done, 4:31 elapsed. (0/0/0 errors) 85.73% done, 4:32 elapsed. (0/0/0 errors) 87.70% done, 4:33 elapsed. (0/0/0 errors) 89.70% done, 4:34 elapsed. (0/0/0 errors) 91.68% done, 4:35 elapsed. (0/0/0 errors) 93.68% done, 4:36 elapsed. (0/0/0 errors) 95.66% done, 4:37 elapsed. (0/0/0 errors) 97.67% done, 4:38 elapsed. (0/0/0 errors) 99.68% done, 4:39 elapsed. (0/0/0 errors)done
+2023-02-03 10:09:19.411:   [Telnet] Reading and comparing:   0.00% done, 4:39 elapsed. (0/0/0 errors)  3.70% done, 4:40 elapsed. (0/0/0 errors)  7.41% done, 4:41 elapsed. (0/0/0 errors) 11.12% done, 4:42 elapsed. (0/0/0 errors) 14.84% done, 4:43 elapsed. (0/0/0 errors) 18.54% done, 4:44 elapsed. (0/0/0 errors) 22.25% done, 4:45 elapsed. (0/0/0 errors) 25.96% done, 4:46 elapsed. (0/0/0 errors) 29.66% done, 4:47 elapsed. (0/0/0 errors) 33.38% done, 4:48 elapsed. (0/0/0 errors) 37.09% done, 4:49 elapsed. (0/0/0 errors) 40.80% done, 4:50 elapsed. (0/0/0 errors) 44.51% done, 4:51 elapsed. (0/0/0 errors) 48.22% done, 4:52 elapsed. (0/0/0 errors) 51.94% done, 4:53 elapsed. (0/0/0 errors) 55.65% done, 4:54 elapsed. (0/0/0 errors) 59.37% done, 4:55 elapsed. (0/0/0 errors) 63.07% done, 4:56 elapsed. (0/0/0 errors) 66.84% done, 4:57 elapsed. (0/0/0 errors) 70.61% done, 4:58 elapsed. (0/0/0 errors) 74.38% done, 4:59 elapsed. (0/0/0 errors) 78.15% done, 5:00 elapsed. (0/0/0 errors) 81.92% done, 5:01 elapsed. (0/0/0 errors) 85.70% done, 5:02 elapsed. (0/0/0 errors) 89.47% done, 5:03 elapsed. (0/0/0 errors) 93.24% done, 5:04 elapsed. (0/0/0 errors) 97.00% done, 5:05 elapsed. (0/0/0 errors)done
+2023-02-03 10:09:19.461:   [Telnet] Pass completed, 0 bad blocks found. (0/0/0 errors)
+2023-02-03 10:09:19.462:   [CONFIG] Start key: "Pass completed,"
+2023-02-03 10:09:19.462:   [CONFIG] End key: "bad blocks found"
+2023-02-03 10:09:19.462:   [CONFIG] Regex: "null"
+2023-02-03 10:09:19.462:   [PC] Value: "0"
+2023-02-03 10:09:19.463:   [PC] 0 is a number
+2023-02-03 10:09:19.463:   [PC] Convert sucessed! value: 0
+2023-02-03 10:09:19.464:   [PC] Sum of bad blocks: 0
+2023-02-03 10:09:19.464:   [Telnet] Send command: badblocks -svw /dev/mmcblk0p20
+2023-02-03 10:09:19.509:   [Telnet] root@eero-test:/# badblocks -svw /dev/mmcblk0p20
+2023-02-03 10:09:19.509:   [Telnet] Checking for bad blocks in read-write mode
+2023-02-03 10:09:19.510:   [Telnet] From block 0 to 924057
+2023-02-03 10:10:16.667:   [Telnet] Testing with pattern 0xaa:   0.00% done, 0:00 elapsed. (0/0/0 errors)  1.70% done, 0:01 elapsed. (0/0/0 errors)  3.47% done, 0:02 elapsed. (0/0/0 errors)  5.24% done, 0:03 elapsed. (0/0/0 errors)  7.01% done, 0:04 elapsed. (0/0/0 errors)  8.78% done, 0:05 elapsed. (0/0/0 errors) 10.55% done, 0:06 elapsed. (0/0/0 errors) 12.33% done, 0:07 elapsed. (0/0/0 errors) 14.07% done, 0:08 elapsed. (0/0/0 errors) 15.83% done, 0:09 elapsed. (0/0/0 errors) 17.61% done, 0:10 elapsed. (0/0/0 errors) 19.39% done, 0:11 elapsed. (0/0/0 errors) 21.17% done, 0:12 elapsed. (0/0/0 errors) 22.95% done, 0:13 elapsed. (0/0/0 errors) 24.69% done, 0:14 elapsed. (0/0/0 errors) 26.46% done, 0:15 elapsed. (0/0/0 errors) 28.24% done, 0:16 elapsed. (0/0/0 errors) 30.02% done, 0:17 elapsed. (0/0/0 errors) 31.80% done, 0:18 elapsed. (0/0/0 errors) 33.58% done, 0:19 elapsed. (0/0/0 errors) 35.35% done, 0:20 elapsed. (0/0/0 errors) 37.14% done, 0:21 elapsed. (0/0/0 errors) 38.92% done, 0:22 elapsed. (0/0/0 errors) 40.69% done, 0:23 elapsed. (0/0/0 errors) 42.47% done, 0:24 elapsed. (0/0/0 errors) 44.26% done, 0:25 elapsed. (0/0/0 errors) 46.03% done, 0:26 elapsed. (0/0/0 errors) 47.81% done, 0:27 elapsed. (0/0/0 errors) 49.58% done, 0:28 elapsed. (0/0/0 errors) 51.37% done, 0:29 elapsed. (0/0/0 errors) 53.14% done, 0:30 elapsed. (0/0/0 errors) 54.92% done, 0:31 elapsed. (0/0/0 errors) 56.70% done, 0:32 elapsed. (0/0/0 errors) 58.48% done, 0:33 elapsed. (0/0/0 errors) 60.27% done, 0:34 elapsed. (0/0/0 errors) 62.05% done, 0:35 elapsed. (0/0/0 errors) 63.81% done, 0:36 elapsed. (0/0/0 errors) 65.54% done, 0:37 elapsed. (0/0/0 errors) 67.32% done, 0:38 elapsed. (0/0/0 errors) 69.10% done, 0:39 elapsed. (0/0/0 errors) 70.88% done, 0:40 elapsed. (0/0/0 errors) 72.66% done, 0:41 elapsed. (0/0/0 errors) 74.44% done, 0:42 elapsed. (0/0/0 errors) 76.21% done, 0:43 elapsed. (0/0/0 errors) 77.99% done, 0:44 elapsed. (0/0/0 errors) 79.77% done, 0:45 elapsed. (0/0/0 errors) 81.55% done, 0:46 elapsed. (0/0/0 errors) 83.33% done, 0:47 elapsed. (0/0/0 errors) 85.09% done, 0:48 elapsed. (0/0/0 errors) 86.87% done, 0:49 elapsed. (0/0/0 errors) 88.65% done, 0:50 elapsed. (0/0/0 errors) 90.41% done, 0:51 elapsed. (0/0/0 errors) 92.18% done, 0:52 elapsed. (0/0/0 errors) 93.96% done, 0:53 elapsed. (0/0/0 errors) 95.72% done, 0:54 elapsed. (0/0/0 errors) 97.50% done, 0:55 elapsed. (0/0/0 errors) 99.28% done, 0:56 elapsed. (0/0/0 errors) 99.91% done, 0:57 elapsed. (0/0/0 errors)done
+2023-02-03 10:10:48.958:   [Telnet] Reading and comparing:   0.00% done, 0:57 elapsed. (0/0/0 errors)  3.08% done, 0:58 elapsed. (0/0/0 errors)  6.18% done, 0:59 elapsed. (0/0/0 errors)  9.27% done, 1:00 elapsed. (0/0/0 errors) 12.40% done, 1:01 elapsed. (0/0/0 errors) 15.53% done, 1:02 elapsed. (0/0/0 errors) 18.66% done, 1:03 elapsed. (0/0/0 errors) 21.78% done, 1:04 elapsed. (0/0/0 errors) 24.88% done, 1:05 elapsed. (0/0/0 errors) 27.97% done, 1:06 elapsed. (0/0/0 errors) 31.07% done, 1:07 elapsed. (0/0/0 errors) 34.17% done, 1:08 elapsed. (0/0/0 errors) 37.26% done, 1:09 elapsed. (0/0/0 errors) 40.36% done, 1:10 elapsed. (0/0/0 errors) 43.45% done, 1:11 elapsed. (0/0/0 errors) 46.55% done, 1:12 elapsed. (0/0/0 errors) 49.65% done, 1:13 elapsed. (0/0/0 errors) 52.74% done, 1:14 elapsed. (0/0/0 errors) 55.84% done, 1:15 elapsed. (0/0/0 errors) 58.93% done, 1:16 elapsed. (0/0/0 errors) 62.03% done, 1:17 elapsed. (0/0/0 errors) 65.12% done, 1:18 elapsed. (0/0/0 errors) 68.22% done, 1:19 elapsed. (0/0/0 errors) 71.32% done, 1:20 elapsed. (0/0/0 errors) 74.41% done, 1:21 elapsed. (0/0/0 errors) 77.51% done, 1:22 elapsed. (0/0/0 errors) 80.60% done, 1:23 elapsed. (0/0/0 errors) 83.70% done, 1:24 elapsed. (0/0/0 errors) 86.80% done, 1:25 elapsed. (0/0/0 errors) 89.89% done, 1:26 elapsed. (0/0/0 errors) 92.99% done, 1:27 elapsed. (0/0/0 errors) 96.08% done, 1:28 elapsed. (0/0/0 errors) 99.17% done, 1:29 elapsed. (0/0/0 errors)done
+2023-02-03 10:11:54.049:   [Telnet] Testing with pattern 0x55:   0.00% done, 1:29 elapsed. (0/0/0 errors)  0.83% done, 1:30 elapsed. (0/0/0 errors)  1.70% done, 1:31 elapsed. (0/0/0 errors)  2.55% done, 1:32 elapsed. (0/0/0 errors)  3.41% done, 1:33 elapsed. (0/0/0 errors)  4.28% done, 1:34 elapsed. (0/0/0 errors)  5.16% done, 1:35 elapsed. (0/0/0 errors)  6.03% done, 1:36 elapsed. (0/0/0 errors)  6.90% done, 1:37 elapsed. (0/0/0 errors)  7.76% done, 1:38 elapsed. (0/0/0 errors)  8.63% done, 1:39 elapsed. (0/0/0 errors) 10.15% done, 1:40 elapsed. (0/0/0 errors) 11.82% done, 1:41 elapsed. (0/0/0 errors) 13.50% done, 1:42 elapsed. (0/0/0 errors) 15.17% done, 1:43 elapsed. (0/0/0 errors) 16.84% done, 1:44 elapsed. (0/0/0 errors) 18.51% done, 1:45 elapsed. (0/0/0 errors) 20.16% done, 1:46 elapsed. (0/0/0 errors) 21.84% done, 1:48 elapsed. (0/0/0 errors) 23.49% done, 1:49 elapsed. (0/0/0 errors) 25.17% done, 1:50 elapsed. (0/0/0 errors) 26.82% done, 1:51 elapsed. (0/0/0 errors) 28.49% done, 1:52 elapsed. (0/0/0 errors) 30.15% done, 1:53 elapsed. (0/0/0 errors) 31.82% done, 1:54 elapsed. (0/0/0 errors) 33.49% done, 1:55 elapsed. (0/0/0 errors) 35.16% done, 1:56 elapsed. (0/0/0 errors) 36.85% done, 1:57 elapsed. (0/0/0 errors) 38.48% done, 1:58 elapsed. (0/0/0 errors) 40.16% done, 1:59 elapsed. (0/0/0 errors) 41.80% done, 2:00 elapsed. (0/0/0 errors) 43.48% done, 2:01 elapsed. (0/0/0 errors) 45.14% done, 2:02 elapsed. (0/0/0 errors) 46.81% done, 2:03 elapsed. (0/0/0 errors) 48.47% done, 2:04 elapsed. (0/0/0 errors) 50.16% done, 2:05 elapsed. (0/0/0 errors) 51.81% done, 2:06 elapsed. (0/0/0 errors) 53.50% done, 2:07 elapsed. (0/0/0 errors) 55.17% done, 2:08 elapsed. (0/0/0 errors) 56.85% done, 2:09 elapsed. (0/0/0 errors) 58.52% done, 2:10 elapsed. (0/0/0 errors) 60.20% done, 2:11 elapsed. (0/0/0 errors) 61.86% done, 2:12 elapsed. (0/0/0 errors) 63.55% done, 2:13 elapsed. (0/0/0 errors) 65.22% done, 2:14 elapsed. (0/0/0 errors) 66.89% done, 2:15 elapsed. (0/0/0 errors) 68.56% done, 2:16 elapsed. (0/0/0 errors) 70.24% done, 2:17 elapsed. (0/0/0 errors) 71.91% done, 2:18 elapsed. (0/0/0 errors) 73.60% done, 2:19 elapsed. (0/0/0 errors) 75.26% done, 2:20 elapsed. (0/0/0 errors) 76.91% done, 2:21 elapsed. (0/0/0 errors) 78.59% done, 2:22 elapsed. (0/0/0 errors) 80.24% done, 2:23 elapsed. (0/0/0 errors) 81.92% done, 2:24 elapsed. (0/0/0 errors) 83.58% done, 2:25 elapsed. (0/0/0 errors) 85.27% done, 2:26 elapsed. (0/0/0 errors) 86.92% done, 2:27 elapsed. (0/0/0 errors) 88.59% done, 2:28 elapsed. (0/0/0 errors) 90.25% done, 2:29 elapsed. (0/0/0 errors) 91.91% done, 2:30 elapsed. (0/0/0 errors) 93.58% done, 2:31 elapsed. (0/0/0 errors) 95.26% done, 2:32 elapsed. (0/0/0 errors) 96.93% done, 2:33 elapsed. (0/0/0 errors) 98.61% done, 2:34 elapsed. (0/0/0 errors)done
+2023-02-03 10:12:26.245:   [Telnet] Reading and comparing:   0.00% done, 2:35 elapsed. (0/0/0 errors)  3.17% done, 2:36 elapsed. (0/0/0 errors)  6.33% done, 2:37 elapsed. (0/0/0 errors)  9.44% done, 2:38 elapsed. (0/0/0 errors) 12.54% done, 2:39 elapsed. (0/0/0 errors) 15.63% done, 2:40 elapsed. (0/0/0 errors) 18.73% done, 2:41 elapsed. (0/0/0 errors) 21.82% done, 2:42 elapsed. (0/0/0 errors) 24.92% done, 2:43 elapsed. (0/0/0 errors) 28.02% done, 2:44 elapsed. (0/0/0 errors) 31.11% done, 2:45 elapsed. (0/0/0 errors) 34.21% done, 2:46 elapsed. (0/0/0 errors) 37.30% done, 2:47 elapsed. (0/0/0 errors) 40.40% done, 2:48 elapsed. (0/0/0 errors) 43.50% done, 2:49 elapsed. (0/0/0 errors) 46.61% done, 2:50 elapsed. (0/0/0 errors) 49.74% done, 2:51 elapsed. (0/0/0 errors) 52.88% done, 2:52 elapsed. (0/0/0 errors) 56.02% done, 2:53 elapsed. (0/0/0 errors) 59.17% done, 2:54 elapsed. (0/0/0 errors) 62.31% done, 2:55 elapsed. (0/0/0 errors) 65.41% done, 2:56 elapsed. (0/0/0 errors) 68.50% done, 2:57 elapsed. (0/0/0 errors) 71.59% done, 2:58 elapsed. (0/0/0 errors) 74.69% done, 2:59 elapsed. (0/0/0 errors) 77.79% done, 3:00 elapsed. (0/0/0 errors) 80.88% done, 3:01 elapsed. (0/0/0 errors) 83.98% done, 3:02 elapsed. (0/0/0 errors) 87.07% done, 3:03 elapsed. (0/0/0 errors) 90.17% done, 3:04 elapsed. (0/0/0 errors) 93.27% done, 3:05 elapsed. (0/0/0 errors) 96.36% done, 3:06 elapsed. (0/0/0 errors) 99.46% done, 3:07 elapsed. (0/0/0 errors)done
+2023-02-03 10:13:26.427:   [Telnet] Testing with pattern 0xff:   0.00% done, 3:07 elapsed. (0/0/0 errors)  1.66% done, 3:08 elapsed. (0/0/0 errors)  3.33% done, 3:09 elapsed. (0/0/0 errors)  5.00% done, 3:10 elapsed. (0/0/0 errors)  6.65% done, 3:11 elapsed. (0/0/0 errors)  8.30% done, 3:12 elapsed. (0/0/0 errors)  9.95% done, 3:13 elapsed. (0/0/0 errors) 11.62% done, 3:14 elapsed. (0/0/0 errors) 13.28% done, 3:15 elapsed. (0/0/0 errors) 14.96% done, 3:16 elapsed. (0/0/0 errors) 16.58% done, 3:17 elapsed. (0/0/0 errors) 18.22% done, 3:18 elapsed. (0/0/0 errors) 19.90% done, 3:19 elapsed. (0/0/0 errors) 21.55% done, 3:20 elapsed. (0/0/0 errors) 23.23% done, 3:21 elapsed. (0/0/0 errors) 24.91% done, 3:22 elapsed. (0/0/0 errors) 26.59% done, 3:23 elapsed. (0/0/0 errors) 28.25% done, 3:24 elapsed. (0/0/0 errors) 29.93% done, 3:25 elapsed. (0/0/0 errors) 31.60% done, 3:26 elapsed. (0/0/0 errors) 33.29% done, 3:27 elapsed. (0/0/0 errors) 34.96% done, 3:28 elapsed. (0/0/0 errors) 36.64% done, 3:29 elapsed. (0/0/0 errors) 38.30% done, 3:30 elapsed. (0/0/0 errors) 39.98% done, 3:31 elapsed. (0/0/0 errors) 41.65% done, 3:32 elapsed. (0/0/0 errors) 43.34% done, 3:33 elapsed. (0/0/0 errors) 45.00% done, 3:34 elapsed. (0/0/0 errors) 46.68% done, 3:35 elapsed. (0/0/0 errors) 48.35% done, 3:36 elapsed. (0/0/0 errors) 50.03% done, 3:37 elapsed. (0/0/0 errors) 51.70% done, 3:38 elapsed. (0/0/0 errors) 53.38% done, 3:39 elapsed. (0/0/0 errors) 55.05% done, 3:40 elapsed. (0/0/0 errors) 56.72% done, 3:41 elapsed. (0/0/0 errors) 58.39% done, 3:42 elapsed. (0/0/0 errors) 60.07% done, 3:43 elapsed. (0/0/0 errors) 61.75% done, 3:44 elapsed. (0/0/0 errors) 63.44% done, 3:45 elapsed. (0/0/0 errors) 65.10% done, 3:46 elapsed. (0/0/0 errors) 66.77% done, 3:47 elapsed. (0/0/0 errors) 68.44% done, 3:48 elapsed. (0/0/0 errors) 70.12% done, 3:49 elapsed. (0/0/0 errors) 71.79% done, 3:50 elapsed. (0/0/0 errors) 73.47% done, 3:51 elapsed. (0/0/0 errors) 75.14% done, 3:52 elapsed. (0/0/0 errors) 76.82% done, 3:53 elapsed. (0/0/0 errors) 78.49% done, 3:54 elapsed. (0/0/0 errors) 80.18% done, 3:55 elapsed. (0/0/0 errors) 81.84% done, 3:56 elapsed. (0/0/0 errors) 83.53% done, 3:57 elapsed. (0/0/0 errors) 85.19% done, 3:58 elapsed. (0/0/0 errors) 86.86% done, 3:59 elapsed. (0/0/0 errors) 88.53% done, 4:00 elapsed. (0/0/0 errors) 90.22% done, 4:01 elapsed. (0/0/0 errors) 91.85% done, 4:02 elapsed. (0/0/0 errors) 93.51% done, 4:03 elapsed. (0/0/0 errors) 95.20% done, 4:04 elapsed. (0/0/0 errors) 96.85% done, 4:05 elapsed. (0/0/0 errors) 98.53% done, 4:06 elapsed. (0/0/0 errors)done
+2023-02-03 10:13:58.612:   [Telnet] Reading and comparing:   0.00% done, 4:07 elapsed. (0/0/0 errors)  3.09% done, 4:08 elapsed. (0/0/0 errors)  6.18% done, 4:09 elapsed. (0/0/0 errors)  9.28% done, 4:10 elapsed. (0/0/0 errors) 12.38% done, 4:11 elapsed. (0/0/0 errors) 15.47% done, 4:12 elapsed. (0/0/0 errors) 18.57% done, 4:13 elapsed. (0/0/0 errors) 21.66% done, 4:14 elapsed. (0/0/0 errors) 24.76% done, 4:15 elapsed. (0/0/0 errors) 27.86% done, 4:16 elapsed. (0/0/0 errors) 30.99% done, 4:17 elapsed. (0/0/0 errors) 34.12% done, 4:18 elapsed. (0/0/0 errors) 37.24% done, 4:19 elapsed. (0/0/0 errors) 40.37% done, 4:20 elapsed. (0/0/0 errors) 43.50% done, 4:21 elapsed. (0/0/0 errors) 46.60% done, 4:22 elapsed. (0/0/0 errors) 49.71% done, 4:23 elapsed. (0/0/0 errors) 52.80% done, 4:24 elapsed. (0/0/0 errors) 55.90% done, 4:25 elapsed. (0/0/0 errors) 59.02% done, 4:26 elapsed. (0/0/0 errors) 62.17% done, 4:27 elapsed. (0/0/0 errors) 65.29% done, 4:28 elapsed. (0/0/0 errors) 68.42% done, 4:29 elapsed. (0/0/0 errors) 71.55% done, 4:30 elapsed. (0/0/0 errors) 74.65% done, 4:31 elapsed. (0/0/0 errors) 77.74% done, 4:32 elapsed. (0/0/0 errors) 80.84% done, 4:33 elapsed. (0/0/0 errors) 83.94% done, 4:34 elapsed. (0/0/0 errors) 87.03% done, 4:35 elapsed. (0/0/0 errors) 90.13% done, 4:36 elapsed. (0/0/0 errors) 93.22% done, 4:37 elapsed. (0/0/0 errors) 96.35% done, 4:38 elapsed. (0/0/0 errors) 99.48% done, 4:39 elapsed. (0/0/0 errors)done
+2023-02-03 10:14:58.651:   [Telnet] Testing with pattern 0x00:   0.00% done, 4:39 elapsed. (0/0/0 errors)  1.66% done, 4:40 elapsed. (0/0/0 errors)  3.32% done, 4:41 elapsed. (0/0/0 errors)  5.00% done, 4:42 elapsed. (0/0/0 errors)  6.66% done, 4:43 elapsed. (0/0/0 errors)  8.35% done, 4:44 elapsed. (0/0/0 errors) 10.01% done, 4:45 elapsed. (0/0/0 errors) 11.68% done, 4:46 elapsed. (0/0/0 errors) 13.36% done, 4:47 elapsed. (0/0/0 errors) 15.02% done, 4:48 elapsed. (0/0/0 errors) 16.68% done, 4:49 elapsed. (0/0/0 errors) 18.33% done, 4:50 elapsed. (0/0/0 errors) 20.01% done, 4:51 elapsed. (0/0/0 errors) 21.66% done, 4:52 elapsed. (0/0/0 errors) 23.34% done, 4:53 elapsed. (0/0/0 errors) 25.00% done, 4:54 elapsed. (0/0/0 errors) 26.67% done, 4:55 elapsed. (0/0/0 errors) 28.33% done, 4:56 elapsed. (0/0/0 errors) 30.00% done, 4:57 elapsed. (0/0/0 errors) 31.68% done, 4:58 elapsed. (0/0/0 errors) 33.37% done, 4:59 elapsed. (0/0/0 errors) 35.03% done, 5:00 elapsed. (0/0/0 errors) 36.70% done, 5:01 elapsed. (0/0/0 errors) 38.38% done, 5:02 elapsed. (0/0/0 errors) 40.05% done, 5:03 elapsed. (0/0/0 errors) 41.72% done, 5:04 elapsed. (0/0/0 errors) 43.38% done, 5:05 elapsed. (0/0/0 errors) 45.06% done, 5:06 elapsed. (0/0/0 errors) 46.71% done, 5:07 elapsed. (0/0/0 errors) 48.39% done, 5:08 elapsed. (0/0/0 errors) 50.05% done, 5:09 elapsed. (0/0/0 errors) 51.74% done, 5:10 elapsed. (0/0/0 errors) 53.39% done, 5:11 elapsed. (0/0/0 errors) 55.08% done, 5:12 elapsed. (0/0/0 errors) 56.72% done, 5:13 elapsed. (0/0/0 errors) 58.40% done, 5:14 elapsed. (0/0/0 errors) 60.06% done, 5:15 elapsed. (0/0/0 errors) 61.75% done, 5:16 elapsed. (0/0/0 errors) 63.42% done, 5:17 elapsed. (0/0/0 errors) 65.09% done, 5:18 elapsed. (0/0/0 errors) 66.75% done, 5:19 elapsed. (0/0/0 errors) 68.44% done, 5:20 elapsed. (0/0/0 errors) 70.10% done, 5:21 elapsed. (0/0/0 errors) 71.79% done, 5:22 elapsed. (0/0/0 errors) 73.46% done, 5:23 elapsed. (0/0/0 errors) 75.15% done, 5:24 elapsed. (0/0/0 errors) 76.81% done, 5:25 elapsed. (0/0/0 errors) 78.50% done, 5:26 elapsed. (0/0/0 errors) 80.17% done, 5:27 elapsed. (0/0/0 errors) 81.86% done, 5:28 elapsed. (0/0/0 errors) 83.53% done, 5:29 elapsed. (0/0/0 errors) 85.22% done, 5:30 elapsed. (0/0/0 errors) 86.87% done, 5:31 elapsed. (0/0/0 errors) 88.56% done, 5:32 elapsed. (0/0/0 errors) 90.22% done, 5:33 elapsed. (0/0/0 errors) 91.89% done, 5:34 elapsed. (0/0/0 errors) 93.55% done, 5:35 elapsed. (0/0/0 errors) 95.23% done, 5:36 elapsed. (0/0/0 errors) 96.89% done, 5:37 elapsed. (0/0/0 errors) 98.57% done, 5:38 elapsed. (0/0/0 errors)done
+2023-02-03 10:15:30.787:   [Telnet] Reading and comparing:   0.00% done, 5:39 elapsed. (0/0/0 errors)  3.09% done, 5:40 elapsed. (0/0/0 errors)  6.18% done, 5:41 elapsed. (0/0/0 errors)  9.28% done, 5:42 elapsed. (0/0/0 errors) 12.38% done, 5:43 elapsed. (0/0/0 errors) 15.47% done, 5:44 elapsed. (0/0/0 errors) 18.57% done, 5:45 elapsed. (0/0/0 errors) 21.67% done, 5:46 elapsed. (0/0/0 errors) 24.76% done, 5:47 elapsed. (0/0/0 errors) 27.86% done, 5:48 elapsed. (0/0/0 errors) 30.95% done, 5:49 elapsed. (0/0/0 errors) 34.05% done, 5:50 elapsed. (0/0/0 errors) 37.14% done, 5:51 elapsed. (0/0/0 errors) 40.25% done, 5:52 elapsed. (0/0/0 errors) 43.36% done, 5:53 elapsed. (0/0/0 errors) 46.51% done, 5:54 elapsed. (0/0/0 errors) 49.66% done, 5:55 elapsed. (0/0/0 errors) 52.80% done, 5:56 elapsed. (0/0/0 errors) 55.95% done, 5:57 elapsed. (0/0/0 errors) 59.04% done, 5:58 elapsed. (0/0/0 errors) 62.14% done, 5:59 elapsed. (0/0/0 errors) 65.24% done, 6:00 elapsed. (0/0/0 errors) 68.34% done, 6:01 elapsed. (0/0/0 errors) 71.43% done, 6:02 elapsed. (0/0/0 errors) 74.55% done, 6:03 elapsed. (0/0/0 errors) 77.68% done, 6:04 elapsed. (0/0/0 errors) 80.81% done, 6:05 elapsed. (0/0/0 errors) 83.94% done, 6:06 elapsed. (0/0/0 errors) 87.09% done, 6:07 elapsed. (0/0/0 errors) 90.22% done, 6:08 elapsed. (0/0/0 errors) 93.33% done, 6:09 elapsed. (0/0/0 errors) 96.47% done, 6:10 elapsed. (0/0/0 errors) 99.62% done, 6:11 elapsed. (0/0/0 errors)done
+2023-02-03 10:15:30.834:   [Telnet] Pass completed, 0 bad blocks found. (0/0/0 errors)
+2023-02-03 10:15:30.835:   [CONFIG] Start key: "Pass completed,"
+2023-02-03 10:15:30.835:   [CONFIG] End key: "bad blocks found"
+2023-02-03 10:15:30.835:   [CONFIG] Regex: "null"
+2023-02-03 10:15:30.835:   [PC] Value: "0"
+2023-02-03 10:15:30.835:   [PC] 0 is a number
+2023-02-03 10:15:30.835:   [PC] Convert sucessed! value: 0
+2023-02-03 10:15:30.835:   [PC] Sum of bad blocks: 0
+2023-02-03 10:15:30.836:   ****************************************************
+2023-02-03 10:15:30.836:   Item name = emmc_badblocks
+2023-02-03 10:15:30.836:   Value = 0
+2023-02-03 10:15:30.836:   Test status = passed
+2023-02-03 10:15:30.836:   -----------------------------------------------------
+2023-02-03 10:15:30.836:   ****************************************************
+2023-02-03 10:15:30.837:   TIME[677.335 s] - STATUS[PASSED]
+//////////////////////////////////////////////////////////////
+//////////////////////////- ID[12] -//////////////////////////
+2023-02-03 10:15:30.838:   ITEM[MMC_READ_WRITE_SPEED_TEST] - FUNCTION[MMC_WR_SPEED_PROXY]
+2023-02-03 10:15:30.838:   Turn: 1
+2023-02-03 10:15:30.838:   Get IP from the function config with key is "IP".
+2023-02-03 10:15:30.839:   IP: 192.168.1.1
+2023-02-03 10:15:30.839:   [PC] Connect to host: 192.168.1.1
+2023-02-03 10:15:30.839:   [PC] Port is: 23
+2023-02-03 10:15:30.839:   [Cmd] ------------------------------------ 1
+2023-02-03 10:15:30.839:   [Cmd] Send command: arp -d 192.168.1.1
+2023-02-03 10:15:30.873:   [Cmd] 
+2023-02-03 10:15:30.874:   [Cmd] Send command: ping 192.168.1.1 -n 1
+2023-02-03 10:15:30.905:   [Cmd] Pinging 192.168.1.1 with 32 bytes of data:
+2023-02-03 10:15:30.905:   [Cmd] Reply from 192.168.1.1: bytes=32 time=1ms TTL=64
+2023-02-03 10:15:30.905:   [Cmd] 
+2023-02-03 10:15:30.905:   [Cmd] Ping statistics for 192.168.1.1:
+2023-02-03 10:15:30.905:   [Cmd] Packets: Sent = 1, Received = 1, Lost = 0 (0% loss),
+2023-02-03 10:15:30.905:   [Cmd] Approximate round trip times in milli-seconds:
+2023-02-03 10:15:30.905:   [Cmd] Minimum = 1ms, Maximum = 1ms, Average = 1ms
+2023-02-03 10:15:30.905:   [Cmd] ------------------------------------
+2023-02-03 10:15:31.009:   [Telnet] === IMPORTANT ============================
+2023-02-03 10:15:31.010:   [Telnet] Use 'passwd' to set your login password!
+2023-02-03 10:15:31.010:   [Telnet] ------------------------------------------
+2023-02-03 10:15:31.011:   [Telnet] 
+2023-02-03 10:15:31.011:   [Telnet] 
+2023-02-03 10:15:31.011:   [Telnet] BusyBox v1.30.1 () built-in shell (ash)
+2023-02-03 10:15:31.012:   [Telnet] 
+2023-02-03 10:15:31.012:   [Telnet] MM           NM                    MMMMMMM          M       M
+2023-02-03 10:15:31.012:   [Telnet] $MMMMM        MMMMM                MMMMMMMMMMM      MMM     MMM
+2023-02-03 10:15:31.013:   [Telnet] MMMMMMMM     MM MMMMM.              MMMMM:MMMMMM:   MMMM   MMMMM
+2023-02-03 10:15:31.013:   [Telnet] MMMM= MMMMMM  MMM   MMMM       MMMMM   MMMM  MMMMMM   MMMM  MMMMM'
+2023-02-03 10:15:31.013:   [Telnet] MMMM=  MMMMM MMMM    MM       MMMMM    MMMM    MMMM   MMMMNMMMMM
+2023-02-03 10:15:31.013:   [Telnet] MMMM=   MMMM  MMMMM          MMMMM     MMMM    MMMM   MMMMMMMM
+2023-02-03 10:15:31.014:   [Telnet] MMMM=   MMMM   MMMMMM       MMMMM      MMMM    MMMM   MMMMMMMMM
+2023-02-03 10:15:31.014:   [Telnet] MMMM=   MMMM     MMMMM,    NMMMMMMMM   MMMM    MMMM   MMMMMMMMMMM
+2023-02-03 10:15:31.014:   [Telnet] MMMM=   MMMM      MMMMMM   MMMMMMMM    MMMM    MMMM   MMMM  MMMMMM
+2023-02-03 10:15:31.015:   [Telnet] MMMM=   MMMM   MM    MMMM    MMMM      MMMM    MMMM   MMMM    MMMM
+2023-02-03 10:15:31.015:   [Telnet] MMMM$ ,MMMMM  MMMMM  MMMM    MMM       MMMM   MMMMM   MMMM    MMMM
+2023-02-03 10:15:31.015:   [Telnet] MMMMMMM:      MMMMMMM     M         MMMMMMMMMMMM  MMMMMMM MMMMMMM
+2023-02-03 10:15:31.016:   [Telnet] MMMMMM       MMMMN     M           MMMMMMMMM      MMMM    MMMM
+2023-02-03 10:15:31.016:   [Telnet] MMMM          M                    MMMMMMM        M       M
+2023-02-03 10:15:31.017:   [Telnet] M
+2023-02-03 10:15:31.017:   [Telnet] ---------------------------------------------------------------
+2023-02-03 10:15:31.017:   [Telnet] For those about to rock... (Chaos Calmer, unknown)
+2023-02-03 10:15:31.018:   [Telnet] ---------------------------------------------------------------
+2023-02-03 10:15:31.018:   [Telnet] root@eero-test:/#
+2023-02-03 10:15:31.132:   [Telnet] root@eero-test:/#
+2023-02-03 10:15:31.132:   [Telnet] Send command: test-emmc
+2023-02-03 10:15:31.134:   [Config] Time: 20
+2023-02-03 10:15:31.134:   [Config] ReadUntil: root@eero-test:/#
+2023-02-03 10:15:37.774:   [Telnet] test-emmc
+2023-02-03 10:15:37.775:   [Telnet] 
+2023-02-03 10:15:37.775:   [Telnet] 
+2023-02-03 10:15:37.775:   [Telnet] Writing 10MiB of 0x00 in 524288 B chunks to /dev/mmcblk0p20...
+2023-02-03 10:15:37.776:   [Telnet] 20+0 records in
+2023-02-03 10:15:37.776:   [Telnet] 20+0 records out
+2023-02-03 10:15:37.776:   [Telnet] 10485760 bytes (10.0MB) copied, 0.758025 seconds, 13.2MB/s
+2023-02-03 10:15:37.776:   [Telnet] real    0m 0.76s
+2023-02-03 10:15:37.777:   [Telnet] user    0m 0.01s
+2023-02-03 10:15:37.777:   [Telnet] sys     0m 0.07s
+2023-02-03 10:15:37.777:   [Telnet] Reading 10MiB in 524288 B chunks from /dev/mmcblk0p20...
+2023-02-03 10:15:37.778:   [Telnet] 20+0 records in
+2023-02-03 10:15:37.778:   [Telnet] 20+0 records out
+2023-02-03 10:15:37.778:   [Telnet] 10485760 bytes (10.0MB) copied, 0.245739 seconds, 40.7MB/s
+2023-02-03 10:15:37.779:   [Telnet] real    0m 0.25s
+2023-02-03 10:15:37.779:   [Telnet] user    0m 0.03s
+2023-02-03 10:15:37.779:   [Telnet] sys     0m 0.00s
+2023-02-03 10:15:37.779:   [Telnet] 
+2023-02-03 10:15:37.780:   [Telnet] 
+2023-02-03 10:15:37.780:   [Telnet] Writing 10MiB of 0xFF in 524288 B chunks to /dev/mmcblk0p20...
+2023-02-03 10:15:37.780:   [Telnet] 20+0 records in
+2023-02-03 10:15:37.780:   [Telnet] 20+0 records out
+2023-02-03 10:15:37.780:   [Telnet] 10485760 bytes (10.0MB) copied, 0.541758 seconds, 18.5MB/s
+2023-02-03 10:15:37.780:   [Telnet] real    0m 0.54s
+2023-02-03 10:15:37.780:   [Telnet] user    0m 0.00s
+2023-02-03 10:15:37.780:   [Telnet] sys     0m 0.08s
+2023-02-03 10:15:37.780:   [Telnet] Reading 10MiB in 524288 B chunks from /dev/mmcblk0p20...
+2023-02-03 10:15:37.780:   [Telnet] 20+0 records in
+2023-02-03 10:15:37.780:   [Telnet] 20+0 records out
+2023-02-03 10:15:37.780:   [Telnet] 10485760 bytes (10.0MB) copied, 0.245734 seconds, 40.7MB/s
+2023-02-03 10:15:37.781:   [Telnet] real    0m 0.25s
+2023-02-03 10:15:37.781:   [Telnet] user    0m 0.00s
+2023-02-03 10:15:37.781:   [Telnet] sys     0m 0.03s
+2023-02-03 10:15:37.781:   [Telnet] 
+2023-02-03 10:15:37.781:   [Telnet] 
+2023-02-03 10:15:37.781:   [Telnet] Writing 10MiB of random in 524288 B chunks to /dev/mmcblk0p20...
+2023-02-03 10:15:37.781:   [Telnet] 20+0 records in
+2023-02-03 10:15:37.781:   [Telnet] 20+0 records out
+2023-02-03 10:15:37.781:   [Telnet] 10485760 bytes (10.0MB) copied, 4.180562 seconds, 2.4MB/s
+2023-02-03 10:15:37.781:   [Telnet] real    0m 4.18s
+2023-02-03 10:15:37.781:   [Telnet] user    0m 0.00s
+2023-02-03 10:15:37.782:   [Telnet] sys     0m 3.33s
+2023-02-03 10:15:37.782:   [Telnet] Reading 10MiB in 524288 B chunks from /dev/mmcblk0p20...
+2023-02-03 10:15:37.782:   [Telnet] 20+0 records in
+2023-02-03 10:15:37.782:   [Telnet] 20+0 records out
+2023-02-03 10:15:37.782:   [Telnet] 10485760 bytes (10.0MB) copied, 0.246448 seconds, 40.6MB/s
+2023-02-03 10:15:37.782:   [Telnet] real    0m 0.25s
+2023-02-03 10:15:37.782:   [Telnet] user    0m 0.00s
+2023-02-03 10:15:37.782:   [Telnet] sys     0m 0.03s
+2023-02-03 10:15:37.782:   [Telnet] root@eero-test:/#
+2023-02-03 10:15:37.783:   [Config] Items: [emmc_speed_read, emmc_speed_write]
+2023-02-03 10:15:37.783:   [Config] Block: [0x00, 0x00]
+2023-02-03 10:15:37.783:   [Config] KeyWord: [0x00, 0x00]
+2023-02-03 10:15:37.783:   [PC] emmc_speed_read
+2023-02-03 10:15:37.784:   Turn: 1
+2023-02-03 10:15:37.784:   [Config] Block: 0x00
+2023-02-03 10:15:37.784:   [Config] KeyWord: Reading
+2023-02-03 10:15:37.785:   [PC] 40.7 is a number
+2023-02-03 10:15:37.785:   ****************************************************
+2023-02-03 10:15:37.785:   Item name = MMC_READ_WRITE_SPEED_TEST
+2023-02-03 10:15:37.785:   Value = 40.7
+2023-02-03 10:15:37.785:   Test status = passed
+2023-02-03 10:15:37.785:   -----------------------------------------------------
+2023-02-03 10:15:37.786:   ****************************************************
+2023-02-03 10:15:37.786:   [PC] emmc_speed_write
+2023-02-03 10:15:37.786:   Turn: 1
+2023-02-03 10:15:37.786:   [Config] Block: 0x00
+2023-02-03 10:15:37.786:   [Config] KeyWord: Writing
+2023-02-03 10:15:37.786:   [PC] 13.2 is a number
+2023-02-03 10:15:37.786:   ****************************************************
+2023-02-03 10:15:37.786:   Item name = MMC_READ_WRITE_SPEED_TEST
+2023-02-03 10:15:37.786:   Value = 13.2
+2023-02-03 10:15:37.787:   Test status = passed
+2023-02-03 10:15:37.787:   -----------------------------------------------------
+2023-02-03 10:15:37.787:   ****************************************************
+2023-02-03 10:15:37.787:   ****************************************************
+2023-02-03 10:15:37.787:   Item name = MMC_READ_WRITE_SPEED_TEST
+2023-02-03 10:15:37.787:   Value = passed
+2023-02-03 10:15:37.787:   Test status = passed
+2023-02-03 10:15:37.787:   -----------------------------------------------------
+2023-02-03 10:15:37.787:   ****************************************************
+2023-02-03 10:15:37.787:   TIME[6.949 s] - STATUS[PASSED]
+//////////////////////////////////////////////////////////////
+//////////////////////////- ID[13] -//////////////////////////
+2023-02-03 10:15:37.788:   ITEM[temp_cpu] - FUNCTION[CheckCommandTelnetProxy]
+2023-02-03 10:15:37.788:   Turn: 1
+2023-02-03 10:15:37.788:   Get IP from the function config with key is "IP".
+2023-02-03 10:15:37.788:   [PC] Connect to host: 192.168.1.1
+2023-02-03 10:15:37.788:   [PC] Port is: 23
+2023-02-03 10:15:37.788:   [Cmd] ------------------------------------ 1
+2023-02-03 10:15:37.789:   [Cmd] Send command: arp -d 192.168.1.1
+2023-02-03 10:15:37.821:   [Cmd] 
+2023-02-03 10:15:37.821:   [Cmd] Send command: ping 192.168.1.1 -n 1
+2023-02-03 10:15:37.850:   [Cmd] Pinging 192.168.1.1 with 32 bytes of data:
+2023-02-03 10:15:37.851:   [Cmd] Reply from 192.168.1.1: bytes=32 time=1ms TTL=64
+2023-02-03 10:15:37.851:   [Cmd] 
+2023-02-03 10:15:37.851:   [Cmd] Ping statistics for 192.168.1.1:
+2023-02-03 10:15:37.851:   [Cmd] Packets: Sent = 1, Received = 1, Lost = 0 (0% loss),
+2023-02-03 10:15:37.851:   [Cmd] Approximate round trip times in milli-seconds:
+2023-02-03 10:15:37.851:   [Cmd] Minimum = 1ms, Maximum = 1ms, Average = 1ms
+2023-02-03 10:15:37.852:   [Cmd] ------------------------------------
+2023-02-03 10:15:38.070:   [Telnet] === IMPORTANT ============================
+2023-02-03 10:15:38.070:   [Telnet] Use 'passwd' to set your login password!
+2023-02-03 10:15:38.070:   [Telnet] ------------------------------------------
+2023-02-03 10:15:38.070:   [Telnet] 
+2023-02-03 10:15:38.070:   [Telnet] 
+2023-02-03 10:15:38.071:   [Telnet] BusyBox v1.30.1 () built-in shell (ash)
+2023-02-03 10:15:38.071:   [Telnet] 
+2023-02-03 10:15:38.071:   [Telnet] MM           NM                    MMMMMMM          M       M
+2023-02-03 10:15:38.071:   [Telnet] $MMMMM        MMMMM                MMMMMMMMMMM      MMM     MMM
+2023-02-03 10:15:38.071:   [Telnet] MMMMMMMM     MM MMMMM.              MMMMM:MMMMMM:   MMMM   MMMMM
+2023-02-03 10:15:38.071:   [Telnet] MMMM= MMMMMM  MMM   MMMM       MMMMM   MMMM  MMMMMM   MMMM  MMMMM'
+2023-02-03 10:15:38.071:   [Telnet] MMMM=  MMMMM MMMM    MM       MMMMM    MMMM    MMMM   MMMMNMMMMM
+2023-02-03 10:15:38.071:   [Telnet] MMMM=   MMMM  MMMMM          MMMMM     MMMM    MMMM   MMMMMMMM
+2023-02-03 10:15:38.071:   [Telnet] MMMM=   MMMM   MMMMMM       MMMMM      MMMM    MMMM   MMMMMMMMM
+2023-02-03 10:15:38.071:   [Telnet] MMMM=   MMMM     MMMMM,    NMMMMMMMM   MMMM    MMMM   MMMMMMMMMMM
+2023-02-03 10:15:38.071:   [Telnet] MMMM=   MMMM      MMMMMM   MMMMMMMM    MMMM    MMMM   MMMM  MMMMMM
+2023-02-03 10:15:38.071:   [Telnet] MMMM=   MMMM   MM    MMMM    MMMM      MMMM    MMMM   MMMM    MMMM
+2023-02-03 10:15:38.071:   [Telnet] MMMM$ ,MMMMM  MMMMM  MMMM    MMM       MMMM   MMMMM   MMMM    MMMM
+2023-02-03 10:15:38.071:   [Telnet] MMMMMMM:      MMMMMMM     M         MMMMMMMMMMMM  MMMMMMM MMMMMMM
+2023-02-03 10:15:38.072:   [Telnet] MMMMMM       MMMMN     M           MMMMMMMMM      MMMM    MMMM
+2023-02-03 10:15:38.072:   [Telnet] MMMM          M                    MMMMMMM        M       M
+2023-02-03 10:15:38.072:   [Telnet] M
+2023-02-03 10:15:38.072:   [Telnet] ---------------------------------------------------------------
+2023-02-03 10:15:38.072:   [Telnet] For those about to rock... (Chaos Calmer, unknown)
+2023-02-03 10:15:38.072:   [Telnet] ---------------------------------------------------------------
+2023-02-03 10:15:38.072:   [Telnet] root@eero-test:/#
+2023-02-03 10:15:38.180:   [Telnet] root@eero-test:/#
+2023-02-03 10:15:38.180:   [Telnet] Send command: cat /sys/devices/virtual/thermal/thermal_zone1/temp
+2023-02-03 10:15:38.288:   [Telnet] cat /sys/devices/virtual/thermal/thermal_zone1/temp
+2023-02-03 10:15:38.289:   [Telnet] 43
+2023-02-03 10:15:38.289:   [CONFIG] Start key: "null"
+2023-02-03 10:15:38.289:   [CONFIG] End key: "null"
+2023-02-03 10:15:38.290:   [CONFIG] Regex: "^[0-9]+$"
+2023-02-03 10:15:38.290:   [PC] Value: "43"
+2023-02-03 10:15:38.291:   ****************************************************
+2023-02-03 10:15:38.291:   Item name = temp_cpu
+2023-02-03 10:15:38.292:   Value = 43
+2023-02-03 10:15:38.292:   Test status = passed
+2023-02-03 10:15:38.293:   -----------------------------------------------------
+2023-02-03 10:15:38.293:   ****************************************************
+2023-02-03 10:15:38.294:   TIME[0.505 s] - STATUS[PASSED]
+//////////////////////////////////////////////////////////////
+//////////////////////////- ID[14] -//////////////////////////
+2023-02-03 10:15:38.295:   ITEM[shop_floor] - FUNCTION[VirFunctionProxy]
+2023-02-03 10:15:38.296:   Turn: 1
+2023-02-03 10:15:38.297:   ****************************************************
+2023-02-03 10:15:38.298:   Item name = shop_floor
+2023-02-03 10:15:38.298:   Value = passed
+2023-02-03 10:15:38.298:   Test status = passed
+2023-02-03 10:15:38.299:   -----------------------------------------------------
+2023-02-03 10:15:38.299:   ****************************************************
+2023-02-03 10:15:38.300:   TIME[0.003 s] - STATUS[PASSED]
+//////////////////////////////////////////////////////////////
+//////////////////////////- ID[15] -//////////////////////////
+2023-02-03 10:15:38.306:   ITEM[CreateJson] - FUNCTION[CreateJsonApiProxy]
+2023-02-03 10:15:38.308:   Turn: 1
+2023-02-03 10:15:38.308:   [PC] Follow limit: true
+2023-02-03 10:15:38.309:   [PC] Use the limit errorcode: true
+2023-02-03 10:15:38.310:   [PC] Root: error_details = null
+2023-02-03 10:15:38.310:   [PC] -----------------------------------------
+2023-02-03 10:15:38.311:   [PC] Root: status = passed
+2023-02-03 10:15:38.311:   [PC] -----------------------------------------
+2023-02-03 10:15:38.311:   [PC] Root: finish_time = 2023-02-03 10:15:38
+2023-02-03 10:15:38.312:   [PC] -----------------------------------------
+2023-02-03 10:15:38.312:   [PC] Root: test_software_version = 1.1.1
+2023-02-03 10:15:38.312:   [PC] -----------------------------------------
+2023-02-03 10:15:38.313:   [PC] Root: start_time = 2023-02-03 09:02:10
+2023-02-03 10:15:38.313:   [PC] -----------------------------------------
+2023-02-03 10:15:38.313:   [PC] Root: station_type = REPAIR
+2023-02-03 10:15:38.313:   [PC] -----------------------------------------
+2023-02-03 10:15:38.313:   [PC] Root: error_code = null
+2023-02-03 10:15:38.313:   [PC] -----------------------------------------
+2023-02-03 10:15:38.313:   [PC] Root: serial = GGB1UD2230521ES3
+2023-02-03 10:15:38.313:   [PC] -----------------------------------------
+2023-02-03 10:15:38.313:   [PC] Root: mode = Debug
+2023-02-03 10:15:38.313:   [PC] -----------------------------------------
+2023-02-03 10:15:38.314:   [PC] Root: station_name = REPAIR-7801
+2023-02-03 10:15:38.314:   [PC] -----------------------------------------
+2023-02-03 10:15:38.314:   [PC] Root: position = A1
+2023-02-03 10:15:38.314:   [PC] -----------------------------------------
+2023-02-03 10:15:38.314:   [PC] ItemNames: [golden_file, dut_ping, dut_telnet, sn_ok, mac_ok, phy_model, test_image_version, temp_cpu_0, dut_ping_1, ram_stress, cpu_stress, emmc_badblocks, MMC_READ_WRITE_SPEED_TEST, emmc_speed_read, emmc_speed_write, temp_cpu, shop_floor]
+2023-02-03 10:15:38.314:   [PC] Limit itemNames: []
+2023-02-03 10:15:38.315:   [PC] ElementName: [mlbsn, station_name, mode]
+2023-02-03 10:15:38.321:   [PC] Format for json data!
+2023-02-03 10:15:38.322:   [PC] Save data in: python/log/GGB1UD2230521ES3_REPAIR-7801_Debug.json ok
+2023-02-03 10:15:38.323:   ****************************************************
+2023-02-03 10:15:38.323:   Item name = CreateJson
+2023-02-03 10:15:38.323:   Value = passed
+2023-02-03 10:15:38.323:   Test status = passed
+2023-02-03 10:15:38.323:   -----------------------------------------------------
+2023-02-03 10:15:38.323:   ****************************************************
+2023-02-03 10:15:38.323:   TIME[0.016 s] - STATUS[PASSED]
+//////////////////////////////////////////////////////////////
+//////////////////////////- ID[16] -//////////////////////////
+2023-02-03 10:15:38.324:   ITEM[CreateTxt] - FUNCTION[CreateTxtProxy]
+2023-02-03 10:15:38.324:   Turn: 1
+2023-02-03 10:15:38.324:   Save file txt!
+2023-02-03 10:15:38.324:   [PC] ElementName: [mlbsn, station_name, mode, serial]
+2023-02-03 10:15:38.324:   [DIR] python/log/GGB1UD2230521ES3_REPAIR-7801_Debug_serial.txt
+2023-02-03 10:15:38.325:   - add item: golden_file
+2023-02-03 10:15:38.326:   - add item: dut_ping
+2023-02-03 10:15:38.326:   - add item: dut_telnet
+2023-02-03 10:15:38.326:   - add item: sn_ok
+2023-02-03 10:15:38.326:   - add item: mac_ok
+2023-02-03 10:15:38.327:   - add item: phy_model
+2023-02-03 10:15:38.327:   - add item: test_image_version
+2023-02-03 10:15:38.327:   - add item: temp_cpu_0
+2023-02-03 10:15:38.327:   - add item: dut_ping_1
+2023-02-03 10:15:38.327:   - add item: ram_stress
+2023-02-03 10:15:38.328:   - add item: cpu_stress
+2023-02-03 10:15:38.328:   - add item: emmc_badblocks
+2023-02-03 10:15:38.329:   - add item: MMC_READ_WRITE_SPEED_TEST
+2023-02-03 10:15:38.329:   - add item: temp_cpu
+2023-02-03 10:15:38.329:   - add item: shop_floor
+2023-02-03 10:15:38.329:   - add item: CreateJson
+2023-02-03 10:15:38.330:   - add item: CreateTxt
+//////////////////////////////////////////////////////////////

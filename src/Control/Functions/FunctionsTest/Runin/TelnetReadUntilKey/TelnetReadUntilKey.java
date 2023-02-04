@@ -36,9 +36,12 @@ public class TelnetReadUntilKey extends AbsFunction {
     @Override
     protected boolean test() {
         String ip = this.analysisBase.getIp();
-        try ( Telnet telnet = this.baseFunc.getTelnet(ip, 23, new ReadStreamOverTime())) {
-            addLog("IP: " + ip);
-            if (ip == null || telnet == null) {
+        addLog("IP: " + ip);
+        if (ip == null) {
+            return false;
+        }
+        try ( Telnet telnet = this.baseFunc.getTelnet(ip, 23)) {
+            if (telnet == null) {
                 return false;
             }
             return runTest(telnet);

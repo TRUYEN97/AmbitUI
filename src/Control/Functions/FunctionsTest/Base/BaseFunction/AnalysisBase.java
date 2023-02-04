@@ -113,7 +113,6 @@ public class AnalysisBase extends AbsFunction {
 
     public boolean isResponseContainKeyAndShow(IReadable readable, String spec, String readUntil, AbsTime time) {
         try {
-
             if (readUntil == null) {
                 addLog("Config", "Read until == null !!");
                 return false;

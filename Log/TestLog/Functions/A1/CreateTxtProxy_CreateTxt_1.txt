@@ -1,0 +1,33 @@
+2023-02-03 10:15:38.571:   ITEM[CreateTxt_1] - FUNCTION[CreateTxtProxy]
+2023-02-03 10:15:38.571:   Turn: 1
+2023-02-03 10:15:38.571:   Save file txt!
+2023-02-03 10:15:38.572:   [PC] ElementName: [mlbsn, sn, position, status, mode, finish_time]
+2023-02-03 10:15:38.572:   [DIR] Log/TestLog/GGB1UD2230521ES3_A_A1_failed_Debug_2023-02-03-10-15-38.txt
+2023-02-03 10:15:38.573:   - add item: golden_file
+2023-02-03 10:15:38.574:   - add item: dut_ping
+2023-02-03 10:15:38.574:   - add item: dut_telnet
+2023-02-03 10:15:38.574:   - add item: sn_ok
+2023-02-03 10:15:38.575:   - add item: mac_ok
+2023-02-03 10:15:38.575:   - add item: phy_model
+2023-02-03 10:15:38.575:   - add item: test_image_version
+2023-02-03 10:15:38.575:   - add item: temp_cpu_0
+2023-02-03 10:15:38.576:   - add item: dut_ping_1
+2023-02-03 10:15:38.576:   - add item: ram_stress
+2023-02-03 10:15:38.576:   - add item: cpu_stress
+2023-02-03 10:15:38.577:   - add item: emmc_badblocks
+2023-02-03 10:15:38.577:   - add item: MMC_READ_WRITE_SPEED_TEST
+2023-02-03 10:15:38.577:   - add item: temp_cpu
+2023-02-03 10:15:38.578:   - add item: shop_floor
+2023-02-03 10:15:38.578:   - add item: CreateJson
+2023-02-03 10:15:38.578:   - add item: CreateTxt
+2023-02-03 10:15:38.578:   - add item: CreateZip
+2023-02-03 10:15:38.579:   - add item: UpAPI
+2023-02-03 10:15:38.579:   - add item: CreateTxt_1
+2023-02-03 10:15:38.579:   [PC] Save file txt at Log/TestLog/GGB1UD2230521ES3_A_A1_failed_Debug_2023-02-03-10-15-38.txt
+2023-02-03 10:15:38.579:   ****************************************************
+2023-02-03 10:15:38.579:   Item name = CreateTxt_1
+2023-02-03 10:15:38.579:   Value = passed
+2023-02-03 10:15:38.579:   Test status = passed
+2023-02-03 10:15:38.579:   -----------------------------------------------------
+2023-02-03 10:15:38.579:   ****************************************************
+2023-02-03 10:15:38.580:   TIME[0.009 s] - STATUS[PASSED]

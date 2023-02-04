@@ -5,6 +5,12 @@
             "errorDes": "SFIS_CHECK_ERROR"
         }
     },
+    "CheckProduct": {
+        "simple": {
+            "errorcode": "Check01",
+            "errorDes": "CheckProductInfo"
+        }
+    },
     "reset_power": {
         "simple": {
             "errorcode": "RESET00",
@@ -81,6 +87,12 @@
         "simple": {
             "errorcode": "OnOff00",
             "errorDes": "OnOff"
+        }
+    },
+    "shop_floor": {
+        "simple": {
+            "errorcode": "SFIS00",
+            "errorDes": "SHOP_FLOOR"
         }
     },
     "SendToSfis": {
@@ -686,6 +698,36 @@
                     "errorDes": "openshort_tooHigh"
                 }
             },
+    "emmc_speed_read": 
+            {
+                "simple": {
+                    "errorcode": "11.2.1",
+                    "errorDes": "emmc_speed_read"
+                },
+                "low": {
+                    "errorcode": "11.2.1.1",
+                    "errorDes": "emmc_speed_read_tooLow"
+                },
+                "high": {
+                    "errorcode": "11.2.1.2",
+                    "errorDes": "emmc_speed_read_tooHigh"
+                }
+            },
+    "emmc_speed_write": 
+            {
+                "simple": {
+                    "errorcode": "11.2.2",
+                    "errorDes": "emmc_speed_write"
+                },
+                "low": {
+                    "errorcode": "11.2.2.1",
+                    "errorDes": "emmc_speed_write_tooLow"
+                },
+                "high": {
+                    "errorcode": "11.2.2.2",
+                    "errorDes": "emmc_speed_write_tooHigh"
+                }
+            },
     "temp_cpu": 
             {
                 "simple": {
@@ -699,6 +741,21 @@
                 "high": {
                     "errorcode": "32.3.2",
                     "errorDes": "temp_cpu_tooHigh"
+                }
+            },
+    "temp_cpu1": 
+            {
+                "simple": {
+                    "errorcode": "32.4.0",
+                    "errorDes": "temp_cpu1"
+                },
+                "low": {
+                    "errorcode": "32.4.1",
+                    "errorDes": "temp_cpu1_tooLow"
+                },
+                "high": {
+                    "errorcode": "32.4.2",
+                    "errorDes": "temp_cpu1_tooHigh"
                 }
             },
     "temp_cpu_0": 
@@ -791,64 +848,64 @@
                     "errorDes": "temp_env_tooHigh"
                 }
             },
-    "emmc_speed_read": 
+    "temp_eth": 
             {
                 "simple": {
-                    "errorcode": "11.2.1",
-                    "errorDes": "emmc_speed_read"
+                    "errorcode": "TEMP.ETH.0",
+                    "errorDes": "temp_eth"
                 },
                 "low": {
-                    "errorcode": "11.2.1.1",
-                    "errorDes": "emmc_speed_read_tooLow"
+                    "errorcode": "TEMP.ETH.1",
+                    "errorDes": "temp_eth_tooLow"
                 },
                 "high": {
-                    "errorcode": "11.2.1.2",
-                    "errorDes": "emmc_speed_read_tooHigh"
+                    "errorcode": "TEMP.ETH.2",
+                    "errorDes": "temp_eth_tooHigh"
                 }
             },
-    "emmc_speed_write": 
+    "temp_eth_0": 
             {
                 "simple": {
-                    "errorcode": "11.2.2",
-                    "errorDes": "emmc_speed_write"
+                    "errorcode": "TEMP.ETH.0.0",
+                    "errorDes": "temp_eth"
                 },
                 "low": {
-                    "errorcode": "11.2.2.1",
-                    "errorDes": "emmc_speed_write_tooLow"
+                    "errorcode": "TEMP.ETH.0.1",
+                    "errorDes": "temp_eth_tooLow"
                 },
                 "high": {
-                    "errorcode": "11.2.2.2",
-                    "errorDes": "emmc_speed_write_tooHigh"
+                    "errorcode": "TEMP.ETH.0.2",
+                    "errorDes": "temp_eth_tooHigh"
                 }
             },
-    "temp_cpu": 
+    "temp_eth_delta": 
             {
                 "simple": {
-                    "errorcode": "32.3.0",
-                    "errorDes": "temp_cpu"
+                    "errorcode": "TEMP.ETH.DELTA.0",
+                    "errorDes": "temp_eth_delta"
                 },
                 "low": {
-                    "errorcode": "32.3.3.1",
-                    "errorDes": "temp_cpu_tooLow"
+                    "errorcode": "TEMP.ETH.DELTA.1",
+                    "errorDes": "temp_eth_delta_tooLow"
                 },
                 "high": {
-                    "errorcode": "32.3.3.2",
-                    "errorDes": "temp_cpu_tooHigh"
+                    "errorcode": "TEMP.ETH.DELTA.2",
+                    "errorDes": "temp_eth_delta_tooHigh"
                 }
             },
-    "temp_cpu1": 
+    "temp_cpu_delta": 
             {
                 "simple": {
-                    "errorcode": "32.4.0",
-                    "errorDes": "temp_cpu1"
+                    "errorcode": "TEMP.CPU.DELTA.0",
+                    "errorDes": "temp_cpu_delta"
                 },
                 "low": {
-                    "errorcode": "32.4.1",
-                    "errorDes": "temp_cpu1_tooLow"
+                    "errorcode": "TEMP.CPU.DELTA.1",
+                    "errorDes": "temp_cpu_delta_tooLow"
                 },
                 "high": {
-                    "errorcode": "32.4.2",
-                    "errorDes": "temp_cpu1_tooHigh"
+                    "errorcode": "TEMP.CPU.DELTA.2",
+                    "errorDes": "temp_cpu_delta_tooHigh"
                 }
             }
 }

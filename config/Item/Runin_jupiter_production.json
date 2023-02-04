@@ -12,7 +12,7 @@
             "func_name": "SfisFunctionProxy"
         },
         {
-            "flag": false,
+            "flag": true,
             "multi": true,
             "always_run": false,
             "time_out": 1,
@@ -22,8 +22,8 @@
         {
             "flag": true,
             "time_out": 30,
-            "multi": false,
             "debug_able": true,
+            "multi": false,
             "host": "192.168.1.10",
             "user": "admin",
             "password": "1234",
@@ -38,18 +38,19 @@
         {
             "flag": true,
             "time_out": 360,
-            "debug_able": true,
             "multi": false,
             "time_ping": 30,
             "IP": "192.168.1.1",
+            "time_ping": 30,
+            "debug_able": true,
             "test_name": "dut_ping",
             "func_name": "DutPingProxy"
         },
         {
             "flag": true,
             "time_out": 10,
-            "debug_able": true,
             "multi": false,
+            "debug_able": true,
             "IP": "192.168.1.1",
             "test_name": "dut_telnet",
             "func_name": "DutTelnetProxy"
@@ -57,14 +58,14 @@
         {
             "flag": true,
             "time_out": 10,
-            "debug_able": true,
             "multi": true,
+            "debug_able": true,
             "always_run": false,
             "IP": "192.168.1.1",
             "command": "fw_printenv  serial",
             "Startkey": "serial=",
             "Endkey": "",
-            "compareWith": "mblsn",
+            "compare": "mlbsn",
             "test_name": "sn_ok",
             "func_name": "CheckDutInfoProxy"
         },
@@ -90,7 +91,7 @@
             "always_run": false,
             "IP": "192.168.1.1",
             "command": "fwversion",
-            "Startkey": "Ambit test image version:V",
+            "Startkey": "Ambit test image version:",
             "Endkey": "",
             "test_name": "test_image_version",
             "func_name": "CheckCommandTelnetProxy"
@@ -110,27 +111,39 @@
             "Regex": "^[0-9]+$",
             "test_name": "temp_cpu",
             "func_name": "TempCPUProxy"
+        }, 
+        {
+            "flag": true,
+            "time_out": 10,
+            "debug_able": true,
+            "IP": "192.168.1.1",
+            "command": "temperature",
+            "Startkey": "marvell       ",
+            "Endkey": "",
+            "test_name": "temp_eth",
+            "func_name": "CheckCommandTelnetProxy"
         },
         {
             "flag": true,
             "time_out": 300,
-            "debug_able": true,
             "retry": 3,
+            "debug_able": true,
             "multi": false,
-            "Times": 3,
+            "IP": "192.168.1.1",
+            "time": 20,
             "test_name": "reboot_soft",
             "func_name": "RebootSoftProxy"
         },
         {
             "flag": true,
-            "begin": 1,
+            "begin": 0,
             "loop_times": 4,
             "functions": [
                 {
                     "flag": true,
                     "time_out": 1200,
-                    "multi": false,
                     "debug_able": true,
+                    "multi": false,
                     "host": "192.168.1.10",
                     "user": "admin",
                     "password": "1234",
@@ -145,9 +158,23 @@
                     "time_out": 120,
                     "debug_able": true,
                     "multi": false,
+                    "time_ping": 30,
                     "IP": "192.168.1.1",
                     "test_name": "dut_ping",
                     "func_name": "DutPingProxy"
+                },     
+                {
+                    "flag": true,
+                    "time_out": 1200,
+                    "debug_able": true,
+                    "multi": false,
+                    "IP": "192.168.1.1",
+                    "command": ["badblocks -svw /dev/mmcblk0p26", "badblocks -svw /dev/mmcblk0p28"],
+                    "Startkey": "Pass completed,",
+                    "Endkey": "bad blocks found",
+                    "ReadUntil": "root@eero-test:/#",
+                    "test_name": "emmc_badblocks",
+                    "func_name": "MMC_BadBlockProxy"
                 },
                 {
                     "flag": true,
@@ -167,8 +194,8 @@
                 {
                     "flag": true,
                     "time_out": 3000,
-                    "multi": false,
                     "debug_able": true,
+                    "multi": false,
                     "IP": "192.168.1.1",
                     "command": ["stress --cpu 8 --io 4 --vm 2 --vm-bytes 128M --timeout 1800s"],
                     "keyWord": "successful run completed in",
@@ -176,25 +203,12 @@
                     "Time": 2000,
                     "test_name": "cpu_stress",
                     "func_name": "TelnetReadUntilKeyProxy"
-                },     
-                {
-                    "flag": true,
-                    "time_out": 1200,
-                    "multi": false,
-                    "debug_able": true,
-                    "IP": "192.168.1.1",
-                    "command": ["badblocks -svw /dev/mmcblk0p17", "badblocks -svw /dev/mmcblk0p20"],
-                    "Startkey": "Pass completed,",
-                    "Endkey": "bad blocks found",
-                    "ReadUntil": "root@eero-test:/#",
-                    "test_name": "emmc_badblocks",
-                    "func_name": "MMC_BadBlockProxy"
                 },
                 {
                     "flag": true,
                     "time_out": 300,
-                    "multi": false,
                     "debug_able": true,
+                    "multi": false,
                     "IP": "192.168.1.1",
                     "ItemNames": ["emmc_speed_read", "emmc_speed_write"],
                     "command": "test-emmc",
@@ -209,7 +223,6 @@
                     "flag": true,
                     "time_out": 10,
                     "debug_able": true,
-                    "multi": true,
                     "always_run": false,
                     "IP": "192.168.1.1",
                     "command": ["cat /sys/devices/virtual/thermal/thermal_zone7/temp",
@@ -218,16 +231,56 @@
                         "cat /sys/devices/virtual/thermal/thermal_zone10/temp"
                     ],
                     "Regex": "^[0-9]+$",
-                    "test_name": "temp_cpu1",
+                    "test_name": "temp_cpu_0",
                     "func_name": "TempCPUProxy"
+                },
+                {
+                    "flag": true,
+                    "time_out": 10,
+                    "debug_able": true,
+                    "IP": "192.168.1.1",
+                    "command": "temperature",
+                    "Startkey": "marvell       ",
+                    "Endkey": "",
+                    "test_name": "temp_eth_0",
+                    "func_name": "CheckCommandTelnetProxy"
                 }
             ]
         },
         {
             "flag": true,
-            "time_out": 30,
+            "time_out": 10,
+            "debug_able": true,
+            "always_run": false,
+            "item": "temp_cpu",
+            "item1": "temp_cpu_3",
+            "test_name": "temp_cpu_delta",
+            "func_name": "DeltaProxy"
+        },
+        {
+            "flag": true,
+            "time_out": 10,
+            "debug_able": true,
+            "always_run": false,
+            "item": "temp_eth",
+            "item1": "temp_eth_3",
+            "test_name": "temp_eth_delta",
+            "func_name": "DeltaProxy"
+        },
+        {
+            "flag": true,
+            "time_out": 10,
             "debug_able": true,
             "multi": false,
+            "always_run": true,
+            "test_name": "shop_floor",
+            "func_name": "VirFunctionProxy"
+        },
+        {
+            "flag": true,
+            "time_out": 30,
+            "multi": false,
+            "debug_able": true,
             "always_run": false,
             "host": "192.168.1.10",
             "user": "admin",
@@ -241,10 +294,11 @@
 
     ],
     "end": [
-       {
+        {
             "flag": true,
             "time_out": 30,
             "multi": false,
+            "followLimit": true,
             "BaseKeys": ["error_details", "status", "finish_time",
                 "test_software_version", "start_time", "station_type",
                 "error_code", "serial", "mode", "station_name", "position"],
@@ -277,7 +331,6 @@
             "flag": true,
             "time_out": 30,
             "multi": false,
-            "always_run": true,
             "Command": "cd python && eero_API_client.py log/",
             "ElementName": ["mlbsn", "station_name", "mode"],
             "Spec": "200",
@@ -289,24 +342,11 @@
             "time_out": 5,
             "wait_multi_done": true,
             "SEND_FORMAT": ["sn", "pcname", "status"],
+            "SEND_FORMAT_FAIL": ["sn", "pcname", "status", "errorcode"],
             "URL": "http://10.90.10.20/sfcapi/api/connectfinal",
             "SFIS_TYPE": "SendResult",
             "test_name": "SendToSfis",
             "func_name": "SfisFunctionProxy"
-        },
-        {
-            "flag": true,
-            "time_out": 150,
-            "always_run": false,
-            "multi": false,
-            "IP": "10.90.10.168",
-            "product": "Trieste",
-            "FtpPath": ["data/Trieste", "pnname", "station_type", "mode", "start_day", "station_name", "status", "text"],
-            "FtpName": ["mlbsn", "sn", "mode", "status", "mode", "finish_time"],
-            "FtpType": ".txt",
-            "MydasElem": ["mlbsn", "status", "ftppath", "mode", "V1.0.0.0", "pcname", "cycle_time", "start_time", "ethernetmac", "ethernetmac"],
-            "test_name": "Mydas",
-            "func_name": "MydasProxy" 
         }
     ],
     "final": [
@@ -316,7 +356,7 @@
             "always_run": true,
             "multi": false,
             "localFile": "Log/TestLog",
-            "ElementName": ["mlbsn", "sn", "mode", "status", "mode", "finish_time"],
+            "ElementName": ["mlbsn", "sn", "position", "status", "mode", "finish_time"],
             "test_name": "CreateTxt_1",
             "func_name": "CreateTxtProxy" 
         },
@@ -328,11 +368,11 @@
             "followLimit": false,
             "BaseKeys": ["error_details", "status", "finish_time",
                 "test_software_version", "start_time", "station_type",
-                "error_code", "serial", "mode", "station_name", "position", "cycle_time"],
+                "error_code", "serial", "mode", "station_name", "position", "cycle_time", "cyctime_final"],
             "TestKeys": ["upper_limit", "lower_limit", "status", "finish_time", "test_name",
                 "error_code", "start_time", "test_value", "units", "cycle_time"],
             "localFile": "Log/TestLog",
-            "ElementName": ["mlbsn", "sn", "mode", "status", "mode", "finish_time"],
+            "ElementName": ["mlbsn", "sn", "position", "status", "mode", "finish_time"],
             "test_name": "CreateJson_1",
             "func_name": "CreateJsonApiProxy" 
         },
@@ -345,10 +385,10 @@
             "Host": "10.90.10.168",
             "Port": 21,
             "FtpPath": ["data/Jupiter", "pnname", "station_type", "mode", "start_day", "station_name", "status", "text"],
-            "FtpName": ["mlbsn", "sn", "mode", "status", "mode", "finish_time"],
+            "FtpName": ["mlbsn", "sn", "position", "status", "mode", "finish_time"],
             "FtpType": ".txt",
             "LocalPath": ["Log/TestLog"],
-            "LocalName": ["mlbsn", "sn", "mode", "status", "mode", "finish_time"],
+            "LocalName": ["mlbsn", "sn", "position", "status", "mode", "finish_time"],
             "LocalType": ".txt",
             "test_name": "UpTxtFTP",
             "func_name": "UpFTPProxy"
@@ -363,10 +403,10 @@
             "Host": "10.90.10.168",
             "Port": 21,
             "FtpPath": ["data/Jupiter", "pnname", "station_type", "mode", "start_day", "station_name", "status", "JSON"],
-            "FtpName": ["mlbsn", "sn", "mode", "status", "mode", "finish_time"],
+            "FtpName": ["mlbsn", "sn", "position", "status", "mode", "finish_time"],
             "FtpType": ".json",
             "LocalPath": ["Log/TestLog"],
-            "LocalName": ["mlbsn", "sn", "mode", "status", "mode", "finish_time"],
+            "LocalName": ["mlbsn", "sn", "position", "status", "mode", "finish_time"],
             "LocalType": ".json",
             "test_name": "UpJsonFTP",
             "func_name": "UpFTPProxy"

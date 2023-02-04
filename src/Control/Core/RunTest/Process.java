@@ -14,11 +14,9 @@ import Model.Factory.Factory;
 import Model.Interface.IFunction;
 import Model.ManagerUI.UIStatus.UiStatus;
 import java.util.ArrayList;
-import java.util.ConcurrentModificationException;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
-import java.util.concurrent.ExecutionException;
 import java.util.concurrent.ExecutorService;
 import java.util.concurrent.Executors;
 import java.util.concurrent.Future;
@@ -109,8 +107,10 @@ class Process implements IFunction {
                     justFunctionAlwayRun = true;
                 }
             }
-        } catch (InterruptedException | ConcurrentModificationException | ExecutionException ex) {
+        } catch (Exception ex) {
+            ex.printStackTrace();
             ErrorLog.addError(this, ex.getMessage());
+            this.pass = false;
         } finally {
             waitUntilMultiTaskDone();
             this.functions.clear();
@@ -152,6 +152,7 @@ class Process implements IFunction {
             }
             return false;
         } catch (Exception e) {
+            e.printStackTrace();
             ErrorLog.addError(this, e.getLocalizedMessage());
             return true;
         } finally {

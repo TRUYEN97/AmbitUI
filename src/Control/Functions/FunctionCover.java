@@ -10,8 +10,6 @@ import Model.DataSource.ModeTest.FunctionConfig.FuncAllConfig;
 import Model.DataTest.FunctionData.FunctionData;
 import Model.ErrorLog;
 import java.util.concurrent.TimeoutException;
-import java.util.logging.Level;
-import java.util.logging.Logger;
 
 /**
  *
@@ -44,7 +42,6 @@ public class FunctionCover implements Runnable {
             ErrorLog.addError(this, e.getMessage());
         } finally {
             this.functionData.end();
-            this.functionData.closeLoger();
         }
     }
 

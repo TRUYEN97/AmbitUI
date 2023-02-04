@@ -46,7 +46,7 @@ public class SmallUI extends AbsSubUi {
         setLayout(new java.awt.BorderLayout());
 
         lbTime.setBackground(new java.awt.Color(102, 102, 255));
-        lbTime.setFont(new java.awt.Font("Tahoma", 1, 14));
+        lbTime.setFont(new java.awt.Font("Tahoma", 1, 12));
         lbTime.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         lbTime.setText("00:00");
         lbTime.setOpaque(true);
@@ -71,7 +71,7 @@ public class SmallUI extends AbsSubUi {
     private void lbTimeMouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_lbTimeMouseEntered
         // TODO add your handling code here:
         if (this.uiStatus.isTesting()) {
-            StringBuilder mess = new StringBuilder("<html><span style=\\\"font-size: 20px\\\">");
+            StringBuilder mess = new StringBuilder("<html><span style=\"font-size: 20px\">");
             List<FunctionData> dataBoxs = this.uiStatus.getProcessData().getDataBoxs();
             for (FunctionData dataBox : dataBoxs) {
                 if (dataBox.isTesting()) {
@@ -81,8 +81,8 @@ public class SmallUI extends AbsSubUi {
             mess.append("</span></html>");
             this.lbTime.setToolTipText(mess.toString());
         } else {
-            String mess = String.format("<html><span style=\\\"font-size: 20px\\\"><tr><td>%s</td></tr></span></html>",
-                    this.uiStatus.getProcessData().getMassage());
+            String text = this.uiStatus.getProcessData().getMassage();
+            String mess = String.format("<html><center>%s</html>", text == null ? "Finished!": text.replaceAll("\r\n", "<br>"));
             this.lbTime.setToolTipText(mess);
         }
     }//GEN-LAST:event_lbTimeMouseEntered
@@ -105,6 +105,8 @@ public class SmallUI extends AbsSubUi {
             this.lbTime.setBackground(Color.GREEN);
         } else {
             this.lbTime.setBackground(Color.red);
+//            lbTime.setText(String.format("<html><center>%s</br><center>%s</center>%s</html>",
+//                    getName(), this.uiStatus.getProcessData().getFirstFail().getLocalErrorCode(), getTestTime()));
         }
     }
 

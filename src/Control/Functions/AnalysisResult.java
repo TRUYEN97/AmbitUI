@@ -26,17 +26,17 @@ public class AnalysisResult {
     }
 
     public void checkResult(boolean status, String result) {
-        if (this.allConfig.isLimitAvailable()) {
-            checkResultWithLimits(status, result);
-        } else if (status) {
-            this.itemTestData.setPass();
-        } else {
+        if (!status) {
             this.itemTestData.setFail(ErrorCodeElement.SIMPLE);
+        } else if (this.allConfig.isLimitAvailable()) {
+            checkResultWithLimits(result);
+        } else {
+            this.itemTestData.setPass();
         }
     }
 
-    private void checkResultWithLimits(boolean status, String StringResult) {
-        if (!status || StringResult == null || StringResult.isBlank()) {
+    private void checkResultWithLimits(String StringResult) {
+        if (StringResult == null || StringResult.isBlank()) {
             this.itemTestData.setFail(ErrorCodeElement.SIMPLE);
             return;
         }

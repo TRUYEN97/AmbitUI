@@ -1,0 +1,62 @@
+2023-02-03 09:02:11.514:   ITEM[mac_ok] - FUNCTION[CheckDutInfoProxy]
+2023-02-03 09:02:11.514:   Turn: 1
+2023-02-03 09:02:11.514:   Get IP from the function config with key is "IP".
+2023-02-03 09:02:11.515:   IP: 192.168.1.1
+2023-02-03 09:02:11.515:   [PC] Connect to host: 192.168.1.1
+2023-02-03 09:02:11.515:   [PC] Port is: 23
+2023-02-03 09:02:11.515:   [Cmd] ------------------------------------ 1
+2023-02-03 09:02:11.515:   [Cmd] Send command: arp -d 192.168.1.1
+2023-02-03 09:02:11.546:   [Cmd] 
+2023-02-03 09:02:11.547:   [Cmd] Send command: ping 192.168.1.1 -n 1
+2023-02-03 09:02:11.576:   [Cmd] Pinging 192.168.1.1 with 32 bytes of data:
+2023-02-03 09:02:11.576:   [Cmd] Reply from 192.168.1.1: bytes=32 time=1ms TTL=64
+2023-02-03 09:02:11.577:   [Cmd] 
+2023-02-03 09:02:11.577:   [Cmd] Ping statistics for 192.168.1.1:
+2023-02-03 09:02:11.577:   [Cmd] Packets: Sent = 1, Received = 1, Lost = 0 (0% loss),
+2023-02-03 09:02:11.577:   [Cmd] Approximate round trip times in milli-seconds:
+2023-02-03 09:02:11.577:   [Cmd] Minimum = 1ms, Maximum = 1ms, Average = 1ms
+2023-02-03 09:02:11.577:   [Cmd] ------------------------------------
+2023-02-03 09:02:11.681:   [Telnet] === IMPORTANT ============================
+2023-02-03 09:02:11.681:   [Telnet] Use 'passwd' to set your login password!
+2023-02-03 09:02:11.681:   [Telnet] ------------------------------------------
+2023-02-03 09:02:11.681:   [Telnet] 
+2023-02-03 09:02:11.682:   [Telnet] 
+2023-02-03 09:02:11.682:   [Telnet] BusyBox v1.30.1 () built-in shell (ash)
+2023-02-03 09:02:11.682:   [Telnet] 
+2023-02-03 09:02:11.682:   [Telnet] MM           NM                    MMMMMMM          M       M
+2023-02-03 09:02:11.682:   [Telnet] $MMMMM        MMMMM                MMMMMMMMMMM      MMM     MMM
+2023-02-03 09:02:11.682:   [Telnet] MMMMMMMM     MM MMMMM.              MMMMM:MMMMMM:   MMMM   MMMMM
+2023-02-03 09:02:11.682:   [Telnet] MMMM= MMMMMM  MMM   MMMM       MMMMM   MMMM  MMMMMM   MMMM  MMMMM'
+2023-02-03 09:02:11.682:   [Telnet] MMMM=  MMMMM MMMM    MM       MMMMM    MMMM    MMMM   MMMMNMMMMM
+2023-02-03 09:02:11.682:   [Telnet] MMMM=   MMMM  MMMMM          MMMMM     MMMM    MMMM   MMMMMMMM
+2023-02-03 09:02:11.683:   [Telnet] MMMM=   MMMM   MMMMMM       MMMMM      MMMM    MMMM   MMMMMMMMM
+2023-02-03 09:02:11.683:   [Telnet] MMMM=   MMMM     MMMMM,    NMMMMMMMM   MMMM    MMMM   MMMMMMMMMMM
+2023-02-03 09:02:11.683:   [Telnet] MMMM=   MMMM      MMMMMM   MMMMMMMM    MMMM    MMMM   MMMM  MMMMMM
+2023-02-03 09:02:11.683:   [Telnet] MMMM=   MMMM   MM    MMMM    MMMM      MMMM    MMMM   MMMM    MMMM
+2023-02-03 09:02:11.683:   [Telnet] MMMM$ ,MMMMM  MMMMM  MMMM    MMM       MMMM   MMMMM   MMMM    MMMM
+2023-02-03 09:02:11.683:   [Telnet] MMMMMMM:      MMMMMMM     M         MMMMMMMMMMMM  MMMMMMM MMMMMMM
+2023-02-03 09:02:11.683:   [Telnet] MMMMMM       MMMMN     M           MMMMMMMMM      MMMM    MMMM
+2023-02-03 09:02:11.683:   [Telnet] MMMM          M                    MMMMMMM        M       M
+2023-02-03 09:02:11.683:   [Telnet] M
+2023-02-03 09:02:11.684:   [Telnet] ---------------------------------------------------------------
+2023-02-03 09:02:11.684:   [Telnet] For those about to rock... (Chaos Calmer, unknown)
+2023-02-03 09:02:11.684:   [Telnet] ---------------------------------------------------------------
+2023-02-03 09:02:11.684:   [Telnet] root@eero-test:/#
+2023-02-03 09:02:11.787:   [Telnet] root@eero-test:/#
+2023-02-03 09:02:11.787:   [Telnet] Send command: fw_printenv  mac
+2023-02-03 09:02:11.896:   [Telnet] fw_printenv  mac
+2023-02-03 09:02:11.897:   [Telnet] mac=d4:3f:32:b8:10:80
+2023-02-03 09:02:11.897:   [CONFIG] Start key: "mac="
+2023-02-03 09:02:11.898:   [CONFIG] End key: ""
+2023-02-03 09:02:11.898:   [CONFIG] Regex: "null"
+2023-02-03 09:02:11.899:   [PC] Value: "d4:3f:32:b8:10:80"
+2023-02-03 09:02:11.899:   [PC] Value is: d4:3f:32:b8:10:80
+2023-02-03 09:02:11.900:   [CONFIG] compare key: ethernetmac
+2023-02-03 09:02:11.900:   [PC] Spec is: d4:3f:32:b8:10:80
+2023-02-03 09:02:11.901:   ****************************************************
+2023-02-03 09:02:11.902:   Item name = mac_ok
+2023-02-03 09:02:11.903:   Value = d4:3f:32:b8:10:80
+2023-02-03 09:02:11.904:   Test status = passed
+2023-02-03 09:02:11.904:   -----------------------------------------------------
+2023-02-03 09:02:11.905:   ****************************************************
+2023-02-03 09:02:11.906:   TIME[0.391 s] - STATUS[PASSED]

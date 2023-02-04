@@ -1,0 +1,22 @@
+2023-02-03 08:15:00.270:   ITEM[CreateTxt_1] - FUNCTION[CreateTxtProxy]
+2023-02-03 08:15:00.271:   Turn: 1
+2023-02-03 08:15:00.271:   Save file txt!
+2023-02-03 08:15:00.272:   [PC] ElementName: [mlbsn, sn, position, status, mode, finish_time]
+2023-02-03 08:15:00.272:   [DIR] Log/TestLog/mlbsn_sn_main_failed_Debug_2023-02-03-08-15-00.txt
+2023-02-03 08:15:00.275:   - add item: dut_ping
+2023-02-03 08:15:00.276:   - add item: dut_telnet
+2023-02-03 08:15:00.277:   - add item: sn_ok
+2023-02-03 08:15:00.277:   - add item: mac_ok
+2023-02-03 08:15:00.278:   - add item: test_image_version
+2023-02-03 08:15:00.279:   - add item: temp_cpu
+2023-02-03 08:15:00.279:   - add item: temp_eth
+2023-02-03 08:15:00.279:   - add item: shop_floor
+2023-02-03 08:15:00.280:   - add item: CreateTxt_1
+2023-02-03 08:15:00.280:   [PC] Save file txt at Log/TestLog/mlbsn_sn_main_failed_Debug_2023-02-03-08-15-00.txt
+2023-02-03 08:15:00.280:   ****************************************************
+2023-02-03 08:15:00.280:   Item name = CreateTxt_1
+2023-02-03 08:15:00.280:   Value = passed
+2023-02-03 08:15:00.281:   Test status = passed
+2023-02-03 08:15:00.281:   -----------------------------------------------------
+2023-02-03 08:15:00.281:   ****************************************************
+2023-02-03 08:15:00.281:   TIME[0.011 s] - STATUS[PASSED]

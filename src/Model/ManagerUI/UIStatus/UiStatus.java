@@ -89,10 +89,6 @@ public class UiStatus implements IUpdate {
         return this.subUi.equals(ui);
     }
 
-    void setModeTest(ModeTest modeTest) {
-        this.modeTest = modeTest;
-    }
-
     public String getName() {
         return this.informartion.getName();
     }

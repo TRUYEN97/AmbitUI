@@ -62,8 +62,20 @@ public abstract class AbsFunction implements IFunction {
         } catch (Exception ex) {
             ex.printStackTrace();
             ErrorLog.addError(this, ex.getLocalizedMessage());
-
         }
+    }
+    
+    public String getItemName(){
+        return this.config.getItemName();
+    }
+    
+    protected String createChildItemName(String childItemName) {
+        String itemName = getItemName();
+        if (childItemName != null && itemName != null && itemName.matches("^.+_[0-9]+$")) {
+            String suffer = itemName.substring(itemName.lastIndexOf("_"));
+            return String.format("%s%s", childItemName, suffer);
+        }
+        return childItemName;
     }
 
     public void runTest() {
@@ -100,7 +112,7 @@ public abstract class AbsFunction implements IFunction {
     }
 
     protected void setResult(Object result) {
-        this.itemTestData.setResult(String.format("%s", result));
+        this.itemTestData.setResult(String.valueOf(result));
     }
 
     public String getResult() {
@@ -115,6 +127,14 @@ public abstract class AbsFunction implements IFunction {
 
     protected void addLog(String key, Object log) {
         this.functionData.addLog(key, log);
+    }
+
+    protected void addLog(String str, Object... pramas) {
+        this.functionData.addLog(str, pramas);
+    }
+
+    protected void addLog(String key, String str, Object... pramas) {
+        this.functionData.addLog(key, str, pramas);
     }
 
 }

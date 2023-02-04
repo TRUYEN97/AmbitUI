@@ -44,7 +44,10 @@ public class TempCPU extends AbsFunction {
         addLog("CONFIG", commands);
         String ip = this.analysisBase.getIp();
         try ( Telnet telnet = this.functionBase.getTelnet(ip, 23)) {
-            ArrayList<Double> temps = getTempCPU(commands, telnet);
+            if (telnet == null) {
+                return false;
+            }
+            ArrayList<Integer> temps = getTempCPU(commands, telnet);
             addLog("PC", String.format("Temp cpu: %s", temps));
             setResult(getMaxValue(temps));
             return true;
@@ -54,22 +57,22 @@ public class TempCPU extends AbsFunction {
         }
     }
 
-    private ArrayList<Double> getTempCPU(List<String> commands, final Telnet telnet) throws NumberFormatException {
-        ArrayList<Double> temps = new ArrayList<>();
+    private ArrayList<Integer> getTempCPU(List<String> commands, final Telnet telnet) throws NumberFormatException {
+        ArrayList<Integer> temps = new ArrayList<>();
         for (String command : commands) {
             String value = this.checkCommandTelnet.getTempCPU(telnet, command);
             if (!this.analysisBase.isNumber(value)) {
                 addLog("ERROR", String.format("value is not number! value: %s", value));
             }
-            temps.add(Double.valueOf(value));
+            temps.add(Integer.valueOf(value));
         }
         return temps;
     }
 
-    private Double getMaxValue(ArrayList<Double> temps) {
-        Double max = Double.MIN_VALUE;
-        for (Double temp : temps) {
-            max = Double.max(max, temp);
+    private Integer getMaxValue(ArrayList<Integer> temps) {
+        Integer max = Integer.MIN_VALUE;
+        for (Integer temp : temps) {
+            max = Integer.max(max, temp);
         }
         return max;
     }

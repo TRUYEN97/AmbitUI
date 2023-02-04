@@ -1,0 +1,282 @@
+{
+    "station_type": "RUNIN",
+    "time_out_test": 7000,
+    "init": [
+        {
+            "flag": true,
+            "time_out": 50,
+            "golden_file": "config/dataSource/init/golden.json",
+            "test_name": "golden_file",
+            "func_name": "GoldenFileProxy"
+        }
+    ],
+    "functions": [
+        {
+            "flag": true,
+            "time_out": 360,
+            "multi": false,
+            "IP": "192.168.1.1",
+            "debug_able": true,
+            "time_ping": 30,
+            "test_name": "dut_ping",
+            "func_name": "DutPingProxy"
+        },
+        {
+            "flag": true,
+            "time_out": 10,
+            "multi": false,
+            "debug_able": true,
+            "IP": "192.168.1.1",
+            "test_name": "dut_telnet",
+            "func_name": "DutTelnetProxy"
+        },
+        {
+            "flag": true,
+            "time_out": 10,
+            "multi": false,
+            "debug_able": true,
+            "always_run": false,
+            "IP": "192.168.1.1",
+            "command": "fw_printenv  serial",
+            "Startkey": "serial=",
+            "Endkey": "",
+            "compare": "mlbsn",
+            "test_name": "sn_ok",
+            "func_name": "CheckDutInfoProxy"
+        },
+        {
+            "flag": true,
+            "time_out": 10,
+            "multi": false,
+            "debug_able": true,
+            "always_run": false,
+            "IP": "192.168.1.1",
+            "command": "fw_printenv  mac",
+            "Startkey": "mac=",
+            "Endkey": "",
+            "compare": "ethernetmac",
+            "test_name": "mac_ok",
+            "func_name": "CheckDutInfoProxy"
+        },
+        {
+            "flag": false,
+            "time_out": 10,
+            "multi": false,
+            "debug_able": true,
+            "always_run": false,
+            "IP": "192.168.1.1",
+            "command": "cat /sys/bus/i2c/devices/0-0030/name",
+            "Regex": "^([a-z|A-Z]|[0-9])+$",
+            "test_name": "led_vendor",
+            "func_name": "CheckCommandTelnetProxy"
+        },
+        {
+            "flag": true,
+            "time_out": 10,
+            "multi": false,
+            "debug_able": true,
+            "always_run": false,
+            "IP": "192.168.1.1",
+            "command": "dmesg|grep 'PHY ID'",
+            "Startkey": "eth1's PHY ID is",
+            "Endkey": "",
+            "test_name": "phy_model",
+            "func_name": "CheckCommandTelnetProxy"
+        },
+        {
+            "flag": true,
+            "time_out": 10,
+            "multi": false,
+            "debug_able": true,
+            "always_run": false,
+            "IP": "192.168.1.1",
+            "command": "fwversion",
+            "Startkey": "Ambit test image version:V",
+            "Endkey": "",
+            "test_name": "test_image_version",
+            "func_name": "CheckCommandTelnetProxy"
+        },
+        {
+            "flag": true,
+            "time_out": 10,
+            "multi": false,
+            "debug_able": true,
+            "always_run": false,
+            "IP": "192.168.1.1",
+            "command": "cat /sys/devices/virtual/thermal/thermal_zone1/temp",
+            "Regex": "^[0-9]+$",
+            "test_name": "temp_cpu_0",
+            "func_name": "CheckCommandTelnetProxy"
+        },
+        {
+            "flag": false,
+            "time_out": 300,
+            "retry": 3,
+            "debug_able": true,
+            "multi": false,
+            "IP": "192.168.1.1",
+            "Times": 3,
+            "test_name": "reboot_soft",
+            "func_name": "RebootSoftProxy"
+        },
+        {
+            "flag": true,
+            "time_out": 120,
+            "debug_able": true,
+            "multi": false,
+            "IP": "192.168.1.1",
+            "test_name": "dut_ping_1",
+            "func_name": "DutPingProxy"
+        },
+        {
+            "flag": true,
+            "time_out": 3650,
+            "debug_able": true,
+            "multi": false,
+            "IP": "192.168.1.1",
+            "command": ["stressapptest -s 600 -M 300 -m 5 -C 5 -W -l test_ddr_01.log",
+                "stressapptest -s 600 --cc_test -M 300 -v 20 --cc_line_size 8192 --stop_on_errors -l test_ddr_02.log",
+                "stressapptest -s 600 -f /tmp/file1 -f /tmp/file2 -M 100 -l test_ddr_03.log"],
+            "keyWord": "Status: PASS - please verify no corrected errors",
+            "ReadUntil": "root@eero-test:/#",
+            "Time": 1200,
+            "test_name": "ram_stress",
+            "func_name": "TelnetReadUntilKeyProxy"
+        },
+        {
+            "flag": true,
+            "time_out": 3000,
+            "debug_able": true,
+            "multi": false,
+            "IP": "192.168.1.1",
+            "command": ["stress --cpu 8 --io 4 --vm 2 --vm-bytes 128M --timeout 1800s"],
+            "keyWord": "successful run completed in",
+            "ReadUntil": "root@eero-test:/#",
+            "Time": 2500,
+            "test_name": "cpu_stress",
+            "func_name": "TelnetReadUntilKeyProxy"
+        },     
+        {
+            "flag": true,
+            "time_out": 1500,
+            "debug_able": true,
+            "multi": false,
+            "IP": "192.168.1.1",
+            "command": ["badblocks -svw /dev/mmcblk0p17", "badblocks -svw /dev/mmcblk0p20"],
+            "Startkey": "Pass completed,",
+            "Endkey": "bad blocks found",
+            "ReadUntil": "root@eero-test:/#",
+            "test_name": "emmc_badblocks",
+            "func_name": "MMC_BadBlockProxy"
+        },
+        {
+            "flag": true,
+            "time_out": 300,
+            "debug_able": true,
+            "multi": false,
+            "IP": "192.168.1.1",
+            "ItemNames": ["emmc_speed_read", "emmc_speed_write"],
+            "command": "test-emmc",
+            "KeyWord": ["Reading", "Writing"],
+            "Block": ["0x00", "0x00"],
+            "ReadUntil": "root@eero-test:/#",
+            "Time": 20,
+            "test_name": "MMC_READ_WRITE_SPEED_TEST",
+            "func_name": "MMC_WR_SPEED_PROXY"
+        },
+        {
+            "flag": true,
+            "time_out": 10,
+            "debug_able": true,
+            "multi": false,
+            "IP": "192.168.1.1",
+            "command": "cat /sys/devices/virtual/thermal/thermal_zone1/temp",
+            "Regex": "^[0-9]+$",
+            "test_name": "temp_cpu",
+            "func_name": "CheckCommandTelnetProxy"
+        },
+        {
+            "flag": true,
+            "time_out": 10,
+            "debug_able": true,
+            "multi": false,
+            "always_run": true,
+            "test_name": "shop_floor",
+            "func_name": "VirFunctionProxy"
+        }
+
+    ],
+    "end": [
+        {
+            "flag": true,
+            "time_out": 30,
+            "multi": false,
+            "followLimit": true,
+            "BaseKeys": ["error_details", "status", "finish_time",
+                "test_software_version", "start_time", "station_type",
+                "error_code", "serial", "mode", "station_name", "position"],
+            "TestKeys": ["upper_limit", "lower_limit", "status", "finish_time", "test_name",
+                "error_code", "start_time", "test_value", "units"],
+            "localFile": "python/log",
+            "ElementName": ["mlbsn", "station_name", "mode"],
+            "test_name": "CreateJson",
+            "func_name": "CreateJsonApiProxy" 
+        },
+        {
+            "flag": true,
+            "time_out": 30,
+            "multi": false,
+            "localFile": "python/log",
+            "ElementName": ["mlbsn", "station_name", "mode", "serial"],
+            "test_name": "CreateTxt",
+            "func_name": "CreateTxtProxy" 
+        },
+        {
+            "flag": true,
+            "time_out": 30,
+            "multi": false,
+            "localFile": "python/log",
+            "ElementName": ["mlbsn", "station_name", "mode", "serial"],
+            "test_name": "CreateZip",
+            "func_name": "ZipFileProxy" 
+        },
+        {
+            "flag": true,
+            "time_out": 30,
+            "multi": false,
+            "Command": "cd python && eero_API_client.py log/",
+            "ElementName": ["mlbsn", "station_name", "mode"],
+            "Spec": "200",
+            "test_name": "UpAPI",
+            "func_name": "UpApiProxy" 
+        }
+    ],
+    "final": [
+        {
+            "flag": true,
+            "time_out": 150,
+            "always_run": true,
+            "multi": false,
+            "localFile": "Log/TestLog",
+            "ElementName": ["mlbsn", "sn", "position", "status", "mode", "finish_time"],
+            "test_name": "CreateTxt_1",
+            "func_name": "CreateTxtProxy" 
+        },
+        {
+            "flag": true,
+            "time_out": 30,
+            "multi": false,
+            "always_run": true,
+            "followLimit": false,
+            "BaseKeys": ["error_details", "status", "finish_time",
+                "test_software_version", "start_time", "station_type",
+                "error_code", "serial", "mode", "station_name", "position", "cycle_time", "cyctime_final"],
+            "TestKeys": ["upper_limit", "lower_limit", "status", "finish_time", "test_name",
+                "error_code", "start_time", "test_value", "units", "cycle_time"],
+            "localFile": "Log/TestLog",
+            "ElementName": ["mlbsn", "sn", "position", "status", "mode", "finish_time"],
+            "test_name": "CreateJson_1",
+            "func_name": "CreateJsonApiProxy" 
+        }
+    ]
+}

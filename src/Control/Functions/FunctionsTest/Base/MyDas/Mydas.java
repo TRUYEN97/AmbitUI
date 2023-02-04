@@ -16,6 +16,7 @@ import java.util.List;
  * @author Administrator
  */
 public class Mydas extends AbsFunction {
+
     private final FileBaseFunction fileBaseFunction;
 
     public Mydas(FunctionParameters functionParameters, String itemName) {
@@ -46,24 +47,30 @@ public class Mydas extends AbsFunction {
             addLog("connect PTS (Mydas) failed!");
             return false;
         } else {
+            addLog("connect PTS (Mydas) ok!");
             String detail = "NA,NA,0;";
             ItemTestData itemTestData = this.processData.getFirstFail();
-            String errorInfo = String.format("%s,%s,|", itemTestData.getLocalErrorCode(), itemTestData.getLocalErrorDes());
+            String errorInfo = "";
+            if (itemTestData != null) {
+                errorInfo = String.format("%s,%s,%s|", itemTestData.getLocalErrorCode(),
+                        itemTestData.getLocalErrorDes(), itemTestData.getResultTest());
+            }
             String mainInfo = getMainInfo();
+            addLog("DETAILINFO=[" + detail + "]");
+            addLog("ERRORINFO=[" + errorInfo + "]");
+            addLog("MAININFO=[" + mainInfo + "]");
             mydasClient.initClientInfo();
             mydasClient.setData(detail, 0);
             mydasClient.setData(errorInfo, 1);
             mydasClient.setData(mainInfo, 2);
             addLog("------------mydas----------------");
-            addLog("DETAILINFO=[" + detail + "]");
-            addLog("ERRORINFO=[" + errorInfo + "]");
-            addLog("MAININFO=[" + mainInfo + "]");
+
             if (mydasClient.sendPTS() == 0) {
                 addLog("Send to pts failed....");
-                return true;
+                return false;
             } else {
                 addLog("Send to pts Passed");
-                return false;
+                return true;
             }
         }
     }
@@ -90,7 +97,8 @@ public class Mydas extends AbsFunction {
         }
         return builder.toString();
     }
-     private String craeteFtpPath() {
+
+    private String craeteFtpPath() {
         List<String> elementName = this.config.getListJsonArray("FtpName");
         List<String> elementPath = this.config.getListJsonArray("FtpPath");
         String dir = this.fileBaseFunction.createDirPath(elementPath);

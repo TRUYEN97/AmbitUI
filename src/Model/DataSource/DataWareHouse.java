@@ -36,18 +36,18 @@ public class DataWareHouse {
         return false;
     }
 
-    public List<String> getListJsonArray(String key) {
+    public <T> List<T> getListJsonArray(String key) {
         return cvtArrays2List(getJSONArray(key));
     }
 
-    public List<String> cvtArrays2List(JSONArray array) {
-        List<String> result = new ArrayList<>();
+    public <T> List<T> cvtArrays2List(JSONArray array) {
+        List<T> result = new ArrayList<>();
         if (isNull(array)) {
             return result;
         }
-        for (Object object : array) {
-            if (object != null) {
-                result.add(object.toString());
+        for (Object elem : array) {
+            if (elem != null) {
+                result.add((T) elem);
             }
         }
         return result;
@@ -154,7 +154,7 @@ public class DataWareHouse {
             if (value != null) {
                 return value;
             }
-            return Long.parseLong(getString(key));
+            return Long.valueOf(getString(key));
         } catch (NumberFormatException e) {
             return null;
         }
@@ -162,7 +162,7 @@ public class DataWareHouse {
 
     public boolean getBoolean(String key, boolean defaultValue) {
         try {
-            return coreData.getBooleanValue(key);
+            return coreData.getBoolean(key);
         } catch (Exception e) {
             return defaultValue;
         }

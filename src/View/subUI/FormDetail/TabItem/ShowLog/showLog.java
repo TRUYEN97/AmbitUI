@@ -51,6 +51,9 @@ public class ShowLog extends javax.swing.JFrame {
         this.tabItem = tabItem;
         this.buffer = new StringBuffer();
         this.timer = new Timer(500, (ActionEvent e) -> {
+            if (queueLog == null) {
+                return;
+            }
             ShowLog.this.timer.stop();
             while (!queueLog.isEmpty()) {
                 ShowLog.this.buffer.append(queueLog.poll());
@@ -81,7 +84,7 @@ public class ShowLog extends javax.swing.JFrame {
                 sn == null ? "" : sn, mlbsn == null ? "" : mlbsn, mac == null ? "" : mac);
         this.setTitle(title);
         setVisible(true);
-        if (dataBox.isTesting()) {
+        if (dataBox.isTesting() && this.queueLog == null) {
             this.queueLog = dataBox.getLoger().getQueueLog();
             this.timer.start();
         } else {

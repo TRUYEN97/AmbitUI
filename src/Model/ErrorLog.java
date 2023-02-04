@@ -18,13 +18,10 @@ public class ErrorLog {
     private static final MyLoger loger = new MyLoger();
 
     static {
-        try {
-            String filePath = String.format("Log\\ErrorLog\\%s.txt",
-                    new TimeBase(TimeBase.UTC).getDate());
-            ErrorLog.loger.begin(new File(filePath), true);
-        } catch (IOException ex) {
-            ex.printStackTrace();
-        }
+        String filePath = String.format("Log\\ErrorLog\\%s.txt",
+                new TimeBase(TimeBase.UTC).getDate());
+        ErrorLog.loger.setFile(new File(filePath));
+        ErrorLog.loger.setSaveMemory(true);
     }
 
     public static void addError(String error) {

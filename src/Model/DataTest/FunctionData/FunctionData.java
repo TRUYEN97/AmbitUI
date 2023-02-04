@@ -16,11 +16,11 @@ import Model.ManagerUI.UIStatus.UiStatus;
 import MyLoger.MyLoger;
 import java.io.File;
 import java.io.IOException;
+import java.util.ArrayDeque;
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
-import javax.swing.JOptionPane;
 
 /**
  *
@@ -51,7 +51,14 @@ public class FunctionData {
         addItemData(functionName.getItemName(), thisItem);
     }
 
+    public List<ItemTestData> getListItemTests() {
+        return listItemTests;
+    }
+
     private void addItemData(String itemName, ItemTestData itemData) {
+        if (this.itemTests.containsKey(itemName)) {
+            return;
+        }
         this.itemTests.put(itemName, itemData);
         this.listItemTests.add(itemData);
     }
@@ -96,6 +103,23 @@ public class FunctionData {
             ex.printStackTrace();
         }
     }
+    public void addLog(String str, Object... params̉) {
+        try {
+            this.loger.addLog(str, params̉);
+        } catch (Exception ex) {
+            ErrorLog.addError(this, ex.getLocalizedMessage());
+            ex.printStackTrace();
+        }
+    }
+
+    public void addLog(String key, String str, Object... params̉) {
+        try {
+            this.loger.addLog(key, str, params̉);
+        } catch (Exception ex) {
+            ErrorLog.addError(this, ex.getLocalizedMessage());
+            ex.printStackTrace();
+        }
+    }
 
     public String getResultTest() {
         return thisItem.getResultTest();
@@ -110,15 +134,8 @@ public class FunctionData {
     }
 
     public boolean start() {
-        try {
-            this.loger.begin(new File(createLogPath()), true, true);
-        } catch (IOException ex) {
-            String mess = String.format("can't delete local function log file of %s - %s\r\n%s",
-                    functionName.getItemName(), uiStatus.getInfo().getName(), ex.getLocalizedMessage());
-            ErrorLog.addError(this, mess);
-            JOptionPane.showMessageDialog(null, mess);
-            return false;
-        }
+        this.loger.setFile(new File(createLogPath()));
+        this.loger.clear();
         addLog(String.format("ITEM[%s] - FUNCTION[%s]",
                 this.functionName, functionName.getFunctionName()));
         return true;
@@ -141,17 +158,8 @@ public class FunctionData {
         giveItemToProcessData();
     }
 
-    public void closeLoger() {
-        try {
-            this.loger.close();
-        } catch (IOException ex) {
-            ex.printStackTrace();
-            ErrorLog.addError(this, ex.getLocalizedMessage());
-        }
-    }
-
     private void giveItemToProcessData() {
-        this.processData.putAllItem(itemTests);
+        this.processData.putAllItem(itemTests, listItemTests);
         for (ItemTestData itemTest : listItemTests) {
             if (!itemTest.isPass()) {
                 this.processData.addFailItem(itemTest);
@@ -160,7 +168,12 @@ public class FunctionData {
     }
 
     public String getLog() {
-        return this.loger.getLog();
+        try {
+            return this.loger.getLog();
+        } catch (IOException ex) {
+            ex.printStackTrace();
+            return null;
+        }
     }
 
     public MyLoger getLoger() {

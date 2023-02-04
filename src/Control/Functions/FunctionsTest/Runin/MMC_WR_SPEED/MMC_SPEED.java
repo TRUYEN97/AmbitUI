@@ -42,6 +42,9 @@ public class MMC_SPEED extends AbsFunction {
                 return false;
             }
             try ( Telnet telnet = this.baseFunc.getTelnet(ip, 23)) {
+                if (telnet == null) {
+                    return false;
+                }
                 if (!this.baseFunc.sendCommand(telnet, this.config.getString("command"))) {
                     return false;
                 }

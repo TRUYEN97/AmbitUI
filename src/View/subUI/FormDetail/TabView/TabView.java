@@ -46,7 +46,7 @@ public class TabView extends AbsTabUI {
         setBackground(new java.awt.Color(204, 204, 255));
 
         lbStatus.setBackground(new java.awt.Color(153, 153, 255));
-        lbStatus.setFont(new java.awt.Font("Segoe UI", 1, 34)); // NOI18N
+        lbStatus.setFont(new java.awt.Font("Arial", 1, 34)); // NOI18N
         lbStatus.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         lbStatus.setLabelFor(this);
         lbStatus.setText("READY");
@@ -91,14 +91,12 @@ public class TabView extends AbsTabUI {
 
     private void showFail(String mess) {
         this.lbStatus.setBackground(Color.red);
-        showMess(String.format("%sFailed: %s",
-                mess == null ? "" : mess.concat("\r\n"),
-                this.uiStatus.getProcessData().getFirstFail().getItemName()));
+        showMess(mess);
     }
 
     private void showPass(String mess) {
         this.lbStatus.setBackground(Color.GREEN);
-        showMess(String.format("%s", mess == null ? "Done!": mess));
+        showMess(mess);
     }
 
     @Override
@@ -113,7 +111,7 @@ public class TabView extends AbsTabUI {
     }
 
     private void showMess(String text) {
-        String mess = String.format("<html><center>%s<center></html>", text);
+        String mess = String.format("<html><center>%s</html>", text == null ? "Finished!": text.replaceAll("\r\n", "<br>"));
         this.lbStatus.setText(mess);
     }
 
@@ -122,7 +120,7 @@ public class TabView extends AbsTabUI {
         List<FunctionData> dataBoxs = this.uiStatus.getProcessData().getDataBoxs();
         for (FunctionData dataBox : dataBoxs) {
             if (dataBox.isTesting()) {
-                mess.append(String.format("<tr><td>%s</td></tr>", dataBox.getFunctionName()));
+                mess.append(String.format("<tr><td>- %s</td></tr>", dataBox.getFunctionName()));
             }
         }
         mess.append("</html>");

@@ -64,7 +64,7 @@ public class CellTest {
         }
         this.runner.setTestFunctions(functions);
         this.runner.setLocalDebug(true);
-        this.runner.setMode("Debug");
+        this.runner.setMode("debug");
         this.future = this.pool.submit(runner);
     }
  
@@ -81,7 +81,7 @@ public class CellTest {
         this.runner.setTestFunctions(functions);
         this.runner.setFinalFunctions(testSource.getFinalFunctions());
         this.runner.setLocalDebug(false);
-        this.runner.setMode("Debug");
+        this.runner.setMode("debug");
         this.future = this.pool.submit(runner);
     }
 
@@ -89,7 +89,7 @@ public class CellTest {
         if (!isTesting()) {
             return;
         }
-        runner.end("STOP TEST");
+        runner.stopTest("STOP TEST");
         this.future.cancel(true);
     }
 }

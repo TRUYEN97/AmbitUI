@@ -7,20 +7,6 @@
             "golden_file": "config/dataSource/init/golden.json",
             "test_name": "golden_file",
             "func_name": "GoldenFileProxy"
-        },
-        {
-            "flag": true,
-            "time_out": 50,
-            "debug_able": true,
-            "multi": false,
-            "host": "192.168.1.10",
-            "user": "admin",
-            "password": "1234",
-            "Times": 1,
-            "Delay": 5,
-            "Command": ["off", "on"],
-            "test_name": "wps_ok",
-            "func_name": "PowerSwitchProxy"
         }
     ],
     "functions": [
@@ -80,7 +66,7 @@
             "always_run": true,
             "multi": false,
             "localFile": "Log/TestLog",
-            "ElementName": ["mlbsn", "sn", "mode", "status", "mode", "finish_time"],
+            "ElementName": ["mlbsn", "sn", "position", "mode", "status", "mode", "finish_time"],
             "test_name": "CreateTxt_1",
             "func_name": "CreateTxtProxy" 
         },
@@ -96,7 +82,7 @@
             "TestKeys": ["upper_limit", "lower_limit", "status", "finish_time", "test_name",
                 "error_code", "start_time", "test_value", "units", "cycle_time"],
             "localFile": "Log/TestLog",
-            "ElementName": ["mlbsn", "sn", "mode", "status", "mode", "finish_time"],
+            "ElementName": ["mlbsn", "sn", "position", "mode", "status", "mode", "finish_time"],
             "test_name": "CreateJson_1",
             "func_name": "CreateJsonApiProxy" 
         },
@@ -109,10 +95,10 @@
             "Host": "10.90.100.168",
             "Port": 21,
             "FtpPath": ["data/Trieste", "pnname", "station_type", "mode", "start_day", "station_name", "status", "text"],
-            "FtpName": ["mlbsn", "sn", "mode", "status", "mode", "finish_time"],
+            "FtpName": ["mlbsn", "sn", "position", "mode", "status", "mode", "finish_time"],
             "FtpType": ".txt",
             "LocalPath": ["Log/TestLog"],
-            "LocalName": ["mlbsn", "sn", "mode", "status", "mode", "finish_time"],
+            "LocalName": ["mlbsn", "sn", "position", "mode", "status", "mode", "finish_time"],
             "LocalType": ".txt",
             "test_name": "UpTxtFTP",
             "func_name": "UpFTPProxy"
@@ -127,10 +113,10 @@
             "Host": "10.90.100.168",
             "Port": 21,
             "FtpPath": ["data/Trieste", "pnname", "station_type", "mode", "start_day", "station_name", "status", "JSON"],
-            "FtpName": ["mlbsn", "sn", "mode", "status", "mode", "finish_time"],
+            "FtpName": ["mlbsn", "sn", "position", "mode", "status", "mode", "finish_time"],
             "FtpType": ".json",
             "LocalPath": ["Log/TestLog"],
-            "LocalName": ["mlbsn", "sn", "mode", "status", "mode", "finish_time"],
+            "LocalName": ["mlbsn", "sn", "position", "mode", "status", "mode", "finish_time"],
             "LocalType": ".json",
             "test_name": "UpJsonFTP",
             "func_name": "UpFTPProxy"

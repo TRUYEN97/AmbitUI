@@ -52,7 +52,7 @@ public class AmbitConfig extends AbsJsonSource<FunctionName, FunctionConfig> {
     }
 
     private void getFunctionIn(DataWareHouse baseData, List<JSONObject> listInfo,
-            List<FunctionName> testFunctions, List<FunctionName> debugFunctions, Integer times) {
+        List<FunctionName> testFunctions, List<FunctionName> debugFunctions, Integer times) {
         for (JSONObject modeInfo : listInfo) {
             if (!isActive(modeInfo)) {
                 continue;
@@ -60,10 +60,11 @@ public class AmbitConfig extends AbsJsonSource<FunctionName, FunctionConfig> {
             if (isLoopFunctions(modeInfo)) {
                 getLoopFuction(baseData, modeInfo, testFunctions, debugFunctions, times);
             } else if (modeInfo.containsKey(AllKeyWord.CONFIG.TEST_NAME)) {
+                JSONObject modeInfoClone = (JSONObject) modeInfo.clone();
                 if (times != null) {
-                    createNewItem(modeInfo, times);
+                    createNewItem(modeInfoClone, times);
                 }
-                FunctionConfig funcElm = new FunctionConfig(baseData.toJson(), modeInfo);
+                FunctionConfig funcElm = new FunctionConfig(baseData.toJson(), modeInfoClone);
                 FunctionName functionName = funcElm.getfFunctionName();
                 put(functionName, funcElm);
                 testFunctions.add(functionName);
@@ -145,7 +146,7 @@ public class AmbitConfig extends AbsJsonSource<FunctionName, FunctionConfig> {
         this.finalFunctions.clear();
         this.discreteFunctions.clear();
     }
-    
+
     public List<FunctionName> getSelectedItem(List<FunctionName> listItem) {
         if (listItem == null) {
             return getDebugFunctions();

@@ -64,18 +64,23 @@ public class FunctionBase extends AbsFunction {
         if (streamReadable == null) {
             telnet = new Telnet();
         } else {
-            addLog("Telnet", "Read input: " + streamReadable.getClass().getSimpleName());
+            addLog("PC", "Read input: " + streamReadable.getClass().getSimpleName());
             telnet = new Telnet(streamReadable);
         }
         telnet.setDebug(true);
-        addLog("Telnet", "Connect to host: " + ip);
-        addLog("Telnet", "Port is: " + port);
+        addLog("PC", "Connect to host: " + ip);
+        addLog("PC", "Port is: " + port);
         if (!pingTo(ip, 4) || !telnet.connect(ip, port)) {
-            addLog("Telnet", "Connect failed!");
+            addLog("PC", "Connect failed!");
             return null;
         }
-        addLog("Telnet", telnet.readUntil("root@eero-test:/#", new TimeMs(300)));
-        return telnet;
+        addLog("Telnet", telnet.readUntil("root@eero-test:/#", new TimeS(5)));
+        if (!telnet.sendCommand("\r\n")) {
+            return null;
+        }
+        String response = telnet.readUntil("root@eero-test:/#", new TimeS(5));
+        addLog("Telnet", response);
+        return response == null ? null : telnet;
     }
 
     public ComPort getComport(String com, Integer baud) {
@@ -91,25 +96,41 @@ public class FunctionBase extends AbsFunction {
         return comPort;
     }
 
-    public boolean rebootSoft(String ip, int waitTime) throws IOException {
+    public boolean rebootSoft(String ip, int waitTime, int pingTime) throws IOException {
         try ( Telnet telnet = getTelnet(ip, 23)) {
-            addLog("Telnet", "send reboot...");
-            if (!sendCommand(telnet, "reboot")) {
-                addLog("Telnet", "send reboot failed!");
+            if (telnet == null) {
                 return false;
             }
-            addLog("Telnet", telnet.readAll(new TimeS(3)));
-            TimeS waitToSleepTime = new TimeS(waitTime);
-            do {
-                if (!pingTo(ip, 1)) {
-                    addLog("Telnet", "Reboot ok!");
-                    return true;
-                }
-            } while (waitToSleepTime.onTime());
-            addLog("Telnet", "Reboot failed!");
+            if (!sendCommand(telnet, "reboot")) {
+                addLog("Telnet", "send command reboot failed!");
+                return false;
+            }
+            addLog("Telnet", telnet.readAll(new TimeS(10)));
+            addLog("PC", "Wait about %s S", waitTime);
+            if (sendRebootDUT(waitTime, ip) && pingTo(ip, pingTime)) {
+                addLog("PC", "*************** Reboot soft ok! *********************");
+                return true;
+            }
+            addLog("PC", "Out of time to reboot!");
+            addLog("PC", "*************** Reboot soft failed! *********************");
             return false;
         }
+    }
 
+    private boolean sendRebootDUT(int waitTime, String ip) {
+        TimeS waitToSleepTime = new TimeS(waitTime);
+        do {
+            if (!pingTo(ip, 1)) {
+                addLog("PC", "*************** Shut down ok! [%s S]*****************", waitToSleepTime.getTime());
+                return true;
+            }
+            try {
+                Thread.sleep(1000);
+            } catch (Exception e) {
+            }
+        } while (waitToSleepTime.onTime());
+        addLog("PC", "*************** Shut down failed! [%s S]*****************", waitToSleepTime.getTime());
+        return false;
     }
 
     public String getMac() {

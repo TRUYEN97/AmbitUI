@@ -25,25 +25,21 @@ public class FuncAllConfig {
 
     private static final String CHECK_BASE_ITEM = ".+_[0-9]+$";
     private final DataWareHouse wareHouse;
-    private final FunctionConfig functionConfig;
-    private final LimitElement limitElement;
     private final Limit limit;
     private final ErrorCodeElement localErrorCode;
     private final String itemName;
 
     public FuncAllConfig(UiStatus uiStatus, FunctionConfig functionConfig, String itemName) {
         this.wareHouse = new DataWareHouse();
-        this.functionConfig = functionConfig;
         this.limit = uiStatus.getModeTest().getModeTestSource().getLimit();
         if (itemName == null) {
             this.itemName = functionConfig.getItemName();
         } else {
             this.itemName = itemName;
         }
-        this.limitElement = findLimit(getBaseItem(this.itemName));
         this.localErrorCode = findLocalErrorCode(uiStatus, getBaseItem(this.itemName));
-        getAllValueOfConfig();
-        getAllValueOfLimit();
+        this.wareHouse.putAll(functionConfig.getJson());
+        getAllValueOfLimit(findLimit(getBaseItem(this.itemName)));
     }
 
     private ErrorCodeElement findLocalErrorCode(UiStatus uiStatus, String itemName) {
@@ -70,21 +66,18 @@ public class FuncAllConfig {
     }
 
     public JSONObject getLocalErrorCode(String type) {
-        if(this.localErrorCode == null){
+        if (this.localErrorCode == null) {
             return null;
         }
         return this.localErrorCode.getErrorType(type);
     }
 
-    private void getAllValueOfLimit() {
-        if (this.limitElement == null) {
+    private void getAllValueOfLimit(LimitElement limitElement) {
+        if (limitElement == null) {
             return;
         }
         this.wareHouse.putAll(limitElement.getJson());
-    }
-
-    private void getAllValueOfConfig() {
-        this.wareHouse.putAll(this.functionConfig.getJson());
+        this.wareHouse.put(AllKeyWord.TEST_NAME, this.itemName);
     }
 
     public Limit getLimits() {
@@ -92,11 +85,11 @@ public class FuncAllConfig {
     }
 
     public String getFunctionName() {
-        return this.functionConfig.getFunctionName();
+        return this.wareHouse.getString(AllKeyWord.CONFIG.FUNC_NAME);
     }
 
     public String getItemName() {
-        return this.functionConfig.getItemName();
+        return this.itemName;
     }
 
     public String getString(String key) {
@@ -107,7 +100,7 @@ public class FuncAllConfig {
         return wareHouse.get(key);
     }
 
-    public List<String> getListJsonArray(String key) {
+    public <T> List<T> getListJsonArray(String key) {
         return wareHouse.getListJsonArray(key);
     }
 
@@ -120,22 +113,20 @@ public class FuncAllConfig {
     }
 
     public boolean isLimitAvailable() {
-        return limitFileAvailable() || funcConfigAvailable();
+        return isSpecConfig() && specAvailable();
     }
 
-    private boolean limitFileAvailable() {
-        return this.limitElement != null
-                && this.limitElement.getInteger(AllKeyWord.CONFIG.REQUIRED) != null
-                && this.limitElement.getInteger(AllKeyWord.CONFIG.REQUIRED) > 0
-                && (!this.limitElement.getString(AllKeyWord.CONFIG.LOWER_LIMIT).isBlank()
-                || !this.limitElement.getString(AllKeyWord.CONFIG.UPPER_LIMIT).isBlank());
+    private boolean isSpecConfig() {
+        Integer required = this.wareHouse.getInteger(AllKeyWord.CONFIG.REQUIRED);
+        String limitType = this.wareHouse.getString(AllKeyWord.CONFIG.LIMIT_TYPE);
+        return (required != null && required > 0) || (limitType != null && !limitType.isBlank());
     }
 
-    private boolean funcConfigAvailable() {
-        return this.functionConfig != null
-                && this.functionConfig.getString(AllKeyWord.CONFIG.LIMIT_TYPE) != null
-                && (!this.functionConfig.getString(AllKeyWord.CONFIG.LOWER_LIMIT).isBlank()
-                || !this.functionConfig.getString(AllKeyWord.CONFIG.UPPER_LIMIT).isBlank());
+    private boolean specAvailable() {
+        String lowLimit = this.wareHouse.getString(AllKeyWord.CONFIG.LOWER_LIMIT);
+        String upperLimit = this.wareHouse.getString(AllKeyWord.CONFIG.UPPER_LIMIT);
+        return (lowLimit != null && !lowLimit.isBlank())
+                || (upperLimit != null && !upperLimit.isBlank());
     }
 
     public Integer getInteger(String key) {

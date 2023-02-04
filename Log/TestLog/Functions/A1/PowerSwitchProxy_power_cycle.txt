@@ -1,0 +1,9 @@
+2023-02-03 09:01:13.353:   ITEM[power_cycle] - FUNCTION[PowerSwitchProxy]
+2023-02-03 09:01:13.355:   Turn: 1
+2023-02-03 09:01:13.357:   [CONFIG] host: 192.168.1.10
+2023-02-03 09:01:13.358:   [CONFIG] user: admin
+2023-02-03 09:01:13.358:   [CONFIG] passWord: 1234
+2023-02-03 09:01:13.359:   [CONFIG] Times: 100
+2023-02-03 09:01:13.360:   [CONFIG] index of switch: 1
+2023-02-03 09:01:13.360:   [CONFIG] Delay time: 5 s
+2023-02-03 09:01:13.367:   cycle Times: 1 - 100

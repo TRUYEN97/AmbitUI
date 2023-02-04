@@ -47,16 +47,25 @@ public class ItemTestData {
         this.timer = timer;
     }
 
-    public JSONObject getData(List<String> keys) {
+    public JSONObject getData(List<String> keys, boolean useLimitErrorcode) {
         if (keys == null) {
             return data;
         }
         JSONObject newData = new JSONObject();
         for (String key : keys) {
-            var value = this.data.get(key);
+            Object value;
+            if (!useLimitErrorcode && key.equalsIgnoreCase(AllKeyWord.CONFIG.ERROR_CODE)) {
+                value = this.data.get(AllKeyWord.SFIS.ERRORCODE);
+            } else {
+                value = this.data.get(key);
+            }
             newData.put(key, value == null ? "" : value);
         }
         return newData;
+    }
+    
+    public JSONObject getData(List<String> keys) {
+        return getData(keys, true);
     }
 
     public void start() {

@@ -7,6 +7,8 @@ package Model.Factory;
 import View.subUI.FormDetail.TabFaApi.TabFaApiProxy;
 import Control.Functions.AbsFunction;
 import Control.Functions.FunctionsTest.Base.CheckDutInfo.CheckDutInfoProxy;
+import Control.Functions.FunctionsTest.Base.CheckProduct.CheckProductProxy;
+import Control.Functions.FunctionsTest.Base.Delta.DeltaProxy;
 import Control.Functions.FunctionsTest.Base.TxtLog.CreateLog.CreateTxtProxy;
 import Control.Functions.FunctionsTest.Base.GetMacFromSfis.GetMacFormSfisProxy;
 import Control.Functions.FunctionsTest.Base.DutPing.DutPingProxy;
@@ -17,8 +19,10 @@ import Control.Functions.FunctionsTest.Base.JsonApi.CreateJsonApi.CreateJsonApiP
 import Control.Functions.FunctionsTest.Base.JsonApi.UpApi.UpApiProxy;
 import Control.Functions.FunctionsTest.Base.MyDas.MydasProxy;
 import Control.Functions.FunctionsTest.Base.SFIS.SfisFunctionProxy;
+import Control.Functions.FunctionsTest.Base.TxtLog.ZipLog.ZipFileProxy;
 import Control.Functions.FunctionsTest.Runin.PowerSwitch.PowerSwitchProxy;
 import Control.Functions.FunctionsTest.Base.UpFTP.UpFTPProxy;
+import Control.Functions.FunctionsTest.Base.VirFunction.VirFunctionProxy;
 import Control.Functions.FunctionsTest.MBLT.OpenShort.OpenShortProxy;
 import Control.Functions.FunctionsTest.MBLT.ThermalShutdown.ThermalShutdownProxy;
 import Control.Functions.FunctionsTest.MBLT.UsbAside.UsbAsideProxy;
@@ -144,5 +148,9 @@ public class Factory {
         this.functions.addType(new GoldenFileProxy());
         this.functions.addType(new TempCPUProxy());
         this.functions.addType(new MydasProxy());
+        this.functions.addType(new ZipFileProxy());
+        this.functions.addType(new VirFunctionProxy());
+        this.functions.addType(new DeltaProxy());
+        this.functions.addType(new CheckProductProxy());
     }
 }

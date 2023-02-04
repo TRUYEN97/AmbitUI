@@ -1,0 +1,58 @@
+2023-02-03 08:15:56.237:   ITEM[test_image_version] - FUNCTION[CheckCommandTelnetProxy]
+2023-02-03 08:15:56.238:   Turn: 1
+2023-02-03 08:15:56.238:   Get IP from the function config with key is "IP".
+2023-02-03 08:15:56.238:   [PC] Connect to host: 192.168.1.1
+2023-02-03 08:15:56.238:   [PC] Port is: 23
+2023-02-03 08:15:56.238:   [Cmd] ------------------------------------ 1
+2023-02-03 08:15:56.238:   [Cmd] Send command: arp -d 192.168.1.1
+2023-02-03 08:15:56.297:   [Cmd] 
+2023-02-03 08:15:56.297:   [Cmd] Send command: ping 192.168.1.1 -n 1
+2023-02-03 08:15:56.348:   [Cmd] Pinging 192.168.1.1 with 32 bytes of data:
+2023-02-03 08:15:56.349:   [Cmd] Reply from 192.168.1.1: bytes=32 time<1ms TTL=64
+2023-02-03 08:15:56.349:   [Cmd] 
+2023-02-03 08:15:56.349:   [Cmd] Ping statistics for 192.168.1.1:
+2023-02-03 08:15:56.349:   [Cmd] Packets: Sent = 1, Received = 1, Lost = 0 (0% loss),
+2023-02-03 08:15:56.349:   [Cmd] Approximate round trip times in milli-seconds:
+2023-02-03 08:15:56.349:   [Cmd] Minimum = 0ms, Maximum = 0ms, Average = 0ms
+2023-02-03 08:15:56.349:   [Cmd] ------------------------------------
+2023-02-03 08:15:56.562:   [Telnet] === IMPORTANT ============================
+2023-02-03 08:15:56.562:   [Telnet] Use 'passwd' to set your login password!
+2023-02-03 08:15:56.563:   [Telnet] ------------------------------------------
+2023-02-03 08:15:56.563:   [Telnet] 
+2023-02-03 08:15:56.563:   [Telnet] 
+2023-02-03 08:15:56.563:   [Telnet] BusyBox v1.30.1 () built-in shell (ash)
+2023-02-03 08:15:56.563:   [Telnet] 
+2023-02-03 08:15:56.563:   [Telnet] MM           NM                    MMMMMMM          M       M
+2023-02-03 08:15:56.563:   [Telnet] $MMMMM        MMMMM                MMMMMMMMMMM      MMM     MMM
+2023-02-03 08:15:56.563:   [Telnet] MMMMMMMM     MM MMMMM.              MMMMM:MMMMMM:   MMMM   MMMMM
+2023-02-03 08:15:56.563:   [Telnet] MMMM= MMMMMM  MMM   MMMM       MMMMM   MMMM  MMMMMM   MMMM  MMMMM'
+2023-02-03 08:15:56.563:   [Telnet] MMMM=  MMMMM MMMM    MM       MMMMM    MMMM    MMMM   MMMMNMMMMM
+2023-02-03 08:15:56.564:   [Telnet] MMMM=   MMMM  MMMMM          MMMMM     MMMM    MMMM   MMMMMMMM
+2023-02-03 08:15:56.564:   [Telnet] MMMM=   MMMM   MMMMMM       MMMMM      MMMM    MMMM   MMMMMMMMM
+2023-02-03 08:15:56.564:   [Telnet] MMMM=   MMMM     MMMMM,    NMMMMMMMM   MMMM    MMMM   MMMMMMMMMMM
+2023-02-03 08:15:56.564:   [Telnet] MMMM=   MMMM      MMMMMM   MMMMMMMM    MMMM    MMMM   MMMM  MMMMMM
+2023-02-03 08:15:56.564:   [Telnet] MMMM=   MMMM   MM    MMMM    MMMM      MMMM    MMMM   MMMM    MMMM
+2023-02-03 08:15:56.564:   [Telnet] MMMM$ ,MMMMM  MMMMM  MMMM    MMM       MMMM   MMMMM   MMMM    MMMM
+2023-02-03 08:15:56.564:   [Telnet] MMMMMMM:      MMMMMMM     M         MMMMMMMMMMMM  MMMMMMM MMMMMMM
+2023-02-03 08:15:56.564:   [Telnet] MMMMMM       MMMMN     M           MMMMMMMMM      MMMM    MMMM
+2023-02-03 08:15:56.564:   [Telnet] MMMM          M                    MMMMMMM        M       M
+2023-02-03 08:15:56.564:   [Telnet] M
+2023-02-03 08:15:56.564:   [Telnet] ---------------------------------------------------------------
+2023-02-03 08:15:56.565:   [Telnet] For those about to rock... (Chaos Calmer, unknown)
+2023-02-03 08:15:56.565:   [Telnet] ---------------------------------------------------------------
+2023-02-03 08:15:56.565:   [Telnet] root@eero-test:/#
+2023-02-03 08:15:56.674:   [Telnet] root@eero-test:/#
+2023-02-03 08:15:56.674:   [Telnet] Send command: fwversion
+2023-02-03 08:15:56.784:   [Telnet] fwversion
+2023-02-03 08:15:56.784:   [Telnet] Ambit test image version:V1.3.0.74
+2023-02-03 08:15:56.784:   [CONFIG] Start key: "Ambit test image version:"
+2023-02-03 08:15:56.784:   [CONFIG] End key: ""
+2023-02-03 08:15:56.784:   [CONFIG] Regex: "null"
+2023-02-03 08:15:56.784:   [PC] Value: "V1.3.0.74"
+2023-02-03 08:15:56.785:   ****************************************************
+2023-02-03 08:15:56.785:   Item name = test_image_version
+2023-02-03 08:15:56.785:   Value = V1.3.0.74
+2023-02-03 08:15:56.785:   Test status = passed
+2023-02-03 08:15:56.785:   -----------------------------------------------------
+2023-02-03 08:15:56.785:   ****************************************************
+2023-02-03 08:15:56.786:   TIME[0.549 s] - STATUS[PASSED]

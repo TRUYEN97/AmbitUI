@@ -20,12 +20,11 @@ public class MMC_BadBlock extends AbsFunction {
 
     private final FunctionBase baseFunc;
     private final AnalysisBase analysisBase;
-    
 
     public MMC_BadBlock(FunctionParameters parameters) {
         this(parameters, null);
     }
-    
+
     public MMC_BadBlock(FunctionParameters parameters, String item) {
         super(parameters, item);
         this.baseFunc = new FunctionBase(parameters, item);
@@ -43,7 +42,10 @@ public class MMC_BadBlock extends AbsFunction {
     }
 
     private boolean check(String ip) {
-        try (Telnet telnet = this.baseFunc.getTelnet(ip, 23)){
+        try ( Telnet telnet = this.baseFunc.getTelnet(ip, 23)) {
+            if (telnet == null) {
+                return false;
+            }
             String startkey = config.getString("Startkey");
             String endkey = config.getString("Endkey");
             List<String> commands = this.config.getListJsonArray("command");

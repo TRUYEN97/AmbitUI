@@ -1,0 +1,211 @@
+{
+"station_name":"REPAIR-7801",
+"finish_time":"2023-02-03 08:58:56",
+"mode":"Debug",
+"start_time":"2023-02-03 08:58:53",
+"tests":[
+{
+"start_time":"2023-02-03 08:58:53",
+"lower_limit":"",
+"cycle_time":"0.005",
+"upper_limit":"",
+"error_code":"",
+"units":"",
+"test_name":"golden_file",
+"finish_time":"2023-02-03 08:58:53",
+"test_value":"passed",
+"status":"passed"
+},
+
+{
+"start_time":"2023-02-03 08:58:53",
+"lower_limit":"",
+"cycle_time":"0.081",
+"upper_limit":"",
+"error_code":"",
+"units":"",
+"test_name":"dut_ping",
+"finish_time":"2023-02-03 08:58:53",
+"test_value":"passed",
+"status":"passed"
+},
+
+{
+"start_time":"2023-02-03 08:58:53",
+"lower_limit":"",
+"cycle_time":"0.477",
+"upper_limit":"",
+"error_code":"",
+"units":"",
+"test_name":"dut_telnet",
+"finish_time":"2023-02-03 08:58:54",
+"test_value":"passed",
+"status":"passed"
+},
+
+{
+"start_time":"2023-02-03 08:58:54",
+"lower_limit":"",
+"cycle_time":"0.391",
+"upper_limit":"",
+"error_code":"",
+"units":"",
+"test_name":"sn_ok",
+"finish_time":"2023-02-03 08:58:54",
+"test_value":"GGB1UD2230521ES3",
+"status":"passed"
+},
+
+{
+"start_time":"2023-02-03 08:58:54",
+"lower_limit":"",
+"cycle_time":"0.404",
+"upper_limit":"",
+"error_code":"",
+"units":"",
+"test_name":"mac_ok",
+"finish_time":"2023-02-03 08:58:54",
+"test_value":"d4:3f:32:b8:10:80",
+"status":"passed"
+},
+
+{
+"start_time":"2023-02-03 08:58:54",
+"lower_limit":"",
+"cycle_time":"0.415",
+"upper_limit":"",
+"error_code":"",
+"units":"",
+"test_name":"phy_model",
+"finish_time":"2023-02-03 08:58:55",
+"test_value":"0x4dd101",
+"status":"passed"
+},
+
+{
+"start_time":"2023-02-03 08:58:55",
+"lower_limit":"",
+"cycle_time":"0.399",
+"upper_limit":"",
+"error_code":"",
+"units":"",
+"test_name":"test_image_version",
+"finish_time":"2023-02-03 08:58:55",
+"test_value":"1.3.0.74",
+"status":"passed"
+},
+
+{
+"start_time":"2023-02-03 08:58:55",
+"lower_limit":"",
+"cycle_time":"0.396",
+"upper_limit":"",
+"error_code":"",
+"units":"",
+"test_name":"temp_cpu_0",
+"finish_time":"2023-02-03 08:58:56",
+"test_value":"43",
+"status":"passed"
+},
+
+{
+"start_time":"2023-02-03 08:58:56",
+"lower_limit":"",
+"cycle_time":"0.012",
+"upper_limit":"",
+"error_code":"-1",
+"units":"",
+"test_name":"reboot_soft",
+"finish_time":"2023-02-03 08:58:56",
+"test_value":"failed",
+"status":"failed"
+},
+
+{
+"start_time":"2023-02-03 08:58:56",
+"lower_limit":"",
+"cycle_time":"0.001",
+"upper_limit":"",
+"error_code":"",
+"units":"",
+"test_name":"shop_floor",
+"finish_time":"2023-02-03 08:58:56",
+"test_value":"passed",
+"status":"passed"
+},
+
+{
+"start_time":"2023-02-03 08:58:56",
+"lower_limit":"",
+"cycle_time":"0.013",
+"upper_limit":"",
+"error_code":"",
+"units":"",
+"test_name":"CreateJson",
+"finish_time":"2023-02-03 08:58:56",
+"test_value":"passed",
+"status":"passed"
+},
+
+{
+"start_time":"2023-02-03 08:58:56",
+"lower_limit":"",
+"cycle_time":"0.009",
+"upper_limit":"",
+"error_code":"",
+"units":"",
+"test_name":"CreateTxt",
+"finish_time":"2023-02-03 08:58:56",
+"test_value":"passed",
+"status":"passed"
+},
+
+{
+"start_time":"2023-02-03 08:58:56",
+"lower_limit":"",
+"cycle_time":"0.031",
+"upper_limit":"",
+"error_code":"",
+"units":"",
+"test_name":"CreateZip",
+"finish_time":"2023-02-03 08:58:56",
+"test_value":"passed",
+"status":"passed"
+},
+
+{
+"start_time":"2023-02-03 08:58:56",
+"lower_limit":"",
+"cycle_time":"5.065",
+"upper_limit":"",
+"error_code":"-1",
+"units":"",
+"test_name":"UpAPI",
+"finish_time":"2023-02-03 08:59:01",
+"test_value":"failed",
+"status":"failed"
+},
+
+{
+"start_time":"2023-02-03 08:59:01",
+"lower_limit":"",
+"cycle_time":"0.008",
+"upper_limit":"",
+"error_code":"",
+"units":"",
+"test_name":"CreateTxt_1",
+"finish_time":"2023-02-03 08:59:01",
+"test_value":"passed",
+"status":"passed"
+}
+],
+"error_details":"reboot_soft",
+"serial":"GGB1UD2230521ES3",
+"cycle_time":"2.620",
+"error_code":"-1",
+"position":"A1",
+"station_type":"REPAIR",
+"cyctime_final":"7.744",
+"status":"failed",
+"test_software_version":"1.1.1"
+}

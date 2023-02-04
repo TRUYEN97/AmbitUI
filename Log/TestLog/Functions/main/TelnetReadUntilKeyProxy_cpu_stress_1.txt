@@ -1,0 +1,49 @@
+2023-02-03 08:49:10.669:   ITEM[cpu_stress_1] - FUNCTION[TelnetReadUntilKeyProxy]
+2023-02-03 08:49:10.669:   Turn: 1
+2023-02-03 08:49:10.669:   Get IP from the function config with key is "IP".
+2023-02-03 08:49:10.669:   IP: 192.168.1.1
+2023-02-03 08:49:10.670:   [PC] Connect to host: 192.168.1.1
+2023-02-03 08:49:10.670:   [PC] Port is: 23
+2023-02-03 08:49:10.670:   [Cmd] ------------------------------------ 1
+2023-02-03 08:49:10.670:   [Cmd] Send command: arp -d 192.168.1.1
+2023-02-03 08:49:10.705:   [Cmd] 
+2023-02-03 08:49:10.706:   [Cmd] Send command: ping 192.168.1.1 -n 1
+2023-02-03 08:49:10.738:   [Cmd] Pinging 192.168.1.1 with 32 bytes of data:
+2023-02-03 08:49:10.738:   [Cmd] Reply from 192.168.1.1: bytes=32 time=1ms TTL=64
+2023-02-03 08:49:10.738:   [Cmd] 
+2023-02-03 08:49:10.738:   [Cmd] Ping statistics for 192.168.1.1:
+2023-02-03 08:49:10.738:   [Cmd] Packets: Sent = 1, Received = 1, Lost = 0 (0% loss),
+2023-02-03 08:49:10.738:   [Cmd] Approximate round trip times in milli-seconds:
+2023-02-03 08:49:10.738:   [Cmd] Minimum = 1ms, Maximum = 1ms, Average = 1ms
+2023-02-03 08:49:10.738:   [Cmd] ------------------------------------
+2023-02-03 08:49:11.062:   [Telnet] === IMPORTANT ============================
+2023-02-03 08:49:11.063:   [Telnet] Use 'passwd' to set your login password!
+2023-02-03 08:49:11.063:   [Telnet] ------------------------------------------
+2023-02-03 08:49:11.064:   [Telnet] 
+2023-02-03 08:49:11.064:   [Telnet] 
+2023-02-03 08:49:11.064:   [Telnet] BusyBox v1.30.1 () built-in shell (ash)
+2023-02-03 08:49:11.064:   [Telnet] 
+2023-02-03 08:49:11.065:   [Telnet] MM           NM                    MMMMMMM          M       M
+2023-02-03 08:49:11.065:   [Telnet] $MMMMM        MMMMM                MMMMMMMMMMM      MMM     MMM
+2023-02-03 08:49:11.065:   [Telnet] MMMMMMMM     MM MMMMM.              MMMMM:MMMMMM:   MMMM   MMMMM
+2023-02-03 08:49:11.066:   [Telnet] MMMM= MMMMMM  MMM   MMMM       MMMMM   MMMM  MMMMMM   MMMM  MMMMM'
+2023-02-03 08:49:11.066:   [Telnet] MMMM=  MMMMM MMMM    MM       MMMMM    MMMM    MMMM   MMMMNMMMMM
+2023-02-03 08:49:11.066:   [Telnet] MMMM=   MMMM  MMMMM          MMMMM     MMMM    MMMM   MMMMMMMM
+2023-02-03 08:49:11.067:   [Telnet] MMMM=   MMMM   MMMMMM       MMMMM      MMMM    MMMM   MMMMMMMMM
+2023-02-03 08:49:11.067:   [Telnet] MMMM=   MMMM     MMMMM,    NMMMMMMMM   MMMM    MMMM   MMMMMMMMMMM
+2023-02-03 08:49:11.067:   [Telnet] MMMM=   MMMM      MMMMMM   MMMMMMMM    MMMM    MMMM   MMMM  MMMMMM
+2023-02-03 08:49:11.068:   [Telnet] MMMM=   MMMM   MM    MMMM    MMMM      MMMM    MMMM   MMMM    MMMM
+2023-02-03 08:49:11.068:   [Telnet] MMMM$ ,MMMMM  MMMMM  MMMM    MMM       MMMM   MMMMM   MMMM    MMMM
+2023-02-03 08:49:11.068:   [Telnet] MMMMMMM:      MMMMMMM     M         MMMMMMMMMMMM  MMMMMMM MMMMMMM
+2023-02-03 08:49:11.069:   [Telnet] MMMMMM       MMMMN     M           MMMMMMMMM      MMMM    MMMM
+2023-02-03 08:49:11.069:   [Telnet] MMMM          M                    MMMMMMM        M       M
+2023-02-03 08:49:11.069:   [Telnet] M
+2023-02-03 08:49:11.069:   [Telnet] ---------------------------------------------------------------
+2023-02-03 08:49:11.070:   [Telnet] For those about to rock... (Chaos Calmer, unknown)
+2023-02-03 08:49:11.070:   [Telnet] ---------------------------------------------------------------
+2023-02-03 08:49:11.070:   [Telnet] root@eero-test:/#
+2023-02-03 08:49:11.185:   [Telnet] root@eero-test:/#
+2023-02-03 08:49:11.186:   [Config] Waiting for about2000 s
+2023-02-03 08:49:11.186:   [Telnet] Send command: stress --cpu 8 --io 4 --vm 2 --vm-bytes 128M --timeout 1800s
+2023-02-03 08:49:11.189:   [Telnet] stress --cpu 8 --io 4 --vm 2 --vm-bytes 128M --timeout 1800s
+2023-02-03 08:49:11.232:   [Telnet] stress: info: [2846] dispatching hogs: 8 cpu, 4 io, 2 vm, 0 hdd

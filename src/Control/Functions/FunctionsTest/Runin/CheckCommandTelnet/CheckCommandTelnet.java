@@ -35,6 +35,9 @@ public class CheckCommandTelnet extends AbsFunction {
     protected boolean test() {
         String ip = this.analysisBase.getIp();
         try ( Telnet telnet = this.functionBase.getTelnet(ip, 23)) {
+            if (telnet == null) {
+                return false;
+            }
             String value = getTempCPU(telnet, config.getString("command"));
             setResult(value);
             return value != null;

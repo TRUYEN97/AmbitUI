@@ -16,7 +16,7 @@
         {
             "station_type": "RUNIN",
             "name": "Jupiter", 
-            "type_mode": "Debug",
+            "type_mode": "debug",
             "debug_able": true,
             "ambit_config": "config\\Item\\Runin_jupiter_debug.json",
             "detail": ["TabViewProxy", "TabItemProxy"]

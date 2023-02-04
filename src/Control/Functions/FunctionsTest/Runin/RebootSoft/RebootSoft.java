@@ -40,13 +40,12 @@ public class RebootSoft extends AbsFunction {
     }
 
     private boolean cycleReboot(String ip) {
-        int time = this.config.getInteger("time", 5);
-        addLog("CONFIG", "Time: " + time);
+        int waitShutdownTime = this.config.getInteger("waitTime", 10);
+        addLog("CONFIG", "Wait for DUT to shut down: %s S", waitShutdownTime);
+        int pingTime = this.config.getInteger("pingTimes", 30);
+        addLog("CONFIG", "Ping times: %s", waitShutdownTime);
         try {
-            if (!this.functionBase.rebootSoft(ip, time) || !this.functionBase.pingTo(ip, 200)) {
-                return false;
-            }
-            return true;
+            return this.functionBase.rebootSoft(ip, waitShutdownTime, pingTime);
         } catch (Exception e) {
             e.printStackTrace();
             ErrorLog.addError(this, e.getLocalizedMessage());
