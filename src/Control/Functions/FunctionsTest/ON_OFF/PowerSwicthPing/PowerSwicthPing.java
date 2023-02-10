@@ -30,7 +30,7 @@ public class PowerSwicthPing extends PowerSwitchFunc{
     
     @Override
     public boolean doSomethings() {
-        String ip = this.analysisBase.getIp();
+        String ip = this.baseFunc.getIp();
         addLog("IP: " + ip);
         if (ip == null) {
             return false;

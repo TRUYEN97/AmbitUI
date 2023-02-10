@@ -9,7 +9,6 @@ import Control.Functions.FunctionsTest.Base.BaseFunction.AnalysisBase;
 import Control.Functions.FunctionsTest.Base.BaseFunction.FunctionBase;
 import Model.ErrorLog;
 import Time.WaitTime.Class.TimeS;
-import AbstractStream.SubClass.ReadStreamOverTime;
 import Communicate.Impl.Telnet.Telnet;
 import Model.DataTest.FunctionParameters;
 import java.util.List;
@@ -35,7 +34,7 @@ public class TelnetReadUntilKey extends AbsFunction {
 
     @Override
     protected boolean test() {
-        String ip = this.analysisBase.getIp();
+        String ip = this.baseFunc.getIp();
         addLog("IP: " + ip);
         if (ip == null) {
             return false;

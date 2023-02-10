@@ -89,6 +89,7 @@
             "command": "fw_printenv  serial",
             "Startkey": "serial=",
             "Endkey": "",
+            "Time": 1,
             "compare": "mlbsn",
             "test_name": "sn_ok",
             "func_name": "CheckDutInfoProxy"
@@ -103,6 +104,7 @@
             "command": "fw_printenv  mac",
             "Startkey": "mac=",
             "Endkey": "",
+            "Time": 1,
             "compare": "ethernetmac",
             "test_name": "mac_ok",
             "func_name": "CheckDutInfoProxy"
@@ -126,6 +128,7 @@
             "debug_able": true,
             "always_run": false,
             "IP": "192.168.1.1",
+            "Time": 1,
             "command": "dmesg|grep 'PHY ID'",
             "Startkey": "eth1's PHY ID is",
             "Endkey": "",
@@ -159,14 +162,15 @@
         },
         {
             "flag": true,
-            "time_out": 300,
+            "time_out": 600,
             "retry": 3,
             "debug_able": true,
             "multi": false,
             "IP": "192.168.1.1",
+            "times": 3,
             "waitTime": 40,
             "pingTimes": 40,
-            "test_name": "reboot_soft",
+            "test_name": "reboot_soft_0",
             "func_name": "RebootSoftProxy"
         },
         {

@@ -4,6 +4,7 @@
  */
 package Control.Functions;
 
+import Control.Core.ModeTest;
 import Model.DataTest.ProcessTest.ProcessData;
 import Model.Interface.IFunction;
 import Model.DataTest.FunctionData.FunctionData;
@@ -28,6 +29,7 @@ public abstract class AbsFunction implements IFunction {
     protected final ProductData productData;
     protected final UiInformartion uIInfo;
     protected final AbsSubUi subUI;
+    protected final ModeTest modeTest;
     private final ItemTestData itemTestData;
     private final AnalysisResult analysisResult;
     protected final FunctionParameters functionParameters;
@@ -37,6 +39,7 @@ public abstract class AbsFunction implements IFunction {
 
     protected AbsFunction(FunctionParameters functionParameters, String itemName) {
         this.functionParameters = functionParameters;
+        this.modeTest = functionParameters.getModeTest();
         this.functionData = functionParameters.getFunctionData();
         if (itemName == null) {
             itemName = this.functionData.getFunctionName().getItemName();

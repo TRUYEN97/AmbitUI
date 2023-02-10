@@ -88,7 +88,7 @@ public class Core {
             if (this.currMode.getModeTestSource().isMultiThread()) {
                 getIndex(inputData);
             } else {
-                inputData.setIndex("main");
+                inputData.setIndex("");
             }
         }
         return this.uIManager.isIndexFree(inputData.getIndex());

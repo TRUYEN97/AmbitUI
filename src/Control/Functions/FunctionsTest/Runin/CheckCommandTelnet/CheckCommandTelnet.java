@@ -9,8 +9,8 @@ import Control.Functions.AbsFunction;
 import Control.Functions.FunctionsTest.Base.BaseFunction.AnalysisBase;
 import Control.Functions.FunctionsTest.Base.BaseFunction.FunctionBase;
 import Model.ErrorLog;
-import Time.WaitTime.Class.TimeMs;
 import Model.DataTest.FunctionParameters;
+import Time.WaitTime.Class.TimeS;
 
 /**
  *
@@ -33,33 +33,29 @@ public class CheckCommandTelnet extends AbsFunction {
 
     @Override
     protected boolean test() {
-        String ip = this.analysisBase.getIp();
+        String ip = this.functionBase.getIp();
         try ( Telnet telnet = this.functionBase.getTelnet(ip, 23)) {
             if (telnet == null) {
                 return false;
             }
-            String value = getTempCPU(telnet, config.getString("command"));
+            if (!this.functionBase.sendCommand(telnet, config.getString("command"))) {
+                return false;
+            }
+            String startkey = config.getString("Startkey");
+            String endkey = config.getString("Endkey");
+            String regex = config.getString("Regex");
+            int time = config.getInteger("Time", 1);
+            String value = this.analysisBase.getValue(telnet, startkey, endkey, regex, new TimeS(time));
+            if (value == null) {
+                return false;
+            }
             setResult(value);
-            return value != null;
+            return true;
         } catch (Exception e) {
             e.printStackTrace();
             ErrorLog.addError(this, e.getMessage());
             return false;
         }
-    }
-
-    public String getTempCPU(final Telnet telnet, String command) {
-        if (!this.functionBase.sendCommand(telnet, command)) {
-            return null;
-        }
-        String startkey = config.getString("Startkey");
-        String endkey = config.getString("Endkey");
-        String regex = config.getString("Regex");
-        String value = this.analysisBase.getValue(telnet, startkey, endkey, regex, new TimeMs(1000));
-        if (value == null) {
-            return null;
-        }
-        return value;
     }
 
 }

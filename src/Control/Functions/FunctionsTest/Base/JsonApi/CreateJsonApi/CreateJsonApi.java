@@ -12,7 +12,6 @@ import Model.DataTest.FunctionData.ItemTestData;
 import Model.DataTest.FunctionParameters;
 import com.alibaba.fastjson.JSONArray;
 import com.alibaba.fastjson.JSONObject;
-import java.util.ArrayList;
 import java.util.HashSet;
 import java.util.List;
 import java.util.Map;
@@ -94,9 +93,9 @@ public class CreateJsonApi extends AbsFunction {
         }
         Set<String> limitItems = limit.getListItemName();
         List<ItemTestData> itemTestDatas = this.processData.getListItemTestData();
-        if (statusTest && followLimit && isItemTestNotEnough(limitItems, itemTestDatas, limit)) {
-            return null;
-        }
+//        if (statusTest && followLimit && isItemTestNotEnough(limitItems, itemTestDatas, limit)) {
+//            return null;
+//        }
         for (ItemTestData itemTestData : itemTestDatas) {
             String itemName = itemTestData.getItemName();
             if (itemName == null) {

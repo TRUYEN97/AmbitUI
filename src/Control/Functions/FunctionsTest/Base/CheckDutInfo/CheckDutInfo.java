@@ -8,9 +8,9 @@ import Communicate.Impl.Telnet.Telnet;
 import Control.Functions.AbsFunction;
 import Control.Functions.FunctionsTest.Base.BaseFunction.AnalysisBase;
 import Control.Functions.FunctionsTest.Base.BaseFunction.FunctionBase;
-import Time.WaitTime.Class.TimeMs;
 import Model.DataTest.FunctionParameters;
 import Model.ErrorLog;
+import Time.WaitTime.Class.TimeS;
 
 /**
  *
@@ -33,7 +33,7 @@ public class CheckDutInfo extends AbsFunction {
 
     @Override
     protected boolean test() {
-        String ip = this.analysisBase.getIp();
+        String ip = this.baseFunc.getIp();
         addLog("IP: " + ip);
         if (ip == null) {
             return false;
@@ -49,7 +49,8 @@ public class CheckDutInfo extends AbsFunction {
             String startkey = config.getString("Startkey");
             String endkey = config.getString("Endkey");
             String regex = config.getString("Regex");
-            return checkValue(this.analysisBase.getValue(telnet, startkey, endkey, regex, new TimeMs(1000)));
+            int time = config.getInteger("Time", 1);
+            return checkValue(this.analysisBase.getValue(telnet, startkey, endkey, regex, new TimeS(time)));
         } catch (Exception e) {
             e.printStackTrace();
             ErrorLog.addError(this, e.getMessage());

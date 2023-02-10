@@ -1,0 +1,11 @@
+2023-02-06 07:47:35.759:   ITEM[temp_eth_0] - FUNCTION[TempCPUJupiterProxy]
+2023-02-06 07:47:35.760:   Turn: 1
+2023-02-06 07:47:35.761:   [CONFIG] temperature
+2023-02-06 07:47:35.761:   Get IP from the function config with key is "IP".
+2023-02-06 07:47:35.927:   [PC] Connect to ip: 192.168.1.1
+2023-02-06 07:47:35.927:   [PC] Port is: 23
+2023-02-06 07:47:35.928:   [PC] Ping to IP: 192.168.1.1 - 30 Times
+2023-02-06 07:47:35.928:   [Cmd] ------------------------------------ 1
+2023-02-06 07:47:35.929:   [Cmd] Send command: arp -d 192.168.1.1
+2023-02-06 07:47:36.098:   [Cmd] 
+2023-02-06 07:47:36.099:   [Cmd] Send command: ping 192.168.1.1 -n 1

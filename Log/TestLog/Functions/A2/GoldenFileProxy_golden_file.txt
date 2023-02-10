@@ -1,0 +1,4 @@
+2023-02-06 07:40:16.495:   ITEM[golden_file] - FUNCTION[GoldenFileProxy]
+2023-02-06 07:40:16.496:   Turn: 1
+2023-02-06 07:40:20.088:   [config] config/dataSource/init/golden.txt
+2023-02-06 07:40:23.876:   [PC] Input: A2

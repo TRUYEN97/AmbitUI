@@ -5,6 +5,7 @@ import Model.DataSource.AbsJsonSource;
 import Model.Interface.IInit;
 import Model.DataSource.DataWareHouse;
 import com.alibaba.fastjson.JSONObject;
+import java.awt.Color;
 import static java.util.Objects.isNull;
 
 /*
@@ -64,6 +65,13 @@ public class Setting extends AbsJsonSource<String, ModeElement> implements IInit
         }
         return local;
     }
+    public Color getTestColor() {
+        String color = this.readFile.getData().getString(AllKeyWord.TEST_COLOR);
+        if (color == null) {
+            return Color.yellow;
+        }
+        return new Color(Integer.parseInt(color));
+    }
 
     public String getUpdateLimitCommand() {
         return this.readFile.getData().getString(AllKeyWord.UPDATE_LIMIT_CMD);
@@ -74,6 +82,6 @@ public class Setting extends AbsJsonSource<String, ModeElement> implements IInit
     }
 
     public boolean isOnDHCP() {
-        return getDhcpNetIP() != null;
+        return this.readFile.getData().getBoolean(AllKeyWord.IS_DHCP_ON, false);
     }
 }

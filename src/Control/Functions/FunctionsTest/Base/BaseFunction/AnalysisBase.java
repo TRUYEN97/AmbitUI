@@ -54,7 +54,7 @@ public class AnalysisBase extends AbsFunction {
         String value = null;
         try {
             while ((line = time == null ? readable.readLine() : readable.readLine(time)) != null) {
-                addLog(name, line);
+                addLog(name, line == null ? "null": line);
                 if (regex != null && !regex.isBlank()) {
                     value = findGroup(line, regex);
                 } else {
@@ -66,10 +66,10 @@ public class AnalysisBase extends AbsFunction {
             }
             return value;
         } finally {
-            addLog("CONFIG", String.format("Start key: \"%s\"", startkey));
-            addLog("CONFIG", String.format("End key: \"%s\"", endkey));
-            addLog("CONFIG", String.format("Regex: \"%s\"", regex));
-            addLog("PC", String.format("Value: \"%s\"", value));
+            addLog("CONFIG", "Start key: \"%s\"", startkey);
+            addLog("CONFIG", "End key: \"%s\"", endkey);
+            addLog("CONFIG", "Regex: \"%s\"", regex);
+            addLog("PC", "Value: \"%s\"", value);
         }
 
     }
@@ -121,12 +121,12 @@ public class AnalysisBase extends AbsFunction {
                 addLog("Config", "spec == null !!");
                 return false;
             }
-            String response = readShowUntil(readable, readUntil,  time);
-            if(response != null && response.contains(spec)){
+            String response = readShowUntil(readable, readUntil, time);
+            if (response != null && response.contains(spec)) {
                 return true;
-            }else{
-                addLog( "PC", "Response no content spec");
-                return  false;
+            } else {
+                addLog("PC", "Response no content spec");
+                return false;
             }
         } finally {
             addLog("CONFIG", String.format("Spec: \"%s\"", spec));
@@ -146,20 +146,6 @@ public class AnalysisBase extends AbsFunction {
             }
         }
         return respose.toString();
-    }
-
-    public String getIp() {
-        if (Setting.getInstance().isOnDHCP()) {
-            String mac = this.processData.getString(AllKeyWord.SFIS.MAC);
-            if (mac == null) {
-                addLog("It's DHCP mode but MAC is null!");
-                return null;
-            }
-            addLog(String.format("Get IP from the DHCP with MAC is \"%s\"", mac));
-            return DhcpData.getInstance().getIP(mac);
-        }
-        addLog("Get IP from the function config with key is \"IP\".");
-        return config.getString("IP");
     }
 
     public Integer string2Integer(String value) {

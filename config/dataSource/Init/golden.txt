@@ -1,0 +1,4 @@
+sn,mblsn,ethernetmac
+A2,GGB21E043052004S,f0:b6:61:00:4f:60
+A3,GGB21E0430520060,f0:b6:61:00:53:c0
+

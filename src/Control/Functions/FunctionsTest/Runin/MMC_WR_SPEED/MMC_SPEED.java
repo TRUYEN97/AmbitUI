@@ -36,7 +36,7 @@ public class MMC_SPEED extends AbsFunction {
     @Override
     protected boolean test() {
         if (data == null) {
-            String ip = this.analysisBase.getIp();
+            String ip = this.baseFunc.getIp();
             addLog("IP: " + ip);
             if (ip == null) {
                 return false;

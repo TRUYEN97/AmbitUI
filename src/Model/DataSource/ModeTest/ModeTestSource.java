@@ -12,6 +12,7 @@ import Model.DataSource.ModeTest.FunctionConfig.FunctionName;
 import Model.DataSource.ModeTest.Limit.Limit;
 import Model.DataSource.Setting.ModeElement;
 import Model.DataSource.Setting.Setting;
+import java.awt.Color;
 import java.awt.HeadlessException;
 import java.io.File;
 import java.io.FileWriter;
@@ -177,5 +178,13 @@ public class ModeTestSource {
 
     public int getLoopTest() {
         return modeConfig.getLoopTest();
+    }
+
+    public boolean isOnDHCP() {
+        return modeConfig.isOnDHCP();
+    }
+
+    public Color getTestColor() {
+        return modeConfig.getTestColor();
     }
 }

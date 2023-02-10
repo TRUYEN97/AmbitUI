@@ -57,6 +57,10 @@ public final class AllKeyWord {
         public static final String MULTI_TASK = "multi";
     }
 
+    
+    public static final String TEST_COLOR  = "test_color";
+    public static final String MAC_LENGTH = "mac_length";
+    public static final String IS_DHCP_ON = "on_dhcp";
     public static final String TEST_NAME = "test_name";
     public static final String MATCH = "MATCH";
     public static final String LIMIT = "LIMIT";

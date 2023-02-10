@@ -16,7 +16,6 @@ import Model.ManagerUI.UIStatus.UiStatus;
 import MyLoger.MyLoger;
 import java.io.File;
 import java.io.IOException;
-import java.util.ArrayDeque;
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
@@ -71,7 +70,7 @@ public class FunctionData {
         return this.functionName;
     }
 
-    public final void addItemtest(String itemTest) {
+    public final synchronized void addItemtest(String itemTest) {
         if (itemTest == null || this.itemTests.containsKey(itemTest)) {
             return;
         }

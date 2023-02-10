@@ -51,7 +51,7 @@ public class DrawBoardUI {
                 }
             }
         } else {
-            drawOne("main", 1, 1);
+            drawOne("", 1, 1);
         }
     }
 
@@ -64,7 +64,7 @@ public class DrawBoardUI {
     }
 
     private void drawOne(String indexName, int row, int column) {
-        if (indexName == null || indexName.isBlank()) {
+        if (indexName == null) {
             return;
         }
         AbsSubUi subUi = Factory.getInstance().getSubUI(this.typeUI, indexName);

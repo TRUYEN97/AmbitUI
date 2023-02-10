@@ -20,7 +20,6 @@ import java.net.URL;
 import java.util.List;
 import javax.swing.DefaultComboBoxModel;
 import javax.swing.DefaultListCellRenderer;
-import javax.swing.ImageIcon;
 import javax.swing.JLabel;
 import javax.swing.JList;
 import javax.swing.JTextArea;
@@ -383,7 +382,7 @@ public class UIView extends javax.swing.JFrame {
         BoardSubUI.setLayout(BoardSubUILayout);
         BoardSubUILayout.setHorizontalGroup(
             BoardSubUILayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 696, Short.MAX_VALUE)
+            .addGap(0, 682, Short.MAX_VALUE)
         );
         BoardSubUILayout.setVerticalGroup(
             BoardSubUILayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)

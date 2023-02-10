@@ -4,7 +4,6 @@
  */
 package Model.Factory;
 
-import View.subUI.FormDetail.TabFaApi.TabFaApiProxy;
 import Control.Functions.AbsFunction;
 import Control.Functions.FunctionsTest.Base.CheckDutInfo.CheckDutInfoProxy;
 import Control.Functions.FunctionsTest.Base.CheckProduct.CheckProductProxy;
@@ -38,6 +37,7 @@ import Control.Functions.FunctionsTest.Other.CheckLed_W_1H_SFT.CheckLed_W_1H_Pro
 import Control.Functions.FunctionsTest.Other.Reboot_CheckLed1H_SFT.Reboot_CheckLed1H_SFT_Proxy;
 import Control.Functions.FunctionsTest.Runin.TelnetReadUntilKey.TelnetReadUntilKeyProxy;
 import Control.Functions.FunctionsTest.Runin.RebootSoft.RebootSoftProxy;
+import Control.Functions.FunctionsTest.Runin.TempCPU.TempCPUJupiterProxy;
 import Control.Functions.FunctionsTest.Runin.TempCPU.TempCPUProxy;
 import Control.Functions.InitPackages.InitProxy.IdPasswordProxy;
 import Model.DataTest.FunctionParameters;
@@ -86,19 +86,19 @@ public class Factory {
         return ins;
     }
     
-    public AbsSubUi getSubUI(String type, String index) {
+    public synchronized AbsSubUi getSubUI(String type, String index) {
         return this.subUIFactory.takeIt(type, index);
     }
     
-    public AbsTabUI getTabUI(String type) {
+    public synchronized AbsTabUI getTabUI(String type) {
         return this.tabUIFactory.takeIt(type);
     }
     
-    public IFunction getInitFunc(String type) {
+    public synchronized IFunction getInitFunc(String type) {
         return this.initFunctions.takeIt(type);
     }
     
-    public AbsFunction getFunc( String functionName, FunctionParameters functionParameters) {
+    public synchronized AbsFunction getFunc( String functionName, FunctionParameters functionParameters) {
         return this.functions.takeIt(functionName, functionParameters);
     }
     
@@ -111,7 +111,6 @@ public class Factory {
         this.tabUIFactory.addType(new TabViewProxy());
         this.tabUIFactory.addType(new TabItemProxy());
         this.tabUIFactory.addType(new TabLogProxy());
-        this.tabUIFactory.addType(new TabFaApiProxy());
     }
     
     private void addInitFunc() {
@@ -152,5 +151,6 @@ public class Factory {
         this.functions.addType(new VirFunctionProxy());
         this.functions.addType(new DeltaProxy());
         this.functions.addType(new CheckProductProxy());
+        this.functions.addType(new TempCPUJupiterProxy());
     }
 }

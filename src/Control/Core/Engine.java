@@ -48,20 +48,7 @@ public class Engine {
         setMode();
         showUI();
     }
-//    public static void main(String[] args) {
-//        FileService  fileService = new FileService();
-//        String data = fileService.readFile(new File("C:\\Users\\Administrator\\Desktop\\OnOff-runin\\config\\dataSource\\test/gd.txt"));
-//        JSONObject rs = new JSONObject();
-//        JSONObject sn;
-//        for (String line : data.split("\r\n")) {
-//            String[] elm = line.split(",");
-//            sn = new JSONObject();
-//            sn.put("mlbsn", elm[1]);
-//            sn.put("ethernetmac", elm[2]);
-//            rs.put(elm[0], sn);
-//        }
-//        System.out.println(rs);
-//    }
+    
     private void getAllMode() {
         for (ModeElement modeInfo : setting.getElments()) {
             ModeTest modeTest = new ModeTest(modeInfo);
@@ -90,10 +77,10 @@ public class Engine {
     }
 
     private void initDHCP() {
-        if (!setting.isOnDHCP()) {
+        String netIP;
+        if ((netIP = this.setting.getDhcpNetIP()) == null || !setting.isOnDHCP()) {
             return;
         }
-        String netIP = this.setting.getDhcpNetIP();
         this.view.showMessager("////DHCP//////\r\nSet net IP: " + netIP);
         this.dhcp.setView(this.view.getTextMess());
         if (this.dhcp.setNetIP(netIP) && this.dhcp.init(createFilePath())) {

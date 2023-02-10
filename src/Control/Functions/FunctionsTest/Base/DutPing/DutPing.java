@@ -31,7 +31,7 @@ public class DutPing extends AbsFunction {
     
     @Override
     public boolean test() {
-        String ip = this.analysisBase.getIp();
+        String ip = this.baseFunc.getIp();
         addLog("IP: " + ip);
         if (ip == null) {
             return false;

@@ -32,7 +32,7 @@ public class DutTelnet extends AbsFunction {
 
     @Override
     protected boolean test() {
-        String ip = this.analysisBase.getIp();
+        String ip = this.functionBase.getIp();
         addLog("IP: " + ip);
         if (ip == null) {
             return false;

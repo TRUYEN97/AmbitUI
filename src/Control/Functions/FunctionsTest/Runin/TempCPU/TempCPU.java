@@ -8,8 +8,8 @@ import Communicate.Impl.Telnet.Telnet;
 import Control.Functions.AbsFunction;
 import Control.Functions.FunctionsTest.Base.BaseFunction.AnalysisBase;
 import Control.Functions.FunctionsTest.Base.BaseFunction.FunctionBase;
-import Control.Functions.FunctionsTest.Runin.CheckCommandTelnet.CheckCommandTelnet;
 import Model.DataTest.FunctionParameters;
+import Time.WaitTime.Class.TimeMs;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -19,7 +19,6 @@ import java.util.List;
  */
 public class TempCPU extends AbsFunction {
 
-    private final CheckCommandTelnet checkCommandTelnet;
     private final FunctionBase functionBase;
     private final AnalysisBase analysisBase;
 
@@ -29,7 +28,6 @@ public class TempCPU extends AbsFunction {
 
     public TempCPU(FunctionParameters parameters, String item) {
         super(parameters, item);
-        this.checkCommandTelnet = new CheckCommandTelnet(parameters, item);
         this.functionBase = new FunctionBase(parameters, item);
         this.analysisBase = new AnalysisBase(parameters, item);
     }
@@ -42,7 +40,7 @@ public class TempCPU extends AbsFunction {
             return false;
         }
         addLog("CONFIG", commands);
-        String ip = this.analysisBase.getIp();
+        String ip = this.functionBase.getIp();
         try ( Telnet telnet = this.functionBase.getTelnet(ip, 23)) {
             if (telnet == null) {
                 return false;
@@ -59,10 +57,18 @@ public class TempCPU extends AbsFunction {
 
     private ArrayList<Integer> getTempCPU(List<String> commands, final Telnet telnet) throws NumberFormatException {
         ArrayList<Integer> temps = new ArrayList<>();
+        String startkey = config.getString("Startkey");
+        String endkey = config.getString("Endkey");
+        String regex = config.getString("Regex");
+        int time = config.getInteger("Time", 1);
         for (String command : commands) {
-            String value = this.checkCommandTelnet.getTempCPU(telnet, command);
+            if (!this.functionBase.sendCommand(telnet, command)) {
+                return null;
+            }
+            String value = this.analysisBase.getValue(telnet, startkey, endkey, regex, new TimeMs(time));
             if (!this.analysisBase.isNumber(value)) {
                 addLog("ERROR", String.format("value is not number! value: %s", value));
+                return null;
             }
             temps.add(Integer.valueOf(value));
         }

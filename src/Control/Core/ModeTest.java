@@ -10,6 +10,7 @@ import Model.DataSource.Setting.ModeElement;
 import Model.Factory.Factory;
 import Model.Interface.IFunction;
 import Model.Interface.IUpdate;
+import java.awt.Color;
 import java.util.List;
 
 /**
@@ -28,9 +29,13 @@ public class ModeTest implements IInit, IUpdate {
 
     @Override
     public String toString() {
-        return this.testSource.getModeName();
+        return getModeName();
     }
 
+    public String getModeName() {
+        return this.testSource.getModeName();
+    }
+    
     public String getModeType() {
         return this.testSource.getModeType();
     }
@@ -66,5 +71,13 @@ public class ModeTest implements IInit, IUpdate {
 
     public boolean canDebug() {
         return testSource.canDebug();
+    }
+
+    public boolean isOnDHCP() {
+        return testSource.isOnDHCP();
+    }
+    
+    public Color getTestColor() {
+        return testSource.getTestColor();
     }
 }

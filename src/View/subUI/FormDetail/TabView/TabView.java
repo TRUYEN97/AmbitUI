@@ -75,7 +75,7 @@ public class TabView extends AbsTabUI {
     @Override
     public void startTest() {
         super.startTest();
-        this.lbStatus.setBackground(Color.yellow);
+        this.lbStatus.setBackground(this.uiStatus.getModeTest().getTestColor());
     }
 
     @Override

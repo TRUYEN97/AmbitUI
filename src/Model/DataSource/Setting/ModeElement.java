@@ -7,6 +7,7 @@ package Model.DataSource.Setting;
 import Model.AllKeyWord;
 import Model.DataSource.AbsElementInfo;
 import com.alibaba.fastjson.JSONObject;
+import java.awt.Color;
 import java.io.File;
 import java.util.List;
 
@@ -91,5 +92,25 @@ public class ModeElement extends AbsElementInfo {
 
     public String getLocalLimitPath() {
         return this.warehouse.getString(AllKeyWord.LIMIT_PATH);
+    }
+
+    public boolean isOnDHCP() {
+        boolean isOnDHCP = this.warehouse.getBoolean(AllKeyWord.IS_DHCP_ON, false);
+        String netIP = this.warehouse.getString(AllKeyWord.DHCP);
+        return netIP != null && isOnDHCP;
+    }
+
+    public Color getTestColor() {
+        String color = this.warehouse.getString(AllKeyWord.TEST_COLOR);
+        if (color == null) {
+            return Color.yellow;
+        }
+        try {
+            color = color.trim();
+            return new Color(Integer.parseInt(color,16));
+        } catch (Exception e) {
+            e.printStackTrace();
+            return Color.yellow;
+        }
     }
 }

@@ -67,7 +67,7 @@ class Process implements IFunction {
         this.functions.addAll(functions);
     }
 
-    private FunctionCover createFuncCover(FunctionName functionName) {
+    private synchronized FunctionCover createFuncCover(FunctionName functionName) {
         FunctionParameters parameters = getFunctionConfig(functionName);
         return new FunctionCover(
                 this.factory.getFunc(functionName.getFunctionName(),
@@ -167,7 +167,7 @@ class Process implements IFunction {
         return test;
     }
 
-    private FunctionParameters getFunctionConfig(FunctionName functionName) {
+    private synchronized FunctionParameters getFunctionConfig(FunctionName functionName) {
         FunctionConfig config = uiStatus.getModeTest().getModeTestSource().getFunctionsConfig(functionName);
         if (config == null) {
             JOptionPane.showMessageDialog(null,

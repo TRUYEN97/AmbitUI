@@ -10,13 +10,16 @@
  */
 package View.subUI.FormDetail;
 
+import Model.ManagerUI.UIStatus.UiStatus;
+
 /**
  *
  * @author Administrator
  */
 public class FormShow extends javax.swing.JFrame {
 
-    private TabDetail tabDetail; 
+    private TabDetail tabDetail;
+
     /**
      * Creates new form Detail
      *
@@ -29,11 +32,18 @@ public class FormShow extends javax.swing.JFrame {
         this.tabDetail = tabDetail;
         java.awt.EventQueue.invokeLater(() -> {
             add(tabDetail);
-            setTitle(tabDetail.getBoss().getName());
+            UiStatus uiStatus = tabDetail.getBoss().getUiStatus();
+            if (uiStatus != null) {
+                setTitle(String.format("%s  ->  %s :  %s",
+                        tabDetail.getBoss().getName(),
+                        uiStatus.getModeTest().getModeName(),
+                        uiStatus.getModeTest().getModeType()));
+            } else {
+                setTitle(String.format("%s", tabDetail.getBoss().getName()));
+            }
             setVisible(true);
         });
     }
-    
 
     /**
      * This method is called from within the constructor to initialize the form.
@@ -46,7 +56,7 @@ public class FormShow extends javax.swing.JFrame {
 
         setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
 
-        setSize(new java.awt.Dimension(407, 327));
+        setSize(new java.awt.Dimension(757, 403));
         setLocationRelativeTo(null);
     }// </editor-fold>//GEN-END:initComponents
 
@@ -55,5 +65,4 @@ public class FormShow extends javax.swing.JFrame {
      */
     // Variables declaration - do not modify//GEN-BEGIN:variables
     // End of variables declaration//GEN-END:variables
-
 }

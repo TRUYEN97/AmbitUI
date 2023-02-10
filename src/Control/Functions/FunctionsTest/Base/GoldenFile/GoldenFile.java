@@ -6,12 +6,12 @@ package Control.Functions.FunctionsTest.Base.GoldenFile;
 
 import Control.Functions.AbsFunction;
 import DHCP.DhcpData;
-import FileTool.FileService;
 import Model.AllKeyWord;
 import Model.DataSource.Setting.Setting;
 import Model.DataTest.FunctionParameters;
-import com.alibaba.fastjson.JSONObject;
+import java.io.BufferedReader;
 import java.io.File;
+import java.io.FileReader;
 
 /**
  *
@@ -32,45 +32,64 @@ public class GoldenFile extends AbsFunction {
             addLog("config", "Golen file not valid!");
             return false;
         }
-        JSONObject golden;
         String snInput = this.processData.getString(AllKeyWord.SFIS.SN);
-        addLog("Input", "Input: " + snInput);
-        try {
-            golden = JSONObject.parseObject(new FileService().readFile(goldenFile));
-            if (!golden.containsKey(snInput)) {
-                addLog("MESSAGE", String.format("SN: %s not exists!", snInput));
-                return false;
-            }
-            JSONObject snGolden = golden.getJSONObject(snInput);
-            if (snGolden.isEmpty()) {
-                addLog("GOLDEN", String.format("SN golden: %s is empty!", snInput));
-                return false;
-            }
-            for (String key : snGolden.keySet()) {
-                String value = snGolden.getString(key);
-                this.productData.put(key, value);
-                addLog("GOLDEN", String.format("key: %s - value: %s", key, value));
-            }
-            if (Setting.getInstance().isOnDHCP() && !putMacDHCP()) {
-                addLog("Get MAC from SFIS for DHCP failed!");
-                return false;
-            }
-            addLog("add data to production info done.");
-            return true;
-        } catch (Exception e) {
-            e.printStackTrace();
+        addLog("PC", "Input: " + snInput);
+        if (!findSNInGoldenFile(goldenFile, snInput)) {
             return false;
         }
+        if (Setting.getInstance().isOnDHCP()) {
+            if (!putMacDHCP()) {
+                addLog("PC","insert mac into DHCP failded!");
+                return false;
+            }
+            addLog("PC","insert mac into DHCP");
+        }
+        return true;
     }
-      private boolean putMacDHCP() {
+
+    private boolean putMacDHCP() {
         String mac = this.processData.getString(AllKeyWord.SFIS.MAC);
         if (mac == null || mac.isBlank()
                 || !DhcpData.getInstance().put(mac, uIInfo.getID())) {
             return false;
         }
-        addLog(String.format("add Mac: %s -- Ip: %s to DHCP data",
-                mac, DhcpData.getInstance().getIP(mac)));
+        addLog("PC","add ethernetmac: %s -- Ip: %s to DHCP data",
+                mac, DhcpData.getInstance().getIP(mac));
         return true;
+    }
+
+    private boolean findSNInGoldenFile(File goldenFile, String snInput) {
+        try ( BufferedReader fr = new BufferedReader(new FileReader(goldenFile))) {
+            String line;
+            String[] elems;
+            String sn;
+            String mlbsn;
+            String ethernetmac;
+            while ((line = fr.readLine()) != null) {
+                if (!line.matches("^.+,.+,.+$")) {
+                    continue;
+                }
+                elems = line.split(",");
+                sn = elems[0].trim().toUpperCase();
+                mlbsn = elems[1].trim().toUpperCase();
+                ethernetmac = elems[2].trim().toUpperCase();
+                if (sn.equalsIgnoreCase(snInput) || mlbsn.equalsIgnoreCase(snInput)) {
+                    this.productData.put("sn", sn);
+                    addLog("PC", "key: sn - value: %s", sn);
+                    this.productData.put("mlbsn", mlbsn);
+                    addLog("PC", "key: mlbsns - value: %s",mlbsn);
+                    this.productData.put("ethernetmac", ethernetmac);
+                    addLog("PC", "key: ethernetmac - value: %s", ethernetmac);
+                    return true;
+                }
+            }
+            addLog("PC", "SN \'%s\' is not in the golden file !", snInput);
+            return false;
+        } catch (Exception e) {
+            e.printStackTrace();
+            addLog("Error", e.getLocalizedMessage());
+            return false;
+        }
     }
 
 }

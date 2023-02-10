@@ -72,6 +72,7 @@ public class SmallUI extends AbsSubUi {
         // TODO add your handling code here:
         if (this.uiStatus.isTesting()) {
             StringBuilder mess = new StringBuilder("<html><span style=\"font-size: 20px\">");
+            mess.append(String.format("<tr><td>Mode: %s</td></tr>", this.uiStatus.getModeTest().getModeName()));
             List<FunctionData> dataBoxs = this.uiStatus.getProcessData().getDataBoxs();
             for (FunctionData dataBox : dataBoxs) {
                 if (dataBox.isTesting()) {
@@ -87,11 +88,13 @@ public class SmallUI extends AbsSubUi {
         }
     }//GEN-LAST:event_lbTimeMouseEntered
 
+    
+    
     @Override
     public void startTest() {
         this.list = uiStatus.getProcessData().getDataBoxs();
         super.startTest(); // Generated from nbfs://nbhost/SystemFileSystem/Templates/Classes/Code/OverriddenMethodBody
-        this.lbTime.setBackground(Color.yellow);
+        this.lbTime.setBackground(this.uiStatus.getModeTest().getTestColor());
         if (this.formShow.isVisible()) {
             this.formShow.dispose();
         }
@@ -105,8 +108,8 @@ public class SmallUI extends AbsSubUi {
             this.lbTime.setBackground(Color.GREEN);
         } else {
             this.lbTime.setBackground(Color.red);
-//            lbTime.setText(String.format("<html><center>%s</br><center>%s</center>%s</html>",
-//                    getName(), this.uiStatus.getProcessData().getFirstFail().getLocalErrorCode(), getTestTime()));
+            lbTime.setText(String.format("<html><center>%s</br><center>%s</center>%s</html>",
+                    getName(), this.uiStatus.getProcessData().getFirstFail().getLocalErrorCode(), getTestTime()));
         }
     }
 

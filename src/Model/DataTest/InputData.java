@@ -18,7 +18,7 @@ public class InputData {
 
     public InputData() {
         this.data = new JSONObject();
-        this.data.put(AllKeyWord.VERSION, "V1.0.2.0");
+        this.data.put(AllKeyWord.VERSION, "V1.0.3.1");
     }
 
     public void setInput(String input) {
@@ -34,7 +34,10 @@ public class InputData {
     }
 
     public void setIndex(String index) {
-        this.data.put(AllKeyWord.INDEX, index);
+        if (index == null) {
+            return;
+        }
+        this.data.put(AllKeyWord.INDEX, index.toUpperCase());
     }
 
     public String getValue(String key) {
