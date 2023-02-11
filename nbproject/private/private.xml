@@ -8,10 +8,8 @@
         </group>
         <group name="AmbitUI">
             <file>file:/D:/Ambit-module/AmbitUI/src/Control/Functions/FunctionsTest/Base/BaseFunction/FunctionBase.java</file>
-            <file>file:/D:/Ambit-module/AmbitUI/src/Control/Functions/FunctionsTest/Base/DutPing/DutPing.java</file>
-            <file>file:/D:/Ambit-module/AmbitUI/config/Item/Runin_jupiter_debug.json</file>
-            <file>file:/D:/Ambit-module/AmbitUI/src/View/subUI/SubUI/SmallUI/SmallUI.java</file>
-            <file>file:/D:/Ambit-module/AmbitUI/config/Item/Runin_jupiter_production.json</file>
+            <file>file:/D:/Ambit-module/AmbitUI/config/Setting/setting.json</file>
+            <file>file:/D:/Ambit-module/AmbitUI/src/Control/CheckInput.java</file>
         </group>
     </open-files>
 </project-private>

@@ -10,6 +10,7 @@ import Control.Functions.FunctionsTest.Base.BaseFunction.FunctionBase;
 import Control.Functions.FunctionsTest.Base.BaseFunction.AnalysisBase;
 import Model.ErrorLog;
 import Model.DataTest.FunctionParameters;
+import Time.WaitTime.Class.TimeS;
 import java.util.List;
 
 /**
@@ -46,14 +47,7 @@ public class MMC_BadBlock extends AbsFunction {
             if (telnet == null) {
                 return false;
             }
-            String startkey = config.getString("Startkey");
-            String endkey = config.getString("Endkey");
-            List<String> commands = this.config.getListJsonArray("command");
-            if (commands == null || commands.isEmpty()) {
-                addLog("ERROR", "command in config is null or empty!");
-                return false;
-            }
-            return runCommand(telnet, commands, startkey, endkey);
+            return runCommand(telnet);
         } catch (Exception e) {
             e.printStackTrace();
             ErrorLog.addError(this, e.getMessage());
@@ -61,21 +55,37 @@ public class MMC_BadBlock extends AbsFunction {
         }
     }
 
-    private boolean runCommand(Telnet telnet, List<String> commands, String startkey, String endkey) {
-        Integer sunBadblock = 0;
+    private boolean runCommand(Telnet telnet) {
+        int sunBadblock = 0;
+        String readUntil = this.config.getString("ReadUntil");
+        int time = this.config.getInteger("Time", 10);
+        List<String> commands = this.config.getListJsonArray("command");
+        if (commands == null || commands.isEmpty()) {
+            addLog("ERROR", "command in config is null or empty!");
+            return false;
+        }
         for (String subCommand : commands) {
             if (!this.baseFunc.sendCommand(telnet, subCommand)) {
                 return false;
             }
-            String result = this.analysisBase.getValue(telnet, startkey, endkey);
-            if (!this.analysisBase.isNumber(result)) {
+            String result = this.analysisBase.readShowUntil(telnet, readUntil, new TimeS(time));
+            if (!this.analysisBase.isNumber(getValue(result))) {
                 return false;
             }
             sunBadblock += this.analysisBase.string2Integer(result);
             addLog("PC", "Sum of bad blocks: " + sunBadblock);
         }
-        setResult(sunBadblock.toString());
+        setResult(sunBadblock);
         return true;
+    }
+
+    private String getValue(String result) {
+        if (result == null) {
+            return null;
+        }
+        String startkey = config.getString("Startkey");
+        String endkey = config.getString("Endkey");
+        return this.analysisBase.subString(result, startkey, endkey);
     }
 
 }

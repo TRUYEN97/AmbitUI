@@ -22,6 +22,7 @@ import javax.swing.DefaultComboBoxModel;
 import javax.swing.DefaultListCellRenderer;
 import javax.swing.JLabel;
 import javax.swing.JList;
+import javax.swing.JOptionPane;
 import javax.swing.JTextArea;
 import javax.swing.SwingConstants;
 
@@ -69,21 +70,21 @@ public class UIView extends javax.swing.JFrame {
         }
         this.lbNamePC.setText(pcName);
     }
-    
+
     public void showIp(String ip) {
         if (ip == null) {
             return;
         }
         this.lbIP.setText(ip);
     }
-    
+
     public void setPnName(String pnName) {
         if (pnName == null) {
             return;
         }
         this.lbProductname.setText(pnName);
     }
-    
+
     public void showGiaiDoan(String giaiDoan) {
         if (giaiDoan == null) {
             return;
@@ -137,7 +138,6 @@ public class UIView extends javax.swing.JFrame {
     public JTextArea getTextMess() {
         return textMess;
     }
-    
 
     /**
      * This method is called from within the constructor to initialize the form.
@@ -167,8 +167,11 @@ public class UIView extends javax.swing.JFrame {
         txtShow = new javax.swing.JTextArea();
         BoardSubUI = new javax.swing.JPanel();
 
-        setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
+        setDefaultCloseOperation(javax.swing.WindowConstants.DO_NOTHING_ON_CLOSE);
         addWindowListener(new java.awt.event.WindowAdapter() {
+            public void windowClosing(java.awt.event.WindowEvent evt) {
+                formWindowClosing(evt);
+            }
             public void windowOpened(java.awt.event.WindowEvent evt) {
                 formWindowOpened(evt);
             }
@@ -397,7 +400,7 @@ public class UIView extends javax.swing.JFrame {
                 .addContainerGap()
                 .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(BoardSubUI, javax.swing.GroupLayout.DEFAULT_SIZE, 682, Short.MAX_VALUE)
+                .addComponent(BoardSubUI, javax.swing.GroupLayout.DEFAULT_SIZE, 736, Short.MAX_VALUE)
                 .addContainerGap())
         );
         panelBackgroundLayout.setVerticalGroup(
@@ -461,6 +464,16 @@ public class UIView extends javax.swing.JFrame {
             this.core.setCurrMode(item);
         }
     }//GEN-LAST:event_cbbModeTestItemStateChanged
+
+    private void formWindowClosing(java.awt.event.WindowEvent evt) {//GEN-FIRST:event_formWindowClosing
+        // TODO add your handling code here:
+        if (JOptionPane.showConfirmDialog(null,
+                "Do you want to close this program?",
+                "Warning",
+                JOptionPane.OK_CANCEL_OPTION) == JOptionPane.OK_OPTION) {
+            System.exit(0);
+        }
+    }//GEN-LAST:event_formWindowClosing
 
     /**
      * @param args the command line arguments

@@ -11,6 +11,7 @@ import Time.WaitTime.AbsTime;
 import Time.WaitTime.Class.TimeS;
 import DHCP.DhcpData;
 import Communicate.IReadable;
+import Communicate.Impl.Telnet.Telnet;
 import Model.DataTest.FunctionParameters;
 import java.util.List;
 import java.util.regex.Matcher;
@@ -54,7 +55,7 @@ public class AnalysisBase extends AbsFunction {
         String value = null;
         try {
             while ((line = time == null ? readable.readLine() : readable.readLine(time)) != null) {
-                addLog(name, line == null ? "null": line);
+                addLog(name, line == null ? "null" : line);
                 if (regex != null && !regex.isBlank()) {
                     value = findGroup(line, regex);
                 } else {
@@ -133,7 +134,25 @@ public class AnalysisBase extends AbsFunction {
         }
     }
 
-    private String readShowUntil(IReadable readable, String readUntil, AbsTime time) {
+    public String readUntilAndShow(IReadable readable, String until, int time) {
+        addLog("Config", "Time: " + time);
+        addLog("Config", "ReadUntil: " + until);
+        String response = readable.readUntil(until, new TimeS(time));
+        addLog("Telnet", response);
+        return response;
+    }
+
+    public String readShowUntil(IReadable readable, String readUntil, AbsTime time) {
+        if (readable == null) {
+            addLog("Config", "readable == null !!");
+            return null;
+        }
+        if (readUntil == null) {
+            addLog("Config", "spec == null !!");
+            return null;
+        }
+        addLog("Config", "Time: %s", time);
+        addLog("Config", "ReadUntil: %s", readUntil);
         String readableName = readable.getClass().getSimpleName();
         StringBuilder respose = new StringBuilder();
         time.update();
@@ -191,14 +210,6 @@ public class AnalysisBase extends AbsFunction {
             addLog("PC", value + " is not a number");
             return false;
         }
-    }
-
-    public String getUntil(IReadable readable, String until, int time) {
-        addLog("Config", "Time: " + time);
-        addLog("Config", "ReadUntil: " + until);
-        String response = readable.readUntil(until, new TimeS(time));
-        addLog("Telnet", response);
-        return response;
     }
 
     public String findGroup(String line, String regex) {

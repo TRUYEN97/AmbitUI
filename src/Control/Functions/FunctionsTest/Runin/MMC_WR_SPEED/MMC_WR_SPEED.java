@@ -81,7 +81,7 @@ public class MMC_WR_SPEED extends AbsFunction {
     private String getResponse(Telnet telnet) {
         int time = this.config.getInteger("Time", 5);
         String until = this.config.getString("ReadUntil");
-        return this.analysisBase.getUntil(telnet, until, time);
+        return this.analysisBase.readUntilAndShow(telnet, until, time);
     }
 
 }

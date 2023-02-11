@@ -57,7 +57,7 @@ public class TelnetReadUntilKey extends AbsFunction {
             addLog("ERROR", "Commands is empty!");
             return false;
         }
-        String readUntil = this.config.getString("keyWord");
+        String readUntil = this.config.getString("ReadUntil");
         String spec = this.config.getString("keyWord");
         Integer time = this.config.getInteger("Time");
         if (time == null) {

@@ -50,7 +50,7 @@ public class MMC_SPEED extends AbsFunction {
                 }
                 int time = this.config.getInteger("Time", 5);
                 String until = this.config.getString("ReadUntil");
-                data = this.analysisBase.getUntil(telnet, until, time);
+                data = this.analysisBase.readUntilAndShow(telnet, until, time);
             } catch (Exception e) {
                 e.printStackTrace();
                 ErrorLog.addError(this, e.getMessage());
