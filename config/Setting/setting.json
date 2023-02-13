@@ -1,6 +1,6 @@
 {
     "station_type": "PE",
-    "dhcp": "172.168.0.251",
+    //"dhcp": "172.168.0.251",
     "mac_length": 16,
     "on_dhcp": false,
     "row": 1,
@@ -27,7 +27,7 @@
         },
         {
             "station_type": "RUNIN",
-            "name": "Jupiter", 
+            "name": "debug", 
             "type_mode": "debug",
             "debug_able": true,
             "ambit_config": "config\\Item\\Runin_jupiter_debug.json",

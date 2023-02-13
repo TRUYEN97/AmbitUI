@@ -22,21 +22,21 @@ import java.io.IOException;
  * @author Administrator
  */
 public class FunctionBase extends AbsFunction {
-    
+
     public FunctionBase(FunctionParameters parameters) {
         super(parameters, null);
     }
-    
+
     public FunctionBase(FunctionParameters parameters, String item) {
         super(parameters, item);
     }
-    
+
     @Override
     protected boolean test() {
         addLog("Messager", "This is not a function test!");
         return false;
     }
-    
+
     public FtpClient initFtp(String user, String passWord, String host, int port) throws IOException {
         addLog("PC", "Connect to ftp!!");
         addLog("Config", "User: " + user);
@@ -52,11 +52,11 @@ public class FunctionBase extends AbsFunction {
         addLog("PC", "Connect to ftp ok!!");
         return ftp;
     }
-    
+
     public Telnet getTelnet(String ip, int port) {
         return getTelnet(ip, port, null);
     }
-    
+
     public Telnet getTelnet(String ip, int port, AbsStreamReadable streamReadable) {
         Telnet telnet;
         if (streamReadable == null) {
@@ -65,23 +65,25 @@ public class FunctionBase extends AbsFunction {
             addLog("PC", "Read input: " + streamReadable.getClass().getSimpleName());
             telnet = new Telnet(streamReadable);
         }
+        String readUntil = this.config.getString("ReadUntil");
+        readUntil = readUntil == null ? "root@eero-test:/#" : readUntil;
+        addLog("PC", "ReadUntil: %s", readUntil);
+        addLog("PC", "Connect to ip: %s", ip);
+        addLog("PC", "Port is: %s", port);
         telnet.setDebug(true);
-        addLog("PC", "Connect to ip: %s" , ip);
-        addLog("PC", "Port is: %s" , port);
         if (!pingTo(ip, 30) || !telnet.connect(ip, port)) {
             addLog("PC", "Connect failed!");
             return null;
         }
-        addLog("Telnet", telnet.readUntil("root@eero-test:/#", new TimeS(5)));
+        addLog("Telnet", telnet.readUntil(new TimeS(5), readUntil));
         if (!telnet.sendCommand("\r\n")) {
             return null;
         }
-        String response = telnet.readUntil("root@eero-test:/#", new TimeS(5));
+        String response = telnet.readUntil(new TimeS(5), readUntil);
         addLog("Telnet", response);
         return response == null ? null : telnet;
     }
-    
-    
+
     public String getIp() {
         if (this.modeTest.isOnDHCP()) {
             String mac = this.processData.getString(AllKeyWord.SFIS.MAC);
@@ -89,14 +91,14 @@ public class FunctionBase extends AbsFunction {
                 addLog("It's DHCP mode but MAC is null!");
                 return null;
             }
-            addLog("PC","Get IP from the DHCP with MAC is \"%s\"", mac);
-            addLog("Setting","MAC length = %s", DhcpData.getInstance().getMACLength());
+            addLog("PC", "Get IP from the DHCP with MAC is \"%s\"", mac);
+            addLog("Setting", "MAC length = %s", DhcpData.getInstance().getMACLength());
             return DhcpData.getInstance().getIP(mac);
         }
         addLog("Get IP from the function config with key is \"IP\".");
         return config.getString("IP");
     }
-    
+
     public ComPort getComport(String com, Integer baud) {
         ComPort comPort = new ComPort();
         comPort.setDebug(true);
@@ -109,7 +111,7 @@ public class FunctionBase extends AbsFunction {
         addLog("ComPort", String.format("Connect %s ok", com));
         return comPort;
     }
-    
+
     public boolean rebootSoft(String ip, int waitTime, int pingTime) throws IOException {
         try ( Telnet telnet = getTelnet(ip, 23)) {
             if (telnet == null) {
@@ -130,7 +132,7 @@ public class FunctionBase extends AbsFunction {
             return false;
         }
     }
-    
+
     private boolean sendRebootDUT(int waitTime, String ip) {
         TimeS waitToSleepTime = new TimeS(waitTime);
         do {
@@ -146,7 +148,7 @@ public class FunctionBase extends AbsFunction {
         addLog("PC", "*************** Shut down failed! [%s S]*****************", waitToSleepTime.getTime());
         return false;
     }
-    
+
     public String getMac() {
         String mac = this.productData.getString(AllKeyWord.SFIS.MAC);
         if (mac == null || ((mac.length() != 17 && mac.contains(":")) || (mac.length() != 12 && !mac.contains(":")))) {
@@ -156,7 +158,7 @@ public class FunctionBase extends AbsFunction {
         addLog("Get mac= " + mac);
         return mac;
     }
-    
+
     public boolean sendCommand(ISender sender, String command) {
         String name = sender.getClass().getSimpleName();
         addLog(name, "Send command: " + command);
@@ -166,13 +168,13 @@ public class FunctionBase extends AbsFunction {
         }
         return true;
     }
-    
+
     public boolean pingTo(String ip, int times) {
         if (ip == null || times <= 0) {
             addLog("Error", "IP == null ", ip);
             return false;
         }
-        if ( times <= 0) {
+        if (times <= 0) {
             addLog("Error", "Ping times <= 0", ip);
             return false;
         }

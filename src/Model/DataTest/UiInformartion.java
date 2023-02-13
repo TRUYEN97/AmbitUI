@@ -6,7 +6,7 @@ package Model.DataTest;
 
 import Model.AllKeyWord;
 import Model.DataSource.DataWareHouse;
-import Model.DataSource.PcInformation;
+import Model.DataSource.ProgramInformation;
 
 /**
  *
@@ -15,15 +15,15 @@ import Model.DataSource.PcInformation;
 public class UiInformartion {
 
     private final DataWareHouse dataWareHouse;
-    private final PcInformation pcInformation;
+    private final ProgramInformation pcInformation;
     private boolean readyStatus;
 
     public UiInformartion(String name, int COLUMN, int ROW, int ID) {
         this.dataWareHouse = new DataWareHouse();
-        this.pcInformation = PcInformation.getInstance();
+        this.pcInformation = ProgramInformation.getInstance();
         this.dataWareHouse.put(AllKeyWord.SFIS.PC_NAME, this.pcInformation.getPcName());
         this.dataWareHouse.put(AllKeyWord.STATION_NAME, this.pcInformation.getPcName());
-        this.dataWareHouse.put(AllKeyWord.STATION_TYPE, getStationType(this.pcInformation.getPcName()));
+        this.dataWareHouse.put(AllKeyWord.VERSION, pcInformation.getVersion());
         this.dataWareHouse.put(AllKeyWord.POSITION, name);
         this.dataWareHouse.put(AllKeyWord.COLUMN, COLUMN);
         this.dataWareHouse.put(AllKeyWord.ROW, ROW);
@@ -39,6 +39,13 @@ public class UiInformartion {
         this.readyStatus = readyStatus;
     }
     
+    public void setStationType(String station){
+        this.dataWareHouse.put(AllKeyWord.STATION_TYPE, station);
+    }
+    
+    public String getStationType(){
+        return getString(AllKeyWord.STATION_TYPE);
+    }
     
     public String getName() {
         return this.getString(AllKeyWord.POSITION);
@@ -77,13 +84,6 @@ public class UiInformartion {
 
     public Integer getInteger(String key, int defaultValue) {
         return this.dataWareHouse.getInteger(key, defaultValue);
-    }
-
-    private String getStationType(String pcName) {
-        if (!pcName.contains("-")) {
-            return pcName;
-        }
-        return pcName.substring(0, pcName.lastIndexOf("-"));
     }
 
 }

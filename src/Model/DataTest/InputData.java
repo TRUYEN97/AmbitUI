@@ -18,7 +18,6 @@ public class InputData {
 
     public InputData() {
         this.data = new JSONObject();
-        this.data.put(AllKeyWord.VERSION, "V1.0.3.1");
     }
 
     public void setInput(String input) {

@@ -36,7 +36,7 @@ public class UiStatus implements IUpdate {
         this.core = core;
         this.subUi.setClock(testTimer);
         this.processData = new ProcessData(this, this.testTimer);
-        this.cellTest = new CellTest( this,this.testTimer);
+        this.cellTest = new CellTest(this, this.testTimer);
     }
 
     public ProcessData getProcessData() {
@@ -58,9 +58,8 @@ public class UiStatus implements IUpdate {
     public boolean isTesting() {
         return cellTest.isTesting();
     }
-    
-    public UiInformartion getInfo()
-    {
+
+    public UiInformartion getInfo() {
         return informartion;
     }
 
@@ -68,6 +67,7 @@ public class UiStatus implements IUpdate {
     public boolean update() {
         if (!this.isTesting()) {
             this.modeTest = core.getCurrMode();
+            this.informartion.setStationType(this.modeTest.getStationType());
             if (this.subUi.update()) {
                 return true;
             }

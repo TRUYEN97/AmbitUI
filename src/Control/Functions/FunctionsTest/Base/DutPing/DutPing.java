@@ -16,7 +16,6 @@ import Model.DataTest.FunctionParameters;
 public class DutPing extends AbsFunction {
     
     private final FunctionBase baseFunc;
-    private final AnalysisBase analysisBase;
 
     public DutPing(FunctionParameters parameters) {
         this(parameters, null);
@@ -25,7 +24,6 @@ public class DutPing extends AbsFunction {
     public DutPing(FunctionParameters parameters, String item) {
         super(parameters, item);
         this.baseFunc = new FunctionBase(parameters, item);
-        this.analysisBase = new AnalysisBase(parameters, item);
     }
     
     

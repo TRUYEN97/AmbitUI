@@ -69,10 +69,11 @@ public class MMC_BadBlock extends AbsFunction {
                 return false;
             }
             String result = this.analysisBase.readShowUntil(telnet, readUntil, new TimeS(time));
-            if (!this.analysisBase.isNumber(getValue(result))) {
+            String value = getValue(result);
+            if (!this.analysisBase.isNumber(value)) {
                 return false;
             }
-            sunBadblock += this.analysisBase.string2Integer(result);
+            sunBadblock += this.analysisBase.string2Integer(value);
             addLog("PC", "Sum of bad blocks: " + sunBadblock);
         }
         setResult(sunBadblock);

@@ -82,6 +82,8 @@ public class Setting extends AbsJsonSource<String, ModeElement> implements IInit
     }
 
     public boolean isOnDHCP() {
-        return this.readFile.getData().getBoolean(AllKeyWord.IS_DHCP_ON, false);
+        boolean isOnDhcp = this.readFile.getData().getBoolean(AllKeyWord.IS_DHCP_ON, false);
+        String netIp = getDhcpNetIP();
+        return netIp != null && isOnDhcp;
     }
 }

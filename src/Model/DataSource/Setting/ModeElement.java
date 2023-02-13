@@ -4,6 +4,7 @@
  */
 package Model.DataSource.Setting;
 
+import Control.Core.DhcpRunner;
 import Model.AllKeyWord;
 import Model.DataSource.AbsElementInfo;
 import com.alibaba.fastjson.JSONObject;
@@ -96,7 +97,7 @@ public class ModeElement extends AbsElementInfo {
 
     public boolean isOnDHCP() {
         boolean isOnDHCP = this.warehouse.getBoolean(AllKeyWord.IS_DHCP_ON, false);
-        String netIP = this.warehouse.getString(AllKeyWord.DHCP);
+        String netIP = getDhcpNetIP();
         return netIP != null && isOnDHCP;
     }
 
@@ -112,5 +113,18 @@ public class ModeElement extends AbsElementInfo {
             e.printStackTrace();
             return Color.yellow;
         }
+    }
+
+    public String getDhcpNetIP() {
+        return this.warehouse.getString(AllKeyWord.DHCP);
+    }
+
+    public boolean updateDhcp() {
+        return DhcpRunner.getInstance().setMacLength(
+                this.warehouse.getInteger(AllKeyWord.MAC_LENGTH, 17));
+    }
+
+    public String getStationType() {
+       return this.warehouse.getString(AllKeyWord.STATION_TYPE);
     }
 }

@@ -10,6 +10,7 @@ import Control.Functions.FunctionsTest.Base.BaseFunction.AnalysisBase;
 import Control.Functions.FunctionsTest.Base.BaseFunction.FunctionBase;
 import Model.ErrorLog;
 import Model.DataTest.FunctionParameters;
+import Time.WaitTime.Class.TimeS;
 import java.util.List;
 
 /**
@@ -81,7 +82,7 @@ public class MMC_WR_SPEED extends AbsFunction {
     private String getResponse(Telnet telnet) {
         int time = this.config.getInteger("Time", 5);
         String until = this.config.getString("ReadUntil");
-        return this.analysisBase.readUntilAndShow(telnet, until, time);
+        return this.analysisBase.readUntilAndShow(telnet, until,  new TimeS(time));
     }
 
 }

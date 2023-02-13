@@ -181,8 +181,8 @@ public class SfisFunction extends AbsFunction {
                 || !DhcpData.getInstance().put(mac, uIInfo.getID())) {
             return false;
         }
-        addLog(String.format("add Mac: %s -- Ip: %s to DHCP data",
-                mac, DhcpData.getInstance().getIP(mac)));
+        addLog("PC","add Mac: %s -- Ip: %s to DHCP data",
+                mac, DhcpData.getInstance().getIP(mac));
         return true;
     }
 

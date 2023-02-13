@@ -8,6 +8,7 @@ import Control.Core.Core;
 import Control.Core.ModeTest;
 import Control.LoadModelTime.LoadModeTime;
 import Control.CheckInput;
+import Model.DataSource.ProgramInformation;
 import View.subUI.SubUI.AbsSubUi;
 import java.awt.Component;
 import java.awt.GridLayout;
@@ -15,7 +16,6 @@ import java.awt.HeadlessException;
 import java.awt.Image;
 import java.awt.Toolkit;
 import java.awt.event.ItemEvent;
-import java.io.File;
 import java.net.URL;
 import java.util.List;
 import javax.swing.DefaultComboBoxModel;
@@ -54,7 +54,6 @@ public class UIView extends javax.swing.JFrame {
         }
         initComponents();
         setIcon();
-        this.setTitle(new File(System.getProperty("user.dir")).getName());
         this.comboBoxModel = (DefaultComboBoxModel) this.cbbModeTest.getModel();
     }
 

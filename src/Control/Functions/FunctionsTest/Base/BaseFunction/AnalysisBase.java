@@ -5,13 +5,9 @@
 package Control.Functions.FunctionsTest.Base.BaseFunction;
 
 import Control.Functions.AbsFunction;
-import Model.AllKeyWord;
-import Model.DataSource.Setting.Setting;
 import Time.WaitTime.AbsTime;
 import Time.WaitTime.Class.TimeS;
-import DHCP.DhcpData;
 import Communicate.IReadable;
-import Communicate.Impl.Telnet.Telnet;
 import Model.DataTest.FunctionParameters;
 import java.util.List;
 import java.util.regex.Matcher;
@@ -104,7 +100,7 @@ public class AnalysisBase extends AbsFunction {
                 return false;
             }
             String name = readable.getClass().getSimpleName();
-            String result = readable.readUntil(readUntil, time);
+            String result = readable.readUntil(time, readUntil);
             addLog(name, result);
             return result != null && result.contains(spec);
         } finally {
@@ -134,10 +130,18 @@ public class AnalysisBase extends AbsFunction {
         }
     }
 
-    public String readUntilAndShow(IReadable readable, String until, int time) {
-        addLog("Config", "Time: " + time);
+    public String readUntilAndShow(IReadable readable, String until, AbsTime time) {
+        if (readable == null) {
+            addLog("Config", "readable == null !!");
+            return null;
+        }
+        if (until == null) {
+            addLog("Config", "spec == null !!");
+            return null;
+        }
+        addLog("Config", "Time: " + time.getSpec());
         addLog("Config", "ReadUntil: " + until);
-        String response = readable.readUntil(until, new TimeS(time));
+        String response = readable.readUntil(time, until);
         addLog("Telnet", response);
         return response;
     }
@@ -151,13 +155,13 @@ public class AnalysisBase extends AbsFunction {
             addLog("Config", "spec == null !!");
             return null;
         }
-        addLog("Config", "Time: %s", time);
+        addLog("Config", "Time: %s", time.getSpec());
         addLog("Config", "ReadUntil: %s", readUntil);
         String readableName = readable.getClass().getSimpleName();
         StringBuilder respose = new StringBuilder();
         time.update();
         while (time.onTime()) {
-            String line = readable.readLine();
+            String line = readable.readUntil(time, "\n", readUntil);
             addLog(readableName, line);
             respose.append(line).append("\r\n");
             if (line != null && line.contains(readUntil)) {

@@ -66,7 +66,8 @@ public class ModeTest implements IInit, IUpdate {
 
     @Override
     public boolean update() {
-        return this.testSource.updateFunctionsConfig() && this.testSource.updateLimitsConfig();
+        return this.testSource.updateFunctionsConfig() 
+                && this.testSource.updateLimitsConfig() && this.testSource.updateDhcp();
     }
 
     public boolean canDebug() {
@@ -79,5 +80,9 @@ public class ModeTest implements IInit, IUpdate {
     
     public Color getTestColor() {
         return testSource.getTestColor();
+    }
+
+    public String getStationType() {
+        return testSource.getStationType();
     }
 }

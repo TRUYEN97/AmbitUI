@@ -1,0 +1,9 @@
+2023-02-13 07:54:49.810:   ITEM[ReleasePowerSwitchOutlet] - FUNCTION[PowerSwitchProxy]
+2023-02-13 07:54:49.811:   Turn: 1
+2023-02-13 07:54:49.812:   [CONFIG] host: 192.168.1.10
+2023-02-13 07:54:49.812:   [CONFIG] user: admin
+2023-02-13 07:54:49.812:   [CONFIG] passWord: 1234
+2023-02-13 07:54:49.813:   [CONFIG] Times: 1
+2023-02-13 07:54:49.813:   [CONFIG] index of switch: 1
+2023-02-13 07:54:49.813:   [CONFIG] Delay time: 1 s
+2023-02-13 07:54:49.813:   cycle Times: 1 - 1

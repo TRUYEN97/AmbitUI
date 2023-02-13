@@ -1,0 +1,32 @@
+2023-02-13 07:59:06.651:   ITEM[CreateJson] - FUNCTION[CreateJsonApiProxy]
+2023-02-13 07:59:06.651:   Turn: 1
+2023-02-13 07:59:06.652:   [PC] Follow limit: true
+2023-02-13 07:59:06.652:   [PC] Use the limit errorcode: false
+2023-02-13 07:59:37.434:   This function will be stopped! Because it has timed out!
+2023-02-13 07:59:37.434:   Spec: 30 S
+2023-02-13 07:59:37.434:   Try to stop!!
+2023-02-13 07:59:37.435:   Time: 30.783 S
+2023-02-13 07:59:47.881:   This function will be stopped! Because it has timed out!
+2023-02-13 07:59:47.881:   Spec: 30 S
+2023-02-13 07:59:47.882:   Try to stop!!
+2023-02-13 07:59:47.882:   Time: 41.230 S
+2023-02-13 08:00:07.219:   This function will be stopped! Because it has timed out!
+2023-02-13 08:00:07.219:   Spec: 30 S
+2023-02-13 08:00:07.220:   Try to stop!!
+2023-02-13 08:00:07.220:   Time: 60.568 S
+2023-02-13 08:00:10.500:   This function will be stopped! Because it has timed out!
+2023-02-13 08:00:10.502:   Spec: 30 S
+2023-02-13 08:00:10.503:   Try to stop!!
+2023-02-13 08:00:10.504:   Time: 63.849 S
+2023-02-13 08:00:19.353:   This function will be stopped! Because it has timed out!
+2023-02-13 08:00:19.354:   Spec: 30 S
+2023-02-13 08:00:19.354:   Try to stop!!
+2023-02-13 08:00:19.354:   Time: 72.702 S
+2023-02-13 08:00:25.192:   This function will be stopped! Because it has timed out!
+2023-02-13 08:00:25.193:   Spec: 30 S
+2023-02-13 08:00:25.194:   Try to stop!!
+2023-02-13 08:00:25.195:   Time: 78.541 S
+2023-02-13 08:00:28.965:   This function will be stopped! Because it has timed out!
+2023-02-13 08:00:28.966:   Spec: 30 S
+2023-02-13 08:00:28.967:   Try to stop!!
+2023-02-13 08:00:28.967:   Time: 82.314 S

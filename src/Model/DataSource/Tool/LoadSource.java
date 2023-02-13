@@ -6,7 +6,7 @@ package Model.DataSource.Tool;
 
 import Model.DataSource.ModeTest.ErrorCode.ErrorCodeSource;
 import Model.ErrorLog;
-import Model.DataSource.PcInformation;
+import Model.DataSource.ProgramInformation;
 import Model.Interface.IInit;
 import Model.DataSource.Setting.Setting;
 import java.util.ArrayList;
@@ -29,7 +29,7 @@ public class LoadSource implements IInit {
         this.sources = new ArrayList<>();
         this.sources.add(Setting.getInstance().setPath(this.info.getPathOfSetting()));
         this.sources.add(ErrorCodeSource.getInstance().setPath(this.info.getPathOfErroCode()));
-        this.sources.add(PcInformation.getInstance());
+        this.sources.add(ProgramInformation.getInstance());
     }
 
     @Override

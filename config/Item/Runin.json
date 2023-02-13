@@ -38,7 +38,7 @@
         },
         {
             "flag": true,
-            "multi": true,
+            "multi": false,
             "always_run": false,
             "time_out": 1,
             "test_name": "mac",
@@ -82,7 +82,7 @@
         {
             "flag": true,
             "time_out": 10,
-            "multi": false,
+            "multi": true,
             "debug_able": true,
             "always_run": false,
             "IP": "192.168.1.1",
@@ -97,7 +97,7 @@
         {
             "flag": true,
             "time_out": 10,
-            "multi": false,
+            "multi": true,
             "debug_able": true,
             "always_run": false,
             "IP": "192.168.1.1",
@@ -112,7 +112,7 @@
         {
             "flag": false,
             "time_out": 10,
-            "multi": false,
+            "multi": true,
             "debug_able": true,
             "always_run": false,
             "IP": "192.168.1.1",
@@ -124,7 +124,7 @@
         {
             "flag": true,
             "time_out": 10,
-            "multi": false,
+            "multi": true,
             "debug_able": true,
             "always_run": false,
             "IP": "192.168.1.1",
@@ -138,7 +138,7 @@
         {
             "flag": true,
             "time_out": 10,
-            "multi": false,
+            "multi": true,
             "debug_able": true,
             "always_run": false,
             "IP": "192.168.1.1",
@@ -202,6 +202,7 @@
             "debug_able": true,
             "multi": false,
             "IP": "192.168.1.1",
+            "Time": 500,
             "command": ["badblocks -svw /dev/mmcblk0p17", "badblocks -svw /dev/mmcblk0p20"],
             "Startkey": "Pass completed,",
             "Endkey": "bad blocks found",
@@ -242,6 +243,7 @@
             "time_out": 300,
             "debug_able": true,
             "multi": false,
+            "retry": 3,
             "IP": "192.168.1.1",
             "ItemNames": ["emmc_speed_read", "emmc_speed_write"],
             "command": "test-emmc",
@@ -393,7 +395,6 @@
             "time_out": 150,
             "always_run": true,
             "User": "oper",
-            "always_run": true,
             "Password": "mfg-oper",
             "Host": "10.90.100.168",
             "Port": 21,

@@ -4,6 +4,7 @@
  */
 package Model.DataSource.ModeTest;
 
+import Control.Core.DhcpRunner;
 import FileTool.FileService;
 import Model.DataSource.ModeTest.ErrorCode.ErrorCodeSource;
 import Model.DataSource.ModeTest.FunctionConfig.AmbitConfig;
@@ -186,5 +187,13 @@ public class ModeTestSource {
 
     public Color getTestColor() {
         return modeConfig.getTestColor();
+    }
+
+    public boolean updateDhcp() {
+        return modeConfig.updateDhcp();
+    }
+
+    public String getStationType() {
+        return modeConfig.getStationType();
     }
 }

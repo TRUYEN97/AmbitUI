@@ -17,22 +17,23 @@ import java.util.Properties;
  *
  * @author Administrator
  */
-public class PcInformation implements IInit {
+public class ProgramInformation implements IInit {
 
-    private static volatile PcInformation instance;
+    private static volatile ProgramInformation instance;
     private String pcName;
     private String ip;
+    private String version;
 
-    private PcInformation() {
+    private ProgramInformation() {
     }
 
-    public static PcInformation getInstance() {
-        PcInformation ins = PcInformation.instance;
+    public static ProgramInformation getInstance() {
+        ProgramInformation ins = ProgramInformation.instance;
         if (ins == null) {
-            synchronized (PcInformation.class) {
-                ins = PcInformation.instance;
+            synchronized (ProgramInformation.class) {
+                ins = ProgramInformation.instance;
                 if (ins == null) {
-                    PcInformation.instance = ins = new PcInformation();
+                    ProgramInformation.instance = ins = new ProgramInformation();
                 }
             }
         }
@@ -115,4 +116,14 @@ public class PcInformation implements IInit {
         Properties sysProperty = System.getProperties();
         return sysProperty.getProperty("os.name");
     }
+
+    public String getVersion() {
+        return version;
+    }
+
+    public void setVersion(String version) {
+        this.version = version;
+    }
+
+    
 }
