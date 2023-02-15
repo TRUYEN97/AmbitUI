@@ -83,7 +83,7 @@ public class CreateJsonApi extends AbsFunction {
         addLog("PC", "-----------------------------------------");
     }
 
-    private JSONArray getTestsDataFollowLomit(boolean statusTest, boolean followLimit, boolean limitErrorCode) {
+    private JSONArray getTestsDataFollowLomit(boolean statusTest, boolean followLimit, boolean isUseLimitErrorCode) {
         JSONArray tests = new JSONArray();
         JSONObject itemTest;
         List<String> testKeys = config.getListJsonArray("TestKeys");
@@ -101,7 +101,8 @@ public class CreateJsonApi extends AbsFunction {
             if (itemName == null) {
                 continue;
             }
-            itemTest = itemTestData.getData(testKeys, limitErrorCode);
+            addLog("PC", "Item name: %s", itemName);
+            itemTest = itemTestData.getData(testKeys, isUseLimitErrorCode);
             if (!followLimit || (limitItems != null && checkLimitContain(limitItems, itemName))) {
                 if (itemTest != null) {
                     addLog("PC", "ItemTest: " + itemName + " = " + itemTest.toJSONString());

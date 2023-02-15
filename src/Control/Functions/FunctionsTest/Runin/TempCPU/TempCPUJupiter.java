@@ -20,7 +20,6 @@ import java.util.List;
  */
 public class TempCPUJupiter extends AbsFunction {
 
-    private final CheckCommandTelnet checkCommandTelnet;
     private final FunctionBase functionBase;
     private final AnalysisBase analysisBase;
 
@@ -30,7 +29,6 @@ public class TempCPUJupiter extends AbsFunction {
 
     public TempCPUJupiter(FunctionParameters parameters, String item) {
         super(parameters, item);
-        this.checkCommandTelnet = new CheckCommandTelnet(parameters, item);
         this.functionBase = new FunctionBase(parameters, item);
         this.analysisBase = new AnalysisBase(parameters, item);
     }
@@ -49,6 +47,9 @@ public class TempCPUJupiter extends AbsFunction {
                 return false;
             }
             ArrayList<Integer> temps = getTempCPU(commands, telnet);
+            if (temps == null) {
+                return false;
+            }
             addLog("PC", String.format("Temp cpu: %s", temps));
             setResult(getMaxValue(temps));
             return true;

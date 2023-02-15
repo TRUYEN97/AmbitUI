@@ -46,6 +46,9 @@ public class TempCPU extends AbsFunction {
                 return false;
             }
             ArrayList<Integer> temps = getTempCPU(commands, telnet);
+            if (temps == null) {
+                return false;
+            }
             addLog("PC", String.format("Temp cpu: %s", temps));
             setResult(getMaxValue(temps));
             return true;

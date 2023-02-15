@@ -6,7 +6,6 @@ package Control.Core.RunTest;
 
 import Model.DataSource.ModeTest.FunctionConfig.FunctionName;
 import Model.DataSource.Tool.TestTimer;
-import Model.DataTest.FunctionData.ItemTestData;
 import Model.DataTest.ProcessTest.ProcessData;
 import Model.ManagerUI.UIStatus.UiStatus;
 import View.subUI.SubUI.AbsSubUi;
@@ -28,7 +27,7 @@ public class Runner implements Runnable {
     private final AbsSubUi subUi;
     private final TestTimer testTimer;
     private int loopTest;
-    private boolean testing;
+    private boolean isStop;
 
     Runner(UiStatus uiStatus, TestTimer testTimer) {
         this.checkFunctions = new ArrayList<>();
@@ -40,7 +39,7 @@ public class Runner implements Runnable {
         this.subUi = uiStatus.getSubUi();
         this.testTimer = testTimer;
         this.loopTest = 1;
-        this.testing = false;
+        this.isStop = false;
     }
 
     public void setLocalDebug(boolean localdebug) {
@@ -86,7 +85,6 @@ public class Runner implements Runnable {
     }
 
     private void prepare() {
-        this.testing = true;
         this.processData.setStartTime();
         this.subUi.startTest();
     }
@@ -94,16 +92,20 @@ public class Runner implements Runnable {
     @Override
     public void run() {
         this.testTimer.start(0);
-        for (int i = 0; i < loopTest; i++) {
+        for (int i = 0; i < loopTest && !isStop; i++) {
             prepare();
             if (runFunctions(checkFunctions)) {
                 try {
-                    runFunctions(testFunctions);
+                    if (!isStop) {
+                        runFunctions(testFunctions);
+                    }
                 } finally {
                     processData.setFinishTime();
                 }
                 try {
-                    runFunctions(endFunctions);
+                    if (!isStop) {
+                        runFunctions(endFunctions);
+                    }
                 } finally {
                     processData.setFinishTimeFinal();
                 }
@@ -114,17 +116,17 @@ public class Runner implements Runnable {
     }
 
     public void stopTest(String mess) {
+        this.isStop = true;
         this.processData.setMessage(mess);
         this.process.stop(mess);
-        end();
     }
 
     private void end() {
-        this.testing = false;
         this.processData.endTest();
         this.subUi.endTest();
         this.testTimer.stop();
         clearAllFunctions();
+        this.isStop = false;
     }
 
     private void clearAllFunctions() {

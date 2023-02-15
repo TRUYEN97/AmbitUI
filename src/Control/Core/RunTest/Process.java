@@ -127,13 +127,14 @@ class Process implements IFunction {
     }
 
     void stop(String mess) {
+        this.stop = true;
         if (multiTasking.isEmpty()) {
             return;
         }
+        this.functions.clear();
         for (Future future : multiTasking.keySet()) {
             multiTasking.get(future).stopTest(mess);
         }
-        this.functions.clear();
     }
 
     private boolean hasTaskFailed() {
