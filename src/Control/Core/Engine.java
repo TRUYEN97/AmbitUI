@@ -83,6 +83,6 @@ public class Engine {
     }
 
     private void initProgramInfo() {
-        this.programInfo.setVersion("V1.1.3.0");
+        this.programInfo.setVersion("V1.1.4.0");
     }
 }

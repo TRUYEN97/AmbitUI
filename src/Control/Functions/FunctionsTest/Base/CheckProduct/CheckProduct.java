@@ -37,8 +37,7 @@ public class CheckProduct extends AbsFunction {
             String mess = elem.getString("messenger");
             String value = this.processData.getString(key);
             addLog("CONFIG", "key: %s - value: %s - target: %s ", key, value, target);
-            if ((value == null && target == null)
-                    || (value != null && target != null && target.trim().equalsIgnoreCase(value.trim()))) {
+            if ((value == null && target == null) || isContainTarget(value, target)) {
                 addLog("PC", "Compare success!");
             } else {
                 addLog("PC", "Compare failed!");
@@ -51,4 +50,16 @@ public class CheckProduct extends AbsFunction {
         return true;
     }
 
+    private boolean isContainTarget(String value, String targets){
+        if (targets == null) {
+            return false;
+        }
+        String[] specs = targets.split(",|\\|");
+        for (String spec : specs) {
+            if (value != null && value.trim().equalsIgnoreCase(spec.trim())) {
+                return true;
+            }
+        }
+        return false;
+    }
 }

@@ -1,0 +1,170 @@
+{
+    "station_type": "CCT",
+    "time_out_test": 100,
+    "init": [
+        {
+            "flag": true,
+            "time_out": 50,
+            "SEND_FORMAT": ["sn", "pcname"],
+            "DATA_FORMAT": ["mlbsn", "ethernetmac", "pnname", "model", "smode"],
+            "URL": "http://10.90.100.20/sfcapi/api/connect",
+            "test_name": "gen_node",
+            "func_name": "SfisFunctionProxy"
+        },{
+            "flag": true,
+            "multi": false,
+            "always_run": false,
+            "time_out": 10,
+            "elems": [
+                {
+                    "key": "pnname",
+                    "target": "810-01100",
+                    "messenger": "Sản phẩm này không phải là hàng 810-01100"
+                },
+                {
+                    "key": "smode",
+                    "target": "Production",
+                    "messenger": "Sản phẩm này không phải là hàng MP"
+                },
+                {
+                    "key": "typemodel",
+                    "target": "",
+                    "messenger": "Sản phẩm này không phải là hàng simple"
+                }
+            ],
+            "test_name": "CheckProduct",
+            "func_name": "CheckProductProxy"
+        }
+    ],
+    "functions": [
+        {
+            "flag": true,
+            "time_out": 10,
+            "debug_able": true,
+            "multi": false,
+            "always_run": true,
+            "test_name": "verify_cct",
+            "func_name": "VirFunctionProxy"
+        }
+    ],
+    "end": [
+        {
+            "flag": true,
+            "time_out": 30,
+            "multi": false,
+            "limitErrorCode": false,
+            "followLimit": true,
+            "BaseKeys": ["error_details", "status", "finish_time",
+                "test_software_version", "start_time", "station_type",
+                "error_code", "serial", "mode", "station_name", "position"],
+            "TestKeys": ["upper_limit", "lower_limit", "status", "finish_time", "test_name",
+                "error_code", "start_time", "test_value", "units"],
+            "localFile": "python/log",
+            "ElementName": ["mlbsn", "station_name", "mode"],
+            "test_name": "CreateJson",
+            "func_name": "CreateJsonApiProxy" 
+        },
+        {
+            "flag": true,
+            "time_out": 30,
+            "multi": false,
+            "localFile": "python/log",
+            "ElementName": ["mlbsn", "station_name", "mode", "serial"],
+            "test_name": "CreateTxt",
+            "func_name": "CreateTxtProxy" 
+        },
+        {
+            "flag": true,
+            "time_out": 30,
+            "multi": false,
+            "localFile": "python/log",
+            "ElementName": ["mlbsn", "station_name", "mode", "serial"],
+            "test_name": "CreateZip",
+            "func_name": "ZipFileProxy" 
+        },
+        {
+            "flag": true,
+            "time_out": 30,
+            "multi": false,
+            "Command": "cd python && eero_API_client_trieste.py log/",
+            "ElementName": ["mlbsn", "station_name", "mode"],
+            "Spec": "200",
+            "test_name": "UpAPI",
+            "func_name": "UpApiProxy" 
+        },
+        {
+            "flag": true,
+            "time_out": 5,
+            "wait_multi_done": true,
+            "SEND_FORMAT": ["sn", "pcname", "status"],
+            "SEND_FORMAT_FAIL": ["sn", "pcname", "status", "errorcode"],
+            "URL": "http://10.90.100.20/sfcapi/api/connectfinal",
+            "SFIS_TYPE": "SendResult",
+            "test_name": "SendToSfis",
+            "func_name": "SfisFunctionProxy"
+        }
+    ],
+    "final": [
+       {
+            "flag": true,
+            "time_out": 150,
+            "always_run": true,
+            "multi": false,
+            "localFile": "Log/TestLog",
+            "ElementName": ["mlbsn", "sn", "position", "status", "mode", "finish_time"],
+            "test_name": "CreateTxt_1",
+            "func_name": "CreateTxtProxy" 
+        },
+        {
+            "flag": true,
+            "time_out": 30,
+            "multi": false,
+            "always_run": true,
+            "followLimit": false,
+            "BaseKeys": ["mo", "error_details", "status", "finish_time",
+                "test_software_version", "start_time", "station_type",
+                "error_code", "errorcode", "errorDes", "serial", "mode", "station_name", "position", "cycle_time", "cyctime_final"],
+            "TestKeys": ["upper_limit", "lower_limit", "status", "finish_time", "test_name",
+                "error_code", "errorcode", "errorDes", "start_time", "test_value", "units", "cycle_time"],
+            "localFile": "Log/TestLog",
+            "ElementName": ["mlbsn", "sn", "position", "status", "mode", "finish_time"],
+            "test_name": "CreateJson_1",
+            "func_name": "CreateJsonApiProxy" 
+        },
+        {
+            "flag": true,
+            "time_out": 150,
+            "always_run": true,
+            "User": "oper",
+            "Password": "mfg-oper",
+            "Host": "10.90.100.168",
+            "Port": 21,
+            "FtpPath": ["data/Jupiter", "pnname", "station_type", "mode", "start_day", "station_name", "status", "text"],
+            "FtpName": ["mlbsn", "sn", "position", "status", "mode", "finish_time"],
+            "FtpType": ".txt",
+            "LocalPath": ["Log/TestLog"],
+            "LocalName": ["mlbsn", "sn", "position", "status", "mode", "finish_time"],
+            "LocalType": ".txt",
+            "test_name": "UpTxtFTP",
+            "func_name": "UpFTPProxy"
+        },
+        {
+            "flag": true,
+            "time_out": 150,
+            "always_run": true,
+            "User": "oper",
+            "always_run": true,
+            "Password": "mfg-oper",
+            "Host": "10.90.100.168",
+            "Port": 21,
+            "FtpPath": ["data/Jupiter", "pnname", "station_type", "mode", "start_day", "station_name", "status", "JSON"],
+            "FtpName": ["mlbsn", "sn", "position", "status", "mode", "finish_time"],
+            "FtpType": ".json",
+            "LocalPath": ["Log/TestLog"],
+            "LocalName": ["mlbsn", "sn", "position", "status", "mode", "finish_time"],
+            "LocalType": ".json",
+            "test_name": "UpJsonFTP",
+            "func_name": "UpFTPProxy"
+        }
+    ]
+}

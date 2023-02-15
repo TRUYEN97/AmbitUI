@@ -219,7 +219,7 @@ public class ProcessData implements IgetTime {
         this.mapFunctionData.put(functionName, functionData);
     }
 
-    public void putAllItem(Map<String, ItemTestData> itemTests, List<ItemTestData> listFunctionData) {
+    public synchronized void putAllItem(Map<String, ItemTestData> itemTests, List<ItemTestData> listFunctionData) {
         this.mapItemTestData.putAll(itemTests);
         this.listItemTestData.addAll(listFunctionData);
     }
