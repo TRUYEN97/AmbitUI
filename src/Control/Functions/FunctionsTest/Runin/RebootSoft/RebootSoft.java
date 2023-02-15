@@ -49,7 +49,7 @@ public class RebootSoft extends AbsFunction {
     private boolean cycleReboot(String ip) {
         int waitShutdownTime = this.config.getInteger("waitTime", 10);
         addLog("CONFIG", "Wait for DUT to shut down: %s S", waitShutdownTime);
-        int pingTime = this.config.getInteger("pingTimes", 30);
+        int pingTime = this.config.getInteger("pingTimes", 120);
         addLog("CONFIG", "Ping times: %s", pingTime);
         try {
             return this.functionBase.rebootSoft(ip, waitShutdownTime, pingTime);

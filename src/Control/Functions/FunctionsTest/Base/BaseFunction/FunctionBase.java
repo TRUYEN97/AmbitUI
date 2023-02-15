@@ -71,7 +71,7 @@ public class FunctionBase extends AbsFunction {
         addLog("PC", "Connect to ip: %s", ip);
         addLog("PC", "Port is: %s", port);
         telnet.setDebug(true);
-        if (!pingTo(ip, 30) || !telnet.connect(ip, port)) {
+        if (!pingTo(ip, 120) || !telnet.connect(ip, port)) {
             addLog("PC", "Connect failed!");
             return null;
         }
@@ -137,7 +137,7 @@ public class FunctionBase extends AbsFunction {
         TimeS waitToSleepTime = new TimeS(waitTime);
         do {
             if (!pingTo(ip, 1)) {
-                addLog("PC", "*************** Shut down ok! [%s S]*****************", waitToSleepTime.getTime());
+                addLog("PC", "*************** Shut down ok! [%.3f S]*****************", waitToSleepTime.getTime());
                 return true;
             }
             try {
@@ -145,7 +145,7 @@ public class FunctionBase extends AbsFunction {
             } catch (Exception e) {
             }
         } while (waitToSleepTime.onTime());
-        addLog("PC", "*************** Shut down failed! [%s S]*****************", waitToSleepTime.getTime());
+        addLog("PC", "*************** Shut down failed! [%.3f S]*****************", waitToSleepTime.getTime());
         return false;
     }
 
@@ -178,27 +178,32 @@ public class FunctionBase extends AbsFunction {
             addLog("Error", "Ping times <= 0", ip);
             return false;
         }
-        addLog("PC", "Ping to IP: %s - %s Times", ip, times);
+        addLog("PC", "Ping to IP: %s - %s S", ip, times);
         Cmd cmd = new Cmd();
         String command1 = String.format("ping %s -n 1", ip);
         String arp = String.format("arp -d");
-        for (int i = 1; i <= times; i++) {
-            addLog("Cmd", "------------------------------------ " + i);
-            try {
-                sendCommand(cmd, arp);
-                addLog("Cmd", cmd.readAll().trim());
-                if (sendCommand(cmd, command1)) {
-                    String response = cmd.readAll().trim();
-                    addLog("Cmd", response);
-                    if (response.contains("TTL=")) {
-                        return true;
+        TimeS timer = new TimeS(times);
+        try {
+            for (int i = 1; timer.onTime(); i++) {
+                addLog("Cmd", "------------------------------------ " + i);
+                try {
+                    sendCommand(cmd, arp);
+                    addLog("Cmd", cmd.readAll().trim());
+                    if (sendCommand(cmd, command1)) {
+                        String response = cmd.readAll().trim();
+                        addLog("Cmd", response);
+                        if (response.contains("TTL=")) {
+                            return true;
+                        }
+                    } else {
+                        break;
                     }
-                } else {
-                    break;
+                } finally {
+                    addLog("Cmd", "------------------------------------");
                 }
-            } finally {
-                addLog("Cmd", "------------------------------------");
             }
+        } finally {
+            addLog("PC", "ping time: %.3f S", timer.getTime());
         }
         return false;
     }

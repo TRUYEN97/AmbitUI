@@ -66,7 +66,7 @@
             "multi": false,
             "IP": "192.168.1.1",
             "debug_able": true,
-            "time_ping": 30,
+            "time_ping": 120,
             "test_name": "dut_ping",
             "func_name": "DutPingProxy"
         },
@@ -177,7 +177,7 @@
             "ReadUntil": "root@eero-test:/#",
             "times": 3,
             "waitTime": 40,
-            "pingTimes": 40,
+            "pingTimes": 120,
             "test_name": "reboot_soft_0",
             "func_name": "RebootSoftProxy"
         },

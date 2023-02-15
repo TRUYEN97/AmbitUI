@@ -47,7 +47,7 @@
             "time_out": 360,
             "multi": false,
             "debug_able": true,
-            "time_ping": 30,
+            "time_ping": 120,
             "IP": "192.168.1.1",
             "test_name": "dut_ping",
             "func_name": "DutPingProxy"
@@ -139,7 +139,7 @@
             "IP": "192.168.1.1",
             "times": 3,
             "waitTime": 40,
-            "pingTimes": 40,
+            "pingTimes": 120,
             "test_name": "reboot_soft_0",
             "func_name": "RebootSoftProxy"
         },
@@ -162,7 +162,7 @@
             "time_out": 360,
             "multi": false,
             "debug_able": true,
-            "time_ping": 30,
+            "time_ping": 120,
             "IP": "192.168.1.1",
             "test_name": "dut_ping_0",
             "func_name": "DutPingProxy"
@@ -286,7 +286,7 @@
                     "time_out": 360,
                     "multi": false,
                     "debug_able": true,
-                    "time_ping": 30,
+                    "time_ping": 120,
                     "IP": "192.168.1.1",
                     "test_name": "dut_ping",
                     "func_name": "DutPingProxy"
@@ -493,7 +493,7 @@
             "multi": false,
             "always_run": true,
             "followLimit": false,
-            "BaseKeys": [ "mo", "error_details", "status", "finish_time",
+            "BaseKeys": ["mo", "error_details", "status", "finish_time",
                 "test_software_version", "start_time", "station_type",
                 "error_code", "errorcode", "errorDes", "serial", "mode", "station_name", "position", "cycle_time", "cyctime_final"],
             "TestKeys": ["upper_limit", "lower_limit", "status", "finish_time", "test_name",

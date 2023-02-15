@@ -35,7 +35,7 @@ public class PowerSwicthPing extends PowerSwitchFunc{
         if (ip == null) {
             return false;
         }
-        return this.baseFunc.pingTo(ip, 35);
+        return this.baseFunc.pingTo(ip, 120);
     }
     
 }

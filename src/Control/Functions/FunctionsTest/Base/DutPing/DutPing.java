@@ -5,7 +5,6 @@
 package Control.Functions.FunctionsTest.Base.DutPing;
 
 import Control.Functions.AbsFunction;
-import Control.Functions.FunctionsTest.Base.BaseFunction.AnalysisBase;
 import Control.Functions.FunctionsTest.Base.BaseFunction.FunctionBase;
 import Model.DataTest.FunctionParameters;
 
@@ -34,7 +33,7 @@ public class DutPing extends AbsFunction {
         if (ip == null) {
             return false;
         }
-        int timePing = config.getInteger("time_ping", 50);
+        int timePing = config.getInteger("time_ping", 120);
         return this.baseFunc.pingTo(ip, timePing);
     }
     
