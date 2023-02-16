@@ -15,6 +15,7 @@ import Model.DataTest.ProcessTest.ProcessTestSignal;
 import Model.DataTest.ProcessTest.ProductData;
 import Model.DataTest.UiInformartion;
 import Model.ErrorLog;
+import Model.ManagerUI.UIStatus.UiStatus;
 import View.subUI.SubUI.AbsSubUi;
 
 /**
@@ -30,6 +31,7 @@ public abstract class AbsFunction implements IFunction {
     protected final UiInformartion uIInfo;
     protected final AbsSubUi subUI;
     protected final ModeTest modeTest;
+    protected final UiStatus uiStatus;
     private final ItemTestData itemTestData;
     private final AnalysisResult analysisResult;
     protected final FunctionParameters functionParameters;
@@ -48,9 +50,10 @@ public abstract class AbsFunction implements IFunction {
         this.itemTestData = this.functionData.getItemData(itemName);
         this.config = this.itemTestData.getAllConfig();
         this.analysisResult = new AnalysisResult(itemTestData);
-        this.subUI = functionParameters.getUiStatus().getSubUi();
-        this.uIInfo = functionParameters.getUiStatus().getInfo();
-        this.processData = functionParameters.getUiStatus().getProcessData();
+        this.uiStatus = functionParameters.getUiStatus();
+        this.subUI = uiStatus.getSubUi();
+        this.uIInfo = uiStatus.getInfo();
+        this.processData = uiStatus.getProcessData();
         this.testSignal = processData.getSignal();
         this.productData = processData.getProductData();
         this.turn = 1;

@@ -7,6 +7,7 @@ package Model.Factory;
 import Control.Functions.AbsFunction;
 import Control.Functions.FunctionsTest.Base.CheckDutInfo.CheckDutInfoProxy;
 import Control.Functions.FunctionsTest.Base.CheckProduct.CheckProductProxy;
+import Control.Functions.FunctionsTest.Base.CheckUpdate.CheckUpdateProxy;
 import Control.Functions.FunctionsTest.Base.Delta.DeltaProxy;
 import Control.Functions.FunctionsTest.Base.TxtLog.CreateLog.CreateTxtProxy;
 import Control.Functions.FunctionsTest.Base.GetMacFromSfis.GetMacFormSfisProxy;
@@ -152,5 +153,6 @@ public class Factory {
         this.functions.addType(new DeltaProxy());
         this.functions.addType(new CheckProductProxy());
         this.functions.addType(new TempCPUJupiterProxy());
+        this.functions.addType(new CheckUpdateProxy());
     }
 }

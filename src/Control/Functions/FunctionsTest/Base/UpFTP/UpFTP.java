@@ -6,7 +6,6 @@ package Control.Functions.FunctionsTest.Base.UpFTP;
 
 import Communicate.Impl.FtpClient.FtpClient;
 import Control.Functions.AbsFunction;
-import Control.Functions.FunctionsTest.Base.BaseFunction.AnalysisBase;
 import Control.Functions.FunctionsTest.Base.BaseFunction.FileBaseFunction;
 import Control.Functions.FunctionsTest.Base.BaseFunction.FunctionBase;
 import Model.DataTest.FunctionParameters;
@@ -22,7 +21,6 @@ import java.util.List;
 public class UpFTP extends AbsFunction {
 
     private final FunctionBase baseFunc;
-    private final AnalysisBase analysisBase;
     private final FileBaseFunction fileBaseFunction;
 
     public UpFTP(FunctionParameters parameters) {
@@ -32,7 +30,6 @@ public class UpFTP extends AbsFunction {
     public UpFTP(FunctionParameters parameters, String item) {
         super(parameters, item);
         this.baseFunc = new FunctionBase(parameters, item);
-        this.analysisBase = new AnalysisBase(parameters, item);
         this.fileBaseFunction = new FileBaseFunction(parameters, item);
     }
 

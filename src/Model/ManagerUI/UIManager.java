@@ -51,7 +51,7 @@ public class UIManager implements IUpdate {
         if (isNull(subUi) || containUI(subUi)) {
             return false;
         }
-        UiStatus uiStatus = new UiStatus(subUi, core, this.uiStatuses.size(), row, column);
+        UiStatus uiStatus = new UiStatus(subUi, this, core, this.uiStatuses.size(), row, column);
         subUi.setUiStatus(uiStatus);
         uiStatus.update();
         return this.uiStatuses.add(uiStatus);
@@ -78,6 +78,16 @@ public class UIManager implements IUpdate {
             }
         }
         return true;
+    }
+
+    public int countTesting() {
+        int count = 0;
+        for (UiStatus uiStatuse : uiStatuses) {
+            if (uiStatuse.isTesting()) {
+                count++;
+            }
+        }
+        return count;
     }
 
     public int getIndexOf(String index) {

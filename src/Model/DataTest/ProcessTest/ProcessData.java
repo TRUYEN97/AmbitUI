@@ -224,7 +224,7 @@ public class ProcessData implements IgetTime {
         this.listItemTestData.addAll(listFunctionData);
     }
 
-    public void addFailItem(ItemTestData itemTestData) {
+    public synchronized void addFailItem(ItemTestData itemTestData) {
         if (this.faidItems.contains(itemTestData)) {
             return;
         }
@@ -253,6 +253,11 @@ public class ProcessData implements IgetTime {
         setMessage(String.format("%s\"%s\"",
                 faildItemName,
                 message == null ? "..." : message));
+    }
+
+    public String getString(String key, String defaultValue) {
+        String value = getString(key);
+        return value == null ? defaultValue : value;
     }
 
 }

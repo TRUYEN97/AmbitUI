@@ -12,6 +12,7 @@ import Model.DataSource.Tool.TestTimer;
 import Model.DataTest.InputData;
 import Model.DataTest.UiInformartion;
 import Model.Interface.IUpdate;
+import Model.ManagerUI.UIManager;
 import View.subUI.SubUI.AbsSubUi;
 import static java.util.Objects.isNull;
 
@@ -22,6 +23,7 @@ import static java.util.Objects.isNull;
 public class UiStatus implements IUpdate {
 
     private final UiInformartion informartion;
+    private final UIManager uIManager;
     private final AbsSubUi subUi;
     private final Core core;
     private final ProcessData processData;
@@ -29,8 +31,9 @@ public class UiStatus implements IUpdate {
     private final TestTimer testTimer;
     private ModeTest modeTest;
 
-    public UiStatus(AbsSubUi subUi, Core core, int id, int row, int column) {
+    public UiStatus(AbsSubUi subUi, UIManager uIManager,Core core, int id, int row, int column) {
         this.testTimer = new TestTimer();
+        this.uIManager= uIManager;
         this.informartion = new UiInformartion(subUi.getName(), column, row, id);
         this.subUi = subUi;
         this.core = core;
@@ -39,6 +42,10 @@ public class UiStatus implements IUpdate {
         this.cellTest = new CellTest(this, this.testTimer);
     }
 
+    public UIManager getuIManager() {
+        return uIManager;
+    }
+    
     public ProcessData getProcessData() {
         return processData;
     }

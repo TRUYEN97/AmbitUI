@@ -10,7 +10,21 @@
             "URL": "http://10.90.10.20/sfcapi/api/connect",
             "test_name": "gen_node",
             "func_name": "SfisFunctionProxy"
-        },{
+        },
+        {
+            "flag": true,
+            "multi": false,
+            "time_out": 100,
+            "User": "config",
+            "Password": "eero",
+            "Host": "10.90.10.168",
+            "Port": 21,
+            "uutModel": "Jupiter",
+            "pnname": "810-01400",
+            "test_name": "CheckUpdate",
+            "func_name": "CheckUpdateProxy"
+        },
+        {
             "flag": true,
             "multi": false,
             "always_run": false,

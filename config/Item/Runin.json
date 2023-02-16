@@ -126,7 +126,7 @@
             "func_name": "CheckCommandTelnetProxy"
         },
         {
-            "flag": true,
+            "flag": false,
             "time_out": 10,
             "multi": true,
             "debug_able": true,

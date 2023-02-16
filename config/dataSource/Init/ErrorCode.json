@@ -1,4 +1,10 @@
 {
+    "CheckUpdate": {
+        "simple": {
+            "errorcode": "UPDATE00",
+            "errorDes": "CheckUpdate"
+        }
+    },
     "CheckSnSfis": {
         "simple": {
             "errorcode": "SFIS00",

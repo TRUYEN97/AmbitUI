@@ -181,14 +181,11 @@ public class FunctionBase extends AbsFunction {
         addLog("PC", "Ping to IP: %s - %s S", ip, times);
         Cmd cmd = new Cmd();
         String command1 = String.format("ping %s -n 1", ip);
-        String arp = String.format("arp -d");
         TimeS timer = new TimeS(times);
         try {
             for (int i = 1; timer.onTime(); i++) {
                 addLog("Cmd", "------------------------------------ " + i);
                 try {
-                    sendCommand(cmd, arp);
-                    addLog("Cmd", cmd.readAll().trim());
                     if (sendCommand(cmd, command1)) {
                         String response = cmd.readAll().trim();
                         addLog("Cmd", response);

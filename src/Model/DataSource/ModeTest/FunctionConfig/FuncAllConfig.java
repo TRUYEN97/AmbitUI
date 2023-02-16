@@ -149,4 +149,9 @@ public class FuncAllConfig {
     public Set<String> getListItemName() {
         return limit.getListItemName();
     }
+
+    public String getString(String key, String defaulValue) {
+        String value = getString(key);
+        return value == null ? defaulValue : value;
+    }
 }
