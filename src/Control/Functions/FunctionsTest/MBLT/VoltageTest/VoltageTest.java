@@ -44,7 +44,7 @@ public class VoltageTest extends AbsFunction {
                 return false;
             }
             JSONObject voltageItems = getVoltageItems();
-            List<String> skipTP = this.config.getListJsonArray("SkipTP");
+            List<String> skipTP = this.config.getJsonList("SkipTP");
             addLog("Config", "Skip point: " + skipTP);
             String inline;
             boolean result = true;

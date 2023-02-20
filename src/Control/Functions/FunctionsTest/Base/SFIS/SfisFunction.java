@@ -75,7 +75,7 @@ public class SfisFunction extends AbsFunction {
 
     private String createCommand(String keyWord) {
         JSONObject command = new JSONObject();
-        List<String> listKey = this.config.getListJsonArray(keyWord);
+        List<String> listKey = this.config.getJsonList(keyWord);
         int maxLength = this.config.getInteger("MaxLength", -1);
         addLog("Input", "Input: " + this.processData.getString(AllKeyWord.SFIS.SN));
         addLog("Config", "MaxLength: " + maxLength);
@@ -117,7 +117,7 @@ public class SfisFunction extends AbsFunction {
         JSONObject res = JSONObject.parseObject(response);
         if (res.getString(AllKeyWord.RESULT).equals(PASS)) {
             JSONObject data = res.getJSONObject(AllKeyWord.SFIS.DATA);
-            List<String> listKey = this.config.getListJsonArray(DATA_FORMAT);
+            List<String> listKey = this.config.getJsonList(DATA_FORMAT);
             addLog(DATA_FORMAT, listKey);
             if (!listKey.isEmpty() && !dataContainKeys(data, listKey)) {
                 addLog("Error", "Sfis is not enough data.");

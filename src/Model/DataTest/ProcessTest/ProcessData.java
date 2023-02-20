@@ -243,7 +243,7 @@ public class ProcessData implements IgetTime {
         StringBuilder faildItemName = new StringBuilder("Items\r\n");
         int i = 0;
         for (ItemTestData failItemData : getFaidItems()) {
-            if (i++ == 4) {
+            if (i++ == 5) {
                 faildItemName.append("...").append("\r\n");
                 break;
             }

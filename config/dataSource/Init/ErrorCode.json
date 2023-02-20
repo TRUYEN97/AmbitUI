@@ -1,4 +1,28 @@
 {
+    "UpLogFTP": {
+        "simple": {
+            "errorcode": "UP.FTP.LOG",
+            "errorDes": "UpLogFTP"
+        }
+    },
+    "CreateJsonPath": {
+        "simple": {
+            "errorcode": "json.path",
+            "errorDes": "CreateJsonPath"
+        }
+    },
+    "CreateTxtPath": {
+        "simple": {
+            "errorcode": "txt.path",
+            "errorDes": "CreateTxtPath"
+        }
+    },
+    "verify_cct": {
+        "simple": {
+            "errorcode": "verify00",
+            "errorDes": "verify_cct"
+        }
+    },
     "CheckUpdate": {
         "simple": {
             "errorcode": "UPDATE00",
@@ -151,7 +175,7 @@
     },
     "ReleasePowerSwitchOutlet": {
         "simple": {
-            "errorcode": "json0",
+            "errorcode": "PW0",
             "errorDes": "ReleasePowerSwitchOutlet"
         }
     },

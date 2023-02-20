@@ -8,6 +8,7 @@ import Control.Functions.AbsFunction;
 import Control.Functions.FunctionsTest.Base.CheckDutInfo.CheckDutInfoProxy;
 import Control.Functions.FunctionsTest.Base.CheckProduct.CheckProductProxy;
 import Control.Functions.FunctionsTest.Base.CheckUpdate.CheckUpdateProxy;
+import Control.Functions.FunctionsTest.Base.CreatePath.CreatePathProxy;
 import Control.Functions.FunctionsTest.Base.Delta.DeltaProxy;
 import Control.Functions.FunctionsTest.Base.TxtLog.CreateLog.CreateTxtProxy;
 import Control.Functions.FunctionsTest.Base.GetMacFromSfis.GetMacFormSfisProxy;
@@ -21,7 +22,7 @@ import Control.Functions.FunctionsTest.Base.MyDas.MydasProxy;
 import Control.Functions.FunctionsTest.Base.SFIS.SfisFunctionProxy;
 import Control.Functions.FunctionsTest.Base.TxtLog.ZipLog.ZipFileProxy;
 import Control.Functions.FunctionsTest.Runin.PowerSwitch.PowerSwitchProxy;
-import Control.Functions.FunctionsTest.Base.UpFTP.UpFTPProxy;
+import Control.Functions.FunctionsTest.Base.UpLogFTP.UpLogFTPProxy;
 import Control.Functions.FunctionsTest.Base.VirFunction.VirFunctionProxy;
 import Control.Functions.FunctionsTest.MBLT.OpenShort.OpenShortProxy;
 import Control.Functions.FunctionsTest.MBLT.ThermalShutdown.ThermalShutdownProxy;
@@ -123,7 +124,7 @@ public class Factory {
         this.functions.addType(new GetMacFormSfisProxy());
         this.functions.addType(new CreateTxtProxy());
         this.functions.addType(new UpApiProxy());
-        this.functions.addType(new UpFTPProxy());
+        this.functions.addType(new UpLogFTPProxy());
         this.functions.addType(new PowerSwitchProxy());
         this.functions.addType(new DutPingProxy());
         this.functions.addType(new DutTelnetProxy());
@@ -154,5 +155,6 @@ public class Factory {
         this.functions.addType(new CheckProductProxy());
         this.functions.addType(new TempCPUJupiterProxy());
         this.functions.addType(new CheckUpdateProxy());
+        this.functions.addType(new CreatePathProxy());
     }
 }

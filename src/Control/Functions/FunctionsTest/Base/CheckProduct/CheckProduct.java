@@ -26,7 +26,7 @@ public class CheckProduct extends AbsFunction {
     @Override
     protected boolean test() {
         addLog("PC", "Check product info!");
-        List<JSONObject> elems = this.config.getListJsonArray("elems");
+        List<JSONObject> elems = this.config.getJsonList("elems");
         if (elems == null || elems.isEmpty()) {
             addLog("PC", "Nothing to check!");
             return true;

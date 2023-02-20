@@ -22,6 +22,8 @@ public class UpFTP extends AbsFunction {
 
     private final FunctionBase baseFunc;
     private final FileBaseFunction fileBaseFunction;
+    private String ftpPath;
+    private String localPath;
 
     public UpFTP(FunctionParameters parameters) {
         this(parameters, null);
@@ -31,6 +33,14 @@ public class UpFTP extends AbsFunction {
         super(parameters, item);
         this.baseFunc = new FunctionBase(parameters, item);
         this.fileBaseFunction = new FileBaseFunction(parameters, item);
+    }
+
+    public void setFtpPath(String ftpPath) {
+        this.ftpPath = ftpPath;
+    }
+
+    public void setLocalPath(String localPath) {
+        this.localPath = localPath;
     }
 
     @Override
@@ -44,9 +54,9 @@ public class UpFTP extends AbsFunction {
             if (ftp == null) {
                 return false;
             }
-            String FtpPath = craeteFtpPath();
-            String localPath = craeteLocalPath();
-            return upFile(ftp, localPath, FtpPath);
+            ftpPath = ftpPath == null ? createFtpPath() : ftpPath;
+            localPath = localPath == null ? createLocalPath() : localPath;
+            return upFile(ftp, localPath, ftpPath);
         } catch (IOException ex) {
             ex.printStackTrace();
             ErrorLog.addError(this, ex.getMessage());
@@ -54,20 +64,13 @@ public class UpFTP extends AbsFunction {
         }
     }
 
-    private String craeteFtpPath() {
-        List<String> elementName = this.config.getListJsonArray("FtpName");
-        List<String> elementPath = this.config.getListJsonArray("FtpPath");
-        String dir = this.fileBaseFunction.createDirPath(elementPath);
-        String name = this.fileBaseFunction.createNameFile(elementName, config.getString("FtpType"));
-        return String.format("%s/%s", dir, name);
+    private String createFtpPath() {
+        String fileName = this.processData.isPass() ? "FtpName" : "FtpNameFail";
+        return this.fileBaseFunction.createStringPath("FtpPrefix", fileName, "FtpSuffix");
     }
 
-    private String craeteLocalPath() {
-        List<String> elementName = this.config.getListJsonArray("LocalName");
-        List<String> elementPath = this.config.getListJsonArray("LocalPath");
-        String dir = this.fileBaseFunction.createDirPath(elementPath);
-        String name = this.fileBaseFunction.createNameFile(elementName, config.getString("LocalType"));
-        return String.format("%s/%s", dir, name);
+    private String createLocalPath() {
+        return this.fileBaseFunction.createDefaultStringPath(this.processData.isPass());
     }
 
     private boolean upFile(FtpClient ftp, String local, String ftpFile) {
@@ -86,10 +89,12 @@ public class UpFTP extends AbsFunction {
         addLog("Config", "Local: " + localFile.getPath());
         addLog("Config", "Ftp: " + ftpFile);
         if (ftp.uploadFile(localFile.getPath(), ftpFile)) {
-            addLog("Up file to FTP done!");
+            addLog("PC", "Up file to FTP done!");
+            addLog("________________________________________________________");
             return true;
         }
-        addLog("Up file to FTP faied!");
+        addLog("PC", "Up file to FTP faied!");
+        addLog("________________________________________________________");
         return false;
     }
 

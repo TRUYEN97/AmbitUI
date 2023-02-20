@@ -95,7 +95,7 @@ public class Reboot_CheckLed1H_SFT extends AbsFunction {
     }
 
     private String getLedValue(Telnet telnet, ComPort comPort, String key, String getLedValueCmd) {
-        List<String> cmds = this.config.getListJsonArray(key);
+        List<String> cmds = this.config.getJsonList(key);
         for (String cmd : cmds) {
             if (!this.functionBase.sendCommand(telnet, cmd)) {
                 return null;

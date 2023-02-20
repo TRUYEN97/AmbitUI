@@ -5,6 +5,7 @@
 package Control.Functions.FunctionsTest.Base.TxtLog.CreateLog;
 
 import Control.Functions.AbsFunction;
+import static Control.Functions.AbsFunction.LOG_KEYS.PC;
 import Control.Functions.FunctionsTest.Base.BaseFunction.FileBaseFunction;
 import Model.AllKeyWord;
 import Model.DataTest.FunctionData.FunctionData;
@@ -14,7 +15,6 @@ import Model.ErrorLog;
 import MyLoger.MyLoger;
 import java.io.File;
 import java.io.IOException;
-import java.util.List;
 
 /**
  *
@@ -23,6 +23,7 @@ import java.util.List;
 public class CreateTxt extends AbsFunction {
 
     private final FileBaseFunction fileBaseFunction;
+    private String path;
 
     public CreateTxt(FunctionParameters parameters) {
         this(parameters, null);
@@ -34,32 +35,33 @@ public class CreateTxt extends AbsFunction {
     }
 
     @Override
-    protected boolean test() {
+    public boolean test() {
         return saveTxtFile();
+    }
+
+    public void setPath(String path) {
+        this.path = path;
     }
 
     private boolean saveTxtFile() {
         addLog("Save file txt!");
         try {
             MyLoger loger = new MyLoger();
-            String filePath = this.config.getString("localFile");
-            List<String> elementName = this.config.getListJsonArray("ElementName");
-            String txtFile = this.fileBaseFunction.createNameFile(elementName, ".txt");
-            String path = String.format("%s/%s", filePath, txtFile);
-            addLog("DIR", path);
-            loger.setFile(new File(path));
+            String logPath = this.path == null ? this.fileBaseFunction.createDefaultStringPath(this.processData.isPass()) : path;
+            addLog("DIR", logPath);
+            loger.setFile(new File(logPath));
             loger.setSaveMemory(true);
             loger.clear();
             createInfo(loger);
             int id = 0;
             for (FunctionData dataBox : processData.getDataBoxs()) {
                 loger.add(String.format("//////////////////////////- ID[%s] -//////////////////////////\r\n", id++));
-                addLog(" - add item: " + dataBox.getFunctionName());
+                addLog(LOG_KEYS.PC, " - add item: " + dataBox.getFunctionName());
                 String log = dataBox.getLog();
                 loger.add(log == null ? "\r\n" : log);
                 loger.add("//////////////////////////////////////////////////////////////\r\n");
             }
-            addLog("PC", "Save file txt at " + path);
+            addLog(PC, "Save file txt at \"%s\"", logPath);
             return true;
         } catch (Exception e) {
             e.printStackTrace();

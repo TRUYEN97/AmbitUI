@@ -61,9 +61,9 @@ public class TempCPUJupiter extends AbsFunction {
 
     private ArrayList<Integer> getTempCPU(String commands, final Telnet telnet) throws NumberFormatException {
         ArrayList<Integer> temps = new ArrayList<>();
-        List<String> startKeys = this.config.getListJsonArray("Startkeys");
-        List<String> endKeys = this.config.getListJsonArray("Endkeys");
-        List<String> Regexs = this.config.getListJsonArray("Regexs");
+        List<String> startKeys = this.config.getJsonList("Startkeys");
+        List<String> endKeys = this.config.getJsonList("Endkeys");
+        List<String> Regexs = this.config.getJsonList("Regexs");
         int time = config.getInteger("Time", 1);
         int length = Integer.max(startKeys.size(), endKeys.size());
         if (!this.functionBase.sendCommand(telnet, commands)) {

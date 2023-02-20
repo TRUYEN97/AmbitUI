@@ -1,14 +1,14 @@
 {
-"mode":"Debug",
+"mode":"debug",
 "station_name":"REPAIR-7801",
-"start_time":"2023-02-01 01:37:34",
+"start_time":"2023-02-17 12:57:23",
 "tests":[],
-"error_details":"",
+"error_details":"dut_ping",
 "serial":"",
-"error_code":"",
-"position":"A1",
-"station_type":"REPAIR",
-"finish_time":"",
-"status":"",
-"test_software_version":"1.1.1"
+"error_code":"10.1.0",
+"position":"",
+"station_type":"RUNIN",
+"finish_time":"2023-02-17 12:57:28",
+"status":"failed",
+"test_software_version":"V1.1.5.3"
 }

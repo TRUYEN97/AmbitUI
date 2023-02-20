@@ -59,7 +59,7 @@ public class MMC_BadBlock extends AbsFunction {
         int sunBadblock = 0;
         String readUntil = this.config.getString("ReadUntil");
         int time = this.config.getInteger("Time", 10);
-        List<String> commands = this.config.getListJsonArray("command");
+        List<String> commands = this.config.getJsonList("command");
         if (commands == null || commands.isEmpty()) {
             addLog("ERROR", "command in config is null or empty!");
             return false;

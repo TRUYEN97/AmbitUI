@@ -5,7 +5,6 @@
 package Control.Functions.FunctionsTest.Runin.RebootSoft;
 
 import Control.Functions.AbsFunction;
-import Control.Functions.FunctionsTest.Base.BaseFunction.AnalysisBase;
 import Control.Functions.FunctionsTest.Base.BaseFunction.FunctionBase;
 import Model.DataTest.FunctionParameters;
 import Model.ErrorLog;
@@ -17,7 +16,6 @@ import Model.ErrorLog;
 public class RebootSoft extends AbsFunction {
 
     private final FunctionBase functionBase;
-    private final AnalysisBase analysisBase;
 
     public RebootSoft(FunctionParameters parameters) {
         this(parameters, null);
@@ -26,7 +24,6 @@ public class RebootSoft extends AbsFunction {
     public RebootSoft(FunctionParameters parameters, String item) {
         super(parameters, item);
         this.functionBase = new FunctionBase(parameters, item);
-        this.analysisBase = new AnalysisBase(parameters, item);
     }
 
     @Override
@@ -39,6 +36,7 @@ public class RebootSoft extends AbsFunction {
         int times = this.config.getInteger("times", 1);
         addLog("Config", "Run test %s times",times);
         for (int i = 0; i < times; i++) {
+            addLog(LOG_KEYS.PC, "Times: %s", i+1);
             if (!cycleReboot(ip)) {
                 return false;
             }

@@ -75,7 +75,7 @@ public class FunctionCover implements Runnable {
     }
 
     public boolean isSkipFail() {
-        return allConfig.getBoolean(AllKeyWord.CONFIG.FAIL_CONTNIUE, false);
+        return allConfig.getBoolean(AllKeyWord.CONFIG.FAIL_CONTINUE, false);
     }
 
     public void stopTest(String mess) {

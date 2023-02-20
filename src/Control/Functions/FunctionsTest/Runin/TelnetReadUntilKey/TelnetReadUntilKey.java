@@ -52,7 +52,7 @@ public class TelnetReadUntilKey extends AbsFunction {
     }
 
     private boolean runTest(Telnet telnet) {
-        List<String> commands = this.config.getListJsonArray("command");
+        List<String> commands = this.config.getJsonList("command");
         if (commands.isEmpty()) {
             addLog("ERROR", "Commands is empty!");
             return false;

@@ -5,6 +5,7 @@
 package Control.Functions.FunctionsTest.Base.JsonApi.CreateJsonApi;
 
 import Control.Functions.AbsFunction;
+import static Control.Functions.AbsFunction.LOG_KEYS.CONFIG;
 import Control.Functions.FunctionsTest.Base.BaseFunction.FileBaseFunction;
 import Model.AllKeyWord;
 import Model.DataSource.ModeTest.Limit.Limit;
@@ -25,6 +26,7 @@ import javax.swing.JOptionPane;
 public class CreateJsonApi extends AbsFunction {
 
     private final FileBaseFunction fileBaseFunction;
+    private String path;
 
     public CreateJsonApi(FunctionParameters parameters) {
         this(parameters, null);
@@ -36,20 +38,25 @@ public class CreateJsonApi extends AbsFunction {
     }
 
     @Override
-    protected boolean test() {
+    public boolean test() {
         JSONObject root;
         JSONArray tests;
         boolean followLimit = this.config.getBoolean("followLimit", true);
         boolean limitErrorCode = this.config.getBoolean("limitErrorCode", true);
-        addLog("PC", String.format("Follow limit: %s", followLimit));
-        addLog("PC", String.format("Use the limit errorcode: %s", limitErrorCode));
+        addLog(CONFIG, String.format("Follow limit: %s", followLimit));
+        addLog(CONFIG, String.format("Use the limit errorcode: %s", limitErrorCode));
         root = getRootJson(limitErrorCode);
         tests = getTestsDataFollowLomit(isPass(root), followLimit, limitErrorCode);
         if (tests == null) {
             return false;
         }
         root.put("tests", tests);
-        return this.fileBaseFunction.saveJson(root);
+        return this.fileBaseFunction.saveJson(root,
+                this.path == null ? this.fileBaseFunction.createDefaultStringPath(this.processData.isPass()) : path);
+    }
+
+    public void setPath(String path) {
+        this.path = path;
     }
 
     private boolean isPass(JSONObject root) {
@@ -59,7 +66,7 @@ public class CreateJsonApi extends AbsFunction {
     private JSONObject getRootJson(boolean limitErrorCode) {
         JSONObject root = new JSONObject();
         List<String> keyBases;
-        keyBases = config.getListJsonArray("BaseKeys");
+        keyBases = config.getJsonList("BaseKeys");
         for (String keyBase : keyBases) {
             addValueTo(root, keyBase, limitErrorCode);
         }
@@ -86,7 +93,7 @@ public class CreateJsonApi extends AbsFunction {
     private JSONArray getTestsDataFollowLomit(boolean statusTest, boolean followLimit, boolean isUseLimitErrorCode) {
         JSONArray tests = new JSONArray();
         JSONObject itemTest;
-        List<String> testKeys = config.getListJsonArray("TestKeys");
+        List<String> testKeys = config.getJsonList("TestKeys");
         Limit limit = config.getLimits();
         if (limit == null) {
             return null;

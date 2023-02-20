@@ -11,6 +11,7 @@ import Model.DataSource.Setting.ModeElement;
 import View.UIView;
 import java.util.ArrayList;
 import java.util.List;
+import javax.swing.JOptionPane;
 
 /**
  *
@@ -38,19 +39,21 @@ public class Engine {
     }
 
     public void run() {
-        initProgramInfo();
+        if (!initProgramInfo()) {
+            System.exit(0);
+        }
         initDHCP();
         getAllMode();
         setMode();
         showUI();
     }
-    
+
     private void getAllMode() {
         for (ModeElement modeInfo : setting.getElments()) {
             ModeTest modeTest = new ModeTest(modeInfo);
             if (modeTest.update()) {
                 this.modeTests.add(modeTest);
-            }else{
+            } else {
                 break;
             }
         }
@@ -82,7 +85,14 @@ public class Engine {
         DhcpRunner.getInstance().run(netIP);
     }
 
-    private void initProgramInfo() {
-        this.programInfo.setVersion("V1.1.4.3");
+    private boolean initProgramInfo() {
+        this.programInfo.setVersion("V1.1.8.0");
+        String uutmodel = this.setting.getUutMolel();
+        if (uutmodel == null || uutmodel.isBlank()) {
+            JOptionPane.showMessageDialog(null, "Not set UUT model!");
+            return false;
+        }
+        this.programInfo.setUutModel(uutmodel);
+        return true;
     }
 }

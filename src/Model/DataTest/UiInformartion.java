@@ -24,6 +24,7 @@ public class UiInformartion {
         this.dataWareHouse.put(AllKeyWord.SFIS.PC_NAME, this.pcInformation.getPcName());
         this.dataWareHouse.put(AllKeyWord.STATION_NAME, this.pcInformation.getPcName());
         this.dataWareHouse.put(AllKeyWord.VERSION, pcInformation.getVersion());
+        this.dataWareHouse.put(AllKeyWord.CONFIG.UUT_MODEL, pcInformation.getUutModel());
         this.dataWareHouse.put(AllKeyWord.POSITION, name);
         this.dataWareHouse.put(AllKeyWord.COLUMN, COLUMN);
         this.dataWareHouse.put(AllKeyWord.ROW, ROW);
@@ -41,10 +42,6 @@ public class UiInformartion {
     
     public void setStationType(String station){
         this.dataWareHouse.put(AllKeyWord.STATION_TYPE, station);
-    }
-    
-    public String getStationType(){
-        return getString(AllKeyWord.STATION_TYPE);
     }
     
     public String getName() {

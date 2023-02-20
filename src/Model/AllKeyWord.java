@@ -31,6 +31,7 @@ public final class AllKeyWord {
 
     public static class CONFIG {
 
+        public static final String UUT_MODEL = "uutModel";
         public static final String INIT = "init";
         public static final String FUNCTIONS = "functions";
         public static final String END = "end";
@@ -42,7 +43,7 @@ public final class AllKeyWord {
         public static final String BEGIN = "begin";
         public static final String TEST_NAME = "test_name";
         public static final String LIMIT_TYPE = "limit_type";
-        public static final String FAIL_CONTNIUE = "fail_contniue";
+        public static final String FAIL_CONTINUE = "fail_continue";
         public static final String REQUIRED = "required";
         public static final String LOWER_LIMIT = "lower_limit";
         public static final String UPPER_LIMIT = "upper_limit";
@@ -57,8 +58,7 @@ public final class AllKeyWord {
         public static final String MULTI_TASK = "multi";
     }
 
-    
-    public static final String TEST_COLOR  = "test_color";
+    public static final String TEST_COLOR = "test_color";
     public static final String MAC_LENGTH = "mac_length";
     public static final String IS_DHCP_ON = "on_dhcp";
     public static final String TEST_NAME = "test_name";

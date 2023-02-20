@@ -100,7 +100,7 @@ public class FuncAllConfig {
         return wareHouse.get(key);
     }
 
-    public <T> List<T> getListJsonArray(String key) {
+    public <T> List<T> getJsonList(String key) {
         return wareHouse.getListJsonArray(key);
     }
 
@@ -153,5 +153,10 @@ public class FuncAllConfig {
     public String getString(String key, String defaulValue) {
         String value = getString(key);
         return value == null ? defaulValue : value;
+    }
+
+    public <T> List<T> getJsonList(String localNameFail, List<T> defaultValue) {
+        List<T> value = getJsonList(localNameFail);
+        return value == null ? defaultValue : value;
     }
 }

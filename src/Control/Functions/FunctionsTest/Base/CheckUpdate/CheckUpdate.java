@@ -13,11 +13,8 @@ import Model.AllKeyWord;
 import Model.DataTest.FunctionParameters;
 import Time.WaitTime.Class.TimeMs;
 import java.io.File;
-import java.io.FileInputStream;
 import java.io.IOException;
 import java.io.StringReader;
-import java.math.BigInteger;
-import java.security.MessageDigest;
 import java.security.NoSuchAlgorithmException;
 import java.util.Properties;
 
@@ -46,7 +43,7 @@ public class CheckUpdate extends AbsFunction {
             String host = this.config.getString("Host");
             int port = this.config.getInteger("Port", 21);
             FtpClient ftp = this.baseFunc.initFtp(user, passWord, host, port);
-            String uutModel = this.config.getString("uutModel");
+            String uutModel = this.processData.getString("uutModel");
             String pnname = this.processData.getString("pnname", this.config.getString("pnname"));
             String station = this.processData.getString(AllKeyWord.STATION_TYPE).toUpperCase();
             addLog("PC", "Pn name: %s, uut model: %s, station: %s", pnname, uutModel, station);

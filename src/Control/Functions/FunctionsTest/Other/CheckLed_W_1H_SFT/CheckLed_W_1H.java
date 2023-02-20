@@ -108,7 +108,7 @@ public class CheckLed_W_1H extends AbsFunction {
     }
 
     private String getLedValue(Telnet telnet, ComPort comPort, String key, String getLedValueCmd) {
-        List<String> cmds = this.config.getListJsonArray(key);
+        List<String> cmds = this.config.getJsonList(key);
         for (String cmd : cmds) {
             if (!this.functionBase.sendCommand(telnet, cmd)) {
                 return null;

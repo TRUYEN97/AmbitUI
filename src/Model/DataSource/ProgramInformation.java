@@ -23,6 +23,7 @@ public class ProgramInformation implements IInit {
     private String pcName;
     private String ip;
     private String version;
+    private String uutModel;
 
     private ProgramInformation() {
     }
@@ -125,5 +126,14 @@ public class ProgramInformation implements IInit {
         this.version = version;
     }
 
+    public void setUutModel(String uutmodel) {
+        this.uutModel =uutmodel;
+    }
+
+    public String getUutModel() {
+        return uutModel;
+    }
+
+    
     
 }

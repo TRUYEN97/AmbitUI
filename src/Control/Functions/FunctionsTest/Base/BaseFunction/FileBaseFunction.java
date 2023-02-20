@@ -33,22 +33,33 @@ public class FileBaseFunction extends AbsFunction {
         return false;
     }
 
-    public boolean saveJson(JSONObject data) {
-        String filePath = this.config.getString("localFile");
-        List<String> elementName = this.config.getListJsonArray("ElementName");
-        String nameFile = this.createNameFile(elementName,".json");
-        return saveFile(filePath, nameFile, formatJson(data.toJSONString()));
+    public boolean saveJson(JSONObject data, String path) {
+        return saveTxt(formatJson(data.toJSONString()), path);
     }
 
-    public boolean saveTxt(String data) {
-        String filePath = this.config.getString("localFile");
-        List<String> elementName = this.config.getListJsonArray("ElementName");
-        String nameFile = this.createNameFile( elementName, ".txt");
-        return saveFile(filePath, nameFile, data);
+    public String createStringPath(String prefix, String fileName, String suffix) {
+        List<String> elementDir = this.config.getJsonList(prefix);
+        addLog(LOG_KEYS.CONFIG, "prefix: %s", elementDir);
+        List<String> elementNames = this.config.getJsonList(fileName);
+        addLog(LOG_KEYS.CONFIG, "File name: %s", elementNames);
+        String suffer = this.config.getString(suffix);
+        addLog(LOG_KEYS.CONFIG, "suffix: %s", suffer);
+        String path = String.format("%s/%s.%s", createName(elementDir),
+                createName(elementNames), suffer);
+        addLog(LOG_KEYS.PC, "Path: %s", path);
+        return path;
     }
-   
+
+    public boolean saveTxt(String data, String path) {
+        return saveFile(path, data);
+    }
+
     public boolean saveFile(String dirPath, String nameFile, String data) {
         String filePath = String.format("%s/%s", dirPath, nameFile);
+        return saveFile(filePath, data);
+    }
+
+    public boolean saveFile(String filePath, String data) {
         if (fileService.saveFile(filePath, data)) {
             addLog("PC", String.format("Save data in: %s ok", filePath));
             return true;
@@ -56,7 +67,17 @@ public class FileBaseFunction extends AbsFunction {
         addLog("PC", String.format("Save data in: %s failed!", filePath));
         return false;
     }
-    
+
+    public boolean saveZip(String zipPath, String filePath) {
+        addLog("PC", String.format("%s -> %s", filePath, zipPath));
+        if (zip.zipFile(zipPath, new File(filePath))) {
+            addLog("PC", String.format("Save data in: %s ok", zipPath));
+            return true;
+        }
+        addLog("PC", String.format("Save data in: %s failed!", zipPath));
+        return false;
+    }
+
     public boolean saveZip(String dirPath, String zipName, String fileName) {
         String zipPath = String.format("%s\\%s", dirPath, zipName);
         String filePath = String.format("%s\\%s", dirPath, fileName);
@@ -78,9 +99,9 @@ public class FileBaseFunction extends AbsFunction {
         return str.trim();
     }
 
-    public String createNameFile(List<String> elementName, String end) {
+    public String createName(List<String> elementName) {
         StringBuilder pathName = new StringBuilder();
-        addLog("PC", "ElementName: " + elementName);
+        addLog(LOG_KEYS.CONFIG, "Name elements: %s", elementName);
         for (String elem : elementName) {
             if (!pathName.isEmpty()) {
                 pathName.append("_");
@@ -96,26 +117,32 @@ public class FileBaseFunction extends AbsFunction {
                 pathName.append(value);
             }
         }
-        return pathName.append(end).toString();
+        return pathName.toString();
     }
-    
-    public String createDirPath(List<String> elementName) {
+    public String createDir(List<String> elementDir) {
         StringBuilder pathName = new StringBuilder();
-        addLog("PC", "ElementName: " + elementName);
-        for (String elem : elementName) {
+        addLog(LOG_KEYS.CONFIG, "Dir elements: %s", elementDir);
+        for (String elem : elementDir) {
             if (!pathName.isEmpty()) {
                 pathName.append("/");
             }
             String value = processData.getString(elem);
             if (value == null) {
                 pathName.append(elem);
-            }else{ 
+            } else {
+                value = value.replace('\\', '-');
+                value = value.replace('/', '-');
                 value = value.replace(' ', '-');
                 value = value.replace(':', '-');
                 pathName.append(value);
             }
         }
         return pathName.toString();
+    }
+
+    public String createDefaultStringPath(boolean pass) {
+        String fileNameKey = pass ? "LocalName" : "LocalNameFail";
+        return createStringPath("LocalPrefix", fileNameKey, "LocalSuffix");
     }
 
 }

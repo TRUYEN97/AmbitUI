@@ -46,7 +46,7 @@ public class SmallUI extends AbsSubUi {
         setLayout(new java.awt.BorderLayout());
 
         lbTime.setBackground(new java.awt.Color(102, 102, 255));
-        lbTime.setFont(new java.awt.Font("Tahoma", 1, 12));
+        lbTime.setFont(new java.awt.Font("Arial", 1, 14)); // NOI18N
         lbTime.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         lbTime.setText("00:00");
         lbTime.setOpaque(true);
@@ -68,28 +68,30 @@ public class SmallUI extends AbsSubUi {
         }
     }//GEN-LAST:event_lbTimeMouseClicked
 
+    private final String LABLEL_NAME_HTML = "<center><u><b><span style=\"font-size: 14px\">%s</span></u></b><br>";
     private void lbTimeMouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_lbTimeMouseEntered
         // TODO add your handling code here:
+        StringBuilder mess = new StringBuilder("<html>");
+        mess.append(String.format(LABLEL_NAME_HTML, getName()));
         if (this.uiStatus.isTesting()) {
-            StringBuilder mess = new StringBuilder("<html><span style=\"font-size: 20px\">");
-            mess.append(String.format("<tr><td>Mode: %s</td></tr>", this.uiStatus.getModeTest().getModeName()));
+            mess.append("<table>");
+            mess.append(String.format("<tr><td><center><span style=\"font-size: 14px\">Mode: %s</td></span></tr>", this.uiStatus.getModeTest().getModeName()));
             List<FunctionData> dataBoxs = this.uiStatus.getProcessData().getDataBoxs();
             for (FunctionData dataBox : dataBoxs) {
                 if (dataBox.isTesting()) {
-                    mess.append(String.format("<tr><td>%s</td></tr>", dataBox.getFunctionName()));
+                    mess.append(String.format("<tr><td><center><span style=\"font-size: 16px\">%s</span></td></tr>", dataBox.getFunctionName()));
                 }
             }
-            mess.append("</span></html>");
+            mess.append("</table></html>");
             this.lbTime.setToolTipText(mess.toString());
         } else {
             String text = this.uiStatus.getProcessData().getMassage();
-            String mess = String.format("<html><center>%s</html>", text == null ? "Finished!": text.replaceAll("\r\n", "<br>"));
-            this.lbTime.setToolTipText(mess);
+            mess.append(String.format("<span style=\"font-size: 16px\">%s</span></html>",
+                    text == null ? "Finished!" : text.replaceAll("\r\n", "<br>")));
+            this.lbTime.setToolTipText(mess.toString());
         }
     }//GEN-LAST:event_lbTimeMouseEntered
 
-    
-    
     @Override
     public void startTest() {
         this.list = uiStatus.getProcessData().getDataBoxs();

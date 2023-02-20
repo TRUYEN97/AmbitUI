@@ -34,7 +34,7 @@ public class TempCPU extends AbsFunction {
 
     @Override
     protected boolean test() {
-        List<String> commands = this.config.getListJsonArray("command");
+        List<String> commands = this.config.getJsonList("command");
         if (commands.isEmpty()) {
             addLog("CONFIG", "command is empty!");
             return false;

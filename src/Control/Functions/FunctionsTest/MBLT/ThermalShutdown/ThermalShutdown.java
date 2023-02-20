@@ -72,7 +72,7 @@ public class ThermalShutdown extends AbsFunction {
     private boolean getValue(final ComPort fixture) throws NumberFormatException {
         JSONObject voltageItems = getVoltageItems();
         String inline;
-        List<String> skipTP = this.config.getListJsonArray("SkipTP");
+        List<String> skipTP = this.config.getJsonList("SkipTP");
         addLog("Config", "Skip point: " + skipTP);
         boolean result = true;
         while ((inline = fixture.readLine(new TimeS(1))) != null) {

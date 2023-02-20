@@ -38,8 +38,8 @@ public class FixtureAction extends AbsFunction {
             if (comPort == null) {
                 return false;
             }
-            List<String> commands = this.config.getListJsonArray("FixtureCommands");
-            List<String> keyWords = this.config.getListJsonArray("FixtureKeys");
+            List<String> commands = this.config.getJsonList("FixtureCommands");
+            List<String> keyWords = this.config.getJsonList("FixtureKeys");
             int time = this.config.getInteger("FixtureWait", 1);
             return sendCommand(comPort, commands, keyWords, time);
         } catch (Exception e) {

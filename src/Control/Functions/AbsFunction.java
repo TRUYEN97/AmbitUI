@@ -24,6 +24,14 @@ import View.subUI.SubUI.AbsSubUi;
  */
 public abstract class AbsFunction implements IFunction {
 
+    public static enum LOG_KEYS {
+        PC, CONFIG, TELNET, COMPORT, ERROR;
+
+        @Override
+        public String toString() {
+            return this.name();
+        }
+    };
     protected final FuncAllConfig config;
     protected final ProcessData processData;
     protected final ProcessTestSignal testSignal;
@@ -70,11 +78,11 @@ public abstract class AbsFunction implements IFunction {
             ErrorLog.addError(this, ex.getLocalizedMessage());
         }
     }
-    
-    public String getItemName(){
+
+    public String getItemName() {
         return this.config.getItemName();
     }
-    
+
     protected String createChildItemName(String childItemName) {
         String itemName = getItemName();
         if (childItemName != null && itemName != null && itemName.matches("^.+_[0-9]+$")) {
@@ -135,12 +143,16 @@ public abstract class AbsFunction implements IFunction {
         this.functionData.addLog(key, log);
     }
 
-    protected void addLog(String str, Object... pramas) {
-        this.functionData.addLog(str, pramas);
-    }
-
     protected void addLog(String key, String str, Object... pramas) {
         this.functionData.addLog(key, str, pramas);
+    }
+
+    protected void addLog(LOG_KEYS key, Object log) {
+        this.addLog(key.toString(), log);
+    }
+
+    protected void addLog(LOG_KEYS key, String str, Object... pramas) {
+        this.addLog(key.toString(), str, pramas);
     }
 
 }

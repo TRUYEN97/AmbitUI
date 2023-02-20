@@ -55,9 +55,9 @@ public class MMC_WR_SPEED extends AbsFunction {
             ErrorLog.addError(this, e.getMessage());
             return false;
         }
-        List<String> items = this.config.getListJsonArray("ItemNames");
-        List<String> blocks = this.config.getListJsonArray("Block");
-        List<String> KeyWords = this.config.getListJsonArray("KeyWord");
+        List<String> items = this.config.getJsonList("ItemNames");
+        List<String> blocks = this.config.getJsonList("Block");
+        List<String> KeyWords = this.config.getJsonList("KeyWord");
         addLog("Config", "Items: " + items);
         addLog("Config", "Block: " + blocks);
         addLog("Config", "KeyWord: " + blocks);

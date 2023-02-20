@@ -86,4 +86,8 @@ public class Setting extends AbsJsonSource<String, ModeElement> implements IInit
         String netIp = getDhcpNetIP();
         return netIp != null && isOnDhcp;
     }
+
+    public String getUutMolel() {
+        return this.readFile.getData().getString(AllKeyWord.CONFIG.UUT_MODEL);
+    }
 }

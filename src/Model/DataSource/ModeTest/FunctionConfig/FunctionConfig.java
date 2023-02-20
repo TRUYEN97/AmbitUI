@@ -61,7 +61,7 @@ public class FunctionConfig extends AbsElementInfo {
     }
 
     public boolean isSkipFail() {
-        return warehouse.getBoolean(AllKeyWord.CONFIG.FAIL_CONTNIUE);
+        return warehouse.getBoolean(AllKeyWord.CONFIG.FAIL_CONTINUE, false);
     }
 
     public String getString(String key) {

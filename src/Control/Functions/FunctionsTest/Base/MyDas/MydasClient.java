@@ -74,10 +74,11 @@ public class MydasClient {
         }
     }
 
-    public static String adjustString(String str, int strLength) {
-        String strTemp = str;
+    private String adjustString(String strTemp, int strLength) {
+        if (strTemp == null) {
+            return "";
+        }
         int strLen = strTemp.length();
-
         if (strLen > strLength) {
             strTemp = strTemp.substring(0, strLength);
         }

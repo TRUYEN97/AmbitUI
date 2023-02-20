@@ -102,14 +102,6 @@ public class FunctionData {
             ex.printStackTrace();
         }
     }
-    public void addLog(String str, Object... params̉) {
-        try {
-            this.loger.addLog(str, params̉);
-        } catch (Exception ex) {
-            ErrorLog.addError(this, ex.getLocalizedMessage());
-            ex.printStackTrace();
-        }
-    }
 
     public void addLog(String key, String str, Object... params̉) {
         try {

@@ -127,7 +127,6 @@ public class FunctionBase extends AbsFunction {
                 addLog("PC", "*************** Reboot soft ok! *********************");
                 return true;
             }
-            addLog("PC", "Out of time to reboot!");
             addLog("PC", "*************** Reboot soft failed! *********************");
             return false;
         }

@@ -5,11 +5,10 @@
 package Control.Functions.FunctionsTest.Base.MyDas;
 
 import Control.Functions.AbsFunction;
-import Control.Functions.FunctionsTest.Base.BaseFunction.FileBaseFunction;
 import Model.AllKeyWord;
 import Model.DataTest.FunctionData.ItemTestData;
 import Model.DataTest.FunctionParameters;
-import java.util.List;
+import Time.TimeBase;
 
 /**
  *
@@ -17,11 +16,8 @@ import java.util.List;
  */
 public class Mydas extends AbsFunction {
 
-    private final FileBaseFunction fileBaseFunction;
-
     public Mydas(FunctionParameters functionParameters, String itemName) {
         super(functionParameters, itemName);
-        this.fileBaseFunction = new FileBaseFunction(functionParameters, itemName);
     }
 
     public Mydas(FunctionParameters functionParameters) {
@@ -32,23 +28,28 @@ public class Mydas extends AbsFunction {
     protected boolean test() {
         String IP = this.config.getString("IP");
         addLog("CONFIG", String.format(String.format("IP: %s", IP)));
+        boolean sendDetail = this.config.getBoolean("sendDetail", true);
+        addLog("CONFIG", String.format(String.format("Send detail: %s", sendDetail)));
         String pcName = this.processData.getString("pcname");
         addLog("CONFIG", String.format(String.format("PC name: %s", pcName)));
-        String uutModel = this.config.getString("product");
+        String uutModel = this.processData.getString("uutModel");
         addLog("CONFIG", String.format(String.format("Product: %s", uutModel)));
         String station = this.processData.getString(AllKeyWord.STATION_TYPE);
         addLog("CONFIG", String.format(String.format("Station: %s", station)));
         String pn = this.processData.getString("pnname");
         addLog("CONFIG", String.format(String.format("PN name %s", pn)));
         MydasClient mydasClient = new MydasClient(IP, pcName, "3.0", "3.0", uutModel, station, pn);
-        String ftpPath = craeteFtpPath();
-        this.productData.put("ftppath", ftpPath);
         if (mydasClient.connectPts() != 1) {
             addLog("connect PTS (Mydas) failed!");
             return false;
         } else {
             addLog("connect PTS (Mydas) ok!");
-            String detail = "NA,NA,0;";
+            String detail;
+            if (sendDetail) {
+                detail = getDetail();
+            } else {
+                detail = "NA,NA,0;";
+            }
             ItemTestData itemTestData = this.processData.getFirstFail();
             String errorInfo = "";
             if (itemTestData != null) {
@@ -56,9 +57,9 @@ public class Mydas extends AbsFunction {
                         itemTestData.getLocalErrorDes(), itemTestData.getResultTest());
             }
             String mainInfo = getMainInfo();
-            addLog("DETAILINFO=[" + detail + "]");
-            addLog("ERRORINFO=[" + errorInfo + "]");
-            addLog("MAININFO=[" + mainInfo + "]");
+            addLog(LOG_KEYS.PC, "DETAILINFO=[ %s ]", detail);
+            addLog(LOG_KEYS.PC,"ERRORINFO=[ %s ]", errorInfo);
+            addLog(LOG_KEYS.PC,"MAININFO=[ %s ]", mainInfo);
             mydasClient.initClientInfo();
             mydasClient.setData(detail, 0);
             mydasClient.setData(errorInfo, 1);
@@ -75,35 +76,40 @@ public class Mydas extends AbsFunction {
         }
     }
 
-    private String getMainInfo() {
+    private String getDetail() {
         StringBuilder builder = new StringBuilder();
-        List<String> listKey = this.config.getListJsonArray("MydasElem");
-        addLog("elem", listKey);
-        if (listKey == null || listKey.isEmpty()) {
-            addLog("elem is null or empty!");
-            return null;
-        }
-        for (String key : listKey) {
-            String value = this.processData.getString(key);
-            if (value == null) {
+        for (ItemTestData itemTestData : this.processData.getListItemTestData()) {
+            if (itemTestData == null) {
                 continue;
             }
-            if (key.equalsIgnoreCase(AllKeyWord.SFIS.STATUS)) {
-                builder.append(value.equals(ItemTestData.PASS) ? 1 : 0);
-            } else {
-                builder.append(value);
-            }
-            builder.append(",");
+            builder.append(String.format("%s,%s,%.3f;",
+                    itemTestData.isPass() ? "PASS" : "FAIL",
+                    itemTestData.getResultTest(),
+                    itemTestData.getRunTime()));
         }
         return builder.toString();
     }
 
-    private String craeteFtpPath() {
-        List<String> elementName = this.config.getListJsonArray("FtpName");
-        List<String> elementPath = this.config.getListJsonArray("FtpPath");
-        String dir = this.fileBaseFunction.createDirPath(elementPath);
-        String name = this.fileBaseFunction.createNameFile(elementName, config.getString("FtpType"));
-        return String.format("%s/%s", dir, name);
+    private String getMainInfo() {
+        StringBuilder builder = new StringBuilder();
+        int status = this.processData.getString(AllKeyWord.SFIS.STATUS, "").equalsIgnoreCase(ItemTestData.PASS)
+                ? 1 : 0;
+        builder.append(this.processData.getString(AllKeyWord.SFIS.MLBSN, "")).append(",");
+        builder.append(status).append(",");
+        builder.append(this.processData.getString("ftppath", "")).append(",");
+        builder.append(this.processData.getString(AllKeyWord.VERSION, "")).append(",");
+        builder.append(this.processData.getString(AllKeyWord.SFIS.PC_NAME, "")).append(",");
+        builder.append(this.processData.getString("cycle_time", "")).append(",");
+        builder.append(getStartTime()).append(",");
+        builder.append(",").append(",");
+        return builder.toString();
+    }
+
+    private String getStartTime() {
+        return new TimeBase().conVertToFormat(
+                this.processData.getString(AllKeyWord.START_TIME, ""),
+                TimeBase.SIMPLE_DATE_TIME, TimeBase.MM_DD_YYYY_HH_MM_SS);
+                
     }
 
 }
