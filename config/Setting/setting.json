@@ -1,8 +1,8 @@
 {
     "station_type": "Runin",
-    //"dhcp": "172.168.0.251",
+    "dhcp": "172.168.0.251",
     "mac_length": 16,
-    "on_dhcp": false,
+    "on_dhcp": true,
     "uutModel": "Jupiter",
     "row": 1,
     "column": 1,
@@ -22,7 +22,7 @@
             "name": "debug", 
             "type_mode": "debug",
             "debug_able": true,
-            "ambit_config": "config\\Item\\Runin_jupiter_production.json",
+            "ambit_config": "config\\Item\\Runin_ort_debug.json",
             "detail": ["TabViewProxy", "TabItemProxy"]
         }
     ]

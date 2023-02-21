@@ -81,7 +81,7 @@ public class DhcpRunner {
 
     private File createFilePath() {
         String localLog = Setting.getInstance().getLocalLogPath();
-        return new File(String.format("%s/DHCP/%s.txt",
-                localLog, new TimeBase(TimeBase.UTC).getDate()));
+        return new File(String.format("%s/DHCP",
+                localLog));
     }
 }

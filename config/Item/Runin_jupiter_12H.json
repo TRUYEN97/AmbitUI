@@ -21,7 +21,7 @@
                     "time_out": 30,
                     "debug_able": true,
                     "multi": false,
-                    "fail_continue": true,
+                    "fail_continue": false,
                     "host": "192.168.1.10",
                     "user": "admin",
                     "password": "1234",
@@ -36,7 +36,7 @@
                     "time_out": 360,
                     "multi": false,
                     "debug_able": true,
-                    "fail_continue": true,
+                    "fail_continue": false,
                     "time_ping": 120,
                     "IP": "192.168.1.1",
                     "test_name": "dut_ping",
@@ -54,7 +54,7 @@
                     "time_out": 30,
                     "debug_able": true,
                     "multi": false,
-                    "fail_continue": true,
+                    "fail_continue": false,
                     "host": "192.168.1.10",
                     "user": "admin",
                     "password": "1234",
@@ -69,7 +69,7 @@
                     "time_out": 360,
                     "multi": false,
                     "debug_able": true,
-                    "fail_continue": true,
+                    "fail_continue": false,
                     "time_ping": 120,
                     "IP": "192.168.1.1",
                     "test_name": "dut_ping",
@@ -80,7 +80,7 @@
                     "time_out": 10,
                     "multi": false,
                     "debug_able": true,
-                    "fail_continue": true,
+                    "fail_continue": false,
                     "IP": "192.168.1.1",
                     "ReadUntil": "root@eero-test:/#",
                     "test_name": "dut_telnet",
@@ -91,7 +91,7 @@
                     "time_out": 3000,
                     "debug_able": true,
                     "multi": false,
-                    "fail_continue": true,
+                    "fail_continue": false,
                     "IP": "192.168.1.1",
                     "ReadUntil": "root@eero-test:/#",
                     "command": ["stress --cpu 8 --io 4 --vm 2 --vm-bytes 128M --timeout 1800s"],
@@ -106,7 +106,7 @@
                     "time_out": 3000,
                     "debug_able": true,
                     "multi": false,
-                    "fail_continue": true,
+                    "fail_continue": false,
                     "IP": "192.168.1.1",
                     "ReadUntil": "root@eero-test:/#",
                     "command": ["stressapptest -s 600 -M 300 -m 5 -C 5 -W -l test_ddr_01.log",
@@ -119,6 +119,21 @@
                     "func_name": "TelnetReadUntilKeyProxy"
                 }
             ]
+        },
+        {
+            "flag": true,
+            "time_out": 30,
+            "multi": false,
+            "debug_able": true,
+            "always_run": false,
+            "host": "192.168.1.10",
+            "user": "admin",
+            "password": "1234",
+            "Times": 1,
+            "Delay": 1,
+            "Command": ["off"],
+            "test_name": "ReleasePowerSwitchOutlet",
+            "func_name": "PowerSwitchProxy"
         }
     ],
     "end": [
@@ -147,21 +162,6 @@
             "LocalNameFail": ["mlbsn", "sn", "position", "status", "error_details", "errorcode", "mode", "finish_time"],
             "test_name": "UpLogFTP",
             "func_name": "UpLogFTPProxy"
-        },
-        {
-            "flag": true,
-            "time_out": 30,
-            "multi": false,
-            "debug_able": true,
-            "always_run": true,
-            "host": "192.168.1.10",
-            "user": "admin",
-            "password": "1234",
-            "Times": 1,
-            "Delay": 1,
-            "Command": ["off"],
-            "test_name": "ReleasePowerSwitchOutlet",
-            "func_name": "PowerSwitchProxy"
         }
     ]
 }

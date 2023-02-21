@@ -1,0 +1,20 @@
+2023-02-21 02:56:33.283:   ITEM[temp_env_0] - FUNCTION[CheckCommandCmdProxy]
+2023-02-21 02:56:33.285:   Turn: 1
+2023-02-21 02:56:33.285:   [Cmd] Send command: usbtenkiget.exe -i 0,1
+2023-02-21 02:56:33.398:   [Cmd] 'usbtenkiget.exe' is not recognized as an internal or external command,
+2023-02-21 02:56:33.399:   [Cmd] operable program or batch file.
+2023-02-21 02:56:34.380:   [CONFIG] Start key: ""
+2023-02-21 02:56:34.380:   [CONFIG] End key: ", "
+2023-02-21 02:56:34.380:   [CONFIG] Regex: "null"
+2023-02-21 02:56:34.380:   [PC] Value: "null"
+2023-02-21 02:56:34.380:   ****************************************************
+2023-02-21 02:56:34.381:   Item name = temp_env_0
+2023-02-21 02:56:34.381:   Value = failed
+2023-02-21 02:56:34.381:   Test status = failed
+2023-02-21 02:56:34.381:   -----------------------------------------------------
+2023-02-21 02:56:34.381:   Error code = -1
+2023-02-21 02:56:34.381:   Error des = temp_env_0
+2023-02-21 02:56:34.381:   Local error code = 32.3.9
+2023-02-21 02:56:34.382:   Local error des = temp_env
+2023-02-21 02:56:34.382:   ****************************************************
+2023-02-21 02:56:34.382:   TIME[1.098 s] - STATUS[FAILED]

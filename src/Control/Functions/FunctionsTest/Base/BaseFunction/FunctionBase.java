@@ -158,11 +158,21 @@ public class FunctionBase extends AbsFunction {
         return mac;
     }
 
+    public boolean insertCommand(ISender sender, String command) {
+        String name = sender.getClass().getSimpleName();
+        addLog(name, "insert command: " + command);
+        if (command == null || !sender.insertCommand(command)) {
+            addLog(name, "insert command \" %s \" failed!", command);
+            return false;
+        }
+        return true;
+    }
+    
     public boolean sendCommand(ISender sender, String command) {
         String name = sender.getClass().getSimpleName();
         addLog(name, "Send command: " + command);
         if (command == null || !sender.sendCommand(command)) {
-            addLog(name, "send command \" " + command + "\" failed!");
+            addLog(name, "send command \" %s \" failed!", command);
             return false;
         }
         return true;
@@ -185,9 +195,9 @@ public class FunctionBase extends AbsFunction {
             for (int i = 1; timer.onTime(); i++) {
                 addLog("Cmd", "------------------------------------ " + i);
                 try {
-                    if (sendCommand(cmd, command1)) {
-                        String response = cmd.readAll().trim();
-                        addLog("Cmd", response);
+                    if (insertCommand(cmd, command1)) {
+                        String response = cmd.readAll();
+                        addLog("Cmd", response.trim());
                         if (response.contains("TTL=")) {
                             return true;
                         }

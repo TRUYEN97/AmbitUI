@@ -1,0 +1,60 @@
+2023-02-21 02:56:31.968:   ITEM[test_image_version] - FUNCTION[CheckCommandTelnetProxy]
+2023-02-21 02:56:31.969:   Turn: 1
+2023-02-21 02:56:31.969:   [PC] Get IP from the DHCP with MAC is "D4:3F:32:EB:AA:A0"
+2023-02-21 02:56:31.969:   [Setting] MAC length = 16
+2023-02-21 02:56:31.969:   [PC] ReadUntil: root@eero-test:/#
+2023-02-21 02:56:31.969:   [PC] Connect to ip: 172.168.0.0
+2023-02-21 02:56:31.970:   [PC] Port is: 23
+2023-02-21 02:56:31.970:   [PC] Ping to IP: 172.168.0.0 - 120 S
+2023-02-21 02:56:31.970:   [Cmd] ------------------------------------ 1
+2023-02-21 02:56:31.970:   [Cmd] insert command: ping 172.168.0.0 -n 1
+2023-02-21 02:56:32.003:   [Cmd] Pinging 172.168.0.0 with 32 bytes of data:
+2023-02-21 02:56:32.004:   [Cmd] Reply from 172.168.0.0: bytes=32 time<1ms TTL=64
+2023-02-21 02:56:32.004:   [Cmd] 
+2023-02-21 02:56:32.004:   [Cmd] Ping statistics for 172.168.0.0:
+2023-02-21 02:56:32.004:   [Cmd] Packets: Sent = 1, Received = 1, Lost = 0 (0% loss),
+2023-02-21 02:56:32.004:   [Cmd] Approximate round trip times in milli-seconds:
+2023-02-21 02:56:32.004:   [Cmd] Minimum = 0ms, Maximum = 0ms, Average = 0ms
+2023-02-21 02:56:32.004:   [Cmd] ------------------------------------
+2023-02-21 02:56:32.005:   [PC] ping time: 0.035 S
+2023-02-21 02:56:32.243:   [Telnet] === IMPORTANT ============================
+2023-02-21 02:56:32.244:   [Telnet] Use 'passwd' to set your login password!
+2023-02-21 02:56:32.244:   [Telnet] ------------------------------------------
+2023-02-21 02:56:32.245:   [Telnet] 
+2023-02-21 02:56:32.245:   [Telnet] 
+2023-02-21 02:56:32.246:   [Telnet] BusyBox v1.30.1 () built-in shell (ash)
+2023-02-21 02:56:32.246:   [Telnet] 
+2023-02-21 02:56:32.247:   [Telnet] MM           NM                    MMMMMMM          M       M
+2023-02-21 02:56:32.247:   [Telnet] $MMMMM        MMMMM                MMMMMMMMMMM      MMM     MMM
+2023-02-21 02:56:32.247:   [Telnet] MMMMMMMM     MM MMMMM.              MMMMM:MMMMMM:   MMMM   MMMMM
+2023-02-21 02:56:32.248:   [Telnet] MMMM= MMMMMM  MMM   MMMM       MMMMM   MMMM  MMMMMM   MMMM  MMMMM'
+2023-02-21 02:56:32.248:   [Telnet] MMMM=  MMMMM MMMM    MM       MMMMM    MMMM    MMMM   MMMMNMMMMM
+2023-02-21 02:56:32.248:   [Telnet] MMMM=   MMMM  MMMMM          MMMMM     MMMM    MMMM   MMMMMMMM
+2023-02-21 02:56:32.248:   [Telnet] MMMM=   MMMM   MMMMMM       MMMMM      MMMM    MMMM   MMMMMMMMM
+2023-02-21 02:56:32.249:   [Telnet] MMMM=   MMMM     MMMMM,    NMMMMMMMM   MMMM    MMMM   MMMMMMMMMMM
+2023-02-21 02:56:32.249:   [Telnet] MMMM=   MMMM      MMMMMM   MMMMMMMM    MMMM    MMMM   MMMM  MMMMMM
+2023-02-21 02:56:32.249:   [Telnet] MMMM=   MMMM   MM    MMMM    MMMM      MMMM    MMMM   MMMM    MMMM
+2023-02-21 02:56:32.249:   [Telnet] MMMM$ ,MMMMM  MMMMM  MMMM    MMM       MMMM   MMMMM   MMMM    MMMM
+2023-02-21 02:56:32.250:   [Telnet] MMMMMMM:      MMMMMMM     M         MMMMMMMMMMMM  MMMMMMM MMMMMMM
+2023-02-21 02:56:32.250:   [Telnet] MMMMMM       MMMMN     M           MMMMMMMMM      MMMM    MMMM
+2023-02-21 02:56:32.250:   [Telnet] MMMM          M                    MMMMMMM        M       M
+2023-02-21 02:56:32.250:   [Telnet] M
+2023-02-21 02:56:32.251:   [Telnet] ---------------------------------------------------------------
+2023-02-21 02:56:32.251:   [Telnet] For those about to rock... (Chaos Calmer, unknown)
+2023-02-21 02:56:32.251:   [Telnet] ---------------------------------------------------------------
+2023-02-21 02:56:32.251:   [Telnet] root@eero-test:/#
+2023-02-21 02:56:32.353:   [Telnet] root@eero-test:/#
+2023-02-21 02:56:32.354:   [Telnet] Send command: fwversion
+2023-02-21 02:56:32.462:   [Telnet] fwversion
+2023-02-21 02:56:32.571:   [Telnet] Ambit test image version:V1.3.0.74
+2023-02-21 02:56:32.572:   [CONFIG] Start key: "Ambit test image version:V"
+2023-02-21 02:56:32.572:   [CONFIG] End key: ""
+2023-02-21 02:56:32.573:   [CONFIG] Regex: "null"
+2023-02-21 02:56:32.573:   [PC] Value: "1.3.0.74"
+2023-02-21 02:56:32.574:   ****************************************************
+2023-02-21 02:56:32.575:   Item name = test_image_version
+2023-02-21 02:56:32.576:   Value = 1.3.0.74
+2023-02-21 02:56:32.576:   Test status = passed
+2023-02-21 02:56:32.576:   -----------------------------------------------------
+2023-02-21 02:56:32.576:   ****************************************************
+2023-02-21 02:56:32.576:   TIME[0.608 s] - STATUS[PASSED]
