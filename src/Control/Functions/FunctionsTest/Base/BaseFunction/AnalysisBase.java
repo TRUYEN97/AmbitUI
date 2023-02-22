@@ -50,8 +50,11 @@ public class AnalysisBase extends AbsFunction {
         String name = readable.getClass().getSimpleName();
         String value = null;
         try {
-            while ((line = time == null ? readable.readLine() : readable.readLine(time)) != null) {
-                addLog(name, line == null ? "null" : line);
+            if (time != null) {
+                time.update();
+            }
+            while ((line = getLine(time, readable)) != null) {
+                addLog(name, line);
                 if (regex != null && !regex.isBlank()) {
                     value = findGroup(line, regex);
                 } else {
@@ -61,22 +64,32 @@ public class AnalysisBase extends AbsFunction {
                     break;
                 }
             }
+            if (line == null) {
+                addLog("PC", " null - %s S", time == null ? "null": time.getTime());
+            }
             return value;
         } finally {
             addLog("CONFIG", "Start key: \"%s\"", startkey);
             addLog("CONFIG", "End key: \"%s\"", endkey);
             addLog("CONFIG", "Regex: \"%s\"", regex);
+            addLog("CONFIG", "Time: \"%.3f/%.3f (S)\"", time != null ? time.getTime(): null, time != null ? time.getSpec() : null);
             addLog("PC", "Value: \"%s\"", value);
         }
 
     }
 
+    private static String getLine(AbsTime time, IReadable readable) {
+        return time == null ? readable.readLine() : readable.readLine(time);
+    }
+
     public boolean isResponseContainKey(IReadable readable, List<String> keyWords, TimeS timeS) {
         addLog("Config", String.format("keyWords: %s", keyWords));
         String line;
+        String name = readable.getClass().getSimpleName();
+        timeS.update();
         while (timeS.onTime()) {
             line = readable.readLine(timeS);
-            addLog(readable.getClass().getSimpleName(), line);
+            addLog(name, line);
             if (line != null && keyWords.contains(line.trim())) {
                 return true;
             }

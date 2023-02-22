@@ -64,7 +64,7 @@ public class TempCPUJupiter extends AbsFunction {
         List<String> startKeys = this.config.getJsonList("Startkeys");
         List<String> endKeys = this.config.getJsonList("Endkeys");
         List<String> Regexs = this.config.getJsonList("Regexs");
-        int time = config.getInteger("Time", 1);
+        int time = config.getInteger("Time", 10);
         int length = Integer.max(startKeys.size(), endKeys.size());
         if (!this.functionBase.sendCommand(telnet, commands)) {
             return null;

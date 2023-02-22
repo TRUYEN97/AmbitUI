@@ -44,7 +44,7 @@ public class CheckCommandTelnet extends AbsFunction {
             String startkey = config.getString("Startkey");
             String endkey = config.getString("Endkey");
             String regex = config.getString("Regex");
-            int time = config.getInteger("Time", 1);
+            int time = config.getInteger("Time", 10);
             String value = this.analysisBase.getValue(telnet, startkey, endkey, regex, new TimeS(time));
             if (value == null) {
                 return false;

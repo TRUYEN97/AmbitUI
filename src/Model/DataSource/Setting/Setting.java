@@ -4,6 +4,7 @@ import Model.AllKeyWord;
 import Model.DataSource.AbsJsonSource;
 import Model.Interface.IInit;
 import Model.DataSource.DataWareHouse;
+import Model.DataSource.dhcp.DhcpConfig;
 import com.alibaba.fastjson.JSONObject;
 import java.awt.Color;
 import static java.util.Objects.isNull;
@@ -19,9 +20,11 @@ import static java.util.Objects.isNull;
 public class Setting extends AbsJsonSource<String, ModeElement> implements IInit {
 
     private static volatile Setting instaince;
+    private final DhcpConfig dhcpConfig;
 
     private Setting() {
         super();
+        this.dhcpConfig = new DhcpConfig();
     }
 
     public static Setting getInstance() {
@@ -47,11 +50,15 @@ public class Setting extends AbsJsonSource<String, ModeElement> implements IInit
                 this.elements.add(info);
             }
         }
+        JSONObject dhcpJsonConfig = wareHouse.getJson("dhcp");
+        if (dhcpJsonConfig != null) {
+            this.dhcpConfig.setData(dhcpJsonConfig);
+        }
         return !this.elements.isEmpty();
     }
 
-    public String getDhcpNetIP() {
-        return this.readFile.getData().getString(AllKeyWord.DHCP);
+    public DhcpConfig getDhcpConfig() {
+        return dhcpConfig;
     }
 
     public String getProgress() {
@@ -79,12 +86,6 @@ public class Setting extends AbsJsonSource<String, ModeElement> implements IInit
 
     public String getLimitPath() {
         return this.readFile.getData().getString(AllKeyWord.LIMIT_PATH);
-    }
-
-    public boolean isOnDHCP() {
-        boolean isOnDhcp = this.readFile.getData().getBoolean(AllKeyWord.IS_DHCP_ON, false);
-        String netIp = getDhcpNetIP();
-        return netIp != null && isOnDhcp;
     }
 
     public String getUutMolel() {

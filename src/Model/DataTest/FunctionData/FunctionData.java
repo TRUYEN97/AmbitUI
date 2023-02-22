@@ -224,4 +224,12 @@ public class FunctionData {
     public ItemTestData getItemData(String itemName) {
         return this.itemTests.get(itemName);
     }
+
+    public boolean isWaiting() {
+        return thisItem.isWait();
+    }
+
+    public boolean isDone() {
+        return thisItem.isDone();
+    }
 }

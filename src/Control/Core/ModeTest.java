@@ -35,7 +35,7 @@ public class ModeTest implements IInit, IUpdate {
     public String getModeName() {
         return this.testSource.getModeName();
     }
-    
+
     public String getModeType() {
         return this.testSource.getModeType();
     }
@@ -66,18 +66,18 @@ public class ModeTest implements IInit, IUpdate {
 
     @Override
     public boolean update() {
-        return this.testSource.updateFunctionsConfig() 
-                && this.testSource.updateLimitsConfig() && this.testSource.updateDhcp();
+        return this.testSource.updateFunctionsConfig()
+                && this.testSource.updateLimitsConfig();
     }
 
     public boolean canDebug() {
         return testSource.canDebug();
     }
 
-    public boolean isOnDHCP() {
-        return testSource.isOnDHCP();
+    public boolean isUseDHCP() {
+        return testSource.isUseDHCP();
     }
-    
+
     public Color getTestColor() {
         return testSource.getTestColor();
     }

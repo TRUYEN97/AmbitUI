@@ -78,6 +78,7 @@ public class Core {
                 drawBoardUI.Draw();
             }
             this.view.setPnName(this.currMode.getModeConfig().getPnName());
+            DhcpRunner.getInstance().setUseDHCP(this.currMode.isUseDHCP());
             return uIManager.update();
         }
         return false;

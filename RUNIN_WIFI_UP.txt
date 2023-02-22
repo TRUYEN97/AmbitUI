@@ -1,0 +1,2 @@
+wifi detect > /etc/config/wireless
+

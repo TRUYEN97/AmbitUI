@@ -45,9 +45,7 @@ class Process implements IFunction {
         this.factory = Factory.getInstance();
         this.uiStatus = uiStatus;
         this.pool = Executors.newCachedThreadPool();
-        this.pass = false;
-        this.stop = false;
-        this.test = false;
+        defaultValue();
     }
 
     public Process() {
@@ -61,7 +59,7 @@ class Process implements IFunction {
     public void setLocalDebug(boolean localdebug) {
         this.localdebug = localdebug;
     }
-    
+
     public void setListFunc(List<FunctionName> functions) {
         this.functions.clear();
         this.functions.addAll(functions);
@@ -74,13 +72,10 @@ class Process implements IFunction {
                         parameters));
     }
 
-   @Override
+    @Override
     public void run() {
         try {
-            this.justFunctionAlwayRun = false;
-            this.test = true;
-            this.pass = true;
-            this.stop = false;
+            defaultValue();
             if (functions.isEmpty()) {
                 return;
             }
@@ -90,12 +85,13 @@ class Process implements IFunction {
                 if (this.stop) {
                     break;
                 }
-                if (justFunctionAlwayRun && !isAlwaysRun(functionName) && !localdebug) {
+                boolean isAlwayrunFunction = isAlwaysRun(functionName);
+                if ((hasTaskFailed() || justFunctionAlwayRun) && !isAlwayrunFunction && !localdebug) {
                     continue;
                 }
                 funcCover = createFuncCover(functionName);
-                if (funcCover.isWaitUntilMultiDone()) {
-                    waitUntilMultiTaskDone();
+                if (funcCover.isWaitUntilMultiDone() && !isAllMultiTaskDoneOK() && !isAlwayrunFunction && !localdebug) {
+                    continue;
                 }
                 future = this.pool.submit(funcCover);
                 multiTasking.put(future, funcCover);
@@ -103,27 +99,32 @@ class Process implements IFunction {
                     continue;
                 }
                 future.get();
-                if (hasTaskFailed()) {
-                    justFunctionAlwayRun = true;
-                }
             }
         } catch (Exception ex) {
             ex.printStackTrace();
             ErrorLog.addError(this, ex.getMessage());
             this.pass = false;
         } finally {
-            waitUntilMultiTaskDone();
+            isAllMultiTaskDoneOK();
             this.functions.clear();
             this.test = false;
         }
     }
 
-    private void waitUntilMultiTaskDone() {
+    private void defaultValue() {
+        this.justFunctionAlwayRun = false;
+        this.test = true;
+        this.pass = true;
+        this.stop = false;
+    }
+
+    private boolean isAllMultiTaskDoneOK() {
         while (!multiTasking.isEmpty()) {
             if (hasTaskFailed()) {
-                justFunctionAlwayRun = true;
+                return false;
             }
         }
+        return true;
     }
 
     void stop(String mess) {
@@ -147,7 +148,11 @@ class Process implements IFunction {
                     cover = multiTasking.get(future);
                     if (!cover.isPass()) {
                         this.pass = false;
-                        return !cover.isSkipFail();
+                        if (cover.isSkipFail()) {
+                            return false;
+                        } else {
+                            return justFunctionAlwayRun = true;
+                        }
                     }
                 }
             }

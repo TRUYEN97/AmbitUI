@@ -32,7 +32,7 @@ public class ItemTestData {
     private double testTime;
     private final List<String> keys;
     private final MyLoger loger;
-    private boolean testing;
+    private int status;
 
     public ItemTestData(FuncAllConfig allConfig, MyLoger loger, IgetTime timer) {
         this.allConfig = allConfig;
@@ -70,7 +70,7 @@ public class ItemTestData {
 
     public void start() {
         this.startTime = this.timer.getRuntime();
-        this.testing = true;
+        this.status = 1;
         for (String key : keys) {
             this.data.put(key, allConfig.getString(key));
         }
@@ -108,7 +108,7 @@ public class ItemTestData {
         this.addLog("****************************************************");
         this.data.put(AllKeyWord.CYCLE_TIME, String.format("%.3f", testTime = getRunTime()));
         this.data.put(AllKeyWord.FINISH_TIME, new TimeBase(TimeBase.UTC).getSimpleDateTime());
-        this.testing = false;
+        this.status = 2;
     }
 
     private void addLog(String str) {
@@ -165,7 +165,11 @@ public class ItemTestData {
     }
 
     public boolean isTest() {
-        return testing;
+        return status == 1;
+    }
+    
+    public boolean isWait() {
+        return status == 0;
     }
 
     public double getRunTime() {
@@ -221,5 +225,9 @@ public class ItemTestData {
 
     public String getLocalErrorDes() {
         return this.data.getString(AllKeyWord.SFIS.ERRORDES);
+    }
+
+    boolean isDone() {
+        return status == 2;
     }
 }

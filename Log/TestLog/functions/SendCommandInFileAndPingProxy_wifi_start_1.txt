@@ -1,0 +1,91 @@
+2023-02-22 04:29:33.293:   ITEM[wifi_start_1] - FUNCTION[SendCommandInFileAndPingProxy]
+2023-02-22 04:29:33.293:   Turn: 1
+2023-02-22 04:29:33.294:   [CONFIG] file name: RUNIN_WIFI_UP.txt
+2023-02-22 04:29:33.294:   [PC] Get IP from the DHCP with MAC is "D4:3F:32:F4:D5:40"
+2023-02-22 04:29:33.294:   [Setting] MAC length = 16
+2023-02-22 04:29:33.294:   [PC] ReadUntil: root@eero-test:/#
+2023-02-22 04:29:33.294:   [PC] Connect to ip: 172.168.0.0
+2023-02-22 04:29:33.295:   [PC] Port is: 23
+2023-02-22 04:29:33.295:   [PC] Ping to IP: 172.168.0.0 - 120 S
+2023-02-22 04:29:33.295:   [Cmd] ------------------------------------ 1
+2023-02-22 04:29:33.295:   [Cmd] Send command: arp -d 172.168.0.0
+2023-02-22 04:29:33.329:   [Cmd] 
+2023-02-22 04:29:33.330:   [Cmd] Send command: ping 172.168.0.0 -n 1
+2023-02-22 04:29:33.363:   [Cmd] Pinging 172.168.0.0 with 32 bytes of data:
+2023-02-22 04:29:33.363:   [Cmd] Reply from 172.168.0.0: bytes=32 time<1ms TTL=64
+2023-02-22 04:29:33.363:   [Cmd] 
+2023-02-22 04:29:33.363:   [Cmd] Ping statistics for 172.168.0.0:
+2023-02-22 04:29:33.363:   [Cmd] Packets: Sent = 1, Received = 1, Lost = 0 (0% loss),
+2023-02-22 04:29:33.364:   [Cmd] Approximate round trip times in milli-seconds:
+2023-02-22 04:29:33.364:   [Cmd] Minimum = 0ms, Maximum = 0ms, Average = 0ms
+2023-02-22 04:29:33.364:   [Cmd] ------------------------------------
+2023-02-22 04:29:33.364:   [PC] ping time: 0.069 S
+2023-02-22 04:29:33.479:   [Telnet] === IMPORTANT ============================
+2023-02-22 04:29:33.479:   [Telnet] Use 'passwd' to set your login password!
+2023-02-22 04:29:33.479:   [Telnet] ------------------------------------------
+2023-02-22 04:29:33.479:   [Telnet] 
+2023-02-22 04:29:33.480:   [Telnet] 
+2023-02-22 04:29:33.480:   [Telnet] BusyBox v1.30.1 () built-in shell (ash)
+2023-02-22 04:29:33.480:   [Telnet] 
+2023-02-22 04:29:33.480:   [Telnet] MM           NM                    MMMMMMM          M       M
+2023-02-22 04:29:33.480:   [Telnet] $MMMMM        MMMMM                MMMMMMMMMMM      MMM     MMM
+2023-02-22 04:29:33.480:   [Telnet] MMMMMMMM     MM MMMMM.              MMMMM:MMMMMM:   MMMM   MMMMM
+2023-02-22 04:29:33.480:   [Telnet] MMMM= MMMMMM  MMM   MMMM       MMMMM   MMMM  MMMMMM   MMMM  MMMMM'
+2023-02-22 04:29:33.480:   [Telnet] MMMM=  MMMMM MMMM    MM       MMMMM    MMMM    MMMM   MMMMNMMMMM
+2023-02-22 04:29:33.480:   [Telnet] MMMM=   MMMM  MMMMM          MMMMM     MMMM    MMMM   MMMMMMMM
+2023-02-22 04:29:33.480:   [Telnet] MMMM=   MMMM   MMMMMM       MMMMM      MMMM    MMMM   MMMMMMMMM
+2023-02-22 04:29:33.480:   [Telnet] MMMM=   MMMM     MMMMM,    NMMMMMMMM   MMMM    MMMM   MMMMMMMMMMM
+2023-02-22 04:29:33.480:   [Telnet] MMMM=   MMMM      MMMMMM   MMMMMMMM    MMMM    MMMM   MMMM  MMMMMM
+2023-02-22 04:29:33.480:   [Telnet] MMMM=   MMMM   MM    MMMM    MMMM      MMMM    MMMM   MMMM    MMMM
+2023-02-22 04:29:33.480:   [Telnet] MMMM$ ,MMMMM  MMMMM  MMMM    MMM       MMMM   MMMMM   MMMM    MMMM
+2023-02-22 04:29:33.481:   [Telnet] MMMMMMM:      MMMMMMM     M         MMMMMMMMMMMM  MMMMMMM MMMMMMM
+2023-02-22 04:29:33.481:   [Telnet] MMMMMM       MMMMN     M           MMMMMMMMM      MMMM    MMMM
+2023-02-22 04:29:33.481:   [Telnet] MMMM          M                    MMMMMMM        M       M
+2023-02-22 04:29:33.481:   [Telnet] M
+2023-02-22 04:29:33.481:   [Telnet] ---------------------------------------------------------------
+2023-02-22 04:29:33.481:   [Telnet] For those about to rock... (Chaos Calmer, unknown)
+2023-02-22 04:29:33.481:   [Telnet] ---------------------------------------------------------------
+2023-02-22 04:29:33.481:   [Telnet] root@eero-test:/#
+2023-02-22 04:29:33.588:   [Telnet] root@eero-test:/#
+2023-02-22 04:29:33.591:   [Telnet] Send command: wifi detect > /etc/config/wireless
+2023-02-22 04:29:33.592:   [Config] Time: 100.0
+2023-02-22 04:29:33.592:   [Config] ReadUntil: root@eero-test:/#
+2023-02-22 04:29:33.695:   [Telnet] wifi detect > /etc/config/wireless
+2023-02-22 04:29:33.912:   [Telnet] qcawifi: Detect failed
+2023-02-22 04:29:59.775:   [Telnet] Interface doesn't accept private ioctl...
+2023-02-22 04:29:59.884:   [Telnet] wifi_down_ind (8BE0): Operation not permitted
+2023-02-22 04:29:59.885:   [Telnet] Interface doesn't accept private ioctl...
+2023-02-22 04:29:59.886:   [Telnet] wifi_down_ind (8BE0): Operation not permitted
+2023-02-22 04:29:59.886:   [Telnet] Interface doesn't accept private ioctl...
+2023-02-22 04:29:59.887:   [Telnet] wifi_down_ind (8BE0): Operation not permitted
+2023-02-22 04:30:03.000:   [Telnet] killall: cfr_test_app: no process killed
+2023-02-22 04:30:21.967:   [Telnet] root@eero-test:/#
+2023-02-22 04:30:21.968:   [Telnet] Send command:
+2023-02-22 04:30:21.969:   [Config] Time: 100.0
+2023-02-22 04:30:21.969:   [Config] ReadUntil: root@eero-test:/#
+2023-02-22 04:30:22.077:  [Telnet] null
+2023-02-22 04:30:22.077:   [Telnet] root@eero-test:/#
+2023-02-22 04:30:22.077:   [PC] Get IP from the DHCP with MAC is "D4:3F:32:F4:D5:40"
+2023-02-22 04:30:22.077:   [Setting] MAC length = 16
+2023-02-22 04:30:22.077:   IP: 172.168.0.0
+2023-02-22 04:30:22.077:   [PC] Ping to IP: 172.168.0.0 - 200 S
+2023-02-22 04:30:22.078:   [Cmd] ------------------------------------ 1
+2023-02-22 04:30:22.078:   [Cmd] Send command: arp -d 172.168.0.0
+2023-02-22 04:30:22.114:   [Cmd] 
+2023-02-22 04:30:22.114:   [Cmd] Send command: ping 172.168.0.0 -n 1
+2023-02-22 04:30:22.147:   [Cmd] Pinging 172.168.0.0 with 32 bytes of data:
+2023-02-22 04:30:22.147:   [Cmd] Reply from 172.168.0.0: bytes=32 time<1ms TTL=64
+2023-02-22 04:30:22.147:   [Cmd] 
+2023-02-22 04:30:22.147:   [Cmd] Ping statistics for 172.168.0.0:
+2023-02-22 04:30:22.148:   [Cmd] Packets: Sent = 1, Received = 1, Lost = 0 (0% loss),
+2023-02-22 04:30:22.148:   [Cmd] Approximate round trip times in milli-seconds:
+2023-02-22 04:30:22.148:   [Cmd] Minimum = 0ms, Maximum = 0ms, Average = 0ms
+2023-02-22 04:30:22.148:   [Cmd] ------------------------------------
+2023-02-22 04:30:22.148:   [PC] ping time: 0.070 S
+2023-02-22 04:30:22.148:   ****************************************************
+2023-02-22 04:30:22.148:   Item name = wifi_start_1
+2023-02-22 04:30:22.148:   Value = passed
+2023-02-22 04:30:22.149:   Test status = passed
+2023-02-22 04:30:22.149:   -----------------------------------------------------
+2023-02-22 04:30:22.149:   ****************************************************
+2023-02-22 04:30:22.149:   TIME[48.856 s] - STATUS[PASSED]

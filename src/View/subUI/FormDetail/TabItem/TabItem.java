@@ -244,6 +244,8 @@ public class TabItem extends AbsTabUI {
     private String getStatus(FunctionData functionData) {
         if (functionData.isTesting()) {
             return "Testing";
+        } else if (functionData.isWaiting()) {
+            return "Waiting";
         }
         return functionData.getStatusTest();
     }
@@ -260,12 +262,13 @@ public class TabItem extends AbsTabUI {
             return;
         }
         try {
+            FunctionData dataBox;
             List<FunctionData> dataBoxs = this.uiStatus.getProcessData().getDataBoxs();
-            for (FunctionData dataBox : dataBoxs) {
-                int row = dataBoxs.indexOf(dataBox);
+            for (int row = 0; row < dataBoxs.size(); row++) {
                 if (isHasFinish(row)) {
                     continue;
                 }
+                dataBox = dataBoxs.get(row);
                 if (row > this.tableModel.getRowCount() - 1) {
                     this.tableModel.addRow(new Object[]{this.tableModel.getRowCount()});
                     this.itemFinish.add(false);
@@ -273,7 +276,7 @@ public class TabItem extends AbsTabUI {
                 } else {
                     showDataTest(dataBox, row);
                 }
-                if (!dataBox.isTesting()) {
+                if (dataBox.isDone() ) {
                     this.itemFinish.set(row, true);
                 }
             }

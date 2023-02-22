@@ -8,6 +8,7 @@ import Control.CheckInput;
 import Model.DataSource.ProgramInformation;
 import Model.DataSource.Setting.Setting;
 import Model.DataSource.Setting.ModeElement;
+import Model.DataSource.dhcp.DhcpConfig;
 import View.UIView;
 import java.util.ArrayList;
 import java.util.List;
@@ -77,16 +78,20 @@ public class Engine {
     }
 
     private void initDHCP() {
-        String netIP;
-        if ((netIP = this.setting.getDhcpNetIP()) == null) {
+        DhcpConfig dhcpConfig = this.setting.getDhcpConfig();
+        if (dhcpConfig == null || !dhcpConfig.isOnDHCP()) {
             return;
         }
+        this.dhcpRunner.setDhcpLabel(this.view.getDhcpLabel());
         this.dhcpRunner.setTextArea(this.view.getTextMess());
-        DhcpRunner.getInstance().run(netIP);
+        this.dhcpRunner.run(
+                dhcpConfig.getNetIP(),
+                dhcpConfig.getleaseTime(),
+                dhcpConfig.getMacLength());
     }
 
     private boolean initProgramInfo() {
-        this.programInfo.setVersion("V1.1.10.4");
+        this.programInfo.setVersion("V1.2.0.0");
         String uutmodel = this.setting.getUutMolel();
         if (uutmodel == null || uutmodel.isBlank()) {
             JOptionPane.showMessageDialog(null, "Not set UUT model!");

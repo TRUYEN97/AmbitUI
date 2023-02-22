@@ -95,10 +95,12 @@ public class ModeElement extends AbsElementInfo {
         return this.warehouse.getString(AllKeyWord.LIMIT_PATH);
     }
 
-    public boolean isOnDHCP() {
-        boolean isOnDHCP = this.warehouse.getBoolean(AllKeyWord.IS_DHCP_ON, false);
-        String netIP = getDhcpNetIP();
-        return netIP != null && isOnDHCP;
+    public boolean isUseDHCP() {
+        return this.warehouse.getBoolean("use_dhcp", false) && DhcpRunner.getInstance().isRuning();
+    }
+    
+    public String getStationType() {
+       return this.warehouse.getString(AllKeyWord.STATION_TYPE);
     }
 
     public Color getTestColor() {
@@ -108,23 +110,10 @@ public class ModeElement extends AbsElementInfo {
         }
         try {
             color = color.trim();
-            return new Color(Integer.parseInt(color,16));
+            return new Color(Integer.parseInt(color, 16));
         } catch (Exception e) {
             e.printStackTrace();
             return Color.yellow;
         }
-    }
-
-    public String getDhcpNetIP() {
-        return this.warehouse.getString(AllKeyWord.DHCP);
-    }
-
-    public boolean updateDhcp() {
-        return DhcpRunner.getInstance().setMacLength(
-                this.warehouse.getInteger(AllKeyWord.MAC_LENGTH, 17));
-    }
-
-    public String getStationType() {
-       return this.warehouse.getString(AllKeyWord.STATION_TYPE);
     }
 }

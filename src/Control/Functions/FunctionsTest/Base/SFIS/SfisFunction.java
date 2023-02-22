@@ -126,7 +126,7 @@ public class SfisFunction extends AbsFunction {
             if (!getDataToProductInfo(data)) {
                 return false;
             }
-            if (Setting.getInstance().isOnDHCP() && !putMacDHCP()) {
+            if (this.modeTest.isUseDHCP() && !putMacDHCP()) {
                 addLog("Get MAC from SFIS for DHCP failed!");
                 return false;
             }

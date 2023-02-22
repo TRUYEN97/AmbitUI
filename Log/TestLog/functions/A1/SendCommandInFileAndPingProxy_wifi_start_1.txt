@@ -1,0 +1,53 @@
+2023-02-22 09:57:16.278:   ITEM[wifi_start_1] - FUNCTION[SendCommandInFileAndPingProxy]
+2023-02-22 09:57:16.278:   Turn: 1
+2023-02-22 09:57:16.279:   [CONFIG] file name: RUNIN_WIFI_UP.txt
+2023-02-22 09:57:16.279:   [PC] Get IP from the DHCP with MAC is "D4:3F:32:F4:D5:40"
+2023-02-22 09:57:16.279:   [Setting] MAC length = 17
+2023-02-22 09:57:16.279:   [PC] ReadUntil: root@eero-test:/#
+2023-02-22 09:57:16.280:   [PC] Connect to ip: 172.168.0.0
+2023-02-22 09:57:16.280:   [PC] Port is: 23
+2023-02-22 09:57:16.280:   [PC] Ping to IP: 172.168.0.0 - 120 S
+2023-02-22 09:57:16.280:   [Cmd] ------------------------------------ 1
+2023-02-22 09:57:16.280:   [Cmd] Send command: arp -d 172.168.0.0
+2023-02-22 09:57:16.316:   [Cmd] 
+2023-02-22 09:57:16.317:   [Cmd] Send command: ping 172.168.0.0 -n 1
+2023-02-22 09:57:16.347:   [Cmd] Pinging 172.168.0.0 with 32 bytes of data:
+2023-02-22 09:57:16.348:   [Cmd] Reply from 172.168.0.0: bytes=32 time<1ms TTL=64
+2023-02-22 09:57:16.348:   [Cmd] 
+2023-02-22 09:57:16.348:   [Cmd] Ping statistics for 172.168.0.0:
+2023-02-22 09:57:16.348:   [Cmd] Packets: Sent = 1, Received = 1, Lost = 0 (0% loss),
+2023-02-22 09:57:16.348:   [Cmd] Approximate round trip times in milli-seconds:
+2023-02-22 09:57:16.348:   [Cmd] Minimum = 0ms, Maximum = 0ms, Average = 0ms
+2023-02-22 09:57:16.348:   [Cmd] ------------------------------------
+2023-02-22 09:57:16.348:   [PC] ping time: 0.068 S
+2023-02-22 09:57:16.439:   [Telnet] === IMPORTANT ============================
+2023-02-22 09:57:16.439:   [Telnet] Use 'passwd' to set your login password!
+2023-02-22 09:57:16.439:   [Telnet] ------------------------------------------
+2023-02-22 09:57:16.440:   [Telnet] 
+2023-02-22 09:57:16.440:   [Telnet] 
+2023-02-22 09:57:16.440:   [Telnet] BusyBox v1.30.1 () built-in shell (ash)
+2023-02-22 09:57:16.440:   [Telnet] 
+2023-02-22 09:57:16.440:   [Telnet] MM           NM                    MMMMMMM          M       M
+2023-02-22 09:57:16.440:   [Telnet] $MMMMM        MMMMM                MMMMMMMMMMM      MMM     MMM
+2023-02-22 09:57:16.440:   [Telnet] MMMMMMMM     MM MMMMM.              MMMMM:MMMMMM:   MMMM   MMMMM
+2023-02-22 09:57:16.440:   [Telnet] MMMM= MMMMMM  MMM   MMMM       MMMMM   MMMM  MMMMMM   MMMM  MMMMM'
+2023-02-22 09:57:16.440:   [Telnet] MMMM=  MMMMM MMMM    MM       MMMMM    MMMM    MMMM   MMMMNMMMMM
+2023-02-22 09:57:16.440:   [Telnet] MMMM=   MMMM  MMMMM          MMMMM     MMMM    MMMM   MMMMMMMM
+2023-02-22 09:57:16.440:   [Telnet] MMMM=   MMMM   MMMMMM       MMMMM      MMMM    MMMM   MMMMMMMMM
+2023-02-22 09:57:16.440:   [Telnet] MMMM=   MMMM     MMMMM,    NMMMMMMMM   MMMM    MMMM   MMMMMMMMMMM
+2023-02-22 09:57:16.440:   [Telnet] MMMM=   MMMM      MMMMMM   MMMMMMMM    MMMM    MMMM   MMMM  MMMMMM
+2023-02-22 09:57:16.441:   [Telnet] MMMM=   MMMM   MM    MMMM    MMMM      MMMM    MMMM   MMMM    MMMM
+2023-02-22 09:57:16.441:   [Telnet] MMMM$ ,MMMMM  MMMMM  MMMM    MMM       MMMM   MMMMM   MMMM    MMMM
+2023-02-22 09:57:16.441:   [Telnet] MMMMMMM:      MMMMMMM     M         MMMMMMMMMMMM  MMMMMMM MMMMMMM
+2023-02-22 09:57:16.441:   [Telnet] MMMMMM       MMMMN     M           MMMMMMMMM      MMMM    MMMM
+2023-02-22 09:57:16.441:   [Telnet] MMMM          M                    MMMMMMM        M       M
+2023-02-22 09:57:16.441:   [Telnet] M
+2023-02-22 09:57:16.441:   [Telnet] ---------------------------------------------------------------
+2023-02-22 09:57:16.441:   [Telnet] For those about to rock... (Chaos Calmer, unknown)
+2023-02-22 09:57:16.441:   [Telnet] ---------------------------------------------------------------
+2023-02-22 09:57:16.441:   [Telnet] root@eero-test:/#
+2023-02-22 09:57:16.442:   [Telnet] Send command: wifi detect > /etc/config/wireless
+2023-02-22 09:57:16.443:   [Config] Time: 100.0
+2023-02-22 09:57:16.443:   [Config] ReadUntil: root@eero-test:/#
+2023-02-22 09:57:16.444:   [Telnet] wifi detect > /etc/config/wireless
+2023-02-22 09:57:16.614:   [Telnet] qcawifi: Detect failed

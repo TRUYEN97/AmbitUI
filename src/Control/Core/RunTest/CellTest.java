@@ -25,6 +25,7 @@ public class CellTest {
     private final ExecutorService pool;
     private Future future;
     private final UiInformartion informartion;
+    private Thread threadStop;
 
     public CellTest(UiStatus uiStatus, TestTimer testTimer) {
         this.uiStatus = uiStatus;
@@ -67,7 +68,6 @@ public class CellTest {
         this.runner.setMode("debug");
         this.future = this.pool.submit(runner);
     }
- 
 
     public void testDebugItem() {
         if (isTesting()) {
@@ -86,10 +86,16 @@ public class CellTest {
     }
 
     public void stopTest() {
-        if (!isTesting()) {
+        if (!isTesting() || (this.threadStop != null && this.threadStop.isAlive())) {
             return;
         }
-        runner.stopTest("STOP TEST");
-        this.future.cancel(true);
+        this.threadStop = new Thread() {
+            @Override
+            public void run() {
+                runner.stopTest("STOP TEST");
+                future.cancel(true);
+            }
+        };
+        this.threadStop.start();
     }
 }

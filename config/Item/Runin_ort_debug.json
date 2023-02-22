@@ -3,7 +3,7 @@
     "time_out_test": 350000,
     "init": [
         {
-            "flag": true,
+            "flag": false,
             "multi": false,
             "always_run": false,
             "time_out": 100,
@@ -24,7 +24,7 @@
         },
         {
             "flag": true,
-            "multi": false,
+            "multi": true,
             "always_run": false,
             "time_out": 1,
             "test_name": "mac",
@@ -34,7 +34,7 @@
             "flag": false,
             "time_out": 30,
             "debug_able": true,
-            "multi": false,
+            "multi": true,
             "host": "192.168.1.10",
             "user": "admin",
             "password": "1234",
@@ -69,15 +69,15 @@
         {
             "flag": true,
             "time_out": 10,
-            "multi": false,
+            "multi": true,
             "debug_able": true,
             "always_run": false,
             "IP": "192.168.1.1",
             "ReadUntil": "root@eero-test:/#",
-            "command": "fw_printenv  serial",
-            "Startkey": "serial=",
+            "command": "fw_printenv serial",
+            "Startkey": "serial1=",
             "Endkey": "",
-            "Time": 1,
+            "Time": 10,
             "compare": "mlbsn",
             "test_name": "sn_ok",
             "func_name": "CheckDutInfoProxy"
@@ -87,10 +87,11 @@
             "time_out": 10,
             "multi": false,
             "debug_able": true,
-            "always_run": false,
+            "always_run": true,
             "IP": "192.168.1.1",
+            "wait_multi_done": true,
             "ReadUntil": "root@eero-test:/#",
-            "command": "fw_printenv  mac",
+            "command": "fw_printenv mac",
             "Startkey": "mac=",
             "Endkey": "",
             "Time": 1,
@@ -101,9 +102,9 @@
         {
             "flag": true,
             "time_out": 10,
-            "multi": false,
+            "multi": true,
             "debug_able": true,
-            "always_run": false,
+            "always_run": true,
             "IP": "192.168.1.1",
             "command": "fwversion",
             "ReadUntil": "root@eero-test:/#",
@@ -115,7 +116,7 @@
         {
             "flag": true,
             "time_out": 10,
-            "multi": false,
+            "multi": true,
             "debug_able": true,
             "always_run": false,
             "ReadUntil": "root@eero-test:/#",
@@ -126,9 +127,9 @@
             "func_name": "CheckCommandTelnetProxy"
         },
         {
-            "flag": true,
+            "flag": false,
             "time_out": 50,
-            "multi": false,
+            "multi": true,
             "debug_able": true,
             "always_run": false,
             "ReadUntil": "root@eero-test:/#",
@@ -141,7 +142,7 @@
             "func_name": "CheckCommandCmdProxy"
         },
         {
-            "flag": true,
+            "flag": false,
             "time_out": 50,
             "multi": false,
             "debug_able": true,
@@ -156,7 +157,7 @@
             "func_name": "CheckCommandCmdProxy"
         },
         {
-            "flag": true,
+            "flag": false,
             "time_out": 900,
             "retry": 3,
             "debug_able": true,
@@ -176,7 +177,7 @@
             "loop_times": 70,
             "functions": [
                 {
-                    "flag": true,
+                    "flag": false,
                     "time_out": 1200,
                     "multi": false,
                     "debug_able": true,
@@ -283,7 +284,7 @@
                     "func_name": "CheckCommandTelnetProxy"
                 },
                 {
-                    "flag": true,
+                    "flag": false,
                     "time_out": 50,
                     "multi": false,
                     "debug_able": true,
@@ -298,7 +299,7 @@
                     "func_name": "CheckCommandCmdProxy"
                 },
                 {
-                    "flag": true,
+                    "flag": false,
                     "time_out": 50,
                     "multi": false,
                     "debug_able": true,

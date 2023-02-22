@@ -37,7 +37,7 @@ public class GoldenFile extends AbsFunction {
         if (!findSNInGoldenFile(goldenFile, snInput)) {
             return false;
         }
-        if (Setting.getInstance().isOnDHCP()) {
+        if (this.modeTest.isUseDHCP()) {
             if (!putMacDHCP()) {
                 addLog("PC","insert mac into DHCP failded!");
                 return false;

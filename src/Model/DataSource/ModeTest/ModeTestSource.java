@@ -5,7 +5,6 @@
 package Model.DataSource.ModeTest;
 
 import Control.Core.DhcpRunner;
-import FileTool.FileService;
 import Model.DataSource.ModeTest.ErrorCode.ErrorCodeSource;
 import Model.DataSource.ModeTest.FunctionConfig.AmbitConfig;
 import Model.DataSource.ModeTest.FunctionConfig.FunctionConfig;
@@ -181,16 +180,12 @@ public class ModeTestSource {
         return modeConfig.getLoopTest();
     }
 
-    public boolean isOnDHCP() {
-        return modeConfig.isOnDHCP();
+    public boolean isUseDHCP() {
+        return modeConfig.isUseDHCP();
     }
 
     public Color getTestColor() {
         return modeConfig.getTestColor();
-    }
-
-    public boolean updateDhcp() {
-        return modeConfig.updateDhcp();
     }
 
     public String getStationType() {

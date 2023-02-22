@@ -1,54 +1,56 @@
-2023-02-21 02:56:30.405:   ITEM[dut_telnet] - FUNCTION[DutTelnetProxy]
-2023-02-21 02:56:30.405:   Turn: 1
-2023-02-21 02:56:30.405:   [PC] Get IP from the DHCP with MAC is "D4:3F:32:EB:AA:A0"
-2023-02-21 02:56:30.405:   [Setting] MAC length = 16
-2023-02-21 02:56:30.406:   IP: 172.168.0.0
-2023-02-21 02:56:30.408:   [PC] ReadUntil: root@eero-test:/#
-2023-02-21 02:56:30.408:   [PC] Connect to ip: 172.168.0.0
-2023-02-21 02:56:30.408:   [PC] Port is: 23
-2023-02-21 02:56:30.408:   [PC] Ping to IP: 172.168.0.0 - 120 S
-2023-02-21 02:56:30.408:   [Cmd] ------------------------------------ 1
-2023-02-21 02:56:30.409:   [Cmd] insert command: ping 172.168.0.0 -n 1
-2023-02-21 02:56:30.440:   [Cmd] Pinging 172.168.0.0 with 32 bytes of data:
-2023-02-21 02:56:30.440:   [Cmd] Reply from 172.168.0.0: bytes=32 time<1ms TTL=64
-2023-02-21 02:56:30.440:   [Cmd] 
-2023-02-21 02:56:30.440:   [Cmd] Ping statistics for 172.168.0.0:
-2023-02-21 02:56:30.441:   [Cmd] Packets: Sent = 1, Received = 1, Lost = 0 (0% loss),
-2023-02-21 02:56:30.441:   [Cmd] Approximate round trip times in milli-seconds:
-2023-02-21 02:56:30.441:   [Cmd] Minimum = 0ms, Maximum = 0ms, Average = 0ms
-2023-02-21 02:56:30.441:   [Cmd] ------------------------------------
-2023-02-21 02:56:30.441:   [PC] ping time: 0.033 S
-2023-02-21 02:56:30.768:   [Telnet] === IMPORTANT ============================
-2023-02-21 02:56:30.768:   [Telnet] Use 'passwd' to set your login password!
-2023-02-21 02:56:30.768:   [Telnet] ------------------------------------------
-2023-02-21 02:56:30.768:   [Telnet] 
-2023-02-21 02:56:30.769:   [Telnet] 
-2023-02-21 02:56:30.769:   [Telnet] BusyBox v1.30.1 () built-in shell (ash)
-2023-02-21 02:56:30.769:   [Telnet] 
-2023-02-21 02:56:30.769:   [Telnet] MM           NM                    MMMMMMM          M       M
-2023-02-21 02:56:30.769:   [Telnet] $MMMMM        MMMMM                MMMMMMMMMMM      MMM     MMM
-2023-02-21 02:56:30.769:   [Telnet] MMMMMMMM     MM MMMMM.              MMMMM:MMMMMM:   MMMM   MMMMM
-2023-02-21 02:56:30.769:   [Telnet] MMMM= MMMMMM  MMM   MMMM       MMMMM   MMMM  MMMMMM   MMMM  MMMMM'
-2023-02-21 02:56:30.769:   [Telnet] MMMM=  MMMMM MMMM    MM       MMMMM    MMMM    MMMM   MMMMNMMMMM
-2023-02-21 02:56:30.770:   [Telnet] MMMM=   MMMM  MMMMM          MMMMM     MMMM    MMMM   MMMMMMMM
-2023-02-21 02:56:30.770:   [Telnet] MMMM=   MMMM   MMMMMM       MMMMM      MMMM    MMMM   MMMMMMMMM
-2023-02-21 02:56:30.770:   [Telnet] MMMM=   MMMM     MMMMM,    NMMMMMMMM   MMMM    MMMM   MMMMMMMMMMM
-2023-02-21 02:56:30.770:   [Telnet] MMMM=   MMMM      MMMMMM   MMMMMMMM    MMMM    MMMM   MMMM  MMMMMM
-2023-02-21 02:56:30.770:   [Telnet] MMMM=   MMMM   MM    MMMM    MMMM      MMMM    MMMM   MMMM    MMMM
-2023-02-21 02:56:30.770:   [Telnet] MMMM$ ,MMMMM  MMMMM  MMMM    MMM       MMMM   MMMMM   MMMM    MMMM
-2023-02-21 02:56:30.770:   [Telnet] MMMMMMM:      MMMMMMM     M         MMMMMMMMMMMM  MMMMMMM MMMMMMM
-2023-02-21 02:56:30.771:   [Telnet] MMMMMM       MMMMN     M           MMMMMMMMM      MMMM    MMMM
-2023-02-21 02:56:30.771:   [Telnet] MMMM          M                    MMMMMMM        M       M
-2023-02-21 02:56:30.771:   [Telnet] M
-2023-02-21 02:56:30.771:   [Telnet] ---------------------------------------------------------------
-2023-02-21 02:56:30.771:   [Telnet] For those about to rock... (Chaos Calmer, unknown)
-2023-02-21 02:56:30.771:   [Telnet] ---------------------------------------------------------------
-2023-02-21 02:56:30.771:   [Telnet] root@eero-test:/#
-2023-02-21 02:56:30.878:   [Telnet] root@eero-test:/#
-2023-02-21 02:56:30.879:   ****************************************************
-2023-02-21 02:56:30.880:   Item name = dut_telnet
-2023-02-21 02:56:30.881:   Value = passed
-2023-02-21 02:56:30.882:   Test status = passed
-2023-02-21 02:56:30.882:   -----------------------------------------------------
-2023-02-21 02:56:30.883:   ****************************************************
-2023-02-21 02:56:30.884:   TIME[0.479 s] - STATUS[PASSED]
+2023-02-22 04:29:31.956:   ITEM[dut_telnet] - FUNCTION[DutTelnetProxy]
+2023-02-22 04:29:31.956:   Turn: 1
+2023-02-22 04:29:31.957:   [PC] Get IP from the DHCP with MAC is "D4:3F:32:F4:D5:40"
+2023-02-22 04:29:31.957:   [Setting] MAC length = 16
+2023-02-22 04:29:31.957:   IP: 172.168.0.0
+2023-02-22 04:29:31.958:   [PC] ReadUntil: root@eero-test:/#
+2023-02-22 04:29:31.958:   [PC] Connect to ip: 172.168.0.0
+2023-02-22 04:29:31.958:   [PC] Port is: 23
+2023-02-22 04:29:31.958:   [PC] Ping to IP: 172.168.0.0 - 120 S
+2023-02-22 04:29:31.959:   [Cmd] ------------------------------------ 1
+2023-02-22 04:29:31.959:   [Cmd] Send command: arp -d 172.168.0.0
+2023-02-22 04:29:31.993:   [Cmd] 
+2023-02-22 04:29:31.994:   [Cmd] Send command: ping 172.168.0.0 -n 1
+2023-02-22 04:29:32.026:   [Cmd] Pinging 172.168.0.0 with 32 bytes of data:
+2023-02-22 04:29:32.026:   [Cmd] Reply from 172.168.0.0: bytes=32 time<1ms TTL=64
+2023-02-22 04:29:32.026:   [Cmd] 
+2023-02-22 04:29:32.027:   [Cmd] Ping statistics for 172.168.0.0:
+2023-02-22 04:29:32.027:   [Cmd] Packets: Sent = 1, Received = 1, Lost = 0 (0% loss),
+2023-02-22 04:29:32.027:   [Cmd] Approximate round trip times in milli-seconds:
+2023-02-22 04:29:32.027:   [Cmd] Minimum = 0ms, Maximum = 0ms, Average = 0ms
+2023-02-22 04:29:32.027:   [Cmd] ------------------------------------
+2023-02-22 04:29:32.027:   [PC] ping time: 0.068 S
+2023-02-22 04:29:32.249:   [Telnet] === IMPORTANT ============================
+2023-02-22 04:29:32.250:   [Telnet] Use 'passwd' to set your login password!
+2023-02-22 04:29:32.250:   [Telnet] ------------------------------------------
+2023-02-22 04:29:32.251:   [Telnet] 
+2023-02-22 04:29:32.251:   [Telnet] 
+2023-02-22 04:29:32.252:   [Telnet] BusyBox v1.30.1 () built-in shell (ash)
+2023-02-22 04:29:32.252:   [Telnet] 
+2023-02-22 04:29:32.253:   [Telnet] MM           NM                    MMMMMMM          M       M
+2023-02-22 04:29:32.253:   [Telnet] $MMMMM        MMMMM                MMMMMMMMMMM      MMM     MMM
+2023-02-22 04:29:32.254:   [Telnet] MMMMMMMM     MM MMMMM.              MMMMM:MMMMMM:   MMMM   MMMMM
+2023-02-22 04:29:32.254:   [Telnet] MMMM= MMMMMM  MMM   MMMM       MMMMM   MMMM  MMMMMM   MMMM  MMMMM'
+2023-02-22 04:29:32.255:   [Telnet] MMMM=  MMMMM MMMM    MM       MMMMM    MMMM    MMMM   MMMMNMMMMM
+2023-02-22 04:29:32.255:   [Telnet] MMMM=   MMMM  MMMMM          MMMMM     MMMM    MMMM   MMMMMMMM
+2023-02-22 04:29:32.256:   [Telnet] MMMM=   MMMM   MMMMMM       MMMMM      MMMM    MMMM   MMMMMMMMM
+2023-02-22 04:29:32.256:   [Telnet] MMMM=   MMMM     MMMMM,    NMMMMMMMM   MMMM    MMMM   MMMMMMMMMMM
+2023-02-22 04:29:32.256:   [Telnet] MMMM=   MMMM      MMMMMM   MMMMMMMM    MMMM    MMMM   MMMM  MMMMMM
+2023-02-22 04:29:32.257:   [Telnet] MMMM=   MMMM   MM    MMMM    MMMM      MMMM    MMMM   MMMM    MMMM
+2023-02-22 04:29:32.257:   [Telnet] MMMM$ ,MMMMM  MMMMM  MMMM    MMM       MMMM   MMMMM   MMMM    MMMM
+2023-02-22 04:29:32.257:   [Telnet] MMMMMMM:      MMMMMMM     M         MMMMMMMMMMMM  MMMMMMM MMMMMMM
+2023-02-22 04:29:32.258:   [Telnet] MMMMMM       MMMMN     M           MMMMMMMMM      MMMM    MMMM
+2023-02-22 04:29:32.258:   [Telnet] MMMM          M                    MMMMMMM        M       M
+2023-02-22 04:29:32.258:   [Telnet] M
+2023-02-22 04:29:32.259:   [Telnet] ---------------------------------------------------------------
+2023-02-22 04:29:32.259:   [Telnet] For those about to rock... (Chaos Calmer, unknown)
+2023-02-22 04:29:32.259:   [Telnet] ---------------------------------------------------------------
+2023-02-22 04:29:32.259:   [Telnet] root@eero-test:/#
+2023-02-22 04:29:32.372:   [Telnet] root@eero-test:/#
+2023-02-22 04:29:32.372:   ****************************************************
+2023-02-22 04:29:32.373:   Item name = dut_telnet
+2023-02-22 04:29:32.373:   Value = passed
+2023-02-22 04:29:32.373:   Test status = passed
+2023-02-22 04:29:32.373:   -----------------------------------------------------
+2023-02-22 04:29:32.374:   ****************************************************
+2023-02-22 04:29:32.374:   TIME[0.418 s] - STATUS[PASSED]

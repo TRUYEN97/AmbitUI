@@ -76,6 +76,7 @@ public class CreateTxt extends AbsFunction {
         loger.add(String.format("Start at = %s\r\n", processData.getString(AllKeyWord.START_TIME)));
         loger.add(String.format("End test at = %s\r\n", processData.getString(AllKeyWord.FINISH_TIME)));
         loger.add(String.format("Status = %s\r\n", processData.getString(AllKeyWord.SFIS.STATUS)));
+        loger.add(String.format("Version = %s\r\n", processData.getString(AllKeyWord.VERSION)));
         if (isFailded()) {
             loger.add(String.format("Error code = %s\r\n", processData.getString(AllKeyWord.CONFIG.ERROR_CODE)));
             loger.add(String.format("Error des = %s\r\n", processData.getString(AllKeyWord.CONFIG.ERROR_DES)));

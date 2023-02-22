@@ -47,8 +47,9 @@ public class SendCommandInFileAndPing extends AbsFunction {
             return false;
         }
         String ip = this.functionBase.getIp();
+        String readUntil = this.config.getString("ReadUntil");
         int time = this.config.getInteger("Time", 10);
-        try (Telnet telnet = this.functionBase.getTelnet(ip, 21)){
+        try (Telnet telnet = this.functionBase.getTelnet(ip)){
             if (telnet == null) {
                 return false;
             }
@@ -57,7 +58,7 @@ public class SendCommandInFileAndPing extends AbsFunction {
                 if (!this.functionBase.sendCommand(telnet, command)) {
                     return false;
                 }
-                if (this.analysisBase.readShowUntil(telnet, command, new TimeS(time)) == null) {
+                if (this.analysisBase.readShowUntil(telnet, readUntil, new TimeS(time)) == null) {
                      return false;
                 }
             }

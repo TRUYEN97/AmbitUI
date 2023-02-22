@@ -34,7 +34,7 @@ public class DutPing extends AbsFunction {
             return false;
         }
         int timePing = config.getInteger("time_ping", 120);
-        return this.baseFunc.pingTo(ip, timePing);
+        return this.baseFunc.pingTo(ip, timePing, this.modeTest.isUseDHCP());
     }
     
 }

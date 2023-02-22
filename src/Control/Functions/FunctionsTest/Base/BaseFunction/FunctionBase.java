@@ -53,6 +53,10 @@ public class FunctionBase extends AbsFunction {
         return ftp;
     }
 
+    public Telnet getTelnet(String ip) {
+        return getTelnet(ip, 23, null);
+    }
+    
     public Telnet getTelnet(String ip, int port) {
         return getTelnet(ip, port, null);
     }
@@ -71,21 +75,17 @@ public class FunctionBase extends AbsFunction {
         addLog("PC", "Connect to ip: %s", ip);
         addLog("PC", "Port is: %s", port);
         telnet.setDebug(true);
-        if (!pingTo(ip, 120) || !telnet.connect(ip, port)) {
+        if (!pingTo(ip, 120, this.modeTest.isUseDHCP()) || !telnet.connect(ip, port)) {
             addLog("PC", "Connect failed!");
             return null;
         }
-        addLog("Telnet", telnet.readUntil(new TimeS(5), readUntil));
-        if (!telnet.sendCommand("\r\n")) {
-            return null;
-        }
-        String response = telnet.readUntil(new TimeS(5), readUntil);
+        String response = telnet.readUntil(new TimeS(10), readUntil);
         addLog("Telnet", response);
         return response == null ? null : telnet;
     }
 
     public String getIp() {
-        if (this.modeTest.isOnDHCP()) {
+        if (this.modeTest.isUseDHCP()) {
             String mac = this.processData.getString(AllKeyWord.SFIS.MAC);
             if (mac == null) {
                 addLog("It's DHCP mode but MAC is null!");
@@ -123,7 +123,7 @@ public class FunctionBase extends AbsFunction {
             }
             addLog("Telnet", telnet.readAll(new TimeS(10)));
             addLog("PC", "Wait about %s S", waitTime);
-            if (sendRebootDUT(waitTime, ip) && pingTo(ip, pingTime)) {
+            if (sendRebootDUT(waitTime, ip) && pingTo(ip, pingTime, this.modeTest.isUseDHCP())) {
                 addLog("PC", "*************** Reboot soft ok! *********************");
                 return true;
             }
@@ -135,7 +135,7 @@ public class FunctionBase extends AbsFunction {
     private boolean sendRebootDUT(int waitTime, String ip) {
         TimeS waitToSleepTime = new TimeS(waitTime);
         do {
-            if (!pingTo(ip, 1)) {
+            if (!pingTo(ip, 1, this.modeTest.isUseDHCP())) {
                 addLog("PC", "*************** Shut down ok! [%.3f S]*****************", waitToSleepTime.getTime());
                 return true;
             }
@@ -167,7 +167,7 @@ public class FunctionBase extends AbsFunction {
         }
         return true;
     }
-    
+
     public boolean sendCommand(ISender sender, String command) {
         String name = sender.getClass().getSimpleName();
         addLog(name, "Send command: " + command);
@@ -178,7 +178,7 @@ public class FunctionBase extends AbsFunction {
         return true;
     }
 
-    public boolean pingTo(String ip, int times) {
+    public boolean pingTo(String ip, int times, boolean arp_d) {
         if (ip == null || times <= 0) {
             addLog("Error", "IP == null ", ip);
             return false;
@@ -189,13 +189,17 @@ public class FunctionBase extends AbsFunction {
         }
         addLog("PC", "Ping to IP: %s - %s S", ip, times);
         Cmd cmd = new Cmd();
-        String command1 = String.format("ping %s -n 1", ip);
+        String arp = String.format("arp -d %s", ip);
+        String command = String.format("ping %s -n 1", ip);
         TimeS timer = new TimeS(times);
         try {
             for (int i = 1; timer.onTime(); i++) {
                 addLog("Cmd", "------------------------------------ " + i);
                 try {
-                    if (insertCommand(cmd, command1)) {
+                    if (arp_d && sendCommand(cmd, arp)) {
+                        addLog("Cmd", cmd.readAll().trim());
+                    }
+                    if (sendCommand(cmd, command)) {
                         String response = cmd.readAll();
                         addLog("Cmd", response.trim());
                         if (response.contains("TTL=")) {

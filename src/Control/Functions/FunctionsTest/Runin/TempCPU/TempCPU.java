@@ -9,7 +9,7 @@ import Control.Functions.AbsFunction;
 import Control.Functions.FunctionsTest.Base.BaseFunction.AnalysisBase;
 import Control.Functions.FunctionsTest.Base.BaseFunction.FunctionBase;
 import Model.DataTest.FunctionParameters;
-import Time.WaitTime.Class.TimeMs;
+import Time.WaitTime.Class.TimeS;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -63,12 +63,12 @@ public class TempCPU extends AbsFunction {
         String startkey = config.getString("Startkey");
         String endkey = config.getString("Endkey");
         String regex = config.getString("Regex");
-        int time = config.getInteger("Time", 1);
+        int time = config.getInteger("Time", 10);
         for (String command : commands) {
             if (!this.functionBase.sendCommand(telnet, command)) {
                 return null;
             }
-            String value = this.analysisBase.getValue(telnet, startkey, endkey, regex, new TimeMs(time));
+            String value = this.analysisBase.getValue(telnet, startkey, endkey, regex, new TimeS(time));
             if (!this.analysisBase.isNumber(value)) {
                 addLog("ERROR", String.format("value is not number! value: %s", value));
                 return null;

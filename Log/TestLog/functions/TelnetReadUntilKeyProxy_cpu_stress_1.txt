@@ -1,0 +1,65 @@
+2023-02-22 05:02:21.249:   ITEM[cpu_stress_1] - FUNCTION[TelnetReadUntilKeyProxy]
+2023-02-22 05:02:21.249:   Turn: 1
+2023-02-22 05:02:21.249:   [PC] Get IP from the DHCP with MAC is "D4:3F:32:F4:D5:40"
+2023-02-22 05:02:21.250:   [Setting] MAC length = 16
+2023-02-22 05:02:21.250:   IP: 172.168.0.0
+2023-02-22 05:02:21.250:   [PC] ReadUntil: root@eero-test:/#
+2023-02-22 05:02:21.250:   [PC] Connect to ip: 172.168.0.0
+2023-02-22 05:02:21.250:   [PC] Port is: 23
+2023-02-22 05:02:21.250:   [PC] Ping to IP: 172.168.0.0 - 120 S
+2023-02-22 05:02:21.250:   [Cmd] ------------------------------------ 1
+2023-02-22 05:02:21.251:   [Cmd] Send command: arp -d 172.168.0.0
+2023-02-22 05:02:21.298:   [Cmd] 
+2023-02-22 05:02:21.298:   [Cmd] Send command: ping 172.168.0.0 -n 1
+2023-02-22 05:02:21.332:   [Cmd] Pinging 172.168.0.0 with 32 bytes of data:
+2023-02-22 05:02:21.332:   [Cmd] Reply from 172.168.0.0: bytes=32 time=1ms TTL=64
+2023-02-22 05:02:21.332:   [Cmd] 
+2023-02-22 05:02:21.332:   [Cmd] Ping statistics for 172.168.0.0:
+2023-02-22 05:02:21.332:   [Cmd] Packets: Sent = 1, Received = 1, Lost = 0 (0% loss),
+2023-02-22 05:02:21.333:   [Cmd] Approximate round trip times in milli-seconds:
+2023-02-22 05:02:21.333:   [Cmd] Minimum = 1ms, Maximum = 1ms, Average = 1ms
+2023-02-22 05:02:21.333:   [Cmd] ------------------------------------
+2023-02-22 05:02:21.333:   [PC] ping time: 0.083 S
+2023-02-22 05:02:21.658:   [Telnet] === IMPORTANT ============================
+2023-02-22 05:02:21.658:   [Telnet] Use 'passwd' to set your login password!
+2023-02-22 05:02:21.658:   [Telnet] ------------------------------------------
+2023-02-22 05:02:21.658:   [Telnet] 
+2023-02-22 05:02:21.658:   [Telnet] 
+2023-02-22 05:02:21.658:   [Telnet] BusyBox v1.30.1 () built-in shell (ash)
+2023-02-22 05:02:21.658:   [Telnet] 
+2023-02-22 05:02:21.658:   [Telnet] MM           NM                    MMMMMMM          M       M
+2023-02-22 05:02:21.658:   [Telnet] $MMMMM        MMMMM                MMMMMMMMMMM      MMM     MMM
+2023-02-22 05:02:21.658:   [Telnet] MMMMMMMM     MM MMMMM.              MMMMM:MMMMMM:   MMMM   MMMMM
+2023-02-22 05:02:21.658:   [Telnet] MMMM= MMMMMM  MMM   MMMM       MMMMM   MMMM  MMMMMM   MMMM  MMMMM'
+2023-02-22 05:02:21.659:   [Telnet] MMMM=  MMMMM MMMM    MM       MMMMM    MMMM    MMMM   MMMMNMMMMM
+2023-02-22 05:02:21.659:   [Telnet] MMMM=   MMMM  MMMMM          MMMMM     MMMM    MMMM   MMMMMMMM
+2023-02-22 05:02:21.659:   [Telnet] MMMM=   MMMM   MMMMMM       MMMMM      MMMM    MMMM   MMMMMMMMM
+2023-02-22 05:02:21.659:   [Telnet] MMMM=   MMMM     MMMMM,    NMMMMMMMM   MMMM    MMMM   MMMMMMMMMMM
+2023-02-22 05:02:21.659:   [Telnet] MMMM=   MMMM      MMMMMM   MMMMMMMM    MMMM    MMMM   MMMM  MMMMMM
+2023-02-22 05:02:21.659:   [Telnet] MMMM=   MMMM   MM    MMMM    MMMM      MMMM    MMMM   MMMM    MMMM
+2023-02-22 05:02:21.659:   [Telnet] MMMM$ ,MMMMM  MMMMM  MMMM    MMM       MMMM   MMMMM   MMMM    MMMM
+2023-02-22 05:02:21.659:   [Telnet] MMMMMMM:      MMMMMMM     M         MMMMMMMMMMMM  MMMMMMM MMMMMMM
+2023-02-22 05:02:21.659:   [Telnet] MMMMMM       MMMMN     M           MMMMMMMMM      MMMM    MMMM
+2023-02-22 05:02:21.659:   [Telnet] MMMM          M                    MMMMMMM        M       M
+2023-02-22 05:02:21.659:   [Telnet] M
+2023-02-22 05:02:21.659:   [Telnet] ---------------------------------------------------------------
+2023-02-22 05:02:21.659:   [Telnet] For those about to rock... (Chaos Calmer, unknown)
+2023-02-22 05:02:21.660:   [Telnet] ---------------------------------------------------------------
+2023-02-22 05:02:21.660:   [Telnet] root@eero-test:/#
+2023-02-22 05:02:21.768:   [Telnet] root@eero-test:/#
+2023-02-22 05:02:21.768:   [Config] Waiting for about2500 s
+2023-02-22 05:02:21.768:   [Telnet] Send command: stress --cpu 8 --io 4 --vm 2 --vm-bytes 128M --timeout 1800s
+2023-02-22 05:02:21.769:   [Config] Time: 2500.0
+2023-02-22 05:02:21.769:   [Config] ReadUntil: root@eero-test:/#
+2023-02-22 05:02:21.877:   [Telnet] stress --cpu 8 --io 4 --vm 2 --vm-bytes 128M --timeout 1800s
+2023-02-22 05:02:21.877:   [Telnet] stress: info: [6309] dispatching hogs: 8 cpu, 4 io, 2 vm, 0 hdd
+2023-02-22 05:32:21.940:   [Telnet] stress: info: [6309] successful run completed in 1800s
+2023-02-22 05:32:21.942:   [Telnet] root@eero-test:/#
+2023-02-22 05:32:21.942:   [CONFIG] Spec: "successful run completed in"
+2023-02-22 05:32:21.942:   ****************************************************
+2023-02-22 05:32:21.943:   Item name = cpu_stress_1
+2023-02-22 05:32:21.943:   Value = passed
+2023-02-22 05:32:21.945:   Test status = passed
+2023-02-22 05:32:21.945:   -----------------------------------------------------
+2023-02-22 05:32:21.945:   ****************************************************
+2023-02-22 05:32:21.945:   TIME[1800.696 s] - STATUS[PASSED]

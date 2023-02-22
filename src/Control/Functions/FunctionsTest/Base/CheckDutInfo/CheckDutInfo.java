@@ -49,7 +49,7 @@ public class CheckDutInfo extends AbsFunction {
             String startkey = config.getString("Startkey");
             String endkey = config.getString("Endkey");
             String regex = config.getString("Regex");
-            int time = config.getInteger("Time", 1);
+            int time = config.getInteger("Time", 10);
             return checkValue(this.analysisBase.getValue(telnet, startkey, endkey, regex, new TimeS(time)));
         } catch (Exception e) {
             e.printStackTrace();
