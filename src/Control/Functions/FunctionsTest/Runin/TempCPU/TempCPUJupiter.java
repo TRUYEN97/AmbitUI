@@ -8,7 +8,6 @@ import Communicate.Impl.Telnet.Telnet;
 import Control.Functions.AbsFunction;
 import Control.Functions.FunctionsTest.Base.BaseFunction.AnalysisBase;
 import Control.Functions.FunctionsTest.Base.BaseFunction.FunctionBase;
-import Control.Functions.FunctionsTest.Runin.CheckCommandTelnet.CheckCommandTelnet;
 import Model.DataTest.FunctionParameters;
 import Time.WaitTime.Class.TimeS;
 import java.util.ArrayList;

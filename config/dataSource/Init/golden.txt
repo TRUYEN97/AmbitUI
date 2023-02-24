@@ -1,3 +1,3 @@
 sn,mblsn,ethernetmac
-A1,GGB1UD2230740R6V,d4:3f:32:f4:d5:40
+A1,GGB1UD22307410T9,d4:3f:32:f7:c1:00
 

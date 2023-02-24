@@ -86,7 +86,7 @@ public class UiStatus implements IUpdate {
         if (isNull(name)) {
             return false;
         }
-        return getName().equals(name);
+        return getName().equalsIgnoreCase(name);
     }
 
     public boolean isUI(AbsSubUi ui) {

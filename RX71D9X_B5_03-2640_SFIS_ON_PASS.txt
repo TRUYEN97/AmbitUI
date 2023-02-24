@@ -1,1246 +1,0 @@
-01:49:38.399	Start at 2022/07/09 01:49:38;
-01:49:38.399	Station = RUNIN-7507;
-01:49:38.399	SerialNumber = B5;
-01:49:38.399	DEVICSN = GGB1UD22227704CC;
-01:49:38.399	HHSN = RX71D9X;
-------------------------------------------------------
-01:49:38.414	ITEM=ID[1]NAME[gen_node];
-01:49:38.414	SFIS->TE=SN(25)+ETHERNETMAC(12)+PNNAME(12)+MLBSN(16)+PASS;;
-01:49:38.414	TE->SFIS=SN(25)+PCNAME(12)+STATUS(5)+ERRORCODE(16);;
-01:49:38.414	Item test time: 0.000 S ;
-01:49:38.414	ITEM=ID[1]RESULT[PASS];
-------------------------------------------------------
-01:49:38.414	ITEM=ID[2]NAME[mac];
-01:49:38.414	get mac=9c:57:bc:cb:9d:60;
-01:49:38.414	mac range 100000000000-ffffffffffff;
-01:49:38.414	Item test time: 0.000 S ;
-01:49:38.430	ITEM=ID[2]RESULT[PASS];
-------------------------------------------------------
-01:49:38.430	ITEM=ID[3]NAME[wps_ok];
-01:49:38.430	cycleTime: 1 MAX: 1;
-01:49:38.430	[Arduino] http://192.168.1.11/outlet?5=OFF;
-01:49:38.617	[Arduino] HTTP/1.1 200 OK;
-01:49:43.632	cycleTime: 1 MAX: 1;
-01:49:43.632	[Arduino] http://192.168.1.11/outlet?5=ON;
-01:49:43.882	[Arduino] HTTP/1.1 200 OK;
-01:49:48.896	Item test time: 10.466 S ;
-01:49:48.896	ITEM=ID[3]RESULT[PASS];
-------------------------------------------------------
-01:49:48.896	ITEM=ID[4]NAME[dut_ping];
-01:49:48.896	B5: GGB1UD22227704CC;
-01:49:48.896	eth1=9c57bccb9d61;
-01:49:48.896	eth0=9c57bccb9d60;
-01:49:48.896	ip=172.168.0.13;
-01:49:48.896	[PC] arp -d 172.168.0.13;
-01:49:48.990	[PC] Pinging 172.168.0.13 with 32 bytes of data:;
-01:49:51.521	[PC] Reply from 172.168.0.251: Destination host unreachable.;
-01:49:51.521	[PC] Ping statistics for 172.168.0.13:;
-01:49:51.521	[PC]     Packets: Sent = 1, Received = 1, Lost = 0 (0% loss),;
-01:49:51.599	[PC] Pinging 172.168.0.13 with 32 bytes of data:;
-01:49:55.520	[PC] Request timed out.;
-01:49:55.520	[PC] Ping statistics for 172.168.0.13:;
-01:49:55.520	[PC]     Packets: Sent = 1, Received = 0, Lost = 1 (100% loss),;
-01:49:55.598	[PC] Pinging 192.168.1.1 with 32 bytes of data:;
-01:49:59.519	[PC] Request timed out.;
-01:49:59.519	[PC] Ping statistics for 192.168.1.1:;
-01:49:59.519	[PC]     Packets: Sent = 1, Received = 0, Lost = 1 (100% loss),;
-01:49:59.597	[PC] Pinging 192.168.1.1 with 32 bytes of data:;
-01:50:03.518	[PC] Request timed out.;
-01:50:03.518	[PC] Ping statistics for 192.168.1.1:;
-01:50:03.518	[PC]     Packets: Sent = 1, Received = 0, Lost = 1 (100% loss),;
-01:50:03.518	[PC] arp -d 172.168.0.13;
-01:50:03.611	[PC] Pinging 172.168.0.13 with 32 bytes of data:;
-01:50:07.517	[PC] Request timed out.;
-01:50:07.517	[PC] Ping statistics for 172.168.0.13:;
-01:50:07.517	[PC]     Packets: Sent = 1, Received = 0, Lost = 1 (100% loss),;
-01:50:07.595	[PC] Pinging 172.168.0.13 with 32 bytes of data:;
-01:50:11.516	[PC] Request timed out.;
-01:50:11.516	[PC] Ping statistics for 172.168.0.13:;
-01:50:11.516	[PC]     Packets: Sent = 1, Received = 0, Lost = 1 (100% loss),;
-01:50:11.531	[PC] Pinging 192.168.1.1 with 32 bytes of data:;
-01:50:15.515	[PC] Request timed out.;
-01:50:15.515	[PC] Ping statistics for 192.168.1.1:;
-01:50:15.515	[PC]     Packets: Sent = 1, Received = 0, Lost = 1 (100% loss),;
-01:50:15.546	[PC] Pinging 192.168.1.1 with 32 bytes of data:;
-01:50:19.514	[PC] Request timed out.;
-01:50:19.514	[PC] Ping statistics for 192.168.1.1:;
-01:50:19.514	[PC]     Packets: Sent = 1, Received = 0, Lost = 1 (100% loss),;
-01:50:19.514	[PC] arp -d 172.168.0.13;
-01:50:19.623	[PC] Pinging 172.168.0.13 with 32 bytes of data:;
-01:50:23.513	[PC] Request timed out.;
-01:50:23.513	[PC] Ping statistics for 172.168.0.13:;
-01:50:23.513	[PC]     Packets: Sent = 1, Received = 0, Lost = 1 (100% loss),;
-01:50:23.622	[PC] Pinging 172.168.0.13 with 32 bytes of data:;
-01:50:27.512	[PC] Request timed out.;
-01:50:27.512	[PC] Ping statistics for 172.168.0.13:;
-01:50:27.512	[PC]     Packets: Sent = 1, Received = 0, Lost = 1 (100% loss),;
-01:50:27.621	[PC] Pinging 192.168.1.1 with 32 bytes of data:;
-01:50:31.511	[PC] Request timed out.;
-01:50:31.527	[PC] Ping statistics for 192.168.1.1:;
-01:50:31.527	[PC]     Packets: Sent = 1, Received = 0, Lost = 1 (100% loss),;
-01:50:31.558	[PC] Pinging 192.168.1.1 with 32 bytes of data:;
-01:50:35.510	[PC] Request timed out.;
-01:50:35.510	[PC] Ping statistics for 192.168.1.1:;
-01:50:35.510	[PC]     Packets: Sent = 1, Received = 0, Lost = 1 (100% loss),;
-01:50:35.526	[PC] arp -d 172.168.0.13;
-01:50:35.588	[PC] Pinging 172.168.0.13 with 32 bytes of data:;
-01:50:39.509	[PC] Request timed out.;
-01:50:39.509	[PC] Ping statistics for 172.168.0.13:;
-01:50:39.509	[PC]     Packets: Sent = 1, Received = 0, Lost = 1 (100% loss),;
-01:50:39.541	[PC] Pinging 172.168.0.13 with 32 bytes of data:;
-01:50:43.508	[PC] Request timed out.;
-01:50:43.508	[PC] Ping statistics for 172.168.0.13:;
-01:50:43.508	[PC]     Packets: Sent = 1, Received = 0, Lost = 1 (100% loss),;
-01:50:43.665	[PC] Pinging 192.168.1.1 with 32 bytes of data:;
-01:50:47.507	[PC] Request timed out.;
-01:50:47.507	[PC] Ping statistics for 192.168.1.1:;
-01:50:47.507	[PC]     Packets: Sent = 1, Received = 0, Lost = 1 (100% loss),;
-01:50:47.617	[PC] Pinging 192.168.1.1 with 32 bytes of data:;
-01:50:51.506	[PC] Request timed out.;
-01:50:51.506	[PC] Ping statistics for 192.168.1.1:;
-01:50:51.506	[PC]     Packets: Sent = 1, Received = 0, Lost = 1 (100% loss),;
-01:50:51.506	[PC] arp -d 172.168.0.13;
-01:50:51.553	[PC] Pinging 172.168.0.13 with 32 bytes of data:;
-01:50:51.553	[PC] Reply from 172.168.0.13: bytes=32 time<1ms TTL=64;
-01:50:51.553	Ping 172.168.0.13 PASS!;
-01:50:51.553	Item test time: 62.657 S ;
-01:50:51.553	ITEM=ID[4]RESULT[PASS];
-------------------------------------------------------
-01:50:51.553	ITEM=ID[5]NAME[dut_telnet];
-01:50:51.663	Telnet 172.168.0.13 PASS!;
-01:50:51.663	Item test time: 0.110 S ;
-01:50:51.663	ITEM=ID[5]RESULT[PASS];
-------------------------------------------------------
-01:50:51.663	ITEM=ID[6]NAME[sn_ok];
-01:50:51.772	[DUT]  fw_printenv  serial;
-01:50:51.850	[DUT] serial=GGB1UD22227704CC;
-01:50:51.897	[DUT] root@eero-test:/#;
-01:50:51.897	get serial GGB1UD22227704CC;
-01:50:51.897	spec serial:GGB1UD22227704CC;
-01:50:51.897	Item test time: 0.234 S ;
-01:50:51.897	ITEM=ID[6]RESULT[PASS];
-------------------------------------------------------
-01:50:51.897	ITEM=ID[7]NAME[mac_ok];
-01:50:52.053	[DUT]  fw_printenv  mac;
-01:50:52.053	[DUT] mac=9c:57:bc:cb:9d:60;
-01:50:52.053	[DUT] root@eero-test:/#;
-01:50:52.053	dut mac=9c:57:bc:cb:9d:60;
-01:50:52.053	Item test time: 0.156 S ;
-01:50:52.053	ITEM=ID[7]RESULT[PASS];
-------------------------------------------------------
-01:50:52.053	ITEM=ID[8]NAME[test_image_version];
-01:50:52.163	[DUT]  === IMPORTANT ============================;
-01:50:52.163	[DUT]   Use 'passwd' to set your login password!;
-01:50:52.163	[DUT]  ------------------------------------------;
-01:50:52.163	[DUT] BusyBox v1.30.1 () built-in shell (ash);
-01:50:52.163	[DUT]      MM           NM                    MMMMMMM          M       M;
-01:50:52.163	[DUT]    $MMMMM        MMMMM                MMMMMMMMMMM      MMM     MMM;
-01:50:52.163	[DUT]   MMMMMMMM     MM MMMMM.              MMMMM:MMMMMM:   MMMM   MMMMM;
-01:50:52.163	[DUT] MMMM= MMMMMM  MMM   MMMM       MMMMM   MMMM  MMMMMM   MMMM  MMMMM';
-01:50:52.163	[DUT] MMMM=  MMMMM MMMM    MM       MMMMM    MMMM    MMMM   MMMMNMMMMM;
-01:50:52.163	[DUT] MMMM=   MMMM  MMMMM          MMMMM     MMMM    MMMM   MMMMMMMM;
-01:50:52.163	[DUT] MMMM=   MMMM   MMMMMM       MMMMM      MMMM    MMMM   MMMMMMMMM;
-01:50:52.163	[DUT] MMMM=   MMMM     MMMMM,    NMMMMMMMM   MMMM    MMMM   MMMMMMMMMMM;
-01:50:52.163	[DUT] MMMM=   MMMM      MMMMMM   MMMMMMMM    MMMM    MMMM   MMMM  MMMMMM;
-01:50:52.163	[DUT] MMMM=   MMMM   MM    MMMM    MMMM      MMMM    MMMM   MMMM    MMMM;
-01:50:52.163	[DUT] MMMM$ ,MMMMM  MMMMM  MMMM    MMM       MMMM   MMMMM   MMMM    MMMM;
-01:50:52.163	[DUT]   MMMMMMM:      MMMMMMM     M         MMMMMMMMMMMM  MMMMMMM MMMMMMM;
-01:50:52.163	[DUT]     MMMMMM       MMMMN     M           MMMMMMMMM      MMMM    MMMM;
-01:50:52.163	[DUT]      MMMM          M                    MMMMMMM        M       M;
-01:50:52.163	[DUT]        M;
-01:50:52.163	[DUT]  ---------------------------------------------------------------;
-01:50:52.163	[DUT]    For those about to rock... (Chaos Calmer, unknown);
-01:50:52.163	[DUT]  ---------------------------------------------------------------;
-01:50:52.163	[DUT] root@eero-test:/#;
-01:50:52.178	[DUT]  fwversion;
-01:50:52.225	[DUT] Ambit test image version:V1.3.0.64;
-01:50:52.225	[DUT] Product: Trieste;
-01:50:52.225	[DUT] QSDK: SPF11.4 CSU2;
-01:50:52.225	[DUT] BDF:;
-01:50:52.225	[DUT]   BDF name: Trieste_DVT2_BDF_SPF114csu2_2G_release3_20211115.b24;
-01:50:52.225	[DUT]   BDF md5sum: f01efe0e75a9555b0db07b2215abe634;
-01:50:52.225	[DUT]   BDF name: Trieste_DVT2_BDF_SPF114csu2_5G_release4_20211118.b60;
-01:50:52.225	[DUT]   BDF md5sum: edb4900b358e97c4fdd64e2857746ea8;
-01:50:52.225	[DUT]   BDF name: Trieste_DVT2_BDF_SPF114csu2_6G_release3_20211115.bb0;
-01:50:52.225	[DUT]   BDF md5sum: 706b64cd43d2c3853c3719de59791b93;
-01:50:52.225	[DUT] Build time: Thu Dec 9 11:52:12 CST 2021;
-01:50:52.225	[DUT] root@eero-test:/#;
-01:50:52.225	n;
-01:50:52.225	Ambit test image version:V1.3.0.64;
-01:50:52.225	Product: Trieste;
-01:50:52.225	QSDK: SPF11.4 CSU2;
-01:50:52.225	BDF:;
-01:50:52.225	  BDF name: Trieste_DVT2_BDF_SPF114csu2_2G_release3_20211115.b24;
-01:50:52.225	  BDF md5sum: f01efe0e75a9555b0db07b2215abe634;
-01:50:52.225	  BDF name: Trieste_DVT2_BDF_SPF114csu2_5G_release4_20211118.b60;
-01:50:52.225	  BDF md5sum: edb4900b358e97c4fdd64e2857746ea8;
-01:50:52.225	  BDF name: Trieste_DVT2_BDF_SPF114csu2_6G_release3_20211115.bb0;
-01:50:52.225	  BDF md5sum: 706b64cd43d2c3853c3719de59791b93;
-01:50:52.225	Build time: Thu Dec 9 11:52:12 CST 2021;
-01:50:52.225	Item test time: 0.172 S ;
-01:50:52.225	ITEM=ID[8]RESULT[PASS];
-------------------------------------------------------
-01:50:52.241	ITEM=ID[9]NAME[temp_cpu_0];
-01:50:52.350	[DUT]  cat /sys/devices/virtual/thermal/thermal_zone1/temp;
-01:50:52.397	[DUT] 37;
-01:50:52.397	[DUT] root@eero-test:/#;
-01:50:52.397	[DUT] 37;
-01:50:52.397	Item test time: 0.172 S ;
-01:50:52.397	ITEM=ID[9]RESULT[PASS];
-------------------------------------------------------
-01:50:52.397	ITEM=ID[10]NAME[reboot_soft];
-01:50:52.397	[DUT] reboot;
-01:50:57.427	[PC] Pinging 172.168.0.13 with 32 bytes of data:;
-01:50:57.427	[PC] Reply from 172.168.0.13: bytes=32 time<1ms TTL=64;
-01:50:57.536	[DUT] reboot;
-01:51:02.613	[PC] Pinging 172.168.0.13 with 32 bytes of data:;
-01:51:06.519	[PC] Request timed out.;
-01:51:06.519	[PC] Ping statistics for 172.168.0.13:;
-01:51:06.519	[PC]     Packets: Sent = 1, Received = 0, Lost = 1 (100% loss),;
-01:51:06.643	[PC] Pinging 172.168.0.13 with 32 bytes of data:;
-01:51:10.518	[PC] Request timed out.;
-01:51:10.518	[PC] Ping statistics for 172.168.0.13:;
-01:51:10.518	[PC]     Packets: Sent = 1, Received = 0, Lost = 1 (100% loss),;
-01:51:10.518	ping:172.168.0.13 Failed!;
-01:51:10.518	CMD reboot OK!;
-01:51:10.518	B5: GGB1UD22227704CC;
-01:51:10.518	eth1=9c57bccb9d61;
-01:51:10.518	eth0=9c57bccb9d60;
-01:51:10.518	ip=172.168.0.13;
-01:51:10.533	[PC] arp -d ;
-01:51:10.643	[PC] Pinging 172.168.0.13 with 32 bytes of data:;
-01:51:14.517	[PC] Request timed out.;
-01:51:14.517	[PC] Ping statistics for 172.168.0.13:;
-01:51:14.517	[PC]     Packets: Sent = 1, Received = 0, Lost = 1 (100% loss),;
-01:51:14.595	[PC] Pinging 172.168.0.13 with 32 bytes of data:;
-01:51:18.516	[PC] Request timed out.;
-01:51:18.516	[PC] Ping statistics for 172.168.0.13:;
-01:51:18.516	[PC]     Packets: Sent = 1, Received = 0, Lost = 1 (100% loss),;
-01:51:18.531	[PC] arp -d ;
-01:51:18.656	[PC] Pinging 172.168.0.13 with 32 bytes of data:;
-01:51:22.515	[PC] Request timed out.;
-01:51:22.515	[PC] Ping statistics for 172.168.0.13:;
-01:51:22.515	[PC]     Packets: Sent = 1, Received = 0, Lost = 1 (100% loss),;
-01:51:22.593	[PC] Pinging 172.168.0.13 with 32 bytes of data:;
-01:51:26.514	[PC] Request timed out.;
-01:51:26.514	[PC] Ping statistics for 172.168.0.13:;
-01:51:26.514	[PC]     Packets: Sent = 1, Received = 0, Lost = 1 (100% loss),;
-01:51:26.514	[PC] arp -d ;
-01:51:26.623	[PC] Pinging 172.168.0.13 with 32 bytes of data:;
-01:51:30.513	[PC] Request timed out.;
-01:51:30.513	[PC] Ping statistics for 172.168.0.13:;
-01:51:30.513	[PC]     Packets: Sent = 1, Received = 0, Lost = 1 (100% loss),;
-01:51:30.607	[PC] Pinging 172.168.0.13 with 32 bytes of data:;
-01:51:34.512	[PC] Request timed out.;
-01:51:34.512	[PC] Ping statistics for 172.168.0.13:;
-01:51:34.512	[PC]     Packets: Sent = 1, Received = 0, Lost = 1 (100% loss),;
-01:51:34.543	[PC] arp -d ;
-01:51:34.637	[PC] Pinging 172.168.0.13 with 32 bytes of data:;
-01:51:38.511	[PC] Request timed out.;
-01:51:38.511	[PC] Ping statistics for 172.168.0.13:;
-01:51:38.511	[PC]     Packets: Sent = 1, Received = 0, Lost = 1 (100% loss),;
-01:51:38.620	[PC] Pinging 172.168.0.13 with 32 bytes of data:;
-01:51:38.620	[PC] Reply from 172.168.0.13: bytes=32 time=1ms TTL=64;
-01:51:38.620	Ping 172.168.0.13 PASS!;
-01:51:38.620	Ping: 172.168.0.13 ok!;
-01:51:38.620	cycleTime1test time=46.223;
-01:51:38.620	[DUT] reboot;
-01:51:43.728	[PC] Pinging 172.168.0.13 with 32 bytes of data:;
-01:51:43.728	[PC] Reply from 172.168.0.13: bytes=32 time<1ms TTL=64;
-01:51:43.838	[DUT] reboot;
-01:51:48.930	[PC] Pinging 172.168.0.13 with 32 bytes of data:;
-01:51:52.508	[PC] Request timed out.;
-01:51:52.508	[PC] Ping statistics for 172.168.0.13:;
-01:51:52.508	[PC]     Packets: Sent = 1, Received = 0, Lost = 1 (100% loss),;
-01:51:52.648	[PC] Pinging 172.168.0.13 with 32 bytes of data:;
-01:51:56.507	[PC] Request timed out.;
-01:51:56.507	[PC] Ping statistics for 172.168.0.13:;
-01:51:56.507	[PC]     Packets: Sent = 1, Received = 0, Lost = 1 (100% loss),;
-01:51:56.522	ping:172.168.0.13 Failed!;
-01:51:56.522	CMD reboot OK!;
-01:51:56.522	B5: GGB1UD22227704CC;
-01:51:56.522	eth1=9c57bccb9d61;
-01:51:56.522	eth0=9c57bccb9d60;
-01:51:56.522	ip=172.168.0.13;
-01:51:56.522	[PC] arp -d ;
-01:51:56.569	[PC] Pinging 172.168.0.13 with 32 bytes of data:;
-01:52:00.521	[PC] Request timed out.;
-01:52:00.521	[PC] Ping statistics for 172.168.0.13:;
-01:52:00.521	[PC]     Packets: Sent = 1, Received = 0, Lost = 1 (100% loss),;
-01:52:00.693	[PC] Pinging 172.168.0.13 with 32 bytes of data:;
-01:52:04.536	[PC] Request timed out.;
-01:52:04.536	[PC] Ping statistics for 172.168.0.13:;
-01:52:04.536	[PC]     Packets: Sent = 1, Received = 0, Lost = 1 (100% loss),;
-01:52:04.552	[PC] arp -d ;
-01:52:04.692	[PC] Pinging 172.168.0.13 with 32 bytes of data:;
-01:52:08.520	[PC] Request timed out.;
-01:52:08.520	[PC] Ping statistics for 172.168.0.13:;
-01:52:08.520	[PC]     Packets: Sent = 1, Received = 0, Lost = 1 (100% loss),;
-01:52:08.566	[PC] Pinging 172.168.0.13 with 32 bytes of data:;
-01:52:12.519	[PC] Request timed out.;
-01:52:12.534	[PC] Ping statistics for 172.168.0.13:;
-01:52:12.534	[PC]     Packets: Sent = 1, Received = 0, Lost = 1 (100% loss),;
-01:52:12.565	[PC] arp -d ;
-01:52:12.643	[PC] Pinging 172.168.0.13 with 32 bytes of data:;
-01:52:16.564	[PC] Request timed out.;
-01:52:16.564	[PC] Ping statistics for 172.168.0.13:;
-01:52:16.564	[PC]     Packets: Sent = 1, Received = 0, Lost = 1 (100% loss),;
-01:52:16.705	[PC] Pinging 172.168.0.13 with 32 bytes of data:;
-01:52:20.517	[PC] Request timed out.;
-01:52:20.517	[PC] Ping statistics for 172.168.0.13:;
-01:52:20.517	[PC]     Packets: Sent = 1, Received = 0, Lost = 1 (100% loss),;
-01:52:20.548	[PC] arp -d ;
-01:52:20.704	[PC] Pinging 172.168.0.13 with 32 bytes of data:;
-01:52:24.516	[PC] Request timed out.;
-01:52:24.531	[PC] Ping statistics for 172.168.0.13:;
-01:52:24.531	[PC]     Packets: Sent = 1, Received = 0, Lost = 1 (100% loss),;
-01:52:24.734	[PC] Pinging 172.168.0.13 with 32 bytes of data:;
-01:52:24.734	[PC] Reply from 172.168.0.13: bytes=32 time=1ms TTL=64;
-01:52:24.734	Ping 172.168.0.13 PASS!;
-01:52:24.734	Ping: 172.168.0.13 ok!;
-01:52:24.734	cycleTime2test time=46.114;
-01:52:24.734	[DUT] reboot;
-01:52:29.827	[PC] Pinging 172.168.0.13 with 32 bytes of data:;
-01:52:29.827	[PC] Reply from 172.168.0.13: bytes=32 time<1ms TTL=64;
-01:52:29.936	[DUT] reboot;
-01:52:34.966	[PC] Pinging 172.168.0.13 with 32 bytes of data:;
-01:52:38.528	[PC] Request timed out.;
-01:52:38.528	[PC] Ping statistics for 172.168.0.13:;
-01:52:38.528	[PC]     Packets: Sent = 1, Received = 0, Lost = 1 (100% loss),;
-01:52:38.684	[PC] Pinging 172.168.0.13 with 32 bytes of data:;
-01:52:42.511	[PC] Request timed out.;
-01:52:42.511	[PC] Ping statistics for 172.168.0.13:;
-01:52:42.511	[PC]     Packets: Sent = 1, Received = 0, Lost = 1 (100% loss),;
-01:52:42.543	ping:172.168.0.13 Failed!;
-01:52:42.543	CMD reboot OK!;
-01:52:42.543	B5: GGB1UD22227704CC;
-01:52:42.543	eth1=9c57bccb9d61;
-01:52:42.543	eth0=9c57bccb9d60;
-01:52:42.543	ip=172.168.0.13;
-01:52:42.543	[PC] arp -d ;
-01:52:42.683	[PC] Pinging 172.168.0.13 with 32 bytes of data:;
-01:52:46.510	[PC] Request timed out.;
-01:52:46.510	[PC] Ping statistics for 172.168.0.13:;
-01:52:46.526	[PC]     Packets: Sent = 1, Received = 0, Lost = 1 (100% loss),;
-01:52:46.682	[PC] Pinging 172.168.0.13 with 32 bytes of data:;
-01:52:50.509	[PC] Request timed out.;
-01:52:50.509	[PC] Ping statistics for 172.168.0.13:;
-01:52:50.509	[PC]     Packets: Sent = 1, Received = 0, Lost = 1 (100% loss),;
-01:52:50.509	[PC] arp -d ;
-01:52:50.681	[PC] Pinging 172.168.0.13 with 32 bytes of data:;
-01:52:54.509	[PC] Request timed out.;
-01:52:54.509	[PC] Ping statistics for 172.168.0.13:;
-01:52:54.509	[PC]     Packets: Sent = 1, Received = 0, Lost = 1 (100% loss),;
-01:52:54.680	[PC] Pinging 172.168.0.13 with 32 bytes of data:;
-01:52:58.508	[PC] Request timed out.;
-01:52:58.508	[PC] Ping statistics for 172.168.0.13:;
-01:52:58.508	[PC]     Packets: Sent = 1, Received = 0, Lost = 1 (100% loss),;
-01:52:58.508	[PC] arp -d ;
-01:52:58.570	[PC] Pinging 172.168.0.13 with 32 bytes of data:;
-01:53:02.507	[PC] Request timed out.;
-01:53:02.507	[PC] Ping statistics for 172.168.0.13:;
-01:53:02.507	[PC]     Packets: Sent = 1, Received = 0, Lost = 1 (100% loss),;
-01:53:02.647	[PC] Pinging 172.168.0.13 with 32 bytes of data:;
-01:53:06.521	[PC] Request timed out.;
-01:53:06.521	[PC] Ping statistics for 172.168.0.13:;
-01:53:06.521	[PC]     Packets: Sent = 1, Received = 0, Lost = 1 (100% loss),;
-01:53:06.599	[PC] arp -d ;
-01:53:06.693	[PC] Pinging 172.168.0.13 with 32 bytes of data:;
-01:53:10.520	[PC] Request timed out.;
-01:53:10.520	[PC] Ping statistics for 172.168.0.13:;
-01:53:10.536	[PC]     Packets: Sent = 1, Received = 0, Lost = 1 (100% loss),;
-01:53:10.677	[PC] Pinging 172.168.0.13 with 32 bytes of data:;
-01:53:10.677	[PC] Reply from 172.168.0.13: bytes=32 time=1ms TTL=64;
-01:53:10.677	Ping 172.168.0.13 PASS!;
-01:53:10.677	Ping: 172.168.0.13 ok!;
-01:53:10.677	cycleTime3test time=45.943;
-01:53:10.677	test time=46.223-46.114-45.943-;
-01:53:10.677	Item test time: 138.280 S ;
-01:53:10.677	ITEM=ID[10]RESULT[PASS];
-------------------------------------------------------
-01:53:10.677	ITEM=ID[11]NAME[power_cycle];
-01:53:10.677	cycleTime: 1 MAX: 100;
-01:53:10.677	[Arduino] http://192.168.1.11/outlet?5=OFF;
-01:53:10.880	[Arduino] HTTP/1.1 200 OK;
-01:53:15.894	cycleTime: 1 MAX: 100;
-01:53:15.894	[Arduino] http://192.168.1.11/outlet?5=ON;
-01:53:16.113	[Arduino] HTTP/1.1 200 OK;
-01:53:21.127	cycleTime: 2 MAX: 100;
-01:53:21.127	[Arduino] http://192.168.1.11/outlet?5=OFF;
-01:53:21.315	[Arduino] HTTP/1.1 200 OK;
-01:53:26.329	cycleTime: 2 MAX: 100;
-01:53:26.329	[Arduino] http://192.168.1.11/outlet?5=ON;
-01:53:26.548	[Arduino] HTTP/1.1 200 OK;
-01:53:31.562	cycleTime: 3 MAX: 100;
-01:53:31.562	[Arduino] http://192.168.1.11/outlet?5=OFF;
-01:53:31.875	[Arduino] HTTP/1.1 200 OK;
-01:53:36.889	cycleTime: 3 MAX: 100;
-01:53:36.889	[Arduino] http://192.168.1.11/outlet?5=ON;
-01:53:37.108	[Arduino] HTTP/1.1 200 OK;
-01:53:42.122	cycleTime: 4 MAX: 100;
-01:53:42.122	[Arduino] http://192.168.1.11/outlet?5=OFF;
-01:53:42.310	[Arduino] HTTP/1.1 200 OK;
-01:53:47.324	cycleTime: 4 MAX: 100;
-01:53:47.324	[Arduino] http://192.168.1.11/outlet?5=ON;
-01:53:47.543	[Arduino] HTTP/1.1 200 OK;
-01:53:52.557	cycleTime: 5 MAX: 100;
-01:53:52.557	[Arduino] http://192.168.1.11/outlet?5=OFF;
-01:53:52.885	[Arduino] HTTP/1.1 200 OK;
-01:53:57.900	cycleTime: 5 MAX: 100;
-01:53:57.900	[Arduino] http://192.168.1.11/outlet?5=ON;
-01:53:58.181	[Arduino] HTTP/1.1 200 OK;
-01:54:03.195	cycleTime: 6 MAX: 100;
-01:54:03.195	[Arduino] http://192.168.1.11/outlet?5=OFF;
-01:54:03.398	[Arduino] HTTP/1.1 200 OK;
-01:54:08.413	cycleTime: 6 MAX: 100;
-01:54:08.413	[Arduino] http://192.168.1.11/outlet?5=ON;
-01:54:08.632	[Arduino] HTTP/1.1 200 OK;
-01:54:13.662	cycleTime: 7 MAX: 100;
-01:54:13.662	[Arduino] http://192.168.1.11/outlet?5=OFF;
-01:54:13.912	[Arduino] HTTP/1.1 200 OK;
-01:54:18.926	cycleTime: 7 MAX: 100;
-01:54:18.926	[Arduino] http://192.168.1.11/outlet?5=ON;
-01:54:19.160	[Arduino] HTTP/1.1 200 OK;
-01:54:24.175	cycleTime: 8 MAX: 100;
-01:54:24.175	[Arduino] http://192.168.1.11/outlet?5=OFF;
-01:54:24.362	[Arduino] HTTP/1.1 200 OK;
-01:54:29.377	cycleTime: 8 MAX: 100;
-01:54:29.377	[Arduino] http://192.168.1.11/outlet?5=ON;
-01:54:29.595	[Arduino] HTTP/1.1 200 OK;
-01:54:34.610	cycleTime: 9 MAX: 100;
-01:54:34.610	[Arduino] http://192.168.1.11/outlet?5=OFF;
-01:54:34.922	[Arduino] HTTP/1.1 200 OK;
-01:54:39.937	cycleTime: 9 MAX: 100;
-01:54:39.937	[Arduino] http://192.168.1.11/outlet?5=ON;
-01:54:40.233	[Arduino] HTTP/1.1 200 OK;
-01:54:45.248	cycleTime: 10 MAX: 100;
-01:54:45.248	[Arduino] http://192.168.1.11/outlet?5=OFF;
-01:54:45.482	[Arduino] HTTP/1.1 200 OK;
-01:54:50.497	cycleTime: 10 MAX: 100;
-01:54:50.497	[Arduino] http://192.168.1.11/outlet?5=ON;
-01:54:50.825	[Arduino] HTTP/1.1 200 OK;
-01:54:55.839	cycleTime: 11 MAX: 100;
-01:54:55.839	[Arduino] http://192.168.1.11/outlet?5=OFF;
-01:54:56.089	[Arduino] HTTP/1.1 200 OK;
-01:55:01.104	cycleTime: 11 MAX: 100;
-01:55:01.104	[Arduino] http://192.168.1.11/outlet?5=ON;
-01:55:01.338	[Arduino] HTTP/1.1 200 OK;
-01:55:06.352	cycleTime: 12 MAX: 100;
-01:55:06.352	[Arduino] http://192.168.1.11/outlet?5=OFF;
-01:55:06.571	[Arduino] HTTP/1.1 200 OK;
-01:55:11.585	cycleTime: 12 MAX: 100;
-01:55:11.585	[Arduino] http://192.168.1.11/outlet?5=ON;
-01:55:11.835	[Arduino] HTTP/1.1 200 OK;
-01:55:16.850	cycleTime: 13 MAX: 100;
-01:55:16.850	[Arduino] http://192.168.1.11/outlet?5=OFF;
-01:55:17.053	[Arduino] HTTP/1.1 200 OK;
-01:55:22.067	cycleTime: 13 MAX: 100;
-01:55:22.067	[Arduino] http://192.168.1.11/outlet?5=ON;
-01:55:22.286	[Arduino] HTTP/1.1 200 OK;
-01:55:27.300	cycleTime: 14 MAX: 100;
-01:55:27.300	[Arduino] http://192.168.1.11/outlet?5=OFF;
-01:55:27.519	[Arduino] HTTP/1.1 200 OK;
-01:55:32.534	cycleTime: 14 MAX: 100;
-01:55:32.534	[Arduino] http://192.168.1.11/outlet?5=ON;
-01:55:32.862	[Arduino] HTTP/1.1 200 OK;
-01:55:37.876	cycleTime: 15 MAX: 100;
-01:55:37.876	[Arduino] http://192.168.1.11/outlet?5=OFF;
-01:55:38.126	[Arduino] HTTP/1.1 200 OK;
-01:55:43.140	cycleTime: 15 MAX: 100;
-01:55:43.140	[Arduino] http://192.168.1.11/outlet?5=ON;
-01:55:43.375	[Arduino] HTTP/1.1 200 OK;
-01:55:48.389	cycleTime: 16 MAX: 100;
-01:55:48.389	[Arduino] http://192.168.1.11/outlet?5=OFF;
-01:55:48.592	[Arduino] HTTP/1.1 200 OK;
-01:55:53.607	cycleTime: 16 MAX: 100;
-01:55:53.607	[Arduino] http://192.168.1.11/outlet?5=ON;
-01:55:53.810	[Arduino] HTTP/1.1 200 OK;
-01:55:58.824	cycleTime: 17 MAX: 100;
-01:55:58.824	[Arduino] http://192.168.1.11/outlet?5=OFF;
-01:55:59.074	[Arduino] HTTP/1.1 200 OK;
-01:56:04.089	cycleTime: 17 MAX: 100;
-01:56:04.089	[Arduino] http://192.168.1.11/outlet?5=ON;
-01:56:04.292	[Arduino] HTTP/1.1 200 OK;
-01:56:09.306	cycleTime: 18 MAX: 100;
-01:56:09.306	[Arduino] http://192.168.1.11/outlet?5=OFF;
-01:56:09.494	[Arduino] HTTP/1.1 200 OK;
-01:56:14.508	cycleTime: 18 MAX: 100;
-01:56:14.508	[Arduino] http://192.168.1.11/outlet?5=ON;
-01:56:14.742	[Arduino] HTTP/1.1 200 OK;
-01:56:19.757	cycleTime: 19 MAX: 100;
-01:56:19.757	[Arduino] http://192.168.1.11/outlet?5=OFF;
-01:56:20.038	[Arduino] HTTP/1.1 200 OK;
-01:56:25.052	cycleTime: 19 MAX: 100;
-01:56:25.052	[Arduino] http://192.168.1.11/outlet?5=ON;
-01:56:25.287	[Arduino] HTTP/1.1 200 OK;
-01:56:30.301	cycleTime: 20 MAX: 100;
-01:56:30.301	[Arduino] http://192.168.1.11/outlet?5=OFF;
-01:56:30.489	[Arduino] HTTP/1.1 200 OK;
-01:56:35.503	cycleTime: 20 MAX: 100;
-01:56:35.503	[Arduino] http://192.168.1.11/outlet?5=ON;
-01:56:35.737	[Arduino] HTTP/1.1 200 OK;
-01:56:40.752	cycleTime: 21 MAX: 100;
-01:56:40.752	[Arduino] http://192.168.1.11/outlet?5=OFF;
-01:56:41.002	[Arduino] HTTP/1.1 200 OK;
-01:56:46.032	cycleTime: 21 MAX: 100;
-01:56:46.032	[Arduino] http://192.168.1.11/outlet?5=ON;
-01:56:46.250	[Arduino] HTTP/1.1 200 OK;
-01:56:51.281	cycleTime: 22 MAX: 100;
-01:56:51.281	[Arduino] http://192.168.1.11/outlet?5=OFF;
-01:56:51.452	[Arduino] HTTP/1.1 200 OK;
-01:56:56.467	cycleTime: 22 MAX: 100;
-01:56:56.467	[Arduino] http://192.168.1.11/outlet?5=ON;
-01:56:56.685	[Arduino] HTTP/1.1 200 OK;
-01:57:01.700	cycleTime: 23 MAX: 100;
-01:57:01.700	[Arduino] http://192.168.1.11/outlet?5=OFF;
-01:57:01.919	[Arduino] HTTP/1.1 200 OK;
-01:57:06.933	cycleTime: 23 MAX: 100;
-01:57:06.933	[Arduino] http://192.168.1.11/outlet?5=ON;
-01:57:07.167	[Arduino] HTTP/1.1 200 OK;
-01:57:12.182	cycleTime: 24 MAX: 100;
-01:57:12.182	[Arduino] http://192.168.1.11/outlet?5=OFF;
-01:57:12.432	[Arduino] HTTP/1.1 200 OK;
-01:57:17.446	cycleTime: 24 MAX: 100;
-01:57:17.446	[Arduino] http://192.168.1.11/outlet?5=ON;
-01:57:17.774	[Arduino] HTTP/1.1 200 OK;
-01:57:22.789	cycleTime: 25 MAX: 100;
-01:57:22.789	[Arduino] http://192.168.1.11/outlet?5=OFF;
-01:57:23.054	[Arduino] HTTP/1.1 200 OK;
-01:57:28.069	cycleTime: 25 MAX: 100;
-01:57:28.069	[Arduino] http://192.168.1.11/outlet?5=ON;
-01:57:28.288	[Arduino] HTTP/1.1 200 OK;
-01:57:33.318	cycleTime: 26 MAX: 100;
-01:57:33.318	[Arduino] http://192.168.1.11/outlet?5=OFF;
-01:57:33.505	[Arduino] HTTP/1.1 200 OK;
-01:57:38.519	cycleTime: 26 MAX: 100;
-01:57:38.519	[Arduino] http://192.168.1.11/outlet?5=ON;
-01:57:38.738	[Arduino] HTTP/1.1 200 OK;
-01:57:43.753	cycleTime: 27 MAX: 100;
-01:57:43.753	[Arduino] http://192.168.1.11/outlet?5=OFF;
-01:57:43.971	[Arduino] HTTP/1.1 200 OK;
-01:57:48.986	cycleTime: 27 MAX: 100;
-01:57:48.986	[Arduino] http://192.168.1.11/outlet?5=ON;
-01:57:49.236	[Arduino] HTTP/1.1 200 OK;
-01:57:54.250	cycleTime: 28 MAX: 100;
-01:57:54.250	[Arduino] http://192.168.1.11/outlet?5=OFF;
-01:57:54.453	[Arduino] HTTP/1.1 200 OK;
-01:57:59.483	cycleTime: 28 MAX: 100;
-01:57:59.483	[Arduino] http://192.168.1.11/outlet?5=ON;
-01:57:59.764	[Arduino] HTTP/1.1 200 OK;
-01:58:04.779	cycleTime: 29 MAX: 100;
-01:58:04.779	[Arduino] http://192.168.1.11/outlet?5=OFF;
-01:58:04.982	[Arduino] HTTP/1.1 200 OK;
-01:58:09.996	cycleTime: 29 MAX: 100;
-01:58:09.996	[Arduino] http://192.168.1.11/outlet?5=ON;
-01:58:10.231	[Arduino] HTTP/1.1 200 OK;
-01:58:15.245	cycleTime: 30 MAX: 100;
-01:58:15.245	[Arduino] http://192.168.1.11/outlet?5=OFF;
-01:58:15.495	[Arduino] HTTP/1.1 200 OK;
-01:58:20.510	cycleTime: 30 MAX: 100;
-01:58:20.510	[Arduino] http://192.168.1.11/outlet?5=ON;
-01:58:20.916	[Arduino] HTTP/1.1 200 OK;
-01:58:25.930	cycleTime: 31 MAX: 100;
-01:58:25.930	[Arduino] http://192.168.1.11/outlet?5=OFF;
-01:58:26.118	[Arduino] HTTP/1.1 200 OK;
-01:58:31.132	cycleTime: 31 MAX: 100;
-01:58:31.132	[Arduino] http://192.168.1.11/outlet?5=ON;
-01:58:31.351	[Arduino] HTTP/1.1 200 OK;
-01:58:36.365	cycleTime: 32 MAX: 100;
-01:58:36.365	[Arduino] http://192.168.1.11/outlet?5=OFF;
-01:58:36.615	[Arduino] HTTP/1.1 200 OK;
-01:58:41.630	cycleTime: 32 MAX: 100;
-01:58:41.630	[Arduino] http://192.168.1.11/outlet?5=ON;
-01:58:41.864	[Arduino] HTTP/1.1 200 OK;
-01:58:46.878	cycleTime: 33 MAX: 100;
-01:58:46.878	[Arduino] http://192.168.1.11/outlet?5=OFF;
-01:58:47.144	[Arduino] HTTP/1.1 200 OK;
-01:58:52.158	cycleTime: 33 MAX: 100;
-01:58:52.158	[Arduino] http://192.168.1.11/outlet?5=ON;
-01:58:52.408	[Arduino] HTTP/1.1 200 OK;
-01:58:57.423	cycleTime: 34 MAX: 100;
-01:58:57.423	[Arduino] http://192.168.1.11/outlet?5=OFF;
-01:58:57.782	[Arduino] HTTP/1.1 200 OK;
-01:59:02.796	cycleTime: 34 MAX: 100;
-01:59:02.796	[Arduino] http://192.168.1.11/outlet?5=ON;
-01:59:03.015	[Arduino] HTTP/1.1 200 OK;
-01:59:08.030	cycleTime: 35 MAX: 100;
-01:59:08.030	[Arduino] http://192.168.1.11/outlet?5=OFF;
-01:59:08.248	[Arduino] HTTP/1.1 200 OK;
-01:59:13.263	cycleTime: 35 MAX: 100;
-01:59:13.263	[Arduino] http://192.168.1.11/outlet?5=ON;
-01:59:13.481	[Arduino] HTTP/1.1 200 OK;
-01:59:18.496	cycleTime: 36 MAX: 100;
-01:59:18.496	[Arduino] http://192.168.1.11/outlet?5=OFF;
-01:59:18.777	[Arduino] HTTP/1.1 200 OK;
-01:59:23.791	cycleTime: 36 MAX: 100;
-01:59:23.791	[Arduino] http://192.168.1.11/outlet?5=ON;
-01:59:24.010	[Arduino] HTTP/1.1 200 OK;
-01:59:29.025	cycleTime: 37 MAX: 100;
-01:59:29.025	[Arduino] http://192.168.1.11/outlet?5=OFF;
-01:59:29.228	[Arduino] HTTP/1.1 200 OK;
-01:59:34.242	cycleTime: 37 MAX: 100;
-01:59:34.242	[Arduino] http://192.168.1.11/outlet?5=ON;
-01:59:34.476	[Arduino] HTTP/1.1 200 OK;
-01:59:39.491	cycleTime: 38 MAX: 100;
-01:59:39.491	[Arduino] http://192.168.1.11/outlet?5=OFF;
-01:59:39.866	[Arduino] HTTP/1.1 200 OK;
-01:59:44.896	cycleTime: 38 MAX: 100;
-01:59:44.896	[Arduino] http://192.168.1.11/outlet?5=ON;
-01:59:45.114	[Arduino] HTTP/1.1 200 OK;
-01:59:50.145	cycleTime: 39 MAX: 100;
-01:59:50.145	[Arduino] http://192.168.1.11/outlet?5=OFF;
-01:59:50.348	[Arduino] HTTP/1.1 200 OK;
-01:59:55.362	cycleTime: 39 MAX: 100;
-01:59:55.362	[Arduino] http://192.168.1.11/outlet?5=ON;
-01:59:55.581	[Arduino] HTTP/1.1 200 OK;
-02:00:00.595	cycleTime: 40 MAX: 100;
-02:00:00.595	[Arduino] http://192.168.1.11/outlet?5=OFF;
-02:00:00.876	[Arduino] HTTP/1.1 200 OK;
-02:00:05.891	cycleTime: 40 MAX: 100;
-02:00:05.891	[Arduino] http://192.168.1.11/outlet?5=ON;
-02:00:06.109	[Arduino] HTTP/1.1 200 OK;
-02:00:11.124	cycleTime: 41 MAX: 100;
-02:00:11.124	[Arduino] http://192.168.1.11/outlet?5=OFF;
-02:00:11.327	[Arduino] HTTP/1.1 200 OK;
-02:00:16.341	cycleTime: 41 MAX: 100;
-02:00:16.341	[Arduino] http://192.168.1.11/outlet?5=ON;
-02:00:16.576	[Arduino] HTTP/1.1 200 OK;
-02:00:21.590	cycleTime: 42 MAX: 100;
-02:00:21.590	[Arduino] http://192.168.1.11/outlet?5=OFF;
-02:00:21.871	[Arduino] HTTP/1.1 200 OK;
-02:00:26.886	cycleTime: 42 MAX: 100;
-02:00:26.886	[Arduino] http://192.168.1.11/outlet?5=ON;
-02:00:27.136	[Arduino] HTTP/1.1 200 OK;
-02:00:32.150	cycleTime: 43 MAX: 100;
-02:00:32.150	[Arduino] http://192.168.1.11/outlet?5=OFF;
-02:00:32.447	[Arduino] HTTP/1.1 200 OK;
-02:00:37.461	cycleTime: 43 MAX: 100;
-02:00:37.461	[Arduino] http://192.168.1.11/outlet?5=ON;
-02:00:37.696	[Arduino] HTTP/1.1 200 OK;
-02:00:42.710	cycleTime: 44 MAX: 100;
-02:00:42.710	[Arduino] http://192.168.1.11/outlet?5=OFF;
-02:00:43.007	[Arduino] HTTP/1.1 200 OK;
-02:00:48.022	cycleTime: 44 MAX: 100;
-02:00:48.022	[Arduino] http://192.168.1.11/outlet?5=ON;
-02:00:48.240	[Arduino] HTTP/1.1 200 OK;
-02:00:53.255	cycleTime: 45 MAX: 100;
-02:00:53.255	[Arduino] http://192.168.1.11/outlet?5=OFF;
-02:00:53.458	[Arduino] HTTP/1.1 200 OK;
-02:00:58.472	cycleTime: 45 MAX: 100;
-02:00:58.472	[Arduino] http://192.168.1.11/outlet?5=ON;
-02:00:58.707	[Arduino] HTTP/1.1 200 OK;
-02:01:03.721	cycleTime: 46 MAX: 100;
-02:01:03.721	[Arduino] http://192.168.1.11/outlet?5=OFF;
-02:01:04.049	[Arduino] HTTP/1.1 200 OK;
-02:01:09.063	cycleTime: 46 MAX: 100;
-02:01:09.063	[Arduino] http://192.168.1.11/outlet?5=ON;
-02:01:09.298	[Arduino] HTTP/1.1 200 OK;
-02:01:14.312	cycleTime: 47 MAX: 100;
-02:01:14.312	[Arduino] http://192.168.1.11/outlet?5=OFF;
-02:01:14.515	[Arduino] HTTP/1.1 200 OK;
-02:01:19.530	cycleTime: 47 MAX: 100;
-02:01:19.530	[Arduino] http://192.168.1.11/outlet?5=ON;
-02:01:19.795	[Arduino] HTTP/1.1 200 OK;
-02:01:24.810	cycleTime: 48 MAX: 100;
-02:01:24.810	[Arduino] http://192.168.1.11/outlet?5=OFF;
-02:01:25.013	[Arduino] HTTP/1.1 200 OK;
-02:01:30.027	cycleTime: 48 MAX: 100;
-02:01:30.027	[Arduino] http://192.168.1.11/outlet?5=ON;
-02:01:30.246	[Arduino] HTTP/1.1 200 OK;
-02:01:35.260	cycleTime: 49 MAX: 100;
-02:01:35.260	[Arduino] http://192.168.1.11/outlet?5=OFF;
-02:01:35.526	[Arduino] HTTP/1.1 200 OK;
-02:01:40.556	cycleTime: 49 MAX: 100;
-02:01:40.556	[Arduino] http://192.168.1.11/outlet?5=ON;
-02:01:40.790	[Arduino] HTTP/1.1 200 OK;
-02:01:45.805	cycleTime: 50 MAX: 100;
-02:01:45.805	[Arduino] http://192.168.1.11/outlet?5=OFF;
-02:01:46.008	[Arduino] HTTP/1.1 200 OK;
-02:01:51.022	cycleTime: 50 MAX: 100;
-02:01:51.022	[Arduino] http://192.168.1.11/outlet?5=ON;
-02:01:51.288	[Arduino] HTTP/1.1 200 OK;
-02:01:56.302	cycleTime: 51 MAX: 100;
-02:01:56.302	[Arduino] http://192.168.1.11/outlet?5=OFF;
-02:01:56.505	[Arduino] HTTP/1.1 200 OK;
-02:02:01.520	cycleTime: 51 MAX: 100;
-02:02:01.520	[Arduino] http://192.168.1.11/outlet?5=ON;
-02:02:01.801	[Arduino] HTTP/1.1 200 OK;
-02:02:06.815	cycleTime: 52 MAX: 100;
-02:02:06.815	[Arduino] http://192.168.1.11/outlet?5=OFF;
-02:02:07.175	[Arduino] HTTP/1.1 200 OK;
-02:02:12.189	cycleTime: 52 MAX: 100;
-02:02:12.189	[Arduino] http://192.168.1.11/outlet?5=ON;
-02:02:12.439	[Arduino] HTTP/1.1 200 OK;
-02:02:17.453	cycleTime: 53 MAX: 100;
-02:02:17.453	[Arduino] http://192.168.1.11/outlet?5=OFF;
-02:02:17.657	[Arduino] HTTP/1.1 200 OK;
-02:02:22.671	cycleTime: 53 MAX: 100;
-02:02:22.671	[Arduino] http://192.168.1.11/outlet?5=ON;
-02:02:22.890	[Arduino] HTTP/1.1 200 OK;
-02:02:27.904	cycleTime: 54 MAX: 100;
-02:02:27.904	[Arduino] http://192.168.1.11/outlet?5=OFF;
-02:02:28.170	[Arduino] HTTP/1.1 200 OK;
-02:02:33.184	cycleTime: 54 MAX: 100;
-02:02:33.184	[Arduino] http://192.168.1.11/outlet?5=ON;
-02:02:33.418	[Arduino] HTTP/1.1 200 OK;
-02:02:38.433	cycleTime: 55 MAX: 100;
-02:02:38.433	[Arduino] http://192.168.1.11/outlet?5=OFF;
-02:02:38.636	[Arduino] HTTP/1.1 200 OK;
-02:02:43.650	cycleTime: 55 MAX: 100;
-02:02:43.650	[Arduino] http://192.168.1.11/outlet?5=ON;
-02:02:43.916	[Arduino] HTTP/1.1 200 OK;
-02:02:48.930	cycleTime: 56 MAX: 100;
-02:02:48.930	[Arduino] http://192.168.1.11/outlet?5=OFF;
-02:02:49.165	[Arduino] HTTP/1.1 200 OK;
-02:02:54.179	cycleTime: 56 MAX: 100;
-02:02:54.179	[Arduino] http://192.168.1.11/outlet?5=ON;
-02:02:54.413	[Arduino] HTTP/1.1 200 OK;
-02:02:59.428	cycleTime: 57 MAX: 100;
-02:02:59.428	[Arduino] http://192.168.1.11/outlet?5=OFF;
-02:02:59.647	[Arduino] HTTP/1.1 200 OK;
-02:03:04.661	cycleTime: 57 MAX: 100;
-02:03:04.661	[Arduino] http://192.168.1.11/outlet?5=ON;
-02:03:04.895	[Arduino] HTTP/1.1 200 OK;
-02:03:09.910	cycleTime: 58 MAX: 100;
-02:03:09.910	[Arduino] http://192.168.1.11/outlet?5=OFF;
-02:03:10.222	[Arduino] HTTP/1.1 200 OK;
-02:03:15.237	cycleTime: 58 MAX: 100;
-02:03:15.237	[Arduino] http://192.168.1.11/outlet?5=ON;
-02:03:15.455	[Arduino] HTTP/1.1 200 OK;
-02:03:20.470	cycleTime: 59 MAX: 100;
-02:03:20.470	[Arduino] http://192.168.1.11/outlet?5=OFF;
-02:03:20.735	[Arduino] HTTP/1.1 200 OK;
-02:03:25.750	cycleTime: 59 MAX: 100;
-02:03:25.750	[Arduino] http://192.168.1.11/outlet?5=ON;
-02:03:26.015	[Arduino] HTTP/1.1 200 OK;
-02:03:31.030	cycleTime: 60 MAX: 100;
-02:03:31.030	[Arduino] http://192.168.1.11/outlet?5=OFF;
-02:03:31.233	[Arduino] HTTP/1.1 200 OK;
-02:03:36.247	cycleTime: 60 MAX: 100;
-02:03:36.247	[Arduino] http://192.168.1.11/outlet?5=ON;
-02:03:36.466	[Arduino] HTTP/1.1 200 OK;
-02:03:41.480	cycleTime: 61 MAX: 100;
-02:03:41.480	[Arduino] http://192.168.1.11/outlet?5=OFF;
-02:03:41.699	[Arduino] HTTP/1.1 200 OK;
-02:03:46.714	cycleTime: 61 MAX: 100;
-02:03:46.714	[Arduino] http://192.168.1.11/outlet?5=ON;
-02:03:46.979	[Arduino] HTTP/1.1 200 OK;
-02:03:51.994	cycleTime: 62 MAX: 100;
-02:03:51.994	[Arduino] http://192.168.1.11/outlet?5=OFF;
-02:03:52.228	[Arduino] HTTP/1.1 200 OK;
-02:03:57.242	cycleTime: 62 MAX: 100;
-02:03:57.242	[Arduino] http://192.168.1.11/outlet?5=ON;
-02:03:57.461	[Arduino] HTTP/1.1 200 OK;
-02:04:02.476	cycleTime: 63 MAX: 100;
-02:04:02.476	[Arduino] http://192.168.1.11/outlet?5=OFF;
-02:04:02.741	[Arduino] HTTP/1.1 200 OK;
-02:04:07.756	cycleTime: 63 MAX: 100;
-02:04:07.756	[Arduino] http://192.168.1.11/outlet?5=ON;
-02:04:08.005	[Arduino] HTTP/1.1 200 OK;
-02:04:13.020	cycleTime: 64 MAX: 100;
-02:04:13.020	[Arduino] http://192.168.1.11/outlet?5=OFF;
-02:04:13.223	[Arduino] HTTP/1.1 200 OK;
-02:04:18.237	cycleTime: 64 MAX: 100;
-02:04:18.237	[Arduino] http://192.168.1.11/outlet?5=ON;
-02:04:18.456	[Arduino] HTTP/1.1 200 OK;
-02:04:23.471	cycleTime: 65 MAX: 100;
-02:04:23.471	[Arduino] http://192.168.1.11/outlet?5=OFF;
-02:04:23.767	[Arduino] HTTP/1.1 200 OK;
-02:04:28.782	cycleTime: 65 MAX: 100;
-02:04:28.782	[Arduino] http://192.168.1.11/outlet?5=ON;
-02:04:29.016	[Arduino] HTTP/1.1 200 OK;
-02:04:34.031	cycleTime: 66 MAX: 100;
-02:04:34.031	[Arduino] http://192.168.1.11/outlet?5=OFF;
-02:04:34.327	[Arduino] HTTP/1.1 200 OK;
-02:04:39.342	cycleTime: 66 MAX: 100;
-02:04:39.342	[Arduino] http://192.168.1.11/outlet?5=ON;
-02:04:39.592	[Arduino] HTTP/1.1 200 OK;
-02:04:44.606	cycleTime: 67 MAX: 100;
-02:04:44.606	[Arduino] http://192.168.1.11/outlet?5=OFF;
-02:04:44.825	[Arduino] HTTP/1.1 200 OK;
-02:04:49.855	cycleTime: 67 MAX: 100;
-02:04:49.855	[Arduino] http://192.168.1.11/outlet?5=ON;
-02:04:50.105	[Arduino] HTTP/1.1 200 OK;
-02:04:55.119	cycleTime: 68 MAX: 100;
-02:04:55.119	[Arduino] http://192.168.1.11/outlet?5=OFF;
-02:04:55.322	[Arduino] HTTP/1.1 200 OK;
-02:05:00.337	cycleTime: 68 MAX: 100;
-02:05:00.337	[Arduino] http://192.168.1.11/outlet?5=ON;
-02:05:00.555	[Arduino] HTTP/1.1 200 OK;
-02:05:05.570	cycleTime: 69 MAX: 100;
-02:05:05.570	[Arduino] http://192.168.1.11/outlet?5=OFF;
-02:05:05.757	[Arduino] HTTP/1.1 200 OK;
-02:05:10.772	cycleTime: 69 MAX: 100;
-02:05:10.772	[Arduino] http://192.168.1.11/outlet?5=ON;
-02:05:11.053	[Arduino] HTTP/1.1 200 OK;
-02:05:16.067	cycleTime: 70 MAX: 100;
-02:05:16.067	[Arduino] http://192.168.1.11/outlet?5=OFF;
-02:05:16.302	[Arduino] HTTP/1.1 200 OK;
-02:05:21.316	cycleTime: 70 MAX: 100;
-02:05:21.316	[Arduino] http://192.168.1.11/outlet?5=ON;
-02:05:21.566	[Arduino] HTTP/1.1 200 OK;
-02:05:26.581	cycleTime: 71 MAX: 100;
-02:05:26.581	[Arduino] http://192.168.1.11/outlet?5=OFF;
-02:05:26.877	[Arduino] HTTP/1.1 200 OK;
-02:05:31.892	cycleTime: 71 MAX: 100;
-02:05:31.892	[Arduino] http://192.168.1.11/outlet?5=ON;
-02:05:32.110	[Arduino] HTTP/1.1 200 OK;
-02:05:37.125	cycleTime: 72 MAX: 100;
-02:05:37.125	[Arduino] http://192.168.1.11/outlet?5=OFF;
-02:05:37.500	[Arduino] HTTP/1.1 200 OK;
-02:05:42.514	cycleTime: 72 MAX: 100;
-02:05:42.514	[Arduino] http://192.168.1.11/outlet?5=ON;
-02:05:42.717	[Arduino] HTTP/1.1 200 OK;
-02:05:47.732	cycleTime: 73 MAX: 100;
-02:05:47.732	[Arduino] http://192.168.1.11/outlet?5=OFF;
-02:05:47.950	[Arduino] HTTP/1.1 200 OK;
-02:05:52.965	cycleTime: 73 MAX: 100;
-02:05:52.965	[Arduino] http://192.168.1.11/outlet?5=ON;
-02:05:53.184	[Arduino] HTTP/1.1 200 OK;
-02:05:58.198	cycleTime: 74 MAX: 100;
-02:05:58.198	[Arduino] http://192.168.1.11/outlet?5=OFF;
-02:05:58.417	[Arduino] HTTP/1.1 200 OK;
-02:06:03.431	cycleTime: 74 MAX: 100;
-02:06:03.431	[Arduino] http://192.168.1.11/outlet?5=ON;
-02:06:03.666	[Arduino] HTTP/1.1 200 OK;
-02:06:08.680	cycleTime: 75 MAX: 100;
-02:06:08.680	[Arduino] http://192.168.1.11/outlet?5=OFF;
-02:06:08.883	[Arduino] HTTP/1.1 200 OK;
-02:06:13.897	cycleTime: 75 MAX: 100;
-02:06:13.897	[Arduino] http://192.168.1.11/outlet?5=ON;
-02:06:14.163	[Arduino] HTTP/1.1 200 OK;
-02:06:19.177	cycleTime: 76 MAX: 100;
-02:06:19.177	[Arduino] http://192.168.1.11/outlet?5=OFF;
-02:06:19.381	[Arduino] HTTP/1.1 200 OK;
-02:06:24.395	cycleTime: 76 MAX: 100;
-02:06:24.395	[Arduino] http://192.168.1.11/outlet?5=ON;
-02:06:24.676	[Arduino] HTTP/1.1 200 OK;
-02:06:29.691	cycleTime: 77 MAX: 100;
-02:06:29.691	[Arduino] http://192.168.1.11/outlet?5=OFF;
-02:06:29.987	[Arduino] HTTP/1.1 200 OK;
-02:06:35.002	cycleTime: 77 MAX: 100;
-02:06:35.002	[Arduino] http://192.168.1.11/outlet?5=ON;
-02:06:35.236	[Arduino] HTTP/1.1 200 OK;
-02:06:40.251	cycleTime: 78 MAX: 100;
-02:06:40.251	[Arduino] http://192.168.1.11/outlet?5=OFF;
-02:06:40.469	[Arduino] HTTP/1.1 200 OK;
-02:06:45.484	cycleTime: 78 MAX: 100;
-02:06:45.484	[Arduino] http://192.168.1.11/outlet?5=ON;
-02:06:45.702	[Arduino] HTTP/1.1 200 OK;
-02:06:50.717	cycleTime: 79 MAX: 100;
-02:06:50.717	[Arduino] http://192.168.1.11/outlet?5=OFF;
-02:06:51.139	[Arduino] HTTP/1.1 200 OK;
-02:06:56.153	cycleTime: 79 MAX: 100;
-02:06:56.153	[Arduino] http://192.168.1.11/outlet?5=ON;
-02:06:56.356	[Arduino] HTTP/1.1 200 OK;
-02:07:01.386	cycleTime: 80 MAX: 100;
-02:07:01.386	[Arduino] http://192.168.1.11/outlet?5=OFF;
-02:07:01.574	[Arduino] HTTP/1.1 200 OK;
-02:07:06.588	cycleTime: 80 MAX: 100;
-02:07:06.588	[Arduino] http://192.168.1.11/outlet?5=ON;
-02:07:06.807	[Arduino] HTTP/1.1 200 OK;
-02:07:11.821	cycleTime: 81 MAX: 100;
-02:07:11.821	[Arduino] http://192.168.1.11/outlet?5=OFF;
-02:07:12.103	[Arduino] HTTP/1.1 200 OK;
-02:07:17.117	cycleTime: 81 MAX: 100;
-02:07:17.117	[Arduino] http://192.168.1.11/outlet?5=ON;
-02:07:17.336	[Arduino] HTTP/1.1 200 OK;
-02:07:22.350	cycleTime: 82 MAX: 100;
-02:07:22.350	[Arduino] http://192.168.1.11/outlet?5=OFF;
-02:07:22.616	[Arduino] HTTP/1.1 200 OK;
-02:07:27.630	cycleTime: 82 MAX: 100;
-02:07:27.630	[Arduino] http://192.168.1.11/outlet?5=ON;
-02:07:27.896	[Arduino] HTTP/1.1 200 OK;
-02:07:32.910	cycleTime: 83 MAX: 100;
-02:07:32.910	[Arduino] http://192.168.1.11/outlet?5=OFF;
-02:07:33.144	[Arduino] HTTP/1.1 200 OK;
-02:07:38.159	cycleTime: 83 MAX: 100;
-02:07:38.159	[Arduino] http://192.168.1.11/outlet?5=ON;
-02:07:38.378	[Arduino] HTTP/1.1 200 OK;
-02:07:43.392	cycleTime: 84 MAX: 100;
-02:07:43.392	[Arduino] http://192.168.1.11/outlet?5=OFF;
-02:07:43.579	[Arduino] HTTP/1.1 200 OK;
-02:07:48.594	cycleTime: 84 MAX: 100;
-02:07:48.594	[Arduino] http://192.168.1.11/outlet?5=ON;
-02:07:48.828	[Arduino] HTTP/1.1 200 OK;
-02:07:53.843	cycleTime: 85 MAX: 100;
-02:07:53.843	[Arduino] http://192.168.1.11/outlet?5=OFF;
-02:07:54.139	[Arduino] HTTP/1.1 200 OK;
-02:07:59.154	cycleTime: 85 MAX: 100;
-02:07:59.154	[Arduino] http://192.168.1.11/outlet?5=ON;
-02:07:59.373	[Arduino] HTTP/1.1 200 OK;
-02:08:04.387	cycleTime: 86 MAX: 100;
-02:08:04.387	[Arduino] http://192.168.1.11/outlet?5=OFF;
-02:08:04.606	[Arduino] HTTP/1.1 200 OK;
-02:08:09.620	cycleTime: 86 MAX: 100;
-02:08:09.620	[Arduino] http://192.168.1.11/outlet?5=ON;
-02:08:09.839	[Arduino] HTTP/1.1 200 OK;
-02:08:14.853	cycleTime: 87 MAX: 100;
-02:08:14.853	[Arduino] http://192.168.1.11/outlet?5=OFF;
-02:08:15.197	[Arduino] HTTP/1.1 200 OK;
-02:08:20.211	cycleTime: 87 MAX: 100;
-02:08:20.211	[Arduino] http://192.168.1.11/outlet?5=ON;
-02:08:20.430	[Arduino] HTTP/1.1 200 OK;
-02:08:25.445	cycleTime: 88 MAX: 100;
-02:08:25.445	[Arduino] http://192.168.1.11/outlet?5=OFF;
-02:08:25.632	[Arduino] HTTP/1.1 200 OK;
-02:08:30.646	cycleTime: 88 MAX: 100;
-02:08:30.646	[Arduino] http://192.168.1.11/outlet?5=ON;
-02:08:30.896	[Arduino] HTTP/1.1 200 OK;
-02:08:35.911	cycleTime: 89 MAX: 100;
-02:08:35.911	[Arduino] http://192.168.1.11/outlet?5=OFF;
-02:08:36.145	[Arduino] HTTP/1.1 200 OK;
-02:08:41.175	cycleTime: 89 MAX: 100;
-02:08:41.175	[Arduino] http://192.168.1.11/outlet?5=ON;
-02:08:41.394	[Arduino] HTTP/1.1 200 OK;
-02:08:46.408	cycleTime: 90 MAX: 100;
-02:08:46.408	[Arduino] http://192.168.1.11/outlet?5=OFF;
-02:08:46.611	[Arduino] HTTP/1.1 200 OK;
-02:08:51.626	cycleTime: 90 MAX: 100;
-02:08:51.626	[Arduino] http://192.168.1.11/outlet?5=ON;
-02:08:51.844	[Arduino] HTTP/1.1 200 OK;
-02:08:56.859	cycleTime: 91 MAX: 100;
-02:08:56.859	[Arduino] http://192.168.1.11/outlet?5=OFF;
-02:08:57.218	[Arduino] HTTP/1.1 200 OK;
-02:09:02.233	cycleTime: 91 MAX: 100;
-02:09:02.233	[Arduino] http://192.168.1.11/outlet?5=ON;
-02:09:02.451	[Arduino] HTTP/1.1 200 OK;
-02:09:07.466	cycleTime: 92 MAX: 100;
-02:09:07.466	[Arduino] http://192.168.1.11/outlet?5=OFF;
-02:09:07.716	[Arduino] HTTP/1.1 200 OK;
-02:09:12.730	cycleTime: 92 MAX: 100;
-02:09:12.730	[Arduino] http://192.168.1.11/outlet?5=ON;
-02:09:12.996	[Arduino] HTTP/1.1 200 OK;
-02:09:18.010	cycleTime: 93 MAX: 100;
-02:09:18.010	[Arduino] http://192.168.1.11/outlet?5=OFF;
-02:09:18.229	[Arduino] HTTP/1.1 200 OK;
-02:09:23.243	cycleTime: 93 MAX: 100;
-02:09:23.243	[Arduino] http://192.168.1.11/outlet?5=ON;
-02:09:23.556	[Arduino] HTTP/1.1 200 OK;
-02:09:28.570	cycleTime: 94 MAX: 100;
-02:09:28.570	[Arduino] http://192.168.1.11/outlet?5=OFF;
-02:09:28.804	[Arduino] HTTP/1.1 200 OK;
-02:09:33.819	cycleTime: 94 MAX: 100;
-02:09:33.819	[Arduino] http://192.168.1.11/outlet?5=ON;
-02:09:34.038	[Arduino] HTTP/1.1 200 OK;
-02:09:39.052	cycleTime: 95 MAX: 100;
-02:09:39.052	[Arduino] http://192.168.1.11/outlet?5=OFF;
-02:09:39.380	[Arduino] HTTP/1.1 200 OK;
-02:09:44.395	cycleTime: 95 MAX: 100;
-02:09:44.395	[Arduino] http://192.168.1.11/outlet?5=ON;
-02:09:44.629	[Arduino] HTTP/1.1 200 OK;
-02:09:49.643	cycleTime: 96 MAX: 100;
-02:09:49.643	[Arduino] http://192.168.1.11/outlet?5=OFF;
-02:09:49.893	[Arduino] HTTP/1.1 200 OK;
-02:09:54.908	cycleTime: 96 MAX: 100;
-02:09:54.908	[Arduino] http://192.168.1.11/outlet?5=ON;
-02:09:55.267	[Arduino] HTTP/1.1 200 OK;
-02:10:00.281	cycleTime: 97 MAX: 100;
-02:10:00.281	[Arduino] http://192.168.1.11/outlet?5=OFF;
-02:10:00.500	[Arduino] HTTP/1.1 200 OK;
-02:10:05.514	cycleTime: 97 MAX: 100;
-02:10:05.514	[Arduino] http://192.168.1.11/outlet?5=ON;
-02:10:05.749	[Arduino] HTTP/1.1 200 OK;
-02:10:10.763	cycleTime: 98 MAX: 100;
-02:10:10.763	[Arduino] http://192.168.1.11/outlet?5=OFF;
-02:10:11.029	[Arduino] HTTP/1.1 200 OK;
-02:10:16.043	cycleTime: 98 MAX: 100;
-02:10:16.043	[Arduino] http://192.168.1.11/outlet?5=ON;
-02:10:16.278	[Arduino] HTTP/1.1 200 OK;
-02:10:21.292	cycleTime: 99 MAX: 100;
-02:10:21.292	[Arduino] http://192.168.1.11/outlet?5=OFF;
-02:10:21.589	[Arduino] HTTP/1.1 200 OK;
-02:10:26.619	cycleTime: 99 MAX: 100;
-02:10:26.619	[Arduino] http://192.168.1.11/outlet?5=ON;
-02:10:26.822	[Arduino] HTTP/1.1 200 OK;
-02:10:31.837	cycleTime: 100 MAX: 100;
-02:10:31.837	[Arduino] http://192.168.1.11/outlet?5=OFF;
-02:10:32.071	[Arduino] HTTP/1.1 200 OK;
-02:10:37.085	cycleTime: 100 MAX: 100;
-02:10:37.085	[Arduino] http://192.168.1.11/outlet?5=ON;
-02:10:37.304	[Arduino] HTTP/1.1 200 OK;
-02:10:42.318	Item test time: 1051.641 S ;
-02:10:42.318	ITEM=ID[11]RESULT[PASS];
-------------------------------------------------------
-02:10:42.318	ITEM=ID[12]NAME[dut_ping];
-02:10:42.318	B5: GGB1UD22227704CC;
-02:10:42.318	eth1=9c57bccb9d61;
-02:10:42.318	eth0=9c57bccb9d60;
-02:10:42.318	ip=172.168.0.13;
-02:10:42.318	[PC] arp -d 172.168.0.13;
-02:10:42.412	[PC] Pinging 172.168.0.13 with 32 bytes of data:;
-02:10:45.021	[PC] Reply from 172.168.0.251: Destination host unreachable.;
-02:10:45.021	[PC] Ping statistics for 172.168.0.13:;
-02:10:45.021	[PC]     Packets: Sent = 1, Received = 1, Lost = 0 (0% loss),;
-02:10:45.115	[PC] Pinging 172.168.0.13 with 32 bytes of data:;
-02:10:49.020	[PC] Request timed out.;
-02:10:49.020	[PC] Ping statistics for 172.168.0.13:;
-02:10:49.020	[PC]     Packets: Sent = 1, Received = 0, Lost = 1 (100% loss),;
-02:10:49.114	[PC] IP address must be specified.;
-02:10:49.192	[PC] IP address must be specified.;
-02:10:49.207	[PC] arp -d 172.168.0.13;
-02:10:49.239	[PC] Pinging 172.168.0.13 with 32 bytes of data:;
-02:10:53.019	[PC] Request timed out.;
-02:10:53.019	[PC] Ping statistics for 172.168.0.13:;
-02:10:53.019	[PC]     Packets: Sent = 1, Received = 0, Lost = 1 (100% loss),;
-02:10:53.128	[PC] Pinging 172.168.0.13 with 32 bytes of data:;
-02:10:57.018	[PC] Request timed out.;
-02:10:57.018	[PC] Ping statistics for 172.168.0.13:;
-02:10:57.018	[PC]     Packets: Sent = 1, Received = 0, Lost = 1 (100% loss),;
-02:10:57.034	[PC] IP address must be specified.;
-02:10:57.065	[PC] IP address must be specified.;
-02:10:57.065	[PC] arp -d 172.168.0.13;
-02:10:57.081	[PC] Pinging 172.168.0.13 with 32 bytes of data:;
-02:11:01.017	[PC] Request timed out.;
-02:11:01.017	[PC] Ping statistics for 172.168.0.13:;
-02:11:01.017	[PC]     Packets: Sent = 1, Received = 0, Lost = 1 (100% loss),;
-02:11:01.095	[PC] Pinging 172.168.0.13 with 32 bytes of data:;
-02:11:05.016	[PC] Request timed out.;
-02:11:05.016	[PC] Ping statistics for 172.168.0.13:;
-02:11:05.016	[PC]     Packets: Sent = 1, Received = 0, Lost = 1 (100% loss),;
-02:11:05.079	[PC] IP address must be specified.;
-02:11:05.157	[PC] IP address must be specified.;
-02:11:05.157	[PC] arp -d 172.168.0.13;
-02:11:05.188	[PC] Pinging 172.168.0.13 with 32 bytes of data:;
-02:11:09.015	[PC] Request timed out.;
-02:11:09.015	[PC] Ping statistics for 172.168.0.13:;
-02:11:09.015	[PC]     Packets: Sent = 1, Received = 0, Lost = 1 (100% loss),;
-02:11:09.109	[PC] Pinging 172.168.0.13 with 32 bytes of data:;
-02:11:13.014	[PC] Request timed out.;
-02:11:13.014	[PC] Ping statistics for 172.168.0.13:;
-02:11:13.014	[PC]     Packets: Sent = 1, Received = 0, Lost = 1 (100% loss),;
-02:11:13.030	[PC] IP address must be specified.;
-02:11:13.061	[PC] IP address must be specified.;
-02:11:13.061	[PC] arp -d 172.168.0.13;
-02:11:13.092	[PC] Pinging 172.168.0.13 with 32 bytes of data:;
-02:11:17.013	[PC] Request timed out.;
-02:11:17.013	[PC] Ping statistics for 172.168.0.13:;
-02:11:17.013	[PC]     Packets: Sent = 1, Received = 0, Lost = 1 (100% loss),;
-02:11:17.045	[PC] Pinging 172.168.0.13 with 32 bytes of data:;
-02:11:21.012	[PC] Request timed out.;
-02:11:21.012	[PC] Ping statistics for 172.168.0.13:;
-02:11:21.012	[PC]     Packets: Sent = 1, Received = 0, Lost = 1 (100% loss),;
-02:11:21.028	[PC] IP address must be specified.;
-02:11:21.059	[PC] IP address must be specified.;
-02:11:21.059	[PC] arp -d 172.168.0.13;
-02:11:21.091	[PC] Pinging 172.168.0.13 with 32 bytes of data:;
-02:11:25.012	[PC] Request timed out.;
-02:11:25.012	[PC] Ping statistics for 172.168.0.13:;
-02:11:25.012	[PC]     Packets: Sent = 1, Received = 0, Lost = 1 (100% loss),;
-02:11:25.027	[PC] Pinging 172.168.0.13 with 32 bytes of data:;
-02:11:29.011	[PC] Request timed out.;
-02:11:29.011	[PC] Ping statistics for 172.168.0.13:;
-02:11:29.011	[PC]     Packets: Sent = 1, Received = 0, Lost = 1 (100% loss),;
-02:11:29.089	[PC] IP address must be specified.;
-02:11:29.151	[PC] IP address must be specified.;
-02:11:29.167	[PC] arp -d 172.168.0.13;
-02:11:29.214	[PC] Pinging 172.168.0.13 with 32 bytes of data:;
-02:11:33.010	[PC] Request timed out.;
-02:11:33.010	[PC] Ping statistics for 172.168.0.13:;
-02:11:33.010	[PC]     Packets: Sent = 1, Received = 0, Lost = 1 (100% loss),;
-02:11:33.041	[PC] Pinging 172.168.0.13 with 32 bytes of data:;
-02:11:37.009	[PC] Request timed out.;
-02:11:37.009	[PC] Ping statistics for 172.168.0.13:;
-02:11:37.009	[PC]     Packets: Sent = 1, Received = 0, Lost = 1 (100% loss),;
-02:11:37.024	[PC] IP address must be specified.;
-02:11:37.056	[PC] IP address must be specified.;
-02:11:37.056	[PC] arp -d 172.168.0.13;
-02:11:37.087	[PC] Pinging 172.168.0.13 with 32 bytes of data:;
-02:11:41.008	[PC] Request timed out.;
-02:11:41.008	[PC] Ping statistics for 172.168.0.13:;
-02:11:41.008	[PC]     Packets: Sent = 1, Received = 0, Lost = 1 (100% loss),;
-02:11:41.086	[PC] Pinging 172.168.0.13 with 32 bytes of data:;
-02:11:45.007	[PC] Request timed out.;
-02:11:45.007	[PC] Ping statistics for 172.168.0.13:;
-02:11:45.007	[PC]     Packets: Sent = 1, Received = 0, Lost = 1 (100% loss),;
-02:11:45.038	[PC] IP address must be specified.;
-02:11:45.054	[PC] IP address must be specified.;
-02:11:45.069	[PC] arp -d 172.168.0.13;
-02:11:45.116	[PC] Pinging 172.168.0.13 with 32 bytes of data:;
-02:11:45.116	[PC] Reply from 172.168.0.13: bytes=32 time<1ms TTL=64;
-02:11:45.116	Ping 172.168.0.13 PASS!;
-02:11:45.116	Item test time: 62.798 S ;
-02:11:45.116	ITEM=ID[12]RESULT[PASS];
-------------------------------------------------------
-02:11:45.116	ITEM=ID[13]NAME[emmc_badblocks];
-02:11:45.319	[DUT] dmesg|grep 'mmcblk0'|head -1;
-02:11:45.319	[DUT] [    2.453880] mmcblk0: mmc0:0001 S40004 3.64 GiB ;
-02:11:45.319	[DUT] root@eero-test:/# ;
-02:11:45.319	[DUT] get name=S40004 spec 0;
-02:17:02.353	[DUT] badblocks -svw /dev/mmcblk0p17;
-02:17:02.353	[DUT] Checking for bad blocks in read-write mode;
-02:17:02.353	[DUT] From block 0 to 770047;
-02:17:02.353	[DUT] Testing with pattern 0xaa:   0.00% done, 0:00 elapsed. (0/0/0 errors)  2.08% done, 0:01 elapsed. (0/0/0 errors)  4.21% done, 0:02 elapsed. (0/0/0 errors)  6.34% done, 0:03 elapsed. (0/0/0 errors)  8.47% done, 0:04 elapsed. (0/0/0 errors) 10.60% done, 0:05 elapsed. (0/0/0 errors) 12.72% done, 0:06 elapsed. (0/0/0 errors) 14.84% done, 0:07 elapsed. (0/0/0 errors) 16.97% done, 0:08 elapsed. (0/0/0 errors) 19.10% done, 0:09 elapsed. (0/0/0 errors) 21.23% done, 0:10 elapsed. (0/0/0 errors) 23.35% done, 0:11 elapsed. (0/0/0 errors) 25.47% done, 0:12 elapsed. (0/0/0 errors) 27.59% done, 0:13 elapsed. (0/0/0 errors) 29.72% done, 0:14 elapsed. (0/0/0 errors) 31.85% done, 0:15 elapsed. (0/0/0 errors) 33.98% done, 0:17 elapsed. (0/0/0 errors) 36.10% done, 0:18 elapsed. (0/0/0 errors) 38.23% done, 0:19 elapsed. (0/0/0 errors) 40.36% done, 0:20 elapsed. (0/0/0 errors) 42.49% done, 0:21 elapsed. (0/0/0 errors) 44.61% done, 0:22 elapsed. (0/0/0 errors) 46.74% done, 0:23 elapsed. (0/0/0 errors) 48.87% done, 0:24 elapsed. (0/0/0 errors) 51.00% done, 0:25 elapsed. (0/0/0 errors) 53.13% done, 0:26 elapsed. (0/0/0 errors) 55.26% done, 0:27 elapsed. (0/0/0 errors) 57.39% done, 0:28 elapsed. (0/0/0 errors) 59.51% done, 0:29 elapsed. (0/0/0 errors) 61.64% done, 0:30 elapsed. (0/0/0 errors) 63.76% done, 0:31 elapsed. (0/0/0 errors) 65.89% done, 0:32 elapsed. (0/0/0 errors) 68.02% done, 0:33 elapsed. (0/0/0 errors) 70.15% done, 0:34 elapsed. (0/0/0 errors) 72.27% done, 0:35 elapsed. (0/0/0 errors) 74.40% done, 0:36 elapsed. (0/0/0 errors) 76.53% done, 0:37 elapsed. (0/0/0 errors) 78.67% done, 0:38 elapsed. (0/0/0 errors) 80.79% done, 0:39 elapsed. (0/0/0 errors) 82.92% done, 0:40 elapsed. (0/0/0 errors) 85.04% done, 0:41 elapsed. (0/0/0 errors) 87.17% done, 0:42 elapsed. (0/0/0 errors) 89.30% done, 0:43 elapsed. (0/0/0 errors) 91.42% done, 0:44 elapsed. (0/0/0 errors) 93.55% done, 0:45 elapsed. (0/0/0 errors) 95.68% done, 0:46 elapsed. (0/0/0 errors) 97.81% done, 0:47 elapsed. (0/0/0 errors) 99.93% done, 0:48 elapsed. (0/0/0 errors)done                                                 ;
-02:17:02.353	[DUT] Reading and comparing:   0.00% done, 0:48 elapsed. (0/0/0 errors)  3.74% done, 0:49 elapsed. (0/0/0 errors)  7.50% done, 0:50 elapsed. (0/0/0 errors) 11.25% done, 0:51 elapsed. (0/0/0 errors) 15.00% done, 0:52 elapsed. (0/0/0 errors) 18.76% done, 0:53 elapsed. (0/0/0 errors) 22.51% done, 0:54 elapsed. (0/0/0 errors) 26.26% done, 0:55 elapsed. (0/0/0 errors) 30.01% done, 0:56 elapsed. (0/0/0 errors) 33.77% done, 0:57 elapsed. (0/0/0 errors) 37.51% done, 0:58 elapsed. (0/0/0 errors) 41.24% done, 0:59 elapsed. (0/0/0 errors) 44.93% done, 1:00 elapsed. (0/0/0 errors) 48.65% done, 1:01 elapsed. (0/0/0 errors) 52.41% done, 1:02 elapsed. (0/0/0 errors) 56.18% done, 1:03 elapsed. (0/0/0 errors) 59.93% done, 1:04 elapsed. (0/0/0 errors) 63.69% done, 1:05 elapsed. (0/0/0 errors) 67.44% done, 1:06 elapsed. (0/0/0 errors) 71.19% done, 1:07 elapsed. (0/0/0 errors) 74.95% done, 1:08 elapsed. (0/0/0 errors) 78.71% done, 1:09 elapsed. (0/0/0 errors) 82.46% done, 1:10 elapsed. (0/0/0 errors) 86.20% done, 1:11 elapsed. (0/0/0 errors) 89.96% done, 1:12 elapsed. (0/0/0 errors) 93.71% done, 1:13 elapsed. (0/0/0 errors) 97.47% done, 1:14 elapsed. (0/0/0 errors)done                                                 ;
-02:17:02.385	[DUT] Testing with pattern 0x55:   0.00% done, 1:14 elapsed. (0/0/0 errors)  2.01% done, 1:15 elapsed. (0/0/0 errors)  4.00% done, 1:16 elapsed. (0/0/0 errors)  6.01% done, 1:17 elapsed. (0/0/0 errors)  7.99% done, 1:18 elapsed. (0/0/0 errors) 10.00% done, 1:19 elapsed. (0/0/0 errors) 11.98% done, 1:20 elapsed. (0/0/0 errors) 14.00% done, 1:21 elapsed. (0/0/0 errors) 16.01% done, 1:22 elapsed. (0/0/0 errors) 18.03% done, 1:23 elapsed. (0/0/0 errors) 20.00% done, 1:24 elapsed. (0/0/0 errors) 21.98% done, 1:25 elapsed. (0/0/0 errors) 23.99% done, 1:26 elapsed. (0/0/0 errors) 25.98% done, 1:27 elapsed. (0/0/0 errors) 27.99% done, 1:28 elapsed. (0/0/0 errors) 29.98% done, 1:29 elapsed. (0/0/0 errors) 31.98% done, 1:30 elapsed. (0/0/0 errors) 33.98% done, 1:31 elapsed. (0/0/0 errors) 36.00% done, 1:32 elapsed. (0/0/0 errors) 37.99% done, 1:33 elapsed. (0/0/0 errors) 40.00% done, 1:34 elapsed. (0/0/0 errors) 42.01% done, 1:35 elapsed. (0/0/0 errors) 44.02% done, 1:36 elapsed. (0/0/0 errors) 46.00% done, 1:37 elapsed. (0/0/0 errors) 47.99% done, 1:38 elapsed. (0/0/0 errors) 49.99% done, 1:39 elapsed. (0/0/0 errors) 51.98% done, 1:40 elapsed. (0/0/0 errors) 54.00% done, 1:41 elapsed. (0/0/0 errors) 55.98% done, 1:42 elapsed. (0/0/0 errors) 57.99% done, 1:43 elapsed. (0/0/0 errors) 59.98% done, 1:44 elapsed. (0/0/0 errors) 62.00% done, 1:45 elapsed. (0/0/0 errors) 64.00% done, 1:46 elapsed. (0/0/0 errors) 66.01% done, 1:47 elapsed. (0/0/0 errors) 68.02% done, 1:48 elapsed. (0/0/0 errors) 70.04% done, 1:49 elapsed. (0/0/0 errors) 72.03% done, 1:50 elapsed. (0/0/0 errors) 74.04% done, 1:51 elapsed. (0/0/0 errors) 76.06% done, 1:52 elapsed. (0/0/0 errors) 78.08% done, 1:53 elapsed. (0/0/0 errors) 79.88% done, 1:54 elapsed. (0/0/0 errors) 80.91% done, 1:55 elapsed. (0/0/0 errors) 82.91% done, 1:56 elapsed. (0/0/0 errors) 84.93% done, 1:57 elapsed. (0/0/0 errors) 86.93% done, 1:58 elapsed. (0/0/0 errors) 88.94% done, 1:59 elapsed. (0/0/0 errors) 90.95% done, 2:01 elapsed. (0/0/0 errors) 92.95% done, 2:02 elapsed. (0/0/0 errors) 94.96% done, 2:03 elapsed. (0/0/0 errors) 96.97% done, 2:04 elapsed. (0/0/0 errors) 98.99% done, 2:05 elapsed. (0/0/0 errors)done                                                 ;
-02:17:02.416	[DUT] Reading and comparing:   0.00% done, 2:05 elapsed. (0/0/0 errors)  3.75% done, 2:06 elapsed. (0/0/0 errors)  7.50% done, 2:07 elapsed. (0/0/0 errors) 11.27% done, 2:08 elapsed. (0/0/0 errors) 15.02% done, 2:09 elapsed. (0/0/0 errors) 18.77% done, 2:10 elapsed. (0/0/0 errors) 22.55% done, 2:11 elapsed. (0/0/0 errors) 26.29% done, 2:12 elapsed. (0/0/0 errors) 30.05% done, 2:13 elapsed. (0/0/0 errors) 33.83% done, 2:14 elapsed. (0/0/0 errors) 37.60% done, 2:15 elapsed. (0/0/0 errors) 41.36% done, 2:16 elapsed. (0/0/0 errors) 45.14% done, 2:17 elapsed. (0/0/0 errors) 48.90% done, 2:18 elapsed. (0/0/0 errors) 52.67% done, 2:19 elapsed. (0/0/0 errors) 56.43% done, 2:20 elapsed. (0/0/0 errors) 60.18% done, 2:21 elapsed. (0/0/0 errors) 63.94% done, 2:22 elapsed. (0/0/0 errors) 67.70% done, 2:23 elapsed. (0/0/0 errors) 71.45% done, 2:24 elapsed. (0/0/0 errors) 75.21% done, 2:25 elapsed. (0/0/0 errors) 78.97% done, 2:26 elapsed. (0/0/0 errors) 82.72% done, 2:27 elapsed. (0/0/0 errors) 86.48% done, 2:28 elapsed. (0/0/0 errors) 90.23% done, 2:29 elapsed. (0/0/0 errors) 94.00% done, 2:30 elapsed. (0/0/0 errors) 97.75% done, 2:31 elapsed. (0/0/0 errors)done                                                 ;
-02:17:02.447	[DUT] Testing with pattern 0xff:   0.00% done, 2:32 elapsed. (0/0/0 errors)  2.00% done, 2:33 elapsed. (0/0/0 errors)  3.97% done, 2:34 elapsed. (0/0/0 errors)  5.98% done, 2:35 elapsed. (0/0/0 errors)  7.97% done, 2:36 elapsed. (0/0/0 errors)  9.97% done, 2:37 elapsed. (0/0/0 errors) 11.98% done, 2:38 elapsed. (0/0/0 errors) 14.00% done, 2:39 elapsed. (0/0/0 errors) 16.01% done, 2:40 elapsed. (0/0/0 errors) 18.03% done, 2:41 elapsed. (0/0/0 errors) 20.02% done, 2:42 elapsed. (0/0/0 errors) 22.04% done, 2:43 elapsed. (0/0/0 errors) 24.04% done, 2:44 elapsed. (0/0/0 errors) 26.06% done, 2:45 elapsed. (0/0/0 errors) 28.06% done, 2:46 elapsed. (0/0/0 errors) 30.08% done, 2:47 elapsed. (0/0/0 errors) 32.08% done, 2:48 elapsed. (0/0/0 errors) 34.10% done, 2:49 elapsed. (0/0/0 errors) 36.10% done, 2:50 elapsed. (0/0/0 errors) 38.12% done, 2:51 elapsed. (0/0/0 errors) 40.10% done, 2:52 elapsed. (0/0/0 errors) 42.07% done, 2:53 elapsed. (0/0/0 errors) 44.08% done, 2:54 elapsed. (0/0/0 errors) 46.06% done, 2:55 elapsed. (0/0/0 errors) 48.07% done, 2:56 elapsed. (0/0/0 errors) 50.05% done, 2:57 elapsed. (0/0/0 errors) 52.04% done, 2:58 elapsed. (0/0/0 errors) 54.06% done, 2:59 elapsed. (0/0/0 errors) 56.03% done, 3:00 elapsed. (0/0/0 errors) 58.05% done, 3:01 elapsed. (0/0/0 errors) 60.03% done, 3:02 elapsed. (0/0/0 errors) 62.04% done, 3:03 elapsed. (0/0/0 errors) 64.01% done, 3:04 elapsed. (0/0/0 errors) 66.02% done, 3:05 elapsed. (0/0/0 errors) 68.02% done, 3:06 elapsed. (0/0/0 errors) 70.02% done, 3:07 elapsed. (0/0/0 errors) 72.03% done, 3:08 elapsed. (0/0/0 errors) 74.04% done, 3:09 elapsed. (0/0/0 errors) 76.05% done, 3:10 elapsed. (0/0/0 errors) 78.03% done, 3:11 elapsed. (0/0/0 errors) 80.04% done, 3:12 elapsed. (0/0/0 errors) 82.03% done, 3:13 elapsed. (0/0/0 errors) 84.04% done, 3:14 elapsed. (0/0/0 errors) 86.03% done, 3:15 elapsed. (0/0/0 errors) 88.03% done, 3:16 elapsed. (0/0/0 errors) 90.00% done, 3:17 elapsed. (0/0/0 errors) 92.01% done, 3:18 elapsed. (0/0/0 errors) 94.02% done, 3:19 elapsed. (0/0/0 errors) 96.03% done, 3:20 elapsed. (0/0/0 errors) 98.04% done, 3:21 elapsed. (0/0/0 errors)done                                                 ;
-02:17:02.478	[DUT] Reading and comparing:   0.00% done, 3:22 elapsed. (0/0/0 errors)  3.74% done, 3:23 elapsed. (0/0/0 errors)  7.50% done, 3:24 elapsed. (0/0/0 errors) 11.22% done, 3:25 elapsed. (0/0/0 errors) 14.93% done, 3:26 elapsed. (0/0/0 errors) 18.63% done, 3:27 elapsed. (0/0/0 errors) 22.33% done, 3:28 elapsed. (0/0/0 errors) 26.03% done, 3:29 elapsed. (0/0/0 errors) 29.76% done, 3:30 elapsed. (0/0/0 errors) 33.53% done, 3:31 elapsed. (0/0/0 errors) 37.29% done, 3:32 elapsed. (0/0/0 errors) 41.05% done, 3:33 elapsed. (0/0/0 errors) 44.81% done, 3:34 elapsed. (0/0/0 errors) 48.54% done, 3:35 elapsed. (0/0/0 errors) 52.24% done, 3:36 elapsed. (0/0/0 errors) 55.93% done, 3:37 elapsed. (0/0/0 errors) 59.64% done, 3:38 elapsed. (0/0/0 errors) 63.35% done, 3:39 elapsed. (0/0/0 errors) 67.05% done, 3:40 elapsed. (0/0/0 errors) 70.75% done, 3:41 elapsed. (0/0/0 errors) 74.46% done, 3:42 elapsed. (0/0/0 errors) 78.17% done, 3:43 elapsed. (0/0/0 errors) 81.87% done, 3:44 elapsed. (0/0/0 errors) 85.57% done, 3:45 elapsed. (0/0/0 errors) 89.28% done, 3:46 elapsed. (0/0/0 errors) 92.99% done, 3:47 elapsed. (0/0/0 errors) 96.69% done, 3:48 elapsed. (0/0/0 errors)done                                                 ;
-02:17:02.541	[DUT] Testing with pattern 0x00:   0.00% done, 3:49 elapsed. (0/0/0 errors)  2.00% done, 3:50 elapsed. (0/0/0 errors)  3.98% done, 3:51 elapsed. (0/0/0 errors)  5.99% done, 3:52 elapsed. (0/0/0 errors)  7.97% done, 3:53 elapsed. (0/0/0 errors)  9.98% done, 3:54 elapsed. (0/0/0 errors) 11.98% done, 3:55 elapsed. (0/0/0 errors) 13.95% done, 3:56 elapsed. (0/0/0 errors) 15.97% done, 3:57 elapsed. (0/0/0 errors) 17.94% done, 3:58 elapsed. (0/0/0 errors) 19.96% done, 3:59 elapsed. (0/0/0 errors) 21.93% done, 4:00 elapsed. (0/0/0 errors) 23.93% done, 4:01 elapsed. (0/0/0 errors) 25.93% done, 4:02 elapsed. (0/0/0 errors) 27.93% done, 4:03 elapsed. (0/0/0 errors) 29.95% done, 4:04 elapsed. (0/0/0 errors) 31.91% done, 4:05 elapsed. (0/0/0 errors) 33.93% done, 4:06 elapsed. (0/0/0 errors) 35.90% done, 4:07 elapsed. (0/0/0 errors) 37.91% done, 4:08 elapsed. (0/0/0 errors) 39.89% done, 4:09 elapsed. (0/0/0 errors) 41.90% done, 4:10 elapsed. (0/0/0 errors) 43.90% done, 4:11 elapsed. (0/0/0 errors) 45.91% done, 4:12 elapsed. (0/0/0 errors) 47.91% done, 4:13 elapsed. (0/0/0 errors) 49.88% done, 4:14 elapsed. (0/0/0 errors) 51.90% done, 4:15 elapsed. (0/0/0 errors) 53.87% done, 4:16 elapsed. (0/0/0 errors) 55.88% done, 4:17 elapsed. (0/0/0 errors) 57.85% done, 4:18 elapsed. (0/0/0 errors) 59.85% done, 4:19 elapsed. (0/0/0 errors) 61.83% done, 4:20 elapsed. (0/0/0 errors) 63.80% done, 4:21 elapsed. (0/0/0 errors) 65.82% done, 4:22 elapsed. (0/0/0 errors) 67.79% done, 4:23 elapsed. (0/0/0 errors) 69.81% done, 4:24 elapsed. (0/0/0 errors) 71.80% done, 4:25 elapsed. (0/0/0 errors) 73.80% done, 4:26 elapsed. (0/0/0 errors) 75.81% done, 4:27 elapsed. (0/0/0 errors) 77.83% done, 4:28 elapsed. (0/0/0 errors) 79.84% done, 4:29 elapsed. (0/0/0 errors) 81.84% done, 4:30 elapsed. (0/0/0 errors) 83.84% done, 4:31 elapsed. (0/0/0 errors) 85.82% done, 4:32 elapsed. (0/0/0 errors) 87.83% done, 4:33 elapsed. (0/0/0 errors) 89.79% done, 4:34 elapsed. (0/0/0 errors) 91.79% done, 4:35 elapsed. (0/0/0 errors) 93.78% done, 4:36 elapsed. (0/0/0 errors) 95.78% done, 4:37 elapsed. (0/0/0 errors) 97.79% done, 4:38 elapsed. (0/0/0 errors) 99.77% done, 4:39 elapsed. (0/0/0 errors)done                                                 ;
-02:17:02.572	[DUT] Reading and comparing:   0.00% done, 4:39 elapsed. (0/0/0 errors)  3.70% done, 4:40 elapsed. (0/0/0 errors)  7.40% done, 4:41 elapsed. (0/0/0 errors) 11.10% done, 4:42 elapsed. (0/0/0 errors) 14.81% done, 4:43 elapsed. (0/0/0 errors) 18.52% done, 4:44 elapsed. (0/0/0 errors) 22.22% done, 4:45 elapsed. (0/0/0 errors) 25.93% done, 4:46 elapsed. (0/0/0 errors) 29.64% done, 4:47 elapsed. (0/0/0 errors) 33.34% done, 4:48 elapsed. (0/0/0 errors) 37.05% done, 4:49 elapsed. (0/0/0 errors) 40.76% done, 4:50 elapsed. (0/0/0 errors) 44.46% done, 4:51 elapsed. (0/0/0 errors) 48.17% done, 4:52 elapsed. (0/0/0 errors) 51.88% done, 4:53 elapsed. (0/0/0 errors) 55.59% done, 4:54 elapsed. (0/0/0 errors) 59.29% done, 4:55 elapsed. (0/0/0 errors) 63.00% done, 4:56 elapsed. (0/0/0 errors) 66.71% done, 4:57 elapsed. (0/0/0 errors) 70.41% done, 4:58 elapsed. (0/0/0 errors) 74.12% done, 4:59 elapsed. (0/0/0 errors) 77.83% done, 5:00 elapsed. (0/0/0 errors) 81.53% done, 5:01 elapsed. (0/0/0 errors) 85.24% done, 5:02 elapsed. (0/0/0 errors) 88.95% done, 5:03 elapsed. (0/0/0 errors) 92.65% done, 5:04 elapsed. (0/0/0 errors) 96.36% done, 5:05 elapsed. (0/0/0 errors)done                                                 ;
-02:17:02.572	[DUT] Pass completed, 0 bad blocks found. (0/0/0 errors);
-02:17:02.572	[DUT] root@eero-test:/# ;
-02:23:09.626	[DUT] badblocks -svw /dev/mmcblk0p20;
-02:23:09.626	[DUT] Checking for bad blocks in read-write mode;
-02:23:09.626	[DUT] From block 0 to 924057;
-02:23:09.626	[DUT] Testing with pattern 0xaa:   0.00% done, 0:00 elapsed. (0/0/0 errors)  1.26% done, 0:01 elapsed. (0/0/0 errors)  3.03% done, 0:02 elapsed. (0/0/0 errors)  4.81% done, 0:03 elapsed. (0/0/0 errors)  6.57% done, 0:04 elapsed. (0/0/0 errors)  8.33% done, 0:05 elapsed. (0/0/0 errors) 10.09% done, 0:06 elapsed. (0/0/0 errors) 11.83% done, 0:07 elapsed. (0/0/0 errors) 13.60% done, 0:08 elapsed. (0/0/0 errors) 15.38% done, 0:09 elapsed. (0/0/0 errors) 17.15% done, 0:10 elapsed. (0/0/0 errors) 18.92% done, 0:11 elapsed. (0/0/0 errors) 20.66% done, 0:12 elapsed. (0/0/0 errors) 22.43% done, 0:13 elapsed. (0/0/0 errors) 24.21% done, 0:14 elapsed. (0/0/0 errors) 25.98% done, 0:15 elapsed. (0/0/0 errors) 27.75% done, 0:16 elapsed. (0/0/0 errors) 29.53% done, 0:17 elapsed. (0/0/0 errors) 31.28% done, 0:18 elapsed. (0/0/0 errors) 33.04% done, 0:19 elapsed. (0/0/0 errors) 34.82% done, 0:20 elapsed. (0/0/0 errors) 36.59% done, 0:21 elapsed. (0/0/0 errors) 38.36% done, 0:22 elapsed. (0/0/0 errors) 40.14% done, 0:23 elapsed. (0/0/0 errors) 41.90% done, 0:24 elapsed. (0/0/0 errors) 43.68% done, 0:25 elapsed. (0/0/0 errors) 45.45% done, 0:26 elapsed. (0/0/0 errors) 47.22% done, 0:27 elapsed. (0/0/0 errors) 48.99% done, 0:28 elapsed. (0/0/0 errors) 50.77% done, 0:29 elapsed. (0/0/0 errors) 52.54% done, 0:30 elapsed. (0/0/0 errors) 54.31% done, 0:31 elapsed. (0/0/0 errors) 56.09% done, 0:32 elapsed. (0/0/0 errors) 57.86% done, 0:33 elapsed. (0/0/0 errors) 59.63% done, 0:34 elapsed. (0/0/0 errors) 61.38% done, 0:35 elapsed. (0/0/0 errors) 63.15% done, 0:36 elapsed. (0/0/0 errors) 64.92% done, 0:37 elapsed. (0/0/0 errors) 66.70% done, 0:38 elapsed. (0/0/0 errors) 68.47% done, 0:39 elapsed. (0/0/0 errors) 70.24% done, 0:40 elapsed. (0/0/0 errors) 72.00% done, 0:41 elapsed. (0/0/0 errors) 73.77% done, 0:42 elapsed. (0/0/0 errors) 75.54% done, 0:43 elapsed. (0/0/0 errors) 77.31% done, 0:44 elapsed. (0/0/0 errors) 79.09% done, 0:45 elapsed. (0/0/0 errors) 80.85% done, 0:46 elapsed. (0/0/0 errors) 82.62% done, 0:47 elapsed. (0/0/0 errors) 84.38% done, 0:48 elapsed. (0/0/0 errors) 86.15% done, 0:49 elapsed. (0/0/0 errors) 87.93% done, 0:50 elapsed. (0/0/0 errors) 89.70% done, 0:51 elapsed. (0/0/0 errors) 91.46% done, 0:52 elapsed. (0/0/0 errors) 93.23% done, 0:53 elapsed. (0/0/0 errors) 95.00% done, 0:54 elapsed. (0/0/0 errors) 96.78% done, 0:55 elapsed. (0/0/0 errors) 98.55% done, 0:56 elapsed. (0/0/0 errors)done                                                 ;
-02:23:09.641	[DUT] Reading and comparing:   0.00% done, 0:57 elapsed. (0/0/0 errors)  3.07% done, 0:58 elapsed. (0/0/0 errors)  6.14% done, 0:59 elapsed. (0/0/0 errors)  9.23% done, 1:00 elapsed. (0/0/0 errors) 12.30% done, 1:01 elapsed. (0/0/0 errors) 15.37% done, 1:02 elapsed. (0/0/0 errors) 18.44% done, 1:03 elapsed. (0/0/0 errors) 21.52% done, 1:04 elapsed. (0/0/0 errors) 24.59% done, 1:05 elapsed. (0/0/0 errors) 27.67% done, 1:06 elapsed. (0/0/0 errors) 30.74% done, 1:07 elapsed. (0/0/0 errors) 33.82% done, 1:08 elapsed. (0/0/0 errors) 36.89% done, 1:09 elapsed. (0/0/0 errors) 39.97% done, 1:10 elapsed. (0/0/0 errors) 43.04% done, 1:11 elapsed. (0/0/0 errors) 46.12% done, 1:12 elapsed. (0/0/0 errors) 49.20% done, 1:13 elapsed. (0/0/0 errors) 52.27% done, 1:14 elapsed. (0/0/0 errors) 55.35% done, 1:15 elapsed. (0/0/0 errors) 58.43% done, 1:16 elapsed. (0/0/0 errors) 61.50% done, 1:17 elapsed. (0/0/0 errors) 64.58% done, 1:18 elapsed. (0/0/0 errors) 67.65% done, 1:19 elapsed. (0/0/0 errors) 70.72% done, 1:20 elapsed. (0/0/0 errors) 73.80% done, 1:21 elapsed. (0/0/0 errors) 76.87% done, 1:22 elapsed. (0/0/0 errors) 79.95% done, 1:23 elapsed. (0/0/0 errors) 83.02% done, 1:24 elapsed. (0/0/0 errors) 86.10% done, 1:25 elapsed. (0/0/0 errors) 89.17% done, 1:26 elapsed. (0/0/0 errors) 92.25% done, 1:27 elapsed. (0/0/0 errors) 95.32% done, 1:28 elapsed. (0/0/0 errors) 98.38% done, 1:29 elapsed. (0/0/0 errors)done                                                 ;
-02:23:09.673	[DUT] Testing with pattern 0x55:   0.00% done, 1:29 elapsed. (0/0/0 errors)  1.59% done, 1:30 elapsed. (0/0/0 errors)  3.26% done, 1:31 elapsed. (0/0/0 errors)  4.92% done, 1:32 elapsed. (0/0/0 errors)  6.57% done, 1:33 elapsed. (0/0/0 errors)  8.24% done, 1:34 elapsed. (0/0/0 errors)  9.88% done, 1:35 elapsed. (0/0/0 errors) 11.52% done, 1:36 elapsed. (0/0/0 errors) 13.19% done, 1:37 elapsed. (0/0/0 errors) 14.83% done, 1:38 elapsed. (0/0/0 errors) 16.50% done, 1:39 elapsed. (0/0/0 errors) 18.15% done, 1:40 elapsed. (0/0/0 errors) 19.82% done, 1:41 elapsed. (0/0/0 errors) 21.48% done, 1:42 elapsed. (0/0/0 errors) 23.13% done, 1:43 elapsed. (0/0/0 errors) 24.80% done, 1:44 elapsed. (0/0/0 errors) 26.44% done, 1:45 elapsed. (0/0/0 errors) 28.11% done, 1:46 elapsed. (0/0/0 errors) 29.76% done, 1:47 elapsed. (0/0/0 errors) 31.42% done, 1:48 elapsed. (0/0/0 errors) 33.09% done, 1:49 elapsed. (0/0/0 errors) 34.73% done, 1:50 elapsed. (0/0/0 errors) 36.40% done, 1:51 elapsed. (0/0/0 errors) 38.03% done, 1:52 elapsed. (0/0/0 errors) 39.68% done, 1:53 elapsed. (0/0/0 errors) 41.34% done, 1:54 elapsed. (0/0/0 errors) 42.99% done, 1:55 elapsed. (0/0/0 errors) 44.66% done, 1:56 elapsed. (0/0/0 errors) 46.31% done, 1:57 elapsed. (0/0/0 errors) 47.98% done, 1:58 elapsed. (0/0/0 errors) 49.65% done, 1:59 elapsed. (0/0/0 errors) 51.28% done, 2:00 elapsed. (0/0/0 errors) 52.95% done, 2:01 elapsed. (0/0/0 errors) 54.59% done, 2:02 elapsed. (0/0/0 errors) 56.26% done, 2:03 elapsed. (0/0/0 errors) 57.93% done, 2:04 elapsed. (0/0/0 errors) 59.58% done, 2:05 elapsed. (0/0/0 errors) 61.23% done, 2:06 elapsed. (0/0/0 errors) 62.87% done, 2:07 elapsed. (0/0/0 errors) 64.54% done, 2:08 elapsed. (0/0/0 errors) 66.21% done, 2:09 elapsed. (0/0/0 errors) 67.87% done, 2:10 elapsed. (0/0/0 errors) 69.54% done, 2:11 elapsed. (0/0/0 errors) 71.18% done, 2:12 elapsed. (0/0/0 errors) 72.85% done, 2:13 elapsed. (0/0/0 errors) 74.48% done, 2:14 elapsed. (0/0/0 errors) 76.12% done, 2:15 elapsed. (0/0/0 errors) 77.79% done, 2:16 elapsed. (0/0/0 errors) 79.44% done, 2:17 elapsed. (0/0/0 errors) 81.10% done, 2:18 elapsed. (0/0/0 errors) 82.75% done, 2:19 elapsed. (0/0/0 errors) 84.41% done, 2:20 elapsed. (0/0/0 errors) 86.08% done, 2:21 elapsed. (0/0/0 errors) 87.73% done, 2:22 elapsed. (0/0/0 errors) 89.40% done, 2:23 elapsed. (0/0/0 errors) 91.04% done, 2:24 elapsed. (0/0/0 errors) 92.70% done, 2:25 elapsed. (0/0/0 errors) 94.37% done, 2:26 elapsed. (0/0/0 errors) 96.02% done, 2:27 elapsed. (0/0/0 errors) 97.69% done, 2:28 elapsed. (0/0/0 errors) 99.33% done, 2:29 elapsed. (0/0/0 errors)done                                                 ;
-02:23:09.704	[DUT] Reading and comparing:   0.00% done, 2:30 elapsed. (0/0/0 errors)  3.07% done, 2:31 elapsed. (0/0/0 errors)  6.15% done, 2:32 elapsed. (0/0/0 errors)  9.23% done, 2:33 elapsed. (0/0/0 errors) 12.31% done, 2:34 elapsed. (0/0/0 errors) 15.38% done, 2:35 elapsed. (0/0/0 errors) 18.45% done, 2:36 elapsed. (0/0/0 errors) 21.57% done, 2:37 elapsed. (0/0/0 errors) 24.68% done, 2:38 elapsed. (0/0/0 errors) 27.80% done, 2:39 elapsed. (0/0/0 errors) 30.89% done, 2:40 elapsed. (0/0/0 errors) 33.97% done, 2:41 elapsed. (0/0/0 errors) 37.05% done, 2:42 elapsed. (0/0/0 errors) 40.12% done, 2:43 elapsed. (0/0/0 errors) 43.20% done, 2:44 elapsed. (0/0/0 errors) 46.28% done, 2:45 elapsed. (0/0/0 errors) 49.35% done, 2:46 elapsed. (0/0/0 errors) 52.43% done, 2:47 elapsed. (0/0/0 errors) 55.54% done, 2:48 elapsed. (0/0/0 errors) 58.66% done, 2:49 elapsed. (0/0/0 errors) 61.76% done, 2:50 elapsed. (0/0/0 errors) 64.84% done, 2:51 elapsed. (0/0/0 errors) 67.92% done, 2:52 elapsed. (0/0/0 errors) 70.99% done, 2:53 elapsed. (0/0/0 errors) 74.07% done, 2:54 elapsed. (0/0/0 errors) 77.14% done, 2:55 elapsed. (0/0/0 errors) 80.22% done, 2:56 elapsed. (0/0/0 errors) 83.29% done, 2:57 elapsed. (0/0/0 errors) 86.37% done, 2:58 elapsed. (0/0/0 errors) 89.44% done, 2:59 elapsed. (0/0/0 errors) 92.52% done, 3:00 elapsed. (0/0/0 errors) 95.59% done, 3:01 elapsed. (0/0/0 errors) 98.67% done, 3:02 elapsed. (0/0/0 errors)done                                                 ;
-02:23:09.766	[DUT] Testing with pattern 0xff:   0.00% done, 3:02 elapsed. (0/0/0 errors)  1.66% done, 3:03 elapsed. (0/0/0 errors)  3.30% done, 3:04 elapsed. (0/0/0 errors)  4.98% done, 3:05 elapsed. (0/0/0 errors)  6.63% done, 3:06 elapsed. (0/0/0 errors)  8.30% done, 3:07 elapsed. (0/0/0 errors)  9.94% done, 3:08 elapsed. (0/0/0 errors) 11.58% done, 3:09 elapsed. (0/0/0 errors) 13.25% done, 3:10 elapsed. (0/0/0 errors) 14.90% done, 3:11 elapsed. (0/0/0 errors) 16.57% done, 3:12 elapsed. (0/0/0 errors) 18.22% done, 3:13 elapsed. (0/0/0 errors) 19.88% done, 3:14 elapsed. (0/0/0 errors) 21.55% done, 3:15 elapsed. (0/0/0 errors) 23.20% done, 3:16 elapsed. (0/0/0 errors) 24.86% done, 3:17 elapsed. (0/0/0 errors) 26.51% done, 3:18 elapsed. (0/0/0 errors) 28.17% done, 3:19 elapsed. (0/0/0 errors) 29.84% done, 3:20 elapsed. (0/0/0 errors) 31.50% done, 3:21 elapsed. (0/0/0 errors) 33.17% done, 3:22 elapsed. (0/0/0 errors) 34.80% done, 3:23 elapsed. (0/0/0 errors) 36.47% done, 3:24 elapsed. (0/0/0 errors) 38.12% done, 3:25 elapsed. (0/0/0 errors) 39.79% done, 3:26 elapsed. (0/0/0 errors) 41.45% done, 3:27 elapsed. (0/0/0 errors) 43.10% done, 3:28 elapsed. (0/0/0 errors) 44.77% done, 3:29 elapsed. (0/0/0 errors) 46.42% done, 3:30 elapsed. (0/0/0 errors) 48.09% done, 3:31 elapsed. (0/0/0 errors) 49.74% done, 3:32 elapsed. (0/0/0 errors) 51.36% done, 3:33 elapsed. (0/0/0 errors) 53.03% done, 3:34 elapsed. (0/0/0 errors) 54.67% done, 3:35 elapsed. (0/0/0 errors) 56.34% done, 3:36 elapsed. (0/0/0 errors) 58.01% done, 3:37 elapsed. (0/0/0 errors) 59.67% done, 3:38 elapsed. (0/0/0 errors) 61.32% done, 3:39 elapsed. (0/0/0 errors) 62.96% done, 3:40 elapsed. (0/0/0 errors) 64.63% done, 3:41 elapsed. (0/0/0 errors) 66.28% done, 3:42 elapsed. (0/0/0 errors) 67.95% done, 3:43 elapsed. (0/0/0 errors) 69.62% done, 3:44 elapsed. (0/0/0 errors) 71.25% done, 3:45 elapsed. (0/0/0 errors) 72.92% done, 3:46 elapsed. (0/0/0 errors) 74.57% done, 3:47 elapsed. (0/0/0 errors) 76.24% done, 3:48 elapsed. (0/0/0 errors) 77.91% done, 3:49 elapsed. (0/0/0 errors) 79.58% done, 3:50 elapsed. (0/0/0 errors) 81.24% done, 3:51 elapsed. (0/0/0 errors) 82.89% done, 3:52 elapsed. (0/0/0 errors) 84.55% done, 3:53 elapsed. (0/0/0 errors) 86.19% done, 3:54 elapsed. (0/0/0 errors) 87.84% done, 3:55 elapsed. (0/0/0 errors) 89.51% done, 3:56 elapsed. (0/0/0 errors) 91.15% done, 3:57 elapsed. (0/0/0 errors) 92.82% done, 3:58 elapsed. (0/0/0 errors) 94.46% done, 3:59 elapsed. (0/0/0 errors) 96.13% done, 4:00 elapsed. (0/0/0 errors) 97.80% done, 4:01 elapsed. (0/0/0 errors) 99.45% done, 4:02 elapsed. (0/0/0 errors)done                                                 ;
-02:23:09.813	[DUT] Reading and comparing:   0.00% done, 4:03 elapsed. (0/0/0 errors)  3.07% done, 4:04 elapsed. (0/0/0 errors)  6.15% done, 4:05 elapsed. (0/0/0 errors)  9.23% done, 4:06 elapsed. (0/0/0 errors) 12.30% done, 4:07 elapsed. (0/0/0 errors) 15.38% done, 4:08 elapsed. (0/0/0 errors) 18.46% done, 4:09 elapsed. (0/0/0 errors) 21.54% done, 4:10 elapsed. (0/0/0 errors) 24.61% done, 4:11 elapsed. (0/0/0 errors) 27.68% done, 4:12 elapsed. (0/0/0 errors) 30.76% done, 4:13 elapsed. (0/0/0 errors) 33.83% done, 4:14 elapsed. (0/0/0 errors) 36.91% done, 4:15 elapsed. (0/0/0 errors) 39.98% done, 4:16 elapsed. (0/0/0 errors) 43.06% done, 4:17 elapsed. (0/0/0 errors) 46.16% done, 4:18 elapsed. (0/0/0 errors) 49.29% done, 4:19 elapsed. (0/0/0 errors) 52.40% done, 4:20 elapsed. (0/0/0 errors) 55.53% done, 4:21 elapsed. (0/0/0 errors) 58.65% done, 4:22 elapsed. (0/0/0 errors) 61.78% done, 4:23 elapsed. (0/0/0 errors) 64.91% done, 4:24 elapsed. (0/0/0 errors) 68.04% done, 4:25 elapsed. (0/0/0 errors) 71.17% done, 4:26 elapsed. (0/0/0 errors) 74.30% done, 4:27 elapsed. (0/0/0 errors) 77.43% done, 4:28 elapsed. (0/0/0 errors) 80.56% done, 4:29 elapsed. (0/0/0 errors) 83.69% done, 4:30 elapsed. (0/0/0 errors) 86.82% done, 4:31 elapsed. (0/0/0 errors) 89.95% done, 4:32 elapsed. (0/0/0 errors) 93.09% done, 4:33 elapsed. (0/0/0 errors) 96.21% done, 4:34 elapsed. (0/0/0 errors) 99.35% done, 4:35 elapsed. (0/0/0 errors)done                                                 ;
-02:23:09.907	[DUT] Testing with pattern 0x00:   0.00% done, 4:35 elapsed. (0/0/0 errors)  1.65% done, 4:36 elapsed. (0/0/0 errors)  3.32% done, 4:37 elapsed. (0/0/0 errors)  5.00% done, 4:38 elapsed. (0/0/0 errors)  6.67% done, 4:39 elapsed. (0/0/0 errors)  8.33% done, 4:40 elapsed. (0/0/0 errors) 10.00% done, 4:41 elapsed. (0/0/0 errors) 11.62% done, 4:42 elapsed. (0/0/0 errors) 13.29% done, 4:43 elapsed. (0/0/0 errors) 14.95% done, 4:44 elapsed. (0/0/0 errors) 16.62% done, 4:45 elapsed. (0/0/0 errors) 18.28% done, 4:46 elapsed. (0/0/0 errors) 19.93% done, 4:47 elapsed. (0/0/0 errors) 21.59% done, 4:48 elapsed. (0/0/0 errors) 23.23% done, 4:49 elapsed. (0/0/0 errors) 24.90% done, 4:50 elapsed. (0/0/0 errors) 26.56% done, 4:51 elapsed. (0/0/0 errors) 28.15% done, 4:52 elapsed. (0/0/0 errors) 29.82% done, 4:53 elapsed. (0/0/0 errors) 31.47% done, 4:54 elapsed. (0/0/0 errors) 33.11% done, 4:55 elapsed. (0/0/0 errors) 34.77% done, 4:56 elapsed. (0/0/0 errors) 36.42% done, 4:57 elapsed. (0/0/0 errors) 38.09% done, 4:58 elapsed. (0/0/0 errors) 39.76% done, 4:59 elapsed. (0/0/0 errors) 41.39% done, 5:00 elapsed. (0/0/0 errors) 43.06% done, 5:01 elapsed. (0/0/0 errors) 44.70% done, 5:02 elapsed. (0/0/0 errors) 46.37% done, 5:03 elapsed. (0/0/0 errors) 48.03% done, 5:04 elapsed. (0/0/0 errors) 49.67% done, 5:05 elapsed. (0/0/0 errors) 51.33% done, 5:06 elapsed. (0/0/0 errors) 52.97% done, 5:07 elapsed. (0/0/0 errors) 54.64% done, 5:08 elapsed. (0/0/0 errors) 56.30% done, 5:09 elapsed. (0/0/0 errors) 57.94% done, 5:10 elapsed. (0/0/0 errors) 59.60% done, 5:11 elapsed. (0/0/0 errors) 61.23% done, 5:12 elapsed. (0/0/0 errors) 62.87% done, 5:13 elapsed. (0/0/0 errors) 64.48% done, 5:14 elapsed. (0/0/0 errors) 66.15% done, 5:15 elapsed. (0/0/0 errors) 67.79% done, 5:16 elapsed. (0/0/0 errors) 69.45% done, 5:17 elapsed. (0/0/0 errors) 71.09% done, 5:18 elapsed. (0/0/0 errors) 72.75% done, 5:19 elapsed. (0/0/0 errors) 74.41% done, 5:20 elapsed. (0/0/0 errors) 76.05% done, 5:21 elapsed. (0/0/0 errors) 77.72% done, 5:22 elapsed. (0/0/0 errors) 79.36% done, 5:23 elapsed. (0/0/0 errors) 80.97% done, 5:24 elapsed. (0/0/0 errors) 82.64% done, 5:25 elapsed. (0/0/0 errors) 84.29% done, 5:26 elapsed. (0/0/0 errors) 85.96% done, 5:27 elapsed. (0/0/0 errors) 87.62% done, 5:28 elapsed. (0/0/0 errors) 89.26% done, 5:29 elapsed. (0/0/0 errors) 90.92% done, 5:30 elapsed. (0/0/0 errors) 92.57% done, 5:31 elapsed. (0/0/0 errors) 94.23% done, 5:32 elapsed. (0/0/0 errors) 95.90% done, 5:33 elapsed. (0/0/0 errors) 97.54% done, 5:34 elapsed. (0/0/0 errors) 99.21% done, 5:35 elapsed. (0/0/0 errors)done                                                 ;
-02:23:12.547	[DUT] Reading and comparing:   0.00% done, 5:36 elapsed. (0/0/0 errors)  3.07% done, 5:37 elapsed. (0/0/0 errors)  6.14% done, 5:38 elapsed. (0/0/0 errors)  9.25% done, 5:39 elapsed. (0/0/0 errors) 12.37% done, 5:40 elapsed. (0/0/0 errors) 15.49% done, 5:41 elapsed. (0/0/0 errors) 18.62% done, 5:42 elapsed. (0/0/0 errors) 21.75% done, 5:43 elapsed. (0/0/0 errors) 24.88% done, 5:44 elapsed. (0/0/0 errors) 28.00% done, 5:45 elapsed. (0/0/0 errors) 31.13% done, 5:46 elapsed. (0/0/0 errors) 34.26% done, 5:47 elapsed. (0/0/0 errors) 37.39% done, 5:48 elapsed. (0/0/0 errors) 40.52% done, 5:49 elapsed. (0/0/0 errors) 43.64% done, 5:50 elapsed. (0/0/0 errors) 46.76% done, 5:51 elapsed. (0/0/0 errors) 49.89% done, 5:52 elapsed. (0/0/0 errors) 53.03% done, 5:53 elapsed. (0/0/0 errors) 56.16% done, 5:54 elapsed. (0/0/0 errors) 59.28% done, 5:55 elapsed. (0/0/0 errors) 62.40% done, 5:56 elapsed. (0/0/0 errors) 65.53% done, 5:57 elapsed. (0/0/0 errors) 68.65% done, 5:58 elapsed. (0/0/0 errors) 71.77% done, 5:59 elapsed. (0/0/0 errors) 74.90% done, 6:00 elapsed. (0/0/0 errors) 78.03% done, 6:01 elapsed. (0/0/0 errors) 81.17% done, 6:02 elapsed. (0/0/0 errors) 84.30% done, 6:03 elapsed. (0/0/0 errors) 87.43% done, 6:04 elapsed. (0/0/0 errors) 90.57% done, 6:05 elapsed. (0/0/0 errors) 93.67% done, 6:06 elapsed. (0/0/0 errors) 96.80% done, 6:07 elapsed. (0/0/0 errors) 99.93% done, 6:08 elapsed. (0/0/0 errors)done                                                 ;
-02:23:12.547	[DUT] Pass completed, 0 bad blocks found. (0/0/0 errors);
-02:23:12.547	[DUT] root@eero-test:/# ;
-02:23:12.547	Item test time: 687.431 S ;
-02:23:12.547	ITEM=ID[13]RESULT[PASS];
-------------------------------------------------------
-02:23:12.547	ITEM=ID[14]NAME[ram_stress];
-02:23:12.656	[DUT] stressapptest -s 600 -M 300 -m 5 -C 5 -W -l test_ddr_01.log > /tmp/RAMStressTest30;
-02:33:22.717	[DUT] stressapptest -s 600 -M 300 -m 5 -C 5 -W -l test_ddr_01.log > ;
-02:33:22.717	[DUT] /tmp/RAMStressTest30;
-02:33:22.764	[DUT] tail -n 4 /tmp/RAMStressTest30;
-02:35:10.691	[DUT] root@eero-test:/# ;
-02:35:10.691	sleep 10 S;
-02:35:22.017	[DUT] tail -n 4 /tmp/RAMStressTest30;
-02:35:22.017	[DUT] 2021/12/09-05:59:03(UTC) Stats: Disk: 0.00M at 0.00MB/s;
-02:35:22.017	[DUT] 2021/12/09-05:59:03(UTC) ;
-02:35:22.017	[DUT] 2021/12/09-05:59:03(UTC) Status: PASS - please verify no corrected errors;
-02:35:22.017	[DUT] 2021/12/09-05:59:03(UTC) ;
-02:35:22.017	[DUT] root@eero-test:/# ;
-02:35:22.017	[DUT] stressapptest -s 600 --cc_test -M 300 -v 20 --cc_line_size 8192 --stop_on_errors -l test_ddr_02.log > /tmp/RAMStressTest31;
-02:45:32.018	[DUT] stressapptest -s 600 --cc_test -M 300 -v 20 --cc_line_size 819;
-02:45:32.018	[DUT] 2 --stop_on_errors -l test_ddr_02.log > /tmp/RAMStressTest31;
-02:45:32.018	[DUT] root@eero-test:/# ;
-02:45:32.018	sleep 10 S;
-02:45:42.031	[DUT] tail -n 4 /tmp/RAMStressTest31;
-02:45:42.078	[DUT] 2021/12/09-06:09:15(UTC) Log: Uninstalling signal handlers;
-02:45:42.078	[DUT] 2021/12/09-06:09:15(UTC) ;
-02:45:42.078	[DUT] 2021/12/09-06:09:15(UTC) Status: PASS - please verify no corrected errors;
-02:45:42.078	[DUT] 2021/12/09-06:09:15(UTC) ;
-02:45:42.078	[DUT] root@eero-test:/# ;
-02:45:42.078	[DUT] stressapptest -s 600 -f /tmp/file1 -f /tmp/file2 -M 100 -l test_ddr_03.log > /tmp/RAMStressTest32;
-02:55:52.083	[DUT] stressapptest -s 600 -f /tmp/file1 -f /tmp/file2 -M 100 -l tes;
-02:55:52.083	[DUT] t_ddr_03.log > /tmp/RAMStressTest32;
-02:55:52.083	[DUT] root@eero-test:/# ;
-02:55:52.083	sleep 10 S;
-02:56:02.097	[DUT] tail -n 4 /tmp/RAMStressTest32;
-02:56:02.144	[DUT] 2021/12/09-06:19:35(UTC) Stats: Disk: 0.00M at 0.00MB/s;
-02:56:02.144	[DUT] 2021/12/09-06:19:35(UTC) ;
-02:56:02.144	[DUT] 2021/12/09-06:19:35(UTC) Status: PASS - please verify no corrected errors;
-02:56:02.144	[DUT] 2021/12/09-06:19:35(UTC) ;
-02:56:02.144	[DUT] root@eero-test:/# ;
-02:56:02.144	Item test time: 1969.597 S ;
-02:56:02.144	ITEM=ID[14]RESULT[PASS];
-------------------------------------------------------
-02:56:02.144	ITEM=ID[15]NAME[cpu_stress];
-02:56:04.393	[DUT] stress --cpu 8 --io 4 --vm 2 --vm-bytes 128M --timeout 1800s > /tmp/CPUStressTest3;
-03:26:14.406	[DUT] tail -n 2 /tmp/CPUStressTest3;
-03:26:14.453	[DUT] stress: info: [3191] dispatching hogs: 8 cpu, 4 io, 2 vm, 0 hdd;
-03:26:14.453	[DUT] stress: info: [3191] successful run completed in 1801s;
-03:26:14.453	[DUT] root@eero-test:/# ;
-03:26:14.453	Item test time: 1812.309 S ;
-03:26:14.531	ITEM=ID[15]RESULT[PASS];
-------------------------------------------------------
-03:26:14.531	ITEM=ID[16]NAME[MMC_READ_WRITE_SPEED_TEST];
-03:26:15.062	[DUT]  test-emmc;
-03:26:15.156	[DUT] Writing 10MiB of 0x00 in 524288 B chunks to /dev/mmcblk0p20...;
-03:26:15.875	[DUT] 20+0 records in;
-03:26:15.875	[DUT] 20+0 records out;
-03:26:15.921	[DUT] 10485760 bytes (10.0MB) copied, 0.552122 seconds, 18.1MB/s;
-03:26:15.921	[DUT] real    0m 0.55s;
-03:26:15.921	[DUT] user    0m 0.00s;
-03:26:15.921	[DUT] sys     0m 0.08s;
-03:26:15.921	[DUT] Reading 10MiB in 524288 B chunks from /dev/mmcblk0p20...;
-03:26:16.140	[DUT] 20+0 records in;
-03:26:16.140	[DUT] 20+0 records out;
-03:26:16.312	[DUT] 10485760 bytes (10.0MB) copied, 0.245310 seconds, 40.8MB/s;
-03:26:16.312	[DUT] real    0m 0.25s;
-03:26:16.312	[DUT] user    0m 0.03s;
-03:26:16.312	[DUT] sys     0m 0.00s;
-03:26:16.312	[DUT] Writing 10MiB of 0xFF in 524288 B chunks to /dev/mmcblk0p20...;
-03:26:16.718	[DUT] 20+0 records in;
-03:26:16.718	[DUT] 20+0 records out;
-03:26:16.812	[DUT] 10485760 bytes (10.0MB) copied, 0.540836 seconds, 18.5MB/s;
-03:26:16.812	[DUT] real    0m 0.54s;
-03:26:16.812	[DUT] user    0m 0.00s;
-03:26:16.843	[DUT] sys     0m 0.08s;
-03:26:16.843	[DUT] Reading 10MiB in 524288 B chunks from /dev/mmcblk0p20...;
-03:26:17.015	[DUT] 20+0 records in;
-03:26:17.015	[DUT] 20+0 records out;
-03:26:17.015	[DUT] 10485760 bytes (10.0MB) copied, 0.245590 seconds, 40.7MB/s;
-03:26:17.015	[DUT] real    0m 0.25s;
-03:26:17.015	[DUT] user    0m 0.00s;
-03:26:17.015	[DUT] sys     0m 0.03s;
-03:26:17.015	[DUT] Writing 10MiB of random in 524288 B chunks to /dev/mmcblk0p20...;
-03:26:20.764	[DUT] 20+0 records in;
-03:26:20.764	[DUT] 20+0 records out;
-03:26:21.030	[DUT] 10485760 bytes (10.0MB) copied, 3.787210 seconds, 2.6MB/s;
-03:26:21.030	[DUT] real    0m 3.79s;
-03:26:21.030	[DUT] user    0m 0.00s;
-03:26:21.030	[DUT] sys     0m 3.32s;
-03:26:21.030	[DUT] Reading 10MiB in 524288 B chunks from /dev/mmcblk0p20...;
-03:26:21.280	[DUT] 20+0 records in;
-03:26:21.280	[DUT] 20+0 records out;
-03:26:21.280	[DUT] 10485760 bytes (10.0MB) copied, 0.245946 seconds, 40.7MB/s;
-03:26:21.280	[DUT] real    0m 0.25s;
-03:26:21.280	[DUT] user    0m 0.00s;
-03:26:21.280	[DUT] sys     0m 0.03s;
-03:26:21.280	[DUT] root@eero-test:/#;
-03:26:21.280	emmc_speed_read= 40.8;
-03:26:21.280	emmc_speed_write= 18.1;
-03:26:21.280	Item test time: 6.749 S ;
-03:26:21.280	ITEM=ID[16]RESULT[PASS];
-------------------------------------------------------
-03:26:21.280	ITEM=ID[17]NAME[temp_cpu_1];
-03:26:22.592	[DUT]  cat /sys/devices/virtual/thermal/thermal_zone1/temp;
-03:26:22.592	[DUT] 48;
-03:26:22.592	[DUT] root@eero-test:/#;
-03:26:22.592	[DUT] 48;
-03:26:22.592	Item test time: 1.312 S ;
-03:26:23.232	ITEM=ID[17]RESULT[PASS];
-------------------------------------------------------
-03:26:23.435	ITEM=ID[18]NAME[shop_floor];
-03:26:23.435	release IP address by : arp -d 172.168.0.13;
-03:26:23.435	Item test time: 0.000 S ;
-03:26:24.622	ITEM=ID[18]RESULT[PASS];
-------------------------------------------------------
-03:26:24.622	ITEM=ID[19]NAME[open DHCP];
-03:26:34.870	 uci set dhcp.lan.interface='lan';
-03:26:34.870	root@eero-test:/# uci commit dhcp;
-03:26:34.870	root@eero-test:/# ;
-03:26:34.870	Item test time: 10.248 S ;
-03:26:37.229	ITEM=ID[19]RESULT[PASS];
-------------------------------------------------------
-03:26:37.229	ITEM=ID[20]NAME[ReleasePowerSwitchOutlet];
-03:26:37.229	power IP 192.168.1.11outlet 5;
-03:26:37.229	[Arduino] http://192.168.1.11/outlet?5=OFF;
-03:26:37.416	[Arduino] HTTP/1.1 200 OK;
-03:26:37.526	Item test time: 0.297 S ;
-03:26:37.901	ITEM=ID[20]RESULT[PASS];
-03:26:37.901	jsonPath:Data/Trieste/json/production/810-01100_RUNIN/20220709/RUNIN-7507/GGB1UD22227704CC_RX71D9X_2022-07-09_03-26-37_PASS.json;
-------------------------------------------------------
-03:26:40.322	Total test time:5819.502 s;
-03:26:40.322	SFIS=SN[RX71D9X]WIFIMAC0[]WIFIMAC1[]PNNAME[810-01100]RESULT[true];CONTROL=RESULT[true];
-03:26:40.806	------------mydas----------------;
-03:26:40.806	DETAILINFO=[NA,NA,0;];
-03:26:40.806	ERRORINFO=[];
-03:26:40.806	MAININFO=[GGB1UD22227704CC,1,Data\Trieste\810-01100_RUNIN\20220709\RUNIN-7507\RX71D9X_B5_03-2640_SFIS_ON_PASS.txt,1.0.8,RUNIN-7507,5819.502,07/09/2022 01:49:38,,,];
-03:26:40.806	Send to pts Passed;
-03:26:55.350	cmd /c cd python & eero_API_client.py log\GGB1UD22227704CC_RUNIN-7507_production;
-03:26:55.693	log\GGB1UD22227704CC_RUNIN-7507_production_serial.txt;
-03:26:55.693	Connected;
-03:26:55.693	INFO: Input text is valid JSON.;
-03:26:55.693	INFO: JSON schema validation successful.;
-03:26:55.693	INFO: JSON test data validation successful.;
-03:26:55.693	INFO: JSON test header validation successful.;
-03:26:55.693	INFO: Created testrun 30878314 entry in database.;
-03:26:55.693	INFO: Inserted 18 rows in testresult database table.;
-03:26:55.693	INFO: No node property found in test results.;
-03:26:55.693	INFO: Data ingestion successful.;
-03:26:55.693	INFO: Saved 1 file.;
-03:26:55.693	200;
-03:26:55.693	Sending result to sfis...;
-03:26:55.724	{"result":"PASS","message":"OK. Go to RTT !","data":""};
-03:26:55.724	Sfis response pass : OK. Go to RTT !;

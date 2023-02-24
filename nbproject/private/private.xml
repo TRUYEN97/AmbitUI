@@ -8,10 +8,12 @@
         </group>
         <group name="AmbitUI">
             <file>file:/D:/Ambit-module/AmbitUI/src/Control/Core/Engine.java</file>
-            <file>file:/D:/Ambit-module/AmbitUI/src/Model/DataTest/FunctionData/FunctionData.java</file>
-            <file>file:/D:/Ambit-module/AmbitUI/src/Control/Core/RunTest/Runner.java</file>
-            <file>file:/D:/Ambit-module/AmbitUI/src/Control/Functions/FunctionsTest/Base/UpFTP/UpFTP.java</file>
-            <file>file:/D:/Ambit-module/AmbitUI/src/Control/Functions/FunctionsTest/Base/CheckUpdate/CheckUpdate.java</file>
+            <file>file:/D:/Ambit-module/AmbitUI/src/Control/Functions/FunctionsTest/Base/BaseFunction/FunctionBase.java</file>
+            <file>file:/D:/Ambit-module/AmbitUI/src/Control/Functions/FunctionsTest/ON_OFF/PowerSwicthPing/PowerSwicthPing.java</file>
+            <file>file:/D:/Ambit-module/AmbitUI/config/Setting/setting.json</file>
+            <file>file:/D:/Ambit-module/AmbitUI/config/Item/Runin_ort_debug.json</file>
+            <file>file:/D:/Ambit-module/AmbitUI/src/Control/Functions/FunctionsTest/Base/DutPing/DutPing.java</file>
+            <file>file:/D:/Ambit-module/AmbitUI/config/dataSource/Init/golden.txt</file>
         </group>
     </open-files>
 </project-private>

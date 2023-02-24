@@ -6,7 +6,6 @@ package Control.Functions.FunctionsTest.Base.SFIS;
 
 import Control.Functions.AbsFunction;
 import Model.AllKeyWord;
-import Model.DataSource.Setting.Setting;
 import Model.DataTest.FunctionData.ItemTestData;
 import Model.ErrorLog;
 import SfisAPI17.SfisAPI;
@@ -29,7 +28,7 @@ public class SfisFunction extends AbsFunction {
     public SfisFunction(FunctionParameters functionName) {
         this(functionName, null);
     }
-    
+
     public SfisFunction(FunctionParameters functionName, String item) {
         super(functionName, item);
         this.sfisAPI = new SfisAPI();
@@ -88,7 +87,7 @@ public class SfisFunction extends AbsFunction {
             String value = this.processData.getString(key);
             key = key.toUpperCase();
             addLog("key: " + key + " = " + value);
-            if(value == null){
+            if (value == null) {
                 continue;
             }
             if (key.equalsIgnoreCase(AllKeyWord.SFIS.STATUS)) {
@@ -177,11 +176,15 @@ public class SfisFunction extends AbsFunction {
 
     private boolean putMacDHCP() {
         String mac = this.processData.getString(AllKeyWord.SFIS.MAC);
+        String oldIP = DhcpData.getInstance().getIP(mac);
         if (mac == null || mac.isBlank()
                 || !DhcpData.getInstance().put(mac, uIInfo.getID())) {
             return false;
         }
-        addLog("PC","add Mac: %s -- Ip: %s to DHCP data",
+        if (oldIP != null) {
+            addLog("PC", "Old IP: %s in DHCP data", oldIP);
+        }
+        addLog("PC", "add Mac: %s -- Ip: %s to DHCP data",
                 mac, DhcpData.getInstance().getIP(mac));
         return true;
     }

@@ -18,6 +18,7 @@ public class SmallUI extends AbsSubUi {
 
     private final FormShow formShow;
     private List<FunctionData> list;
+    private static final String DEFAULT_FORM = "<html><center>%s<br>%s<br>%s</html>";
 
     /**
      * Creates new form SmallUI
@@ -110,7 +111,7 @@ public class SmallUI extends AbsSubUi {
             this.lbTime.setBackground(Color.GREEN);
         } else {
             this.lbTime.setBackground(Color.red);
-            lbTime.setText(String.format("<html><center>%s</br><center>%s</center>%s</html>",
+            lbTime.setText(String.format(DEFAULT_FORM,
                     getName(), this.uiStatus.getProcessData().getFirstFail().getLocalErrorCode(), getTestTime()));
         }
     }
@@ -127,12 +128,7 @@ public class SmallUI extends AbsSubUi {
 
     @Override
     public void updateData() {
-        if (list == null) {
-            lbTime.setText(String.format("<html><center>%s</center>%s</html>",
-                    getName(), getTestTime()));
-        } else {
-            lbTime.setText(String.format("<html><center>%s</br><center>%s</center>%s</html>",
-                    getName(), list.size(), getTestTime()));
-        }
+            lbTime.setText(String.format(DEFAULT_FORM,
+                    getName(), list == null? 0: list.size(), getTestTime()));
     }
 }

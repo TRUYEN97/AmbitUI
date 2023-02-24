@@ -75,7 +75,7 @@
             "IP": "192.168.1.1",
             "ReadUntil": "root@eero-test:/#",
             "command": "fw_printenv serial",
-            "Startkey": "serial1=",
+            "Startkey": "serial=",
             "Endkey": "",
             "Time": 10,
             "compare": "mlbsn",

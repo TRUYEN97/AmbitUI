@@ -65,14 +65,18 @@ public class AnalysisBase extends AbsFunction {
                 }
             }
             if (line == null) {
-                addLog("PC", " null - %s S", time == null ? "null": time.getTime());
+                if (time != null) {
+                    addLog("PC", " null - %.3f S", time.getTime());
+                } else {
+                    addLog("PC", " null");
+                }
             }
             return value;
         } finally {
             addLog("CONFIG", "Start key: \"%s\"", startkey);
             addLog("CONFIG", "End key: \"%s\"", endkey);
             addLog("CONFIG", "Regex: \"%s\"", regex);
-            addLog("CONFIG", "Time: \"%.3f/%.3f (S)\"", time != null ? time.getTime(): null, time != null ? time.getSpec() : null);
+            addLog("CONFIG", "Time: \"%.3f/%.3f (S)\"", time != null ? time.getTime() : null, time != null ? time.getSpec() : null);
             addLog("PC", "Value: \"%s\"", value);
         }
 

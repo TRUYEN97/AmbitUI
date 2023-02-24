@@ -1,0 +1,37 @@
+{
+    "uutModel": "Jupiter",
+    "station_type": "RUNIN",
+    "row": 9,
+    "column": 8,
+    "loop_test": 1,
+    "progress": "EVT",
+    "name_app": "RUNIN",
+    "type_ui": "SmallUIProxy",
+    "local_log": "Log\\TestLog",
+    "detail": ["TabViewProxy", "TabItemProxy"],
+    "limit_path": "config\\dataSource\\Init\\limits.json",
+    "limit_update": "cd python && eero_api_limits_Jupiter.py Runin",
+    "debug_able": true,
+    "use_dhcp": true,
+    "load_mode": [
+        {
+            "name": "Prodution", 
+            "type_mode": "production",
+            "debug_able": true,
+            "ambit_config": "config\\Item\\Runin_jupiter_production.json"
+        },
+        {
+            "name": "Debug - golden", 
+            "type_mode": "debug",
+            "test_color": "FFCCCC",
+            "debug_able": true,
+            "ambit_config": "config\\Item\\Runin_jupiter_debug.json"
+        }
+    ],
+    "dhcp": {
+        "flag": true,
+        "netIP": "172.168.0.251",
+        "mac_length": 16,
+        "lease_time": 300
+    }
+}

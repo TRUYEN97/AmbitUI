@@ -370,7 +370,7 @@ public class UIView extends javax.swing.JFrame {
                 .addContainerGap())
         );
 
-        BoardSubUI.setBackground(new java.awt.Color(51, 51, 51));
+        BoardSubUI.setBackground(new java.awt.Color(0, 51, 0));
         BoardSubUI.setPreferredSize(new java.awt.Dimension(794, 700));
 
         javax.swing.GroupLayout BoardSubUILayout = new javax.swing.GroupLayout(BoardSubUI);
@@ -392,7 +392,7 @@ public class UIView extends javax.swing.JFrame {
                 .addContainerGap()
                 .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(BoardSubUI, javax.swing.GroupLayout.PREFERRED_SIZE, 736, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addComponent(BoardSubUI, javax.swing.GroupLayout.DEFAULT_SIZE, 736, Short.MAX_VALUE)
                 .addContainerGap())
         );
         panelBackgroundLayout.setVerticalGroup(

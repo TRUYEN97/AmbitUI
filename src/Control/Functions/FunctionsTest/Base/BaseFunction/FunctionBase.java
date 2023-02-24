@@ -56,7 +56,7 @@ public class FunctionBase extends AbsFunction {
     public Telnet getTelnet(String ip) {
         return getTelnet(ip, 23, null);
     }
-    
+
     public Telnet getTelnet(String ip, int port) {
         return getTelnet(ip, port, null);
     }
@@ -75,13 +75,22 @@ public class FunctionBase extends AbsFunction {
         addLog("PC", "Connect to ip: %s", ip);
         addLog("PC", "Port is: %s", port);
         telnet.setDebug(true);
-        if (!pingTo(ip, 120, this.modeTest.isUseDHCP()) || !telnet.connect(ip, port)) {
-            addLog("PC", "Connect failed!");
+        if (!pingTo(ip, 180)) {
+            addLog("PC", "Ping to \"%s\" failed!", ip);
             return null;
         }
+        if (!telnet.connect(ip, port)) {
+            addLog("PC", "Connect to telnet with IP: \"%s\" failed!", ip);
+            return null;
+        }
+        addLog("PC", "Connect to telnet with IP: \"%s\" ok!", ip);
         String response = telnet.readUntil(new TimeS(10), readUntil);
         addLog("Telnet", response);
-        return response == null ? null : telnet;
+        if (response == null) {
+            addLog("PC", "");
+            return null;
+        }
+        return telnet;
     }
 
     public String getIp() {
@@ -121,9 +130,9 @@ public class FunctionBase extends AbsFunction {
                 addLog("Telnet", "send command reboot failed!");
                 return false;
             }
-            addLog("Telnet", telnet.readAll(new TimeS(10)));
+            addLog("Telnet", telnet.readAll(new TimeS(20)));
             addLog("PC", "Wait about %s S", waitTime);
-            if (sendRebootDUT(waitTime, ip) && pingTo(ip, pingTime, this.modeTest.isUseDHCP())) {
+            if (sendRebootDUT(waitTime, ip) && pingTo(ip, pingTime)) {
                 addLog("PC", "*************** Reboot soft ok! *********************");
                 return true;
             }
@@ -135,7 +144,7 @@ public class FunctionBase extends AbsFunction {
     private boolean sendRebootDUT(int waitTime, String ip) {
         TimeS waitToSleepTime = new TimeS(waitTime);
         do {
-            if (!pingTo(ip, 1, this.modeTest.isUseDHCP())) {
+            if (!pingTo(ip, 1)) {
                 addLog("PC", "*************** Shut down ok! [%.3f S]*****************", waitToSleepTime.getTime());
                 return true;
             }
@@ -178,6 +187,10 @@ public class FunctionBase extends AbsFunction {
         return true;
     }
 
+    public boolean pingTo(String ip, int times) {
+        return pingTo(ip, times, !this.modeTest.isUseDHCP());
+    }
+
     public boolean pingTo(String ip, int times, boolean arp_d) {
         if (ip == null || times <= 0) {
             addLog("Error", "IP == null ", ip);
@@ -189,7 +202,7 @@ public class FunctionBase extends AbsFunction {
         }
         addLog("PC", "Ping to IP: %s - %s S", ip, times);
         Cmd cmd = new Cmd();
-        String arp = String.format("arp -d %s", ip);
+        String arp = "arp -d";
         String command = String.format("ping %s -n 1", ip);
         TimeS timer = new TimeS(times);
         try {
@@ -217,4 +230,5 @@ public class FunctionBase extends AbsFunction {
         }
         return false;
     }
+
 }

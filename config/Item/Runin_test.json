@@ -53,7 +53,7 @@
             "flag": true,
             "multi": false,
             "always_run": false,
-            "time_out": 30,
+            "time_out": 1,
             "test_name": "mac",
             "func_name": "GetMacFormSfisProxy"
         },
@@ -66,7 +66,7 @@
             "user": "admin",
             "password": "1234",
             "Times": 1,
-            "Delay": 5,
+            "Delay": 3,
             "Command": ["off", "on"],
             "test_name": "wps_ok",
             "func_name": "PowerSwitchProxy"
@@ -85,7 +85,6 @@
         },
         {
             "flag": true,
-            "retry": 2,
             "time_out": 100,
             "multi": false,
             "debug_able": true,
@@ -98,7 +97,7 @@
             "flag": true,
             "retry": 2,
             "time_out": 100,
-            "multi": true,
+            "multi": false,
             "debug_able": true,
             "always_run": false,
             "IP": "192.168.1.1",
@@ -115,7 +114,7 @@
             "flag": true,
             "retry": 2,
             "time_out": 100,
-            "multi": true,
+            "multi": false,
             "debug_able": true,
             "always_run": false,
             "IP": "192.168.1.1",
@@ -132,7 +131,7 @@
             "flag": false,
             "retry": 2,
             "time_out": 100,
-            "multi": true,
+            "multi": false,
             "debug_able": true,
             "always_run": false,
             "Time": 40,
@@ -147,7 +146,7 @@
             "flag": false,
             "retry": 2,
             "time_out": 100,
-            "multi": true,
+            "multi": false,
             "debug_able": true,
             "always_run": false,
             "IP": "192.168.1.1",
@@ -162,7 +161,7 @@
             "flag": true,
             "retry": 2,
             "time_out": 100,
-            "multi": true,
+            "multi": false,
             "debug_able": true,
             "always_run": false,
             "IP": "192.168.1.1",
@@ -178,7 +177,7 @@
             "flag": true,
             "retry": 2,
             "time_out": 100,
-            "multi": true,
+            "multi": false,
             "debug_able": true,
             "always_run": false,
             "ReadUntil": "root@eero-test:/#",
@@ -192,7 +191,7 @@
         {
             "flag": true,
             "time_out": 1000,
-            "retry": 1,
+            "retry": 2,
             "debug_able": true,
             "wait_multi_done": true,
             "multi": false,
@@ -308,11 +307,7 @@
             "always_run": true,
             "test_name": "shop_floor",
             "func_name": "VirFunctionProxy"
-        }
-
-    ],
-    "end": [
-        {
+        }, {
             "flag": true,
             "time_out": 60,
             "retry": 2,
@@ -343,6 +338,9 @@
             "test_name": "SendToSfis",
             "func_name": "SfisFunctionProxy"
         }
+    ],
+    "end": [
+
     ],
     "final": [
         {
