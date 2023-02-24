@@ -1,0 +1,4 @@
+2023-02-24 07:26:54.056:   error in Control.Functions.FunctionsTest.Runin.PowerSwitch.PowerSwitchFunc : Cannot invoke "java.lang.Integer.intValue()" because the return value of "Model.DataSource.ModeTest.FunctionConfig.FuncAllConfig.getInteger(String)" is null
+2023-02-24 07:26:54.057:   //////////////////////////////////////
+2023-02-24 07:26:54.057:   error in Control.Functions.FunctionsTest.Runin.PowerSwitch.PowerSwitchFunc : Cannot invoke "java.lang.Integer.intValue()" because the return value of "Model.DataSource.ModeTest.FunctionConfig.FuncAllConfig.getInteger(String)" is null
+2023-02-24 07:26:54.057:   //////////////////////////////////////

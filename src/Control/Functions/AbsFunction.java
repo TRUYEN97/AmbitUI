@@ -25,7 +25,7 @@ import View.subUI.SubUI.AbsSubUi;
 public abstract class AbsFunction implements IFunction {
 
     public static enum LOG_KEYS {
-        PC, CONFIG, TELNET, COMPORT, ERROR;
+       CONFIG, PC, TELNET, COMPORT, CMD, ERROR;
 
         @Override
         public String toString() {

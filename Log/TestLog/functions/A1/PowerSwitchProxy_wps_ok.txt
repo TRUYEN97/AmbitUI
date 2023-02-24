@@ -1,0 +1,17 @@
+2023-02-24 07:26:54.044:   ITEM[wps_ok] - FUNCTION[PowerSwitchProxy]
+2023-02-24 07:26:54.054:   Turn: 1
+2023-02-24 07:26:54.055:   [CONFIG] host: null
+2023-02-24 07:26:54.055:   [CONFIG] user: null
+2023-02-24 07:26:54.055:   [CONFIG] passWord: null
+2023-02-24 07:26:54.057:   Cannot invoke "java.lang.Integer.intValue()" because the return value of "Model.DataSource.ModeTest.FunctionConfig.FuncAllConfig.getInteger(String)" is null
+2023-02-24 07:26:54.059:   ****************************************************
+2023-02-24 07:26:54.059:   Item name = wps_ok
+2023-02-24 07:26:54.061:   Value = failed
+2023-02-24 07:26:54.061:   Test status = failed
+2023-02-24 07:26:54.064:   -----------------------------------------------------
+2023-02-24 07:26:54.064:   Error code = -1
+2023-02-24 07:26:54.064:   Error des = wps_ok
+2023-02-24 07:26:54.065:   Local error code = 39.3.0
+2023-02-24 07:26:54.065:   Local error des = wps_ok
+2023-02-24 07:26:54.068:   ****************************************************
+2023-02-24 07:26:54.069:   TIME[0.015 s] - STATUS[FAILED]

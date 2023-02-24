@@ -1,4 +1,10 @@
 {
+    "ReadComportUntilStopItem": {
+        "simple": {
+            "errorcode": "Read.Comport.0",
+            "errorDes": "ReadComportUntilStop"
+        }
+    },
     "humidity_env": {
         "simple": {
             "errorcode": "3.20.1",

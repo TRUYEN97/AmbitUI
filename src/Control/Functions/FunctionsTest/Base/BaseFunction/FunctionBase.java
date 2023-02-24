@@ -107,6 +107,17 @@ public class FunctionBase extends AbsFunction {
         addLog("Get IP from the function config with key is \"IP\".");
         return config.getString("IP");
     }
+    
+    public String getComportName() {
+        Integer com = this.config.getInteger("comport");
+        if (this.modeTest.isUseDHCP()) {
+            if (com != null) {
+                int port = com + this.uIInfo.getID();
+                return String.format("COM%d", port);
+            }
+        }
+        return null;
+    }
 
     public ComPort getComport(String com, Integer baud) {
         ComPort comPort = new ComPort();

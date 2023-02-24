@@ -19,6 +19,7 @@ import Control.Functions.FunctionsTest.Base.GoldenFile.GoldenFileProxy;
 import Control.Functions.FunctionsTest.Base.JsonApi.CreateJsonApi.CreateJsonApiProxy;
 import Control.Functions.FunctionsTest.Base.JsonApi.UpApi.UpApiProxy;
 import Control.Functions.FunctionsTest.Base.MyDas.MydasProxy;
+import Control.Functions.FunctionsTest.Base.ReadInputUntilStopItem.ReadComportUntilStopItemProxy;
 import Control.Functions.FunctionsTest.Base.SFIS.SfisFunctionProxy;
 import Control.Functions.FunctionsTest.Base.SendCommandInFileAndPing.SendCommandInFileAndPingProxy;
 import Control.Functions.FunctionsTest.Base.TxtLog.ZipLog.ZipFileProxy;
@@ -38,7 +39,6 @@ import Control.Functions.FunctionsTest.Runin.MMC_WR_SPEED.MMC_WR_SPEED_PROXY;
 import Control.Functions.FunctionsTest.ON_OFF.PowerSwicthPing.PowerSwicthPingProxy;
 import Control.Functions.FunctionsTest.Other.CheckLed_W_1H_SFT.CheckLed_W_1H_Proxy;
 import Control.Functions.FunctionsTest.Other.Reboot_CheckLed1H_SFT.Reboot_CheckLed1H_SFT_Proxy;
-import Control.Functions.FunctionsTest.Runin.CheckCommandCmd.CheckCommandCmd;
 import Control.Functions.FunctionsTest.Runin.CheckCommandCmd.CheckCommandCmdProxy;
 import Control.Functions.FunctionsTest.Runin.TelnetReadUntilKey.TelnetReadUntilKeyProxy;
 import Control.Functions.FunctionsTest.Runin.RebootSoft.RebootSoftProxy;
@@ -161,5 +161,6 @@ public class Factory {
         this.functions.addType(new CreatePathProxy());
         this.functions.addType(new SendCommandInFileAndPingProxy());
         this.functions.addType(new CheckCommandCmdProxy());
+        this.functions.addType(new ReadComportUntilStopItemProxy());
     }
 }

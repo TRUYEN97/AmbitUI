@@ -17,7 +17,7 @@
         {
             "name": "Production", 
             "type_mode": "production",
-            "ambit_config": "config\\Item\\Runin_ort_debug.json"
+            "ambit_config": "config\\Item\\Runin_jupiter_200T.json"
         }
     ],
     "dhcp": {
