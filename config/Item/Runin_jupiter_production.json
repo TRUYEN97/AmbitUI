@@ -521,6 +521,8 @@
             "always_run": false,
             "multi": false,
             "IP": "10.90.10.168",
+            "flowVer": "3.0",
+            "titleVer": "3.0",
             "sendDetail": false,
             "test_name": "Mydas",
             "func_name": "MydasProxy" 

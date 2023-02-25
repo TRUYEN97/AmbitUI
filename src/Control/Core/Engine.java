@@ -91,7 +91,7 @@ public class Engine {
     }
 
     private boolean initProgramInfo() {
-        this.programInfo.setVersion("V1.2.2.8");
+        this.programInfo.setVersion("V1.2.2.11");
         String uutmodel = this.setting.getUutMolel();
         if (uutmodel == null || uutmodel.isBlank()) {
             JOptionPane.showMessageDialog(null, "Not set UUT model!");

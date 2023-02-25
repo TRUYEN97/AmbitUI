@@ -37,46 +37,69 @@ public class Mydas extends AbsFunction {
         String station = this.processData.getString(AllKeyWord.STATION_TYPE);
         addLog("CONFIG", String.format(String.format("Station: %s", station)));
         String pn = this.processData.getString("pnname");
-        addLog("CONFIG", String.format(String.format("PN name %s", pn)));
-        MydasClient mydasClient = new MydasClient(IP, pcName, "3.0", "3.0", uutModel, station, pn);
-        if (mydasClient.connectPts() != 1) {
-            addLog("connect PTS (Mydas) failed!");
-            return false;
-        } else {
-            addLog("connect PTS (Mydas) ok!");
-            String detail;
-            if (sendDetail) {
-                detail = getDetail();
-            } else {
-                detail = "NA,NA,0;";
-            }
-            ItemTestData itemTestData = this.processData.getFirstFail();
-            String errorInfo = "";
-            if (itemTestData != null) {
-                errorInfo = String.format("%s,%s,%s|", itemTestData.getLocalErrorCode(),
-                        itemTestData.getLocalErrorDes(), itemTestData.getResultTest());
-            }
-            String mainInfo = getMainInfo();
-            addLog(LOG_KEYS.PC, "DETAILINFO=[ %s ]", detail);
-            addLog(LOG_KEYS.PC,"ERRORINFO=[ %s ]", errorInfo);
-            addLog(LOG_KEYS.PC,"MAININFO=[ %s ]", mainInfo);
-            mydasClient.initClientInfo();
-            mydasClient.setData(detail, 0);
-            mydasClient.setData(errorInfo, 1);
-            mydasClient.setData(mainInfo, 2);
-            addLog("------------mydas----------------");
+        addLog("CONFIG", String.format(String.format("PN name: %s", pn)));
+        String flowVer = this.processData.getString("flowVer", "3.0");
+        addLog("CONFIG", String.format(String.format("flowVer: %s", pn)));
+        String titleVer = this.processData.getString("titleVer", "3.0");
+        addLog("CONFIG", String.format(String.format("titleVer: %s", pn)));
+        MydasClient mydasClient = new MydasClient(IP, pcName, flowVer, titleVer, uutModel, station, pn);
+        return sendMydas(mydasClient, sendDetail);
+    }
 
-            if (mydasClient.sendPTS() == 0) {
-                addLog("Send to pts failed....");
+    private boolean sendMydas(MydasClient mydasClient, boolean sendDetail) {
+        try {
+            if (mydasClient.connectPts() != 1) {
+                addLog("connect PTS (Mydas) failed!");
                 return false;
             } else {
-                addLog("Send to pts Passed");
-                return true;
+                addLog("connect PTS (Mydas) ok!");
+                String detail = getDetail(sendDetail);
+                String errorInfo = getErrorInfo();
+                String mainInfo = getMainInfo();
+                addLog(LOG_KEYS.PC, "DETAILINFO=[ %s ]", detail);
+                addLog(LOG_KEYS.PC, "ERRORINFO=[ %s ]", errorInfo);
+                addLog(LOG_KEYS.PC, "MAININFO=[ %s ]", mainInfo);
+                if (sendDatasToMyDas(mydasClient, detail, errorInfo, mainInfo)) {
+                    addLog("Send to pts Passed");
+                    return true;
+                }
+                addLog("Send to pts failed....");
+                return false;
             }
+        } finally {
+            addLog("------------mydas----------------");
         }
     }
 
-    private String getDetail() {
+    private boolean sendDatasToMyDas(MydasClient mydasClient, String detail, String errorInfo, String mainInfo) {
+        mydasClient.initClientInfo();
+        mydasClient.setData(detail, 0);
+        mydasClient.setData(errorInfo, 1);
+        mydasClient.setData(mainInfo, 2);
+        return mydasClient.sendPTS() != 0;
+    }
+
+    private String getErrorInfo() {
+        ItemTestData itemTestData = this.processData.getFirstFail();
+        String errorInfo = "";
+        if (itemTestData != null) {
+            errorInfo = String.format("%s,%s,%s|", itemTestData.getLocalErrorCode(),
+                    itemTestData.getLocalErrorDes(), itemTestData.getResultTest());
+        }
+        return errorInfo;
+    }
+
+    private String getDetail(boolean sendDetail) {
+        String detail;
+        if (sendDetail) {
+            detail = getDetaiLItem();
+        } else {
+            detail = "NA,NA,0;";
+        }
+        return detail;
+    }
+
+    private String getDetaiLItem() {
         StringBuilder builder = new StringBuilder();
         for (ItemTestData itemTestData : this.processData.getListItemTestData()) {
             if (itemTestData == null) {
@@ -109,7 +132,7 @@ public class Mydas extends AbsFunction {
         return new TimeBase().conVertToFormat(
                 this.processData.getString(AllKeyWord.START_TIME, ""),
                 TimeBase.SIMPLE_DATE_TIME, TimeBase.MM_DD_YYYY_HH_MM_SS);
-                
+
     }
 
 }

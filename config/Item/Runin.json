@@ -42,7 +42,7 @@
                 },
                 {
                     "key": "typemodel",
-                    "target": "",
+                    "target": "simple",
                     "messenger": "Sản phẩm không phải là hàng simple"
                 }
             ],
@@ -260,14 +260,14 @@
         },
         {
             "flag": true,
-            "time_out": 3000,
+            "time_out": 2500,
             "debug_able": true,
             "multi": false,
             "IP": "192.168.1.1",
             "command": ["stress --cpu 8 --io 4 --vm 2 --vm-bytes 128M --timeout 1800s"],
             "keyWord": "successful run completed in",
             "ReadUntil": "root@eero-test:/#",
-            "Time": 2700,
+            "Time": 2200,
             "test_name": "cpu_stress",
             "func_name": "TelnetReadUntilKeyProxy"
         }, 
@@ -373,6 +373,8 @@
             "time_out": 50,
             "always_run": false,
             "multi": false,
+            "flowVer": "3.0",
+            "titleVer": "3.0",
             "IP": "10.90.100.168",
             "sendDetail": false,
             "test_name": "Mydas",

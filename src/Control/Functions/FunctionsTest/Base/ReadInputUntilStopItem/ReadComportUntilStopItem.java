@@ -4,13 +4,16 @@
  */
 package Control.Functions.FunctionsTest.Base.ReadInputUntilStopItem;
 
-import Communicate.ISender;
 import Communicate.Impl.Comport.ComPort;
 import Control.Functions.AbsFunction;
-import Control.Functions.FunctionsTest.Base.BaseFunction.AnalysisBase;
 import Control.Functions.FunctionsTest.Base.BaseFunction.FunctionBase;
 import Model.DataTest.FunctionData.ItemTestData;
 import Model.DataTest.FunctionParameters;
+import java.util.concurrent.ExecutorService;
+import java.util.concurrent.Executors;
+import java.util.concurrent.Future;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 
 /**
  *
@@ -19,10 +22,13 @@ import Model.DataTest.FunctionParameters;
 public class ReadComportUntilStopItem extends AbsFunction {
 
     private final FunctionBase functionBase;
+    private ExecutorService executorService;
+    private Future future;
 
     public ReadComportUntilStopItem(FunctionParameters functionParameters, String itemName) {
         super(functionParameters, itemName);
         this.functionBase = new FunctionBase(functionParameters, itemName);
+        this.executorService = Executors.newSingleThreadExecutor();
     }
 
     public ReadComportUntilStopItem(FunctionParameters functionParameters) {
@@ -44,18 +50,35 @@ public class ReadComportUntilStopItem extends AbsFunction {
             if (itemTarget == null) {
                 return false;
             }
-            ItemTestData target;
+            stopReadComport();
+            this.future = this.executorService.submit(() -> {
+                while (true) {
+                    addLog(LOG_KEYS.COMPORT, comport.readLine());
+                }
+            });
             while (true) {
-                target = this.processData.getItemTestData(itemTarget);
+                ItemTestData target;
+                target = processData.getItemTestData(itemTarget);
                 if (target != null) {
+                    stopReadComport();
                     break;
                 }
-                addLog(LOG_KEYS.COMPORT, comport.readLine());
             }
+            
             return true;
         } catch (Exception e) {
             e.printStackTrace();
             return false;
+        }
+    }
+
+    private void stopReadComport() {
+        while (this.future != null && !this.future.isDone()) {
+            this.future.cancel(true);
+            try {
+                Thread.sleep(500);
+            } catch (InterruptedException ex) {
+            }
         }
     }
 
