@@ -39,9 +39,9 @@ public class Mydas extends AbsFunction {
         String pn = this.processData.getString("pnname");
         addLog("CONFIG", String.format(String.format("PN name: %s", pn)));
         String flowVer = this.processData.getString("flowVer", "3.0");
-        addLog("CONFIG", String.format(String.format("flowVer: %s", pn)));
+        addLog("CONFIG", String.format(String.format("flowVer: %s", flowVer)));
         String titleVer = this.processData.getString("titleVer", "3.0");
-        addLog("CONFIG", String.format(String.format("titleVer: %s", pn)));
+        addLog("CONFIG", String.format(String.format("titleVer: %s", titleVer)));
         MydasClient mydasClient = new MydasClient(IP, pcName, flowVer, titleVer, uutModel, station, pn);
         return sendMydas(mydasClient, sendDetail);
     }

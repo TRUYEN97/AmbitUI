@@ -116,4 +116,8 @@ public class ModeElement extends AbsElementInfo {
             return Color.yellow;
         }
     }
+
+    public boolean isSaveMemory() {
+        return warehouse.getBoolean(AllKeyWord.IS_SAVE_MEMORY_LOG, false);
+    }
 }

@@ -4,14 +4,24 @@
  */
 package Model.DataSource;
 
+import Communicate.Impl.Cmd.Cmd;
 import Model.ErrorLog;
 import Model.Interface.IInit;
 import java.io.BufferedReader;
 import java.io.IOException;
 import java.io.InputStreamReader;
+import java.net.Inet4Address;
+import java.net.Inet6Address;
 import java.net.InetAddress;
+import java.net.NetworkInterface;
+import java.net.SocketException;
 import java.net.UnknownHostException;
+import java.util.ArrayList;
+import java.util.Enumeration;
+import java.util.List;
 import java.util.Properties;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 
 /**
  *
@@ -21,11 +31,15 @@ public class ProgramInformation implements IInit {
 
     private static volatile ProgramInformation instance;
     private String pcName;
-    private String ip;
+    private final List<Inet4Address> ipV4s;
+    private final List<Inet6Address> ipV6s;
     private String version;
     private String uutModel;
 
-    private ProgramInformation() {
+    private ProgramInformation(){
+        this.ipV4s = new ArrayList<>();
+        this.ipV6s = new ArrayList<>();
+        scanHostIp();
     }
 
     public static ProgramInformation getInstance() {
@@ -45,29 +59,40 @@ public class ProgramInformation implements IInit {
     public boolean init() {
         this.pcName = getComputerName();
         System.out.println("Pc name:" + this.pcName);
-        this.ip = getHostIp();
-        System.out.println("Ip:" + this.ip);
-        return !(ip == null || ip.isBlank() || pcName == null || pcName.isBlank());
+        return !(pcName == null || pcName.isBlank());
     }
 
     public String getPcName() {
         return pcName;
     }
 
-    public String getIp() {
-        return ip;
+    public String getIpV4() {
+        for (Inet4Address ipV4 : ipV4s) {
+            String ip = ipV4.getHostAddress();
+            if (ip != null && ip.startsWith("10.")) {
+                return ip;
+            }
+        }
+        return "";
     }
 
-    private String getHostIp() {
+    private void scanHostIp() {
         try {
-            if (InetAddress.getLocalHost() != null) {
-                return InetAddress.getLocalHost().getHostAddress();
+            for (Enumeration<NetworkInterface> eni = NetworkInterface.getNetworkInterfaces(); eni.hasMoreElements();) {
+                final NetworkInterface ifc = eni.nextElement();
+                if (ifc.isUp()) {
+                    for (Enumeration<InetAddress> ena = ifc.getInetAddresses(); ena.hasMoreElements();) {
+                        InetAddress address = ena.nextElement();
+                        if (address instanceof Inet4Address ipv4) {
+                            this.ipV4s.add(ipv4);
+                        } else if (address instanceof Inet6Address ipv6) {
+                            this.ipV6s.add(ipv6);
+                        }
+                    }
+                }
             }
-            return "";
-        } catch (UnknownHostException e) {
-            e.printStackTrace();
-            ErrorLog.addError(this, e.getLocalizedMessage());
-            return "";
+        } catch (SocketException ex) {
+            ex.printStackTrace();
         }
     }
 
@@ -82,7 +107,6 @@ public class ProgramInformation implements IInit {
     }
 
     private String getWindowsHostName() {
-        InetAddress ia;
         try {
             if (InetAddress.getLocalHost() == null) {
                 return "";
@@ -96,21 +120,9 @@ public class ProgramInformation implements IInit {
     }
 
     private String getMacHostName() {
-        try {
-            String cmd = "networksetup -getcomputername";
-            Process proc = Runtime.getRuntime().exec(cmd);
-            BufferedReader in = new BufferedReader(new InputStreamReader(proc.getInputStream()));
-            StringBuilder name = new StringBuilder();
-            String line;
-            while ((line = in.readLine()) != null) {
-                name.append(line).append("\r\n");
-            }
-            return name.toString();
-        } catch (IOException e) {
-            e.printStackTrace();
-            ErrorLog.addError(this, e.getLocalizedMessage());
-            return "";
-        }
+        Cmd cmd1 = new Cmd();
+        cmd1.sendCommand("networksetup -getcomputername");
+        return cmd1.readAll();
     }
 
     private String getSystemName() {
@@ -127,13 +139,11 @@ public class ProgramInformation implements IInit {
     }
 
     public void setUutModel(String uutmodel) {
-        this.uutModel =uutmodel;
+        this.uutModel = uutmodel;
     }
 
     public String getUutModel() {
         return uutModel;
     }
 
-    
-    
 }

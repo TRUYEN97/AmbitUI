@@ -39,6 +39,7 @@ public class FunctionData {
 
     public FunctionData(UiStatus uiStatus, FunctionConfig functionConfig) {
         this.loger = new MyLoger();
+        this.loger.setSaveMemory(uiStatus.getModeTest().isSaveMemory());
         this.itemTests = new HashMap<>();
         this.listItemTests = new ArrayList<>();
         this.uiStatus = uiStatus;

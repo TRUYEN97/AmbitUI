@@ -43,10 +43,10 @@ public class CheckUpdate extends AbsFunction {
             String host = this.config.getString("Host");
             int port = this.config.getInteger("Port", 21);
             FtpClient ftp = this.baseFunc.initFtp(user, passWord, host, port);
-            String uutModel = this.processData.getString("uutModel");
+            String uutModel = this.config.getString("uutModel", this.processData.getString("uutModel"));
             String pnname = this.processData.getString("pnname", this.config.getString("pnname"));
             String station = this.processData.getString(AllKeyWord.STATION_TYPE).toUpperCase();
-            addLog("PC", "Pn name: %s, uut model: %s, station: %s", pnname, uutModel, station);
+            addLog("PC", "type name: %s, product: %s, station: %s", pnname, uutModel, station);
             // VersionPath = String.format("CONFIG/%s/%s/AmbitVersion.ini", uutModel, pnname);
             String ftpVersionMD5Path = String.format("CONFIG\\%s\\%s\\AmbitMD5.ini", uutModel, pnname);
             // String version = getVersionProperti(ftp, ftpVersionPath, station);

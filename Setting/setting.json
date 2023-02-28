@@ -7,9 +7,10 @@
     "progress": "MP",
     "name_app": "RUNIN",
     "type_ui": "SmallUIProxy",
+    "save_memory": true,
     "local_log": "Log\\TestLog",
     "detail": ["TabViewProxy", "TabItemProxy"],
-    //"limit_path": "config\\dataSource\\Init\\limits.json",
+    //"limit_path": "Init\\limits.json",
     //"limit_update": "cd python && eero_api_limits_Trieste.py Runin",
     "debug_able": true,
     "use_dhcp": true,
@@ -17,7 +18,7 @@
         {
             "name": "Production", 
             "type_mode": "production",
-            "ambit_config": "config\\Item\\Runin_jupiter_200T.json"
+            "ambit_config": "Item\\Runin_jupiter_200T.json"
         }
     ],
     "dhcp": {

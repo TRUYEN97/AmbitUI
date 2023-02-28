@@ -191,4 +191,8 @@ public class ModeTestSource {
     public String getStationType() {
         return modeConfig.getStationType();
     }
+
+    public boolean isSaveMemory() {
+        return modeConfig.isSaveMemory();
+    }
 }

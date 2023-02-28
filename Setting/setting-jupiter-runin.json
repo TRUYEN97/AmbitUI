@@ -9,7 +9,7 @@
     "type_ui": "SmallUIProxy",
     "local_log": "Log\\TestLog",
     "detail": ["TabViewProxy", "TabItemProxy"],
-    "limit_path": "config\\dataSource\\Init\\limits.json",
+    "limit_path": "Init\\limits.json",
     "limit_update": "cd python && eero_api_limits_Jupiter.py Runin",
     "debug_able": true,
     "use_dhcp": true,
@@ -18,14 +18,14 @@
             "name": "Prodution", 
             "type_mode": "production",
             "debug_able": true,
-            "ambit_config": "config\\Item\\Runin_jupiter_production.json"
+            "ambit_config": "Item\\Runin_jupiter_production.json"
         },
         {
             "name": "Debug - golden", 
             "type_mode": "debug",
             "test_color": "FFCCCC",
             "debug_able": true,
-            "ambit_config": "config\\Item\\Runin_jupiter_debug.json"
+            "ambit_config": "Item\\Runin_jupiter_debug.json"
         }
     ],
     "dhcp": {

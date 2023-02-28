@@ -1,4 +1,4 @@
 {
-  "ErroCodePath": "config\\dataSource\\Init\\ErrorCode.json",
-  "Setting": "config\\Setting\\setting.json"
+  "ErroCodePath": "Init\\ErrorCode.json",
+  "Setting": "Setting\\setting.json"
 }

@@ -58,6 +58,7 @@ public final class AllKeyWord {
         public static final String MULTI_TASK = "multi";
     }
 
+    public static final String IS_SAVE_MEMORY_LOG = "save_memory";
     public static final String TEST_COLOR = "test_color";
     public static final String MAC_LENGTH = "mac_length";
     public static final String IS_DHCP_ON = "on_dhcp";

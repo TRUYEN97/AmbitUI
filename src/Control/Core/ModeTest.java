@@ -85,4 +85,8 @@ public class ModeTest implements IInit, IUpdate {
     public String getStationType() {
         return testSource.getStationType();
     }
+
+    public boolean isSaveMemory() {
+        return this.testSource.isSaveMemory();
+    }
 }

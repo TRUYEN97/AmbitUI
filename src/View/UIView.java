@@ -130,7 +130,7 @@ public class UIView extends javax.swing.JFrame {
     }
 
     public void showSfisText(String mess) {
-        this.txtShow.setText(mess);
+        this.txtShowSfis.setText(mess);
     }
 
     public void showMessager(String mess) {
@@ -166,7 +166,7 @@ public class UIView extends javax.swing.JFrame {
         lbDhcp = new javax.swing.JLabel();
         lbProductname = new javax.swing.JLabel();
         jScrollPane3 = new javax.swing.JScrollPane();
-        txtShow = new javax.swing.JTextArea();
+        txtShowSfis = new javax.swing.JTextArea();
         BoardSubUI = new javax.swing.JPanel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.DO_NOTHING_ON_CLOSE);
@@ -297,7 +297,7 @@ public class UIView extends javax.swing.JFrame {
             .addGroup(jPanel5Layout.createSequentialGroup()
                 .addContainerGap()
                 .addGroup(jPanel5Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(jScrollPane2)
+                    .addComponent(jScrollPane2, javax.swing.GroupLayout.DEFAULT_SIZE, 261, Short.MAX_VALUE)
                     .addComponent(lbTimeVN, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                     .addComponent(lbDhcp, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                     .addComponent(cbbModeTest, 0, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
@@ -329,19 +329,13 @@ public class UIView extends javax.swing.JFrame {
             }
         });
 
-        txtShow.setEditable(false);
-        txtShow.setColumns(20);
-        txtShow.setFont(new java.awt.Font("Monospaced", 0, 18)); // NOI18N
-        txtShow.setLineWrap(true);
-        txtShow.setRows(3);
-        txtShow.setWrapStyleWord(true);
-        txtShow.setMinimumSize(new java.awt.Dimension(113, 200));
-        txtShow.addKeyListener(new java.awt.event.KeyAdapter() {
-            public void keyTyped(java.awt.event.KeyEvent evt) {
-                txtShowKeyTyped(evt);
-            }
-        });
-        jScrollPane3.setViewportView(txtShow);
+        txtShowSfis.setEditable(false);
+        txtShowSfis.setColumns(20);
+        txtShowSfis.setFont(new java.awt.Font("Arial", 0, 18)); // NOI18N
+        txtShowSfis.setLineWrap(true);
+        txtShowSfis.setRows(2);
+        txtShowSfis.setWrapStyleWord(true);
+        jScrollPane3.setViewportView(txtShowSfis);
 
         javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
         jPanel1.setLayout(jPanel1Layout);
@@ -349,12 +343,13 @@ public class UIView extends javax.swing.JFrame {
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel1Layout.createSequentialGroup()
                 .addContainerGap()
-                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(jPanel3, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                    .addComponent(jScrollPane1, javax.swing.GroupLayout.Alignment.TRAILING)
-                    .addComponent(jPanel5, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                    .addComponent(jScrollPane3))
-                .addContainerGap())
+                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
+                    .addComponent(jScrollPane1, javax.swing.GroupLayout.DEFAULT_SIZE, 275, Short.MAX_VALUE)
+                    .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
+                        .addComponent(jScrollPane3, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.PREFERRED_SIZE, 0, Short.MAX_VALUE)
+                        .addComponent(jPanel3, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                        .addComponent(jPanel5, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)))
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
         jPanel1Layout.setVerticalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -377,7 +372,7 @@ public class UIView extends javax.swing.JFrame {
         BoardSubUI.setLayout(BoardSubUILayout);
         BoardSubUILayout.setHorizontalGroup(
             BoardSubUILayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 736, Short.MAX_VALUE)
+            .addGap(0, 695, Short.MAX_VALUE)
         );
         BoardSubUILayout.setVerticalGroup(
             BoardSubUILayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -392,7 +387,7 @@ public class UIView extends javax.swing.JFrame {
                 .addContainerGap()
                 .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(BoardSubUI, javax.swing.GroupLayout.DEFAULT_SIZE, 736, Short.MAX_VALUE)
+                .addComponent(BoardSubUI, javax.swing.GroupLayout.DEFAULT_SIZE, 695, Short.MAX_VALUE)
                 .addContainerGap())
         );
         panelBackgroundLayout.setVerticalGroup(
@@ -445,10 +440,6 @@ public class UIView extends javax.swing.JFrame {
         modeTime.run();
     }//GEN-LAST:event_formWindowOpened
 
-    private void txtShowKeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_txtShowKeyTyped
-        checkinput(evt.getKeyChar());
-    }//GEN-LAST:event_txtShowKeyTyped
-
     private void cbbModeTestItemStateChanged(java.awt.event.ItemEvent evt) {//GEN-FIRST:event_cbbModeTestItemStateChanged
         // TODO add your handling code here:
         if (evt.getStateChange() == ItemEvent.SELECTED) {
@@ -489,7 +480,7 @@ public class UIView extends javax.swing.JFrame {
     private javax.swing.JPanel panelBackground;
     private javax.swing.JTextArea textMess;
     private javax.swing.JTextArea txtInput;
-    private javax.swing.JTextArea txtShow;
+    private javax.swing.JTextArea txtShowSfis;
     // End of variables declaration//GEN-END:variables
 
 }

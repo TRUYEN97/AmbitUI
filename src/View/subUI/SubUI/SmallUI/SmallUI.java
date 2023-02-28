@@ -72,25 +72,32 @@ public class SmallUI extends AbsSubUi {
     private final String LABLEL_NAME_HTML = "<center><u><b><span style=\"font-size: 14px\">%s</span></u></b><br>";
     private void lbTimeMouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_lbTimeMouseEntered
         // TODO add your handling code here:
-        StringBuilder mess = new StringBuilder("<html>");
-        mess.append(String.format(LABLEL_NAME_HTML, getName()));
+        StringBuilder messHtml = new StringBuilder("<html>");
+        StringBuilder mess = new StringBuilder();
+        messHtml.append(String.format(LABLEL_NAME_HTML, getName()));
+        mess.append(String.format("%s\r\n", this.uiStatus.getModeTest().getModeName()));
+        mess.append(String.format("----------------- %s ------------------\r\n", getName()));
         if (this.uiStatus.isTesting()) {
-            mess.append("<table>");
-            mess.append(String.format("<tr><td><center><span style=\"font-size: 14px\">Mode: %s</td></span></tr>", this.uiStatus.getModeTest().getModeName()));
+            messHtml.append("<table>");
+            messHtml.append(String.format("<tr><td><center><span style=\"font-size: 14px\">Mode: %s</td></span></tr>", this.uiStatus.getModeTest().getModeName()));
             List<FunctionData> dataBoxs = this.uiStatus.getProcessData().getDataBoxs();
+            String itemName;
             for (FunctionData dataBox : dataBoxs) {
                 if (dataBox.isTesting()) {
-                    mess.append(String.format("<tr><td><center><span style=\"font-size: 16px\">%s</span></td></tr>", dataBox.getFunctionName()));
+                    itemName = dataBox.getFunctionName().getItemName();
+                    mess.append("   - ").append(itemName).append("\r\n");
+                    messHtml.append(String.format("<tr><td><center><span style=\"font-size: 16px\">%s</span></td></tr>", itemName));
                 }
             }
-            mess.append("</table></html>");
-            this.lbTime.setToolTipText(mess.toString());
+            messHtml.append("</table></html>");
         } else {
             String text = this.uiStatus.getProcessData().getMassage();
-            mess.append(String.format("<span style=\"font-size: 16px\">%s</span></html>",
+            messHtml.append(String.format("<span style=\"font-size: 16px\">%s</span></html>",
                     text == null ? "Finished!" : text.replaceAll("\r\n", "<br>")));
-            this.lbTime.setToolTipText(mess.toString());
+            mess.append(String.format(" \"%s\"", text));
         }
+        this.lbTime.setToolTipText(messHtml.toString());
+            this.view.showSfisText(mess.toString());
     }//GEN-LAST:event_lbTimeMouseEntered
 
     @Override
@@ -128,7 +135,7 @@ public class SmallUI extends AbsSubUi {
 
     @Override
     public void updateData() {
-            lbTime.setText(String.format(DEFAULT_FORM,
-                    getName(), list == null? 0: list.size(), getTestTime()));
+        lbTime.setText(String.format(DEFAULT_FORM,
+                getName(), list == null ? 0 : list.size(), getTestTime()));
     }
 }
