@@ -11,7 +11,8 @@
             "Password": "eero",
             "Host": "10.90.10.168",
             "Port": 21,
-            "pnname": "810-01400",
+            "uutModel": "JupiterJDK17",
+            "pnname": "SIMPLE",
             "test_name": "CheckUpdate",
             "func_name": "CheckUpdateProxy"
         },

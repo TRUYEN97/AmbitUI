@@ -108,4 +108,9 @@ public class UIManager implements IUpdate {
         }
         return !status.isTesting();
     }
+
+    public List<UiStatus> getUiStatuses() {
+        return uiStatuses;
+    }
+    
 }

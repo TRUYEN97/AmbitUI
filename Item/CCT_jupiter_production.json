@@ -1,16 +1,18 @@
-{
+﻿{
     "station_type": "CCT",
     "time_out_test": 25200,
     "init": [
         {
             "flag": true,
             "multi": false,
+            "always_run": false,
             "time_out": 100,
             "User": "config",
             "Password": "eero",
             "Host": "10.90.10.168",
             "Port": 21,
-            "pnname": "810-01400",
+            "uutModel": "JupiterJDK17",
+            "pnname": "SIMPLE",
             "test_name": "CheckUpdate",
             "func_name": "CheckUpdateProxy"
         },
@@ -105,16 +107,6 @@
             "LocalNameFail": ["mlbsn", "sn", "position", "status", "error_details", "errorcode", "mode", "finish_time"],
             "test_name": "UpLogFTP",
             "func_name": "UpLogFTPProxy"
-        },
-        {
-            "flag": true,
-            "time_out": 50,
-            "always_run": false,
-            "multi": false,
-            "IP": "10.90.10.168",
-            "sendDetail": false,
-            "test_name": "Mydas",
-            "func_name": "MydasProxy" 
         }
     ]
 }

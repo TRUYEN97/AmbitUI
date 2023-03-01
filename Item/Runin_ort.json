@@ -1,4 +1,4 @@
-{
+﻿{
     "station_type": "RUNIN",
     "time_out_test": 3500000,
     "init": [
@@ -11,7 +11,8 @@
             "Password": "eero",
             "Host": "10.90.100.168",
             "Port": 21,
-            "pnname": "810-01100",
+            "uutModel": "TriesteJDK17",
+            "pnname": "ORT",
             "test_name": "CheckUpdate",
             "func_name": "CheckUpdateProxy"
         },
@@ -39,11 +40,6 @@
                     "key": "smode",
                     "target": "reliability",
                     "messenger": "Sản phẩm không phải là hàng ORT"
-                },
-                {
-                    "key": "typemodel",
-                    "target": "",
-                    "messenger": "Sản phẩm không phải là hàng simple"
                 }
             ],
             "test_name": "CheckProduct",
@@ -66,7 +62,7 @@
             "user": "admin",
             "password": "1234",
             "Times": 1,
-            "Delay": 3,
+            "Delay": 5,
             "Command": ["off", "on"],
             "test_name": "wps_ok",
             "func_name": "PowerSwitchProxy"
@@ -422,7 +418,7 @@
                 "error_code", "errorcode", "errorDes", "serial", "mode", "station_name", "position", "cycle_time", "cyctime_final"],
             "TestKeys": ["upper_limit", "lower_limit", "status", "finish_time", "test_name",
                 "error_code", "errorcode", "errorDes", "start_time", "test_value", "units", "cycle_time"],
-            "FtpPrefix": ["data/Trieste", "pnname", "station_type", "mode", "start_day", "station_name", "status"],
+            "FtpPrefix": ["data/TriesteORT", "pnname", "station_type", "mode", "start_day", "station_name", "status"],
             "LocalPrefix": ["Log/TestLog"],
             "LocalName": ["mlbsn", "sn", "position", "status", "mode", "finish_time"],
             "LocalNameFail": ["mlbsn", "sn", "position", "status", "error_details", "errorcode", "mode", "finish_time"],
@@ -430,7 +426,7 @@
             "func_name": "UpLogFTPProxy"
         },
         {
-            "flag": true,
+            "flag": false,
             "time_out": 50,
             "always_run": false,
             "multi": false,

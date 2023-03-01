@@ -5,6 +5,7 @@
 package Control.Core;
 
 import Control.DrawBoardUI;
+import Model.AllKeyWord;
 import Model.DataTest.InputData;
 import Model.ErrorLog;
 import Model.ManagerUI.UIManager;
@@ -92,7 +93,7 @@ public class Core {
                 inputData.setIndex("");
             }
         }
-        return this.uIManager.isIndexFree(inputData.getIndex());
+        return this.uIManager.isIndexFree(inputData.getIndex()) && this.isInputNoOverlap(inputData);
 
     }
 
@@ -117,6 +118,22 @@ public class Core {
 
     private void backUpMode() {
         this.view.setSelectMode(getCurrMode());
+    }
+
+    private boolean isInputNoOverlap(InputData inputData) {
+        String sn = inputData.getInput();
+        if (sn == null || sn.isBlank()) {
+            return false;
+        }
+        for (UiStatus uiStatuse : this.uIManager.getUiStatuses()) {
+            String testSn = uiStatuse.getProcessData().getString(AllKeyWord.SFIS.SN);
+            if (uiStatuse.isTesting() && testSn != null && testSn.equals(sn)) {
+                String index = uiStatuse.getName(); 
+                this.view.showSfisText(String.format(" %s is testing at %s\r\n %s đang test ở %s", sn, index, sn, index));
+                return false;
+            }
+        }
+        return true;
     }
 
 }

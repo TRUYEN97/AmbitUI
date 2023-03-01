@@ -55,8 +55,8 @@ public class UIView extends javax.swing.JFrame {
         setIcon();
         this.comboBoxModel = (DefaultComboBoxModel) this.cbbModeTest.getModel();
     }
-    
-    public JLabel getDhcpLabel(){
+
+    public JLabel getDhcpLabel() {
         return this.lbDhcp;
     }
 
@@ -152,8 +152,6 @@ public class UIView extends javax.swing.JFrame {
 
         panelBackground = new javax.swing.JPanel();
         jPanel1 = new javax.swing.JPanel();
-        jScrollPane1 = new javax.swing.JScrollPane();
-        txtInput = new javax.swing.JTextArea();
         jPanel3 = new javax.swing.JPanel();
         lbNamePC = new javax.swing.JLabel();
         lbIP = new javax.swing.JLabel();
@@ -167,6 +165,7 @@ public class UIView extends javax.swing.JFrame {
         lbProductname = new javax.swing.JLabel();
         jScrollPane3 = new javax.swing.JScrollPane();
         txtShowSfis = new javax.swing.JTextArea();
+        txtInput = new javax.swing.JTextField();
         BoardSubUI = new javax.swing.JPanel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.DO_NOTHING_ON_CLOSE);
@@ -184,20 +183,6 @@ public class UIView extends javax.swing.JFrame {
         panelBackground.setPreferredSize(new java.awt.Dimension(1104, 768));
 
         jPanel1.setBackground(new java.awt.Color(102, 102, 102));
-
-        txtInput.setEditable(false);
-        txtInput.setColumns(20);
-        txtInput.setFont(new java.awt.Font("Monospaced", 0, 16)); // NOI18N
-        txtInput.setLineWrap(true);
-        txtInput.setRows(2);
-        txtInput.setWrapStyleWord(true);
-        txtInput.setMinimumSize(new java.awt.Dimension(113, 200));
-        txtInput.addKeyListener(new java.awt.event.KeyAdapter() {
-            public void keyTyped(java.awt.event.KeyEvent evt) {
-                txtInputKeyTyped(evt);
-            }
-        });
-        jScrollPane1.setViewportView(txtInput);
 
         jPanel3.setBackground(new java.awt.Color(153, 153, 255));
         jPanel3.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
@@ -230,9 +215,9 @@ public class UIView extends javax.swing.JFrame {
             .addGroup(jPanel3Layout.createSequentialGroup()
                 .addContainerGap()
                 .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(lbNamePC, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                    .addComponent(lbIP, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                    .addComponent(lbGiaiDoan, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                    .addComponent(lbNamePC, javax.swing.GroupLayout.PREFERRED_SIZE, 261, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(lbIP, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, 261, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(lbGiaiDoan, javax.swing.GroupLayout.PREFERRED_SIZE, 261, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addContainerGap())
         );
         jPanel3Layout.setVerticalGroup(
@@ -267,12 +252,22 @@ public class UIView extends javax.swing.JFrame {
         textMess.setRows(4);
         textMess.setWrapStyleWord(true);
         textMess.setCursor(new java.awt.Cursor(java.awt.Cursor.DEFAULT_CURSOR));
+        textMess.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyPressed(java.awt.event.KeyEvent evt) {
+                textMessKeyPressed(evt);
+            }
+        });
         jScrollPane2.setViewportView(textMess);
 
         cbbModeTest.setFont(new java.awt.Font("Segoe UI", 1, 20)); // NOI18N
         cbbModeTest.addItemListener(new java.awt.event.ItemListener() {
             public void itemStateChanged(java.awt.event.ItemEvent evt) {
                 cbbModeTestItemStateChanged(evt);
+            }
+        });
+        cbbModeTest.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyPressed(java.awt.event.KeyEvent evt) {
+                cbbModeTestKeyPressed(evt);
             }
         });
 
@@ -297,11 +292,11 @@ public class UIView extends javax.swing.JFrame {
             .addGroup(jPanel5Layout.createSequentialGroup()
                 .addContainerGap()
                 .addGroup(jPanel5Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(jScrollPane2, javax.swing.GroupLayout.DEFAULT_SIZE, 261, Short.MAX_VALUE)
-                    .addComponent(lbTimeVN, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                    .addComponent(lbDhcp, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                    .addComponent(cbbModeTest, 0, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                    .addComponent(lbProductname, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                    .addComponent(jScrollPane2, javax.swing.GroupLayout.PREFERRED_SIZE, 261, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(lbTimeVN, javax.swing.GroupLayout.PREFERRED_SIZE, 261, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(lbDhcp, javax.swing.GroupLayout.PREFERRED_SIZE, 261, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(cbbModeTest, javax.swing.GroupLayout.PREFERRED_SIZE, 261, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(lbProductname, javax.swing.GroupLayout.PREFERRED_SIZE, 261, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addContainerGap())
         );
         jPanel5Layout.setVerticalGroup(
@@ -335,7 +330,23 @@ public class UIView extends javax.swing.JFrame {
         txtShowSfis.setLineWrap(true);
         txtShowSfis.setRows(2);
         txtShowSfis.setWrapStyleWord(true);
+        txtShowSfis.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyPressed(java.awt.event.KeyEvent evt) {
+                txtShowSfisKeyPressed(evt);
+            }
+        });
         jScrollPane3.setViewportView(txtShowSfis);
+
+        txtInput.setEditable(false);
+        txtInput.setFont(new java.awt.Font("Segoe UI", 0, 20)); // NOI18N
+        txtInput.setHorizontalAlignment(javax.swing.JTextField.CENTER);
+        txtInput.setMaximumSize(new java.awt.Dimension(64, 33));
+        txtInput.setOpaque(true);
+        txtInput.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyPressed(java.awt.event.KeyEvent evt) {
+                txtInputKeyPressed(evt);
+            }
+        });
 
         javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
         jPanel1.setLayout(jPanel1Layout);
@@ -344,20 +355,19 @@ public class UIView extends javax.swing.JFrame {
             .addGroup(jPanel1Layout.createSequentialGroup()
                 .addContainerGap()
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
-                    .addComponent(jScrollPane1, javax.swing.GroupLayout.DEFAULT_SIZE, 275, Short.MAX_VALUE)
-                    .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
-                        .addComponent(jScrollPane3, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.PREFERRED_SIZE, 0, Short.MAX_VALUE)
-                        .addComponent(jPanel3, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                        .addComponent(jPanel5, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)))
+                    .addComponent(jScrollPane3, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.PREFERRED_SIZE, 0, Short.MAX_VALUE)
+                    .addComponent(jPanel3, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addComponent(jPanel5, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addComponent(txtInput, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
         jPanel1Layout.setVerticalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel1Layout.createSequentialGroup()
                 .addContainerGap()
-                .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 81, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addComponent(txtInput, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(jScrollPane3, javax.swing.GroupLayout.DEFAULT_SIZE, 112, Short.MAX_VALUE)
+                .addComponent(jScrollPane3, javax.swing.GroupLayout.DEFAULT_SIZE, 160, Short.MAX_VALUE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(jPanel3, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
@@ -415,11 +425,6 @@ public class UIView extends javax.swing.JFrame {
         setLocationRelativeTo(null);
     }// </editor-fold>//GEN-END:initComponents
 
-    private void txtInputKeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_txtInputKeyTyped
-        checkinput(evt.getKeyChar());
-        showSfisText(null);
-    }//GEN-LAST:event_txtInputKeyTyped
-
     private void checkinput(char input) throws HeadlessException {
         if (this.checkInput == null) {
             return;
@@ -458,6 +463,30 @@ public class UIView extends javax.swing.JFrame {
         }
     }//GEN-LAST:event_formWindowClosing
 
+    private void txtInputKeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_txtInputKeyPressed
+        // TODO add your handling code here:
+        checkinput(evt.getKeyChar());
+        showSfisText(null);
+    }//GEN-LAST:event_txtInputKeyPressed
+
+    private void txtShowSfisKeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_txtShowSfisKeyPressed
+        // TODO add your handling code here:
+        checkinput(evt.getKeyChar());
+        showSfisText(null);
+    }//GEN-LAST:event_txtShowSfisKeyPressed
+
+    private void cbbModeTestKeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_cbbModeTestKeyPressed
+        // TODO add your handling code here:
+        checkinput(evt.getKeyChar());
+        showSfisText(null);
+    }//GEN-LAST:event_cbbModeTestKeyPressed
+
+    private void textMessKeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_textMessKeyPressed
+        // TODO add your handling code here:
+        checkinput(evt.getKeyChar());
+        showSfisText(null);
+    }//GEN-LAST:event_textMessKeyPressed
+
     /**
      * @param args the command line arguments
      */
@@ -468,7 +497,6 @@ public class UIView extends javax.swing.JFrame {
     private javax.swing.JPanel jPanel1;
     private javax.swing.JPanel jPanel3;
     private javax.swing.JPanel jPanel5;
-    private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JScrollPane jScrollPane2;
     private javax.swing.JScrollPane jScrollPane3;
     private javax.swing.JLabel lbDhcp;
@@ -479,7 +507,7 @@ public class UIView extends javax.swing.JFrame {
     private javax.swing.JLabel lbTimeVN;
     private javax.swing.JPanel panelBackground;
     private javax.swing.JTextArea textMess;
-    private javax.swing.JTextArea txtInput;
+    private javax.swing.JTextField txtInput;
     private javax.swing.JTextArea txtShowSfis;
     // End of variables declaration//GEN-END:variables
 

@@ -1,4 +1,4 @@
-{
+﻿{
     "station_type": "RUNIN",
     "time_out_test": 7000,
     "init": [
@@ -11,7 +11,8 @@
             "Password": "eero",
             "Host": "10.90.100.168",
             "Port": 21,
-            "pnname": "810-01100",
+            "uutModel": "TriesteJDK17",
+            "pnname": "MP",
             "test_name": "CheckUpdate",
             "func_name": "CheckUpdateProxy"
         },

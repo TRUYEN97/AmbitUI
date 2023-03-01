@@ -68,7 +68,7 @@ public class Engine {
     }
 
     private void showUI() {
-        this.view.setTitle(String.format("AmbitUI - Ver: %s", programInfo.getVersion()));
+        this.view.setTitle(String.format("AmbitUI - API - Ver: %s", programInfo.getVersion()));
         this.view.showIp(programInfo.getIpV4());
         this.view.showPcName(programInfo.getPcName());
         this.view.showGiaiDoan(setting.getProgress());
@@ -91,7 +91,7 @@ public class Engine {
     }
 
     private boolean initProgramInfo() {
-        this.programInfo.setVersion("V1.3.1.5");
+        this.programInfo.setVersion("V1.3.1.6");
         String uutmodel = this.setting.getUutMolel();
         if (uutmodel == null || uutmodel.isBlank()) {
             JOptionPane.showMessageDialog(null, "Not set UUT model!");
