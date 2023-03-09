@@ -5,6 +5,7 @@
         {
             "flag": true,
             "time_out": 50,
+            "check_spec": false,
             "golden_file": "config/dataSource/init/golden.txt",
             "test_name": "golden_file",
             "func_name": "GoldenFileProxy"

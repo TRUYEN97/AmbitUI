@@ -56,6 +56,7 @@ public final class AllKeyWord {
         public static final String WAIT_MULTI_DONE = "wait_multi_done";
         public static final String ALWAYS_RUN = "always_run";
         public static final String MULTI_TASK = "multi";
+        public static final String IS_CHECK_SPEC = "check_spec";
     }
 
     public static final String IS_SAVE_MEMORY_LOG = "save_memory";

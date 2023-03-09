@@ -112,7 +112,7 @@ public class FuncAllConfig {
         return wareHouse.getString(AllKeyWord.CONFIG.LIMIT_TYPE);
     }
 
-    public boolean isLimitAvailable() {
+    public boolean isSpecAvailable() {
         return isSpecConfig() && specAvailable();
     }
 
@@ -158,5 +158,9 @@ public class FuncAllConfig {
     public <T> List<T> getJsonList(String localNameFail, List<T> defaultValue) {
         List<T> value = getJsonList(localNameFail);
         return value == null ? defaultValue : value;
+    }
+
+    public boolean isCheckWithSpec() {
+        return this.wareHouse.getBoolean(AllKeyWord.CONFIG.IS_CHECK_SPEC, true);
     }
 }

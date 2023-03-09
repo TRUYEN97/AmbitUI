@@ -28,7 +28,7 @@ public class AnalysisResult {
     public void checkResult(boolean status, String result) {
         if (!status) {
             this.itemTestData.setFail(ErrorCodeElement.SIMPLE);
-        } else if (this.allConfig.isLimitAvailable()) {
+        } else if (this.allConfig.isSpecAvailable() && this.allConfig.isCheckWithSpec()) {
             checkResultWithLimits(result);
         } else {
             this.itemTestData.setPass();

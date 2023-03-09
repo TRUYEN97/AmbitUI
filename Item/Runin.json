@@ -11,6 +11,7 @@
             "Password": "eero",
             "Host": "10.90.100.168",
             "Port": 21,
+            "check_spec": false,
             "uutModel": "TriesteJDK17",
             "pnname": "MP",
             "test_name": "CheckUpdate",

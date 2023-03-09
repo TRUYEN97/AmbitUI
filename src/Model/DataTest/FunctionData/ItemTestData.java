@@ -186,6 +186,9 @@ public class ItemTestData {
             addLimitData();
         }
         this.addLog(String.format("Value = %s", getResultTest()));
+        if (!this.allConfig.isCheckWithSpec() && this.allConfig.isSpecAvailable()) {
+            this.addLog("Skip check spec");
+        }
         this.addLog(String.format("Test status = %s", getStatusTest()));
         this.addLog("-----------------------------------------------------");
     }
