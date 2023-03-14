@@ -7,7 +7,6 @@ package Control.Functions.FunctionsTest.Base.GoldenFile;
 import Control.Functions.AbsFunction;
 import DHCP.DhcpData;
 import Model.AllKeyWord;
-import Model.DataSource.Setting.Setting;
 import Model.DataTest.FunctionParameters;
 import java.io.BufferedReader;
 import java.io.File;

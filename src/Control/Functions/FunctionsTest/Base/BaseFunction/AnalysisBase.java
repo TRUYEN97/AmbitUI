@@ -162,6 +162,22 @@ public class AnalysisBase extends AbsFunction {
         addLog("Telnet", response);
         return response;
     }
+    
+
+    public boolean contains(String response, List<String> specs) {
+        if (response == null) {
+            addLog(LOG_KEYS.PC, "String data == null");
+            return false;
+        }
+        addLog(LOG_KEYS.CONFIG, "Check contains: %s", specs);
+        for (String spec : specs) {
+            if (!response.contains(spec)) {
+                addLog(LOG_KEYS.PC, "Not contain \"%s\"", spec);
+                return false;
+            }
+        }
+        return true;
+    }
 
     public String readShowUntil(IReadable readable, String readUntil, AbsTime time) {
         if (readable == null) {

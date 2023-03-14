@@ -39,6 +39,7 @@ import Control.Functions.FunctionsTest.Runin.MMC_WR_SPEED.MMC_WR_SPEED_PROXY;
 import Control.Functions.FunctionsTest.ON_OFF.PowerSwicthPing.PowerSwicthPingProxy;
 import Control.Functions.FunctionsTest.Other.CheckLed_W_1H_SFT.CheckLed_W_1H_Proxy;
 import Control.Functions.FunctionsTest.Other.Reboot_CheckLed1H_SFT.Reboot_CheckLed1H_SFT_Proxy;
+import Control.Functions.FunctionsTest.RTT.BootSetup.BootSetupProxy;
 import Control.Functions.FunctionsTest.Runin.CheckCommandCmd.CheckCommandCmdProxy;
 import Control.Functions.FunctionsTest.Runin.TelnetReadUntilKey.TelnetReadUntilKeyProxy;
 import Control.Functions.FunctionsTest.Runin.RebootSoft.RebootSoftProxy;
@@ -162,5 +163,6 @@ public class Factory {
         this.functions.addType(new SendCommandInFileAndPingProxy());
         this.functions.addType(new CheckCommandCmdProxy());
         this.functions.addType(new ReadComportUntilStopItemProxy());
+        this.functions.addType(new BootSetupProxy());
     }
 }

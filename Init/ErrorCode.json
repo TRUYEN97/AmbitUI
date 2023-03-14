@@ -1,4 +1,10 @@
 {
+    "boot_setup": {
+        "simple": {
+            "errorcode": "4.1.0",
+            "errorDes": "boot_setup"
+        }
+    },
     "ReadComportUntilStopItem": {
         "simple": {
             "errorcode": "Read.Comport.0",
