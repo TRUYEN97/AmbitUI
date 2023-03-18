@@ -1,67 +1,196 @@
-2023-02-22 04:29:32.376:   ITEM[sn_ok] - FUNCTION[CheckDutInfoProxy]
-2023-02-22 04:29:32.377:   Turn: 1
-2023-02-22 04:29:32.377:   [PC] Get IP from the DHCP with MAC is "D4:3F:32:F4:D5:40"
-2023-02-22 04:29:32.377:   [Setting] MAC length = 16
-2023-02-22 04:29:32.378:   IP: 172.168.0.0
-2023-02-22 04:29:32.378:   [PC] ReadUntil: root@eero-test:/#
-2023-02-22 04:29:32.378:   [PC] Connect to ip: 172.168.0.0
-2023-02-22 04:29:32.379:   [PC] Port is: 23
-2023-02-22 04:29:32.379:   [PC] Ping to IP: 172.168.0.0 - 120 S
-2023-02-22 04:29:32.379:   [Cmd] ------------------------------------ 1
-2023-02-22 04:29:32.379:   [Cmd] Send command: arp -d 172.168.0.0
-2023-02-22 04:29:32.414:   [Cmd] 
-2023-02-22 04:29:32.415:   [Cmd] Send command: ping 172.168.0.0 -n 1
-2023-02-22 04:29:32.448:   [Cmd] Pinging 172.168.0.0 with 32 bytes of data:
-2023-02-22 04:29:32.449:   [Cmd] Reply from 172.168.0.0: bytes=32 time<1ms TTL=64
-2023-02-22 04:29:32.449:   [Cmd] 
-2023-02-22 04:29:32.449:   [Cmd] Ping statistics for 172.168.0.0:
-2023-02-22 04:29:32.449:   [Cmd] Packets: Sent = 1, Received = 1, Lost = 0 (0% loss),
-2023-02-22 04:29:32.449:   [Cmd] Approximate round trip times in milli-seconds:
-2023-02-22 04:29:32.449:   [Cmd] Minimum = 0ms, Maximum = 0ms, Average = 0ms
-2023-02-22 04:29:32.450:   [Cmd] ------------------------------------
-2023-02-22 04:29:32.450:   [PC] ping time: 0.071 S
-2023-02-22 04:29:32.560:   [Telnet] === IMPORTANT ============================
-2023-02-22 04:29:32.560:   [Telnet] Use 'passwd' to set your login password!
-2023-02-22 04:29:32.561:   [Telnet] ------------------------------------------
-2023-02-22 04:29:32.561:   [Telnet] 
-2023-02-22 04:29:32.561:   [Telnet] 
-2023-02-22 04:29:32.561:   [Telnet] BusyBox v1.30.1 () built-in shell (ash)
-2023-02-22 04:29:32.561:   [Telnet] 
-2023-02-22 04:29:32.561:   [Telnet] MM           NM                    MMMMMMM          M       M
-2023-02-22 04:29:32.561:   [Telnet] $MMMMM        MMMMM                MMMMMMMMMMM      MMM     MMM
-2023-02-22 04:29:32.562:   [Telnet] MMMMMMMM     MM MMMMM.              MMMMM:MMMMMM:   MMMM   MMMMM
-2023-02-22 04:29:32.562:   [Telnet] MMMM= MMMMMM  MMM   MMMM       MMMMM   MMMM  MMMMMM   MMMM  MMMMM'
-2023-02-22 04:29:32.562:   [Telnet] MMMM=  MMMMM MMMM    MM       MMMMM    MMMM    MMMM   MMMMNMMMMM
-2023-02-22 04:29:32.562:   [Telnet] MMMM=   MMMM  MMMMM          MMMMM     MMMM    MMMM   MMMMMMMM
-2023-02-22 04:29:32.562:   [Telnet] MMMM=   MMMM   MMMMMM       MMMMM      MMMM    MMMM   MMMMMMMMM
-2023-02-22 04:29:32.562:   [Telnet] MMMM=   MMMM     MMMMM,    NMMMMMMMM   MMMM    MMMM   MMMMMMMMMMM
-2023-02-22 04:29:32.562:   [Telnet] MMMM=   MMMM      MMMMMM   MMMMMMMM    MMMM    MMMM   MMMM  MMMMMM
-2023-02-22 04:29:32.562:   [Telnet] MMMM=   MMMM   MM    MMMM    MMMM      MMMM    MMMM   MMMM    MMMM
-2023-02-22 04:29:32.563:   [Telnet] MMMM$ ,MMMMM  MMMMM  MMMM    MMM       MMMM   MMMMM   MMMM    MMMM
-2023-02-22 04:29:32.563:   [Telnet] MMMMMMM:      MMMMMMM     M         MMMMMMMMMMMM  MMMMMMM MMMMMMM
-2023-02-22 04:29:32.563:   [Telnet] MMMMMM       MMMMN     M           MMMMMMMMM      MMMM    MMMM
-2023-02-22 04:29:32.563:   [Telnet] MMMM          M                    MMMMMMM        M       M
-2023-02-22 04:29:32.563:   [Telnet] M
-2023-02-22 04:29:32.563:   [Telnet] ---------------------------------------------------------------
-2023-02-22 04:29:32.563:   [Telnet] For those about to rock... (Chaos Calmer, unknown)
-2023-02-22 04:29:32.563:   [Telnet] ---------------------------------------------------------------
-2023-02-22 04:29:32.563:   [Telnet] root@eero-test:/#
-2023-02-22 04:29:32.669:   [Telnet] root@eero-test:/#
-2023-02-22 04:29:32.670:   [Telnet] Send command: fw_printenv serial
-2023-02-22 04:29:32.776:   [Telnet] fw_printenv serial
-2023-02-22 04:29:32.885:   [Telnet] serial=GGB1UD2230740R6V
-2023-02-22 04:29:32.885:   [CONFIG] Start key: "serial="
-2023-02-22 04:29:32.885:   [CONFIG] End key: ""
-2023-02-22 04:29:32.886:   [CONFIG] Regex: "null"
-2023-02-22 04:29:32.886:   [CONFIG] Time: "10.0"
-2023-02-22 04:29:32.886:   [PC] Value: "GGB1UD2230740R6V"
-2023-02-22 04:29:32.886:   [PC] Value is: GGB1UD2230740R6V
-2023-02-22 04:29:32.887:   [CONFIG] compare key: mlbsn
-2023-02-22 04:29:32.887:   [PC] Spec is: GGB1UD2230740R6V
-2023-02-22 04:29:32.887:   ****************************************************
-2023-02-22 04:29:32.887:   Item name = sn_ok
-2023-02-22 04:29:32.888:   Value = GGB1UD2230740R6V
-2023-02-22 04:29:32.888:   Test status = passed
-2023-02-22 04:29:32.888:   -----------------------------------------------------
-2023-02-22 04:29:32.888:   ****************************************************
-2023-02-22 04:29:32.888:   TIME[0.512 s] - STATUS[PASSED]
+2023-03-18 10:19:10.951:   ITEM[sn_ok] - FUNCTION[CheckDutInfoProxy]
+2023-03-18 10:19:10.952:   Turn: 1
+2023-03-18 10:19:10.952:   Get IP from the function config with key is "IP".
+2023-03-18 10:19:10.952:   IP: 192.168.1.1
+2023-03-18 10:19:10.952:   [PC] ReadUntil: root@eero-test:/#
+2023-03-18 10:19:10.952:   [PC] Connect to ip: 192.168.1.1
+2023-03-18 10:19:10.952:   [PC] Port is: 23
+2023-03-18 10:19:10.952:   [PC] Ping to IP: 192.168.1.1 - 180 S
+2023-03-18 10:19:10.953:   [Cmd] ------------------------------------ 1
+2023-03-18 10:19:10.953:   [Cmd] Send command: arp -d
+2023-03-18 10:19:11.148:   [Cmd] 
+2023-03-18 10:19:11.148:   [Cmd] Send command: ping 192.168.1.1 -n 1
+2023-03-18 10:19:11.180:   [Cmd] Pinging 192.168.1.1 with 32 bytes of data:
+2023-03-18 10:19:11.180:   [Cmd] Reply from 192.168.1.1: bytes=32 time=1ms TTL=64
+2023-03-18 10:19:11.180:   [Cmd] 
+2023-03-18 10:19:11.180:   [Cmd] Ping statistics for 192.168.1.1:
+2023-03-18 10:19:11.180:   [Cmd] Packets: Sent = 1, Received = 1, Lost = 0 (0% loss),
+2023-03-18 10:19:11.181:   [Cmd] Approximate round trip times in milli-seconds:
+2023-03-18 10:19:11.181:   [Cmd] Minimum = 1ms, Maximum = 1ms, Average = 1ms
+2023-03-18 10:19:11.181:   [Cmd] ------------------------------------
+2023-03-18 10:19:11.181:   [PC] ping time: 0.229 S
+2023-03-18 10:19:11.182:   [PC] Connect to telnet with IP: "192.168.1.1" ok!
+2023-03-18 10:19:11.282:   [Telnet] BusyBox v1.33.2 (2023-01-17 07:47:52 UTC) built-in shell (ash)
+2023-03-18 10:19:11.282:   [Telnet] 
+2023-03-18 10:19:11.282:   [Telnet] MM           NM                    MMMMMMM          M       M
+2023-03-18 10:19:11.282:   [Telnet] $MMMMM        MMMMM                MMMMMMMMMMM      MMM     MMM
+2023-03-18 10:19:11.283:   [Telnet] MMMMMMMM     MM MMMMM.              MMMMM:MMMMMM:   MMMM   MMMMM
+2023-03-18 10:19:11.283:   [Telnet] MMMM= MMMMMM  MMM   MMMM       MMMMM   MMMM  MMMMMM   MMMM  MMMMM'
+2023-03-18 10:19:11.283:   [Telnet] MMMM=  MMMMM MMMM    MM       MMMMM    MMMM    MMMM   MMMMNMMMMM
+2023-03-18 10:19:11.283:   [Telnet] MMMM=   MMMM  MMMMM          MMMMM     MMMM    MMMM   MMMMMMMM
+2023-03-18 10:19:11.283:   [Telnet] MMMM=   MMMM   MMMMMM       MMMMM      MMMM    MMMM   MMMMMMMMM
+2023-03-18 10:19:11.283:   [Telnet] MMMM=   MMMM     MMMMM,    NMMMMMMMM   MMMM    MMMM   MMMMMMMMMMM
+2023-03-18 10:19:11.283:   [Telnet] MMMM=   MMMM      MMMMMM   MMMMMMMM    MMMM    MMMM   MMMM  MMMMMM
+2023-03-18 10:19:11.283:   [Telnet] MMMM=   MMMM   MM    MMMM    MMMM      MMMM    MMMM   MMMM    MMMM
+2023-03-18 10:19:11.283:   [Telnet] MMMM$ ,MMMMM  MMMMM  MMMM    MMM       MMMM   MMMMM   MMMM    MMMM
+2023-03-18 10:19:11.283:   [Telnet] MMMMMMM:      MMMMMMM     M         MMMMMMMMMMMM  MMMMMMM MMMMMMM
+2023-03-18 10:19:11.283:   [Telnet] MMMMMM       MMMMN     M           MMMMMMMMM      MMMM    MMMM
+2023-03-18 10:19:11.283:   [Telnet] MMMM          M                    MMMMMMM        M       M
+2023-03-18 10:19:11.283:   [Telnet] M
+2023-03-18 10:19:11.283:   [Telnet] ---------------------------------------------------------------
+2023-03-18 10:19:11.284:   [Telnet] For those about to rock... OpenWrt 19.07-SNAPSHOT, unknown
+2023-03-18 10:19:11.284:   [Telnet] ---------------------------------------------------------------
+2023-03-18 10:19:11.284:   [Telnet] === WARNING! =====================================
+2023-03-18 10:19:11.284:   [Telnet] There is no root password defined on this device!
+2023-03-18 10:19:11.284:   [Telnet] Use the "passwd" command to set up a new password
+2023-03-18 10:19:11.284:   [Telnet] in order to prevent unauthorized SSH logins.
+2023-03-18 10:19:11.284:   [Telnet] --------------------------------------------------
+2023-03-18 10:19:11.284:   [Telnet] root@eero-test:/#
+2023-03-18 10:19:11.284:   [Telnet] Send command: fw_printenv  serial
+2023-03-18 10:19:11.390:   [Telnet] fw_printenv  serial
+2023-03-18 10:19:11.390:   [Telnet] serial=GGB21E0430520039
+2023-03-18 10:19:11.390:   [CONFIG] Start key: "serial="
+2023-03-18 10:19:11.390:   [CONFIG] End key: ""
+2023-03-18 10:19:11.390:   [CONFIG] Regex: "null"
+2023-03-18 10:19:11.390:   [CONFIG] Time: "0.106/40.000 (S)"
+2023-03-18 10:19:11.390:   [PC] Value: "GGB21E0430520039"
+2023-03-18 10:19:11.391:   [PC] Value is: GGB21E0430520039
+2023-03-18 10:19:11.391:   [CONFIG] compare key: mlbsn
+2023-03-18 10:19:11.391:   [PC] Spec is: null
+2023-03-18 10:19:11.391:   ****************************************************
+2023-03-18 10:19:11.391:   Item name = sn_ok
+2023-03-18 10:19:11.391:   Value = GGB21E0430520039
+2023-03-18 10:19:11.391:   Test status = failed
+2023-03-18 10:19:11.392:   -----------------------------------------------------
+2023-03-18 10:19:11.392:   Turn: 2
+2023-03-18 10:19:11.392:   Get IP from the function config with key is "IP".
+2023-03-18 10:19:11.392:   IP: 192.168.1.1
+2023-03-18 10:19:11.392:   [PC] ReadUntil: root@eero-test:/#
+2023-03-18 10:19:11.392:   [PC] Connect to ip: 192.168.1.1
+2023-03-18 10:19:11.392:   [PC] Port is: 23
+2023-03-18 10:19:11.392:   [PC] Ping to IP: 192.168.1.1 - 180 S
+2023-03-18 10:19:11.392:   [Cmd] ------------------------------------ 1
+2023-03-18 10:19:11.393:   [Cmd] Send command: arp -d
+2023-03-18 10:19:11.583:   [Cmd] 
+2023-03-18 10:19:11.583:   [Cmd] Send command: ping 192.168.1.1 -n 1
+2023-03-18 10:19:11.615:   [Cmd] Pinging 192.168.1.1 with 32 bytes of data:
+2023-03-18 10:19:11.615:   [Cmd] Reply from 192.168.1.1: bytes=32 time=1ms TTL=64
+2023-03-18 10:19:11.616:   [Cmd] 
+2023-03-18 10:19:11.616:   [Cmd] Ping statistics for 192.168.1.1:
+2023-03-18 10:19:11.616:   [Cmd] Packets: Sent = 1, Received = 1, Lost = 0 (0% loss),
+2023-03-18 10:19:11.616:   [Cmd] Approximate round trip times in milli-seconds:
+2023-03-18 10:19:11.616:   [Cmd] Minimum = 1ms, Maximum = 1ms, Average = 1ms
+2023-03-18 10:19:11.616:   [Cmd] ------------------------------------
+2023-03-18 10:19:11.616:   [PC] ping time: 0.224 S
+2023-03-18 10:19:11.617:   [PC] Connect to telnet with IP: "192.168.1.1" ok!
+2023-03-18 10:19:11.719:   [Telnet] BusyBox v1.33.2 (2023-01-17 07:47:52 UTC) built-in shell (ash)
+2023-03-18 10:19:11.719:   [Telnet] 
+2023-03-18 10:19:11.719:   [Telnet] MM           NM                    MMMMMMM          M       M
+2023-03-18 10:19:11.719:   [Telnet] $MMMMM        MMMMM                MMMMMMMMMMM      MMM     MMM
+2023-03-18 10:19:11.719:   [Telnet] MMMMMMMM     MM MMMMM.              MMMMM:MMMMMM:   MMMM   MMMMM
+2023-03-18 10:19:11.720:   [Telnet] MMMM= MMMMMM  MMM   MMMM       MMMMM   MMMM  MMMMMM   MMMM  MMMMM'
+2023-03-18 10:19:11.720:   [Telnet] MMMM=  MMMMM MMMM    MM       MMMMM    MMMM    MMMM   MMMMNMMMMM
+2023-03-18 10:19:11.720:   [Telnet] MMMM=   MMMM  MMMMM          MMMMM     MMMM    MMMM   MMMMMMMM
+2023-03-18 10:19:11.720:   [Telnet] MMMM=   MMMM   MMMMMM       MMMMM      MMMM    MMMM   MMMMMMMMM
+2023-03-18 10:19:11.720:   [Telnet] MMMM=   MMMM     MMMMM,    NMMMMMMMM   MMMM    MMMM   MMMMMMMMMMM
+2023-03-18 10:19:11.720:   [Telnet] MMMM=   MMMM      MMMMMM   MMMMMMMM    MMMM    MMMM   MMMM  MMMMMM
+2023-03-18 10:19:11.720:   [Telnet] MMMM=   MMMM   MM    MMMM    MMMM      MMMM    MMMM   MMMM    MMMM
+2023-03-18 10:19:11.720:   [Telnet] MMMM$ ,MMMMM  MMMMM  MMMM    MMM       MMMM   MMMMM   MMMM    MMMM
+2023-03-18 10:19:11.720:   [Telnet] MMMMMMM:      MMMMMMM     M         MMMMMMMMMMMM  MMMMMMM MMMMMMM
+2023-03-18 10:19:11.720:   [Telnet] MMMMMM       MMMMN     M           MMMMMMMMM      MMMM    MMMM
+2023-03-18 10:19:11.720:   [Telnet] MMMM          M                    MMMMMMM        M       M
+2023-03-18 10:19:11.720:   [Telnet] M
+2023-03-18 10:19:11.720:   [Telnet] ---------------------------------------------------------------
+2023-03-18 10:19:11.720:   [Telnet] For those about to rock... OpenWrt 19.07-SNAPSHOT, unknown
+2023-03-18 10:19:11.721:   [Telnet] ---------------------------------------------------------------
+2023-03-18 10:19:11.721:   [Telnet] === WARNING! =====================================
+2023-03-18 10:19:11.721:   [Telnet] There is no root password defined on this device!
+2023-03-18 10:19:11.721:   [Telnet] Use the "passwd" command to set up a new password
+2023-03-18 10:19:11.721:   [Telnet] in order to prevent unauthorized SSH logins.
+2023-03-18 10:19:11.721:   [Telnet] --------------------------------------------------
+2023-03-18 10:19:11.721:   [Telnet] root@eero-test:/#
+2023-03-18 10:19:11.721:   [Telnet] Send command: fw_printenv  serial
+2023-03-18 10:19:11.831:   [Telnet] fw_printenv  serial
+2023-03-18 10:19:11.831:   [Telnet] serial=GGB21E0430520039
+2023-03-18 10:19:11.831:   [CONFIG] Start key: "serial="
+2023-03-18 10:19:11.831:   [CONFIG] End key: ""
+2023-03-18 10:19:11.832:   [CONFIG] Regex: "null"
+2023-03-18 10:19:11.832:   [CONFIG] Time: "0.111/40.000 (S)"
+2023-03-18 10:19:11.832:   [PC] Value: "GGB21E0430520039"
+2023-03-18 10:19:11.832:   [PC] Value is: GGB21E0430520039
+2023-03-18 10:19:11.832:   [CONFIG] compare key: mlbsn
+2023-03-18 10:19:11.832:   [PC] Spec is: null
+2023-03-18 10:19:11.832:   ****************************************************
+2023-03-18 10:19:11.833:   Item name = sn_ok
+2023-03-18 10:19:11.833:   Value = GGB21E0430520039
+2023-03-18 10:19:11.833:   Test status = failed
+2023-03-18 10:19:11.833:   -----------------------------------------------------
+2023-03-18 10:19:11.833:   Turn: 3
+2023-03-18 10:19:11.834:   Get IP from the function config with key is "IP".
+2023-03-18 10:19:11.834:   IP: 192.168.1.1
+2023-03-18 10:19:11.834:   [PC] ReadUntil: root@eero-test:/#
+2023-03-18 10:19:11.834:   [PC] Connect to ip: 192.168.1.1
+2023-03-18 10:19:11.834:   [PC] Port is: 23
+2023-03-18 10:19:11.834:   [PC] Ping to IP: 192.168.1.1 - 180 S
+2023-03-18 10:19:11.834:   [Cmd] ------------------------------------ 1
+2023-03-18 10:19:11.834:   [Cmd] Send command: arp -d
+2023-03-18 10:19:12.025:   [Cmd] 
+2023-03-18 10:19:12.025:   [Cmd] Send command: ping 192.168.1.1 -n 1
+2023-03-18 10:19:12.057:   [Cmd] Pinging 192.168.1.1 with 32 bytes of data:
+2023-03-18 10:19:12.057:   [Cmd] Reply from 192.168.1.1: bytes=32 time=1ms TTL=64
+2023-03-18 10:19:12.057:   [Cmd] 
+2023-03-18 10:19:12.057:   [Cmd] Ping statistics for 192.168.1.1:
+2023-03-18 10:19:12.057:   [Cmd] Packets: Sent = 1, Received = 1, Lost = 0 (0% loss),
+2023-03-18 10:19:12.058:   [Cmd] Approximate round trip times in milli-seconds:
+2023-03-18 10:19:12.058:   [Cmd] Minimum = 1ms, Maximum = 1ms, Average = 1ms
+2023-03-18 10:19:12.058:   [Cmd] ------------------------------------
+2023-03-18 10:19:12.058:   [PC] ping time: 0.224 S
+2023-03-18 10:19:12.059:   [PC] Connect to telnet with IP: "192.168.1.1" ok!
+2023-03-18 10:19:12.164:   [Telnet] BusyBox v1.33.2 (2023-01-17 07:47:52 UTC) built-in shell (ash)
+2023-03-18 10:19:12.164:   [Telnet] 
+2023-03-18 10:19:12.164:   [Telnet] MM           NM                    MMMMMMM          M       M
+2023-03-18 10:19:12.164:   [Telnet] $MMMMM        MMMMM                MMMMMMMMMMM      MMM     MMM
+2023-03-18 10:19:12.164:   [Telnet] MMMMMMMM     MM MMMMM.              MMMMM:MMMMMM:   MMMM   MMMMM
+2023-03-18 10:19:12.165:   [Telnet] MMMM= MMMMMM  MMM   MMMM       MMMMM   MMMM  MMMMMM   MMMM  MMMMM'
+2023-03-18 10:19:12.165:   [Telnet] MMMM=  MMMMM MMMM    MM       MMMMM    MMMM    MMMM   MMMMNMMMMM
+2023-03-18 10:19:12.165:   [Telnet] MMMM=   MMMM  MMMMM          MMMMM     MMMM    MMMM   MMMMMMMM
+2023-03-18 10:19:12.165:   [Telnet] MMMM=   MMMM   MMMMMM       MMMMM      MMMM    MMMM   MMMMMMMMM
+2023-03-18 10:19:12.165:   [Telnet] MMMM=   MMMM     MMMMM,    NMMMMMMMM   MMMM    MMMM   MMMMMMMMMMM
+2023-03-18 10:19:12.165:   [Telnet] MMMM=   MMMM      MMMMMM   MMMMMMMM    MMMM    MMMM   MMMM  MMMMMM
+2023-03-18 10:19:12.165:   [Telnet] MMMM=   MMMM   MM    MMMM    MMMM      MMMM    MMMM   MMMM    MMMM
+2023-03-18 10:19:12.165:   [Telnet] MMMM$ ,MMMMM  MMMMM  MMMM    MMM       MMMM   MMMMM   MMMM    MMMM
+2023-03-18 10:19:12.165:   [Telnet] MMMMMMM:      MMMMMMM     M         MMMMMMMMMMMM  MMMMMMM MMMMMMM
+2023-03-18 10:19:12.165:   [Telnet] MMMMMM       MMMMN     M           MMMMMMMMM      MMMM    MMMM
+2023-03-18 10:19:12.165:   [Telnet] MMMM          M                    MMMMMMM        M       M
+2023-03-18 10:19:12.165:   [Telnet] M
+2023-03-18 10:19:12.165:   [Telnet] ---------------------------------------------------------------
+2023-03-18 10:19:12.165:   [Telnet] For those about to rock... OpenWrt 19.07-SNAPSHOT, unknown
+2023-03-18 10:19:12.166:   [Telnet] ---------------------------------------------------------------
+2023-03-18 10:19:12.166:   [Telnet] === WARNING! =====================================
+2023-03-18 10:19:12.166:   [Telnet] There is no root password defined on this device!
+2023-03-18 10:19:12.166:   [Telnet] Use the "passwd" command to set up a new password
+2023-03-18 10:19:12.166:   [Telnet] in order to prevent unauthorized SSH logins.
+2023-03-18 10:19:12.166:   [Telnet] --------------------------------------------------
+2023-03-18 10:19:12.166:   [Telnet] root@eero-test:/#
+2023-03-18 10:19:12.166:   [Telnet] Send command: fw_printenv  serial
+2023-03-18 10:19:12.276:   [Telnet] fw_printenv  serial
+2023-03-18 10:19:12.276:   [Telnet] serial=GGB21E0430520039
+2023-03-18 10:19:12.276:   [CONFIG] Start key: "serial="
+2023-03-18 10:19:12.276:   [CONFIG] End key: ""
+2023-03-18 10:19:12.276:   [CONFIG] Regex: "null"
+2023-03-18 10:19:12.276:   [CONFIG] Time: "0.110/40.000 (S)"
+2023-03-18 10:19:12.276:   [PC] Value: "GGB21E0430520039"
+2023-03-18 10:19:12.276:   [PC] Value is: GGB21E0430520039
+2023-03-18 10:19:12.277:   [CONFIG] compare key: mlbsn
+2023-03-18 10:19:12.277:   [PC] Spec is: null
+2023-03-18 10:19:12.277:   ****************************************************
+2023-03-18 10:19:12.277:   Item name = sn_ok
+2023-03-18 10:19:12.277:   Value = GGB21E0430520039
+2023-03-18 10:19:12.277:   Test status = failed
+2023-03-18 10:19:12.277:   -----------------------------------------------------
+2023-03-18 10:19:12.278:   Error code = -1
+2023-03-18 10:19:12.278:   Error des = sn_ok
+2023-03-18 10:19:12.278:   Local error code = 30.1.0
+2023-03-18 10:19:12.278:   Local error des = sn_ok
+2023-03-18 10:19:12.278:   ****************************************************
+2023-03-18 10:19:12.278:   TIME[1.327 s] - STATUS[FAILED]

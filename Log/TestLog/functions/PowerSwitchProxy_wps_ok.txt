@@ -1,0 +1,9 @@
+2023-03-18 09:52:39.751:   ITEM[wps_ok] - FUNCTION[PowerSwitchProxy]
+2023-03-18 09:52:39.757:   Turn: 1
+2023-03-18 09:52:39.758:   [CONFIG] host: 192.168.1.10
+2023-03-18 09:52:39.758:   [CONFIG] user: admin
+2023-03-18 09:52:39.759:   [CONFIG] passWord: 1234
+2023-03-18 09:52:39.759:   [CONFIG] Times: 1
+2023-03-18 09:52:39.759:   [CONFIG] index of switch: 1
+2023-03-18 09:52:39.759:   [CONFIG] Delay time: 5 s
+2023-03-18 09:52:39.763:   cycle Times: 1 - 1

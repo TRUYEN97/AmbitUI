@@ -9,14 +9,8 @@
         <group name="AmbitUI">
             <file>file:/D:/Ambit-module/AmbitUI/Item/Runin.json</file>
             <file>file:/D:/Ambit-module/AmbitUI/Item/Runin_BOOT_SETUP.json</file>
-            <file>file:/D:/Ambit-module/AmbitUI/src/Control/Functions/FunctionsTest/RTT/BootSetup/BootSetup.java</file>
-            <file>file:/D:/Ambit-module/AmbitUI/src/Control/Functions/FunctionsTest/Base/BaseFunction/AnalysisBase.java</file>
-            <file>file:/D:/Ambit-module/AmbitUI/src/Control/Functions/FunctionsTest/Base/MyDas/MydasClient.java</file>
-            <file>file:/D:/Ambit-module/AmbitUI/Setting/setting.json</file>
-            <file>file:/D:/Ambit-module/AmbitUI/Init/ErrorCode.json</file>
-            <file>file:/D:/Ambit-module/AmbitUI/Item/Runin_jupiter_production.json</file>
-            <file>file:/D:/Ambit-module/AmbitUI/src/Control/Functions/FunctionsTest/Base/GoldenFile/GoldenFile.java</file>
-            <file>file:/D:/Ambit-module/AmbitUI/src/Control/Functions/FunctionsTest/Base/MyDas/Mydas.java</file>
+            <file>file:/D:/Ambit-module/AmbitUI/src/Control/Core/Engine.java</file>
+            <file>file:/D:/Ambit-module/AmbitUI/src/Control/Functions/FunctionsTest/Base/JsonApi/UpApi/UpApi.java</file>
         </group>
     </open-files>
 </project-private>

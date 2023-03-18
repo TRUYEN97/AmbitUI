@@ -1,0 +1,55 @@
+2023-03-18 09:32:51.123:   ITEM[dut_telnet] - FUNCTION[DutTelnetProxy]
+2023-03-18 09:32:51.123:   Turn: 1
+2023-03-18 09:32:51.124:   Get IP from the function config with key is "IP".
+2023-03-18 09:32:51.124:   IP: 192.168.1.1
+2023-03-18 09:32:51.194:   [PC] ReadUntil: root@eero-test:/#
+2023-03-18 09:32:51.194:   [PC] Connect to ip: 192.168.1.1
+2023-03-18 09:32:51.194:   [PC] Port is: 23
+2023-03-18 09:32:51.194:   [PC] Ping to IP: 192.168.1.1 - 180 S
+2023-03-18 09:32:51.194:   [Cmd] ------------------------------------ 1
+2023-03-18 09:32:51.194:   [Cmd] Send command: arp -d
+2023-03-18 09:32:51.385:   [Cmd] 
+2023-03-18 09:32:51.385:   [Cmd] Send command: ping 192.168.1.1 -n 1
+2023-03-18 09:32:51.419:   [Cmd] Pinging 192.168.1.1 with 32 bytes of data:
+2023-03-18 09:32:51.419:   [Cmd] Reply from 192.168.1.1: bytes=32 time=1ms TTL=64
+2023-03-18 09:32:51.419:   [Cmd] 
+2023-03-18 09:32:51.419:   [Cmd] Ping statistics for 192.168.1.1:
+2023-03-18 09:32:51.419:   [Cmd] Packets: Sent = 1, Received = 1, Lost = 0 (0% loss),
+2023-03-18 09:32:51.419:   [Cmd] Approximate round trip times in milli-seconds:
+2023-03-18 09:32:51.419:   [Cmd] Minimum = 1ms, Maximum = 1ms, Average = 1ms
+2023-03-18 09:32:51.420:   [Cmd] ------------------------------------
+2023-03-18 09:32:51.420:   [PC] ping time: 0.226 S
+2023-03-18 09:32:51.426:   [PC] Connect to telnet with IP: "192.168.1.1" ok!
+2023-03-18 09:32:51.541:   [Telnet] BusyBox v1.33.2 (2023-01-17 07:47:52 UTC) built-in shell (ash)
+2023-03-18 09:32:51.542:   [Telnet] 
+2023-03-18 09:32:51.542:   [Telnet] MM           NM                    MMMMMMM          M       M
+2023-03-18 09:32:51.542:   [Telnet] $MMMMM        MMMMM                MMMMMMMMMMM      MMM     MMM
+2023-03-18 09:32:51.542:   [Telnet] MMMMMMMM     MM MMMMM.              MMMMM:MMMMMM:   MMMM   MMMMM
+2023-03-18 09:32:51.542:   [Telnet] MMMM= MMMMMM  MMM   MMMM       MMMMM   MMMM  MMMMMM   MMMM  MMMMM'
+2023-03-18 09:32:51.542:   [Telnet] MMMM=  MMMMM MMMM    MM       MMMMM    MMMM    MMMM   MMMMNMMMMM
+2023-03-18 09:32:51.542:   [Telnet] MMMM=   MMMM  MMMMM          MMMMM     MMMM    MMMM   MMMMMMMM
+2023-03-18 09:32:51.542:   [Telnet] MMMM=   MMMM   MMMMMM       MMMMM      MMMM    MMMM   MMMMMMMMM
+2023-03-18 09:32:51.543:   [Telnet] MMMM=   MMMM     MMMMM,    NMMMMMMMM   MMMM    MMMM   MMMMMMMMMMM
+2023-03-18 09:32:51.543:   [Telnet] MMMM=   MMMM      MMMMMM   MMMMMMMM    MMMM    MMMM   MMMM  MMMMMM
+2023-03-18 09:32:51.543:   [Telnet] MMMM=   MMMM   MM    MMMM    MMMM      MMMM    MMMM   MMMM    MMMM
+2023-03-18 09:32:51.543:   [Telnet] MMMM$ ,MMMMM  MMMMM  MMMM    MMM       MMMM   MMMMM   MMMM    MMMM
+2023-03-18 09:32:51.543:   [Telnet] MMMMMMM:      MMMMMMM     M         MMMMMMMMMMMM  MMMMMMM MMMMMMM
+2023-03-18 09:32:51.543:   [Telnet] MMMMMM       MMMMN     M           MMMMMMMMM      MMMM    MMMM
+2023-03-18 09:32:51.543:   [Telnet] MMMM          M                    MMMMMMM        M       M
+2023-03-18 09:32:51.543:   [Telnet] M
+2023-03-18 09:32:51.543:   [Telnet] ---------------------------------------------------------------
+2023-03-18 09:32:51.544:   [Telnet] For those about to rock... OpenWrt 19.07-SNAPSHOT, unknown
+2023-03-18 09:32:51.544:   [Telnet] ---------------------------------------------------------------
+2023-03-18 09:32:51.544:   [Telnet] === WARNING! =====================================
+2023-03-18 09:32:51.544:   [Telnet] There is no root password defined on this device!
+2023-03-18 09:32:51.544:   [Telnet] Use the "passwd" command to set up a new password
+2023-03-18 09:32:51.544:   [Telnet] in order to prevent unauthorized SSH logins.
+2023-03-18 09:32:51.544:   [Telnet] --------------------------------------------------
+2023-03-18 09:32:51.544:   [Telnet] root@eero-test:/#
+2023-03-18 09:32:51.545:   ****************************************************
+2023-03-18 09:32:51.545:   Item name = dut_telnet
+2023-03-18 09:32:51.545:   Value = passed
+2023-03-18 09:32:51.546:   Test status = passed
+2023-03-18 09:32:51.546:   -----------------------------------------------------
+2023-03-18 09:32:51.546:   ****************************************************
+2023-03-18 09:32:51.546:   TIME[0.423 s] - STATUS[PASSED]
