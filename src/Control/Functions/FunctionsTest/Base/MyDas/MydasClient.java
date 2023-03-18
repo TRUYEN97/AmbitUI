@@ -65,7 +65,7 @@ public class MydasClient {
         try {
             socket = new Socket();
             SocketAddress sa = new InetSocketAddress(ip, port);
-            socket.connect(sa, 4000);
+            socket.connect(sa, 10000);
             return 1;
         } catch (SocketTimeoutException ex) {
             return 0;

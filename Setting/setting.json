@@ -19,6 +19,12 @@
             "name": "Production", 
             "type_mode": "production",
             "ambit_config": "Item\\Runin_jupiter_200T.json"
+        },
+        {
+            "station_type": "BOOT_SETUP",
+            "name": "debug", 
+            "type_mode": "debug",
+            "ambit_config": "Item\\Runin_BOOT_SETUP.json"
         }
     ],
     "dhcp": {

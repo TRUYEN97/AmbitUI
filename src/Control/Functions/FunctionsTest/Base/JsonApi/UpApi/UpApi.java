@@ -12,6 +12,7 @@ import Control.Functions.FunctionsTest.Base.JsonApi.CreateJsonApi.CreateJsonApi;
 import Control.Functions.FunctionsTest.Base.TxtLog.CreateLog.CreateTxt;
 import Control.Functions.FunctionsTest.Base.TxtLog.ZipLog.ZipFile;
 import Model.DataTest.FunctionParameters;
+import Time.WaitTime.Class.TimeS;
 import java.util.List;
 
 /**
@@ -56,7 +57,9 @@ public class UpApi extends AbsFunction {
                 && isCreateZipOk(zipPath, txtPath)
                 && this.functionBase.sendCommand(cmd, command + jsonName)) {
             String spec = config.getString("Spec");
-            String response = cmd.readAll();
+            int time = this.config.getInteger("Time", 10);
+            addLog(LOG_KEYS.PC, "Waiting for API reponse about %s S", time);
+            String response = cmd.readAll(new TimeS(time));
             addLog("Cmd", response);
             return response.trim().endsWith(spec);
         }

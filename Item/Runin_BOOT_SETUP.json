@@ -95,6 +95,7 @@
             "retry": 2,
             "time_out": 100,
             "multi": false,
+            "debug_able": true,
             "always_run": false,
             "IP": "192.168.1.1",
             "ReadUntil": "root@eero-test:/#",
