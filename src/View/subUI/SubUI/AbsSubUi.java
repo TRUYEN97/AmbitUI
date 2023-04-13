@@ -102,7 +102,10 @@ public abstract class AbsSubUi extends AbsUI implements IUpdate {
             return null;
         }
         long time = (long) (testTimer.getRuntime());
-        return String.format("%02d:%02d:%02d", time / 3600, time / 60, time % 60);
+        long hour = time / 3600;
+        long minute = (time - hour * 3600) / 60;
+        long second = time % 60;
+        return String.format("%02d:%02d:%02d", hour, minute, second);
     }
 
     public void setClock(IgetTime myTimer) {
