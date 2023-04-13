@@ -1,0 +1,22 @@
+2023-03-29 08:38:47.642:   ITEM[ReleasePowerSwitchOutlet] - FUNCTION[PowerSwitchProxy]
+2023-03-29 08:38:47.643:   Turn: 1
+2023-03-29 08:38:47.644:   [CONFIG] host: 192.168.1.13
+2023-03-29 08:38:47.644:   [CONFIG] user: admin
+2023-03-29 08:38:47.644:   [CONFIG] passWord: 1234
+2023-03-29 08:38:47.645:   [CONFIG] Times: 1
+2023-03-29 08:38:47.645:   [CONFIG] index of switch: 3
+2023-03-29 08:38:47.646:   [CONFIG] Delay time: 1 s
+2023-03-29 08:38:47.653:   cycle Times: 1 - 1
+2023-03-29 08:39:08.922:   [POWER_SWITCH] http://192.168.1.13/outlet?3=OFF
+2023-03-29 08:39:08.923:   [POWER_SWITCH] Exception: Connect to 192.168.1.13:80 [/192.168.1.13] failed: Connection timed out: connect
+2023-03-29 08:39:09.929:   ****************************************************
+2023-03-29 08:39:09.929:   Item name = ReleasePowerSwitchOutlet
+2023-03-29 08:39:09.929:   Value = failed
+2023-03-29 08:39:09.930:   Test status = failed
+2023-03-29 08:39:09.930:   -----------------------------------------------------
+2023-03-29 08:39:09.930:   Error code = -1
+2023-03-29 08:39:09.930:   Error des = ReleasePowerSwitchOutlet
+2023-03-29 08:39:09.931:   Local error code = PW0
+2023-03-29 08:39:09.931:   Local error des = ReleasePowerSwitchOutlet
+2023-03-29 08:39:09.931:   ****************************************************
+2023-03-29 08:39:09.931:   TIME[22.289 s] - STATUS[FAILED]

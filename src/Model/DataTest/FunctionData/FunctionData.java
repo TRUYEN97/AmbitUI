@@ -28,6 +28,7 @@ import java.util.Map;
 public class FunctionData {
 
     private final MyLoger loger;
+    private final ItemTestData.TYPE type;
     private final FunctionName functionName;
     private final ProcessData processData;
     private final UiStatus uiStatus;
@@ -39,6 +40,7 @@ public class FunctionData {
 
     public FunctionData(UiStatus uiStatus, FunctionConfig functionConfig) {
         this.loger = new MyLoger();
+        this.type = functionConfig.getType();
         this.loger.setSaveMemory(uiStatus.getModeTest().isSaveMemory());
         this.itemTests = new HashMap<>();
         this.listItemTests = new ArrayList<>();
@@ -47,7 +49,7 @@ public class FunctionData {
         this.functionConfig = functionConfig;
         this.timer = uiStatus.getProcessData();
         this.functionName = functionConfig.getfFunctionName();
-        this.thisItem = new ItemTestData(getAllConfig(functionName.getItemName()), loger, timer);
+        this.thisItem = new ItemTestData(getAllConfig(functionName.getItemName()), loger, timer, this.type);
         addItemData(functionName.getItemName(), thisItem);
     }
 
@@ -75,7 +77,7 @@ public class FunctionData {
         if (itemTest == null || this.itemTests.containsKey(itemTest)) {
             return;
         }
-        ItemTestData testData = new ItemTestData(getAllConfig(itemTest), loger, timer);
+        ItemTestData testData = new ItemTestData(getAllConfig(itemTest), loger, timer, this.type);
         addItemData(itemTest, testData);
     }
 

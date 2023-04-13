@@ -6,6 +6,8 @@ package Model.DataSource.ModeTest.FunctionConfig;
 
 import Model.AllKeyWord;
 import Model.DataSource.AbsElementInfo;
+import Model.DataTest.FunctionData.ItemTestData;
+import Model.DataTest.FunctionData.ItemTestData.TYPE;
 import com.alibaba.fastjson.JSONObject;
 import java.util.List;
 import java.util.Set;
@@ -17,10 +19,16 @@ import java.util.Set;
 public class FunctionConfig extends AbsElementInfo {
 
     private final FunctionName functionName;
+    private final TYPE type;
     
-    public FunctionConfig(JSONObject base, JSONObject config) {
+    public FunctionConfig(JSONObject base, JSONObject config, TYPE type) {
         super(null, base, config);
         this.functionName = new FunctionName(getItemName(), getFunctionName());
+        this.type = type;
+    }
+
+    public TYPE getType() {
+        return type;
     }
     
     public FunctionName getfFunctionName(){

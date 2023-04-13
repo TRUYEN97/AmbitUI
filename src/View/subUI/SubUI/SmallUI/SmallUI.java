@@ -5,6 +5,7 @@
 package View.subUI.SubUI.SmallUI;
 
 import Model.DataTest.FunctionData.FunctionData;
+import Model.DataTest.FunctionData.ItemTestData;
 import View.subUI.FormDetail.FormShow;
 import View.subUI.SubUI.AbsSubUi;
 import java.awt.Color;
@@ -97,7 +98,7 @@ public class SmallUI extends AbsSubUi {
             mess.append(String.format(" \"%s\"", text));
         }
         this.lbTime.setToolTipText(messHtml.toString());
-            this.view.showSfisText(mess.toString());
+        this.view.showSfisText(mess.toString());
     }//GEN-LAST:event_lbTimeMouseEntered
 
     @Override
@@ -107,19 +108,6 @@ public class SmallUI extends AbsSubUi {
         this.lbTime.setBackground(this.uiStatus.getModeTest().getTestColor());
         if (this.formShow.isVisible()) {
             this.formShow.dispose();
-        }
-    }
-
-    @Override
-    public void endTest() {
-        super.endTest(); // Generated from nbfs://nbhost/SystemFileSystem/Templates/Classes/Code/OverriddenMethodBody
-        updateData();
-        if (this.uiStatus.getProcessData().isPass()) {
-            this.lbTime.setBackground(Color.GREEN);
-        } else {
-            this.lbTime.setBackground(Color.red);
-            lbTime.setText(String.format(DEFAULT_FORM,
-                    getName(), this.uiStatus.getProcessData().getFirstFail().getLocalErrorCode(), getTestTime()));
         }
     }
 
@@ -137,5 +125,15 @@ public class SmallUI extends AbsSubUi {
     public void updateData() {
         lbTime.setText(String.format(DEFAULT_FORM,
                 getName(), list == null ? 0 : list.size(), getTestTime()));
+    }
+
+    @Override
+    protected void showEnd(Color testColor, boolean isPass) {
+        if (!isPass) {
+            ItemTestData testData = this.uiStatus.getProcessData().getFirstFail();
+            lbTime.setText(String.format(DEFAULT_FORM,
+                    getName(), testData.getLocalErrorCode(), getTestTime()));
+        }
+        lbTime.setBackground(testColor);
     }
 }

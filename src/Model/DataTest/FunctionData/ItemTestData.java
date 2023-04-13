@@ -22,6 +22,7 @@ import java.util.List;
  */
 public class ItemTestData {
 
+    public static enum TYPE{ INIT, TEST, END, FINAL};
     public static final String FAIL = "failed";
     public static final String PASS = "passed";
     private final FuncAllConfig allConfig;
@@ -33,8 +34,9 @@ public class ItemTestData {
     private final List<String> keys;
     private final MyLoger loger;
     private int status;
+    private final TYPE itemType;
 
-    public ItemTestData(FuncAllConfig allConfig, MyLoger loger, IgetTime timer) {
+    public ItemTestData(FuncAllConfig allConfig, MyLoger loger, IgetTime timer, TYPE itemType) {
         this.allConfig = allConfig;
         this.startTime = 0;
         this.keys = Arrays.asList(AllKeyWord.CONFIG.TEST_NAME,
@@ -45,6 +47,11 @@ public class ItemTestData {
         this.error = new JSONObject();
         this.loger = loger;
         this.timer = timer;
+        this.itemType = itemType;
+    }
+
+    public TYPE getItemType() {
+        return itemType;
     }
 
     public JSONObject getData(List<String> keys, boolean useLimitErrorcode) {
@@ -96,7 +103,8 @@ public class ItemTestData {
 
     private void setTestValue(boolean isPass) {
         this.data.put(AllKeyWord.SFIS.STATUS, isPass ? PASS : FAIL);
-        if (getResultTest() == null) {
+        String result = getResultTest();
+        if ( result == null || (isPass && result.equalsIgnoreCase(FAIL))) {
             this.data.put(AllKeyWord.TEST_VALUE, isPass ? PASS : FAIL);
         }
     }

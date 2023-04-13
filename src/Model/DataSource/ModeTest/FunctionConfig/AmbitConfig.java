@@ -7,6 +7,8 @@ package Model.DataSource.ModeTest.FunctionConfig;
 import Model.AllKeyWord;
 import Model.DataSource.AbsJsonSource;
 import Model.DataSource.DataWareHouse;
+import Model.DataTest.FunctionData.ItemTestData;
+import Model.DataTest.FunctionData.ItemTestData.TYPE;
 import com.alibaba.fastjson.JSONObject;
 import java.util.ArrayList;
 import java.util.List;
@@ -38,33 +40,33 @@ public class AmbitConfig extends AbsJsonSource<FunctionName, FunctionConfig> {
         clearAllList();
         getFunctionIn(wareHouse,
                 wareHouse.getListJson(AllKeyWord.CONFIG.INIT),
-                initFunctions, discreteFunctions, null);
+                initFunctions, discreteFunctions, null, TYPE.INIT);
         getFunctionIn(wareHouse,
                 wareHouse.getListJson(AllKeyWord.CONFIG.FUNCTIONS),
-                testFunctions, discreteFunctions, null);
+                testFunctions, discreteFunctions, null, TYPE.TEST);
         getFunctionIn(wareHouse,
                 wareHouse.getListJson(AllKeyWord.CONFIG.END),
-                endFunctions, discreteFunctions, null);
+                endFunctions, discreteFunctions, null, TYPE.END);
         getFunctionIn(wareHouse,
                 wareHouse.getListJson(AllKeyWord.CONFIG.FINAL),
-                finalFunctions, discreteFunctions, null);
+                finalFunctions, discreteFunctions, null, TYPE.FINAL);
         return !this.elements.isEmpty();
     }
 
     private void getFunctionIn(DataWareHouse baseData, List<JSONObject> listInfo,
-        List<FunctionName> testFunctions, List<FunctionName> debugFunctions, Integer times) {
+        List<FunctionName> testFunctions, List<FunctionName> debugFunctions, Integer times, TYPE type) {
         for (JSONObject modeInfo : listInfo) {
             if (!isActive(modeInfo)) {
                 continue;
             }
             if (isLoopFunctions(modeInfo)) {
-                getLoopFuction(baseData, modeInfo, testFunctions, debugFunctions, times);
+                getLoopFuction(baseData, modeInfo, testFunctions, debugFunctions, times, type);
             } else if (modeInfo.containsKey(AllKeyWord.CONFIG.TEST_NAME)) {
                 JSONObject modeInfoClone = (JSONObject) modeInfo.clone();
                 if (times != null) {
                     createNewItem(modeInfoClone, times);
                 }
-                FunctionConfig funcElm = new FunctionConfig(baseData.toJson(), modeInfoClone);
+                FunctionConfig funcElm = new FunctionConfig(baseData.toJson(), modeInfoClone, type);
                 FunctionName functionName = funcElm.getfFunctionName();
                 put(functionName, funcElm);
                 testFunctions.add(functionName);
@@ -88,14 +90,14 @@ public class AmbitConfig extends AbsJsonSource<FunctionName, FunctionConfig> {
     }
 
     private void getLoopFuction(DataWareHouse baseData, JSONObject modeInfo,
-            List<FunctionName> list, List<FunctionName> debugFunctions, Integer times) {
+            List<FunctionName> list, List<FunctionName> debugFunctions, Integer times, TYPE type) {
         int heso = times == null ? 1 : times;
         DataWareHouse wareHouse = new DataWareHouse(modeInfo);
         final int begin = wareHouse.getInteger(AllKeyWord.CONFIG.BEGIN, 0) * heso;
         final int loopTimes = wareHouse.getInteger(AllKeyWord.CONFIG.LOOP_FUNC, 1) + begin;
         List<JSONObject> functions = wareHouse.getListJson(AllKeyWord.CONFIG.FUNCTIONS);
         for (int i = begin; i < loopTimes; i++) {
-            getFunctionIn(baseData, functions, list, debugFunctions, i);
+            getFunctionIn(baseData, functions, list, debugFunctions, i, type);
         }
     }
 

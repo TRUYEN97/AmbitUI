@@ -1,0 +1,49 @@
+{
+"station_name":"RUNIN-7586",
+"mo":"",
+"finish_time":"2023-03-27 07:10:32",
+"mode":"debug",
+"start_time":"2023-03-27 07:09:44",
+"tests":[
+{
+"start_time":"2023-03-27 07:09:44",
+"lower_limit":"",
+"cycle_time":"26.498",
+"upper_limit":"",
+"error_code":"-1",
+"units":"",
+"errorDes":"wps_ok",
+"test_name":"wps_ok",
+"finish_time":"2023-03-27 07:10:10",
+"errorcode":"39.3.0",
+"test_value":"failed",
+"status":"failed"
+},
+
+{
+"start_time":"2023-03-27 07:10:10",
+"lower_limit":"",
+"cycle_time":"22.076",
+"upper_limit":"",
+"error_code":"-1",
+"units":"",
+"errorDes":"ReleasePowerSwitchOutlet",
+"test_name":"ReleasePowerSwitchOutlet",
+"finish_time":"2023-03-27 07:10:32",
+"errorcode":"PW0",
+"test_value":"failed",
+"status":"failed"
+}
+],
+"error_details":"wps_ok",
+"serial":"",
+"cycle_time":"48.589",
+"error_code":"-1",
+"position":"",
+"station_type":"BOOT_SETUP",
+"errorDes":"wps_ok",
+"cyctime_final":"48.590",
+"errorcode":"39.3.0",
+"status":"failed",
+"test_software_version":"V1.4.1.2"
+}

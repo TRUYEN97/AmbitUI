@@ -1,196 +1,287 @@
-2023-03-18 09:37:49.311:   ITEM[sn_ok] - FUNCTION[CheckDutInfoProxy]
-2023-03-18 09:37:49.312:   Turn: 1
-2023-03-18 09:37:49.312:   Get IP from the function config with key is "IP".
-2023-03-18 09:37:49.312:   IP: 192.168.1.1
-2023-03-18 09:37:49.388:   [PC] ReadUntil: root@eero-test:/#
-2023-03-18 09:37:49.389:   [PC] Connect to ip: 192.168.1.1
-2023-03-18 09:37:49.389:   [PC] Port is: 23
-2023-03-18 09:37:49.390:   [PC] Ping to IP: 192.168.1.1 - 180 S
-2023-03-18 09:37:49.391:   [Cmd] ------------------------------------ 1
-2023-03-18 09:37:49.391:   [Cmd] Send command: arp -d
-2023-03-18 09:37:49.603:   [Cmd] 
-2023-03-18 09:37:49.603:   [Cmd] Send command: ping 192.168.1.1 -n 1
-2023-03-18 09:37:49.636:   [Cmd] Pinging 192.168.1.1 with 32 bytes of data:
-2023-03-18 09:37:49.636:   [Cmd] Reply from 192.168.1.1: bytes=32 time=1ms TTL=64
-2023-03-18 09:37:49.636:   [Cmd] 
-2023-03-18 09:37:49.637:   [Cmd] Ping statistics for 192.168.1.1:
-2023-03-18 09:37:49.637:   [Cmd] Packets: Sent = 1, Received = 1, Lost = 0 (0% loss),
-2023-03-18 09:37:49.637:   [Cmd] Approximate round trip times in milli-seconds:
-2023-03-18 09:37:49.637:   [Cmd] Minimum = 1ms, Maximum = 1ms, Average = 1ms
-2023-03-18 09:37:49.637:   [Cmd] ------------------------------------
-2023-03-18 09:37:49.639:   [PC] ping time: 0.247 S
-2023-03-18 09:37:49.646:   [PC] Connect to telnet with IP: "192.168.1.1" ok!
-2023-03-18 09:37:49.756:   [Telnet] BusyBox v1.33.2 (2023-01-17 07:47:52 UTC) built-in shell (ash)
-2023-03-18 09:37:49.756:   [Telnet] 
-2023-03-18 09:37:49.756:   [Telnet] MM           NM                    MMMMMMM          M       M
-2023-03-18 09:37:49.756:   [Telnet] $MMMMM        MMMMM                MMMMMMMMMMM      MMM     MMM
-2023-03-18 09:37:49.757:   [Telnet] MMMMMMMM     MM MMMMM.              MMMMM:MMMMMM:   MMMM   MMMMM
-2023-03-18 09:37:49.757:   [Telnet] MMMM= MMMMMM  MMM   MMMM       MMMMM   MMMM  MMMMMM   MMMM  MMMMM'
-2023-03-18 09:37:49.757:   [Telnet] MMMM=  MMMMM MMMM    MM       MMMMM    MMMM    MMMM   MMMMNMMMMM
-2023-03-18 09:37:49.757:   [Telnet] MMMM=   MMMM  MMMMM          MMMMM     MMMM    MMMM   MMMMMMMM
-2023-03-18 09:37:49.757:   [Telnet] MMMM=   MMMM   MMMMMM       MMMMM      MMMM    MMMM   MMMMMMMMM
-2023-03-18 09:37:49.757:   [Telnet] MMMM=   MMMM     MMMMM,    NMMMMMMMM   MMMM    MMMM   MMMMMMMMMMM
-2023-03-18 09:37:49.758:   [Telnet] MMMM=   MMMM      MMMMMM   MMMMMMMM    MMMM    MMMM   MMMM  MMMMMM
-2023-03-18 09:37:49.758:   [Telnet] MMMM=   MMMM   MM    MMMM    MMMM      MMMM    MMMM   MMMM    MMMM
-2023-03-18 09:37:49.758:   [Telnet] MMMM$ ,MMMMM  MMMMM  MMMM    MMM       MMMM   MMMMM   MMMM    MMMM
-2023-03-18 09:37:49.758:   [Telnet] MMMMMMM:      MMMMMMM     M         MMMMMMMMMMMM  MMMMMMM MMMMMMM
-2023-03-18 09:37:49.758:   [Telnet] MMMMMM       MMMMN     M           MMMMMMMMM      MMMM    MMMM
-2023-03-18 09:37:49.758:   [Telnet] MMMM          M                    MMMMMMM        M       M
-2023-03-18 09:37:49.758:   [Telnet] M
-2023-03-18 09:37:49.759:   [Telnet] ---------------------------------------------------------------
-2023-03-18 09:37:49.759:   [Telnet] For those about to rock... OpenWrt 19.07-SNAPSHOT, unknown
-2023-03-18 09:37:49.759:   [Telnet] ---------------------------------------------------------------
-2023-03-18 09:37:49.759:   [Telnet] === WARNING! =====================================
-2023-03-18 09:37:49.759:   [Telnet] There is no root password defined on this device!
-2023-03-18 09:37:49.759:   [Telnet] Use the "passwd" command to set up a new password
-2023-03-18 09:37:49.759:   [Telnet] in order to prevent unauthorized SSH logins.
-2023-03-18 09:37:49.760:   [Telnet] --------------------------------------------------
-2023-03-18 09:37:49.760:   [Telnet] root@eero-test:/#
-2023-03-18 09:37:49.760:   [Telnet] Send command: fw_printenv  serial
-2023-03-18 09:37:49.865:   [Telnet] fw_printenv  serial
-2023-03-18 09:37:49.865:   [PC] null - 0.105 S
-2023-03-18 09:37:49.865:   [CONFIG] Start key: "serial="
-2023-03-18 09:37:49.866:   [CONFIG] End key: ""
-2023-03-18 09:37:49.866:   [CONFIG] Regex: "null"
-2023-03-18 09:37:49.866:   [CONFIG] Time: "0.106/40.000 (S)"
-2023-03-18 09:37:49.866:   [PC] Value: "null"
-2023-03-18 09:37:49.866:   [PC] Value is: null
-2023-03-18 09:37:49.867:   [CONFIG] compare key: mlbsn
-2023-03-18 09:37:49.867:   [PC] Spec is: null
-2023-03-18 09:37:49.868:   ****************************************************
-2023-03-18 09:37:49.868:   Item name = sn_ok
-2023-03-18 09:37:49.869:   Value = null
-2023-03-18 09:37:49.869:   Test status = failed
-2023-03-18 09:37:49.869:   -----------------------------------------------------
-2023-03-18 09:37:49.869:   Turn: 2
-2023-03-18 09:37:49.870:   Get IP from the function config with key is "IP".
-2023-03-18 09:37:49.870:   IP: 192.168.1.1
-2023-03-18 09:37:49.870:   [PC] ReadUntil: root@eero-test:/#
-2023-03-18 09:37:49.870:   [PC] Connect to ip: 192.168.1.1
-2023-03-18 09:37:49.870:   [PC] Port is: 23
-2023-03-18 09:37:49.871:   [PC] Ping to IP: 192.168.1.1 - 180 S
-2023-03-18 09:37:49.871:   [Cmd] ------------------------------------ 1
-2023-03-18 09:37:49.871:   [Cmd] Send command: arp -d
-2023-03-18 09:37:50.073:   [Cmd] 
-2023-03-18 09:37:50.073:   [Cmd] Send command: ping 192.168.1.1 -n 1
-2023-03-18 09:37:50.106:   [Cmd] Pinging 192.168.1.1 with 32 bytes of data:
-2023-03-18 09:37:50.107:   [Cmd] Reply from 192.168.1.1: bytes=32 time=1ms TTL=64
-2023-03-18 09:37:50.107:   [Cmd] 
-2023-03-18 09:37:50.107:   [Cmd] Ping statistics for 192.168.1.1:
-2023-03-18 09:37:50.107:   [Cmd] Packets: Sent = 1, Received = 1, Lost = 0 (0% loss),
-2023-03-18 09:37:50.107:   [Cmd] Approximate round trip times in milli-seconds:
-2023-03-18 09:37:50.107:   [Cmd] Minimum = 1ms, Maximum = 1ms, Average = 1ms
-2023-03-18 09:37:50.107:   [Cmd] ------------------------------------
-2023-03-18 09:37:50.108:   [PC] ping time: 0.237 S
-2023-03-18 09:37:50.109:   [PC] Connect to telnet with IP: "192.168.1.1" ok!
-2023-03-18 09:37:50.212:   [Telnet] BusyBox v1.33.2 (2023-01-17 07:47:52 UTC) built-in shell (ash)
-2023-03-18 09:37:50.212:   [Telnet] 
-2023-03-18 09:37:50.213:   [Telnet] MM           NM                    MMMMMMM          M       M
-2023-03-18 09:37:50.213:   [Telnet] $MMMMM        MMMMM                MMMMMMMMMMM      MMM     MMM
-2023-03-18 09:37:50.213:   [Telnet] MMMMMMMM     MM MMMMM.              MMMMM:MMMMMM:   MMMM   MMMMM
-2023-03-18 09:37:50.213:   [Telnet] MMMM= MMMMMM  MMM   MMMM       MMMMM   MMMM  MMMMMM   MMMM  MMMMM'
-2023-03-18 09:37:50.213:   [Telnet] MMMM=  MMMMM MMMM    MM       MMMMM    MMMM    MMMM   MMMMNMMMMM
-2023-03-18 09:37:50.213:   [Telnet] MMMM=   MMMM  MMMMM          MMMMM     MMMM    MMMM   MMMMMMMM
-2023-03-18 09:37:50.213:   [Telnet] MMMM=   MMMM   MMMMMM       MMMMM      MMMM    MMMM   MMMMMMMMM
-2023-03-18 09:37:50.213:   [Telnet] MMMM=   MMMM     MMMMM,    NMMMMMMMM   MMMM    MMMM   MMMMMMMMMMM
-2023-03-18 09:37:50.214:   [Telnet] MMMM=   MMMM      MMMMMM   MMMMMMMM    MMMM    MMMM   MMMM  MMMMMM
-2023-03-18 09:37:50.214:   [Telnet] MMMM=   MMMM   MM    MMMM    MMMM      MMMM    MMMM   MMMM    MMMM
-2023-03-18 09:37:50.214:   [Telnet] MMMM$ ,MMMMM  MMMMM  MMMM    MMM       MMMM   MMMMM   MMMM    MMMM
-2023-03-18 09:37:50.214:   [Telnet] MMMMMMM:      MMMMMMM     M         MMMMMMMMMMMM  MMMMMMM MMMMMMM
-2023-03-18 09:37:50.214:   [Telnet] MMMMMM       MMMMN     M           MMMMMMMMM      MMMM    MMMM
-2023-03-18 09:37:50.214:   [Telnet] MMMM          M                    MMMMMMM        M       M
-2023-03-18 09:37:50.214:   [Telnet] M
-2023-03-18 09:37:50.214:   [Telnet] ---------------------------------------------------------------
-2023-03-18 09:37:50.215:   [Telnet] For those about to rock... OpenWrt 19.07-SNAPSHOT, unknown
-2023-03-18 09:37:50.215:   [Telnet] ---------------------------------------------------------------
-2023-03-18 09:37:50.215:   [Telnet] === WARNING! =====================================
-2023-03-18 09:37:50.215:   [Telnet] There is no root password defined on this device!
-2023-03-18 09:37:50.215:   [Telnet] Use the "passwd" command to set up a new password
-2023-03-18 09:37:50.215:   [Telnet] in order to prevent unauthorized SSH logins.
-2023-03-18 09:37:50.215:   [Telnet] --------------------------------------------------
-2023-03-18 09:37:50.215:   [Telnet] root@eero-test:/#
-2023-03-18 09:37:50.215:   [Telnet] Send command: fw_printenv  serial
-2023-03-18 09:37:50.324:   [Telnet] fw_printenv  serial
-2023-03-18 09:37:50.324:   [PC] null - 0.108 S
-2023-03-18 09:37:50.324:   [CONFIG] Start key: "serial="
-2023-03-18 09:37:50.324:   [CONFIG] End key: ""
-2023-03-18 09:37:50.324:   [CONFIG] Regex: "null"
-2023-03-18 09:37:50.325:   [CONFIG] Time: "0.109/40.000 (S)"
-2023-03-18 09:37:50.325:   [PC] Value: "null"
-2023-03-18 09:37:50.325:   [PC] Value is: null
-2023-03-18 09:37:50.325:   [CONFIG] compare key: mlbsn
-2023-03-18 09:37:50.325:   [PC] Spec is: null
-2023-03-18 09:37:50.326:   ****************************************************
-2023-03-18 09:37:50.326:   Item name = sn_ok
-2023-03-18 09:37:50.326:   Value = null
-2023-03-18 09:37:50.326:   Test status = failed
-2023-03-18 09:37:50.326:   -----------------------------------------------------
-2023-03-18 09:37:50.327:   Turn: 3
-2023-03-18 09:37:50.327:   Get IP from the function config with key is "IP".
-2023-03-18 09:37:50.327:   IP: 192.168.1.1
-2023-03-18 09:37:50.327:   [PC] ReadUntil: root@eero-test:/#
-2023-03-18 09:37:50.327:   [PC] Connect to ip: 192.168.1.1
-2023-03-18 09:37:50.328:   [PC] Port is: 23
-2023-03-18 09:37:50.328:   [PC] Ping to IP: 192.168.1.1 - 180 S
-2023-03-18 09:37:50.328:   [Cmd] ------------------------------------ 1
-2023-03-18 09:37:50.328:   [Cmd] Send command: arp -d
-2023-03-18 09:37:50.525:   [Cmd] 
-2023-03-18 09:37:50.526:   [Cmd] Send command: ping 192.168.1.1 -n 1
-2023-03-18 09:37:50.557:   [Cmd] Pinging 192.168.1.1 with 32 bytes of data:
-2023-03-18 09:37:50.557:   [Cmd] Reply from 192.168.1.1: bytes=32 time=1ms TTL=64
-2023-03-18 09:37:50.557:   [Cmd] 
-2023-03-18 09:37:50.558:   [Cmd] Ping statistics for 192.168.1.1:
-2023-03-18 09:37:50.558:   [Cmd] Packets: Sent = 1, Received = 1, Lost = 0 (0% loss),
-2023-03-18 09:37:50.558:   [Cmd] Approximate round trip times in milli-seconds:
-2023-03-18 09:37:50.558:   [Cmd] Minimum = 1ms, Maximum = 1ms, Average = 1ms
-2023-03-18 09:37:50.558:   [Cmd] ------------------------------------
-2023-03-18 09:37:50.558:   [PC] ping time: 0.230 S
-2023-03-18 09:37:50.559:   [PC] Connect to telnet with IP: "192.168.1.1" ok!
-2023-03-18 09:37:50.671:   [Telnet] BusyBox v1.33.2 (2023-01-17 07:47:52 UTC) built-in shell (ash)
-2023-03-18 09:37:50.672:   [Telnet] 
-2023-03-18 09:37:50.672:   [Telnet] MM           NM                    MMMMMMM          M       M
-2023-03-18 09:37:50.672:   [Telnet] $MMMMM        MMMMM                MMMMMMMMMMM      MMM     MMM
-2023-03-18 09:37:50.672:   [Telnet] MMMMMMMM     MM MMMMM.              MMMMM:MMMMMM:   MMMM   MMMMM
-2023-03-18 09:37:50.672:   [Telnet] MMMM= MMMMMM  MMM   MMMM       MMMMM   MMMM  MMMMMM   MMMM  MMMMM'
-2023-03-18 09:37:50.672:   [Telnet] MMMM=  MMMMM MMMM    MM       MMMMM    MMMM    MMMM   MMMMNMMMMM
-2023-03-18 09:37:50.672:   [Telnet] MMMM=   MMMM  MMMMM          MMMMM     MMMM    MMMM   MMMMMMMM
-2023-03-18 09:37:50.672:   [Telnet] MMMM=   MMMM   MMMMMM       MMMMM      MMMM    MMMM   MMMMMMMMM
-2023-03-18 09:37:50.672:   [Telnet] MMMM=   MMMM     MMMMM,    NMMMMMMMM   MMMM    MMMM   MMMMMMMMMMM
-2023-03-18 09:37:50.673:   [Telnet] MMMM=   MMMM      MMMMMM   MMMMMMMM    MMMM    MMMM   MMMM  MMMMMM
-2023-03-18 09:37:50.673:   [Telnet] MMMM=   MMMM   MM    MMMM    MMMM      MMMM    MMMM   MMMM    MMMM
-2023-03-18 09:37:50.673:   [Telnet] MMMM$ ,MMMMM  MMMMM  MMMM    MMM       MMMM   MMMMM   MMMM    MMMM
-2023-03-18 09:37:50.673:   [Telnet] MMMMMMM:      MMMMMMM     M         MMMMMMMMMMMM  MMMMMMM MMMMMMM
-2023-03-18 09:37:50.673:   [Telnet] MMMMMM       MMMMN     M           MMMMMMMMM      MMMM    MMMM
-2023-03-18 09:37:50.673:   [Telnet] MMMM          M                    MMMMMMM        M       M
-2023-03-18 09:37:50.673:   [Telnet] M
-2023-03-18 09:37:50.673:   [Telnet] ---------------------------------------------------------------
-2023-03-18 09:37:50.674:   [Telnet] For those about to rock... OpenWrt 19.07-SNAPSHOT, unknown
-2023-03-18 09:37:50.674:   [Telnet] ---------------------------------------------------------------
-2023-03-18 09:37:50.674:   [Telnet] === WARNING! =====================================
-2023-03-18 09:37:50.674:   [Telnet] There is no root password defined on this device!
-2023-03-18 09:37:50.674:   [Telnet] Use the "passwd" command to set up a new password
-2023-03-18 09:37:50.674:   [Telnet] in order to prevent unauthorized SSH logins.
-2023-03-18 09:37:50.674:   [Telnet] --------------------------------------------------
-2023-03-18 09:37:50.674:   [Telnet] root@eero-test:/#
-2023-03-18 09:37:50.675:   [Telnet] Send command: fw_printenv  serial
-2023-03-18 09:37:50.782:   [Telnet] fw_printenv  serial
-2023-03-18 09:37:50.782:   [PC] null - 0.107 S
-2023-03-18 09:37:50.782:   [CONFIG] Start key: "serial="
-2023-03-18 09:37:50.782:   [CONFIG] End key: ""
-2023-03-18 09:37:50.782:   [CONFIG] Regex: "null"
-2023-03-18 09:37:50.783:   [CONFIG] Time: "0.108/40.000 (S)"
-2023-03-18 09:37:50.783:   [PC] Value: "null"
-2023-03-18 09:37:50.783:   [PC] Value is: null
-2023-03-18 09:37:50.783:   [CONFIG] compare key: mlbsn
-2023-03-18 09:37:50.783:   [PC] Spec is: null
-2023-03-18 09:37:50.783:   ****************************************************
-2023-03-18 09:37:50.784:   Item name = sn_ok
-2023-03-18 09:37:50.784:   Value = null
-2023-03-18 09:37:50.784:   Test status = failed
-2023-03-18 09:37:50.784:   -----------------------------------------------------
-2023-03-18 09:37:50.784:   Error code = -1
-2023-03-18 09:37:50.784:   Error des = sn_ok
-2023-03-18 09:37:50.784:   Local error code = 30.1.0
-2023-03-18 09:37:50.785:   Local error des = sn_ok
-2023-03-18 09:37:50.785:   ****************************************************
-2023-03-18 09:37:50.785:   TIME[1.474 s] - STATUS[FAILED]
+2023-03-27 07:24:06.298:   ITEM[sn_ok] - FUNCTION[CheckDutInfoProxy]
+2023-03-27 07:24:06.299:   Turn: 1
+2023-03-27 07:24:06.299:   Get IP from the function config with key is "IP".
+2023-03-27 07:24:06.299:   IP: 192.168.1.1
+2023-03-27 07:24:06.325:   [PC] ReadUntil: root@eero-test:/#
+2023-03-27 07:24:06.326:   [PC] Connect to ip: 192.168.1.1
+2023-03-27 07:24:06.327:   [PC] Port is: 23
+2023-03-27 07:24:06.328:   [PC] Ping to IP: 192.168.1.1 - 180 S
+2023-03-27 07:24:06.329:   [Cmd] ------------------------------------ 1
+2023-03-27 07:24:06.329:   [Cmd] Send command: arp -d
+2023-03-27 07:24:06.578:   [Cmd] 
+2023-03-27 07:24:06.578:   [Cmd] Send command: ping 192.168.1.1 -n 1
+2023-03-27 07:24:10.374:   [Cmd] Pinging 192.168.1.1 with 32 bytes of data:
+2023-03-27 07:24:10.374:   [Cmd] Request timed out.
+2023-03-27 07:24:10.375:   [Cmd] 
+2023-03-27 07:24:10.375:   [Cmd] Ping statistics for 192.168.1.1:
+2023-03-27 07:24:10.375:   [Cmd] Packets: Sent = 1, Received = 0, Lost = 1 (100% loss),
+2023-03-27 07:24:10.375:   [Cmd] ------------------------------------
+2023-03-27 07:24:10.375:   [Cmd] ------------------------------------ 2
+2023-03-27 07:24:10.376:   [Cmd] Send command: arp -d
+2023-03-27 07:24:10.607:   [Cmd] 
+2023-03-27 07:24:10.607:   [Cmd] Send command: ping 192.168.1.1 -n 1
+2023-03-27 07:24:14.365:   [Cmd] Pinging 192.168.1.1 with 32 bytes of data:
+2023-03-27 07:24:14.365:   [Cmd] Request timed out.
+2023-03-27 07:24:14.366:   [Cmd] 
+2023-03-27 07:24:14.366:   [Cmd] Ping statistics for 192.168.1.1:
+2023-03-27 07:24:14.366:   [Cmd] Packets: Sent = 1, Received = 0, Lost = 1 (100% loss),
+2023-03-27 07:24:14.366:   [Cmd] ------------------------------------
+2023-03-27 07:24:14.366:   [Cmd] ------------------------------------ 3
+2023-03-27 07:24:14.366:   [Cmd] Send command: arp -d
+2023-03-27 07:24:14.597:   [Cmd] 
+2023-03-27 07:24:14.598:   [Cmd] Send command: ping 192.168.1.1 -n 1
+2023-03-27 07:24:18.365:   [Cmd] Pinging 192.168.1.1 with 32 bytes of data:
+2023-03-27 07:24:18.366:   [Cmd] Request timed out.
+2023-03-27 07:24:18.366:   [Cmd] 
+2023-03-27 07:24:18.366:   [Cmd] Ping statistics for 192.168.1.1:
+2023-03-27 07:24:18.366:   [Cmd] Packets: Sent = 1, Received = 0, Lost = 1 (100% loss),
+2023-03-27 07:24:18.366:   [Cmd] ------------------------------------
+2023-03-27 07:24:18.367:   [Cmd] ------------------------------------ 4
+2023-03-27 07:24:18.367:   [Cmd] Send command: arp -d
+2023-03-27 07:24:18.600:   [Cmd] 
+2023-03-27 07:24:18.601:   [Cmd] Send command: ping 192.168.1.1 -n 1
+2023-03-27 07:24:22.363:   [Cmd] Pinging 192.168.1.1 with 32 bytes of data:
+2023-03-27 07:24:22.363:   [Cmd] Request timed out.
+2023-03-27 07:24:22.363:   [Cmd] 
+2023-03-27 07:24:22.363:   [Cmd] Ping statistics for 192.168.1.1:
+2023-03-27 07:24:22.363:   [Cmd] Packets: Sent = 1, Received = 0, Lost = 1 (100% loss),
+2023-03-27 07:24:22.364:   [Cmd] ------------------------------------
+2023-03-27 07:24:22.364:   [Cmd] ------------------------------------ 5
+2023-03-27 07:24:22.364:   [Cmd] Send command: arp -d
+2023-03-27 07:24:22.603:   [Cmd] 
+2023-03-27 07:24:22.603:   [Cmd] Send command: ping 192.168.1.1 -n 1
+2023-03-27 07:24:26.372:   [Cmd] Pinging 192.168.1.1 with 32 bytes of data:
+2023-03-27 07:24:26.372:   [Cmd] Request timed out.
+2023-03-27 07:24:26.372:   [Cmd] 
+2023-03-27 07:24:26.373:   [Cmd] Ping statistics for 192.168.1.1:
+2023-03-27 07:24:26.373:   [Cmd] Packets: Sent = 1, Received = 0, Lost = 1 (100% loss),
+2023-03-27 07:24:26.373:   [Cmd] ------------------------------------
+2023-03-27 07:24:26.373:   [Cmd] ------------------------------------ 6
+2023-03-27 07:24:26.373:   [Cmd] Send command: arp -d
+2023-03-27 07:24:26.613:   [Cmd] 
+2023-03-27 07:24:26.614:   [Cmd] Send command: ping 192.168.1.1 -n 1
+2023-03-27 07:24:30.364:   [Cmd] Pinging 192.168.1.1 with 32 bytes of data:
+2023-03-27 07:24:30.364:   [Cmd] Request timed out.
+2023-03-27 07:24:30.364:   [Cmd] 
+2023-03-27 07:24:30.364:   [Cmd] Ping statistics for 192.168.1.1:
+2023-03-27 07:24:30.365:   [Cmd] Packets: Sent = 1, Received = 0, Lost = 1 (100% loss),
+2023-03-27 07:24:30.365:   [Cmd] ------------------------------------
+2023-03-27 07:24:30.365:   [Cmd] ------------------------------------ 7
+2023-03-27 07:24:30.365:   [Cmd] Send command: arp -d
+2023-03-27 07:24:30.606:   [Cmd] 
+2023-03-27 07:24:30.607:   [Cmd] Send command: ping 192.168.1.1 -n 1
+2023-03-27 07:24:34.362:   [Cmd] Pinging 192.168.1.1 with 32 bytes of data:
+2023-03-27 07:24:34.362:   [Cmd] Request timed out.
+2023-03-27 07:24:34.362:   [Cmd] 
+2023-03-27 07:24:34.362:   [Cmd] Ping statistics for 192.168.1.1:
+2023-03-27 07:24:34.362:   [Cmd] Packets: Sent = 1, Received = 0, Lost = 1 (100% loss),
+2023-03-27 07:24:34.363:   [Cmd] ------------------------------------
+2023-03-27 07:24:34.363:   [Cmd] ------------------------------------ 8
+2023-03-27 07:24:34.363:   [Cmd] Send command: arp -d
+2023-03-27 07:24:34.602:   [Cmd] 
+2023-03-27 07:24:34.602:   [Cmd] Send command: ping 192.168.1.1 -n 1
+2023-03-27 07:24:38.370:   [Cmd] Pinging 192.168.1.1 with 32 bytes of data:
+2023-03-27 07:24:38.370:   [Cmd] Request timed out.
+2023-03-27 07:24:38.370:   [Cmd] 
+2023-03-27 07:24:38.370:   [Cmd] Ping statistics for 192.168.1.1:
+2023-03-27 07:24:38.371:   [Cmd] Packets: Sent = 1, Received = 0, Lost = 1 (100% loss),
+2023-03-27 07:24:38.371:   [Cmd] ------------------------------------
+2023-03-27 07:24:38.371:   [Cmd] ------------------------------------ 9
+2023-03-27 07:24:38.371:   [Cmd] Send command: arp -d
+2023-03-27 07:24:38.611:   [Cmd] 
+2023-03-27 07:24:38.612:   [Cmd] Send command: ping 192.168.1.1 -n 1
+2023-03-27 07:24:42.373:   [Cmd] Pinging 192.168.1.1 with 32 bytes of data:
+2023-03-27 07:24:42.373:   [Cmd] Request timed out.
+2023-03-27 07:24:42.374:   [Cmd] 
+2023-03-27 07:24:42.374:   [Cmd] Ping statistics for 192.168.1.1:
+2023-03-27 07:24:42.374:   [Cmd] Packets: Sent = 1, Received = 0, Lost = 1 (100% loss),
+2023-03-27 07:24:42.374:   [Cmd] ------------------------------------
+2023-03-27 07:24:42.374:   [Cmd] ------------------------------------ 10
+2023-03-27 07:24:42.374:   [Cmd] Send command: arp -d
+2023-03-27 07:24:42.606:   [Cmd] 
+2023-03-27 07:24:42.606:   [Cmd] Send command: ping 192.168.1.1 -n 1
+2023-03-27 07:24:46.362:   [Cmd] Pinging 192.168.1.1 with 32 bytes of data:
+2023-03-27 07:24:46.362:   [Cmd] Request timed out.
+2023-03-27 07:24:46.362:   [Cmd] 
+2023-03-27 07:24:46.362:   [Cmd] Ping statistics for 192.168.1.1:
+2023-03-27 07:24:46.363:   [Cmd] Packets: Sent = 1, Received = 0, Lost = 1 (100% loss),
+2023-03-27 07:24:46.363:   [Cmd] ------------------------------------
+2023-03-27 07:24:46.363:   [Cmd] ------------------------------------ 11
+2023-03-27 07:24:46.363:   [Cmd] Send command: arp -d
+2023-03-27 07:24:46.594:   [Cmd] 
+2023-03-27 07:24:46.595:   [Cmd] Send command: ping 192.168.1.1 -n 1
+2023-03-27 07:24:50.373:   [Cmd] Pinging 192.168.1.1 with 32 bytes of data:
+2023-03-27 07:24:50.373:   [Cmd] Request timed out.
+2023-03-27 07:24:50.374:   [Cmd] 
+2023-03-27 07:24:50.374:   [Cmd] Ping statistics for 192.168.1.1:
+2023-03-27 07:24:50.374:   [Cmd] Packets: Sent = 1, Received = 0, Lost = 1 (100% loss),
+2023-03-27 07:24:50.374:   [Cmd] ------------------------------------
+2023-03-27 07:24:50.374:   [Cmd] ------------------------------------ 12
+2023-03-27 07:24:50.374:   [Cmd] Send command: arp -d
+2023-03-27 07:24:50.604:   [Cmd] 
+2023-03-27 07:24:50.604:   [Cmd] Send command: ping 192.168.1.1 -n 1
+2023-03-27 07:24:54.370:   [Cmd] Pinging 192.168.1.1 with 32 bytes of data:
+2023-03-27 07:24:54.370:   [Cmd] Request timed out.
+2023-03-27 07:24:54.370:   [Cmd] 
+2023-03-27 07:24:54.370:   [Cmd] Ping statistics for 192.168.1.1:
+2023-03-27 07:24:54.370:   [Cmd] Packets: Sent = 1, Received = 0, Lost = 1 (100% loss),
+2023-03-27 07:24:54.371:   [Cmd] ------------------------------------
+2023-03-27 07:24:54.371:   [Cmd] ------------------------------------ 13
+2023-03-27 07:24:54.371:   [Cmd] Send command: arp -d
+2023-03-27 07:24:54.602:   [Cmd] 
+2023-03-27 07:24:54.602:   [Cmd] Send command: ping 192.168.1.1 -n 1
+2023-03-27 07:24:58.362:   [Cmd] Pinging 192.168.1.1 with 32 bytes of data:
+2023-03-27 07:24:58.362:   [Cmd] Request timed out.
+2023-03-27 07:24:58.363:   [Cmd] 
+2023-03-27 07:24:58.363:   [Cmd] Ping statistics for 192.168.1.1:
+2023-03-27 07:24:58.363:   [Cmd] Packets: Sent = 1, Received = 0, Lost = 1 (100% loss),
+2023-03-27 07:24:58.363:   [Cmd] ------------------------------------
+2023-03-27 07:24:58.363:   [Cmd] ------------------------------------ 14
+2023-03-27 07:24:58.363:   [Cmd] Send command: arp -d
+2023-03-27 07:24:58.593:   [Cmd] 
+2023-03-27 07:24:58.593:   [Cmd] Send command: ping 192.168.1.1 -n 1
+2023-03-27 07:25:02.359:   [Cmd] Pinging 192.168.1.1 with 32 bytes of data:
+2023-03-27 07:25:02.359:   [Cmd] Request timed out.
+2023-03-27 07:25:02.359:   [Cmd] 
+2023-03-27 07:25:02.359:   [Cmd] Ping statistics for 192.168.1.1:
+2023-03-27 07:25:02.360:   [Cmd] Packets: Sent = 1, Received = 0, Lost = 1 (100% loss),
+2023-03-27 07:25:02.360:   [Cmd] ------------------------------------
+2023-03-27 07:25:02.360:   [Cmd] ------------------------------------ 15
+2023-03-27 07:25:02.360:   [Cmd] Send command: arp -d
+2023-03-27 07:25:02.589:   [Cmd] 
+2023-03-27 07:25:02.589:   [Cmd] Send command: ping 192.168.1.1 -n 1
+2023-03-27 07:25:06.362:   [Cmd] Pinging 192.168.1.1 with 32 bytes of data:
+2023-03-27 07:25:06.362:   [Cmd] Request timed out.
+2023-03-27 07:25:06.362:   [Cmd] 
+2023-03-27 07:25:06.363:   [Cmd] Ping statistics for 192.168.1.1:
+2023-03-27 07:25:06.363:   [Cmd] Packets: Sent = 1, Received = 0, Lost = 1 (100% loss),
+2023-03-27 07:25:06.363:   [Cmd] ------------------------------------
+2023-03-27 07:25:06.363:   [Cmd] ------------------------------------ 16
+2023-03-27 07:25:06.363:   [Cmd] Send command: arp -d
+2023-03-27 07:25:06.596:   [Cmd] 
+2023-03-27 07:25:06.596:   [Cmd] Send command: ping 192.168.1.1 -n 1
+2023-03-27 07:25:10.366:   [Cmd] Pinging 192.168.1.1 with 32 bytes of data:
+2023-03-27 07:25:10.366:   [Cmd] Request timed out.
+2023-03-27 07:25:10.366:   [Cmd] 
+2023-03-27 07:25:10.366:   [Cmd] Ping statistics for 192.168.1.1:
+2023-03-27 07:25:10.366:   [Cmd] Packets: Sent = 1, Received = 0, Lost = 1 (100% loss),
+2023-03-27 07:25:10.366:   [Cmd] ------------------------------------
+2023-03-27 07:25:10.366:   [Cmd] ------------------------------------ 17
+2023-03-27 07:25:10.366:   [Cmd] Send command: arp -d
+2023-03-27 07:25:10.597:   [Cmd] 
+2023-03-27 07:25:10.597:   [Cmd] Send command: ping 192.168.1.1 -n 1
+2023-03-27 07:25:14.362:   [Cmd] Pinging 192.168.1.1 with 32 bytes of data:
+2023-03-27 07:25:14.362:   [Cmd] Request timed out.
+2023-03-27 07:25:14.362:   [Cmd] 
+2023-03-27 07:25:14.362:   [Cmd] Ping statistics for 192.168.1.1:
+2023-03-27 07:25:14.363:   [Cmd] Packets: Sent = 1, Received = 0, Lost = 1 (100% loss),
+2023-03-27 07:25:14.363:   [Cmd] ------------------------------------
+2023-03-27 07:25:14.363:   [Cmd] ------------------------------------ 18
+2023-03-27 07:25:14.363:   [Cmd] Send command: arp -d
+2023-03-27 07:25:14.593:   [Cmd] 
+2023-03-27 07:25:14.593:   [Cmd] Send command: ping 192.168.1.1 -n 1
+2023-03-27 07:25:18.363:   [Cmd] Pinging 192.168.1.1 with 32 bytes of data:
+2023-03-27 07:25:18.363:   [Cmd] Request timed out.
+2023-03-27 07:25:18.363:   [Cmd] 
+2023-03-27 07:25:18.364:   [Cmd] Ping statistics for 192.168.1.1:
+2023-03-27 07:25:18.364:   [Cmd] Packets: Sent = 1, Received = 0, Lost = 1 (100% loss),
+2023-03-27 07:25:18.364:   [Cmd] ------------------------------------
+2023-03-27 07:25:18.364:   [Cmd] ------------------------------------ 19
+2023-03-27 07:25:18.364:   [Cmd] Send command: arp -d
+2023-03-27 07:25:18.595:   [Cmd] 
+2023-03-27 07:25:18.596:   [Cmd] Send command: ping 192.168.1.1 -n 1
+2023-03-27 07:25:22.361:   [Cmd] Pinging 192.168.1.1 with 32 bytes of data:
+2023-03-27 07:25:22.361:   [Cmd] Request timed out.
+2023-03-27 07:25:22.361:   [Cmd] 
+2023-03-27 07:25:22.361:   [Cmd] Ping statistics for 192.168.1.1:
+2023-03-27 07:25:22.361:   [Cmd] Packets: Sent = 1, Received = 0, Lost = 1 (100% loss),
+2023-03-27 07:25:22.362:   [Cmd] ------------------------------------
+2023-03-27 07:25:22.362:   [Cmd] ------------------------------------ 20
+2023-03-27 07:25:22.362:   [Cmd] Send command: arp -d
+2023-03-27 07:25:22.593:   [Cmd] 
+2023-03-27 07:25:22.594:   [Cmd] Send command: ping 192.168.1.1 -n 1
+2023-03-27 07:25:26.373:   [Cmd] Pinging 192.168.1.1 with 32 bytes of data:
+2023-03-27 07:25:26.373:   [Cmd] Request timed out.
+2023-03-27 07:25:26.373:   [Cmd] 
+2023-03-27 07:25:26.373:   [Cmd] Ping statistics for 192.168.1.1:
+2023-03-27 07:25:26.374:   [Cmd] Packets: Sent = 1, Received = 0, Lost = 1 (100% loss),
+2023-03-27 07:25:26.374:   [Cmd] ------------------------------------
+2023-03-27 07:25:26.374:   [Cmd] ------------------------------------ 21
+2023-03-27 07:25:26.374:   [Cmd] Send command: arp -d
+2023-03-27 07:25:26.604:   [Cmd] 
+2023-03-27 07:25:26.604:   [Cmd] Send command: ping 192.168.1.1 -n 1
+2023-03-27 07:25:30.360:   [Cmd] Pinging 192.168.1.1 with 32 bytes of data:
+2023-03-27 07:25:30.360:   [Cmd] Request timed out.
+2023-03-27 07:25:30.361:   [Cmd] 
+2023-03-27 07:25:30.361:   [Cmd] Ping statistics for 192.168.1.1:
+2023-03-27 07:25:30.361:   [Cmd] Packets: Sent = 1, Received = 0, Lost = 1 (100% loss),
+2023-03-27 07:25:30.361:   [Cmd] ------------------------------------
+2023-03-27 07:25:30.361:   [Cmd] ------------------------------------ 22
+2023-03-27 07:25:30.361:   [Cmd] Send command: arp -d
+2023-03-27 07:25:30.593:   [Cmd] 
+2023-03-27 07:25:30.593:   [Cmd] Send command: ping 192.168.1.1 -n 1
+2023-03-27 07:25:34.367:   [Cmd] Pinging 192.168.1.1 with 32 bytes of data:
+2023-03-27 07:25:34.367:   [Cmd] Request timed out.
+2023-03-27 07:25:34.367:   [Cmd] 
+2023-03-27 07:25:34.368:   [Cmd] Ping statistics for 192.168.1.1:
+2023-03-27 07:25:34.368:   [Cmd] Packets: Sent = 1, Received = 0, Lost = 1 (100% loss),
+2023-03-27 07:25:34.368:   [Cmd] ------------------------------------
+2023-03-27 07:25:34.368:   [Cmd] ------------------------------------ 23
+2023-03-27 07:25:34.368:   [Cmd] Send command: arp -d
+2023-03-27 07:25:34.599:   [Cmd] 
+2023-03-27 07:25:34.599:   [Cmd] Send command: ping 192.168.1.1 -n 1
+2023-03-27 07:25:38.369:   [Cmd] Pinging 192.168.1.1 with 32 bytes of data:
+2023-03-27 07:25:38.369:   [Cmd] Request timed out.
+2023-03-27 07:25:38.369:   [Cmd] 
+2023-03-27 07:25:38.369:   [Cmd] Ping statistics for 192.168.1.1:
+2023-03-27 07:25:38.369:   [Cmd] Packets: Sent = 1, Received = 0, Lost = 1 (100% loss),
+2023-03-27 07:25:38.370:   [Cmd] ------------------------------------
+2023-03-27 07:25:38.370:   [Cmd] ------------------------------------ 24
+2023-03-27 07:25:38.370:   [Cmd] Send command: arp -d
+2023-03-27 07:25:38.611:   [Cmd] 
+2023-03-27 07:25:38.611:   [Cmd] Send command: ping 192.168.1.1 -n 1
+2023-03-27 07:25:42.360:   [Cmd] Pinging 192.168.1.1 with 32 bytes of data:
+2023-03-27 07:25:42.360:   [Cmd] Request timed out.
+2023-03-27 07:25:42.361:   [Cmd] 
+2023-03-27 07:25:42.361:   [Cmd] Ping statistics for 192.168.1.1:
+2023-03-27 07:25:42.361:   [Cmd] Packets: Sent = 1, Received = 0, Lost = 1 (100% loss),
+2023-03-27 07:25:42.361:   [Cmd] ------------------------------------
+2023-03-27 07:25:42.361:   [Cmd] ------------------------------------ 25
+2023-03-27 07:25:42.361:   [Cmd] Send command: arp -d
+2023-03-27 07:25:42.602:   [Cmd] 
+2023-03-27 07:25:42.603:   [Cmd] Send command: ping 192.168.1.1 -n 1
+2023-03-27 07:25:46.372:   [Cmd] Pinging 192.168.1.1 with 32 bytes of data:
+2023-03-27 07:25:46.372:   [Cmd] Request timed out.
+2023-03-27 07:25:46.372:   [Cmd] 
+2023-03-27 07:25:46.373:   [Cmd] Ping statistics for 192.168.1.1:
+2023-03-27 07:25:46.373:   [Cmd] Packets: Sent = 1, Received = 0, Lost = 1 (100% loss),
+2023-03-27 07:25:46.373:   [Cmd] ------------------------------------
+2023-03-27 07:25:46.373:   [Cmd] ------------------------------------ 26
+2023-03-27 07:25:46.373:   [Cmd] Send command: arp -d
+2023-03-27 07:25:46.614:   [Cmd] 
+2023-03-27 07:25:46.614:   [Cmd] Send command: ping 192.168.1.1 -n 1
+2023-03-27 07:25:47.573:   This function will be stopped! Because it has timed out!
+2023-03-27 07:25:47.573:   Spec: 100 S
+2023-03-27 07:25:47.573:   Try to stop!!
+2023-03-27 07:25:47.573:   Time: 101.275 S
+2023-03-27 07:25:49.099:   This function will be stopped! Because it has timed out!
+2023-03-27 07:25:49.099:   Spec: 100 S
+2023-03-27 07:25:49.099:   Try to stop!!
+2023-03-27 07:25:49.099:   Time: 102.801 S
+2023-03-27 07:25:50.372:   [Cmd] ------------------------------------
+2023-03-27 07:25:50.373:   [PC] ping time: 104.044 S
+2023-03-27 07:25:50.373:   This function will be stopped! Because it has timed out!
+2023-03-27 07:25:50.373:   Spec: 100 S
+2023-03-27 07:25:50.373:   Try to stop!!
+2023-03-27 07:25:50.373:   Time: 104.075 S
+2023-03-27 07:25:52.376:   ****************************************************
+2023-03-27 07:25:52.376:   Item name = sn_ok
+2023-03-27 07:25:52.376:   Value = failed
+2023-03-27 07:25:52.376:   Test status = failed
+2023-03-27 07:25:52.376:   -----------------------------------------------------
+2023-03-27 07:25:52.377:   Error code = -1
+2023-03-27 07:25:52.377:   Error des = sn_ok
+2023-03-27 07:25:52.377:   Local error code = 30.1.0
+2023-03-27 07:25:52.377:   Local error des = sn_ok
+2023-03-27 07:25:52.377:   ****************************************************
+2023-03-27 07:25:52.377:   TIME[106.079 s] - STATUS[FAILED]

@@ -1,17 +1,22 @@
-2023-02-24 07:26:54.044:   ITEM[wps_ok] - FUNCTION[PowerSwitchProxy]
-2023-02-24 07:26:54.054:   Turn: 1
-2023-02-24 07:26:54.055:   [CONFIG] host: null
-2023-02-24 07:26:54.055:   [CONFIG] user: null
-2023-02-24 07:26:54.055:   [CONFIG] passWord: null
-2023-02-24 07:26:54.057:   Cannot invoke "java.lang.Integer.intValue()" because the return value of "Model.DataSource.ModeTest.FunctionConfig.FuncAllConfig.getInteger(String)" is null
-2023-02-24 07:26:54.059:   ****************************************************
-2023-02-24 07:26:54.059:   Item name = wps_ok
-2023-02-24 07:26:54.061:   Value = failed
-2023-02-24 07:26:54.061:   Test status = failed
-2023-02-24 07:26:54.064:   -----------------------------------------------------
-2023-02-24 07:26:54.064:   Error code = -1
-2023-02-24 07:26:54.064:   Error des = wps_ok
-2023-02-24 07:26:54.065:   Local error code = 39.3.0
-2023-02-24 07:26:54.065:   Local error des = wps_ok
-2023-02-24 07:26:54.068:   ****************************************************
-2023-02-24 07:26:54.069:   TIME[0.015 s] - STATUS[FAILED]
+2023-03-28 01:46:27.590:   ITEM[wps_ok] - FUNCTION[PowerSwitchProxy]
+2023-03-28 01:46:27.591:   Turn: 1
+2023-03-28 01:46:27.592:   [CONFIG] host: 192.168.1.10
+2023-03-28 01:46:27.592:   [CONFIG] user: admin
+2023-03-28 01:46:27.593:   [CONFIG] passWord: 1234
+2023-03-28 01:46:27.593:   [CONFIG] Times: 1
+2023-03-28 01:46:27.593:   [CONFIG] index of switch: 1
+2023-03-28 01:46:27.594:   [CONFIG] Delay time: 5 s
+2023-03-28 01:46:27.598:   cycle Times: 1 - 1
+2023-03-28 01:46:49.012:   [POWER_SWITCH] http://192.168.1.10/outlet?1=OFF
+2023-03-28 01:46:49.012:   [POWER_SWITCH] Exception: Connect to 192.168.1.10:80 [/192.168.1.10] failed: Connection timed out: connect
+2023-03-28 01:46:54.022:   ****************************************************
+2023-03-28 01:46:54.023:   Item name = wps_ok
+2023-03-28 01:46:54.024:   Value = failed
+2023-03-28 01:46:54.025:   Test status = failed
+2023-03-28 01:46:54.026:   -----------------------------------------------------
+2023-03-28 01:46:54.026:   Error code = -1
+2023-03-28 01:46:54.026:   Error des = wps_ok
+2023-03-28 01:46:54.027:   Local error code = 39.3.0
+2023-03-28 01:46:54.027:   Local error des = wps_ok
+2023-03-28 01:46:54.027:   ****************************************************
+2023-03-28 01:46:54.027:   TIME[26.437 s] - STATUS[FAILED]

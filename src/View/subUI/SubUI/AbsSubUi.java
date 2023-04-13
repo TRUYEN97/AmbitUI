@@ -5,6 +5,7 @@
 package View.subUI.SubUI;
 
 import Model.DataSource.Tool.IgetTime;
+import Model.DataTest.FunctionData.ItemTestData;
 import Model.Interface.IUpdate;
 import Model.ManagerUI.UIStatus.UiStatus;
 import View.UIView;
@@ -46,7 +47,35 @@ public abstract class AbsSubUi extends AbsUI implements IUpdate {
     public void endTest() {
         super.endTest();
         this.tabDetail.endTest();
+        updateData();
+        showEnd(getTestColor(), this.uiStatus.getProcessData().isPass());
     }
+
+    private Color getTestColor() {
+        if (this.uiStatus.getProcessData().isPass()) {
+            return Color.green;
+        } else {
+            ItemTestData testData = this.uiStatus.getProcessData().getFirstFail();
+            ItemTestData.TYPE type = testData.getItemType();
+            switch (type) {
+                case INIT -> {
+                    return new Color(0xCC00FF);
+                }
+                case TEST -> {
+                    return Color.red;
+                }
+                case END -> {
+                    return Color.red;
+                }
+                case FINAL -> {
+                    return new Color(0x33FFCC); //009999
+                }
+            }
+        }
+        return null;
+    }
+
+    protected abstract void showEnd(Color color, boolean isPass);
 
     @Override
     public void setUiStatus(UiStatus uiStatus) {
@@ -73,7 +102,7 @@ public abstract class AbsSubUi extends AbsUI implements IUpdate {
             return null;
         }
         long time = (long) (testTimer.getRuntime());
-        return String.format("%02d:%02d", time / 60, time % 60);
+        return String.format("%02d:%02d:%02d", time / 3600, time / 60, time % 60);
     }
 
     public void setClock(IgetTime myTimer) {

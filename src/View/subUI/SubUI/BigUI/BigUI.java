@@ -6,6 +6,7 @@ package View.subUI.SubUI.BigUI;
 
 import Model.DataTest.FunctionData.FunctionData;
 import View.subUI.SubUI.AbsSubUi;
+import java.awt.Color;
 import java.util.List;
 
 /**
@@ -34,7 +35,8 @@ public class BigUI extends AbsSubUi {
         int checkFunc = this.uiStatus.getModeTest().getModeTestSource().getCheckFunctions().size();
         int testFunc = this.uiStatus.getModeTest().getModeTestSource().getTestFunctions().size();
         int endFunc = this.uiStatus.getModeTest().getModeTestSource().getEndFunctions().size();
-        this.Process.setMaximum(checkFunc + testFunc + endFunc);
+        int finalFunc = this.uiStatus.getModeTest().getModeTestSource().getFinalFunctions().size();
+        this.Process.setMaximum(checkFunc + testFunc + endFunc + finalFunc);
         this.btTest.setEnabled(false);
         super.startTest();
     }
@@ -43,20 +45,8 @@ public class BigUI extends AbsSubUi {
     public boolean update() {
         debugMode = this.uiStatus.getModeTest().canDebug();
         this.btTest.setEnabled(debugMode);
-        return super.update(); // Generated from nbfs://nbhost/SystemFileSystem/Templates/Classes/Code/OverriddenMethodBody
+        return super.update();
     }
-    
-
-    @Override
-    public void endTest() {
-        updateData();
-        this.Process.setValue(this.Process.getMaximum());
-        super.endTest(); 
-        this.btTest.setEnabled(debugMode);
-    }
-
-    
-
     /**
      * This method is called from within the constructor to initialize the form.
      * WARNING: Do NOT modify this code. The content of this method is always
@@ -179,9 +169,16 @@ public class BigUI extends AbsSubUi {
     public void updateData() {
         if (list != null && !list.isEmpty()) {
             this.Process.setValue(list.size());
-            lbItemName.setText(list.get(list.size()-1).getFunctionName().getItemName());
+            lbItemName.setText(list.get(list.size() - 1).getFunctionName().getItemName());
         }
         lbTime.setText(getTestTime());
+    }
+
+    @Override
+    protected void showEnd(Color color, boolean isPass) {
+        this.Process.setValue(this.Process.getMaximum());
+        this.btTest.setEnabled(debugMode);
+        this.panelDown.setBackground(color);
     }
 
 }
