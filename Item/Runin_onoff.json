@@ -1,0 +1,183 @@
+﻿{
+    "station_type": "onoff",
+    "time_out_test": 360000,
+    "init": [
+        {
+            "flag": true,
+            "multi": false,
+            "always_run": false,
+            "time_out": 100,
+            "User": "config",
+            "Password": "eero",
+            "Host": "10.90.100.168",
+            "Port": 21,
+            "check_spec": false,
+            "uutModel": "TriesteJDK17",
+            "pnname": "MP",
+            "test_name": "CheckUpdate",
+            "func_name": "CheckUpdateProxy"
+        },
+        {
+            "flag": true,
+            "time_out": 50,
+            "golden_file": "init/golden.txt",
+            "test_name": "golden_file",
+            "func_name": "GoldenFileProxy"
+        },
+        {
+            "flag": false,
+            "time_out": 50,
+            "SEND_FORMAT": ["sn", "pcname"],
+            "DATA_FORMAT": ["mlbsn", "ethernetmac", "pnname", "model", "smode"],
+            "URL": "http://10.90.100.20/sfcapi/api/connect",
+            "test_name": "gen_node",
+            "func_name": "SfisFunctionProxy"
+        },
+        {
+            "flag": false,
+            "multi": false,
+            "always_run": false,
+            "time_out": 10,
+            "elems": [
+                {
+                    "key": "pnname",
+                    "target": "810-01100",
+                    "messenger": "Sản phẩm không phải là: 810-01100"
+                },
+                {
+                    "key": "smode",
+                    "target": "Production",
+                    "messenger": "Sản phẩm không phải là hàng MP"
+                },
+                {
+                    "key": "typemodel",
+                    "target": "simple",
+                    "messenger": "Sản phẩm không phải là hàng simple"
+                }
+            ],
+            "test_name": "CheckProduct",
+            "func_name": "CheckProductProxy"
+        },
+        {
+            "flag": true,
+            "multi": false,
+            "always_run": false,
+            "time_out": 30,
+            "test_name": "mac",
+            "func_name": "GetMacFormSfisProxy"
+        },
+        {
+            "flag": true,
+            "time_out": 30,
+            "debug_able": true,
+            "multi": false,
+            "host": "192.168.1.10",
+            "user": "admin",
+            "password": "1234",
+            "Times": 1,
+            "Delay": 5,
+            "Command": ["off", "on"],
+            "test_name": "wps_ok",
+            "func_name": "PowerSwitchProxy"
+        }
+    ],
+    "functions": [
+        {
+            "flag": true,
+            "begin": 0,
+            "loop_times": 1000,
+            "functions": [
+                {
+                    "flag": true,
+                    "time_out": 20,
+                    "debug_able": true,
+                    "multi": false,
+                    "fail_continue": true,
+                    "host": "192.168.1.10",
+                    "user": "admin",
+                    "password": "1234",
+                    "Times": 1,
+                    "Delay": 5,
+                    "Command": ["off", "on"],
+                    "test_name": "wps_ok",
+                    "func_name": "PowerSwitchProxy"
+                },
+                {
+                    "flag": true,
+                    "time_out": 180,
+                    "multi": false,
+                    "debug_able": true,
+                    "fail_continue": true,
+                    "time_ping": 120,
+                    "IP": "192.168.1.1",
+                    "test_name": "dut_ping",
+                    "func_name": "DutPingProxy"
+                }
+            ]
+        },
+        {
+            "flag": true,
+            "time_out": 60,
+            "multi": false,
+            "debug_able": true,
+            "fail_continue": false,
+            "passItemName": ["dut_ping"],
+            "failedItemName": ["dut_ping"],
+            "test_name": "count_pass_failed",
+            "func_name": "CountPassFailedProxy"
+        }
+    ],
+    "end": [],
+    "final": [
+        {
+            "flag": true,
+            "time_out": 100,
+            "always_run": true,
+            "User": "oper",
+            "always_run": true,
+            "Password": "mfg-oper",
+            "Host": "10.90.100.168",
+            "Port": 21,
+            "followLimit": false,
+            "limitErrorCode": true,
+            "BaseKeys": ["mo", "error_details", "status", "finish_time",
+                "test_software_version", "start_time", "station_type",
+                "error_code", "errorcode", "errorDes", "serial", "mode", "station_name", "position", "cycle_time", "cyctime_final"],
+            "TestKeys": ["upper_limit", "lower_limit", "status", "finish_time", "test_name",
+                "error_code", "errorcode", "errorDes", "start_time", "test_value", "units", "cycle_time"],
+            "FtpPrefix": ["data/Trieste", "pnname", "station_type", "mode", "start_day", "station_name", "status"],
+            "LocalPrefix": ["Log/TestLog"],
+            "LocalName": ["mlbsn", "sn", "position", "status", "mode", "finish_time"],
+            "LocalNameFail": ["mlbsn", "sn", "position", "status", "error_details", "errorcode", "mode", "finish_time"],
+            "test_name": "UpLogFTP",
+            "func_name": "UpLogFTPProxy"
+        },
+        {
+            "flag": true,
+            "time_out": 50,
+            "always_run": false,
+            "multi": false,
+            "flowVer": "3.0",
+            "titleVer": "3.0",
+            "IP": "10.90.100.168",
+            "sendDetail": false,
+            "test_name": "Mydas",
+            "func_name": "MydasProxy" 
+        },
+        {
+            "flag": true,
+            "time_out": 30,
+            "multi": false,
+            "debug_able": true,
+            "always_run": true,
+            "host": "192.168.1.10",
+            "user": "admin",
+            "password": "1234",
+            "Times": 1,
+            "Delay": 1,
+            "Command": ["off"],
+            "test_name": "ReleasePowerSwitchOutlet",
+            "func_name": "PowerSwitchProxy"
+        }
+    ]
+}

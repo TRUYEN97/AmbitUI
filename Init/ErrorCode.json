@@ -5,6 +5,12 @@
             "errorDes": "boot_setup"
         }
     },
+    "count_pass_failed": {
+        "simple": {
+            "errorcode": "count.item.0",
+            "errorDes": "count_pass_failed"
+        }
+    },
     "ReadComportUntilStopItem": {
         "simple": {
             "errorcode": "Read.Comport.0",

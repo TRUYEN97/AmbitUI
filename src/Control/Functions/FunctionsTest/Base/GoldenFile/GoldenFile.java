@@ -71,7 +71,7 @@ public class GoldenFile extends AbsFunction {
                 elems = line.split(",");
                 sn = elems[0].trim().toUpperCase();
                 mlbsn = elems[1].trim().toUpperCase();
-                ethernetmac = elems[2].trim().toUpperCase();
+                ethernetmac = createTrueMac(elems[2].trim().toUpperCase());
                 if (sn.equalsIgnoreCase(snInput) || mlbsn.equalsIgnoreCase(snInput)) {
                     this.productData.put("sn", sn);
                     addLog("PC", "key: sn - value: %s", sn);
@@ -89,6 +89,19 @@ public class GoldenFile extends AbsFunction {
             addLog("Error", e.getLocalizedMessage());
             return false;
         }
+    }
+    
+    private String createTrueMac(String value) {
+        StringBuilder builder = new StringBuilder();
+        int index = 0;
+        for (char kitu : value.toCharArray()) {
+            if (index != 0 && index % 2 == 0) {
+                builder.append(':');
+            }
+            builder.append(kitu);
+            index++;
+        }
+        return builder.toString();
     }
 
 }

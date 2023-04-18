@@ -1,5 +1,5 @@
 {
-    "station_type": "RUNIN",
+    "station_type": "onoff",
     "uutModel": "Trieste",
     "row": 12,
     "column": 8,
@@ -16,10 +16,9 @@
     "use_dhcp": true,
     "load_mode": [
         {
-            "station_type": "BOOT_SETUP",
             "name": "debug", 
             "type_mode": "debug",
-            "ambit_config": "Item\\Runin_BOOT_SETUP.json"
+            "ambit_config": "Item\\Runin_onoff.json"
         }
     ],
     "dhcp": {

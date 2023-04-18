@@ -8,6 +8,7 @@ import Control.Functions.AbsFunction;
 import Control.Functions.FunctionsTest.Base.CheckDutInfo.CheckDutInfoProxy;
 import Control.Functions.FunctionsTest.Base.CheckProduct.CheckProductProxy;
 import Control.Functions.FunctionsTest.Base.CheckUpdate.CheckUpdateProxy;
+import Control.Functions.FunctionsTest.Base.CountPassFailed.CountPassFailedProxy;
 import Control.Functions.FunctionsTest.Base.CreatePath.CreatePathProxy;
 import Control.Functions.FunctionsTest.Base.Delta.DeltaProxy;
 import Control.Functions.FunctionsTest.Base.TxtLog.CreateLog.CreateTxtProxy;
@@ -164,5 +165,6 @@ public class Factory {
         this.functions.addType(new CheckCommandCmdProxy());
         this.functions.addType(new ReadComportUntilStopItemProxy());
         this.functions.addType(new BootSetupProxy());
+        this.functions.addType(new CountPassFailedProxy());
     }
 }
