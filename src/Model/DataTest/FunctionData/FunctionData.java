@@ -178,14 +178,6 @@ public class FunctionData {
         return getFisrtFailed() == null;
     }
 
-    public void setStatus(boolean stt) {
-        if (stt) {
-            this.thisItem.setPass();
-        } else {
-            this.thisItem.setFail(ErrorCodeElement.SIMPLE);
-        }
-    }
-
     public void setFail(String errorType) {
         for (var itemTest : listItemTests) {
             if (itemTest.isTest()) {

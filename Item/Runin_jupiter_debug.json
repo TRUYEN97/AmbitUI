@@ -3,7 +3,7 @@
     "time_out_test": 25200,
     "init": [
         {
-            "flag": true,
+            "flag": false,
             "multi": false,
             "always_run": false,
             "time_out": 100,
@@ -19,7 +19,7 @@
         {
             "flag": true,
             "time_out": 50,
-            "golden_file": "config/dataSource/init/golden.txt",
+            "golden_file": "init/golden.csv",
             "test_name": "golden_file",
             "func_name": "GoldenFileProxy"
         },

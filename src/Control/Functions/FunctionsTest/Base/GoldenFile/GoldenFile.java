@@ -92,6 +92,9 @@ public class GoldenFile extends AbsFunction {
     }
     
     private String createTrueMac(String value) {
+        if (value.contains(":")) {
+            return value;
+        }
         StringBuilder builder = new StringBuilder();
         int index = 0;
         for (char kitu : value.toCharArray()) {

@@ -1,12 +1,7 @@
-2023-04-19 03:43:43.835:   ITEM[golden_file] - FUNCTION[GoldenFileProxy]
+2023-04-19 03:43:43.835:   ITEM[gen_node] - FUNCTION[VirFunctionProxy]
 2023-04-19 03:43:43.835:   Turn: 1
-2023-04-19 03:43:43.835:   [config] init/golden.csv
-2023-04-19 03:43:43.835:   [PC] Input: A1
-2023-04-19 03:43:43.835:   [PC] key: sn - value: A1
-2023-04-19 03:43:43.835:   [PC] key: mlbsns - value: GGB1UD22307410T9
-2023-04-19 03:43:43.835:   [PC] key: ethernetmac - value: D4:3F:32:F7:C1:01
 2023-04-19 03:43:43.835:   ****************************************************
-2023-04-19 03:43:43.835:   Item name = golden_file
+2023-04-19 03:43:43.835:   Item name = gen_node
 2023-04-19 03:43:43.835:   Value = passed
 2023-04-19 03:43:43.835:   Test status = passed
 2023-04-19 03:43:43.835:   -----------------------------------------------------

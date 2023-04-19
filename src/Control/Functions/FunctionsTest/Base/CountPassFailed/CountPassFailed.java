@@ -43,10 +43,11 @@ public class CountPassFailed extends AbsFunction {
                 continue;
             }
             String itemName = itemTestData.getItemName();
-            if (containsIn(passItemName, itemName) && itemTestData.isPass()) {
-                addOne(countPasss, itemName);
-            } else if (containsIn(failedItemName, itemName) && !itemTestData.isPass()) {
-                addOne(countFaileds, itemName);
+            String baseItem;
+            if ((baseItem = containsIn(passItemName, itemName)) != null && itemTestData.isPass()) {
+                addOne(countPasss, baseItem);
+            } else if ((baseItem = containsIn(failedItemName, itemName)) != null && !itemTestData.isPass()) {
+                addOne(countFaileds, baseItem);
             }
         }
         addLog(LOG_KEYS.PC, "Count pass items: %s", countPasss);
@@ -63,13 +64,13 @@ public class CountPassFailed extends AbsFunction {
         }
     }
 
-    private boolean containsIn(List<String> items, String itemName) {
+    private String containsIn(List<String> items, String itemName) {
         for (String item : items) {
             if (itemName.startsWith(item)) {
-                return true;
+                return item;
             }
         }
-        return false;
+        return null;
     }
 
 }

@@ -1,12 +1,12 @@
-2023-02-22 08:36:36.540:   ITEM[CheckUpdate] - FUNCTION[CheckUpdateProxy]
-2023-02-22 08:36:36.541:   Turn: 1
-2023-02-22 08:36:36.541:   [PC] Connect to ftp!!
-2023-02-22 08:36:36.541:   [Config] User: config
-2023-02-22 08:36:36.542:   [Config] PassWord: eero
-2023-02-22 08:36:36.542:   [Config] Host: 10.90.100.168
-2023-02-22 08:36:36.542:   [Config] Port: 21
-2023-02-22 08:36:36.612:   [PC] Connect to ftp ok!!
-2023-02-22 08:36:36.613:   [PC] Pn name: 810-01100, uut model: Trieste, station: RUNIN
-2023-02-22 08:36:36.634:   [PC] Version MD5: 6ab7c8bb9d92321e3898ef64093de83e
-2023-02-22 08:36:36.635:   [PC] Local version MD5: 39f019cb5f96121dcb691db569cf033a
-2023-02-22 08:36:36.635:   [PC] Testing: 1
+2023-04-19 03:42:09.011:   ITEM[CheckUpdate] - FUNCTION[CheckUpdateProxy]
+2023-04-19 03:42:09.012:   Turn: 1
+2023-04-19 03:42:09.012:   [PC] Connect to ftp!!
+2023-04-19 03:42:09.012:   [Config] User: config
+2023-04-19 03:42:09.012:   [Config] PassWord: eero
+2023-04-19 03:42:09.013:   [Config] Host: 10.90.100.168
+2023-04-19 03:42:09.013:   [Config] Port: 21
+2023-04-19 03:42:09.078:   [PC] Connect to ftp ok!!
+2023-04-19 03:42:09.079:   [PC] type name: MP, product: TriesteJDK17, station: ONOFF
+2023-04-19 03:42:09.090:   [PC] Version MD5: 1ad10bba5f9e87fd412322e4e2dd2797
+2023-04-19 03:42:09.091:   [PC] Local version MD5: null
+2023-04-19 03:42:09.091:   [PC] Testing: 1
