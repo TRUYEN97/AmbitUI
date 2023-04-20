@@ -50,10 +50,28 @@ public class CountPassFailed extends AbsFunction {
                 addOne(countFaileds, baseItem);
             }
         }
-        addLog(LOG_KEYS.PC, "Count pass items: %s", countPasss);
-        addLog(LOG_KEYS.PC, "Count failed items: %s", countFaileds);
-        setResult(String.format("pass: %s | failed: %s", countPasss, countFaileds));
+        String passCount = getStringRs(countPasss);
+        String failCount = getStringRs(countFaileds);
+        if (passCount != null) {
+            addLog(LOG_KEYS.PC, "Passed items: %s", passCount);
+        }
+        if (failCount != null) {
+            addLog(LOG_KEYS.PC, "Failed items: %s", failCount);
+        }
+        setResult(String.format("pass: %s - failed: %s", passCount, failCount));
         return true;
+    }
+
+    private String getStringRs(Map<String, Integer> countPasss) {
+        if (countPasss.isEmpty()) {
+            return null;
+        }
+        StringBuilder rs = new StringBuilder();
+        for (String key : countPasss.keySet()) {
+            rs.append(key).append(":").append(countPasss.get(key)).append(",");
+        }
+        rs.deleteCharAt(rs.length()-1);
+        return rs.toString();
     }
 
     private void addOne(Map<String, Integer> itemCounts, String itemName) {

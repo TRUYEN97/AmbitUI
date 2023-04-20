@@ -73,11 +73,10 @@ public class FuncAllConfig {
     }
 
     private void getAllValueOfLimit(LimitElement limitElement) {
-        if (limitElement == null) {
-            return;
-        }
-        this.wareHouse.putAll(limitElement.getJson());
         this.wareHouse.put(AllKeyWord.TEST_NAME, this.itemName);
+        if (limitElement != null) {
+            this.wareHouse.putAll(limitElement.getJson());
+        }
     }
 
     public Limit getLimits() {
@@ -119,7 +118,7 @@ public class FuncAllConfig {
     private boolean isSpecConfig() {
         Integer required = this.wareHouse.getInteger(AllKeyWord.CONFIG.REQUIRED);
         String limitType = this.wareHouse.getString(AllKeyWord.CONFIG.LIMIT_TYPE);
-        return (required != null && required > 0) || (limitType != null && !limitType.isBlank());
+        return (required != null && required > 0) && (limitType != null && !limitType.isBlank());
     }
 
     private boolean specAvailable() {

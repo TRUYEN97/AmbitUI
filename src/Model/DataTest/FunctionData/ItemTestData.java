@@ -109,8 +109,13 @@ public class ItemTestData {
     }
 
     public void end() {
-        this.data.putAll(this.error);
-        if (!isPass()) {
+        if (isPass()) {
+            this.data.put(AllKeyWord.CONFIG.ERROR_CODE, "");
+            this.data.put(AllKeyWord.CONFIG.ERROR_DES, "");
+            this.data.put(AllKeyWord.SFIS.ERRORCODE, "");
+            this.data.put(AllKeyWord.SFIS.ERRORDES, "");
+        } else {
+            this.data.putAll(this.error);
             this.addLog(String.format("Error code = %s", getLimitsErrorCode()));
             this.addLog(String.format("Error des = %s", getErrorDes()));
             this.addLog(String.format("Local error code = %s", getLocalErrorCode()));
@@ -153,9 +158,7 @@ public class ItemTestData {
     }
 
     public void setPass() {
-        for (String key : error.keySet()) {
-            error.put(key, "");
-        }
+        error.clear();
         setTestValue(true);
     }
 

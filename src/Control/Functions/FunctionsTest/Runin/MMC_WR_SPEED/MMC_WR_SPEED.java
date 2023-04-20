@@ -67,9 +67,9 @@ public class MMC_WR_SPEED extends AbsFunction {
     private boolean runSubItems(List<String> items, String response, List<String> blocks, List<String> KeyWords) {
         int itemsSize = items.size();
         for (int i = 0; i < itemsSize; i++) {
-            String item = items.get(i);
+            String item = createChildItemName(items.get(i));
             addLog("PC", item);
-            mmc_speed = new MMC_SPEED(functionParameters, createChildItemName(item));
+            mmc_speed = new MMC_SPEED(functionParameters, item);
             mmc_speed.setData(response, blocks.get(i), KeyWords.get(i));
             mmc_speed.runTest();
             if (!mmc_speed.isPass()) {
