@@ -73,10 +73,10 @@ public class FuncAllConfig {
     }
 
     private void getAllValueOfLimit(LimitElement limitElement) {
-        this.wareHouse.put(AllKeyWord.TEST_NAME, this.itemName);
         if (limitElement != null) {
             this.wareHouse.putAll(limitElement.getJson());
         }
+        this.wareHouse.put(AllKeyWord.TEST_NAME, this.itemName);
     }
 
     public Limit getLimits() {
