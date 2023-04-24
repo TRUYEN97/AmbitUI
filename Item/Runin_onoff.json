@@ -104,7 +104,7 @@
                 },
                 {
                     "flag": true,
-                    "time_out": 180,
+                    "time_out": 18,
                     "multi": false,
                     "debug_able": true,
                     "fail_continue": true,

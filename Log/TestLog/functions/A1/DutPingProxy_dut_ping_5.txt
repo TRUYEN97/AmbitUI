@@ -1,0 +1,70 @@
+2023-04-24 04:16:59.260:   ITEM[dut_ping_5] - FUNCTION[DutPingProxy]
+2023-04-24 04:16:59.260:   Turn: 1
+2023-04-24 04:16:59.260:   Get IP from the function config with key is "IP".
+2023-04-24 04:16:59.260:   IP: 192.168.1.1
+2023-04-24 04:16:59.260:   [PC] Ping to IP: 192.168.1.1 - 120 S
+2023-04-24 04:16:59.260:   [Cmd] ------------------------------------ 1
+2023-04-24 04:16:59.260:   [Cmd] Send command: arp -d
+2023-04-24 04:16:59.302:   [Cmd] The ARP entry deletion failed: The requested operation requires elevation.
+2023-04-24 04:16:59.302:   [Cmd] Send command: ping 192.168.1.1 -n 1
+2023-04-24 04:17:03.322:   [Cmd] Pinging 192.168.1.1 with 32 bytes of data:
+2023-04-24 04:17:03.323:   [Cmd] Request timed out.
+2023-04-24 04:17:03.323:   [Cmd] 
+2023-04-24 04:17:03.324:   [Cmd] Ping statistics for 192.168.1.1:
+2023-04-24 04:17:03.324:   [Cmd] Packets: Sent = 1, Received = 0, Lost = 1 (100% loss),
+2023-04-24 04:17:03.324:   [Cmd] ------------------------------------
+2023-04-24 04:17:03.324:   [Cmd] ------------------------------------ 2
+2023-04-24 04:17:03.324:   [Cmd] Send command: arp -d
+2023-04-24 04:17:03.356:   [Cmd] The ARP entry deletion failed: The requested operation requires elevation.
+2023-04-24 04:17:03.357:   [Cmd] Send command: ping 192.168.1.1 -n 1
+2023-04-24 04:17:07.330:   [Cmd] Pinging 192.168.1.1 with 32 bytes of data:
+2023-04-24 04:17:07.330:   [Cmd] Request timed out.
+2023-04-24 04:17:07.330:   [Cmd] 
+2023-04-24 04:17:07.330:   [Cmd] Ping statistics for 192.168.1.1:
+2023-04-24 04:17:07.330:   [Cmd] Packets: Sent = 1, Received = 0, Lost = 1 (100% loss),
+2023-04-24 04:17:07.330:   [Cmd] ------------------------------------
+2023-04-24 04:17:07.330:   [Cmd] ------------------------------------ 3
+2023-04-24 04:17:07.330:   [Cmd] Send command: arp -d
+2023-04-24 04:17:07.361:   [Cmd] The ARP entry deletion failed: The requested operation requires elevation.
+2023-04-24 04:17:07.361:   [Cmd] Send command: ping 192.168.1.1 -n 1
+2023-04-24 04:17:11.331:   [Cmd] Pinging 192.168.1.1 with 32 bytes of data:
+2023-04-24 04:17:11.332:   [Cmd] Request timed out.
+2023-04-24 04:17:11.332:   [Cmd] 
+2023-04-24 04:17:11.332:   [Cmd] Ping statistics for 192.168.1.1:
+2023-04-24 04:17:11.332:   [Cmd] Packets: Sent = 1, Received = 0, Lost = 1 (100% loss),
+2023-04-24 04:17:11.332:   [Cmd] ------------------------------------
+2023-04-24 04:17:11.332:   [Cmd] ------------------------------------ 4
+2023-04-24 04:17:11.332:   [Cmd] Send command: arp -d
+2023-04-24 04:17:11.363:   [Cmd] The ARP entry deletion failed: The requested operation requires elevation.
+2023-04-24 04:17:11.364:   [Cmd] Send command: ping 192.168.1.1 -n 1
+2023-04-24 04:17:15.320:   [Cmd] Pinging 192.168.1.1 with 32 bytes of data:
+2023-04-24 04:17:15.320:   [Cmd] Request timed out.
+2023-04-24 04:17:15.320:   [Cmd] 
+2023-04-24 04:17:15.320:   [Cmd] Ping statistics for 192.168.1.1:
+2023-04-24 04:17:15.320:   [Cmd] Packets: Sent = 1, Received = 0, Lost = 1 (100% loss),
+2023-04-24 04:17:15.320:   [Cmd] ------------------------------------
+2023-04-24 04:17:15.320:   [Cmd] ------------------------------------ 5
+2023-04-24 04:17:15.320:   [Cmd] Send command: arp -d
+2023-04-24 04:17:15.351:   [Cmd] The ARP entry deletion failed: The requested operation requires elevation.
+2023-04-24 04:17:15.351:   [Cmd] Send command: ping 192.168.1.1 -n 1
+2023-04-24 04:17:17.897:   This function will be stopped! Because it has timed out!
+2023-04-24 04:17:17.897:   Spec: 18 S
+2023-04-24 04:17:17.897:   Try to stop!!
+2023-04-24 04:17:17.897:   Time: 18.637 S
+2023-04-24 04:17:19.320:   [Cmd] ------------------------------------
+2023-04-24 04:17:19.320:   [PC] ping time: 20.060 S
+2023-04-24 04:17:19.320:   This function will be stopped! Because it has timed out!
+2023-04-24 04:17:19.320:   Spec: 18 S
+2023-04-24 04:17:19.320:   Try to stop!!
+2023-04-24 04:17:19.320:   Time: 20.060 S
+2023-04-24 04:17:21.325:   ****************************************************
+2023-04-24 04:17:21.325:   Item name = dut_ping_5
+2023-04-24 04:17:21.325:   Value = failed
+2023-04-24 04:17:21.325:   Test status = failed
+2023-04-24 04:17:21.325:   -----------------------------------------------------
+2023-04-24 04:17:21.325:   Error code = -1
+2023-04-24 04:17:21.325:   Error des = dut_ping_5
+2023-04-24 04:17:21.325:   Local error code = 10.1.6
+2023-04-24 04:17:21.325:   Local error des = dut_ping_cycle5
+2023-04-24 04:17:21.325:   ****************************************************
+2023-04-24 04:17:21.325:   TIME[22.065 s] - STATUS[FAILED]

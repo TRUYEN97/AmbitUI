@@ -1,317 +1,70 @@
-2023-04-20 07:36:54.813:   ITEM[dut_ping_0] - FUNCTION[DutPingProxy]
-2023-04-20 07:36:54.813:   Turn: 1
-2023-04-20 07:36:54.813:   Get IP from the function config with key is "IP".
-2023-04-20 07:36:54.814:   IP: 192.168.1.1
-2023-04-20 07:36:54.814:   [PC] Ping to IP: 192.168.1.1 - 120 S
-2023-04-20 07:36:54.814:   [Cmd] ------------------------------------ 1
-2023-04-20 07:36:54.814:   [Cmd] Send command: arp -d
-2023-04-20 07:36:54.844:   [Cmd] The ARP entry deletion failed: The requested operation requires elevation.
-2023-04-20 07:36:54.845:   [Cmd] Send command: ping 192.168.1.1 -n 1
-2023-04-20 07:36:58.830:   [Cmd] Pinging 192.168.1.1 with 32 bytes of data:
-2023-04-20 07:36:58.830:   [Cmd] Request timed out.
-2023-04-20 07:36:58.830:   [Cmd] 
-2023-04-20 07:36:58.830:   [Cmd] Ping statistics for 192.168.1.1:
-2023-04-20 07:36:58.830:   [Cmd] Packets: Sent = 1, Received = 0, Lost = 1 (100% loss),
-2023-04-20 07:36:58.831:   [Cmd] ------------------------------------
-2023-04-20 07:36:58.831:   [Cmd] ------------------------------------ 2
-2023-04-20 07:36:58.831:   [Cmd] Send command: arp -d
-2023-04-20 07:36:58.863:   [Cmd] The ARP entry deletion failed: The requested operation requires elevation.
-2023-04-20 07:36:58.863:   [Cmd] Send command: ping 192.168.1.1 -n 1
-2023-04-20 07:37:02.823:   [Cmd] Pinging 192.168.1.1 with 32 bytes of data:
-2023-04-20 07:37:02.823:   [Cmd] Request timed out.
-2023-04-20 07:37:02.823:   [Cmd] 
-2023-04-20 07:37:02.824:   [Cmd] Ping statistics for 192.168.1.1:
-2023-04-20 07:37:02.824:   [Cmd] Packets: Sent = 1, Received = 0, Lost = 1 (100% loss),
-2023-04-20 07:37:02.824:   [Cmd] ------------------------------------
-2023-04-20 07:37:02.824:   [Cmd] ------------------------------------ 3
-2023-04-20 07:37:02.824:   [Cmd] Send command: arp -d
-2023-04-20 07:37:02.859:   [Cmd] The ARP entry deletion failed: The requested operation requires elevation.
-2023-04-20 07:37:02.859:   [Cmd] Send command: ping 192.168.1.1 -n 1
-2023-04-20 07:37:06.832:   [Cmd] Pinging 192.168.1.1 with 32 bytes of data:
-2023-04-20 07:37:06.833:   [Cmd] Request timed out.
-2023-04-20 07:37:06.833:   [Cmd] 
-2023-04-20 07:37:06.833:   [Cmd] Ping statistics for 192.168.1.1:
-2023-04-20 07:37:06.833:   [Cmd] Packets: Sent = 1, Received = 0, Lost = 1 (100% loss),
-2023-04-20 07:37:06.833:   [Cmd] ------------------------------------
-2023-04-20 07:37:06.834:   [Cmd] ------------------------------------ 4
-2023-04-20 07:37:06.834:   [Cmd] Send command: arp -d
-2023-04-20 07:37:06.865:   [Cmd] The ARP entry deletion failed: The requested operation requires elevation.
-2023-04-20 07:37:06.865:   [Cmd] Send command: ping 192.168.1.1 -n 1
-2023-04-20 07:37:10.824:   [Cmd] Pinging 192.168.1.1 with 32 bytes of data:
-2023-04-20 07:37:10.824:   [Cmd] Request timed out.
-2023-04-20 07:37:10.824:   [Cmd] 
-2023-04-20 07:37:10.824:   [Cmd] Ping statistics for 192.168.1.1:
-2023-04-20 07:37:10.825:   [Cmd] Packets: Sent = 1, Received = 0, Lost = 1 (100% loss),
-2023-04-20 07:37:10.825:   [Cmd] ------------------------------------
-2023-04-20 07:37:10.825:   [Cmd] ------------------------------------ 5
-2023-04-20 07:37:10.825:   [Cmd] Send command: arp -d
-2023-04-20 07:37:10.857:   [Cmd] The ARP entry deletion failed: The requested operation requires elevation.
-2023-04-20 07:37:10.857:   [Cmd] Send command: ping 192.168.1.1 -n 1
-2023-04-20 07:37:14.820:   [Cmd] Pinging 192.168.1.1 with 32 bytes of data:
-2023-04-20 07:37:14.820:   [Cmd] Request timed out.
-2023-04-20 07:37:14.820:   [Cmd] 
-2023-04-20 07:37:14.820:   [Cmd] Ping statistics for 192.168.1.1:
-2023-04-20 07:37:14.820:   [Cmd] Packets: Sent = 1, Received = 0, Lost = 1 (100% loss),
-2023-04-20 07:37:14.821:   [Cmd] ------------------------------------
-2023-04-20 07:37:14.821:   [Cmd] ------------------------------------ 6
-2023-04-20 07:37:14.821:   [Cmd] Send command: arp -d
-2023-04-20 07:37:14.853:   [Cmd] The ARP entry deletion failed: The requested operation requires elevation.
-2023-04-20 07:37:14.853:   [Cmd] Send command: ping 192.168.1.1 -n 1
-2023-04-20 07:37:18.826:   [Cmd] Pinging 192.168.1.1 with 32 bytes of data:
-2023-04-20 07:37:18.826:   [Cmd] Request timed out.
-2023-04-20 07:37:18.827:   [Cmd] 
-2023-04-20 07:37:18.827:   [Cmd] Ping statistics for 192.168.1.1:
-2023-04-20 07:37:18.827:   [Cmd] Packets: Sent = 1, Received = 0, Lost = 1 (100% loss),
-2023-04-20 07:37:18.827:   [Cmd] ------------------------------------
-2023-04-20 07:37:18.827:   [Cmd] ------------------------------------ 7
-2023-04-20 07:37:18.827:   [Cmd] Send command: arp -d
-2023-04-20 07:37:18.859:   [Cmd] The ARP entry deletion failed: The requested operation requires elevation.
-2023-04-20 07:37:18.859:   [Cmd] Send command: ping 192.168.1.1 -n 1
-2023-04-20 07:37:22.826:   [Cmd] Pinging 192.168.1.1 with 32 bytes of data:
-2023-04-20 07:37:22.827:   [Cmd] Request timed out.
-2023-04-20 07:37:22.827:   [Cmd] 
-2023-04-20 07:37:22.827:   [Cmd] Ping statistics for 192.168.1.1:
-2023-04-20 07:37:22.827:   [Cmd] Packets: Sent = 1, Received = 0, Lost = 1 (100% loss),
-2023-04-20 07:37:22.827:   [Cmd] ------------------------------------
-2023-04-20 07:37:22.828:   [Cmd] ------------------------------------ 8
-2023-04-20 07:37:22.828:   [Cmd] Send command: arp -d
-2023-04-20 07:37:22.859:   [Cmd] The ARP entry deletion failed: The requested operation requires elevation.
-2023-04-20 07:37:22.859:   [Cmd] Send command: ping 192.168.1.1 -n 1
-2023-04-20 07:37:26.821:   [Cmd] Pinging 192.168.1.1 with 32 bytes of data:
-2023-04-20 07:37:26.821:   [Cmd] Request timed out.
-2023-04-20 07:37:26.821:   [Cmd] 
-2023-04-20 07:37:26.821:   [Cmd] Ping statistics for 192.168.1.1:
-2023-04-20 07:37:26.821:   [Cmd] Packets: Sent = 1, Received = 0, Lost = 1 (100% loss),
-2023-04-20 07:37:26.822:   [Cmd] ------------------------------------
-2023-04-20 07:37:26.822:   [Cmd] ------------------------------------ 9
-2023-04-20 07:37:26.822:   [Cmd] Send command: arp -d
-2023-04-20 07:37:26.852:   [Cmd] The ARP entry deletion failed: The requested operation requires elevation.
-2023-04-20 07:37:26.853:   [Cmd] Send command: ping 192.168.1.1 -n 1
-2023-04-20 07:37:30.833:   [Cmd] Pinging 192.168.1.1 with 32 bytes of data:
-2023-04-20 07:37:30.833:   [Cmd] Request timed out.
-2023-04-20 07:37:30.833:   [Cmd] 
-2023-04-20 07:37:30.833:   [Cmd] Ping statistics for 192.168.1.1:
-2023-04-20 07:37:30.833:   [Cmd] Packets: Sent = 1, Received = 0, Lost = 1 (100% loss),
-2023-04-20 07:37:30.834:   [Cmd] ------------------------------------
-2023-04-20 07:37:30.834:   [Cmd] ------------------------------------ 10
-2023-04-20 07:37:30.834:   [Cmd] Send command: arp -d
-2023-04-20 07:37:30.866:   [Cmd] The ARP entry deletion failed: The requested operation requires elevation.
-2023-04-20 07:37:30.866:   [Cmd] Send command: ping 192.168.1.1 -n 1
-2023-04-20 07:37:34.829:   [Cmd] Pinging 192.168.1.1 with 32 bytes of data:
-2023-04-20 07:37:34.829:   [Cmd] Request timed out.
-2023-04-20 07:37:34.829:   [Cmd] 
-2023-04-20 07:37:34.829:   [Cmd] Ping statistics for 192.168.1.1:
-2023-04-20 07:37:34.829:   [Cmd] Packets: Sent = 1, Received = 0, Lost = 1 (100% loss),
-2023-04-20 07:37:34.830:   [Cmd] ------------------------------------
-2023-04-20 07:37:34.830:   [Cmd] ------------------------------------ 11
-2023-04-20 07:37:34.830:   [Cmd] Send command: arp -d
-2023-04-20 07:37:34.861:   [Cmd] The ARP entry deletion failed: The requested operation requires elevation.
-2023-04-20 07:37:34.861:   [Cmd] Send command: ping 192.168.1.1 -n 1
-2023-04-20 07:37:38.820:   [Cmd] Pinging 192.168.1.1 with 32 bytes of data:
-2023-04-20 07:37:38.820:   [Cmd] Request timed out.
-2023-04-20 07:37:38.820:   [Cmd] 
-2023-04-20 07:37:38.820:   [Cmd] Ping statistics for 192.168.1.1:
-2023-04-20 07:37:38.820:   [Cmd] Packets: Sent = 1, Received = 0, Lost = 1 (100% loss),
-2023-04-20 07:37:38.821:   [Cmd] ------------------------------------
-2023-04-20 07:37:38.821:   [Cmd] ------------------------------------ 12
-2023-04-20 07:37:38.821:   [Cmd] Send command: arp -d
-2023-04-20 07:37:38.852:   [Cmd] The ARP entry deletion failed: The requested operation requires elevation.
-2023-04-20 07:37:38.853:   [Cmd] Send command: ping 192.168.1.1 -n 1
-2023-04-20 07:37:42.834:   [Cmd] Pinging 192.168.1.1 with 32 bytes of data:
-2023-04-20 07:37:42.848:   [Cmd] Request timed out.
-2023-04-20 07:37:42.849:   [Cmd] 
-2023-04-20 07:37:42.849:   [Cmd] Ping statistics for 192.168.1.1:
-2023-04-20 07:37:42.850:   [Cmd] Packets: Sent = 1, Received = 0, Lost = 1 (100% loss),
-2023-04-20 07:37:42.850:   [Cmd] ------------------------------------
-2023-04-20 07:37:42.850:   [Cmd] ------------------------------------ 13
-2023-04-20 07:37:42.850:   [Cmd] Send command: arp -d
-2023-04-20 07:37:42.881:   [Cmd] The ARP entry deletion failed: The requested operation requires elevation.
-2023-04-20 07:37:42.881:   [Cmd] Send command: ping 192.168.1.1 -n 1
-2023-04-20 07:37:46.821:   [Cmd] Pinging 192.168.1.1 with 32 bytes of data:
-2023-04-20 07:37:46.821:   [Cmd] Request timed out.
-2023-04-20 07:37:46.822:   [Cmd] 
-2023-04-20 07:37:46.822:   [Cmd] Ping statistics for 192.168.1.1:
-2023-04-20 07:37:46.822:   [Cmd] Packets: Sent = 1, Received = 0, Lost = 1 (100% loss),
-2023-04-20 07:37:46.822:   [Cmd] ------------------------------------
-2023-04-20 07:37:46.822:   [Cmd] ------------------------------------ 14
-2023-04-20 07:37:46.822:   [Cmd] Send command: arp -d
-2023-04-20 07:37:46.853:   [Cmd] The ARP entry deletion failed: The requested operation requires elevation.
-2023-04-20 07:37:46.854:   [Cmd] Send command: ping 192.168.1.1 -n 1
-2023-04-20 07:37:50.831:   [Cmd] Pinging 192.168.1.1 with 32 bytes of data:
-2023-04-20 07:37:50.831:   [Cmd] Request timed out.
-2023-04-20 07:37:50.831:   [Cmd] 
-2023-04-20 07:37:50.831:   [Cmd] Ping statistics for 192.168.1.1:
-2023-04-20 07:37:50.831:   [Cmd] Packets: Sent = 1, Received = 0, Lost = 1 (100% loss),
-2023-04-20 07:37:50.832:   [Cmd] ------------------------------------
-2023-04-20 07:37:50.832:   [Cmd] ------------------------------------ 15
-2023-04-20 07:37:50.832:   [Cmd] Send command: arp -d
-2023-04-20 07:37:50.863:   [Cmd] The ARP entry deletion failed: The requested operation requires elevation.
-2023-04-20 07:37:50.863:   [Cmd] Send command: ping 192.168.1.1 -n 1
-2023-04-20 07:37:54.829:   [Cmd] Pinging 192.168.1.1 with 32 bytes of data:
-2023-04-20 07:37:54.829:   [Cmd] Request timed out.
-2023-04-20 07:37:54.829:   [Cmd] 
-2023-04-20 07:37:54.829:   [Cmd] Ping statistics for 192.168.1.1:
-2023-04-20 07:37:54.829:   [Cmd] Packets: Sent = 1, Received = 0, Lost = 1 (100% loss),
-2023-04-20 07:37:54.830:   [Cmd] ------------------------------------
-2023-04-20 07:37:54.830:   [Cmd] ------------------------------------ 16
-2023-04-20 07:37:54.830:   [Cmd] Send command: arp -d
-2023-04-20 07:37:54.861:   [Cmd] The ARP entry deletion failed: The requested operation requires elevation.
-2023-04-20 07:37:54.862:   [Cmd] Send command: ping 192.168.1.1 -n 1
-2023-04-20 07:37:58.819:   [Cmd] Pinging 192.168.1.1 with 32 bytes of data:
-2023-04-20 07:37:58.820:   [Cmd] Request timed out.
-2023-04-20 07:37:58.820:   [Cmd] 
-2023-04-20 07:37:58.820:   [Cmd] Ping statistics for 192.168.1.1:
-2023-04-20 07:37:58.820:   [Cmd] Packets: Sent = 1, Received = 0, Lost = 1 (100% loss),
-2023-04-20 07:37:58.821:   [Cmd] ------------------------------------
-2023-04-20 07:37:58.821:   [Cmd] ------------------------------------ 17
-2023-04-20 07:37:58.821:   [Cmd] Send command: arp -d
-2023-04-20 07:37:58.852:   [Cmd] The ARP entry deletion failed: The requested operation requires elevation.
-2023-04-20 07:37:58.853:   [Cmd] Send command: ping 192.168.1.1 -n 1
-2023-04-20 07:38:02.825:   [Cmd] Pinging 192.168.1.1 with 32 bytes of data:
-2023-04-20 07:38:02.825:   [Cmd] Request timed out.
-2023-04-20 07:38:02.825:   [Cmd] 
-2023-04-20 07:38:02.825:   [Cmd] Ping statistics for 192.168.1.1:
-2023-04-20 07:38:02.826:   [Cmd] Packets: Sent = 1, Received = 0, Lost = 1 (100% loss),
-2023-04-20 07:38:02.826:   [Cmd] ------------------------------------
-2023-04-20 07:38:02.826:   [Cmd] ------------------------------------ 18
-2023-04-20 07:38:02.826:   [Cmd] Send command: arp -d
-2023-04-20 07:38:02.857:   [Cmd] The ARP entry deletion failed: The requested operation requires elevation.
-2023-04-20 07:38:02.858:   [Cmd] Send command: ping 192.168.1.1 -n 1
-2023-04-20 07:38:06.825:   [Cmd] Pinging 192.168.1.1 with 32 bytes of data:
-2023-04-20 07:38:06.826:   [Cmd] Request timed out.
-2023-04-20 07:38:06.826:   [Cmd] 
-2023-04-20 07:38:06.826:   [Cmd] Ping statistics for 192.168.1.1:
-2023-04-20 07:38:06.826:   [Cmd] Packets: Sent = 1, Received = 0, Lost = 1 (100% loss),
-2023-04-20 07:38:06.826:   [Cmd] ------------------------------------
-2023-04-20 07:38:06.826:   [Cmd] ------------------------------------ 19
-2023-04-20 07:38:06.826:   [Cmd] Send command: arp -d
-2023-04-20 07:38:06.855:   [Cmd] The ARP entry deletion failed: The requested operation requires elevation.
-2023-04-20 07:38:06.856:   [Cmd] Send command: ping 192.168.1.1 -n 1
-2023-04-20 07:38:10.820:   [Cmd] Pinging 192.168.1.1 with 32 bytes of data:
-2023-04-20 07:38:10.820:   [Cmd] Request timed out.
-2023-04-20 07:38:10.820:   [Cmd] 
-2023-04-20 07:38:10.820:   [Cmd] Ping statistics for 192.168.1.1:
-2023-04-20 07:38:10.820:   [Cmd] Packets: Sent = 1, Received = 0, Lost = 1 (100% loss),
-2023-04-20 07:38:10.821:   [Cmd] ------------------------------------
-2023-04-20 07:38:10.821:   [Cmd] ------------------------------------ 20
-2023-04-20 07:38:10.821:   [Cmd] Send command: arp -d
-2023-04-20 07:38:10.852:   [Cmd] The ARP entry deletion failed: The requested operation requires elevation.
-2023-04-20 07:38:10.852:   [Cmd] Send command: ping 192.168.1.1 -n 1
-2023-04-20 07:38:14.824:   [Cmd] Pinging 192.168.1.1 with 32 bytes of data:
-2023-04-20 07:38:14.824:   [Cmd] Request timed out.
-2023-04-20 07:38:14.824:   [Cmd] 
-2023-04-20 07:38:14.824:   [Cmd] Ping statistics for 192.168.1.1:
-2023-04-20 07:38:14.825:   [Cmd] Packets: Sent = 1, Received = 0, Lost = 1 (100% loss),
-2023-04-20 07:38:14.825:   [Cmd] ------------------------------------
-2023-04-20 07:38:14.825:   [Cmd] ------------------------------------ 21
-2023-04-20 07:38:14.825:   [Cmd] Send command: arp -d
-2023-04-20 07:38:14.855:   [Cmd] The ARP entry deletion failed: The requested operation requires elevation.
-2023-04-20 07:38:14.856:   [Cmd] Send command: ping 192.168.1.1 -n 1
-2023-04-20 07:38:18.833:   [Cmd] Pinging 192.168.1.1 with 32 bytes of data:
-2023-04-20 07:38:18.833:   [Cmd] Request timed out.
-2023-04-20 07:38:18.833:   [Cmd] 
-2023-04-20 07:38:18.833:   [Cmd] Ping statistics for 192.168.1.1:
-2023-04-20 07:38:18.834:   [Cmd] Packets: Sent = 1, Received = 0, Lost = 1 (100% loss),
-2023-04-20 07:38:18.834:   [Cmd] ------------------------------------
-2023-04-20 07:38:18.834:   [Cmd] ------------------------------------ 22
-2023-04-20 07:38:18.834:   [Cmd] Send command: arp -d
-2023-04-20 07:38:18.865:   [Cmd] The ARP entry deletion failed: The requested operation requires elevation.
-2023-04-20 07:38:18.865:   [Cmd] Send command: ping 192.168.1.1 -n 1
-2023-04-20 07:38:22.829:   [Cmd] Pinging 192.168.1.1 with 32 bytes of data:
-2023-04-20 07:38:22.829:   [Cmd] Request timed out.
-2023-04-20 07:38:22.829:   [Cmd] 
-2023-04-20 07:38:22.829:   [Cmd] Ping statistics for 192.168.1.1:
-2023-04-20 07:38:22.830:   [Cmd] Packets: Sent = 1, Received = 0, Lost = 1 (100% loss),
-2023-04-20 07:38:22.830:   [Cmd] ------------------------------------
-2023-04-20 07:38:22.830:   [Cmd] ------------------------------------ 23
-2023-04-20 07:38:22.830:   [Cmd] Send command: arp -d
-2023-04-20 07:38:22.860:   [Cmd] The ARP entry deletion failed: The requested operation requires elevation.
-2023-04-20 07:38:22.860:   [Cmd] Send command: ping 192.168.1.1 -n 1
-2023-04-20 07:38:26.830:   [Cmd] Pinging 192.168.1.1 with 32 bytes of data:
-2023-04-20 07:38:26.830:   [Cmd] Request timed out.
-2023-04-20 07:38:26.830:   [Cmd] 
-2023-04-20 07:38:26.830:   [Cmd] Ping statistics for 192.168.1.1:
-2023-04-20 07:38:26.830:   [Cmd] Packets: Sent = 1, Received = 0, Lost = 1 (100% loss),
-2023-04-20 07:38:26.831:   [Cmd] ------------------------------------
-2023-04-20 07:38:26.831:   [Cmd] ------------------------------------ 24
-2023-04-20 07:38:26.831:   [Cmd] Send command: arp -d
-2023-04-20 07:38:26.862:   [Cmd] The ARP entry deletion failed: The requested operation requires elevation.
-2023-04-20 07:38:26.863:   [Cmd] Send command: ping 192.168.1.1 -n 1
-2023-04-20 07:38:30.830:   [Cmd] Pinging 192.168.1.1 with 32 bytes of data:
-2023-04-20 07:38:30.831:   [Cmd] Request timed out.
-2023-04-20 07:38:30.831:   [Cmd] 
-2023-04-20 07:38:30.831:   [Cmd] Ping statistics for 192.168.1.1:
-2023-04-20 07:38:30.831:   [Cmd] Packets: Sent = 1, Received = 0, Lost = 1 (100% loss),
-2023-04-20 07:38:30.831:   [Cmd] ------------------------------------
-2023-04-20 07:38:30.832:   [Cmd] ------------------------------------ 25
-2023-04-20 07:38:30.832:   [Cmd] Send command: arp -d
-2023-04-20 07:38:30.862:   [Cmd] The ARP entry deletion failed: The requested operation requires elevation.
-2023-04-20 07:38:30.862:   [Cmd] Send command: ping 192.168.1.1 -n 1
-2023-04-20 07:38:34.830:   [Cmd] Pinging 192.168.1.1 with 32 bytes of data:
-2023-04-20 07:38:34.831:   [Cmd] Request timed out.
-2023-04-20 07:38:34.831:   [Cmd] 
-2023-04-20 07:38:34.831:   [Cmd] Ping statistics for 192.168.1.1:
-2023-04-20 07:38:34.831:   [Cmd] Packets: Sent = 1, Received = 0, Lost = 1 (100% loss),
-2023-04-20 07:38:34.831:   [Cmd] ------------------------------------
-2023-04-20 07:38:34.831:   [Cmd] ------------------------------------ 26
-2023-04-20 07:38:34.831:   [Cmd] Send command: arp -d
-2023-04-20 07:38:34.862:   [Cmd] The ARP entry deletion failed: The requested operation requires elevation.
-2023-04-20 07:38:34.862:   [Cmd] Send command: ping 192.168.1.1 -n 1
-2023-04-20 07:38:38.820:   [Cmd] Pinging 192.168.1.1 with 32 bytes of data:
-2023-04-20 07:38:38.820:   [Cmd] Request timed out.
-2023-04-20 07:38:38.820:   [Cmd] 
-2023-04-20 07:38:38.820:   [Cmd] Ping statistics for 192.168.1.1:
-2023-04-20 07:38:38.820:   [Cmd] Packets: Sent = 1, Received = 0, Lost = 1 (100% loss),
-2023-04-20 07:38:38.820:   [Cmd] ------------------------------------
-2023-04-20 07:38:38.821:   [Cmd] ------------------------------------ 27
-2023-04-20 07:38:38.821:   [Cmd] Send command: arp -d
-2023-04-20 07:38:38.851:   [Cmd] The ARP entry deletion failed: The requested operation requires elevation.
-2023-04-20 07:38:38.851:   [Cmd] Send command: ping 192.168.1.1 -n 1
-2023-04-20 07:38:42.825:   [Cmd] Pinging 192.168.1.1 with 32 bytes of data:
-2023-04-20 07:38:42.825:   [Cmd] Request timed out.
-2023-04-20 07:38:42.825:   [Cmd] 
-2023-04-20 07:38:42.825:   [Cmd] Ping statistics for 192.168.1.1:
-2023-04-20 07:38:42.825:   [Cmd] Packets: Sent = 1, Received = 0, Lost = 1 (100% loss),
-2023-04-20 07:38:42.825:   [Cmd] ------------------------------------
-2023-04-20 07:38:42.826:   [Cmd] ------------------------------------ 28
-2023-04-20 07:38:42.826:   [Cmd] Send command: arp -d
-2023-04-20 07:38:42.856:   [Cmd] The ARP entry deletion failed: The requested operation requires elevation.
-2023-04-20 07:38:42.856:   [Cmd] Send command: ping 192.168.1.1 -n 1
-2023-04-20 07:38:46.825:   [Cmd] Pinging 192.168.1.1 with 32 bytes of data:
-2023-04-20 07:38:46.825:   [Cmd] Request timed out.
-2023-04-20 07:38:46.825:   [Cmd] 
-2023-04-20 07:38:46.825:   [Cmd] Ping statistics for 192.168.1.1:
-2023-04-20 07:38:46.825:   [Cmd] Packets: Sent = 1, Received = 0, Lost = 1 (100% loss),
-2023-04-20 07:38:46.825:   [Cmd] ------------------------------------
-2023-04-20 07:38:46.826:   [Cmd] ------------------------------------ 29
-2023-04-20 07:38:46.826:   [Cmd] Send command: arp -d
-2023-04-20 07:38:46.857:   [Cmd] The ARP entry deletion failed: The requested operation requires elevation.
-2023-04-20 07:38:46.857:   [Cmd] Send command: ping 192.168.1.1 -n 1
-2023-04-20 07:38:50.821:   [Cmd] Pinging 192.168.1.1 with 32 bytes of data:
-2023-04-20 07:38:50.821:   [Cmd] Request timed out.
-2023-04-20 07:38:50.821:   [Cmd] 
-2023-04-20 07:38:50.821:   [Cmd] Ping statistics for 192.168.1.1:
-2023-04-20 07:38:50.822:   [Cmd] Packets: Sent = 1, Received = 0, Lost = 1 (100% loss),
-2023-04-20 07:38:50.822:   [Cmd] ------------------------------------
-2023-04-20 07:38:50.822:   [Cmd] ------------------------------------ 30
-2023-04-20 07:38:50.822:   [Cmd] Send command: arp -d
-2023-04-20 07:38:50.852:   [Cmd] The ARP entry deletion failed: The requested operation requires elevation.
-2023-04-20 07:38:50.853:   [Cmd] Send command: ping 192.168.1.1 -n 1
-2023-04-20 07:38:54.827:   [Cmd] Pinging 192.168.1.1 with 32 bytes of data:
-2023-04-20 07:38:54.827:   [Cmd] Request timed out.
-2023-04-20 07:38:54.828:   [Cmd] 
-2023-04-20 07:38:54.828:   [Cmd] Ping statistics for 192.168.1.1:
-2023-04-20 07:38:54.828:   [Cmd] Packets: Sent = 1, Received = 0, Lost = 1 (100% loss),
-2023-04-20 07:38:54.828:   [Cmd] ------------------------------------
-2023-04-20 07:38:54.828:   [PC] ping time: 120.014 S
-2023-04-20 07:38:54.828:   ****************************************************
-2023-04-20 07:38:54.828:   Item name = dut_ping_0
-2023-04-20 07:38:54.829:   Value = failed
-2023-04-20 07:38:54.829:   Test status = failed
-2023-04-20 07:38:54.829:   -----------------------------------------------------
-2023-04-20 07:38:54.829:   Error code = -1
-2023-04-20 07:38:54.829:   Error des = dut_ping_0
-2023-04-20 07:38:54.829:   Local error code = 10.1.0
-2023-04-20 07:38:54.829:   Local error des = dut_ping
-2023-04-20 07:38:54.829:   ****************************************************
-2023-04-20 07:38:54.829:   TIME[120.016 s] - STATUS[FAILED]
+2023-04-24 04:06:02.429:   ITEM[dut_ping_0] - FUNCTION[DutPingProxy]
+2023-04-24 04:06:02.429:   Turn: 1
+2023-04-24 04:06:02.429:   Get IP from the function config with key is "IP".
+2023-04-24 04:06:02.429:   IP: 192.168.1.1
+2023-04-24 04:06:02.429:   [PC] Ping to IP: 192.168.1.1 - 120 S
+2023-04-24 04:06:02.444:   [Cmd] ------------------------------------ 1
+2023-04-24 04:06:02.444:   [Cmd] Send command: arp -d
+2023-04-24 04:06:02.475:   [Cmd] The ARP entry deletion failed: The requested operation requires elevation.
+2023-04-24 04:06:02.475:   [Cmd] Send command: ping 192.168.1.1 -n 1
+2023-04-24 04:06:06.328:   [Cmd] Pinging 192.168.1.1 with 32 bytes of data:
+2023-04-24 04:06:06.328:   [Cmd] Request timed out.
+2023-04-24 04:06:06.328:   [Cmd] 
+2023-04-24 04:06:06.328:   [Cmd] Ping statistics for 192.168.1.1:
+2023-04-24 04:06:06.329:   [Cmd] Packets: Sent = 1, Received = 0, Lost = 1 (100% loss),
+2023-04-24 04:06:06.329:   [Cmd] ------------------------------------
+2023-04-24 04:06:06.329:   [Cmd] ------------------------------------ 2
+2023-04-24 04:06:06.329:   [Cmd] Send command: arp -d
+2023-04-24 04:06:06.361:   [Cmd] The ARP entry deletion failed: The requested operation requires elevation.
+2023-04-24 04:06:06.362:   [Cmd] Send command: ping 192.168.1.1 -n 1
+2023-04-24 04:06:10.334:   [Cmd] Pinging 192.168.1.1 with 32 bytes of data:
+2023-04-24 04:06:10.334:   [Cmd] Request timed out.
+2023-04-24 04:06:10.334:   [Cmd] 
+2023-04-24 04:06:10.335:   [Cmd] Ping statistics for 192.168.1.1:
+2023-04-24 04:06:10.335:   [Cmd] Packets: Sent = 1, Received = 0, Lost = 1 (100% loss),
+2023-04-24 04:06:10.335:   [Cmd] ------------------------------------
+2023-04-24 04:06:10.335:   [Cmd] ------------------------------------ 3
+2023-04-24 04:06:10.335:   [Cmd] Send command: arp -d
+2023-04-24 04:06:10.366:   [Cmd] The ARP entry deletion failed: The requested operation requires elevation.
+2023-04-24 04:06:10.367:   [Cmd] Send command: ping 192.168.1.1 -n 1
+2023-04-24 04:06:14.325:   [Cmd] Pinging 192.168.1.1 with 32 bytes of data:
+2023-04-24 04:06:14.325:   [Cmd] Request timed out.
+2023-04-24 04:06:14.325:   [Cmd] 
+2023-04-24 04:06:14.325:   [Cmd] Ping statistics for 192.168.1.1:
+2023-04-24 04:06:14.326:   [Cmd] Packets: Sent = 1, Received = 0, Lost = 1 (100% loss),
+2023-04-24 04:06:14.326:   [Cmd] ------------------------------------
+2023-04-24 04:06:14.326:   [Cmd] ------------------------------------ 4
+2023-04-24 04:06:14.326:   [Cmd] Send command: arp -d
+2023-04-24 04:06:14.358:   [Cmd] The ARP entry deletion failed: The requested operation requires elevation.
+2023-04-24 04:06:14.359:   [Cmd] Send command: ping 192.168.1.1 -n 1
+2023-04-24 04:06:18.317:   [Cmd] Pinging 192.168.1.1 with 32 bytes of data:
+2023-04-24 04:06:18.317:   [Cmd] Request timed out.
+2023-04-24 04:06:18.317:   [Cmd] 
+2023-04-24 04:06:18.317:   [Cmd] Ping statistics for 192.168.1.1:
+2023-04-24 04:06:18.317:   [Cmd] Packets: Sent = 1, Received = 0, Lost = 1 (100% loss),
+2023-04-24 04:06:18.317:   [Cmd] ------------------------------------
+2023-04-24 04:06:18.317:   [Cmd] ------------------------------------ 5
+2023-04-24 04:06:18.317:   [Cmd] Send command: arp -d
+2023-04-24 04:06:18.348:   [Cmd] The ARP entry deletion failed: The requested operation requires elevation.
+2023-04-24 04:06:18.348:   [Cmd] Send command: ping 192.168.1.1 -n 1
+2023-04-24 04:06:21.065:   This function will be stopped! Because it has timed out!
+2023-04-24 04:06:21.065:   Spec: 18 S
+2023-04-24 04:06:21.066:   Try to stop!!
+2023-04-24 04:06:21.066:   Time: 18.636 S
+2023-04-24 04:06:22.319:   [Cmd] ------------------------------------
+2023-04-24 04:06:22.319:   [PC] ping time: 19.875 S
+2023-04-24 04:06:22.319:   This function will be stopped! Because it has timed out!
+2023-04-24 04:06:22.319:   Spec: 18 S
+2023-04-24 04:06:22.319:   Try to stop!!
+2023-04-24 04:06:22.319:   Time: 19.890 S
+2023-04-24 04:06:24.334:   ****************************************************
+2023-04-24 04:06:24.334:   Item name = dut_ping_0
+2023-04-24 04:06:24.335:   Value = failed
+2023-04-24 04:06:24.335:   Test status = failed
+2023-04-24 04:06:24.335:   -----------------------------------------------------
+2023-04-24 04:06:24.336:   Error code = -1
+2023-04-24 04:06:24.336:   Error des = dut_ping_0
+2023-04-24 04:06:24.336:   Local error code = 10.1.1
+2023-04-24 04:06:24.336:   Local error des = dut_ping_cycle0
+2023-04-24 04:06:24.336:   ****************************************************
+2023-04-24 04:06:24.337:   TIME[21.908 s] - STATUS[FAILED]

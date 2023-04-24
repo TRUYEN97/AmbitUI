@@ -37,32 +37,46 @@ public class FuncAllConfig {
         } else {
             this.itemName = itemName;
         }
-        this.localErrorCode = findLocalErrorCode(uiStatus, getBaseItem(this.itemName));
+        this.localErrorCode = findLocalErrorCode(uiStatus, this.itemName);
         this.wareHouse.putAll(functionConfig.getJson());
-        getAllValueOfLimit(findLimit(getBaseItem(this.itemName)));
+        getAllValueOfLimit(findLimit(this.itemName));
     }
 
     private ErrorCodeElement findLocalErrorCode(UiStatus uiStatus, String itemName) {
         ErrorCodeSource codeSource = uiStatus.getModeTest().getModeTestSource().getErrorCodeSource();
-        if (codeSource == null || codeSource.getElement(itemName) == null) {
-            String mess = String.format("Missing error code of %s !!",
-                    this.itemName);
+        if (codeSource == null) {
+            String mess = "Missing error code file!!";
             JOptionPane.showMessageDialog(null, mess);
             ErrorLog.addError(this, mess);
             return null;
         }
-        return codeSource.getElement(itemName);
+        if (codeSource.getElement(itemName) != null) {
+            return codeSource.getElement(itemName);
+        }
+        String baseItemName = getBaseItem(itemName);
+        if (codeSource.getElement(baseItemName) != null) {
+            return codeSource.getElement(baseItemName);
+        }
+        String mess = String.format("Missing error code of %s!!",
+                baseItemName);
+        JOptionPane.showMessageDialog(null, mess);
+        ErrorLog.addError(this, mess);
+        return null;
     }
 
     private String getBaseItem(String itemName) {
-        if (itemName.matches(CHECK_BASE_ITEM) && findLimit(itemName) == null) {
+        if (itemName.matches(CHECK_BASE_ITEM)) {
             return itemName.substring(0, itemName.lastIndexOf("_"));
         }
         return itemName;
     }
 
     private LimitElement findLimit(String nameItem) {
-        return this.limit.getElement(nameItem);
+        LimitElement limitElement = this.limit.getElement(nameItem);
+        if (limitElement == null) {
+            return this.limit.getElement(getBaseItem(itemName));
+        }
+        return limitElement;
     }
 
     public JSONObject getLocalErrorCode(String type) {
