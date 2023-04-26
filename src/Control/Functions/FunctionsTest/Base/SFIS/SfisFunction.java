@@ -12,6 +12,9 @@ import SfisAPI17.SfisAPI;
 import com.alibaba.fastjson.JSONObject;
 import DHCP.DhcpData;
 import Model.DataTest.FunctionParameters;
+import MyLoger.MyLoger;
+import Time.TimeBase;
+import java.io.File;
 import java.util.List;
 
 /**
@@ -24,6 +27,7 @@ public class SfisFunction extends AbsFunction {
     private static final String DATA_FORMAT = "DATA_FORMAT";
     private static final String SEND_FORMAT = "SEND_FORMAT";
     private static final String SEND_FORMAT_FAIL = "SEND_FORMAT_FAIL";
+    private static final MyLoger sfisLog = new MyLoger();
 
     public SfisFunction(FunctionParameters functionName) {
         this(functionName, null);
@@ -34,30 +38,43 @@ public class SfisFunction extends AbsFunction {
         this.sfisAPI = new SfisAPI();
     }
 
+    private synchronized static void writeLog(String location, String log, Object... param) throws Exception {
+        sfisLog.setFile(new File(String.format("../sfislog/%s.txt", new TimeBase().getDate())));
+        sfisLog.setSaveMemory(true);
+        sfisLog.addLog(location, log, param);
+    }
+
     @Override
     public boolean test() {
-        String url = this.config.getString("URL");
-        String type = this.config.getString("SFIS_TYPE");
-        if (url == null || url.isBlank()) {
-            addLog("URL_CHECK_SN is null or emtpty!");
+        try {
+            String url = this.config.getString("URL");
+            String type = this.config.getString("SFIS_TYPE");
+            if (url == null || url.isBlank()) {
+                addLog("URL_CHECK_SN is null or emtpty!");
+                return false;
+            }
+            if (type == null || type.isBlank()) {
+                addLog("Check SN....");
+            } else {
+                addLog("Send test result to sfis");
+            }
+            addLog("send to url: " + url);
+            String command = getCommand(type);
+            if (command == null) {
+                return false;
+            }
+            writeLog("TE->API", String.format("%s %s",this.uIInfo.getName(), command));
+            String response = this.sfisAPI.sendToSFIS(url, command);
+            writeLog("API->TE",String.format("%s %s",this.uIInfo.getName(), response));
+            addLog("Response is: " + response);
+            if (type == null) {
+                return checkResponse(response);
+            } else {
+                return checkFinalResponse(response);
+            }
+        } catch (Exception e) {
+            addLog(LOG_KEYS.ERROR, e.getMessage());
             return false;
-        }
-        if (type == null || type.isBlank()) {
-            addLog("Check SN....");
-        } else {
-            addLog("Send test result to sfis");
-        }
-        addLog("send to url: " + url);
-        String command = getCommand(type);
-        if (command == null) {
-            return false;
-        }
-        String response = this.sfisAPI.sendToSFIS(url, command);
-        addLog("Response is: " + response);
-        if (type == null) {
-            return checkResponse(response);
-        } else {
-            return checkFinalResponse(response);
         }
     }
 

@@ -1,4 +1,0 @@
-2023-04-24 04:16:35.271:   error in Control.Functions.FunctionsTest.Runin.PowerSwitch.PowerSwitchFunc : sleep interrupted
-2023-04-24 04:16:35.271:   //////////////////////////////////////
-2023-04-24 04:16:57.594:   error in Control.Functions.FunctionsTest.Runin.PowerSwitch.PowerSwitchFunc : sleep interrupted
-2023-04-24 04:16:57.594:   //////////////////////////////////////
