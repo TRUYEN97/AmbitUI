@@ -91,13 +91,13 @@ public class Engine {
     }
 
     private boolean initProgramInfo() {
-        this.programInfo.setVersion("V1.5.4.0");
-        String uutmodel = this.setting.getUutMolel();
-        if (uutmodel == null || uutmodel.isBlank()) {
-            JOptionPane.showMessageDialog(null, "Not set UUT model!");
+        this.programInfo.setVersion("V1.5.4.25");
+        String Dutmodel = this.setting.getDutMolel();
+        if (Dutmodel == null || Dutmodel.isBlank()) {
+            JOptionPane.showMessageDialog(null, "Not set DUT model!");
             return false;
         }
-        this.programInfo.setUutModel(uutmodel);
+        this.programInfo.setDutModel(Dutmodel);
         return true;
     }
 }

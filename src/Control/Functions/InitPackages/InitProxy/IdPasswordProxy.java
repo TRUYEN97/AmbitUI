@@ -4,7 +4,6 @@
  */
 package Control.Functions.InitPackages.InitProxy;
 
-import Control.Functions.InitPackages.idPassWord;
 import Model.Factory.AbsProxy;
 import Model.Interface.IFunction;
 
@@ -19,7 +18,7 @@ public class IdPasswordProxy extends AbsProxy<String, IFunction>{
 
     @Override
     public IFunction takeIt() {
-        return new idPassWord("1", "1");
+        return new IdPassWord("1", "1","Login");
     }
     
 }

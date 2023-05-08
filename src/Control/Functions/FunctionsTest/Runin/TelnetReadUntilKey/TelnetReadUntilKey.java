@@ -11,6 +11,7 @@ import Model.ErrorLog;
 import Time.WaitTime.Class.TimeS;
 import Communicate.Impl.Telnet.Telnet;
 import Model.DataTest.FunctionParameters;
+import java.io.IOException;
 import java.util.List;
 
 /**
@@ -65,9 +66,14 @@ public class TelnetReadUntilKey extends AbsFunction {
             return false;
         }
         for (String command : commands) {
-            addLog("Config", "Waiting for about" + time + " s");
+            addLog("Config", "Waiting for about %s s", time);
             if (!this.baseFunc.sendCommand(telnet, command)
                     || !this.analysisBase.isResponseContainKeyAndShow(telnet, spec, readUntil, new TimeS(time))) {
+                try ( Telnet a = this.baseFunc.getTelnet(telnet.getHost(), 23)) {
+                   
+                } catch (IOException ex) {
+                    addLog(LOG_KEYS.ERROR, ex.getMessage());
+                }
                 return false;
             }
         }

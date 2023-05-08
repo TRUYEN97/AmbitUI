@@ -1,10 +1,10 @@
 {
-    "uutModel": "Jupiter",
+    "dutModel": "Jupiter",
     "station_type": "RUNIN",
     "row": 9,
     "column": 8,
     "loop_test": 1,
-    "progress": "EVT",
+    "progress": "DVT",
     "name_app": "RUNIN",
     "type_ui": "SmallUIProxy",
     "local_log": "Log\\TestLog",
@@ -23,9 +23,27 @@
         {
             "name": "Debug - golden", 
             "type_mode": "debug",
-            "test_color": "FFCCCC",
+            //"test_color": "FFCCCC",
             "debug_able": true,
-            "ambit_config": "Item\\Runin_jupiter_debug.json"
+            "ambit_config": "Item\\Runin_jupiter_debug_golden.json"
+        },
+        {
+            "name": "Debug-golden-API", 
+            "type_mode": "debug",
+            "debug_able": true,
+            "ambit_config": "Item\\Runin_jupiter_debug_golden.json"
+        },
+        {
+            "name": "Debug-SFIS", 
+            "type_mode": "debug",
+            "debug_able": true,
+            "ambit_config": "Item\\Runin_jupiter_debug_sfis.json"
+        },
+        {
+            "name": "Debug-SFIS-API", 
+            "type_mode": "debug",
+            "debug_able": true,
+            "ambit_config": "Item\\Runin_jupiter_debug_sfis_api.json"
         }
     ],
     "dhcp": {

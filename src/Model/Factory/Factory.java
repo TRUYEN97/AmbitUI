@@ -7,6 +7,7 @@ package Model.Factory;
 import Control.Functions.AbsFunction;
 import Control.Functions.FunctionsTest.Base.CheckDutInfo.CheckDutInfoProxy;
 import Control.Functions.FunctionsTest.Base.CheckProduct.CheckProductProxy;
+import Control.Functions.FunctionsTest.Base.CheckTestConditions.CheckTestConditionsProxy;
 import Control.Functions.FunctionsTest.Base.CheckUpdate.CheckUpdateProxy;
 import Control.Functions.FunctionsTest.Base.CountPassFailed.CountPassFailedProxy;
 import Control.Functions.FunctionsTest.Base.CreatePath.CreatePathProxy;
@@ -166,5 +167,6 @@ public class Factory {
         this.functions.addType(new ReadComportUntilStopItemProxy());
         this.functions.addType(new BootSetupProxy());
         this.functions.addType(new CountPassFailedProxy());
+        this.functions.addType(new CheckTestConditionsProxy());
     }
 }

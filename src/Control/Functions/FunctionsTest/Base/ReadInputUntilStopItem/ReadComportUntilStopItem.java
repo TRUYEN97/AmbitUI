@@ -12,8 +12,6 @@ import Model.DataTest.FunctionParameters;
 import java.util.concurrent.ExecutorService;
 import java.util.concurrent.Executors;
 import java.util.concurrent.Future;
-import java.util.logging.Level;
-import java.util.logging.Logger;
 
 /**
  *
@@ -50,29 +48,39 @@ public class ReadComportUntilStopItem extends AbsFunction {
             if (itemTarget == null) {
                 return false;
             }
-            stopReadComport();
+            stopThreadpoolFuture();
             this.future = this.executorService.submit(() -> {
-                while (true) {
-                    addLog(LOG_KEYS.COMPORT, comport.readLine());
+                while (comport.isConnect()) {
+                    String data = comport.readLine();
+                    if (data == null) {
+                        continue;
+                    }
+                    addLog(LOG_KEYS.COMPORT, data);
                 }
             });
-            while (true) {
+            while (comport.isConnect()) {
                 ItemTestData target;
                 target = processData.getItemTestData(itemTarget);
                 if (target != null) {
-                    stopReadComport();
-                    break;
+                    stopThreadpoolFuture();
+                    return true;
+                }
+                try {
+                    Thread.sleep(1000);
+                } catch (InterruptedException e) {
                 }
             }
-            
-            return true;
+            addLog(LOG_KEYS.ERROR, "COM disconnected!");
+            return false;
         } catch (Exception e) {
             e.printStackTrace();
             return false;
+        } finally {
+            this.executorService.shutdown();
         }
     }
 
-    private void stopReadComport() {
+    private void stopThreadpoolFuture() {
         while (this.future != null && !this.future.isDone()) {
             this.future.cancel(true);
             try {

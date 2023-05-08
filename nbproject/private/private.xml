@@ -6,15 +6,6 @@
         <group name="copyLogFtp">
             <file>file:/D:/Ambit-module/AmbitUI/src/Control/Functions/FunctionsTest/Base/FixtureActions/FixtureAction.java</file>
         </group>
-        <group name="AmbitUI">
-            <file>file:/D:/Ambit-module/AmbitUI/src/Model/DataTest/FunctionData/ItemTestData.java</file>
-            <file>file:/D:/Ambit-module/AmbitUI/src/Control/Functions/FunctionsTest/Base/SFIS/SfisFunction.java</file>
-            <file>file:/D:/Ambit-module/AmbitUI/src/Control/Core/Engine.java</file>
-            <file>file:/D:/Ambit-module/AmbitUI/src/Control/Functions/FunctionsTest/Runin/MMC_WR_SPEED/MMC_WR_SPEED.java</file>
-            <file>file:/D:/Ambit-module/AmbitUI/Setting/setting.json</file>
-            <file>file:/D:/Ambit-module/AmbitUI/Item/Runin_onoff.json</file>
-            <file>file:/D:/Ambit-module/AmbitUI/src/Model/DataSource/ModeTest/FunctionConfig/FuncAllConfig.java</file>
-            <file>file:/D:/Ambit-module/AmbitUI/src/Model/DataSource/ModeTest/ModeTestSource.java</file>
-        </group>
+        <group name="AmbitUI"/>
     </open-files>
 </project-private>

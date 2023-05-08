@@ -34,9 +34,9 @@ public class RebootSoft extends AbsFunction {
             return false;
         }
         int times = this.config.getInteger("times", 1);
-        addLog("Config", "Run test %s times",times);
+        addLog("Config", "Run test %s times", times);
         for (int i = 0; i < times; i++) {
-            addLog(LOG_KEYS.PC, "Times: %s", i+1);
+            addLog(LOG_KEYS.PC, "Times: %s", i + 1);
             if (!cycleReboot(ip)) {
                 return false;
             }
@@ -45,15 +45,18 @@ public class RebootSoft extends AbsFunction {
     }
 
     private boolean cycleReboot(String ip) {
+        String cmd = this.config.getString("command", "reboot");
+        addLog(LOG_KEYS.CONFIG, "command: %s",cmd);
         int waitShutdownTime = this.config.getInteger("waitTime", 10);
-        addLog("CONFIG", "Wait for DUT to shut down: %s S", waitShutdownTime);
+        addLog(LOG_KEYS.CONFIG, "Wait for DUT to shut down: %s S", waitShutdownTime);
         int pingTime = this.config.getInteger("pingTimes", 120);
-        addLog("CONFIG", "Ping times: %s", pingTime);
+        addLog(LOG_KEYS.CONFIG, "Ping time: %s", pingTime);
         try {
-            return this.functionBase.rebootSoft(ip, waitShutdownTime, pingTime);
+            return this.functionBase.rebootSoft(ip, cmd, waitShutdownTime, pingTime);
         } catch (Exception e) {
             e.printStackTrace();
             ErrorLog.addError(this, e.getLocalizedMessage());
+            addLog(LOG_KEYS.ERROR, e.getLocalizedMessage());
             return false;
         }
     }

@@ -32,7 +32,7 @@ public class GoldenFile extends AbsFunction {
             return false;
         }
         String snInput = this.processData.getString(AllKeyWord.SFIS.SN);
-        addLog("PC", "Input: " + snInput);
+        addLog("PC", "Input: %s" , snInput);
         if (!findSNInGoldenFile(goldenFile, snInput)) {
             return false;
         }
@@ -48,8 +48,11 @@ public class GoldenFile extends AbsFunction {
 
     private boolean putMacDHCP() {
         String mac = this.processData.getString(AllKeyWord.SFIS.MAC);
+        int id = uIInfo.getID();
+        addLog("PC", "MAC: %s" , mac);
+        addLog("PC", "id: %s" , id);
         if (mac == null || mac.isBlank()
-                || !DhcpData.getInstance().put(mac, uIInfo.getID())) {
+                || !DhcpData.getInstance().put(mac, id)) {
             return false;
         }
         addLog("PC","add ethernetmac: %s -- Ip: %s to DHCP data",

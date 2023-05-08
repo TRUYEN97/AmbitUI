@@ -60,6 +60,10 @@ class Process implements IFunction {
         this.localdebug = localdebug;
     }
 
+    public boolean isLocaldebug() {
+        return localdebug;
+    }
+    
     public void setListFunc(List<FunctionName> functions) {
         this.functions.clear();
         this.functions.addAll(functions);

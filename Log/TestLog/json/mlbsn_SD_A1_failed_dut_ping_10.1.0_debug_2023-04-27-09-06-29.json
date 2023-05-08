@@ -1,0 +1,64 @@
+{
+"station_name":"RUNIN-7586",
+"mo":"",
+"finish_time":"2023-04-27 09:06:29",
+"mode":"debug",
+"start_time":"2023-04-27 09:06:26",
+"tests":[
+{
+"start_time":"2023-04-27 09:06:26",
+"lower_limit":"",
+"cycle_time":"0.003",
+"upper_limit":"",
+"error_code":"",
+"units":"",
+"errorDes":"",
+"test_name":"CheckTestConditions",
+"finish_time":"2023-04-27 09:06:26",
+"errorcode":"",
+"test_value":"passed",
+"status":"passed"
+},
+
+{
+"start_time":"2023-04-27 09:06:26",
+"lower_limit":"",
+"cycle_time":"3.672",
+"upper_limit":"",
+"error_code":"10.1.0",
+"units":"",
+"errorDes":"dut_ping",
+"test_name":"dut_ping",
+"finish_time":"2023-04-27 09:06:29",
+"errorcode":"10.1.0",
+"test_value":"failed",
+"status":"failed"
+},
+
+{
+"start_time":"2023-04-27 09:06:29",
+"lower_limit":"",
+"cycle_time":"1.151",
+"upper_limit":"",
+"error_code":"API01",
+"units":"",
+"errorDes":"UpAPI",
+"test_name":"UpAPI",
+"finish_time":"2023-04-27 09:06:31",
+"errorcode":"API01",
+"test_value":"failed",
+"status":"failed"
+}
+],
+"error_details":"dut_ping",
+"serial":"",
+"cycle_time":"3.703",
+"error_code":"10.1.0",
+"position":"A1",
+"station_type":"RUNIN",
+"errorDes":"dut_ping",
+"cyctime_final":"4.876",
+"errorcode":"10.1.0",
+"status":"failed",
+"test_software_version":"V1.5.4.2"
+}

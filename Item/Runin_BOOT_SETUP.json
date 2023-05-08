@@ -123,7 +123,7 @@
             "Port": 21,
             "followLimit": false,
             "limitErrorCode": true,
-            "BaseKeys": ["mo", "error_details", "status", "finish_time",
+            "BaseKeys": ["mlbsn", "sn","mo", "error_details", "status", "finish_time",
                 "test_software_version", "start_time", "station_type",
                 "error_code", "errorcode", "errorDes", "serial", "mode", "station_name", "position", "cycle_time", "cyctime_final"],
             "TestKeys": ["upper_limit", "lower_limit", "status", "finish_time", "test_name",

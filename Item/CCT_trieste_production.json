@@ -24,7 +24,8 @@
             "URL": "http://10.90.100.20/sfcapi/api/connect",
             "test_name": "gen_node",
             "func_name": "SfisFunctionProxy"
-        },{
+        }, 
+        {
             "flag": true,
             "multi": false,
             "always_run": false,
@@ -33,12 +34,26 @@
                 {
                     "key": "pnname",
                     "target": "810-01100",
-                    "messenger": "Sản phẩm này không phải là hàng 810-01100"
+                    "type": "equal",
+                    "message": "Sản phẩm không phải là: 810-01100!"
                 },
                 {
                     "key": "smode",
                     "target": "Production",
-                    "messenger": "Sản phẩm này không phải là hàng MP"
+                    "type": "equal",
+                    "message": "Sản phẩm không phải là hàng Production!"
+                },
+                {
+                    "key": "mlbsn",
+                    "target": "GGB1",
+                    "type": "start_with",
+                    "message": "SN của sản phẩm không phải là hàng Trieste!"
+                },
+                {
+                    "key": "ethernetmac",
+                    "target": "0",
+                    "type": "end_with",
+                    "message": "MAC từ SFIS cần phải kết thúc bằng số 0!"
                 }
             ],
             "test_name": "CheckProduct",
@@ -89,7 +104,7 @@
         }
     ],
     "final": [
-       {
+        {
             "flag": true,
             "time_out": 100,
             "always_run": true,
@@ -100,7 +115,7 @@
             "Port": 21,
             "followLimit": false,
             "limitErrorCode": false,
-            "BaseKeys": ["mo", "error_details", "status", "finish_time",
+            "BaseKeys": ["mlbsn", "sn","mo", "error_details", "status", "finish_time",
                 "test_software_version", "start_time", "station_type",
                 "error_code", "errorcode", "errorDes", "serial", "mode", "station_name", "position", "cycle_time", "cyctime_final"],
             "TestKeys": ["upper_limit", "lower_limit", "status", "finish_time", "test_name",

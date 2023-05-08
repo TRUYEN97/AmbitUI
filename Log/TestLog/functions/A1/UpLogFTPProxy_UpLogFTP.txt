@@ -1,0 +1,63 @@
+2023-04-27 09:06:31.007:   ITEM[UpLogFTP] - FUNCTION[UpLogFTPProxy]
+2023-04-27 09:06:31.008:   Turn: 1
+2023-04-27 09:06:31.008:   [CONFIG] Dir elements: [data/Jupiter, pnname, station_type, mode, start_day, station_name, status]
+2023-04-27 09:06:31.008:   [CONFIG] Name elements: [Log/TestLog]
+2023-04-27 09:06:31.008:   [CONFIG] Name elements: [mlbsn, sn, position, status, error_details, errorcode, mode, finish_time]
+2023-04-27 09:06:31.009:   [CONFIG] Follow limit: false
+2023-04-27 09:06:31.009:   [CONFIG] Use the limit errorcode: false
+2023-04-27 09:06:31.009:   [PC] Root: mo = null
+2023-04-27 09:06:31.009:   [PC] -----------------------------------------
+2023-04-27 09:06:31.009:   [PC] Root: error_details = dut_ping
+2023-04-27 09:06:31.009:   [PC] -----------------------------------------
+2023-04-27 09:06:31.009:   [PC] Root: status = failed
+2023-04-27 09:06:31.009:   [PC] -----------------------------------------
+2023-04-27 09:06:31.009:   [PC] Root: finish_time = 2023-04-27 09:06:29
+2023-04-27 09:06:31.009:   [PC] -----------------------------------------
+2023-04-27 09:06:31.010:   [PC] Root: test_software_version = V1.5.4.2
+2023-04-27 09:06:31.010:   [PC] -----------------------------------------
+2023-04-27 09:06:31.010:   [PC] Root: start_time = 2023-04-27 09:06:26
+2023-04-27 09:06:31.010:   [PC] -----------------------------------------
+2023-04-27 09:06:31.010:   [PC] Root: station_type = RUNIN
+2023-04-27 09:06:31.010:   [PC] -----------------------------------------
+2023-04-27 09:06:31.010:   [PC] Root: error_code = 10.1.0
+2023-04-27 09:06:31.010:   [PC] -----------------------------------------
+2023-04-27 09:06:31.010:   [PC] Root: errorcode = 10.1.0
+2023-04-27 09:06:31.010:   [PC] -----------------------------------------
+2023-04-27 09:06:31.011:   [PC] Root: errorDes = dut_ping
+2023-04-27 09:06:31.011:   [PC] -----------------------------------------
+2023-04-27 09:06:31.011:   [PC] Root: serial = null
+2023-04-27 09:06:31.011:   [PC] -----------------------------------------
+2023-04-27 09:06:31.011:   [PC] Root: mode = debug
+2023-04-27 09:06:31.011:   [PC] -----------------------------------------
+2023-04-27 09:06:31.011:   [PC] Root: station_name = RUNIN-7586
+2023-04-27 09:06:31.011:   [PC] -----------------------------------------
+2023-04-27 09:06:31.011:   [PC] Root: position = A1
+2023-04-27 09:06:31.011:   [PC] -----------------------------------------
+2023-04-27 09:06:31.011:   [PC] Root: cycle_time = 3.703
+2023-04-27 09:06:31.012:   [PC] -----------------------------------------
+2023-04-27 09:06:31.012:   [PC] Root: cyctime_final = 4.876
+2023-04-27 09:06:31.012:   [PC] -----------------------------------------
+2023-04-27 09:06:31.012:   [PC] Item name: CheckTestConditions
+2023-04-27 09:06:31.012:   [PC] ItemTest: CheckTestConditions = {"start_time":"2023-04-27 09:06:26","lower_limit":"","cycle_time":"0.003","upper_limit":"","error_code":"","units":"","errorDes":"","test_name":"CheckTestConditions","finish_time":"2023-04-27 09:06:26","errorcode":"","test_value":"passed","status":"passed"}
+2023-04-27 09:06:31.012:   [PC] Item name: dut_ping
+2023-04-27 09:06:31.012:   [PC] ItemTest: dut_ping = {"start_time":"2023-04-27 09:06:26","lower_limit":"","cycle_time":"3.672","upper_limit":"","error_code":"10.1.0","units":"","errorDes":"dut_ping","test_name":"dut_ping","finish_time":"2023-04-27 09:06:29","errorcode":"10.1.0","test_value":"failed","status":"failed"}
+2023-04-27 09:06:31.012:   [PC] Item name: UpAPI
+2023-04-27 09:06:31.013:   [PC] ItemTest: UpAPI = {"start_time":"2023-04-27 09:06:29","lower_limit":"","cycle_time":"1.151","upper_limit":"","error_code":"API01","units":"","errorDes":"UpAPI","test_name":"UpAPI","finish_time":"2023-04-27 09:06:31","errorcode":"API01","test_value":"failed","status":"failed"}
+2023-04-27 09:06:31.013:   [PC] Format for json data!
+2023-04-27 09:06:31.013:   [PC] Save data in: Log/TestLog/json/mlbsn_SD_A1_failed_dut_ping_10.1.0_debug_2023-04-27-09-06-29.json ok
+2023-04-27 09:06:31.013:   [PC] Connect to ftp!!
+2023-04-27 09:06:31.014:   [Config] User: oper
+2023-04-27 09:06:31.014:   [Config] PassWord: mfg-oper
+2023-04-27 09:06:31.014:   [Config] Host: 10.90.10.168
+2023-04-27 09:06:31.014:   [Config] Port: 21
+2023-04-27 09:06:52.094:   ****************************************************
+2023-04-27 09:06:52.094:   Item name = UpLogFTP
+2023-04-27 09:06:52.094:   Value = failed
+2023-04-27 09:06:52.095:   Test status = failed
+2023-04-27 09:06:52.095:   -----------------------------------------------------
+2023-04-27 09:06:52.095:   Error code = -1
+2023-04-27 09:06:52.095:   Error des = UpLogFTP
+2023-04-27 09:06:52.095:   Local error code = UP.FTP.LOG
+2023-04-27 09:06:52.096:   Local error des = UpLogFTP
+2023-04-27 09:06:52.096:   ****************************************************
+2023-04-27 09:06:52.096:   TIME[21.088 s] - STATUS[FAILED]

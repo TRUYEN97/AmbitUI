@@ -16,7 +16,6 @@ public class UiInformartion {
 
     private final DataWareHouse dataWareHouse;
     private final ProgramInformation pcInformation;
-    private boolean readyStatus;
 
     public UiInformartion(String name, int COLUMN, int ROW, int ID) {
         this.dataWareHouse = new DataWareHouse();
@@ -24,20 +23,11 @@ public class UiInformartion {
         this.dataWareHouse.put(AllKeyWord.SFIS.PC_NAME, this.pcInformation.getPcName());
         this.dataWareHouse.put(AllKeyWord.STATION_NAME, this.pcInformation.getPcName());
         this.dataWareHouse.put(AllKeyWord.VERSION, pcInformation.getVersion());
-        this.dataWareHouse.put(AllKeyWord.CONFIG.UUT_MODEL, pcInformation.getUutModel());
+        this.dataWareHouse.put(AllKeyWord.CONFIG.DUT_MODEL, pcInformation.getDutModel());
         this.dataWareHouse.put(AllKeyWord.POSITION, name);
         this.dataWareHouse.put(AllKeyWord.COLUMN, COLUMN);
         this.dataWareHouse.put(AllKeyWord.ROW, ROW);
         this.dataWareHouse.put(AllKeyWord.UI_ID, ID);
-        this.readyStatus = true;
-    }
-
-    public boolean isReadyStatus() {
-        return readyStatus;
-    }
-
-    public void setReadyStatus(boolean readyStatus) {
-        this.readyStatus = readyStatus;
     }
     
     public void setStationType(String station){
@@ -64,10 +54,33 @@ public class UiInformartion {
         return getInteger(AllKeyWord.TEST_COUNT, 0);
     }
     
+    public int getTestFailed() {
+        return getInteger(AllKeyWord.TEST_F_COUNT, 0);
+    }
+    
+    public int getTestFailedConsecutive() {
+        return getInteger(AllKeyWord.TEST_FC_COUNT, 0);
+    }
+    
+    public void resetFailedConsecutive() {
+        this.dataWareHouse.put(AllKeyWord.TEST_FC_COUNT,0);
+    }
+    
     public int addTestCount() {
-        this.readyStatus = false;
-        int count = getTestCount()+1;
-        this.dataWareHouse.put(AllKeyWord.TEST_COUNT,count);
+        return addOne(AllKeyWord.TEST_COUNT);
+    }
+    
+    public int addTestFailCount() {
+        return addOne(AllKeyWord.TEST_F_COUNT);
+    }
+    
+    public int addTestFailConsecutiveCount() {
+        return addOne(AllKeyWord.TEST_FC_COUNT);
+    }
+
+    private int addOne(String key) {
+        int count = getInteger(key, 0)+1;
+        this.dataWareHouse.put(key,count);
         return count;
     }
 

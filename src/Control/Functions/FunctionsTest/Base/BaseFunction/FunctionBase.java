@@ -75,19 +75,20 @@ public class FunctionBase extends AbsFunction {
         addLog("PC", "Connect to ip: %s", ip);
         addLog("PC", "Port is: %s", port);
         telnet.setDebug(true);
-        if (!pingTo(ip, 180)) {
+        if (!pingTo(ip, 120)) {
             addLog("PC", "Ping to \"%s\" failed!", ip);
+            addLog("PC", "Telnet to IP: \"%s\" - Port: %s failed!", ip, port);
             return null;
         }
         if (!telnet.connect(ip, port)) {
-            addLog("PC", "Connect to telnet with IP: \"%s\" failed!", ip);
+            addLog("PC", "Telnet to IP: \"%s\" - Port: %s failed!", ip, port);
             return null;
         }
-        addLog("PC", "Connect to telnet with IP: \"%s\" ok!", ip);
+        addLog("PC", "Telnet to IP: \"%s\" - Port: %s ok!", ip, port);
         String response = telnet.readUntil(new TimeS(10), readUntil);
         addLog("Telnet", response);
         if (response == null) {
-            addLog("PC", "");
+            addLog("PC", "Telnet did not respond!");
             return null;
         }
         return telnet;
@@ -107,7 +108,7 @@ public class FunctionBase extends AbsFunction {
         addLog("Get IP from the function config with key is \"IP\".");
         return config.getString("IP");
     }
-    
+
     public String getComportName() {
         Integer com = this.config.getInteger("comport");
         if (this.modeTest.isUseDHCP()) {
@@ -132,13 +133,12 @@ public class FunctionBase extends AbsFunction {
         return comPort;
     }
 
-    public boolean rebootSoft(String ip, int waitTime, int pingTime) throws IOException {
+    public boolean rebootSoft(String ip, String cmd, int waitTime, int pingTime) throws IOException {
         try ( Telnet telnet = getTelnet(ip, 23)) {
             if (telnet == null) {
                 return false;
             }
-            if (!sendCommand(telnet, "reboot")) {
-                addLog("Telnet", "send command reboot failed!");
+            if (!sendCommand(telnet, cmd == null ? "reboot" : cmd)) {
                 return false;
             }
             addLog("Telnet", telnet.readAll(new TimeS(20)));

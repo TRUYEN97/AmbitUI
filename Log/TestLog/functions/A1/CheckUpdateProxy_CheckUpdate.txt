@@ -1,0 +1,7 @@
+2023-04-27 08:44:26.577:   ITEM[CheckUpdate] - FUNCTION[CheckUpdateProxy]
+2023-04-27 08:44:26.578:   Turn: 1
+2023-04-27 08:44:26.578:   [PC] Connect to ftp!!
+2023-04-27 08:44:26.578:   [Config] User: config
+2023-04-27 08:44:26.579:   [Config] PassWord: eero
+2023-04-27 08:44:26.579:   [Config] Host: 10.90.100.168
+2023-04-27 08:44:26.579:   [Config] Port: 21

@@ -7,6 +7,7 @@ package Control.Core.RunTest;
 import Model.DataSource.ModeTest.FunctionConfig.FunctionName;
 import Model.DataSource.Tool.TestTimer;
 import Model.DataTest.ProcessTest.ProcessData;
+import Model.DataTest.UiInformartion;
 import Model.ManagerUI.UIStatus.UiStatus;
 import View.subUI.SubUI.AbsSubUi;
 import java.util.ArrayList;
@@ -23,6 +24,7 @@ public class Runner implements Runnable {
     private final List<FunctionName> endFunctions;
     private final List<FunctionName> finalFunctions;
     private final ProcessData processData;
+    private final UiInformartion uiInformartion;
     private final Process process;
     private final AbsSubUi subUi;
     private final TestTimer testTimer;
@@ -37,6 +39,7 @@ public class Runner implements Runnable {
         this.processData = uiStatus.getProcessData();
         this.process = new Process(uiStatus);
         this.subUi = uiStatus.getSubUi();
+        this.uiInformartion = uiStatus.getInfo();
         this.testTimer = testTimer;
         this.loopTest = 1;
         this.isStop = false;
@@ -110,9 +113,23 @@ public class Runner implements Runnable {
                     processData.setFinishTimeFinal();
                 }
                 runFunctions(finalFunctions);
+                checkStatusTestCount();
             }
         }
         end();
+    }
+
+    private void checkStatusTestCount() {
+        if (this.process.isLocaldebug()) {
+            return;
+        }
+        this.uiInformartion.addTestCount();
+        if (this.processData.isPass()) {
+            this.uiInformartion.resetFailedConsecutive();
+        } else {
+            this.uiInformartion.addTestFailConsecutiveCount();
+            this.uiInformartion.addTestFailCount();
+        }
     }
 
     public void stopTest(String mess) {

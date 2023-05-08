@@ -73,11 +73,19 @@ public class AnalysisBase extends AbsFunction {
             }
             return value;
         } finally {
-            addLog("CONFIG", "Start key: \"%s\"", startkey);
-            addLog("CONFIG", "End key: \"%s\"", endkey);
-            addLog("CONFIG", "Regex: \"%s\"", regex);
-            addLog("CONFIG", "Time: \"%.3f/%.3f (S)\"", time != null ? time.getTime() : null, time != null ? time.getSpec() : null);
+            if (startkey != null) {
+                addLog("CONFIG", "Start key: \"%s\"", startkey);
+            }
+            if (endkey != null) {
+                addLog("CONFIG", "End key: \"%s\"", endkey);
+            }
+            if (regex != null) {
+                addLog("CONFIG", "Regex: \"%s\"", regex);
+            }
             addLog("PC", "Value: \"%s\"", value);
+            if (time != null) {
+                addLog("PC", "Time: \"%.3f/%.3f (S)\"", time.getTime(), time.getSpec());
+            }
         }
 
     }
@@ -162,7 +170,6 @@ public class AnalysisBase extends AbsFunction {
         addLog("Telnet", response);
         return response;
     }
-    
 
     public boolean contains(String response, List<String> specs) {
         if (response == null) {
@@ -195,7 +202,7 @@ public class AnalysisBase extends AbsFunction {
         time.update();
         while (time.onTime()) {
             String line = readable.readUntil(time, "\n", readUntil);
-            addLog(readableName, line);
+            addLog(readableName, line == null ? "" : line);
             respose.append(line).append("\r\n");
             if (line != null && line.contains(readUntil)) {
                 break;

@@ -88,7 +88,11 @@ public class Setting extends AbsJsonSource<String, ModeElement> implements IInit
         return this.readFile.getData().getString(AllKeyWord.LIMIT_PATH);
     }
 
-    public String getUutMolel() {
-        return this.readFile.getData().getString(AllKeyWord.CONFIG.UUT_MODEL);
+    public String getDutMolel() {
+        String dutModel = this.readFile.getData().getString(AllKeyWord.CONFIG.DUT_MODEL);
+        if (dutModel == null) {
+            return this.readFile.getData().getString(AllKeyWord.CONFIG.UUT_MODEL);
+        }
+        return dutModel;
     }
 }

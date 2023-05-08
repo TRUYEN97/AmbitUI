@@ -10,7 +10,8 @@
             "URL": "http://10.90.0.40/sfcapi/api/connect",
             "test_name": "gen_node",
             "func_name": "SfisFunctionProxy"
-        },{
+        },
+        {
             "flag": true,
             "multi": false,
             "always_run": false,
@@ -19,13 +20,25 @@
                 {
                     "key": "pnname",
                     "target": "810-00900",
-                    "messenger": "Sản phẩm này không phải là hàng 810-00900"
+                    "type": "equal",
+                    "message": "Sản phẩm không phải là: 810-00900!"
                 },
                 {
                     "key": "smode",
                     "target": "Production",
-                    "messenger": "Sản phẩm này không phải là hàng MP"
+                    "type": "equal",
+                    "message": "Sản phẩm không phải là hàng Production!"
+                },
+                {
+                    "key": "ethernetmac",
+                    "target": "0",
+                    "type": "end_with",
+                    "message": "MAC từ SFIS cần phải kết thúc bằng số 0!"
                 }
+            ],
+            "test_name": "CheckProduct",
+            "func_name": "CheckProductProxy"
+        }
 
     ],
     "functions": [

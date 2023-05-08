@@ -29,17 +29,31 @@
             "flag": true,
             "multi": false,
             "always_run": false,
-            "time_out": 100,
+            "time_out": 10,
             "elems": [
                 {
                     "key": "pnname",
                     "target": "810-01100",
-                    "messenger": "Sản phẩm không phải là: 810-01100"
+                    "type": "equal",
+                    "message": "Sản phẩm không phải là: 810-01100!"
                 },
                 {
                     "key": "smode",
                     "target": "reliability",
-                    "messenger": "Sản phẩm không phải là hàng ORT"
+                    "type": "equal",
+                    "message": "Sản phẩm không phải là hàng ORT!"
+                },
+                {
+                    "key": "mlbsn",
+                    "target": "GGB1",
+                    "type": "start_with",
+                    "message": "SN của sản phẩm không phải là hàng Trieste!"
+                },
+                {
+                    "key": "ethernetmac",
+                    "target": "0",
+                    "type": "end_with",
+                    "message": "MAC từ SFIS cần phải kết thúc bằng số 0!"
                 }
             ],
             "test_name": "CheckProduct",
@@ -196,6 +210,7 @@
             "wait_multi_done": true,
             "multi": false,
             "IP": "192.168.1.1",
+            "command": "reboot",
             "ReadUntil": "root@eero-test:/#",
             "times": 3,
             "waitTime": 40,
@@ -419,7 +434,7 @@
             "Port": 21,
             "followLimit": false,
             "limitErrorCode": true,
-            "BaseKeys": ["mo", "error_details", "status", "finish_time",
+            "BaseKeys": ["mlbsn", "sn","mo", "error_details", "status", "finish_time",
                 "test_software_version", "start_time", "station_type",
                 "error_code", "errorcode", "errorDes", "serial", "mode", "station_name", "position", "cycle_time", "cyctime_final"],
             "TestKeys": ["upper_limit", "lower_limit", "status", "finish_time", "test_name",

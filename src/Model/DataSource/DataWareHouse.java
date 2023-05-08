@@ -122,8 +122,8 @@ public class DataWareHouse {
         return coreData.getJSONArray(key);
     }
 
-    public Object put(String key, Object get) {
-        return this.coreData.put(key, get);
+    public Object put(String key, Object value) {
+        return this.coreData.put(key, value);
     }
 
     public List<String> getListSlip(String key, String regex) {

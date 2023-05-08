@@ -1,0 +1,10 @@
+2023-04-27 08:46:14.716:   ITEM[gen_node] - FUNCTION[SfisFunctionProxy]
+2023-04-27 08:46:14.716:   Turn: 1
+2023-04-27 08:46:14.716:   Check SN....
+2023-04-27 08:46:14.717:   send to url: http://10.90.10.20/sfcapi/api/connect
+2023-04-27 08:46:14.717:   [Input] Input: SD
+2023-04-27 08:46:14.717:   [Config] MaxLength: -1
+2023-04-27 08:46:14.717:   [SEND_FORMAT] [sn, pcname]
+2023-04-27 08:46:14.717:   key: SN = SD
+2023-04-27 08:46:14.717:   key: PCNAME = RUNIN-7586
+2023-04-27 08:46:14.718:   command: {"PCNAME":"RUNIN-7586","SN":"SD"}

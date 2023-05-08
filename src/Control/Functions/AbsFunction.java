@@ -70,11 +70,12 @@ public abstract class AbsFunction implements IFunction {
     @Override
     public void run() {
         status = false;
-        this.addLog(String.format("Turn: %s", turn++));
+        this.addLog(LOG_KEYS.PC,"Turn: %s", turn++);
         try {
             status = test();
         } catch (Exception ex) {
             ex.printStackTrace();
+            this.addLog(LOG_KEYS.ERROR, ex.getLocalizedMessage());
             ErrorLog.addError(this, ex.getLocalizedMessage());
         }
     }

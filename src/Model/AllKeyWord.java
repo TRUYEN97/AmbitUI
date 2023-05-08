@@ -31,6 +31,7 @@ public final class AllKeyWord {
 
     public static class CONFIG {
 
+        public static final String DUT_MODEL = "dutModel";
         public static final String UUT_MODEL = "uutModel";
         public static final String INIT = "init";
         public static final String FUNCTIONS = "functions";
@@ -106,4 +107,6 @@ public final class AllKeyWord {
     public static final String LIMIT_PATH = "limit_path";
     public static final String UPDATE_LIMIT_CMD = "limit_update";
     public static final String TEST_COUNT = "test_count";
+    public static final String TEST_F_COUNT = "test_fail_count";
+    public static final String TEST_FC_COUNT = "test_fail_Consecutive_count";
 }

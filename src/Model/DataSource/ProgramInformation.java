@@ -34,7 +34,7 @@ public class ProgramInformation implements IInit {
     private final List<Inet4Address> ipV4s;
     private final List<Inet6Address> ipV6s;
     private String version;
-    private String uutModel;
+    private String dutModel;
 
     private ProgramInformation(){
         this.ipV4s = new ArrayList<>();
@@ -138,12 +138,12 @@ public class ProgramInformation implements IInit {
         this.version = version;
     }
 
-    public void setUutModel(String uutmodel) {
-        this.uutModel = uutmodel;
+    public void setDutModel(String dutmodel) {
+        this.dutModel = dutmodel;
     }
 
-    public String getUutModel() {
-        return uutModel;
+    public String getDutModel() {
+        return dutModel;
     }
 
 }

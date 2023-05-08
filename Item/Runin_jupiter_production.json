@@ -18,12 +18,63 @@
         },
         {
             "flag": true,
+            "time_out": 300,
+            "multi": false,
+            "always_run": false,
+            "hold": 2,
+            "id": "te",
+            "pw": "te123@",
+            "test_name": "CheckTestConditions",
+            "func_name": "CheckTestConditionsProxy"
+        },
+        {
+            "flag": true,
             "time_out": 50,
             "SEND_FORMAT": ["sn", "pcname"],
             "DATA_FORMAT": ["mlbsn", "ethernetmac", "pnname", "model", "smode"],
             "URL": "http://10.90.10.20/sfcapi/api/connect",
             "test_name": "gen_node",
             "func_name": "SfisFunctionProxy"
+        },
+        {
+            "flag": true,
+            "multi": false,
+            "always_run": false,
+            "time_out": 10,
+            "elems": [
+                {
+                    "key": "pnname",
+                    "target": "810-01400",
+                    "type": "equal",
+                    "message": "Sản phẩm không phải là: 810-01400!"
+                },
+                {
+                    "key": "smode",
+                    "target": "Production",
+                    "type": "equal",
+                    "message": "Sản phẩm không phải là hàng Production!"
+                },
+                {
+                    "key": "typemodel",
+                    "target": "simple",
+                    "type": "equal",
+                    "message": "Sản phẩm không phải là hàng simple!"
+                },
+                {
+                    "key": "mlbsn",
+                    "target": "GGB2",
+                    "type": "start_with",
+                    "message": "SN của sản phẩm không phải là hàng Jupiter!"
+                },
+                {
+                    "key": "ethernetmac",
+                    "target": "0",
+                    "type": "end_with",
+                    "message": "MAC từ SFIS cần phải kết thúc bằng số 0!"
+                }
+            ],
+            "test_name": "CheckProduct",
+            "func_name": "CheckProductProxy"
         },
         {
             "flag": true,
@@ -62,7 +113,6 @@
         {
             "flag": true,
             "time_out": 100,
-            "retry": 2,
             "multi": false,
             "debug_able": true,
             "IP": "192.168.1.1",
@@ -157,6 +207,7 @@
             "retry": 2,
             "debug_able": true,
             "wait_multi_done": true,
+            "command": "reboot -f",
             "ReadUntil": "root@eero-test:/#",
             "multi": false,
             "IP": "192.168.1.1",
@@ -202,7 +253,7 @@
         },
         {
             "flag": true,
-            "time_out": 3000,
+            "time_out": 3200,
             "debug_able": true,
             "multi": false,
             "IP": "192.168.1.1",
@@ -225,13 +276,13 @@
             "command": ["stress --cpu 8 --io 4 --vm 2 --vm-bytes 128M --timeout 1800s"],
             "keyWord": "successful run completed in",
             "ReadUntil": "root@eero-test:/#",
-            "Time": 2000,
+            "Time": 2300,
             "test_name": "cpu_stress_0",
             "func_name": "TelnetReadUntilKeyProxy"
         },
         {
             "flag": true,
-            "time_out": 2400,
+            "time_out": 1200,
             "debug_able": true,
             "retry": 1,
             "multi": false,
@@ -332,7 +383,7 @@
                 },
                 {
                     "flag": true,
-                    "time_out": 3000,
+                    "time_out": 3200,
                     "debug_able": true,
                     "multi": false,
                     "IP": "192.168.1.1",
@@ -356,7 +407,7 @@
                     "command": ["stress --cpu 8 --io 4 --vm 2 --vm-bytes 128M --timeout 1800s"],
                     "keyWord": "successful run completed in",
                     "ReadUntil": "root@eero-test:/#",
-                    "Time": 2000,
+                    "Time": 2300,
                     "test_name": "cpu_stress",
                     "func_name": "TelnetReadUntilKeyProxy"
                 },
@@ -458,12 +509,30 @@
             "item1": "temp_eth_5",
             "test_name": "temp_eth_delta",
             "func_name": "DeltaProxy"
+        },
+
+        {
+            "flag": true,
+            "time_out": 30,
+            "multi": false,
+            "debug_able": true,
+            "always_run": false,
+            "host": "192.168.1.10",
+            "user": "admin",
+            "password": "1234",
+            "Times": 1,
+            "Delay": 1,
+            "Command": ["off"],
+            "test_name": "ReleasePowerSwitchOutlet",
+            "func_name": "PowerSwitchProxy"
         }
     ],
     "end": [
         {
             "flag": true,
-            "time_out": 30,
+            "time_out": 190,
+            "retry": 4,
+            "Time": 30,
             "multi": false,
             "followLimit": true,
             "limitErrorCode": false,
@@ -504,7 +573,7 @@
             "Port": 21,
             "followLimit": false,
             "limitErrorCode": false,
-            "BaseKeys": ["mo", "error_details", "status", "finish_time",
+            "BaseKeys": ["mlbsn", "sn","mo", "error_details", "status", "finish_time",
                 "test_software_version", "start_time", "station_type",
                 "error_code", "errorcode", "errorDes", "serial", "mode", "station_name", "position", "cycle_time", "cyctime_final"],
             "TestKeys": ["upper_limit", "lower_limit", "status", "finish_time", "test_name",
@@ -527,21 +596,6 @@
             "sendDetail": false,
             "test_name": "Mydas",
             "func_name": "MydasProxy" 
-        },
-        {
-            "flag": true,
-            "time_out": 30,
-            "multi": false,
-            "debug_able": true,
-            "always_run": true,
-            "host": "192.168.1.10",
-            "user": "admin",
-            "password": "1234",
-            "Times": 1,
-            "Delay": 1,
-            "Command": ["off"],
-            "test_name": "ReleasePowerSwitchOutlet",
-            "func_name": "PowerSwitchProxy"
         }
     ]
 }

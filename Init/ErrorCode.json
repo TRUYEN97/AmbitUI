@@ -1,4 +1,10 @@
 {
+    "CheckTestConditions": {
+        "simple": {
+            "errorcode": "TE.HOLD",
+            "errorDes": "CheckTestConditions"
+        }
+    },
     "boot_setup": {
         "simple": {
             "errorcode": "4.1.0",

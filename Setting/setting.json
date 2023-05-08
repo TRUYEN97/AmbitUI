@@ -1,6 +1,6 @@
 {
     "station_type": "RUNIN",
-    "uutModel": "Trieste",
+    "dutModel": "Trieste",
     "row": 12,
     "column": 8,
     "loop_test": 1,
@@ -18,7 +18,7 @@
         {
             "name": "debug", 
             "type_mode": "debug",
-            "ambit_config": "Item\\Runin.json"
+            "ambit_config": "Item\\Runin_jupiter_production.json"
         }
     ],
     "dhcp": {

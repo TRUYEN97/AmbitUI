@@ -32,6 +32,7 @@ public class GetMacFromSfis extends AbsFunction {
         try {
             String mac = this.baseFunc.getMac();
             if (mac == null) {
+                addLog(LOG_KEYS.PC, "MAC is null!!");
                 return false;
             }
             setResult(mac);
