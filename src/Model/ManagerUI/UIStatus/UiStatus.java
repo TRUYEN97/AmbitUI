@@ -96,6 +96,14 @@ public class UiStatus implements IUpdate {
         return this.subUi.equals(ui);
     }
 
+    public Core getCore() {
+        return core;
+    }
+    
+    public View.UIView getView(){
+        return getCore().getView();
+    }
+
     public String getName() {
         return this.informartion.getName();
     }

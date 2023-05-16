@@ -1,7 +1,14 @@
-2023-04-27 08:44:26.577:   ITEM[CheckUpdate] - FUNCTION[CheckUpdateProxy]
-2023-04-27 08:44:26.578:   Turn: 1
-2023-04-27 08:44:26.578:   [PC] Connect to ftp!!
-2023-04-27 08:44:26.578:   [Config] User: config
-2023-04-27 08:44:26.579:   [Config] PassWord: eero
-2023-04-27 08:44:26.579:   [Config] Host: 10.90.100.168
-2023-04-27 08:44:26.579:   [Config] Port: 21
+2023-05-16 02:45:47.158:   ITEM[CheckUpdate] - FUNCTION[CheckUpdateProxy]
+2023-05-16 02:45:47.158:   [PC] Turn: 1
+2023-05-16 02:45:47.158:   [PC] Connect to ftp!!
+2023-05-16 02:45:47.158:   [Config] User: config
+2023-05-16 02:45:47.158:   [Config] PassWord: eero
+2023-05-16 02:45:47.158:   [Config] Host: 10.90.100.168
+2023-05-16 02:45:47.158:   [Config] Port: 21
+2023-05-16 02:45:47.223:   [PC] Connect to ftp ok!!
+2023-05-16 02:45:47.223:   [PC] type name: MP, product: TriesteJDK17, station: RUNIN
+2023-05-16 02:45:47.247:   [PC] Version: 1.5.7
+2023-05-16 02:45:47.249:   [PC] Version MD5: db94882e14cab9f34d3290000c05d959
+2023-05-16 02:45:47.249:   [PC] Local version MD5: 459076cf42dabdf2fd3ea5f80592ab40
+2023-05-16 02:45:47.249:   [PC] Testing: 1
+2023-05-16 02:45:47.249:   [PC] Local version: 459076cf42dabdf2fd3ea5f80592ab40

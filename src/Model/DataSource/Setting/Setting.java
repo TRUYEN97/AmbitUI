@@ -1,5 +1,6 @@
 package Model.DataSource.Setting;
 
+import Control.Socket.SocketConfig;
 import Model.AllKeyWord;
 import Model.DataSource.AbsJsonSource;
 import Model.Interface.IInit;
@@ -21,10 +22,12 @@ public class Setting extends AbsJsonSource<String, ModeElement> implements IInit
 
     private static volatile Setting instaince;
     private final DhcpConfig dhcpConfig;
+    private final SocketConfig socketConfig;
 
     private Setting() {
         super();
         this.dhcpConfig = new DhcpConfig();
+        this.socketConfig = new SocketConfig();
     }
 
     public static Setting getInstance() {
@@ -40,6 +43,10 @@ public class Setting extends AbsJsonSource<String, ModeElement> implements IInit
         return ins;
     }
 
+    public SocketConfig getSocketConfig() {
+        return socketConfig;
+    }
+    
     @Override
     protected boolean getData() {
         DataWareHouse wareHouse = readFile.getData();
@@ -50,10 +57,8 @@ public class Setting extends AbsJsonSource<String, ModeElement> implements IInit
                 this.elements.add(info);
             }
         }
-        JSONObject dhcpJsonConfig = wareHouse.getJson("dhcp");
-        if (dhcpJsonConfig != null) {
-            this.dhcpConfig.setData(dhcpJsonConfig);
-        }
+        this.dhcpConfig.setData(wareHouse.getJson("dhcp"));
+        this.socketConfig.setData(wareHouse.getJson("socket"));
         return !this.elements.isEmpty();
     }
 
@@ -72,6 +77,7 @@ public class Setting extends AbsJsonSource<String, ModeElement> implements IInit
         }
         return local;
     }
+
     public Color getTestColor() {
         String color = this.readFile.getData().getString(AllKeyWord.TEST_COLOR);
         if (color == null) {

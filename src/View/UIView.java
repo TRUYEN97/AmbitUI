@@ -8,6 +8,7 @@ import Control.Core.Core;
 import Control.Core.ModeTest;
 import Control.LoadModelTime.LoadModeTime;
 import Control.CheckInput;
+import Model.DataSource.ProgramInformation;
 import View.subUI.SubUI.AbsSubUi;
 import java.awt.Component;
 import java.awt.GridLayout;
@@ -15,6 +16,7 @@ import java.awt.HeadlessException;
 import java.awt.Image;
 import java.awt.Toolkit;
 import java.awt.event.ItemEvent;
+import java.io.File;
 import java.net.URL;
 import java.util.List;
 import javax.swing.DefaultComboBoxModel;
@@ -24,6 +26,7 @@ import javax.swing.JList;
 import javax.swing.JOptionPane;
 import javax.swing.JTextArea;
 import javax.swing.SwingConstants;
+import javax.swing.Timer;
 
 /**
  *
@@ -36,6 +39,7 @@ public class UIView extends javax.swing.JFrame {
      */
     private final LoadModeTime modeTime;
     private final DefaultComboBoxModel comboBoxModel;
+    private final ProgramInformation programInfo;
     private CheckInput checkInput;
     private Core core;
 
@@ -54,6 +58,11 @@ public class UIView extends javax.swing.JFrame {
         initComponents();
         setIcon();
         this.comboBoxModel = (DefaultComboBoxModel) this.cbbModeTest.getModel();
+        this.programInfo = ProgramInformation.getInstance();
+        new Timer(2000, (e) -> {
+            String version = programInfo.getVersion();
+            this.setTitle(String.format("AmbitUI - API - ver: %s", version == null ? "" : version));
+        }).start();
     }
 
     public JLabel getDhcpLabel() {
@@ -163,6 +172,7 @@ public class UIView extends javax.swing.JFrame {
         cbbModeTest = new javax.swing.JComboBox<>();
         lbDhcp = new javax.swing.JLabel();
         lbProductname = new javax.swing.JLabel();
+        lbsocket = new javax.swing.JLabel();
         jScrollPane3 = new javax.swing.JScrollPane();
         txtShowSfis = new javax.swing.JTextArea();
         txtInput = new javax.swing.JTextField();
@@ -285,6 +295,13 @@ public class UIView extends javax.swing.JFrame {
         lbProductname.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
         lbProductname.setCursor(new java.awt.Cursor(java.awt.Cursor.DEFAULT_CURSOR));
 
+        lbsocket.setBackground(new java.awt.Color(204, 0, 0));
+        lbsocket.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
+        lbsocket.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        lbsocket.setText("SOCKET");
+        lbsocket.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
+        lbsocket.setOpaque(true);
+
         javax.swing.GroupLayout jPanel5Layout = new javax.swing.GroupLayout(jPanel5);
         jPanel5.setLayout(jPanel5Layout);
         jPanel5Layout.setHorizontalGroup(
@@ -294,9 +311,12 @@ public class UIView extends javax.swing.JFrame {
                 .addGroup(jPanel5Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addComponent(jScrollPane2, javax.swing.GroupLayout.PREFERRED_SIZE, 261, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(lbTimeVN, javax.swing.GroupLayout.PREFERRED_SIZE, 261, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(lbDhcp, javax.swing.GroupLayout.PREFERRED_SIZE, 261, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(cbbModeTest, javax.swing.GroupLayout.PREFERRED_SIZE, 261, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(lbProductname, javax.swing.GroupLayout.PREFERRED_SIZE, 261, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(lbProductname, javax.swing.GroupLayout.PREFERRED_SIZE, 261, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addGroup(jPanel5Layout.createSequentialGroup()
+                        .addComponent(lbDhcp, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addComponent(lbsocket, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)))
                 .addContainerGap())
         );
         jPanel5Layout.setVerticalGroup(
@@ -307,7 +327,9 @@ public class UIView extends javax.swing.JFrame {
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(cbbModeTest, javax.swing.GroupLayout.DEFAULT_SIZE, 47, Short.MAX_VALUE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(lbDhcp)
+                .addGroup(jPanel5Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(lbDhcp)
+                    .addComponent(lbsocket))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(jScrollPane2, javax.swing.GroupLayout.PREFERRED_SIZE, 154, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
@@ -505,10 +527,15 @@ public class UIView extends javax.swing.JFrame {
     private javax.swing.JLabel lbNamePC;
     private javax.swing.JLabel lbProductname;
     private javax.swing.JLabel lbTimeVN;
+    private javax.swing.JLabel lbsocket;
     private javax.swing.JPanel panelBackground;
     private javax.swing.JTextArea textMess;
     private javax.swing.JTextField txtInput;
     private javax.swing.JTextArea txtShowSfis;
     // End of variables declaration//GEN-END:variables
+
+    public JLabel getSocketLabel() {
+        return this.lbsocket;
+    }
 
 }

@@ -18,7 +18,7 @@
         {
             "name": "debug", 
             "type_mode": "debug",
-            "ambit_config": "Item\\Runin_jupiter_production.json"
+            "ambit_config": "Item\\Runin.json"
         }
     ],
     "dhcp": {
@@ -26,5 +26,10 @@
         "netIP": "172.168.0.251",
         "mac_length": 17,
         "lease_time": 600
+    },
+    "socket": {
+        "flag": true,
+        "host": "localhost",
+        "port": 60026
     }
 }

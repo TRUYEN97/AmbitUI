@@ -22,6 +22,9 @@ public class DhcpConfig {
     }
     
     public void setData(Map data){
+        if (data == null) {
+            return;
+        }
         this.wareHouse.putAll(data);
     }
 

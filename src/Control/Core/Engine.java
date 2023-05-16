@@ -5,11 +5,15 @@
 package Control.Core;
 
 import Control.CheckInput;
+import Control.Socket.Receiver;
+import Control.Socket.SocketClient;
+import FileTool.FileService;
 import Model.DataSource.ProgramInformation;
 import Model.DataSource.Setting.Setting;
 import Model.DataSource.Setting.ModeElement;
 import Model.DataSource.dhcp.DhcpConfig;
 import View.UIView;
+import java.io.File;
 import java.util.ArrayList;
 import java.util.List;
 import javax.swing.JOptionPane;
@@ -27,8 +31,9 @@ public class Engine {
     private final UIView view;
     private final ProgramInformation programInfo;
     private final DhcpRunner dhcpRunner;
+    private final SocketClient client;
 
-    public Engine() {
+    public Engine() throws Exception {
         this.setting = Setting.getInstance();
         this.modeTests = new ArrayList<>();
         this.core = new Core(new UIView());
@@ -37,6 +42,7 @@ public class Engine {
         this.checkInput = new CheckInput(core, view);
         this.view.setCheckInput(checkInput);
         this.dhcpRunner = DhcpRunner.getInstance();
+        this.client = new SocketClient(core, view);
     }
 
     public void run() {
@@ -44,9 +50,15 @@ public class Engine {
             System.exit(0);
         }
         initDHCP();
+        initSocket();
         getAllMode();
         setMode();
         showUI();
+    }
+
+    private void initSocket() {
+        this.client.setSocketLabel(this.view.getSocketLabel());
+        this.client.start();
     }
 
     private void getAllMode() {
@@ -68,7 +80,6 @@ public class Engine {
     }
 
     private void showUI() {
-        this.view.setTitle(String.format("AmbitUI - API - Ver: %s", programInfo.getVersion()));
         this.view.showIp(programInfo.getIpV4());
         this.view.showPcName(programInfo.getPcName());
         this.view.showGiaiDoan(setting.getProgress());
@@ -91,7 +102,9 @@ public class Engine {
     }
 
     private boolean initProgramInfo() {
-        this.programInfo.setVersion("V1.5.4.25");
+        if (new File(VERSION_PATH).exists()) {
+            this.programInfo.setVersion(new FileService().readFile(new File(VERSION_PATH)));
+        }
         String Dutmodel = this.setting.getDutMolel();
         if (Dutmodel == null || Dutmodel.isBlank()) {
             JOptionPane.showMessageDialog(null, "Not set DUT model!");
@@ -100,4 +113,5 @@ public class Engine {
         this.programInfo.setDutModel(Dutmodel);
         return true;
     }
+    public static final String VERSION_PATH = "init/version.txt";
 }

@@ -6,6 +6,11 @@
         <group name="copyLogFtp">
             <file>file:/D:/Ambit-module/AmbitUI/src/Control/Functions/FunctionsTest/Base/FixtureActions/FixtureAction.java</file>
         </group>
-        <group name="AmbitUI"/>
+        <group name="AmbitUI">
+            <file>file:/D:/Ambit-module/AmbitUI/src/View/UIView.java</file>
+            <file>file:/D:/Ambit-module/AmbitUI/src/Control/Core/Engine.java</file>
+            <file>file:/D:/Ambit-module/AmbitUI/src/Control/Core/DhcpRunner.java</file>
+            <file>file:/D:/Ambit-module/AmbitUI/src/Control/Core/Core.java</file>
+        </group>
     </open-files>
 </project-private>

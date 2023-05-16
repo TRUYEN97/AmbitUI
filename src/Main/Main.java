@@ -26,7 +26,7 @@ public class Main {
             }
             Engine engine = new Engine();
             engine.run();
-        } catch (HeadlessException e) {
+        } catch (Exception e) {
             e.printStackTrace();
             ErrorLog.addError(e.getMessage());
         }
