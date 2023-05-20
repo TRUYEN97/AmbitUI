@@ -1,0 +1,23 @@
+2023-05-16 10:05:28.504:   [Client] Connect to host: localhost, port: 60026
+2023-05-16 10:05:49.011:   [localhost] disconnected!
+2023-05-16 10:06:39.920:   [Client] Connect to host: localhost, port: 60026
+2023-05-16 10:09:11.240:   [localhost] disconnected!
+2023-05-16 10:10:55.210:   [Client] Connect to host: localhost, port: 60026
+2023-05-16 10:11:14.283:   [localhost] disconnected!
+2023-05-16 10:11:56.693:   [Client] Connect to host: localhost, port: 60026
+2023-05-16 10:12:21.263:   [localhost] disconnected!
+2023-05-16 10:13:03.644:   [Client] Connect to host: localhost, port: 60026
+2023-05-16 10:13:27.822:   [localhost] disconnected!
+2023-05-16 10:14:31.415:   [Client] Connect to host: localhost, port: 60026
+2023-05-16 10:14:56.236:   [localhost] disconnected!
+2023-05-16 10:15:17.447:   [Client] Connect to host: localhost, port: 60026
+2023-05-16 10:15:24.140:   [localhost -> Client] [GGB1UD2223330HA5,83001100,A]
+2023-05-16 10:16:17.768:   [localhost] disconnected!
+2023-05-16 10:17:58.780:   [Client] Connect to host: localhost, port: 60026
+2023-05-16 10:18:01.797:   [localhost -> Client] [GGB1UD2223330HA5,83001100,A]
+2023-05-16 10:18:10.051:   [localhost -> Client] [GGB1UD2223330HA5,83001100,A]
+2023-05-16 10:18:14.193:   [localhost -> Client] [GGB1UD2223330HA5,83001100,A]
+2023-05-16 10:18:48.346:   [localhost -> Client] [GGB1UD2223330HA5,83001100,A]
+2023-05-16 10:18:55.509:   [localhost -> Client] [GGB1UD2223330HA5,83001100,A]
+2023-05-16 10:19:09.971:   [localhost -> Client] [GGB1UD2223330HA5,83001100,A]
+2023-05-16 10:19:50.966:   [localhost -> Client] [GGB1UD2223330HA5,83001100,A]

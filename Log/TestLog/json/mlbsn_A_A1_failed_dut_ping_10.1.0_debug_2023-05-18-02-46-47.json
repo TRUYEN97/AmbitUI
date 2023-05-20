@@ -1,0 +1,36 @@
+{
+"station_name":"RUNIN-7586",
+"mo":"",
+"mlbsn":"",
+"finish_time":"2023-05-18 02:46:47",
+"mode":"debug",
+"start_time":"2023-05-18 02:46:47",
+"tests":[
+{
+"start_time":"2023-05-18 02:46:47",
+"lower_limit":"",
+"cycle_time":"0.009",
+"upper_limit":"",
+"error_code":"10.1.0",
+"units":"",
+"errorDes":"dut_ping",
+"test_name":"dut_ping",
+"finish_time":"2023-05-18 02:46:47",
+"errorcode":"10.1.0",
+"test_value":"failed",
+"status":"failed"
+}
+],
+"error_details":"dut_ping",
+"serial":"",
+"cycle_time":"0.024",
+"error_code":"10.1.0",
+"sn":"A",
+"position":"A1",
+"station_type":"RUNIN",
+"errorDes":"dut_ping",
+"cyctime_final":"0.024",
+"errorcode":"10.1.0",
+"status":"failed",
+"test_software_version":"1.5.7\r\n"
+}

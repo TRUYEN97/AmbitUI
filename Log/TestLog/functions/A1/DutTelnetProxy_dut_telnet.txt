@@ -1,0 +1,54 @@
+2023-05-18 02:47:26.842:   ITEM[dut_telnet] - FUNCTION[DutTelnetProxy]
+2023-05-18 02:47:26.843:   [PC] Turn: 1
+2023-05-18 02:47:26.843:   [PC] Get IP from the DHCP with MAC is "28:EC:22:32:4A:60"
+2023-05-18 02:47:26.843:   [Setting] MAC length = 17
+2023-05-18 02:47:26.844:   IP: 172.168.0.0
+2023-05-18 02:47:26.962:   [PC] ReadUntil: root@eero-test:/#
+2023-05-18 02:47:26.962:   [PC] Connect to ip: 172.168.0.0
+2023-05-18 02:47:26.963:   [PC] Port is: 23
+2023-05-18 02:47:26.963:   [PC] Ping to IP: 172.168.0.0 - 120 S
+2023-05-18 02:47:26.963:   [Cmd] ------------------------------------ 1
+2023-05-18 02:47:26.963:   [Cmd] Send command: ping 172.168.0.0 -n 1
+2023-05-18 02:47:27.059:   [Cmd] Pinging 172.168.0.0 with 32 bytes of data:
+2023-05-18 02:47:27.061:   [Cmd] Reply from 172.168.0.0: bytes=32 time<1ms TTL=64
+2023-05-18 02:47:27.061:   [Cmd] 
+2023-05-18 02:47:27.062:   [Cmd] Ping statistics for 172.168.0.0:
+2023-05-18 02:47:27.062:   [Cmd] Packets: Sent = 1, Received = 1, Lost = 0 (0% loss),
+2023-05-18 02:47:27.062:   [Cmd] Approximate round trip times in milli-seconds:
+2023-05-18 02:47:27.062:   [Cmd] Minimum = 0ms, Maximum = 0ms, Average = 0ms
+2023-05-18 02:47:27.062:   [Cmd] ------------------------------------
+2023-05-18 02:47:27.063:   [PC] ping time: 0.100 S
+2023-05-18 02:47:27.066:   [PC] Telnet to IP: "172.168.0.0" - Port: 23 ok!
+2023-05-18 02:47:27.280:   [Telnet] === IMPORTANT ============================
+2023-05-18 02:47:27.281:   [Telnet] Use 'passwd' to set your login password!
+2023-05-18 02:47:27.281:   [Telnet] ------------------------------------------
+2023-05-18 02:47:27.281:   [Telnet] 
+2023-05-18 02:47:27.281:   [Telnet] 
+2023-05-18 02:47:27.282:   [Telnet] BusyBox v1.30.1 () built-in shell (ash)
+2023-05-18 02:47:27.282:   [Telnet] 
+2023-05-18 02:47:27.282:   [Telnet] MM           NM                    MMMMMMM          M       M
+2023-05-18 02:47:27.282:   [Telnet] $MMMMM        MMMMM                MMMMMMMMMMM      MMM     MMM
+2023-05-18 02:47:27.283:   [Telnet] MMMMMMMM     MM MMMMM.              MMMMM:MMMMMM:   MMMM   MMMMM
+2023-05-18 02:47:27.283:   [Telnet] MMMM= MMMMMM  MMM   MMMM       MMMMM   MMMM  MMMMMM   MMMM  MMMMM'
+2023-05-18 02:47:27.283:   [Telnet] MMMM=  MMMMM MMMM    MM       MMMMM    MMMM    MMMM   MMMMNMMMMM
+2023-05-18 02:47:27.284:   [Telnet] MMMM=   MMMM  MMMMM          MMMMM     MMMM    MMMM   MMMMMMMM
+2023-05-18 02:47:27.284:   [Telnet] MMMM=   MMMM   MMMMMM       MMMMM      MMMM    MMMM   MMMMMMMMM
+2023-05-18 02:47:27.284:   [Telnet] MMMM=   MMMM     MMMMM,    NMMMMMMMM   MMMM    MMMM   MMMMMMMMMMM
+2023-05-18 02:47:27.284:   [Telnet] MMMM=   MMMM      MMMMMM   MMMMMMMM    MMMM    MMMM   MMMM  MMMMMM
+2023-05-18 02:47:27.285:   [Telnet] MMMM=   MMMM   MM    MMMM    MMMM      MMMM    MMMM   MMMM    MMMM
+2023-05-18 02:47:27.285:   [Telnet] MMMM$ ,MMMMM  MMMMM  MMMM    MMM       MMMM   MMMMM   MMMM    MMMM
+2023-05-18 02:47:27.285:   [Telnet] MMMMMMM:      MMMMMMM     M         MMMMMMMMMMMM  MMMMMMM MMMMMMM
+2023-05-18 02:47:27.286:   [Telnet] MMMMMM       MMMMN     M           MMMMMMMMM      MMMM    MMMM
+2023-05-18 02:47:27.286:   [Telnet] MMMM          M                    MMMMMMM        M       M
+2023-05-18 02:47:27.286:   [Telnet] M
+2023-05-18 02:47:27.286:   [Telnet] ---------------------------------------------------------------
+2023-05-18 02:47:27.286:   [Telnet] For those about to rock... (Chaos Calmer, unknown)
+2023-05-18 02:47:27.287:   [Telnet] ---------------------------------------------------------------
+2023-05-18 02:47:27.287:   [Telnet] root@eero-test:/#
+2023-05-18 02:47:27.287:   ****************************************************
+2023-05-18 02:47:27.288:   Item name = dut_telnet
+2023-05-18 02:47:27.288:   Value = passed
+2023-05-18 02:47:27.289:   Test status = passed
+2023-05-18 02:47:27.289:   -----------------------------------------------------
+2023-05-18 02:47:27.289:   ****************************************************
+2023-05-18 02:47:27.291:   TIME[0.448 s] - STATUS[PASSED]

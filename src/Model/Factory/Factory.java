@@ -28,6 +28,7 @@ import Control.Functions.FunctionsTest.Base.TxtLog.ZipLog.ZipFileProxy;
 import Control.Functions.FunctionsTest.Runin.PowerSwitch.PowerSwitchProxy;
 import Control.Functions.FunctionsTest.Base.UpLogFTP.UpLogFTPProxy;
 import Control.Functions.FunctionsTest.Base.VirFunction.VirFunctionProxy;
+import Control.Functions.FunctionsTest.Logo.SocketCheck.SocketCheckProxy;
 import Control.Functions.FunctionsTest.MBLT.OpenShort.OpenShortProxy;
 import Control.Functions.FunctionsTest.MBLT.ThermalShutdown.ThermalShutdownProxy;
 import Control.Functions.FunctionsTest.MBLT.UsbAside.UsbAsideProxy;
@@ -168,5 +169,6 @@ public class Factory {
         this.functions.addType(new BootSetupProxy());
         this.functions.addType(new CountPassFailedProxy());
         this.functions.addType(new CheckTestConditionsProxy());
+        this.functions.addType(new SocketCheckProxy());
     }
 }

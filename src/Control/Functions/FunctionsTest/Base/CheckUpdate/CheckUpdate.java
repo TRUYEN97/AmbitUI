@@ -6,6 +6,7 @@ package Control.Functions.FunctionsTest.Base.CheckUpdate;
 
 import Communicate.Impl.Cmd.Cmd;
 import Communicate.Impl.FtpClient.FtpClient;
+import Control.Core.Engine;
 import Control.Functions.AbsFunction;
 import Control.Functions.FunctionsTest.Base.BaseFunction.FunctionBase;
 import FileTool.FileService;
@@ -14,6 +15,7 @@ import Model.AllKeyWord;
 import Model.DataSource.ProgramInformation;
 import Model.DataTest.FunctionParameters;
 import Time.WaitTime.Class.TimeMs;
+import View.UIView;
 import java.io.File;
 import java.io.IOException;
 import java.io.StringReader;
@@ -61,12 +63,12 @@ public class CheckUpdate extends AbsFunction {
             addLog("PC", "Version MD5: %s", serverMD5);
             addLog("PC", "Local version MD5: %s", localMD5);
             addLog("PC", "Testing: %s", count);
-            if (!new File(VERSION_PATH).exists()
+            if (!new File(Engine.VERSION_PATH).exists()
                     && !writeLocalversion(version)) {
                 addLog(LOG_KEYS.PC, "Update version failed!");
                 return false;
             }
-            String localversion = this.fileService.readFile(new File(VERSION_PATH));
+            String localversion = this.fileService.readFile(new File(Engine.VERSION_PATH));
             addLog("PC", "Local version: %s", localversion);
             if ((!checkMD5(localMD5, serverMD5) || !checkVersion(version, localversion)) && count == 1) {
                 reDownload(uutModel, pnname, station);
@@ -87,13 +89,12 @@ public class CheckUpdate extends AbsFunction {
     }
 
     private boolean writeLocalversion(String version) {
-        if (this.fileService.writeFile(VERSION_PATH, version, false)) {
+        if (this.fileService.writeFile(Engine.VERSION_PATH, version, false)) {
            ProgramInformation.getInstance().setVersion(version);
            return true; 
         }
         return  false;
     }
-    private static final String VERSION_PATH = "init/version.txt";
 
     private String getLocalMD5() throws IOException, NoSuchAlgorithmException {
         File localFile = new File("AmbitUI.jar");

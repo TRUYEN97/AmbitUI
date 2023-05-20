@@ -1,0 +1,39 @@
+2023-05-17 00:42:33.249:   [Client] Connect to host: localhost, port: 60026
+2023-05-17 00:44:31.586:   [localhost -> Client] [GGB1UD2223330HA5,83001100,A]
+2023-05-17 00:47:41.685:   [localhost -> Client] [GGB1UD2223330HA5,83001100,A]
+2023-05-17 00:47:52.693:   [localhost] disconnected!
+2023-05-17 04:10:45.268:   [Client] Connect to host: localhost, port: 60026
+2023-05-17 04:11:58.177:   [localhost] disconnected!
+2023-05-17 04:13:16.993:   [Client] Connect to host: localhost, port: 60026
+2023-05-17 04:16:24.685:   [localhost] disconnected!
+2023-05-17 06:51:32.087:   [Client] Connect to host: localhost, port: 60026
+2023-05-17 06:51:43.027:   [localhost] disconnected!
+2023-05-17 06:53:40.992:   [Client] Connect to host: localhost, port: 60026
+2023-05-17 06:53:46.100:   [localhost] disconnected!
+2023-05-17 07:01:54.041:   [Client] Connect to host: localhost, port: 60026
+2023-05-17 07:01:55.054:   [localhost] disconnected!
+2023-05-17 07:39:10.412:   [Client] Connect to host: localhost, port: 60026
+2023-05-17 07:41:44.313:   [localhost] disconnected!
+2023-05-17 08:22:38.832:   [Client] Connect to host: localhost, port: 60026
+2023-05-17 08:23:06.563:   [localhost -> Client] [GGB1UD2223330HA5,83001100,A]
+2023-05-17 08:25:03.399:   [localhost] disconnected!
+2023-05-17 08:25:19.535:   [Client] Connect to host: localhost, port: 60026
+2023-05-17 08:30:18.597:   [localhost] disconnected!
+2023-05-17 08:30:32.692:   [Client] Connect to host: localhost, port: 60026
+2023-05-17 08:35:02.762:   [localhost] disconnected!
+2023-05-17 08:36:42.704:   [Client] Connect to host: localhost, port: 60026
+2023-05-17 08:36:50.338:   [localhost] disconnected!
+2023-05-17 08:37:22.664:   [Client] Connect to host: localhost, port: 60026
+2023-05-17 08:40:40.823:   [localhost -> Client] [ZVX4SAL]
+2023-05-17 08:44:18.545:   [localhost -> Client] [ZVX4SAL]
+2023-05-17 08:44:33.000:   [localhost -> Client] [ZVX4SAL]
+2023-05-17 08:45:02.129:   [localhost -> Client] [ZVX4SAL]
+2023-05-17 08:45:07.974:   [localhost -> Client] [ZVX4SAL]
+2023-05-17 08:45:18.259:   [localhost] disconnected!
+2023-05-17 08:45:33.385:   [Client] Connect to host: localhost, port: 60026
+2023-05-17 08:45:35.928:   [localhost -> Client] [ZVX4SAL]
+2023-05-17 08:46:04.599:   [localhost] disconnected!
+2023-05-17 09:14:11.108:   [Client] Connect to host: localhost, port: 60026
+2023-05-17 09:14:44.259:   [localhost -> Client] [ZVX4SAL]
+2023-05-17 09:15:20.367:   [localhost -> Client] [ZVX4SAL]
+2023-05-17 09:15:52.702:   [localhost] disconnected!

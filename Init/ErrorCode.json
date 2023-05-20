@@ -5,6 +5,12 @@
             "errorDes": "CheckTestConditions"
         }
     },
+    "SocketCheck": {
+        "simple": {
+            "errorcode": "SK.CHECK",
+            "errorDes": "SocketCheck"
+        }
+    },
     "boot_setup": {
         "simple": {
             "errorcode": "4.1.0",

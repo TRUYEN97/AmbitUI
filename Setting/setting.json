@@ -1,12 +1,12 @@
 {
-    "station_type": "RUNIN",
+    "station_type": "CCD",
     "dutModel": "Trieste",
-    "row": 12,
-    "column": 8,
+    "row": 1,
+    "column": 1,
     "loop_test": 1,
     "progress": "MP",
-    "name_app": "RUNIN",
-    "type_ui": "SmallUIProxy",
+    "name_app": "CCD",
+    "type_ui": "BigUIProxy",
     "save_memory": true,
     "local_log": "Log\\TestLog",
     "detail": ["TabViewProxy", "TabItemProxy"],
@@ -18,11 +18,11 @@
         {
             "name": "debug", 
             "type_mode": "debug",
-            "ambit_config": "Item\\Runin.json"
+            "ambit_config": "Item\\CCD.json"
         }
     ],
     "dhcp": {
-        "flag": false,
+        "flag": true,
         "netIP": "172.168.0.251",
         "mac_length": 17,
         "lease_time": 600
