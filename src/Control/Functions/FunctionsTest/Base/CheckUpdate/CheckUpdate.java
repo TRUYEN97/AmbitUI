@@ -90,7 +90,7 @@ public class CheckUpdate extends AbsFunction {
     private boolean writeLocalversion(String version) {
         if (this.fileService.writeFile(Engine.VERSION_PATH, version, false)) {
            ProgramInformation.getInstance().setVersion(version);
-           this.productData.put(AllKeyWord.VERSION, version);
+           this.uiStatus.getInfo().setString(AllKeyWord.VERSION, version);
            return true; 
         }
         return  false;

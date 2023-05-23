@@ -81,6 +81,10 @@ public class UiInformartion {
         return count;
     }
 
+    public void setString(String key, String val) {
+        this.dataWareHouse.put(key, val);
+    }
+    
     public String getString(String key) {
         return this.dataWareHouse.getString(key);
     }
