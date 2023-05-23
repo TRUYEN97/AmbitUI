@@ -168,14 +168,14 @@ public class ProcessData implements IgetTime {
     }
 
     public String getString(String key) {
+        if (this.productData.getString(key) != null) {
+            return this.productData.getString(key);
+        }
         if (this.informartion.getString(key) != null) {
             return this.informartion.getString(key);
         }
         if (this.data.getString(key) != null) {
             return this.data.getString(key);
-        }
-        if (this.productData.getString(key) != null) {
-            return this.productData.getString(key);
         }
         if (this.signal.getString(key) != null) {
             return this.signal.getString(key);

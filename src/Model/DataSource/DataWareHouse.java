@@ -29,7 +29,7 @@ public class DataWareHouse {
     }
 
     public boolean putAll(Map data) {
-        if (data != null && !data.isEmpty()) {
+        if (data != null) {
             this.coreData.putAll(data);
             return true;
         }
@@ -116,6 +116,10 @@ public class DataWareHouse {
 
     public JSONObject toJson() {
         return (JSONObject) coreData.clone();
+    }
+    
+    public JSONObject toJsonNonClone() {
+        return coreData;
     }
 
     public JSONArray getJSONArray(String key) {

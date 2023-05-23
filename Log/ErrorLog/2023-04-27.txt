@@ -1,4 +1,0 @@
-2023-04-27 08:50:06.147:   error in Control.Functions.FunctionsTest.Base.UpFTP.UpFTP : Connection timed out: connect
-2023-04-27 08:50:06.148:   //////////////////////////////////////
-2023-04-27 09:06:52.093:   error in Control.Functions.FunctionsTest.Base.UpFTP.UpFTP : Connection timed out: connect
-2023-04-27 09:06:52.094:   //////////////////////////////////////

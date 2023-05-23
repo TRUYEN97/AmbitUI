@@ -22,7 +22,7 @@
         }
     ],
     "dhcp": {
-        "flag": true,
+        "flag": false,
         "netIP": "172.168.0.251",
         "mac_length": 17,
         "lease_time": 600

@@ -20,10 +20,7 @@ public class UiInformartion {
     public UiInformartion(String name, int COLUMN, int ROW, int ID) {
         this.dataWareHouse = new DataWareHouse();
         this.pcInformation = ProgramInformation.getInstance();
-        this.dataWareHouse.put(AllKeyWord.SFIS.PC_NAME, this.pcInformation.getPcName());
-        this.dataWareHouse.put(AllKeyWord.STATION_NAME, this.pcInformation.getPcName());
-        this.dataWareHouse.put(AllKeyWord.VERSION, pcInformation.getVersion());
-        this.dataWareHouse.put(AllKeyWord.CONFIG.DUT_MODEL, pcInformation.getDutModel());
+        this.dataWareHouse.putAll(this.pcInformation.toJson());
         this.dataWareHouse.put(AllKeyWord.POSITION, name);
         this.dataWareHouse.put(AllKeyWord.COLUMN, COLUMN);
         this.dataWareHouse.put(AllKeyWord.ROW, ROW);

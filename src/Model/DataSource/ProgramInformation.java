@@ -5,11 +5,10 @@
 package Model.DataSource;
 
 import Communicate.Impl.Cmd.Cmd;
+import Model.AllKeyWord;
 import Model.ErrorLog;
 import Model.Interface.IInit;
-import java.io.BufferedReader;
-import java.io.IOException;
-import java.io.InputStreamReader;
+import com.alibaba.fastjson.JSONObject;
 import java.net.Inet4Address;
 import java.net.Inet6Address;
 import java.net.InetAddress;
@@ -20,8 +19,6 @@ import java.util.ArrayList;
 import java.util.Enumeration;
 import java.util.List;
 import java.util.Properties;
-import java.util.logging.Level;
-import java.util.logging.Logger;
 
 /**
  *
@@ -30,13 +27,12 @@ import java.util.logging.Logger;
 public class ProgramInformation implements IInit {
 
     private static volatile ProgramInformation instance;
-    private String pcName;
     private final List<Inet4Address> ipV4s;
     private final List<Inet6Address> ipV6s;
-    private String version;
-    private String dutModel;
+    private final DataWareHouse wareHouse;
 
-    private ProgramInformation(){
+    private ProgramInformation() {
+        this.wareHouse = new DataWareHouse();
         this.ipV4s = new ArrayList<>();
         this.ipV6s = new ArrayList<>();
         scanHostIp();
@@ -57,13 +53,16 @@ public class ProgramInformation implements IInit {
 
     @Override
     public boolean init() {
-        this.pcName = getComputerName();
-        System.out.println("Pc name:" + this.pcName);
+        String pcName = getComputerName();
+        pcName = pcName != null ? pcName.trim() : pcName;
+        System.out.println("Pc name:" + pcName);
+        this.wareHouse.put(AllKeyWord.STATION_NAME, pcName);
+        this.wareHouse.put(AllKeyWord.SFIS.PC_NAME, pcName);
         return !(pcName == null || pcName.isBlank());
     }
 
     public String getPcName() {
-        return pcName;
+        return this.wareHouse.getString(AllKeyWord.STATION_NAME);
     }
 
     public String getIpV4() {
@@ -131,19 +130,22 @@ public class ProgramInformation implements IInit {
     }
 
     public String getVersion() {
-        return version;
+        return this.wareHouse.getString(AllKeyWord.VERSION);
     }
 
     public void setVersion(String version) {
-        this.version = version;
+        this.wareHouse.put(AllKeyWord.VERSION, version != null ? version.trim() : version);
     }
 
     public void setDutModel(String dutmodel) {
-        this.dutModel = dutmodel;
+        this.wareHouse.put(AllKeyWord.CONFIG.DUT_MODEL, dutmodel != null ? dutmodel.trim() : dutmodel);
     }
 
     public String getDutModel() {
-        return dutModel;
+        return this.wareHouse.getString(AllKeyWord.CONFIG.DUT_MODEL);
     }
 
+    public JSONObject toJson() {
+        return this.wareHouse.toJsonNonClone();
+    }
 }

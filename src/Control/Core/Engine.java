@@ -5,7 +5,6 @@
 package Control.Core;
 
 import Control.CheckInput;
-import Control.Socket.Receiver;
 import Control.Socket.SocketClient;
 import FileTool.FileService;
 import Model.DataSource.ProgramInformation;
