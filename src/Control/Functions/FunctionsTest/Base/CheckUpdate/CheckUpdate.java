@@ -62,6 +62,8 @@ public class CheckUpdate extends AbsFunction {
             addLog("PC", "Version MD5: %s", serverMD5);
             addLog("PC", "Local version MD5: %s", localMD5);
             addLog("PC", "Testing: %s", count);
+            ProgramInformation.getInstance().setVersion(version);
+            this.productData.put(AllKeyWord.VERSION, version);
             if (!new File(Engine.VERSION_PATH).exists()
                     && !writeLocalversion(version)) {
                 addLog(LOG_KEYS.PC, "Update version failed!");
@@ -88,12 +90,7 @@ public class CheckUpdate extends AbsFunction {
     }
 
     private boolean writeLocalversion(String version) {
-        if (this.fileService.writeFile(Engine.VERSION_PATH, version, false)) {
-           ProgramInformation.getInstance().setVersion(version);
-           this.uiStatus.getInfo().setString(AllKeyWord.VERSION, version);
-           return true; 
-        }
-        return  false;
+        return this.fileService.writeFile(Engine.VERSION_PATH, version, false);
     }
 
     private String getLocalMD5() throws IOException, NoSuchAlgorithmException {

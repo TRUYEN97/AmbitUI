@@ -6,12 +6,6 @@
         <group name="copyLogFtp">
             <file>file:/D:/Ambit-module/AmbitUI/src/Control/Functions/FunctionsTest/Base/FixtureActions/FixtureAction.java</file>
         </group>
-        <group name="AmbitUI">
-            <file>file:/D:/Ambit-module/AmbitUI/src/View/UIView.java</file>
-            <file>file:/D:/Ambit-module/AmbitUI/src/Control/Core/Engine.java</file>
-            <file>file:/D:/Ambit-module/AmbitUI/Item/CCD.json</file>
-            <file>file:/D:/Ambit-module/AmbitUI/src/Model/DataSource/ProgramInformation.java</file>
-            <file>file:/D:/Ambit-module/AmbitUI/Setting/setting.json</file>
-        </group>
+        <group name="AmbitUI"/>
     </open-files>
 </project-private>

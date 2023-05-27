@@ -1,0 +1,14 @@
+{
+"mode":"debug",
+"station_name":"RUNIN-7586",
+"start_time":"2023-05-27 04:06:32",
+"tests":[],
+"error_details":"",
+"serial":"GGB21E0531640282",
+"error_code":"",
+"position":"",
+"station_type":"runin",
+"finish_time":"2023-05-27 04:06:32",
+"status":"passed",
+"test_software_version":"1.5.7"
+}

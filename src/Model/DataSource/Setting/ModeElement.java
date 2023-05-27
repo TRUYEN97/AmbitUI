@@ -87,7 +87,7 @@ public class ModeElement extends AbsElementInfo {
     }
 
     public int getLoopTest() {
-        Integer value = this.warehouse.getInteger(AllKeyWord.CONFIG.LOOP_TEST);
+        Integer value = this.warehouse.getInteger(AllKeyWord.CONFIG.LOOP_FUNC);
         return value == null || value < 1 ? 1 : value;
     }
 

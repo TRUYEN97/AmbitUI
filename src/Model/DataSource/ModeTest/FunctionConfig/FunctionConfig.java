@@ -6,7 +6,6 @@ package Model.DataSource.ModeTest.FunctionConfig;
 
 import Model.AllKeyWord;
 import Model.DataSource.AbsElementInfo;
-import Model.DataTest.FunctionData.ItemTestData;
 import Model.DataTest.FunctionData.ItemTestData.TYPE;
 import com.alibaba.fastjson.JSONObject;
 import java.util.List;

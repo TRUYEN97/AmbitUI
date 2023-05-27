@@ -7,7 +7,6 @@ package Model.DataSource.ModeTest.FunctionConfig;
 import Model.AllKeyWord;
 import Model.DataSource.AbsJsonSource;
 import Model.DataSource.DataWareHouse;
-import Model.DataTest.FunctionData.ItemTestData;
 import Model.DataTest.FunctionData.ItemTestData.TYPE;
 import com.alibaba.fastjson.JSONObject;
 import java.util.ArrayList;
@@ -24,6 +23,7 @@ public class AmbitConfig extends AbsJsonSource<FunctionName, FunctionConfig> {
     private final List<FunctionName> endFunctions;
     private final List<FunctionName> finalFunctions;
     private final List<FunctionName> discreteFunctions;
+    private final ConfigCount configCount;
 
     public AmbitConfig() {
         super();
@@ -32,6 +32,7 @@ public class AmbitConfig extends AbsJsonSource<FunctionName, FunctionConfig> {
         this.endFunctions = new ArrayList<>();
         this.finalFunctions = new ArrayList<>();
         this.discreteFunctions = new ArrayList<>();
+        this.configCount = new ConfigCount();
     }
 
     @Override
@@ -54,7 +55,7 @@ public class AmbitConfig extends AbsJsonSource<FunctionName, FunctionConfig> {
     }
 
     private void getFunctionIn(DataWareHouse baseData, List<JSONObject> listInfo,
-        List<FunctionName> testFunctions, List<FunctionName> debugFunctions, Integer times, TYPE type) {
+            List<FunctionName> testFunctions, List<FunctionName> debugFunctions, Integer times, TYPE type) {
         for (JSONObject modeInfo : listInfo) {
             if (!isActive(modeInfo)) {
                 continue;
@@ -63,9 +64,7 @@ public class AmbitConfig extends AbsJsonSource<FunctionName, FunctionConfig> {
                 getLoopFuction(baseData, modeInfo, testFunctions, debugFunctions, times, type);
             } else if (modeInfo.containsKey(AllKeyWord.CONFIG.TEST_NAME)) {
                 JSONObject modeInfoClone = (JSONObject) modeInfo.clone();
-                if (times != null) {
-                    createNewItem(modeInfoClone, times);
-                }
+                createNewItem(modeInfoClone, times);
                 FunctionConfig funcElm = new FunctionConfig(baseData.toJson(), modeInfoClone, type);
                 FunctionName functionName = funcElm.getfFunctionName();
                 put(functionName, funcElm);
@@ -77,16 +76,9 @@ public class AmbitConfig extends AbsJsonSource<FunctionName, FunctionConfig> {
         }
     }
 
-    private void createNewItem(JSONObject modeInfo, int times) {
+    private void createNewItem(JSONObject modeInfo, Integer times) {
         String oldName = modeInfo.getString(AllKeyWord.CONFIG.TEST_NAME);
-        if (oldName.matches(".+_[0-9]+$")) {
-            String newItemName = String.format("%s_%s",
-                    oldName.substring(0, oldName.lastIndexOf("_")), times);
-            modeInfo.put(AllKeyWord.CONFIG.TEST_NAME, newItemName);
-        } else {
-            String newItemName = String.format("%s_%s", oldName, times);
-            modeInfo.put(AllKeyWord.CONFIG.TEST_NAME, newItemName);
-        }
+        modeInfo.put(AllKeyWord.CONFIG.TEST_NAME, this.configCount.getItemCountName(oldName, times));
     }
 
     private void getLoopFuction(DataWareHouse baseData, JSONObject modeInfo,
