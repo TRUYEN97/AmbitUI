@@ -69,6 +69,15 @@
         },
         {
             "flag": true,
+            "multi": false,
+            "always_run": false,
+            "time_out": 10,
+            "key": "orttype",
+            "test_name": "ort_type",
+            "func_name": "FromSfisValueProxy"
+        },
+        {
+            "flag": true,
             "time_out": 30,
             "debug_able": true,
             "multi": false,

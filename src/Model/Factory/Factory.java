@@ -17,6 +17,7 @@ import Control.Functions.FunctionsTest.Base.GetMacFromSfis.GetMacFormSfisProxy;
 import Control.Functions.FunctionsTest.Base.DutPing.DutPingProxy;
 import Control.Functions.FunctionsTest.Base.DutTelnet.DutTelnetProxy;
 import Control.Functions.FunctionsTest.Base.FixtureActions.FixtureActionProxy;
+import Control.Functions.FunctionsTest.Base.FromSfisValue.FromSfisValueProxy;
 import Control.Functions.FunctionsTest.Base.GoldenFile.GoldenFileProxy;
 import Control.Functions.FunctionsTest.Base.JsonApi.CreateJsonApi.CreateJsonApiProxy;
 import Control.Functions.FunctionsTest.Base.JsonApi.UpApi.UpApiProxy;
@@ -170,5 +171,6 @@ public class Factory {
         this.functions.addType(new CountPassFailedProxy());
         this.functions.addType(new CheckTestConditionsProxy());
         this.functions.addType(new SocketCheckProxy());
+        this.functions.addType(new FromSfisValueProxy());
     }
 }

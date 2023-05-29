@@ -6,6 +6,13 @@
         <group name="copyLogFtp">
             <file>file:/D:/Ambit-module/AmbitUI/src/Control/Functions/FunctionsTest/Base/FixtureActions/FixtureAction.java</file>
         </group>
-        <group name="AmbitUI"/>
+        <group name="AmbitUI">
+            <file>file:/D:/Ambit-module/AmbitUI/src/Model/DataSource/ModeTest/FunctionConfig/ConfigCount.java</file>
+            <file>file:/D:/Ambit-module/AmbitUI/Setting/setting.json</file>
+            <file>file:/D:/Ambit-module/AmbitUI/src/Model/DataTest/ProcessTest/ProcessData.java</file>
+            <file>file:/D:/Ambit-module/AmbitUI/src/Control/Functions/FunctionsTest/Base/CheckUpdate/CheckUpdate.java</file>
+            <file>file:/D:/Ambit-module/AmbitUI/src/Control/Functions/FunctionsTest/Base/MyDas/Mydas.java</file>
+            <file>file:/D:/Ambit-module/AmbitUI/src/Model/DataSource/ModeTest/FunctionConfig/AmbitConfig.java</file>
+        </group>
     </open-files>
 </project-private>
