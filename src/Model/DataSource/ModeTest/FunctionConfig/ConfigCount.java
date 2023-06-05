@@ -37,7 +37,7 @@ public class ConfigCount {
         if (count == null) {
             count = point;
         } else {
-            count = point != null && point >= count ? point : count;
+            count = point != null && point > count ? point : count;
         }
         this.itemCount.put(itemName, count);
         return count;

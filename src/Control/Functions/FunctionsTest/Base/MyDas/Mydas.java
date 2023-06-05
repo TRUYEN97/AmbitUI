@@ -124,7 +124,7 @@ public class Mydas extends AbsFunction {
         builder.append(this.processData.getString(AllKeyWord.SFIS.PC_NAME, "")).append(",");
         builder.append(this.processData.getString("cycle_time", "")).append(",");
         builder.append(getStartTime()).append(",");
-        builder.append(",").append(",");
+        builder.append(",").append(",").append(this.uIInfo.getName());
         return builder.toString();
     }
 
