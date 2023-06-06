@@ -83,8 +83,13 @@ public class Mydas extends AbsFunction {
         ItemTestData itemTestData = this.processData.getFirstFail();
         String errorInfo = "";
         if (itemTestData != null) {
+            String errorDes = itemTestData.getLocalErrorDes();
+            String location = this.uIInfo.getName();
+            if (errorDes.contains("dut_ping") && location != null && !location.isBlank()) {
+                errorDes = String.format("%s_%s", errorDes, location);
+            }
             errorInfo = String.format("%s,%s,%s|", itemTestData.getLocalErrorCode(),
-                    itemTestData.getLocalErrorDes(), itemTestData.getResultTest());
+                    errorDes, itemTestData.getResultTest());
         }
         return errorInfo;
     }
@@ -124,7 +129,7 @@ public class Mydas extends AbsFunction {
         builder.append(this.processData.getString(AllKeyWord.SFIS.PC_NAME, "")).append(",");
         builder.append(this.processData.getString("cycle_time", "")).append(",");
         builder.append(getStartTime()).append(",");
-        builder.append(",").append(",").append(this.uIInfo.getName());
+        builder.append(",").append(this.uIInfo.getName()).append(",");
         return builder.toString();
     }
 
