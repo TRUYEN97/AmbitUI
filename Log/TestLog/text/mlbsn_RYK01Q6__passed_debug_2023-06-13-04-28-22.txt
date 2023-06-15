@@ -1,0 +1,113 @@
+===================================================================
+Start at = 2023-06-13 04:28:21
+End test at = 2023-06-13 04:28:22
+Status = passed
+Version = 1.5.7
+Test time = 1.164 s
+Final test time = 1.225 s
+Station = RUNIN-7586
+Localtion = 
+HHSN = RYK01Q6
+DEVICESN = null
+===================================================================
+//////////////////////////- ID[0] -//////////////////////////
+2023-06-13 04:28:21.480:   ITEM[SocketCheck] - FUNCTION[SocketCheckProxy]
+2023-06-13 04:28:21.483:   [PC] Turn: 1
+2023-06-13 04:28:21.484:   [CONFIG] connect to socket server: localhost - 60026
+2023-06-13 04:28:21.484:   [CONFIG] timeout: 10
+2023-06-13 04:28:21.491:   [PC] send to server: {"action":"test"}
+2023-06-13 04:28:21.491:   [Socket] {"mode":"test","data":[{"area":"0/8/999999","label":"e","percent":"95/89%s","status":true},{"area":"0/26862/999999","label":"e","percent":"96/90%s","status":true},{"area":"0/16844/99999","label":"r","percent":"96/81%s","status":true},{"area":"0/20790/22400","label":"o","percent":"93/95%s","status":false},{"area":"0/145713/999999","label":"label","percent":"93/82%s","status":true}],"status":false}
+2023-06-13 04:28:21.602:   [Socket] {}
+2023-06-13 04:28:21.602:   [PC] send to server: {"action":"test"}
+2023-06-13 04:28:21.734:   [Socket] {"mode":"test","data":[{"area":"0/36/999999","label":"e","percent":"95/89%s","status":true},{"area":"0/26857/999999","label":"e","percent":"96/90%s","status":true},{"area":"0/16835/99999","label":"r","percent":"96/81%s","status":true},{}]}
+2023-06-13 04:28:21.734:   [PC] send to server: {"action":"test"}
+2023-06-13 04:28:21.841:   [PC] send to server: {"action":"test"}
+2023-06-13 04:28:21.845:   [Socket] {}
+2023-06-13 04:28:21.949:   [PC] send to server: {"action":"test"}
+2023-06-13 04:28:21.949:   [Socket] {"mode":"test","data":[{}]}
+2023-06-13 04:28:22.059:   [PC] send to server: {"action":"test"}
+2023-06-13 04:28:22.059:   [Socket] {"mode":"test","data":[{"area":"0/24/999999","label":"e","percent":"95/89%s","status":true},{"area":"0/26866/999999","label":"e","percent":"96/90%s","status":true},{"area":"0/16829/99999","label":"r","percent":"96/81%s","status":true},{"area":"0/0/22400","label":"o","percent":"0/95%s","status":false},{"area":"0/145715/999999","label":"label","percent":"95/82%s","status":true}],"status":false}
+2023-06-13 04:28:22.165:   [Socket] {"mode":"test","data":[{"area":"0/37/999999","label":"e","percent":"95/89%s","status":true},{"area":"0/26873/999999","label":"e","percent":"96/90%s","status":true},{"area":"0/16843/99999","label":"r","percent":"96/81%s","status":true},{"area":"0/0/22400","label":"o","percent":"0/95%s","status":false},{"area":"0/145722/999999","label":"label","percent":"95/82%s","status":true}],"status":false}
+2023-06-13 04:28:22.165:   [PC] send to server: {"action":"test"}
+2023-06-13 04:28:22.275:   [Socket] {"mode":"test","data":[{"area":"0/9/999999","label":"e","percent":"95/89%s","status":true},{"area":"0/26865/999999","label":"e","percent":"96/90%s","status":true},{"area":"0/16842/99999","label":"r","percent":"96/81%s","status":true},{"area":"0/0/22400","label":"o","percent":"0/95%s","status":false},{"area":"0/145712/999999","label":"label","percent":"95/82%s","status":true}],"status":false}
+2023-06-13 04:28:22.276:   [PC] send to server: {"action":"test"}
+2023-06-13 04:28:22.386:   [Socket] {"mode":"test","data":[{"area":"0/52/999999","label":"e","percent":"95/89%s","status":true},{"area":"0/26867/999999","label":"e","percent":"96/90%s","status":true},{"area":"0/16835/99999","label":"r","percent":"96/81%s","status":true},{"area":"0/20803/22400","label":"o","percent":"95/95%s","status":true},{"area":"0/145711/999999","label":"label","percent":"93/82%s","status":true}],"status":true}
+2023-06-13 04:28:22.392:   [PC] send to server: {"action":"test"}
+2023-06-13 04:28:22.512:   [PC] Detect model passed!
+2023-06-13 04:28:22.512:   [CONFIG] Name elements: [../ImageLog/, start_day]
+2023-06-13 04:28:22.512:   [CONFIG] Name elements: [mlbsn, sn, pass, mode]
+2023-06-13 04:28:22.513:   [CONFIG] image log: ../ImageLog/_2023-06-13/mlbsn_RYK01Q6_pass_debug.jpg
+2023-06-13 04:28:22.513:   [PC] send to server: {"name":"mlbsn_RYK01Q6_pass_debug.jpg","action":"save","dir":"../ImageLog/_2023-06-13"}
+2023-06-13 04:28:22.557:   [Socket] {"message":"../ImageLog/_2023-06-13/mlbsn_RYK01Q6_pass_debug.jpg","status":true}
+2023-06-13 04:28:22.626:   [PC] save image ok
+2023-06-13 04:28:22.628:   ****************************************************
+2023-06-13 04:28:22.628:   Item name = SocketCheck
+2023-06-13 04:28:22.628:   Value = passed
+2023-06-13 04:28:22.628:   Test status = passed
+2023-06-13 04:28:22.629:   -----------------------------------------------------
+2023-06-13 04:28:22.629:   ****************************************************
+2023-06-13 04:28:22.629:   TIME[1.149 s] - STATUS[PASSED]
+//////////////////////////////////////////////////////////////
+//////////////////////////- ID[1] -//////////////////////////
+2023-06-13 04:28:22.630:   ITEM[UpLogFTP] - FUNCTION[UpLogFTPProxy]
+2023-06-13 04:28:22.632:   [PC] Turn: 1
+2023-06-13 04:28:22.632:   [CONFIG] Dir elements: [data/Trieste, pnname, station_type, mode, start_day, station_name, status]
+2023-06-13 04:28:22.632:   [CONFIG] Name elements: [Log/TestLog]
+2023-06-13 04:28:22.632:   [CONFIG] Name elements: [mlbsn, sn, position, status, mode, finish_time]
+2023-06-13 04:28:22.633:   [CONFIG] Follow limit: false
+2023-06-13 04:28:22.633:   [CONFIG] Use the limit errorcode: true
+2023-06-13 04:28:22.633:   [PC] Root: mlbsn = null
+2023-06-13 04:28:22.633:   [PC] -----------------------------------------
+2023-06-13 04:28:22.633:   [PC] Root: sn = RYK01Q6
+2023-06-13 04:28:22.633:   [PC] -----------------------------------------
+2023-06-13 04:28:22.633:   [PC] Root: mo = null
+2023-06-13 04:28:22.633:   [PC] -----------------------------------------
+2023-06-13 04:28:22.633:   [PC] Root: error_details = null
+2023-06-13 04:28:22.634:   [PC] -----------------------------------------
+2023-06-13 04:28:22.634:   [PC] Root: status = passed
+2023-06-13 04:28:22.634:   [PC] -----------------------------------------
+2023-06-13 04:28:22.634:   [PC] Root: finish_time = 2023-06-13 04:28:22
+2023-06-13 04:28:22.634:   [PC] -----------------------------------------
+2023-06-13 04:28:22.634:   [PC] Root: test_software_version = 1.5.7
+2023-06-13 04:28:22.634:   [PC] -----------------------------------------
+2023-06-13 04:28:22.634:   [PC] Root: start_time = 2023-06-13 04:28:21
+2023-06-13 04:28:22.634:   [PC] -----------------------------------------
+2023-06-13 04:28:22.634:   [PC] Root: station_type = CCD
+2023-06-13 04:28:22.634:   [PC] -----------------------------------------
+2023-06-13 04:28:22.635:   [PC] Root: error_code = null
+2023-06-13 04:28:22.635:   [PC] -----------------------------------------
+2023-06-13 04:28:22.635:   [PC] Root: errorcode = null
+2023-06-13 04:28:22.635:   [PC] -----------------------------------------
+2023-06-13 04:28:22.635:   [PC] Root: errorDes = null
+2023-06-13 04:28:22.635:   [PC] -----------------------------------------
+2023-06-13 04:28:22.635:   [PC] Root: serial = null
+2023-06-13 04:28:22.635:   [PC] -----------------------------------------
+2023-06-13 04:28:22.635:   [PC] Root: mode = debug
+2023-06-13 04:28:22.635:   [PC] -----------------------------------------
+2023-06-13 04:28:22.635:   [PC] Root: station_name = RUNIN-7586
+2023-06-13 04:28:22.636:   [PC] -----------------------------------------
+2023-06-13 04:28:22.636:   [PC] Root: position =
+2023-06-13 04:28:22.636:   [PC] -----------------------------------------
+2023-06-13 04:28:22.636:   [PC] Root: cycle_time = 1.164
+2023-06-13 04:28:22.636:   [PC] -----------------------------------------
+2023-06-13 04:28:22.636:   [PC] Root: cyctime_final = 1.164
+2023-06-13 04:28:22.636:   [PC] -----------------------------------------
+2023-06-13 04:28:22.636:   [PC] Item name: SocketCheck
+2023-06-13 04:28:22.637:   [PC] ItemTest: SocketCheck = {"start_time":"2023-06-13 04:28:21","lower_limit":"","cycle_time":"1.149","upper_limit":"","error_code":"","units":"","errorDes":"","test_name":"SocketCheck","finish_time":"2023-06-13 04:28:22","errorcode":"","test_value":"passed","status":"passed"}
+2023-06-13 04:28:22.637:   [PC] Format for json data!
+2023-06-13 04:28:22.637:   [PC] Save data in: Log/TestLog/json/mlbsn_RYK01Q6__passed_debug_2023-06-13-04-28-22.json ok
+2023-06-13 04:28:22.638:   [PC] Connect to ftp!!
+2023-06-13 04:28:22.638:   [Config] User: oper
+2023-06-13 04:28:22.638:   [Config] PassWord: mfg-oper
+2023-06-13 04:28:22.638:   [Config] Host: 10.90.100.168
+2023-06-13 04:28:22.638:   [Config] Port: 21
+2023-06-13 04:28:22.650:   [PC] Connect to ftp ok!!
+2023-06-13 04:28:22.651:   [Config] Local: Log\TestLog\json\mlbsn_RYK01Q6__passed_debug_2023-06-13-04-28-22.json
+2023-06-13 04:28:22.651:   [Config] Ftp: data/Trieste/pnname/CCD/debug/2023-06-13/RUNIN-7586/passed/json/mlbsn_RYK01Q6__passed_debug_2023-06-13-04-28-22.json
+2023-06-13 04:28:22.688:   [PC] Up file to FTP done!
+2023-06-13 04:28:22.689:   ________________________________________________________
+2023-06-13 04:28:22.689:   Save file txt!
+2023-06-13 04:28:22.689:   [DIR] Log/TestLog/text/mlbsn_RYK01Q6__passed_debug_2023-06-13-04-28-22.txt
+2023-06-13 04:28:22.690:   [PC] - add item: SocketCheck
+2023-06-13 04:28:22.703:   [PC] - add item: UpLogFTP
+//////////////////////////////////////////////////////////////

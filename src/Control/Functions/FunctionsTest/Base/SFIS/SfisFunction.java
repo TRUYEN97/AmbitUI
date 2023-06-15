@@ -63,9 +63,9 @@ public class SfisFunction extends AbsFunction {
             if (command == null) {
                 return false;
             }
-            writeLog("TE->API", String.format("%s %s",this.uIInfo.getName(), command));
+            writeLog("TE->API", String.format("%s %s", this.uIInfo.getName(), command));
             String response = this.sfisAPI.sendToSFIS(url, command);
-            writeLog("API->TE",String.format("%s %s",this.uIInfo.getName(), response));
+            writeLog("API->TE", String.format("%s %s", this.uIInfo.getName(), response));
             addLog("Response is: " + response);
             if (type == null) {
                 return checkResponse(response);
@@ -107,7 +107,10 @@ public class SfisFunction extends AbsFunction {
             if (value == null) {
                 continue;
             }
-            if (key.equalsIgnoreCase(AllKeyWord.SFIS.STATUS)) {
+            if (key.equalsIgnoreCase(AllKeyWord.SFIS.PC_NAME)) {
+                String location = this.processData.getString(AllKeyWord.POSITION, "");
+                command.put(key, location.isBlank() ? value : String.format("%s-%s", value, location));
+            } else if (key.equalsIgnoreCase(AllKeyWord.SFIS.STATUS)) {
                 command.put(key, value.equals(ItemTestData.PASS) ? PASS : FAIL);
             } else if (maxLength != -1
                     && key.equalsIgnoreCase(AllKeyWord.SFIS.SN)

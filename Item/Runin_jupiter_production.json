@@ -1,4 +1,4 @@
-{
+﻿{
     "station_type": "RUNIN",
     "time_out_test": 25200,
     "init": [
@@ -221,7 +221,7 @@
         {
             "flag": true,
             "begin": 1,
-            "loop_times": 5,
+            "loop_times": 6,
             "functions": [
                 {
                     "flag": true,
@@ -292,22 +292,6 @@
                 },
                 {
                     "flag": true,
-                    "time_out": 1200,
-                    "debug_able": true,
-                    "multi": false,
-                    "IP": "192.168.1.1",
-                    "ReadUntil": "root@eero-test:/#",
-                    "Time": 500,
-                    "fail_continue": false,
-                    "command": ["badblocks -svw /dev/mmcblk0p26", "badblocks -svw /dev/mmcblk0p28"],
-                    "Startkey": "Pass completed,",
-                    "Endkey": "bad blocks found",
-                    "ReadUntil": "root@eero-test:/#",
-                    "test_name": "emmc_badblocks",
-                    "func_name": "MMC_BadBlockProxy"
-                },
-                {
-                    "flag": true,
                     "time_out": 300,
                     "debug_able": true,
                     "multi": false,
@@ -326,10 +310,25 @@
                 }, 
                 {
                     "flag": true,
+                    "time_out": 1200,
+                    "debug_able": true,
+                    "multi": false,
+                    "IP": "192.168.1.1",
+                    "ReadUntil": "root@eero-test:/#",
+                    "Time": 500,
+                    "fail_continue": false,
+                    "command": ["badblocks -svw /dev/mmcblk0p26", "badblocks -svw /dev/mmcblk0p28"],
+                    "Startkey": "Pass completed,",
+                    "Endkey": "bad blocks found",
+                    "ReadUntil": "root@eero-test:/#",
+                    "test_name": "emmc_badblocks",
+                    "func_name": "MMC_BadBlockProxy"
+                },
+                {
+                    "flag": true,
                     "time_out": 100,
                     "retry": 2,
                     "debug_able": true,
-                    "multi": true,
                     "always_run": false,
                     "IP": "192.168.1.1",
                     "ReadUntil": "root@eero-test:/#",
@@ -358,26 +357,11 @@
         },
         {
             "flag": true,
-            "time_out": 1200,
-            "debug_able": true,
-            "multi": false,
-            "host": "192.168.1.10",
-            "user": "admin",
-            "password": "1234",
-            "Times": 1,
-            "Delay": 5,
-            "Command": ["off", "on"],
-            "test_name": "power_cycle_5",
-            "func_name": "PowerSwitchProxy"
-        },
-        {
-            "flag": true,
             "time_out": 10,
             "debug_able": true,
-            "multi": true,
             "always_run": false,
             "item": "temp_cpu_0",
-            "item1": "temp_cpu_5",
+            "item1": "temp_cpu_6",
             "test_name": "temp_cpu_delta",
             "func_name": "DeltaProxy"
         },
@@ -387,7 +371,7 @@
             "debug_able": true,
             "always_run": false,
             "item": "temp_eth_0",
-            "item1": "temp_eth_5",
+            "item1": "temp_eth_6",
             "test_name": "temp_eth_delta",
             "func_name": "DeltaProxy"
         },

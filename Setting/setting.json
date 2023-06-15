@@ -1,5 +1,5 @@
 {
-    "station_type": "runin",
+    "station_type": "CCD",
     "dutModel": "Trieste",
     "row": 1,
     "column": 1,
@@ -18,12 +18,7 @@
         {
             "name": "debug", 
             "type_mode": "debug",
-            "ambit_config": "Item\\Runin_jupiter_debug_verify_temp.json"
-        },
-        {
-            "name": "production", 
-            "type_mode": "production",
-            "ambit_config": "Item\\Runin_jupiter_production.json"
+            "ambit_config": "Item\\CCD.json"
         }
     ],
     "dhcp": {

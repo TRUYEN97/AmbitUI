@@ -1,0 +1,36 @@
+{
+"station_name":"RUNIN-7586",
+"mo":"",
+"mlbsn":"",
+"finish_time":"2023-06-13 04:30:08",
+"mode":"debug",
+"start_time":"2023-06-13 04:30:08",
+"tests":[
+{
+"start_time":"2023-06-13 04:30:08",
+"lower_limit":"",
+"cycle_time":"0.340",
+"upper_limit":"",
+"error_code":"",
+"units":"",
+"errorDes":"",
+"test_name":"SocketCheck",
+"finish_time":"2023-06-13 04:30:08",
+"errorcode":"",
+"test_value":"passed",
+"status":"passed"
+}
+],
+"error_details":"",
+"serial":"",
+"cycle_time":"0.354",
+"error_code":"",
+"sn":"RYK01Q6",
+"position":"",
+"station_type":"CCD",
+"errorDes":"",
+"cyctime_final":"0.354",
+"errorcode":"",
+"status":"passed",
+"test_software_version":"1.5.7"
+}

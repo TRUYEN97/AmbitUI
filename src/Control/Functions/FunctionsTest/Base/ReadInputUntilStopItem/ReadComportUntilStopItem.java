@@ -35,7 +35,7 @@ public class ReadComportUntilStopItem extends AbsFunction {
 
     @Override
     protected boolean test() {
-        try ( ComPort comport = getSenderType()) {
+        try ( ComPort comport = this.functionBase.getComport()) {
             if (comport == null) {
                 return false;
             }
@@ -88,13 +88,6 @@ public class ReadComportUntilStopItem extends AbsFunction {
             } catch (InterruptedException ex) {
             }
         }
-    }
-
-    private ComPort getSenderType() {
-        String com = this.functionBase.getComportName();
-        int baudrate = this.config.getInteger("baudrate", 9600);
-        addLog(LOG_KEYS.COMPORT, "comport: %s -- baudrate: %s", com, baudrate);
-        return this.functionBase.getComport(com, baudrate);
     }
 
 }

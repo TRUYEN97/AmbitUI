@@ -110,14 +110,20 @@ public class FunctionBase extends AbsFunction {
     }
 
     public String getComportName() {
-        Integer com = this.config.getInteger("comport");
+        Integer com = this.config.getInteger("comport", 1);
         if (this.modeTest.isUseDHCP()) {
-            if (com != null) {
-                int port = com + this.uIInfo.getID();
-                return String.format("COM%d", port);
-            }
+            int port = com + this.uIInfo.getID();
+            return String.format("COM%d", port);
+        } else {
+            return String.format("COM%d", com);
         }
-        return null;
+    }
+
+    public ComPort getComport() {
+        String com = this.getComportName();
+        int baudrate = this.config.getInteger("baudrate", 9600);
+        addLog(LOG_KEYS.COMPORT, "comport: %s -- baudrate: %s", com, baudrate);
+        return this.getComport(com, baudrate);
     }
 
     public ComPort getComport(String com, Integer baud) {

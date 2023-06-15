@@ -1,0 +1,285 @@
+===================================================================
+Start at = 2023-06-13 04:28:32
+End test at = 2023-06-13 04:28:43
+Status = failed
+Version = 1.5.7
+Error code = -1
+Error des = SocketCheck
+Local error code = SK.CHECK
+Local error des = SocketCheck
+Test time = 10.182 s
+Final test time = 10.239 s
+Station = RUNIN-7586
+Localtion = 
+HHSN = RYK01Q6
+DEVICESN = null
+===================================================================
+//////////////////////////- ID[0] -//////////////////////////
+2023-06-13 04:28:32.920:   ITEM[SocketCheck] - FUNCTION[SocketCheckProxy]
+2023-06-13 04:28:32.921:   [PC] Turn: 1
+2023-06-13 04:28:32.921:   [CONFIG] connect to socket server: localhost - 60026
+2023-06-13 04:28:32.921:   [CONFIG] timeout: 10
+2023-06-13 04:28:32.923:   [PC] send to server: {"action":"test"}
+2023-06-13 04:28:32.923:   [Socket] {"mode":"test","data":[{"area":"0/23/999999","label":"e","percent":"95/89%s","status":true},{"area":"0/26830/999999","label":"e","percent":"96/90%s","status":true},{"area":"0/16837/99999","label":"r","percent":"96/81%s","status":true},{"area":"0/0/22400","label":"o","percent":"0/95%s","status":false},{"area":"0/145689/999999","label":"label","percent":"95/82%s","status":true}],"status":false}
+2023-06-13 04:28:33.029:   [PC] send to server: {"action":"test"}
+2023-06-13 04:28:33.031:   [Socket] {"mode":"test","data":[{"area":"0/30/999999","label":"e","percent":"95/89%s","status":true},{"area":"0/26828/999999","label":"e","percent":"96/90%s","status":true},{"area":"0/16809/99999","label":"r","percent":"96/81%s","status":true},{"area":"0/0/22400","label":"o","percent":"0/95%s","status":false},{"area":"0/145688/999999","label":"label","percent":"95/82%s","status":true}],"status":false}
+2023-06-13 04:28:33.172:   [PC] send to server: {"action":"test"}
+2023-06-13 04:28:33.174:   [Socket] {"mode":"test","data":[{"area":"0/20/999999","label":"e","percent":"95/89%s","status":true},{"area":"0/26822/999999","label":"e","percent":"96/90%s","status":true},{"area":"0/16832/99999","label":"r","percent":"96/81%s","status":true},{"area":"0/0/22400","label":"o","percent":"0/95%s","status":false},{"area":"0/145685/999999","label":"label","percent":"94/82%s","status":true}],"status":false}
+2023-06-13 04:28:33.281:   [PC] send to server: {"action":"test"}
+2023-06-13 04:28:33.282:   [Socket] {"mode":"test","data":[{"area":"0/35/999999","label":"e","percent":"95/89%s","status":true},{"area":"0/26822/999999","label":"e","percent":"96/90%s","status":true},{"area":"0/16799/99999","label":"r","percent":"96/81%s","status":true},{"area":"0/0/22400","label":"o","percent":"0/95%s","status":false},{"area":"0/145679/999999","label":"label","percent":"94/82%s","status":true}],"status":false}
+2023-06-13 04:28:33.388:   [PC] send to server: {"action":"test"}
+2023-06-13 04:28:33.389:   [Socket] {"mode":"test","data":[{"area":"0/42/999999","label":"e","percent":"95/89%s","status":true},{"area":"0/26824/999999","label":"e","percent":"96/90%s","status":true},{"area":"0/16812/99999","label":"r","percent":"96/81%s","status":true},{"area":"0/0/22400","label":"o","percent":"0/95%s","status":false},{"area":"0/145682/999999","label":"label","percent":"94/82%s","status":true}],"status":false}
+2023-06-13 04:28:33.494:   [PC] send to server: {"action":"test"}
+2023-06-13 04:28:33.494:   [Socket] {"mode":"test","data":[{"area":"0/37/999999","label":"e","percent":"95/89%s","status":true},{"area":"0/26829/999999","label":"e","percent":"96/90%s","status":true},{"area":"0/16819/99999","label":"r","percent":"96/81%s","status":true},{"area":"0/0/22400","label":"o","percent":"0/95%s","status":false},{"area":"0/145687/999999","label":"label","percent":"94/82%s","status":true}],"status":false}
+2023-06-13 04:28:33.602:   [PC] send to server: {"action":"test"}
+2023-06-13 04:28:33.603:   [Socket] {"mode":"test","data":[{"area":"0/48/999999","label":"e","percent":"95/89%s","status":true},{"area":"0/26824/999999","label":"e","percent":"96/90%s","status":true},{"area":"0/16838/99999","label":"r","percent":"96/81%s","status":true},{"area":"0/0/22400","label":"o","percent":"0/95%s","status":false},{"area":"0/145681/999999","label":"label","percent":"94/82%s","status":true}],"status":false}
+2023-06-13 04:28:33.712:   [PC] send to server: {"action":"test"}
+2023-06-13 04:28:33.712:   [Socket] {"mode":"test","data":[{"area":"0/12/999999","label":"e","percent":"95/89%s","status":true},{"area":"0/26830/999999","label":"e","percent":"96/90%s","status":true},{"area":"0/16832/99999","label":"r","percent":"96/81%s","status":true},{"area":"0/0/22400","label":"o","percent":"0/95%s","status":false},{"area":"0/145687/999999","label":"label","percent":"94/82%s","status":true}],"status":false}
+2023-06-13 04:28:33.824:   [PC] send to server: {"action":"test"}
+2023-06-13 04:28:33.825:   [Socket] {"mode":"test","data":[{"area":"0/36/999999","label":"e","percent":"95/89%s","status":true},{"area":"0/26817/999999","label":"e","percent":"96/90%s","status":true},{"area":"0/16835/99999","label":"r","percent":"96/81%s","status":true},{"area":"0/0/22400","label":"o","percent":"0/95%s","status":false},{"area":"0/145682/999999","label":"label","percent":"93/82%s","status":true}],"status":false}
+2023-06-13 04:28:33.935:   [PC] send to server: {"action":"test"}
+2023-06-13 04:28:33.937:   [Socket] {"mode":"test","data":[{"area":"0/28/999999","label":"e","percent":"95/89%s","status":true},{"area":"0/26818/999999","label":"e","percent":"96/90%s","status":true},{"area":"0/16833/99999","label":"r","percent":"96/81%s","status":true},{"area":"0/0/22400","label":"o","percent":"0/95%s","status":false},{"area":"0/145685/999999","label":"label","percent":"93/82%s","status":true}],"status":false}
+2023-06-13 04:28:34.039:   [PC] send to server: {"action":"test"}
+2023-06-13 04:28:34.041:   [Socket] {"mode":"test","data":[{"area":"0/57/999999","label":"e","percent":"95/89%s","status":true},{"area":"0/26825/999999","label":"e","percent":"96/90%s","status":true},{"area":"0/16835/99999","label":"r","percent":"96/81%s","status":true},{"area":"0/0/22400","label":"o","percent":"0/95%s","status":false},{"area":"0/145682/999999","label":"label","percent":"93/82%s","status":true}],"status":false}
+2023-06-13 04:28:34.149:   [PC] send to server: {"action":"test"}
+2023-06-13 04:28:34.149:   [Socket] {"mode":"test","data":[{"area":"0/57/999999","label":"e","percent":"95/89%s","status":true},{"area":"0/26825/999999","label":"e","percent":"96/90%s","status":true},{"area":"0/16835/99999","label":"r","percent":"96/81%s","status":true},{"area":"0/0/22400","label":"o","percent":"0/95%s","status":false},{"area":"0/145682/999999","label":"label","percent":"93/82%s","status":true}],"status":false}
+2023-06-13 04:28:34.256:   [PC] send to server: {"action":"test"}
+2023-06-13 04:28:34.256:   [Socket] {"mode":"test","data":[{"area":"0/11/999999","label":"e","percent":"95/89%s","status":true},{"area":"0/26823/999999","label":"e","percent":"96/90%s","status":true},{"area":"0/16814/99999","label":"r","percent":"96/81%s","status":true},{"area":"0/0/22400","label":"o","percent":"0/95%s","status":false},{"area":"0/145693/999999","label":"label","percent":"93/82%s","status":true}],"status":false}
+2023-06-13 04:28:34.365:   [PC] send to server: {"action":"test"}
+2023-06-13 04:28:34.366:   [Socket] {"mode":"test","data":[{"area":"0/69/999999","label":"e","percent":"95/89%s","status":true},{"area":"0/26815/999999","label":"e","percent":"96/90%s","status":true},{"area":"0/16814/99999","label":"r","percent":"96/81%s","status":true},{"area":"0/0/22400","label":"o","percent":"0/95%s","status":false},{"area":"0/145681/999999","label":"label","percent":"93/82%s","status":true}],"status":false}
+2023-06-13 04:28:34.473:   [PC] send to server: {"action":"test"}
+2023-06-13 04:28:34.474:   [Socket] {"mode":"test","data":[{"area":"0/4/999999","label":"e","percent":"95/89%s","status":true},{"area":"0/26824/999999","label":"e","percent":"96/90%s","status":true},{"area":"0/16836/99999","label":"r","percent":"96/81%s","status":true},{"area":"0/0/22400","label":"o","percent":"0/95%s","status":false},{"area":"0/145683/999999","label":"label","percent":"93/82%s","status":true}],"status":false}
+2023-06-13 04:28:34.598:   [PC] send to server: {"action":"test"}
+2023-06-13 04:28:34.599:   [Socket] {"mode":"test","data":[{"area":"0/21/999999","label":"e","percent":"95/89%s","status":true},{"area":"0/26815/999999","label":"e","percent":"96/90%s","status":true},{"area":"0/16818/99999","label":"r","percent":"96/81%s","status":true},{"area":"0/0/22400","label":"o","percent":"0/95%s","status":false},{"area":"0/145690/999999","label":"label","percent":"94/82%s","status":true}],"status":false}
+2023-06-13 04:28:34.707:   [PC] send to server: {"action":"test"}
+2023-06-13 04:28:34.707:   [Socket] {"mode":"test","data":[{"area":"0/48/999999","label":"e","percent":"95/89%s","status":true},{"area":"0/26817/999999","label":"e","percent":"96/90%s","status":true},{"area":"0/16823/99999","label":"r","percent":"96/81%s","status":true},{"area":"0/0/22400","label":"o","percent":"0/95%s","status":false},{"area":"0/145690/999999","label":"label","percent":"94/82%s","status":true}],"status":false}
+2023-06-13 04:28:34.811:   [PC] send to server: {"action":"test"}
+2023-06-13 04:28:34.812:   [Socket] {"mode":"test","data":[{"area":"0/20/999999","label":"e","percent":"95/89%s","status":true},{"area":"0/26810/999999","label":"e","percent":"96/90%s","status":true},{"area":"0/16842/99999","label":"r","percent":"96/81%s","status":true},{"area":"0/0/22400","label":"o","percent":"0/95%s","status":false},{"area":"0/145690/999999","label":"label","percent":"94/82%s","status":true}],"status":false}
+2023-06-13 04:28:34.918:   [PC] send to server: {"action":"test"}
+2023-06-13 04:28:34.919:   [Socket] {"mode":"test","data":[{"area":"0/63/999999","label":"e","percent":"95/89%s","status":true},{"area":"0/26818/999999","label":"e","percent":"96/90%s","status":true},{"area":"0/16816/99999","label":"r","percent":"96/81%s","status":true},{"area":"0/0/22400","label":"o","percent":"0/95%s","status":false},{"area":"0/145691/999999","label":"label","percent":"94/82%s","status":true}],"status":false}
+2023-06-13 04:28:35.025:   [PC] send to server: {"action":"test"}
+2023-06-13 04:28:35.025:   [Socket] {"mode":"test","data":[{"area":"0/4/999999","label":"e","percent":"95/89%s","status":true},{"area":"0/26814/999999","label":"e","percent":"96/90%s","status":true},{"area":"0/16817/99999","label":"r","percent":"96/81%s","status":true},{"area":"0/0/22400","label":"o","percent":"0/95%s","status":false},{"area":"0/145684/999999","label":"label","percent":"94/82%s","status":true}],"status":false}
+2023-06-13 04:28:35.132:   [PC] send to server: {"action":"test"}
+2023-06-13 04:28:35.133:   [Socket] {"mode":"test","data":[{"area":"0/4/999999","label":"e","percent":"95/89%s","status":true},{"area":"0/26814/999999","label":"e","percent":"96/90%s","status":true},{"area":"0/16817/99999","label":"r","percent":"96/81%s","status":true},{"area":"0/0/22400","label":"o","percent":"0/95%s","status":false},{"area":"0/145684/999999","label":"label","percent":"94/82%s","status":true}],"status":false}
+2023-06-13 04:28:35.249:   [PC] send to server: {"action":"test"}
+2023-06-13 04:28:35.249:   [Socket] {"mode":"test","data":[{"area":"0/20/999999","label":"e","percent":"95/89%s","status":true},{"area":"0/26813/999999","label":"e","percent":"96/90%s","status":true},{"area":"0/16847/99999","label":"r","percent":"96/81%s","status":true},{"area":"0/0/22400","label":"o","percent":"0/95%s","status":false},{"area":"0/145685/999999","label":"label","percent":"94/82%s","status":true}]}
+2023-06-13 04:28:35.366:   [PC] send to server: {"action":"test"}
+2023-06-13 04:28:35.370:   [Socket] {"mode":"test","data":[{"area":"0/29/999999","label":"e","percent":"95/89%s","status":true},{"area":"0/26820/999999","label":"e","percent":"96/90%s","status":true},{"area":"0/16807/99999","label":"r","percent":"96/81%s","status":true},{"area":"0/0/22400","label":"o","percent":"0/95%s","status":false},{"area":"0/145687/999999","label":"label","percent":"94/82%s","status":true}],"status":false}
+2023-06-13 04:28:35.476:   [PC] send to server: {"action":"test"}
+2023-06-13 04:28:35.476:   [Socket] {"mode":"test","data":[{"area":"0/66/999999","label":"e","percent":"95/89%s","status":true},{"area":"0/26806/999999","label":"e","percent":"96/90%s","status":true},{"area":"0/16814/99999","label":"r","percent":"96/81%s","status":true},{"area":"0/0/22400","label":"o","percent":"0/95%s","status":false},{"area":"0/145685/999999","label":"label","percent":"94/82%s","status":true}],"status":false}
+2023-06-13 04:28:35.582:   [PC] send to server: {"action":"test"}
+2023-06-13 04:28:35.582:   [Socket] {"mode":"test","data":[{"area":"0/72/999999","label":"e","percent":"95/89%s","status":true},{"area":"0/26818/999999","label":"e","percent":"96/90%s","status":true},{"area":"0/16817/99999","label":"r","percent":"96/81%s","status":true},{"area":"0/0/22400","label":"o","percent":"0/95%s","status":false},{"area":"0/145677/999999","label":"label","percent":"94/82%s","status":true}],"status":false}
+2023-06-13 04:28:35.697:   [PC] send to server: {"action":"test"}
+2023-06-13 04:28:35.698:   [Socket] {"mode":"test","data":[{"area":"0/21/999999","label":"e","percent":"95/89%s","status":true},{"area":"0/26814/999999","label":"e","percent":"96/90%s","status":true},{"area":"0/16815/99999","label":"r","percent":"96/81%s","status":true},{"area":"0/0/22400","label":"o","percent":"0/95%s","status":false},{"area":"0/145689/999999","label":"label","percent":"94/82%s","status":true}],"status":false}
+2023-06-13 04:28:35.813:   [PC] send to server: {"action":"test"}
+2023-06-13 04:28:35.813:   [Socket] {"mode":"test","data":[{"area":"0/35/999999","label":"e","percent":"95/89%s","status":true},{"area":"0/26807/999999","label":"e","percent":"96/90%s","status":true},{"area":"0/16837/99999","label":"r","percent":"96/81%s","status":true},{"area":"0/0/22400","label":"o","percent":"0/95%s","status":false},{"area":"0/145690/999999","label":"label","percent":"94/82%s","status":true}],"status":false}
+2023-06-13 04:28:35.928:   [PC] send to server: {"action":"test"}
+2023-06-13 04:28:35.928:   [Socket] {"mode":"test","data":[{"area":"0/16/999999","label":"e","percent":"95/89%s","status":true},{"area":"0/26805/999999","label":"e","percent":"96/90%s","status":true},{"area":"0/16829/99999","label":"r","percent":"96/81%s","status":true},{"area":"0/0/22400","label":"o","percent":"0/95%s","status":false},{"area":"0/145690/999999","label":"label","percent":"94/82%s","status":true}],"status":false}
+2023-06-13 04:28:36.031:   [PC] send to server: {"action":"test"}
+2023-06-13 04:28:36.031:   [Socket] {"mode":"test","data":[{"area":"0/42/999999","label":"e","percent":"95/89%s","status":true},{"area":"0/26801/999999","label":"e","percent":"96/90%s","status":true},{"area":"0/16808/99999","label":"r","percent":"96/81%s","status":true},{"area":"0/0/22400","label":"o","percent":"0/95%s","status":false},{"area":"0/145689/999999","label":"label","percent":"93/82%s","status":true}],"status":false}
+2023-06-13 04:28:36.146:   [PC] send to server: {"action":"test"}
+2023-06-13 04:28:36.147:   [Socket] {"mode":"test","data":[{"area":"0/16/999999","label":"e","percent":"95/89%s","status":true},{"area":"0/26806/999999","label":"e","percent":"96/90%s","status":true},{"area":"0/16810/99999","label":"r","percent":"96/81%s","status":true},{"area":"0/0/22400","label":"o","percent":"0/95%s","status":false},{"area":"0/145683/999999","label":"label","percent":"93/82%s","status":true}],"status":false}
+2023-06-13 04:28:36.253:   [PC] send to server: {"action":"test"}
+2023-06-13 04:28:36.253:   [Socket] {"mode":"test","data":[{"area":"0/63/999999","label":"e","percent":"95/89%s","status":true},{"area":"0/26799/999999","label":"e","percent":"96/90%s","status":true},{"area":"0/16815/99999","label":"r","percent":"96/81%s","status":true},{"area":"0/0/22400","label":"o","percent":"0/95%s","status":false},{"area":"0/145677/999999","label":"label","percent":"93/82%s","status":true}],"status":false}
+2023-06-13 04:28:36.366:   [PC] send to server: {"action":"test"}
+2023-06-13 04:28:36.366:   [Socket] {"mode":"test","data":[{"area":"0/9/999999","label":"e","percent":"95/89%s","status":true},{"area":"0/26817/999999","label":"e","percent":"96/90%s","status":true},{"area":"0/16812/99999","label":"r","percent":"96/81%s","status":true},{"area":"0/0/22400","label":"o","percent":"0/95%s","status":false},{"area":"0/145675/999999","label":"label","percent":"93/82%s","status":true}],"status":false}
+2023-06-13 04:28:36.477:   [PC] send to server: {"action":"test"}
+2023-06-13 04:28:36.477:   [Socket] {"mode":"test","data":[{"area":"0/27/999999","label":"e","percent":"95/89%s","status":true},{"area":"0/26816/999999","label":"e","percent":"96/90%s","status":true},{"area":"0/16814/99999","label":"r","percent":"96/81%s","status":true},{"area":"0/0/22400","label":"o","percent":"0/95%s","status":false},{"area":"0/145683/999999","label":"label","percent":"93/82%s","status":true}],"status":false}
+2023-06-13 04:28:36.591:   [PC] send to server: {"action":"test"}
+2023-06-13 04:28:36.591:   [Socket] {"mode":"test","data":[{"area":"0/17/999999","label":"e","percent":"95/89%s","status":true},{"area":"0/26806/999999","label":"e","percent":"96/90%s","status":true},{"area":"0/16815/99999","label":"r","percent":"96/81%s","status":true},{"area":"0/0/22400","label":"o","percent":"0/95%s","status":false},{"area":"0/145678/999999","label":"label","percent":"93/82%s","status":true}],"status":false}
+2023-06-13 04:28:36.701:   [PC] send to server: {"action":"test"}
+2023-06-13 04:28:36.702:   [Socket] {"mode":"test","data":[{"area":"0/57/999999","label":"e","percent":"95/89%s","status":true},{"area":"0/26815/999999","label":"e","percent":"96/90%s","status":true},{"area":"0/16817/99999","label":"r","percent":"96/81%s","status":true},{"area":"0/0/22400","label":"o","percent":"0/95%s","status":false},{"area":"0/145677/999999","label":"label","percent":"93/82%s","status":true}],"status":false}
+2023-06-13 04:28:36.812:   [PC] send to server: {"action":"test"}
+2023-06-13 04:28:36.812:   [Socket] {"mode":"test","data":[{"area":"0/61/999999","label":"e","percent":"95/89%s","status":true},{"area":"0/26806/999999","label":"e","percent":"96/90%s","status":true},{"area":"0/16822/99999","label":"r","percent":"96/81%s","status":true},{"area":"0/0/22400","label":"o","percent":"0/95%s","status":false},{"area":"0/145674/999999","label":"label","percent":"95/82%s","status":true}],"status":false}
+2023-06-13 04:28:36.926:   [PC] send to server: {"action":"test"}
+2023-06-13 04:28:36.926:   [Socket] {"mode":"test","data":[{"area":"0/38/999999","label":"e","percent":"95/89%s","status":true},{"area":"0/26809/999999","label":"e","percent":"96/90%s","status":true},{"area":"0/16813/99999","label":"r","percent":"96/81%s","status":true},{"area":"0/0/22400","label":"o","percent":"0/95%s","status":false},{"area":"0/145683/999999","label":"label","percent":"95/82%s","status":true}],"status":false}
+2023-06-13 04:28:37.039:   [PC] send to server: {"action":"test"}
+2023-06-13 04:28:37.039:   [Socket] {"mode":"test","data":[{"area":"0/60/999999","label":"e","percent":"95/89%s","status":true},{"area":"0/26811/999999","label":"e","percent":"96/90%s","status":true},{"area":"0/16808/99999","label":"r","percent":"96/81%s","status":true},{"area":"0/0/22400","label":"o","percent":"0/95%s","status":false},{"area":"0/145680/999999","label":"label","percent":"95/82%s","status":true}],"status":false}
+2023-06-13 04:28:37.153:   [PC] send to server: {"action":"test"}
+2023-06-13 04:28:37.153:   [Socket] {"mode":"test","data":[{"area":"0/68/999999","label":"e","percent":"95/89%s","status":true},{"area":"0/26800/999999","label":"e","percent":"96/90%s","status":true},{"area":"0/16809/99999","label":"r","percent":"96/81%s","status":true},{"area":"0/0/22400","label":"o","percent":"0/95%s","status":false},{"area":"0/145679/999999","label":"label","percent":"95/82%s","status":true}],"status":false}
+2023-06-13 04:28:37.261:   [PC] send to server: {"action":"test"}
+2023-06-13 04:28:37.261:   [Socket] {"mode":"test","data":[{"area":"0/20/999999","label":"e","percent":"95/89%s","status":true},{"area":"0/26812/999999","label":"e","percent":"96/90%s","status":true},{"area":"0/16813/99999","label":"r","percent":"96/81%s","status":true},{"area":"0/0/22400","label":"o","percent":"0/95%s","status":false},{"area":"0/145681/999999","label":"label","percent":"95/82%s","status":true}],"status":false}
+2023-06-13 04:28:37.376:   [PC] send to server: {"action":"test"}
+2023-06-13 04:28:37.376:   [Socket] {"mode":"test","data":[{"area":"0/19/999999","label":"e","percent":"95/89%s","status":true},{"area":"0/26810/999999","label":"e","percent":"96/90%s","status":true},{"area":"0/16809/99999","label":"r","percent":"96/81%s","status":true},{"area":"0/0/22400","label":"o","percent":"0/95%s","status":false},{"area":"0/145677/999999","label":"label","percent":"95/82%s","status":true}],"status":false}
+2023-06-13 04:28:37.485:   [PC] send to server: {"action":"test"}
+2023-06-13 04:28:37.503:   [Socket] {"mode":"test","data":[{"area":"0/50/999999","label":"e","percent":"96/89%s","status":true},{"area":"0/26814/999999","label":"e","percent":"96/90%s","status":true},{"area":"0/16817/99999","label":"r","percent":"96/81%s","status":true},{"area":"0/0/22400","label":"o","percent":"0/95%s","status":false},{"area":"0/145680/999999","label":"label","percent":"93/82%s","status":true}]}
+2023-06-13 04:28:37.612:   [PC] send to server: {"action":"test"}
+2023-06-13 04:28:37.612:   [Socket] {"mode":"test","data":[{"area":"0/49/999999","label":"e","percent":"96/89%s","status":true},{"area":"0/26809/999999","label":"e","percent":"96/90%s","status":true},{"area":"0/16819/99999","label":"r","percent":"96/81%s","status":true},{"area":"0/0/22400","label":"o","percent":"0/95%s","status":false},{"area":"0/145681/999999","label":"label","percent":"93/82%s","status":true}],"status":false}
+2023-06-13 04:28:37.726:   [PC] send to server: {"action":"test"}
+2023-06-13 04:28:37.726:   [Socket] {"mode":"test","data":[{"area":"0/44/999999","label":"e","percent":"96/89%s","status":true},{"area":"0/26807/999999","label":"e","percent":"96/90%s","status":true},{"area":"0/16817/99999","label":"r","percent":"96/81%s","status":true},{"area":"0/0/22400","label":"o","percent":"0/95%s","status":false},{"area":"0/145680/999999","label":"label","percent":"93/82%s","status":true}],"status":false}
+2023-06-13 04:28:37.840:   [PC] send to server: {"action":"test"}
+2023-06-13 04:28:37.840:   [Socket] {"mode":"test","data":[{"area":"0/53/999999","label":"e","percent":"96/89%s","status":true},{"area":"0/26799/999999","label":"e","percent":"96/90%s","status":true},{"area":"0/16815/99999","label":"r","percent":"96/81%s","status":true},{"area":"0/0/22400","label":"o","percent":"0/95%s","status":false},{"area":"0/145680/999999","label":"label","percent":"93/82%s","status":true}],"status":false}
+2023-06-13 04:28:37.955:   [PC] send to server: {"action":"test"}
+2023-06-13 04:28:37.955:   [Socket] {"mode":"test","data":[{"area":"0/29/999999","label":"e","percent":"96/89%s","status":true},{"area":"0/26807/999999","label":"e","percent":"96/90%s","status":true},{"area":"0/16809/99999","label":"r","percent":"96/81%s","status":true},{"area":"0/0/22400","label":"o","percent":"0/95%s","status":false},{"area":"0/145682/999999","label":"label","percent":"93/82%s","status":true}],"status":false}
+2023-06-13 04:28:38.061:   [PC] send to server: {"action":"test"}
+2023-06-13 04:28:38.061:   [Socket] {"mode":"test","data":[{"area":"0/72/999999","label":"e","percent":"96/89%s","status":true},{"area":"0/26791/999999","label":"e","percent":"96/90%s","status":true},{"area":"0/16818/99999","label":"r","percent":"96/81%s","status":true},{"area":"0/0/22400","label":"o","percent":"0/95%s","status":false},{"area":"0/145669/999999","label":"label","percent":"93/82%s","status":true}],"status":false}
+2023-06-13 04:28:38.173:   [PC] send to server: {"action":"test"}
+2023-06-13 04:28:38.173:   [Socket] {"mode":"test","data":[{"area":"0/39/999999","label":"e","percent":"96/89%s","status":true},{}]}
+2023-06-13 04:28:38.287:   [PC] send to server: {"action":"test"}
+2023-06-13 04:28:38.287:   [Socket] {"mode":"test","data":[{"area":"0/39/999999","label":"e","percent":"96/89%s","status":true},{}]}
+2023-06-13 04:28:38.392:   [PC] send to server: {"action":"test"}
+2023-06-13 04:28:38.392:   [Socket] {"mode":"test","data":[{"area":"0/39/999999","label":"e","percent":"96/89%s","status":true},{}]}
+2023-06-13 04:28:38.502:   [PC] send to server: {"action":"test"}
+2023-06-13 04:28:38.502:   [Socket] {"mode":"test","data":[{"area":"0/39/999999","label":"e","percent":"96/89%s","status":true},{}]}
+2023-06-13 04:28:38.609:   [PC] send to server: {"action":"test"}
+2023-06-13 04:28:38.610:   [Socket] {"mode":"test","data":[{"area":"0/39/999999","label":"e","percent":"96/89%s","status":true},{"area":"0/0/999999","label":"e","percent":"0/90%s","status":false},{"area":"0/16818/99999","label":"r","percent":"96/81%s","status":true},{"area":"0/0/22400","label":"o","percent":"0/95%s","status":false},{"area":"0/145673/999999","label":"label","percent":"93/82%s","status":true}]}
+2023-06-13 04:28:38.722:   [PC] send to server: {"action":"test"}
+2023-06-13 04:28:38.729:   [Socket] {"mode":"test","data":[{}]}
+2023-06-13 04:28:38.839:   [PC] send to server: {"action":"test"}
+2023-06-13 04:28:38.840:   [Socket] {"mode":"test","data":[{"area":"0/35/999999","label":"e","percent":"95/89%s","status":true},{"area":"0/26802/999999","label":"e","percent":"96/90%s","status":true},{"area":"0/16810/99999","label":"r","percent":"96/81%s","status":true},{"area":"0/0/22400","label":"o","percent":"0/95%s","status":false},{"area":"0/145669/999999","label":"label","percent":"93/82%s","status":true}],"status":false}
+2023-06-13 04:28:38.953:   [PC] send to server: {"action":"test"}
+2023-06-13 04:28:38.954:   [Socket] {"mode":"test","data":[{"area":"0/56/999999","label":"e","percent":"95/89%s","status":true},{"area":"0/26795/999999","label":"e","percent":"96/90%s","status":true},{"area":"0/16810/99999","label":"r","percent":"96/81%s","status":true},{"area":"0/0/22400","label":"o","percent":"0/95%s","status":false},{"area":"0/145676/999999","label":"label","percent":"93/82%s","status":true}],"status":false}
+2023-06-13 04:28:39.062:   [PC] send to server: {"action":"test"}
+2023-06-13 04:28:39.065:   [Socket] {"mode":"test","data":[{"area":"0/24/999999","label":"e","percent":"95/89%s","status":true},{"area":"0/26794/999999","label":"e","percent":"96/90%s","status":true},{"area":"0/16816/99999","label":"r","percent":"96/81%s","status":true},{"area":"0/0/22400","label":"o","percent":"0/95%s","status":false},{"area":"0/145673/999999","label":"label","percent":"93/82%s","status":true}],"status":false}
+2023-06-13 04:28:39.173:   [PC] send to server: {"action":"test"}
+2023-06-13 04:28:39.173:   [Socket] {"mode":"test","data":[{"area":"0/61/999999","label":"e","percent":"95/89%s","status":true},{"area":"0/26785/999999","label":"e","percent":"96/90%s","status":true},{"area":"0/16817/99999","label":"r","percent":"96/81%s","status":true},{"area":"0/0/22400","label":"o","percent":"0/95%s","status":false},{"area":"0/145680/999999","label":"label","percent":"93/82%s","status":true}],"status":false}
+2023-06-13 04:28:39.282:   [PC] send to server: {"action":"test"}
+2023-06-13 04:28:39.284:   [Socket] {"mode":"test","data":[{"area":"0/61/999999","label":"e","percent":"95/89%s","status":true},{"area":"0/26785/999999","label":"e","percent":"96/90%s","status":true},{"area":"0/16817/99999","label":"r","percent":"96/81%s","status":true},{"area":"0/0/22400","label":"o","percent":"0/95%s","status":false},{"area":"0/145680/999999","label":"label","percent":"93/82%s","status":true}],"status":false}
+2023-06-13 04:28:39.389:   [PC] send to server: {"action":"test"}
+2023-06-13 04:28:39.393:   [Socket] {"mode":"test","data":[{"area":"0/67/999999","label":"e","percent":"95/89%s","status":true},{"area":"0/26790/999999","label":"e","percent":"96/90%s","status":true},{"area":"0/16806/99999","label":"r","percent":"96/81%s","status":true},{"area":"0/0/22400","label":"o","percent":"0/95%s","status":false},{"area":"0/145677/999999","label":"label","percent":"94/82%s","status":true}],"status":false}
+2023-06-13 04:28:39.495:   [PC] send to server: {"action":"test"}
+2023-06-13 04:28:39.496:   [Socket] {"mode":"test","data":[{"area":"0/56/999999","label":"e","percent":"95/89%s","status":true},{"area":"0/26798/999999","label":"e","percent":"96/90%s","status":true},{"area":"0/16812/99999","label":"r","percent":"96/81%s","status":true},{"area":"0/0/22400","label":"o","percent":"0/95%s","status":false},{"area":"0/145667/999999","label":"label","percent":"94/82%s","status":true}],"status":false}
+2023-06-13 04:28:39.608:   [PC] send to server: {"action":"test"}
+2023-06-13 04:28:39.609:   [Socket] {"mode":"test","data":[{"area":"0/33/999999","label":"e","percent":"95/89%s","status":true},{"area":"0/26796/999999","label":"e","percent":"96/90%s","status":true},{"area":"0/16808/99999","label":"r","percent":"96/81%s","status":true},{"area":"0/0/22400","label":"o","percent":"0/95%s","status":false},{"area":"0/145669/999999","label":"label","percent":"94/82%s","status":true}],"status":false}
+2023-06-13 04:28:39.714:   [PC] send to server: {"action":"test"}
+2023-06-13 04:28:39.715:   [Socket] {"mode":"test","data":[{"area":"0/66/999999","label":"e","percent":"95/89%s","status":true},{"area":"0/26798/999999","label":"e","percent":"96/90%s","status":true},{"area":"0/16815/99999","label":"r","percent":"96/81%s","status":true},{"area":"0/0/22400","label":"o","percent":"0/95%s","status":false},{"area":"0/145673/999999","label":"label","percent":"94/82%s","status":true}],"status":false}
+2023-06-13 04:28:39.820:   [PC] send to server: {"action":"test"}
+2023-06-13 04:28:39.821:   [Socket] {"mode":"test","data":[{"area":"0/46/999999","label":"e","percent":"95/89%s","status":true},{"area":"0/26796/999999","label":"e","percent":"96/90%s","status":true},{"area":"0/16815/99999","label":"r","percent":"96/81%s","status":true},{"area":"0/0/22400","label":"o","percent":"0/95%s","status":false},{"area":"0/145665/999999","label":"label","percent":"94/82%s","status":true}],"status":false}
+2023-06-13 04:28:39.932:   [PC] send to server: {"action":"test"}
+2023-06-13 04:28:39.933:   [Socket] {"mode":"test","data":[{"area":"0/31/999999","label":"e","percent":"95/89%s","status":true},{"area":"0/26794/999999","label":"e","percent":"96/90%s","status":true},{"area":"0/16816/99999","label":"r","percent":"96/81%s","status":true},{"area":"0/0/22400","label":"o","percent":"0/95%s","status":false},{"area":"0/145675/999999","label":"label","percent":"94/82%s","status":true}],"status":false}
+2023-06-13 04:28:40.038:   [PC] send to server: {"action":"test"}
+2023-06-13 04:28:40.038:   [Socket] {"mode":"test","data":[{"area":"0/43/999999","label":"e","percent":"95/89%s","status":true},{"area":"0/26793/999999","label":"e","percent":"96/90%s","status":true},{"area":"0/16812/99999","label":"r","percent":"96/81%s","status":true},{"area":"0/0/22400","label":"o","percent":"0/95%s","status":false},{"area":"0/145666/999999","label":"label","percent":"94/82%s","status":true}],"status":false}
+2023-06-13 04:28:40.147:   [PC] send to server: {"action":"test"}
+2023-06-13 04:28:40.147:   [Socket] {"mode":"test","data":[{"area":"0/43/999999","label":"e","percent":"95/89%s","status":true},{}]}
+2023-06-13 04:28:40.256:   [PC] send to server: {"action":"test"}
+2023-06-13 04:28:40.256:   [Socket] {"mode":"test","data":[{"area":"0/43/999999","label":"e","percent":"95/89%s","status":true},{}]}
+2023-06-13 04:28:40.364:   [PC] send to server: {"action":"test"}
+2023-06-13 04:28:40.364:   [Socket] {"mode":"test","data":[{"area":"0/43/999999","label":"e","percent":"95/89%s","status":true},{}]}
+2023-06-13 04:28:40.473:   [PC] send to server: {"action":"test"}
+2023-06-13 04:28:40.473:   [Socket] {"mode":"test","data":[{"area":"0/43/999999","label":"e","percent":"95/89%s","status":true},{}]}
+2023-06-13 04:28:40.580:   [PC] send to server: {"action":"test"}
+2023-06-13 04:28:40.582:   [Socket] {"mode":"test","data":[{"area":"0/27/999999","label":"e","percent":"95/89%s","status":true},{"area":"0/26786/999999","label":"e","percent":"96/90%s","status":true},{"area":"0/16824/99999","label":"r","percent":"96/81%s","status":true},{"area":"0/0/22400","label":"o","percent":"0/95%s","status":false},{"area":"0/145676/999999","label":"label","percent":"93/82%s","status":true}],"status":false}
+2023-06-13 04:28:40.691:   [PC] send to server: {"action":"test"}
+2023-06-13 04:28:40.692:   [Socket] {"mode":"test","data":[{"area":"0/14/999999","label":"e","percent":"95/89%s","status":true},{"area":"0/26785/999999","label":"e","percent":"96/90%s","status":true},{"area":"0/16812/99999","label":"r","percent":"96/81%s","status":true},{"area":"0/0/22400","label":"o","percent":"0/95%s","status":false},{"area":"0/145673/999999","label":"label","percent":"93/82%s","status":true}],"status":false}
+2023-06-13 04:28:40.797:   [PC] send to server: {"action":"test"}
+2023-06-13 04:28:40.798:   [Socket] {"mode":"test","data":[{"area":"0/45/999999","label":"e","percent":"95/89%s","status":true},{"area":"0/26780/999999","label":"e","percent":"96/90%s","status":true},{"area":"0/16811/99999","label":"r","percent":"96/81%s","status":true},{"area":"0/0/22400","label":"o","percent":"0/95%s","status":false},{"area":"0/145681/999999","label":"label","percent":"93/82%s","status":true}],"status":false}
+2023-06-13 04:28:40.906:   [PC] send to server: {"action":"test"}
+2023-06-13 04:28:40.908:   [Socket] {"mode":"test","data":[{"area":"0/45/999999","label":"e","percent":"95/89%s","status":true},{"area":"0/26780/999999","label":"e","percent":"96/90%s","status":true},{"area":"0/16811/99999","label":"r","percent":"96/81%s","status":true},{"area":"0/0/22400","label":"o","percent":"0/95%s","status":false},{"area":"0/145681/999999","label":"label","percent":"93/82%s","status":true}],"status":false}
+2023-06-13 04:28:41.013:   [PC] send to server: {"action":"test"}
+2023-06-13 04:28:41.014:   [Socket] {"mode":"test","data":[{"area":"0/21/999999","label":"e","percent":"95/89%s","status":true},{"area":"0/26790/999999","label":"e","percent":"96/90%s","status":true},{"area":"0/16821/99999","label":"r","percent":"96/81%s","status":true},{"area":"0/0/22400","label":"o","percent":"0/95%s","status":false},{"area":"0/145675/999999","label":"label","percent":"93/82%s","status":true}],"status":false}
+2023-06-13 04:28:41.122:   [PC] send to server: {"action":"test"}
+2023-06-13 04:28:41.123:   [Socket] {"mode":"test","data":[{"area":"0/100/999999","label":"e","percent":"95/89%s","status":true},{"area":"0/26803/999999","label":"e","percent":"96/90%s","status":true},{"area":"0/16815/99999","label":"r","percent":"96/81%s","status":true},{}]}
+2023-06-13 04:28:41.229:   [PC] send to server: {"action":"test"}
+2023-06-13 04:28:41.229:   [Socket] {"mode":"test","data":[{"area":"0/100/999999","label":"e","percent":"95/89%s","status":true},{"area":"0/26803/999999","label":"e","percent":"96/90%s","status":true},{"area":"0/16815/99999","label":"r","percent":"96/81%s","status":true},{"area":"0/0/22400","label":"o","percent":"0/95%s","status":false},{"area":"0/145667/999999","label":"label","percent":"93/82%s","status":true}],"status":false}
+2023-06-13 04:28:41.337:   [PC] send to server: {"action":"test"}
+2023-06-13 04:28:41.338:   [Socket] {"mode":"test","data":[{"area":"0/109/999999","label":"e","percent":"95/89%s","status":true},{"area":"0/26824/999999","label":"e","percent":"96/90%s","status":true},{"area":"0/16821/99999","label":"r","percent":"96/81%s","status":true},{"area":"0/0/22400","label":"o","percent":"0/95%s","status":false},{"area":"0/145655/999999","label":"label","percent":"95/82%s","status":true}],"status":false}
+2023-06-13 04:28:41.447:   [PC] send to server: {"action":"test"}
+2023-06-13 04:28:41.450:   [Socket] {"mode":"test","data":[{"area":"0/126/999999","label":"e","percent":"95/89%s","status":true},{"area":"0/26830/999999","label":"e","percent":"96/90%s","status":true},{"area":"0/16837/99999","label":"r","percent":"96/81%s","status":true},{"area":"0/0/22400","label":"o","percent":"0/95%s","status":false},{"area":"0/145651/999999","label":"label","percent":"95/82%s","status":true}],"status":false}
+2023-06-13 04:28:41.553:   [PC] send to server: {"action":"test"}
+2023-06-13 04:28:41.554:   [Socket] {"mode":"test","data":[{"area":"0/104/999999","label":"e","percent":"95/89%s","status":true},{"area":"0/26827/999999","label":"e","percent":"96/90%s","status":true},{"area":"0/16814/99999","label":"r","percent":"96/81%s","status":true},{"area":"0/0/22400","label":"o","percent":"0/95%s","status":false},{"area":"0/145653/999999","label":"label","percent":"95/82%s","status":true}],"status":false}
+2023-06-13 04:28:41.662:   [PC] send to server: {"action":"test"}
+2023-06-13 04:28:41.662:   [Socket] {"mode":"test","data":[{"area":"0/117/999999","label":"e","percent":"95/89%s","status":true},{"area":"0/26828/999999","label":"e","percent":"96/90%s","status":true},{"area":"0/16830/99999","label":"r","percent":"96/81%s","status":true},{"area":"0/0/22400","label":"o","percent":"0/95%s","status":false},{"area":"0/145654/999999","label":"label","percent":"95/82%s","status":true}],"status":false}
+2023-06-13 04:28:41.771:   [PC] send to server: {"action":"test"}
+2023-06-13 04:28:41.771:   [Socket] {"mode":"test","data":[{"area":"0/71/999999","label":"e","percent":"95/89%s","status":true},{"area":"0/26825/999999","label":"e","percent":"96/90%s","status":true},{"area":"0/16841/99999","label":"r","percent":"96/81%s","status":true},{"area":"0/0/22400","label":"o","percent":"0/95%s","status":false},{"area":"0/145649/999999","label":"label","percent":"95/82%s","status":true}],"status":false}
+2023-06-13 04:28:41.878:   [PC] send to server: {"action":"test"}
+2023-06-13 04:28:41.879:   [Socket] {"mode":"test","data":[{"area":"0/57/999999","label":"e","percent":"95/89%s","status":true},{"area":"0/26830/999999","label":"e","percent":"96/90%s","status":true},{"area":"0/16829/99999","label":"r","percent":"96/81%s","status":true},{"area":"0/0/22400","label":"o","percent":"0/95%s","status":false},{"area":"0/145652/999999","label":"label","percent":"95/82%s","status":true}],"status":false}
+2023-06-13 04:28:41.990:   [PC] send to server: {"action":"test"}
+2023-06-13 04:28:41.995:   [Socket] {"mode":"test","data":[{"area":"0/92/999999","label":"e","percent":"95/89%s","status":true},{"area":"0/26825/999999","label":"e","percent":"96/90%s","status":true},{"area":"0/16811/99999","label":"r","percent":"96/81%s","status":true},{"area":"0/0/22400","label":"o","percent":"0/95%s","status":false},{"area":"0/145661/999999","label":"label","percent":"95/82%s","status":true}],"status":false}
+2023-06-13 04:28:42.100:   [PC] send to server: {"action":"test"}
+2023-06-13 04:28:42.101:   [Socket] {"mode":"test","data":[{"area":"0/92/999999","label":"e","percent":"95/89%s","status":true},{"area":"0/26825/999999","label":"e","percent":"96/90%s","status":true},{"area":"0/16811/99999","label":"r","percent":"96/81%s","status":true},{"area":"0/0/22400","label":"o","percent":"0/95%s","status":false},{"area":"0/145661/999999","label":"label","percent":"94/82%s","status":true}],"status":false}
+2023-06-13 04:28:42.226:   [PC] send to server: {"action":"test"}
+2023-06-13 04:28:42.227:   [Socket] {"mode":"test","data":[{}]}
+2023-06-13 04:28:42.331:   [PC] send to server: {"action":"test"}
+2023-06-13 04:28:42.331:   [Socket] {"mode":"test","data":[{"area":"0/54/999999","label":"e","percent":"95/89%s","status":true},{"area":"0/26818/999999","label":"e","percent":"96/90%s","status":true},{"area":"0/16809/99999","label":"r","percent":"96/81%s","status":true},{"area":"0/0/22400","label":"o","percent":"0/95%s","status":false},{"area":"0/145645/999999","label":"label","percent":"94/82%s","status":true}],"status":false}
+2023-06-13 04:28:42.439:   [PC] send to server: {"action":"test"}
+2023-06-13 04:28:42.441:   [Socket] {"mode":"test","data":[{"area":"0/65/999999","label":"e","percent":"95/89%s","status":true},{"area":"0/26822/999999","label":"e","percent":"96/90%s","status":true},{"area":"0/16834/99999","label":"r","percent":"96/81%s","status":true},{"area":"0/0/22400","label":"o","percent":"0/95%s","status":false},{"area":"0/145652/999999","label":"label","percent":"94/82%s","status":true}],"status":false}
+2023-06-13 04:28:42.548:   [PC] send to server: {"action":"test"}
+2023-06-13 04:28:42.548:   [Socket] {"mode":"test","data":[{}]}
+2023-06-13 04:28:42.657:   [PC] send to server: {"action":"test"}
+2023-06-13 04:28:42.658:   [Socket] {"mode":"test","data":[{"area":"0/96/999999","label":"e","percent":"95/89%s","status":true},{"area":"0/26820/999999","label":"e","percent":"96/90%s","status":true},{"area":"0/16834/99999","label":"r","percent":"96/81%s","status":true},{"area":"0/0/22400","label":"o","percent":"0/95%s","status":false},{"area":"0/145650/999999","label":"label","percent":"94/82%s","status":true}],"status":false}
+2023-06-13 04:28:42.767:   [PC] send to server: {"action":"test"}
+2023-06-13 04:28:42.767:   [Socket] {"mode":"test","data":[{"area":"0/183/999999","label":"e","percent":"95/89%s","status":true},{"area":"0/26825/999999","label":"e","percent":"96/90%s","status":true},{"area":"0/16841/99999","label":"r","percent":"96/81%s","status":true},{"area":"0/0/22400","label":"o","percent":"0/95%s","status":false},{"area":"0/145648/999999","label":"label","percent":"94/82%s","status":true}],"status":false}
+2023-06-13 04:28:42.877:   [PC] send to server: {"action":"test"}
+2023-06-13 04:28:42.878:   [Socket] {"mode":"test","data":[{"area":"0/374/999999","label":"e","percent":"95/89%s","status":true},{"area":"0/26823/999999","label":"e","percent":"96/90%s","status":true},{"area":"0/16811/99999","label":"r","percent":"96/81%s","status":true},{"area":"0/0/22400","label":"o","percent":"0/95%s","status":false},{"area":"0/145654/999999","label":"label","percent":"95/82%s","status":true}],"status":false}
+2023-06-13 04:28:42.983:   [PC] Detect model failed!
+2023-06-13 04:28:42.984:   [CONFIG] Name elements: [../ImageLog/, start_day]
+2023-06-13 04:28:42.984:   [CONFIG] Name elements: [mlbsn, sn, fail, mode]
+2023-06-13 04:28:42.984:   [CONFIG] image log: ../ImageLog/_2023-06-13/mlbsn_RYK01Q6_fail_debug.jpg
+2023-06-13 04:28:42.986:   [PC] send to server: {"name":"mlbsn_RYK01Q6_fail_debug.jpg","action":"save","dir":"../ImageLog/_2023-06-13"}
+2023-06-13 04:28:42.995:   [Socket] {"message":"../ImageLog/_2023-06-13/mlbsn_RYK01Q6_fail_debug.jpg","status":true}
+2023-06-13 04:28:43.088:   [PC] save image ok
+2023-06-13 04:28:43.092:   ****************************************************
+2023-06-13 04:28:43.092:   Item name = SocketCheck
+2023-06-13 04:28:43.092:   Value = failed
+2023-06-13 04:28:43.092:   Test status = failed
+2023-06-13 04:28:43.092:   -----------------------------------------------------
+2023-06-13 04:28:43.092:   Error code = -1
+2023-06-13 04:28:43.092:   Error des = SocketCheck
+2023-06-13 04:28:43.092:   Local error code = SK.CHECK
+2023-06-13 04:28:43.093:   Local error des = SocketCheck
+2023-06-13 04:28:43.093:   ****************************************************
+2023-06-13 04:28:43.093:   TIME[10.173 s] - STATUS[FAILED]
+//////////////////////////////////////////////////////////////
+//////////////////////////- ID[1] -//////////////////////////
+2023-06-13 04:28:43.094:   ITEM[UpLogFTP] - FUNCTION[UpLogFTPProxy]
+2023-06-13 04:28:43.094:   [PC] Turn: 1
+2023-06-13 04:28:43.094:   [CONFIG] Dir elements: [data/Trieste, pnname, station_type, mode, start_day, station_name, status]
+2023-06-13 04:28:43.095:   [CONFIG] Name elements: [Log/TestLog]
+2023-06-13 04:28:43.095:   [CONFIG] Name elements: [mlbsn, sn, position, status, error_details, errorcode, mode, finish_time]
+2023-06-13 04:28:43.095:   [CONFIG] Follow limit: false
+2023-06-13 04:28:43.095:   [CONFIG] Use the limit errorcode: true
+2023-06-13 04:28:43.095:   [PC] Root: mlbsn = null
+2023-06-13 04:28:43.095:   [PC] -----------------------------------------
+2023-06-13 04:28:43.095:   [PC] Root: sn = RYK01Q6
+2023-06-13 04:28:43.095:   [PC] -----------------------------------------
+2023-06-13 04:28:43.095:   [PC] Root: mo = null
+2023-06-13 04:28:43.096:   [PC] -----------------------------------------
+2023-06-13 04:28:43.096:   [PC] Root: error_details = SocketCheck
+2023-06-13 04:28:43.096:   [PC] -----------------------------------------
+2023-06-13 04:28:43.096:   [PC] Root: status = failed
+2023-06-13 04:28:43.096:   [PC] -----------------------------------------
+2023-06-13 04:28:43.096:   [PC] Root: finish_time = 2023-06-13 04:28:43
+2023-06-13 04:28:43.096:   [PC] -----------------------------------------
+2023-06-13 04:28:43.096:   [PC] Root: test_software_version = 1.5.7
+2023-06-13 04:28:43.096:   [PC] -----------------------------------------
+2023-06-13 04:28:43.096:   [PC] Root: start_time = 2023-06-13 04:28:32
+2023-06-13 04:28:43.097:   [PC] -----------------------------------------
+2023-06-13 04:28:43.097:   [PC] Root: station_type = CCD
+2023-06-13 04:28:43.097:   [PC] -----------------------------------------
+2023-06-13 04:28:43.097:   [PC] Root: error_code = -1
+2023-06-13 04:28:43.097:   [PC] -----------------------------------------
+2023-06-13 04:28:43.097:   [PC] Root: errorcode = SK.CHECK
+2023-06-13 04:28:43.097:   [PC] -----------------------------------------
+2023-06-13 04:28:43.097:   [PC] Root: errorDes = SocketCheck
+2023-06-13 04:28:43.097:   [PC] -----------------------------------------
+2023-06-13 04:28:43.097:   [PC] Root: serial = null
+2023-06-13 04:28:43.097:   [PC] -----------------------------------------
+2023-06-13 04:28:43.098:   [PC] Root: mode = debug
+2023-06-13 04:28:43.098:   [PC] -----------------------------------------
+2023-06-13 04:28:43.098:   [PC] Root: station_name = RUNIN-7586
+2023-06-13 04:28:43.098:   [PC] -----------------------------------------
+2023-06-13 04:28:43.098:   [PC] Root: position =
+2023-06-13 04:28:43.098:   [PC] -----------------------------------------
+2023-06-13 04:28:43.098:   [PC] Root: cycle_time = 10.182
+2023-06-13 04:28:43.098:   [PC] -----------------------------------------
+2023-06-13 04:28:43.099:   [PC] Root: cyctime_final = 10.182
+2023-06-13 04:28:43.099:   [PC] -----------------------------------------
+2023-06-13 04:28:43.099:   [PC] Item name: SocketCheck
+2023-06-13 04:28:43.099:   [PC] ItemTest: SocketCheck = {"start_time":"2023-06-13 04:28:32","lower_limit":"","cycle_time":"10.173","upper_limit":"","error_code":"-1","units":"","errorDes":"SocketCheck","test_name":"SocketCheck","finish_time":"2023-06-13 04:28:43","errorcode":"SK.CHECK","test_value":"failed","status":"failed"}
+2023-06-13 04:28:43.099:   [PC] Format for json data!
+2023-06-13 04:28:43.100:   [PC] Save data in: Log/TestLog/json/mlbsn_RYK01Q6__failed_SocketCheck_SK.CHECK_debug_2023-06-13-04-28-43.json ok
+2023-06-13 04:28:43.100:   [PC] Connect to ftp!!
+2023-06-13 04:28:43.100:   [Config] User: oper
+2023-06-13 04:28:43.100:   [Config] PassWord: mfg-oper
+2023-06-13 04:28:43.100:   [Config] Host: 10.90.100.168
+2023-06-13 04:28:43.100:   [Config] Port: 21
+2023-06-13 04:28:43.109:   [PC] Connect to ftp ok!!
+2023-06-13 04:28:43.109:   [Config] Local: Log\TestLog\json\mlbsn_RYK01Q6__failed_SocketCheck_SK.CHECK_debug_2023-06-13-04-28-43.json
+2023-06-13 04:28:43.109:   [Config] Ftp: data/Trieste/pnname/CCD/debug/2023-06-13/RUNIN-7586/failed/json/mlbsn_RYK01Q6__failed_SocketCheck_SK.CHECK_debug_2023-06-13-04-28-43.json
+2023-06-13 04:28:43.148:   [PC] Up file to FTP done!
+2023-06-13 04:28:43.149:   ________________________________________________________
+2023-06-13 04:28:43.149:   Save file txt!
+2023-06-13 04:28:43.149:   [DIR] Log/TestLog/text/mlbsn_RYK01Q6__failed_SocketCheck_SK.CHECK_debug_2023-06-13-04-28-43.txt
+2023-06-13 04:28:43.151:   [PC] - add item: SocketCheck
+2023-06-13 04:28:43.164:   [PC] - add item: UpLogFTP
+//////////////////////////////////////////////////////////////

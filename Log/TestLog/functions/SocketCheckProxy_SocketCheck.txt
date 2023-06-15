@@ -1,0 +1,22 @@
+2023-06-13 04:30:08.621:   ITEM[SocketCheck] - FUNCTION[SocketCheckProxy]
+2023-06-13 04:30:08.630:   [PC] Turn: 1
+2023-06-13 04:30:08.630:   [CONFIG] connect to socket server: localhost - 60026
+2023-06-13 04:30:08.630:   [CONFIG] timeout: 10
+2023-06-13 04:30:08.632:   [PC] send to server: {"action":"test"}
+2023-06-13 04:30:08.633:   [Socket] {"mode":"test","data":[{"area":"0/0/999999","label":"e","percent":"95/89%s","status":true},{"area":"0/26671/999999","label":"e","percent":"96/90%s","status":true},{"area":"0/16776/99999","label":"r","percent":"96/81%s","status":true},{"area":"0/28230/999999","label":"o","percent":"92/86%s","status":true},{"area":"0/145238/999999","label":"label","percent":"95/82%s","status":true}]}
+2023-06-13 04:30:08.742:   [PC] send to server: {"action":"test"}
+2023-06-13 04:30:08.742:   [Socket] {"mode":"test","data":[{"area":"0/0/999999","label":"e","percent":"95/89%s","status":true},{"area":"0/26671/999999","label":"e","percent":"96/90%s","status":true},{"area":"0/16782/99999","label":"r","percent":"96/81%s","status":true},{"area":"0/28237/999999","label":"o","percent":"92/86%s","status":true},{"area":"0/145231/999999","label":"label","percent":"95/82%s","status":true}],"status":true}
+2023-06-13 04:30:08.855:   [PC] Detect model passed!
+2023-06-13 04:30:08.858:   [CONFIG] Name elements: [../ImageLog/, start_day]
+2023-06-13 04:30:08.858:   [CONFIG] Name elements: [mlbsn, sn, pass, mode]
+2023-06-13 04:30:08.858:   [CONFIG] image log: ../ImageLog/_2023-06-13/mlbsn_RYK01Q6_pass_debug.jpg
+2023-06-13 04:30:08.859:   [PC] send to server: {"name":"mlbsn_RYK01Q6_pass_debug.jpg","action":"save","dir":"../ImageLog/_2023-06-13"}
+2023-06-13 04:30:08.868:   [Socket] {"message":"../ImageLog/_2023-06-13/mlbsn_RYK01Q6_pass_debug.jpg","status":true}
+2023-06-13 04:30:08.966:   [PC] save image ok
+2023-06-13 04:30:08.967:   ****************************************************
+2023-06-13 04:30:08.967:   Item name = SocketCheck
+2023-06-13 04:30:08.967:   Value = passed
+2023-06-13 04:30:08.967:   Test status = passed
+2023-06-13 04:30:08.967:   -----------------------------------------------------
+2023-06-13 04:30:08.967:   ****************************************************
+2023-06-13 04:30:08.967:   TIME[0.340 s] - STATUS[PASSED]

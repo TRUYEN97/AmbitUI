@@ -4,6 +4,7 @@
  */
 package Control.Functions.FunctionsTest.Runin.MMC_WR_SPEED;
 
+import Communicate.AbsCommunicate;
 import Communicate.Impl.Telnet.Telnet;
 import Control.Functions.AbsFunction;
 import Control.Functions.FunctionsTest.Base.BaseFunction.AnalysisBase;
@@ -35,13 +36,8 @@ public class MMC_WR_SPEED extends AbsFunction {
 
     @Override
     protected boolean test() {
-        String ip = this.baseFunc.getIp();
-        addLog("IP: " + ip);
-        if (ip == null) {
-            return false;
-        }
         String response;
-        try ( Telnet telnet = this.baseFunc.getTelnet(ip, 23)) {
+        try ( AbsCommunicate telnet = getConnector()) {
             if (telnet == null) {
                 return false;
             }
@@ -64,8 +60,20 @@ public class MMC_WR_SPEED extends AbsFunction {
         return runSubItems(items, response, blocks, KeyWords);
     }
 
+    private AbsCommunicate getConnector() {
+        String ip = this.baseFunc.getIp();
+        addLog("IP: " + ip);
+        if (ip == null) {
+            addLog("PC", "IP == null. Try to use comport!");
+            return this.baseFunc.getComport();
+        } else {
+            return this.baseFunc.getTelnet(ip, 23);
+        }
+    }
+
     private boolean runSubItems(List<String> items, String response, List<String> blocks, List<String> KeyWords) {
         int itemsSize = items.size();
+        boolean rs =true;
         for (int i = 0; i < itemsSize; i++) {
             String item = createChildItemName(items.get(i));
             addLog("PC", item);
@@ -73,16 +81,16 @@ public class MMC_WR_SPEED extends AbsFunction {
             mmc_speed.setData(response, blocks.get(i), KeyWords.get(i));
             mmc_speed.runTest();
             if (!mmc_speed.isPass()) {
-                return false;
+                rs = false;
             }
         }
-        return true;
+        return rs;
     }
 
-    private String getResponse(Telnet telnet) {
+    private String getResponse(AbsCommunicate telnet) {
         int time = this.config.getInteger("Time", 5);
         String until = this.config.getString("ReadUntil");
-        return this.analysisBase.readUntilAndShow(telnet, until,  new TimeS(time));
+        return this.analysisBase.readUntilAndShow(telnet, until, new TimeS(time));
     }
 
 }

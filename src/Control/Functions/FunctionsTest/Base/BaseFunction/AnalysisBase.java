@@ -167,7 +167,7 @@ public class AnalysisBase extends AbsFunction {
         addLog("Config", "Time: " + time.getSpec());
         addLog("Config", "ReadUntil: " + until);
         String response = readable.readUntil(time, until);
-        addLog("Telnet", response);
+        addLog(readable.getClass().getSimpleName(), response);
         return response;
     }
 

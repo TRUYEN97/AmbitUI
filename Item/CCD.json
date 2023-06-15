@@ -22,7 +22,7 @@
             "time_out": 50,
             "SEND_FORMAT": ["sn", "pcname"],
             "DATA_FORMAT": ["mlbsn", "ethernetmac", "pnname", "model", "smode"],
-            "URL": "http://10.90.100.20/sfcapi/api/connect",
+            "URL": "http://10.90.0.40/sfcapi/api/connect",
             "test_name": "gen_node",
             "func_name": "SfisFunctionProxy"
         },
