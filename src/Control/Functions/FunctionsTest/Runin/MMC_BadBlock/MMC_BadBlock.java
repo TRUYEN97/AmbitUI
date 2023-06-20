@@ -4,6 +4,7 @@
  */
 package Control.Functions.FunctionsTest.Runin.MMC_BadBlock;
 
+import Communicate.AbsCommunicate;
 import Communicate.Impl.Telnet.Telnet;
 import Control.Functions.AbsFunction;
 import Control.Functions.FunctionsTest.Base.BaseFunction.FunctionBase;
@@ -43,11 +44,11 @@ public class MMC_BadBlock extends AbsFunction {
     }
 
     private boolean check(String ip) {
-        try ( Telnet telnet = this.baseFunc.getTelnet(ip, 23)) {
-            if (telnet == null) {
+        try ( AbsCommunicate communicate = this.baseFunc.getTelnetOrComportConnector()) {
+            if (communicate == null) {
                 return false;
             }
-            return runCommand(telnet);
+            return runCommand(communicate);
         } catch (Exception e) {
             e.printStackTrace();
             ErrorLog.addError(this, e.getMessage());
@@ -55,7 +56,7 @@ public class MMC_BadBlock extends AbsFunction {
         }
     }
 
-    private boolean runCommand(Telnet telnet) {
+    private boolean runCommand(AbsCommunicate telnet) {
         int sunBadblock = 0;
         String readUntil = this.config.getString("ReadUntil");
         int time = this.config.getInteger("Time", 10);

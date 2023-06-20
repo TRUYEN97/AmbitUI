@@ -3,7 +3,7 @@
     "time_out_test": 70,
     "init": [
         {
-            "flag": false,
+            "flag": true,
             "multi": false,
             "always_run": false,
             "time_out": 100,
@@ -18,16 +18,16 @@
             "func_name": "CheckUpdateProxy"
         },
         {
-            "flag": false,
+            "flag": true,
             "time_out": 50,
             "SEND_FORMAT": ["sn", "pcname"],
             "DATA_FORMAT": ["mlbsn", "ethernetmac", "pnname", "model", "smode"],
-            "URL": "http://10.90.0.40/sfcapi/api/connect",
+            "URL": "http://10.90.100.20/sfcapi/api/connect",
             "test_name": "gen_node",
             "func_name": "SfisFunctionProxy"
         },
         {
-            "flag": false,
+            "flag": true,
             "multi": false,
             "always_run": false,
             "time_out": 10,
@@ -61,7 +61,7 @@
             "func_name": "CheckProductProxy"
         },
         {
-            "flag": false,
+            "flag": true,
             "multi": false,
             "always_run": false,
             "time_out": 30,
@@ -89,7 +89,7 @@
     ],
     "end": [
         {
-            "flag": false,
+            "flag": true,
             "time_out": 30,
             "wait_multi_done": true,
             "SEND_FORMAT": ["sn", "pcname", "status"],
@@ -117,7 +117,8 @@
                 "error_code", "errorcode", "errorDes", "serial", "mode", "station_name", "position", "cycle_time", "cyctime_final"],
             "TestKeys": ["upper_limit", "lower_limit", "status", "finish_time", "test_name",
                 "error_code", "errorcode", "errorDes", "start_time", "test_value", "units", "cycle_time"],
-            "FtpPrefix": ["data/Trieste", "pnname", "station_type", "mode", "start_day", "station_name", "status"],
+            "FtpPrefixTxt": ["data/Trieste", "Text", "pnname", "station_type", "start_day", "station_name", "status"],
+            "FtpPrefixJson": ["data/Trieste", "json","pnname", "station_type", "start_day", "station_name", "status"],
             "LocalPrefix": ["Log/TestLog"],
             "LocalName": ["mlbsn", "sn", "position", "status", "mode", "finish_time"],
             "LocalNameFail": ["mlbsn", "sn", "position", "status", "error_details", "errorcode", "mode", "finish_time"],

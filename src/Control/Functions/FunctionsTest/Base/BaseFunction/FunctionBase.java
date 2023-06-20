@@ -8,6 +8,7 @@ import Control.Functions.AbsFunction;
 import Model.AllKeyWord;
 import Time.WaitTime.Class.TimeS;
 import AbstractStream.AbsStreamReadable;
+import Communicate.AbsCommunicate;
 import Communicate.ISender;
 import Communicate.Impl.Cmd.Cmd;
 import Communicate.Impl.Comport.ComPort;
@@ -51,6 +52,11 @@ public class FunctionBase extends AbsFunction {
         ftp.setDebug(true);
         addLog("PC", "Connect to ftp ok!!");
         return ftp;
+    }
+
+    public Telnet getTelnet() {
+        String ip = this.getIp();
+        return getTelnet(ip);
     }
 
     public Telnet getTelnet(String ip) {
@@ -137,6 +143,15 @@ public class FunctionBase extends AbsFunction {
         }
         addLog("ComPort", String.format("Connect %s ok", com));
         return comPort;
+    }
+
+    public AbsCommunicate getTelnetOrComportConnector() {
+        String type = this.config.getString("type", "telnet");
+        if (type.equalsIgnoreCase("comport")) {
+            return this.getComport();
+        } else {
+            return this.getTelnet();
+        }
     }
 
     public boolean rebootSoft(String ip, String cmd, int waitTime, int pingTime) throws IOException {

@@ -5,7 +5,6 @@
 package Control.Functions.FunctionsTest.Runin.MMC_WR_SPEED;
 
 import Communicate.AbsCommunicate;
-import Communicate.Impl.Telnet.Telnet;
 import Control.Functions.AbsFunction;
 import Control.Functions.FunctionsTest.Base.BaseFunction.AnalysisBase;
 import Control.Functions.FunctionsTest.Base.BaseFunction.FunctionBase;
@@ -37,15 +36,15 @@ public class MMC_WR_SPEED extends AbsFunction {
     @Override
     protected boolean test() {
         String response;
-        try ( AbsCommunicate telnet = getConnector()) {
-            if (telnet == null) {
+        try ( AbsCommunicate communicate = this.baseFunc.getTelnetOrComportConnector()) {
+            if (communicate == null) {
                 return false;
             }
             String command = this.config.getString("command");
-            if (!this.baseFunc.sendCommand(telnet, command)) {
+            if (!this.baseFunc.sendCommand(communicate, command)) {
                 return false;
             }
-            response = getResponse(telnet);
+            response = getResponse(communicate);
         } catch (Exception e) {
             e.printStackTrace();
             ErrorLog.addError(this, e.getMessage());
@@ -58,17 +57,6 @@ public class MMC_WR_SPEED extends AbsFunction {
         addLog("Config", "Block: " + blocks);
         addLog("Config", "KeyWord: " + blocks);
         return runSubItems(items, response, blocks, KeyWords);
-    }
-
-    private AbsCommunicate getConnector() {
-        String ip = this.baseFunc.getIp();
-        addLog("IP: " + ip);
-        if (ip == null) {
-            addLog("PC", "IP == null. Try to use comport!");
-            return this.baseFunc.getComport();
-        } else {
-            return this.baseFunc.getTelnet(ip, 23);
-        }
     }
 
     private boolean runSubItems(List<String> items, String response, List<String> blocks, List<String> KeyWords) {

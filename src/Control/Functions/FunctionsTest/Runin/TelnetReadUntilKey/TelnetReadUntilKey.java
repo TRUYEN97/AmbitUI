@@ -4,6 +4,7 @@
  */
 package Control.Functions.FunctionsTest.Runin.TelnetReadUntilKey;
 
+import Communicate.AbsCommunicate;
 import Control.Functions.AbsFunction;
 import Control.Functions.FunctionsTest.Base.BaseFunction.AnalysisBase;
 import Control.Functions.FunctionsTest.Base.BaseFunction.FunctionBase;
@@ -35,16 +36,11 @@ public class TelnetReadUntilKey extends AbsFunction {
 
     @Override
     protected boolean test() {
-        String ip = this.baseFunc.getIp();
-        addLog("IP: " + ip);
-        if (ip == null) {
-            return false;
-        }
-        try ( Telnet telnet = this.baseFunc.getTelnet(ip, 23)) {
-            if (telnet == null) {
+        try ( AbsCommunicate communicate = this.baseFunc.getTelnetOrComportConnector()) {
+            if (communicate == null) {
                 return false;
             }
-            return runTest(telnet);
+            return runTest(communicate);
         } catch (Exception e) {
             e.printStackTrace();
             ErrorLog.addError(this, e.getMessage());
@@ -52,7 +48,7 @@ public class TelnetReadUntilKey extends AbsFunction {
         }
     }
 
-    private boolean runTest(Telnet telnet) {
+    private boolean runTest(AbsCommunicate communicate) {
         List<String> commands = this.config.getJsonList("command");
         if (commands.isEmpty()) {
             addLog("ERROR", "Commands is empty!");
@@ -67,12 +63,14 @@ public class TelnetReadUntilKey extends AbsFunction {
         }
         for (String command : commands) {
             addLog("Config", "Waiting for about %s s", time);
-            if (!this.baseFunc.sendCommand(telnet, command)
-                    || !this.analysisBase.isResponseContainKeyAndShow(telnet, spec, readUntil, new TimeS(time))) {
-                try ( Telnet a = this.baseFunc.getTelnet(telnet.getHost(), 23)) {
-                   
-                } catch (IOException ex) {
-                    addLog(LOG_KEYS.ERROR, ex.getMessage());
+            if (!this.baseFunc.sendCommand(communicate, command)
+                    || !this.analysisBase.isResponseContainKeyAndShow(communicate, spec, readUntil, new TimeS(time))) {
+                if (communicate instanceof Telnet telnet) {
+                    try ( Telnet a = this.baseFunc.getTelnet(telnet.getHost(), 23)) {
+
+                    } catch (IOException ex) {
+                        addLog(LOG_KEYS.ERROR, ex.getMessage());
+                    }
                 }
                 return false;
             }

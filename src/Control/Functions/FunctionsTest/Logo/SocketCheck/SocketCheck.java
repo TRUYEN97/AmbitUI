@@ -75,6 +75,7 @@ public class SocketCheck extends AbsFunction {
         } finally {
             if (client != null) {
                 client.disconnect();
+                addLog(LOG_KEYS.PC, "disconnect to server!");
             }
         }
 

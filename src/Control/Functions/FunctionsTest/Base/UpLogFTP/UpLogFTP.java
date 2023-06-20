@@ -40,16 +40,18 @@ public class UpLogFTP extends AbsFunction {
     public boolean test() {
         try {
             List<String> localPrefix = this.config.getJsonList("LocalPrefix");
-            List<String> ftpPrefix = this.config.getJsonList("FtpPrefix");
+            List<String> ftpPrefixTxt = this.config.getJsonList("FtpPrefixTxt");
+            List<String> ftpPrefixJson = this.config.getJsonList("FtpPrefixJson");
             List<String> localName = this.config.getJsonList("LocalName");
             List<String> localNameFail = this.config.getJsonList("LocalNameFail", localName);
-            String ftpFolder = this.fileBaseFunction.createDir(ftpPrefix);
+            String ftpFolderTxt = this.fileBaseFunction.createDir(ftpPrefixTxt);
+            String ftpFolderJson = this.fileBaseFunction.createDir(ftpPrefixJson);
             String localFolder = this.fileBaseFunction.createName(localPrefix);
             String fileName = this.fileBaseFunction.createName(this.processData.isPass() ? localName : localNameFail);
             String localJsonPath = String.format("%s/json/%s.json", localFolder, fileName);
             String localTxtPath = String.format("%s/text/%s.txt", localFolder, fileName);
-            String ftpJsonPath = String.format("%s/json/%s.json", ftpFolder, fileName);
-            String ftpTxtPath = String.format("%s/text/%s.txt", ftpFolder, fileName);
+            String ftpJsonPath = String.format("%s/%s.json", ftpFolderJson, fileName);
+            String ftpTxtPath = String.format("%s/%s.txt", ftpFolderTxt, fileName);
             if (upJson(localJsonPath, ftpJsonPath) && upTxt(localTxtPath, ftpTxtPath)) {
                 this.productData.put("ftppath", ftpTxtPath);
                 setResult(ftpTxtPath);
