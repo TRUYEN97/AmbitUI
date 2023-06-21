@@ -12,11 +12,11 @@ import Model.Factory.AbsProxy;
  *
  * @author Administrator
  */
-public class SocketCheckProxy extends AbsProxy<FunctionParameters, AbsFunction>{
+public class CheckObjectProxy extends AbsProxy<FunctionParameters, AbsFunction>{
 
     @Override
     public AbsFunction takeIt() {
-        return new SocketCheck(getParameter());
+        return new CheckObject(getParameter());
     }
     
 }

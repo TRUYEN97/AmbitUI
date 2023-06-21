@@ -79,12 +79,13 @@
             "host": "localhost",
             "port": 60026,
             "time": 10,
+            "object": ["e", "e", "r", "o"],
             "LocalPrefix": ["../../ImageLog/", "start_day"],
             "LocalName": ["mlbsn", "sn", "pass", "mode"],
             "LocalNameFail": ["mlbsn", "sn", "fail", "mode"],
             "suffix": "jpg",
-            "test_name": "SocketCheck",
-            "func_name": "SocketCheckProxy"
+            "test_name": "CheckObject",
+            "func_name": "CheckObjectProxy"
         }
     ],
     "end": [

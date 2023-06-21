@@ -5,10 +5,10 @@
             "errorDes": "CheckTestConditions"
         }
     },
-    "SocketCheck": {
+    "CheckObject": {
         "simple": {
-            "errorcode": "SK.CHECK",
-            "errorDes": "SocketCheck"
+            "errorcode": "Ob.CHECK",
+            "errorDes": "CheckObject"
         }
     },
     "boot_setup": {

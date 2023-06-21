@@ -9,7 +9,7 @@
             "time_out": 100,
             "User": "config",
             "Password": "eero",
-            "Host": "10.90.100.168",
+            "Host": "10.90.1.168",
             "Port": 21,
             "check_spec": false,
             "uutModel": "TriesteJDK17",
@@ -22,7 +22,7 @@
             "time_out": 50,
             "SEND_FORMAT": ["sn", "pcname"],
             "DATA_FORMAT": ["mlbsn", "ethernetmac", "pnname", "model", "smode"],
-            "URL": "http://10.90.100.20/sfcapi/api/connect",
+            "URL": "http://10.90.0.40/sfcapi/api/connect",
             "test_name": "gen_node",
             "func_name": "SfisFunctionProxy"
         },
@@ -79,12 +79,13 @@
             "host": "localhost",
             "port": 60026,
             "time": 10,
-            "LocalPrefix": ["../ImageLog/", "start_day"],
+            "object": ["e", "e", "r", "o"],
+            "LocalPrefix": ["../../ImageLog/", "start_day"],
             "LocalName": ["mlbsn", "sn", "pass", "mode"],
             "LocalNameFail": ["mlbsn", "sn", "fail", "mode"],
             "suffix": "jpg",
-            "test_name": "SocketCheck",
-            "func_name": "SocketCheckProxy"
+            "test_name": "CheckObject",
+            "func_name": "CheckObjectProxy"
         }
     ],
     "end": [
@@ -94,7 +95,7 @@
             "wait_multi_done": true,
             "SEND_FORMAT": ["sn", "pcname", "status"],
             "SEND_FORMAT_FAIL": ["sn", "pcname", "status", "errorcode"],
-            "URL": "http://10.90.100.20/sfcapi/api/connectfinal",
+            "URL": "http://10.90.0.40/sfcapi/api/connectfinal",
             "SFIS_TYPE": "SendResult",
             "test_name": "SendToSfis",
             "func_name": "SfisFunctionProxy"
@@ -108,7 +109,7 @@
             "User": "oper",
             "always_run": true,
             "Password": "mfg-oper",
-            "Host": "10.90.100.168",
+            "Host": "10.90.1.168",
             "Port": 21,
             "followLimit": false,
             "limitErrorCode": true,
