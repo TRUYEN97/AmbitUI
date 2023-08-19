@@ -32,12 +32,15 @@ public class Engine {
     private final DhcpRunner dhcpRunner;
     private final SocketClient client;
 
-    public Engine() throws Exception {
+    public Engine(String version) throws Exception {
         this.setting = Setting.getInstance();
         this.modeTests = new ArrayList<>();
         this.core = new Core(new UIView());
         this.view = this.core.getView();
         this.programInfo = ProgramInformation.getInstance();
+        if(version != null){
+            this.programInfo.setVersion(version);
+        }
         this.checkInput = new CheckInput(core, view);
         this.view.setCheckInput(checkInput);
         this.dhcpRunner = DhcpRunner.getInstance();
@@ -101,7 +104,7 @@ public class Engine {
     }
 
     private boolean initProgramInfo() {
-        if (new File(VERSION_PATH).exists()) {
+        if (this.programInfo.getVersion() == null && new File(VERSION_PATH).exists()) {
             this.programInfo.setVersion(new FileService().readFile(new File(VERSION_PATH)));
         }
         String Dutmodel = this.setting.getDutMolel();

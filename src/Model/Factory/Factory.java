@@ -28,6 +28,7 @@ import Control.Functions.FunctionsTest.Base.SendCommandInFileAndPing.SendCommand
 import Control.Functions.FunctionsTest.Base.TxtLog.ZipLog.ZipFileProxy;
 import Control.Functions.FunctionsTest.Runin.PowerSwitch.PowerSwitchProxy;
 import Control.Functions.FunctionsTest.Base.UpLogFTP.UpLogFTPProxy;
+import Control.Functions.FunctionsTest.Base.UpdateTime.CheckTimePCProxy;
 import Control.Functions.FunctionsTest.Base.VirFunction.VirFunctionProxy;
 import Control.Functions.FunctionsTest.Logo.SocketCheck.CheckObjectProxy;
 import Control.Functions.FunctionsTest.MBLT.OpenShort.OpenShortProxy;
@@ -40,7 +41,7 @@ import Control.Functions.FunctionsTest.ON_OFF.OpenShortOnOff.OpenShortOnOffProxy
 import Control.Functions.FunctionsTest.Runin.CheckCommandTelnet.CheckCommandTelnetProxy;
 import Control.Functions.FunctionsTest.Runin.MMC_BadBlock.MMC_BadBlockProxy;
 import Control.Functions.FunctionsTest.Runin.MMC_WR_SPEED.MMC_WR_SPEED_PROXY;
-import Control.Functions.FunctionsTest.ON_OFF.PowerSwicthPing.PowerSwicthPingProxy;
+import Control.Functions.FunctionsTest.ON_OFF.PowerSwicthPing.PowerSwitchPingProxy;
 import Control.Functions.FunctionsTest.Other.CheckLed_W_1H_SFT.CheckLed_W_1H_Proxy;
 import Control.Functions.FunctionsTest.Other.Reboot_CheckLed1H_SFT.Reboot_CheckLed1H_SFT_Proxy;
 import Control.Functions.FunctionsTest.RTT.BootSetup.BootSetupProxy;
@@ -144,7 +145,7 @@ public class Factory {
         this.functions.addType(new TelnetReadUntilKeyProxy());
         this.functions.addType(new CreateJsonApiProxy());
         this.functions.addType(new MMC_WR_SPEED_PROXY());
-        this.functions.addType(new PowerSwicthPingProxy());
+        this.functions.addType(new PowerSwitchPingProxy());
         this.functions.addType(new OpenShortProxy());
         this.functions.addType(new UsbAsideProxy());
         this.functions.addType(new OpenShortOnOffProxy());
@@ -172,5 +173,6 @@ public class Factory {
         this.functions.addType(new CheckTestConditionsProxy());
         this.functions.addType(new CheckObjectProxy());
         this.functions.addType(new FromSfisValueProxy());
+        this.functions.addType(new CheckTimePCProxy());
     }
 }

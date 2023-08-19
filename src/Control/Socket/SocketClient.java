@@ -9,6 +9,8 @@ import Model.DataSource.Setting.Setting;
 import Unicast.Client.Client;
 import View.UIView;
 import java.awt.Color;
+import java.util.HashMap;
+import java.util.Map;
 import javax.swing.JLabel;
 
 /**
@@ -17,15 +19,19 @@ import javax.swing.JLabel;
  */
 public class SocketClient extends Thread {
 
-    private final Client client;
     private final Setting setting;
     private final SocketConfig config;
+    private final Map<String, Client> Clients;
+    private final Core core;
+    private final UIView view;
     private JLabel socketLabel;
 
     public SocketClient(Core core, UIView view) {
         this.setting = Setting.getInstance();
         this.config = this.setting.getSocketConfig();
-        this.client = new Client(this.config.getHost(), this.config.getPort(), new Receiver(core, view));
+        this.Clients = new HashMap<>();
+        this.core = core;
+        this.view = view;
     }
 
     public void setSocketLabel(JLabel socketLabel) {
@@ -34,22 +40,36 @@ public class SocketClient extends Thread {
 
     @Override
     public void run() {
-        if (!this.config.isOnSocket()) {
+        for (ClientConfig clientConfig : this.config.getClientConfigs()) {
+            this.Clients.put(clientConfig.getName(),
+                    new Client(clientConfig.getHost(),
+                            clientConfig.getPort(),
+                            new Receiver(core, view)));
+        }
+        if (!this.config.isOnSocket() || this.Clients.isEmpty()) {
             setLabelColor(Color.RED);
             return;
         }
-        setLabelColor(Color.YELLOW);
+        for (String name : this.Clients.keySet()) {
+            new ClientRunner(this.Clients.get(name)).start();
+        }
         while (true) {
-            while (!this.client.isConnect()) {
-                this.client.connect();
-                try {
-                    setLabelColor(Color.YELLOW);
-                    Thread.sleep(1000);
-                } catch (InterruptedException ex) {
+            boolean rs = false;
+            for (var client : this.Clients.values()) {
+                if (client.isConnect()) {
+                    rs = true;
+                    break;
                 }
             }
-            setLabelColor(Color.GREEN);
-            this.client.run();
+            if (rs) {
+                setLabelColor(Color.GREEN);
+            } else {
+                setLabelColor(Color.YELLOW);
+            }
+            try {
+                Thread.sleep(1000);
+            } catch (InterruptedException ex) {
+            }
         }
     }
 
@@ -59,4 +79,25 @@ public class SocketClient extends Thread {
         }
     }
 
+    private class ClientRunner extends Thread {
+
+        private final Client client;
+
+        public ClientRunner(Client client) {
+            this.client = client;
+        }
+
+        @Override
+        public void run() {
+            while (!this.client.isConnect()) {
+                this.client.connect();
+                try {
+                    Thread.sleep(1000);
+                } catch (InterruptedException ex) {
+                }
+            }
+            this.client.run();
+        }
+
+    }
 }

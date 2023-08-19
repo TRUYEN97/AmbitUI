@@ -7,6 +7,16 @@
             "multi": false,
             "always_run": false,
             "time_out": 100,
+            "timezone": "UTC",
+            "wedUrl": "http://time.windows.com",
+            "test_name": "CheckTime",
+            "func_name": "CheckTimePCProxy"
+        },
+        {
+            "flag": true,
+            "multi": false,
+            "always_run": false,
+            "time_out": 100,
             "User": "config",
             "Password": "eero",
             "Host": "10.90.10.168",
@@ -220,7 +230,7 @@
         },
         {
             "flag": true,
-            "time_out": 20,
+            "time_out": 1200,
             "debug_able": true,
             "multi": false,
             "host": "192.168.1.10",
@@ -276,6 +286,23 @@
                     "ReadUntil": "root@eero-test:/#",
                     "Time": 1000,
                     "test_name": "ram_stress",
+                    "func_name": "TelnetReadUntilKeyProxy"
+                }, {
+                    "flag": true,
+                    "time_out": 3200,
+                    "debug_able": true,
+                    "multi": false,
+                    "fail_continue": false,
+                    "type": "telnet",
+                    "IP": "192.168.1.1",
+                    "comport": 1,
+                    "baudrate": 115200,
+                    "ReadUntil": "root@eero-test:/#",
+                    "command": ["memtester 1280M 1"],
+                    "keyWord": "Compare XOR         : ok\r\nCompare SUB         : ok\r\nCompare MUL         : ok\r\nCompare DIV         : ok\r\nCompare OR          : ok\r\nCompare AND         : ok\r\nSequential Increment: ok",
+                    "ReadUntil": "Sequential Increment: ok",
+                    "Time": 1800,
+                    "test_name": "ram_correctness",
                     "func_name": "TelnetReadUntilKeyProxy"
                 },
                 {
@@ -469,7 +496,7 @@
             "TestKeys": ["upper_limit", "lower_limit", "status", "finish_time", "test_name",
                 "error_code", "errorcode", "errorDes", "start_time", "test_value", "units", "cycle_time"],
             "FtpPrefixTxt": ["data/Jupiter", "Text", "pnname", "station_type", "start_day", "station_name", "status"],
-            "FtpPrefixJson": ["data/Jupiter", "json","pnname", "station_type", "start_day", "station_name", "status"],
+            "FtpPrefixJson": ["data/Jupiter", "json", "pnname", "station_type", "start_day", "station_name", "status"],
             "LocalPrefix": ["Log/TestLog"],
             "LocalName": ["mlbsn", "sn", "position", "status", "mode", "finish_time"],
             "LocalNameFail": ["mlbsn", "sn", "position", "status", "error_details", "errorcode", "mode", "finish_time"],

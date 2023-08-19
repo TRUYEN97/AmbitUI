@@ -40,7 +40,7 @@ public class ReadComportUntilStopItem extends AbsFunction {
                 return false;
             }
             String command = this.config.getString("Command");
-            if (command != null && this.functionBase.sendCommand(comport, command)) {
+            if (command != null && !this.functionBase.sendCommand(comport, command)) {
                 return false;
             }
             String itemTarget = this.config.getString("itemTarget");

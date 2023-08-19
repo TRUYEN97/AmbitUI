@@ -8,31 +8,52 @@
             "always_run": false,
             "time_out": 100,
             "timezone": "UTC",
-            "wedUrl": "http://10.90.100.15:8000/auth/login//",
-        //    "wedUrl": "http://time.windows.com",
+            "wedUrl": "http://time.windows.com",
             "test_name": "CheckTime",
             "func_name": "CheckTimePCProxy"
         },
         {
             "flag": true,
-            "multi": false,
-            "always_run": false,
-            "time_out": 100,
-            "User": "config",
-            "Password": "eero",
-            "Host": "10.90.10.168",
-            "Port": 21,
-            "uutModel": "JupiterJDK17",
-            "pnname": "SIMPLE",
-            "test_name": "CheckUpdate",
-            "func_name": "CheckUpdateProxy"
+            "time_out": 50,
+            "SEND_FORMAT": ["sn", "pcname"],
+            "DATA_FORMAT": ["mlbsn", "ethernetmac", "pnname", "model", "smode"],
+            "URL": "http://10.90.10.20/sfcapi/api/connect",
+            "test_name": "gen_node",
+            "func_name": "SfisFunctionProxy"
         },
         {
             "flag": true,
-            "time_out": 50,
-            "golden_file": "init/golden.csv",
-            "test_name": "golden_file",
-            "func_name": "GoldenFileProxy"
+            "multi": false,
+            "always_run": false,
+            "time_out": 10,
+            "elems": [
+                {
+                    "key": "pnname",
+                    "target": "810-01400",
+                    "type": "equal",
+                    "message": "Sản phẩm không phải là: 810-01400!"
+                },
+                {
+                    "key": "smode",
+                    "target": "ort",
+                    "type": "equal",
+                    "message": "Sản phẩm không phải là hàng ORT!"
+                },
+                {
+                    "key": "mlbsn",
+                    "target": "GGB2",
+                    "type": "start_with",
+                    "message": "SN của sản phẩm không phải là hàng Jupiter!"
+                },
+                {
+                    "key": "ethernetmac",
+                    "target": "0",
+                    "type": "end_with",
+                    "message": "MAC từ SFIS cần phải kết thúc bằng số 0!"
+                }
+            ],
+            "test_name": "CheckProduct",
+            "func_name": "CheckProductProxy"
         },
         {
             "flag": true,
@@ -133,6 +154,7 @@
             "flag": true,
             "time_out": 100,
             "debug_able": true,
+            "check_spec": false,
             "multi": true,
             "retry": 2,
             "always_run": false,
@@ -150,6 +172,7 @@
             "time_out": 100,
             "retry": 2,
             "debug_able": true,
+            "check_spec": false,
             "IP": "192.168.1.1",
             "command": "temperature",
             "ReadUntil": "root@eero-test:/#",
@@ -158,6 +181,38 @@
             "Endkeys": [""],
             "test_name": "temp_eth_0",
             "func_name": "TempCPUJupiterProxy"
+        },
+        {
+            "flag": true,
+            "time_out": 50,
+            "multi": false,
+            "debug_able": true,
+            "check_spec": false,
+            "always_run": false,
+            "ReadUntil": "root@eero-test:/#",
+            "IP": "192.168.1.1",
+            "command": "usbtenkiget.exe -i 0,1",
+            "Startkey": "",
+            "Endkey": ", ",
+            "Regex": null,
+            "test_name": "temp_env_0",
+            "func_name": "CheckCommandCmdProxy"
+        },
+        {
+            "flag": true,
+            "time_out": 50,
+            "multi": false,
+            "debug_able": true,
+            "check_spec": false,
+            "always_run": false,
+            "ReadUntil": "root@eero-test:/#",
+            "IP": "192.168.1.1",
+            "command": "usbtenkiget.exe -i 0,1",
+            "Startkey": ", ",
+            "Endkey": "",
+            "Regex": null,
+            "test_name": "humidity_env_0",
+            "func_name": "CheckCommandCmdProxy"
         },
         {
             "flag": true,
@@ -218,6 +273,23 @@
                 },
                 {
                     "flag": true,
+                    "time_out": 3000,
+                    "retry": 2,
+                    "debug_able": true,
+                    "multi": false,
+                    "type": "telnet",
+                    "IP": "192.168.1.1",
+                    "comport": 1,
+                    "baudrate": 115200,
+                    "Time": 100,
+                    "time_ping": 200,
+                    "fileName": "RUNIN_WIFI_UP.txt",
+                    "ReadUntil": "root@eero-test:/#",
+                    "test_name": "wifi_start",
+                    "func_name": "SendCommandInFileAndPingProxy"
+                },
+                {
+                    "flag": true,
                     "time_out": 3200,
                     "debug_able": true,
                     "multi": false,
@@ -235,7 +307,7 @@
                     "Time": 1000,
                     "test_name": "ram_stress",
                     "func_name": "TelnetReadUntilKeyProxy"
-                },{
+                }, {
                     "flag": true,
                     "time_out": 3200,
                     "debug_able": true,
@@ -317,6 +389,7 @@
                     "retry": 2,
                     "debug_able": true,
                     "always_run": false,
+                    "check_spec": false,
                     "IP": "192.168.1.1",
                     "ReadUntil": "root@eero-test:/#",
                     "command": "temperature",
@@ -331,6 +404,7 @@
                     "time_out": 10,
                     "retry": 2,
                     "debug_able": true,
+                    "check_spec": false,
                     "IP": "192.168.1.1",
                     "ReadUntil": "root@eero-test:/#",
                     "command": "temperature",
@@ -339,6 +413,38 @@
                     "Endkeys": [""],
                     "test_name": "temp_eth",
                     "func_name": "TempCPUJupiterProxy"
+                },
+                {
+                    "flag": true,
+                    "time_out": 50,
+                    "multi": false,
+                    "debug_able": true,
+                    "check_spec": false,
+                    "always_run": false,
+                    "ReadUntil": "root@eero-test:/#",
+                    "IP": "192.168.1.1",
+                    "command": "usbtenkiget.exe -i 0,1",
+                    "Startkey": "",
+                    "Endkey": ", ",
+                    "Regex": null,
+                    "test_name": "temp_env",
+                    "func_name": "CheckCommandCmdProxy"
+                },
+                {
+                    "flag": true,
+                    "time_out": 50,
+                    "multi": false,
+                    "debug_able": true,
+                    "check_spec": false,
+                    "always_run": false,
+                    "ReadUntil": "root@eero-test:/#",
+                    "IP": "192.168.1.1",
+                    "command": "usbtenkiget.exe -i 0,1",
+                    "Startkey": ", ",
+                    "Endkey": "",
+                    "Regex": null,
+                    "test_name": "humidity_env",
+                    "func_name": "CheckCommandCmdProxy"
                 },
                 {
                     "flag": true,
@@ -413,6 +519,17 @@
             "Spec": "200",
             "test_name": "UpAPI",
             "func_name": "UpApiProxy" 
+        },
+        {
+            "flag": true,
+            "time_out": 5,
+            "wait_multi_done": true,
+            "SEND_FORMAT": ["sn", "pcname", "status"],
+            "SEND_FORMAT_FAIL": ["sn", "pcname", "status", "errorcode"],
+            "URL": "http://10.90.10.20/sfcapi/api/connectfinal",
+            "SFIS_TYPE": "SendResult",
+            "test_name": "SendToSfis",
+            "func_name": "SfisFunctionProxy"
         }
     ],
     "final": [
@@ -432,13 +549,25 @@
                 "error_code", "errorcode", "errorDes", "serial", "mode", "station_name", "position", "cycle_time", "cyctime_final"],
             "TestKeys": ["upper_limit", "lower_limit", "status", "finish_time", "test_name",
                 "error_code", "errorcode", "errorDes", "start_time", "test_value", "units", "cycle_time"],
-            "FtpPrefixTxt": ["data/Jupiter", "Text", "golden", "station_type", "start_day", "station_name", "status"],
-            "FtpPrefixJson": ["data/Jupiter", "json", "golden", "station_type", "start_day", "station_name", "status"],
+            "FtpPrefixTxt": ["data/JupiterORT", "Text", "pnname", "station_type", "start_day", "station_name", "status"],
+            "FtpPrefixJson": ["data/JupiterORT", "json", "pnname", "station_type", "start_day", "station_name", "status"],
             "LocalPrefix": ["Log/TestLog"],
             "LocalName": ["mlbsn", "sn", "position", "status", "mode", "finish_time"],
             "LocalNameFail": ["mlbsn", "sn", "position", "status", "error_details", "errorcode", "mode", "finish_time"],
             "test_name": "UpLogFTP",
             "func_name": "UpLogFTPProxy"
+        },
+        {
+            "flag": true,
+            "time_out": 50,
+            "always_run": false,
+            "multi": false,
+            "IP": "10.90.10.168",
+            "flowVer": "3.0",
+            "titleVer": "3.0",
+            "sendDetail": false,
+            "test_name": "Mydas",
+            "func_name": "MydasProxy" 
         }
     ]
 }

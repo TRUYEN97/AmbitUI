@@ -69,7 +69,7 @@
             "LocalPrefix": ["python/log"],
             "LocaljsonName": ["mlbsn", "station_name", "mode"],
             "LocalTxtName": ["mlbsn", "station_name", "mode", "serial"],
-            "Command": "cd python && eero_API_client.py log/",
+            "Command": "cd python && eero_API.py log/",
             "Spec": "200",
             "test_name": "UpAPI",
             "func_name": "UpApiProxy" 

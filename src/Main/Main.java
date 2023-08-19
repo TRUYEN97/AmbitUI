@@ -7,7 +7,6 @@ package Main;
 import Control.Core.Engine;
 import Model.ErrorLog;
 import Model.DataSource.Tool.LoadSource;
-import java.awt.HeadlessException;
 import javax.swing.JOptionPane;
 
 /**
@@ -18,13 +17,17 @@ public class Main {
 
     public static void main(String[] args) {
         try {
+            String version = null;
+            if(args.length > 0){
+                version = args[0].trim();
+            }
             if (!new LoadSource().init()) {
                 String mess = "Main class! Init source files failed!!!";
                 ErrorLog.addError(mess);
                 JOptionPane.showMessageDialog(null, mess);
                 System.exit(0);
             }
-            Engine engine = new Engine();
+            Engine engine = new Engine(version);
             engine.run();
         } catch (Exception e) {
             e.printStackTrace();

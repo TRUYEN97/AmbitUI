@@ -4,8 +4,14 @@
  */
 package Control.Socket;
 
+import Control.Functions.FunctionsTest.Base.CheckProduct.ConditionModel;
 import Model.AllKeyWord;
 import Model.DataSource.DataWareHouse;
+import com.alibaba.fastjson.JSONArray;
+import com.alibaba.fastjson.JSONObject;
+import java.util.ArrayList;
+import java.util.HashMap;
+import java.util.List;
 import java.util.Map;
 
 /**
@@ -31,16 +37,14 @@ public class SocketConfig {
         return this.wareHouse.getBoolean(AllKeyWord.CONFIG.FLAG);
     }
     
-    public String getHost(){
-        return this.wareHouse.getString("host");
+    public List<ClientConfig> getClientConfigs(){
+        List<ClientConfig> rs = new ArrayList<>();
+        JSONObject clients = this.wareHouse.getJson("clients");
+        for (String key : clients.keySet()) {
+            rs.add(new ClientConfig(key, clients.getJSONObject(key)));
+        }
+        return rs;
     }
     
-    public int getPort(){
-        return this.wareHouse.getInteger("port", 0);
-    }
-
-    boolean isConnect() {
-        throw new UnsupportedOperationException("Not supported yet."); // Generated from nbfs://nbhost/SystemFileSystem/Templates/Classes/Code/GeneratedMethodBody
-    }
 
 }

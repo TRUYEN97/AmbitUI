@@ -8,8 +8,8 @@ package Model.Factory;
 /**
  *
  * @author Administrator
- * @param <N>
- * @param <T>
+ * @param <N> param
+ * @param <T> function
  */
 public abstract class AbsProxy<N,T> {
 

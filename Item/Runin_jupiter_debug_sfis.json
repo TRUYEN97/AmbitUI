@@ -8,8 +8,7 @@
             "always_run": false,
             "time_out": 100,
             "timezone": "UTC",
-            "wedUrl": "http://10.90.100.15:8000/auth/login//",
-        //    "wedUrl": "http://time.windows.com",
+            "wedUrl": "http://time.windows.com",
             "test_name": "CheckTime",
             "func_name": "CheckTimePCProxy"
         },
@@ -30,9 +29,11 @@
         {
             "flag": true,
             "time_out": 50,
-            "golden_file": "init/golden.csv",
-            "test_name": "golden_file",
-            "func_name": "GoldenFileProxy"
+            "SEND_FORMAT": ["sn", "pcname", "mode"],
+            "DATA_FORMAT": ["mlbsn", "ethernetmac", "pnname", "mo", "smode"],
+            "URL": "http://10.90.10.20/sfcapi/api/connect",
+            "test_name": "gen_node",
+            "func_name": "SfisFunctionProxy"
         },
         {
             "flag": true,
@@ -432,8 +433,8 @@
                 "error_code", "errorcode", "errorDes", "serial", "mode", "station_name", "position", "cycle_time", "cyctime_final"],
             "TestKeys": ["upper_limit", "lower_limit", "status", "finish_time", "test_name",
                 "error_code", "errorcode", "errorDes", "start_time", "test_value", "units", "cycle_time"],
-            "FtpPrefixTxt": ["data/Jupiter", "Text", "golden", "station_type", "start_day", "station_name", "status"],
-            "FtpPrefixJson": ["data/Jupiter", "json", "golden", "station_type", "start_day", "station_name", "status"],
+            "FtpPrefixTxt": ["data/Jupiter", "Text", "pnname", "station_type", "start_day", "station_name", "status"],
+            "FtpPrefixJson": ["data/Jupiter", "json", "pnname", "station_type", "start_day", "station_name", "status"],
             "LocalPrefix": ["Log/TestLog"],
             "LocalName": ["mlbsn", "sn", "position", "status", "mode", "finish_time"],
             "LocalNameFail": ["mlbsn", "sn", "position", "status", "error_details", "errorcode", "mode", "finish_time"],

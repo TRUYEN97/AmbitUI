@@ -12,11 +12,11 @@ import Model.Factory.AbsProxy;
  *
  * @author Administrator
  */
-public class PowerSwicthPingProxy extends AbsProxy<FunctionParameters, AbsFunction>{
+public class PowerSwitchPingProxy extends AbsProxy<FunctionParameters, AbsFunction>{
 
     @Override
     public AbsFunction takeIt() {
-        return new PowerSwicthPing(getParameter());
+        return new PowerSwitchPing(getParameter());
     }
     
 }

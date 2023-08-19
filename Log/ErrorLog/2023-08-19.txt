@@ -1,0 +1,14 @@
+2023-08-19 02:19:08.954:   error in Model.DataSource.Tool.ReadFileSource : Init\ErrorCode.json not exists
+2023-08-19 02:19:08.955:   //////////////////////////////////////
+2023-08-19 02:19:09.041:   Cannot invoke "Model.Interface.IInit.getClass()" because "source" is null
+2023-08-19 02:19:09.041:   //////////////////////////////////////
+2023-08-19 02:19:36.730:   error in Model.DataSource.Tool.ReadFileSource : Init\ErrorCode.json not exists
+2023-08-19 02:19:36.730:   //////////////////////////////////////
+2023-08-19 02:19:36.835:   Cannot invoke "Model.Interface.IInit.getClass()" because "source" is null
+2023-08-19 02:19:36.835:   //////////////////////////////////////
+2023-08-19 02:19:55.093:   error in Model.DataSource.Tool.ReadFileSource : Init\ErrorCode.json not exists
+2023-08-19 02:19:55.093:   //////////////////////////////////////
+2023-08-19 02:19:55.182:   Cannot invoke "Model.Interface.IInit.getClass()" because "source" is null
+2023-08-19 02:19:55.182:   //////////////////////////////////////
+2023-08-19 02:28:15.120:   error in Model.DataSource.Tool.ReadFileSource : Init\ErrorCode.json not exists
+2023-08-19 02:28:15.121:   //////////////////////////////////////

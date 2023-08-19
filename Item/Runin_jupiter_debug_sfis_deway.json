@@ -7,17 +7,6 @@
             "multi": false,
             "always_run": false,
             "time_out": 100,
-            "timezone": "UTC",
-            "wedUrl": "http://10.90.100.15:8000/auth/login//",
-        //    "wedUrl": "http://time.windows.com",
-            "test_name": "CheckTime",
-            "func_name": "CheckTimePCProxy"
-        },
-        {
-            "flag": true,
-            "multi": false,
-            "always_run": false,
-            "time_out": 100,
             "User": "config",
             "Password": "eero",
             "Host": "10.90.10.168",
@@ -30,9 +19,11 @@
         {
             "flag": true,
             "time_out": 50,
-            "golden_file": "init/golden.csv",
-            "test_name": "golden_file",
-            "func_name": "GoldenFileProxy"
+            "SEND_FORMAT": ["sn", "pcname", "mode"],
+            "DATA_FORMAT": ["mlbsn", "ethernetmac", "pnname", "mo", "smode"],
+            "URL": "http://10.90.10.20/sfcapi/api/connect",
+            "test_name": "gen_node",
+            "func_name": "SfisFunctionProxy"
         },
         {
             "flag": true,
@@ -56,8 +47,21 @@
             "test_name": "wps_ok",
             "func_name": "PowerSwitchProxy"
         }
+        
     ],
     "functions": [
+	{
+            "flag": true,
+            "time_out": 25200,
+            "debug_able": true,
+            "multi": true,
+            "fail_continue": false,
+            "comport": 1,
+            "baudrate": 115200,
+            "itemTarget": "shop_floor",
+            "test_name": "ReadComportUntilStopItem",
+            "func_name": "ReadComportUntilStopItemProxy"
+        },
         {
             "flag": true,
             "time_out": 360,
@@ -82,7 +86,7 @@
             "flag": true,
             "time_out": 100,
             "retry": 2,
-            "multi": true,
+            "multi": false,
             "debug_able": true,
             "always_run": false,
             "IP": "192.168.1.1",
@@ -98,7 +102,7 @@
         {
             "flag": true,
             "time_out": 100,
-            "multi": true,
+            "multi": false,
             "retry": 2,
             "debug_able": true,
             "always_run": false,
@@ -115,7 +119,7 @@
         {
             "flag": true,
             "time_out": 100,
-            "multi": true,
+            "multi": false,
             "retry": 2,
             "debug_able": true,
             "always_run": false,
@@ -133,7 +137,7 @@
             "flag": true,
             "time_out": 100,
             "debug_able": true,
-            "multi": true,
+            "multi": false,
             "retry": 2,
             "always_run": false,
             "Time": 40,
@@ -164,7 +168,7 @@
             "time_out": 900,
             "retry": 2,
             "debug_able": true,
-            "wait_multi_done": true,
+            "wait_multi_done": false,
             "command": "reboot -f",
             "ReadUntil": "root@eero-test:/#",
             "multi": false,
@@ -235,7 +239,7 @@
                     "Time": 1000,
                     "test_name": "ram_stress",
                     "func_name": "TelnetReadUntilKeyProxy"
-                },{
+                }, {
                     "flag": true,
                     "time_out": 3200,
                     "debug_able": true,
@@ -378,6 +382,15 @@
         },
         {
             "flag": true,
+            "time_out": 100,
+            "debug_able": true,
+            "multi": false,
+            "always_run": true,
+            "test_name": "shop_floor",
+            "func_name": "VirFunctionProxy"
+        },
+        {
+            "flag": false,
             "time_out": 30,
             "multi": false,
             "debug_able": true,
@@ -394,7 +407,7 @@
     ],
     "end": [
         {
-            "flag": true,
+            "flag": false,
             "time_out": 190,
             "retry": 4,
             "Time": 30,
@@ -432,8 +445,8 @@
                 "error_code", "errorcode", "errorDes", "serial", "mode", "station_name", "position", "cycle_time", "cyctime_final"],
             "TestKeys": ["upper_limit", "lower_limit", "status", "finish_time", "test_name",
                 "error_code", "errorcode", "errorDes", "start_time", "test_value", "units", "cycle_time"],
-            "FtpPrefixTxt": ["data/Jupiter", "Text", "golden", "station_type", "start_day", "station_name", "status"],
-            "FtpPrefixJson": ["data/Jupiter", "json", "golden", "station_type", "start_day", "station_name", "status"],
+            "FtpPrefixTxt": ["data/Jupiter", "Text", "pnname", "station_type", "start_day", "station_name", "status"],
+            "FtpPrefixJson": ["data/Jupiter", "json", "pnname", "station_type", "start_day", "station_name", "status"],
             "LocalPrefix": ["Log/TestLog"],
             "LocalName": ["mlbsn", "sn", "position", "status", "mode", "finish_time"],
             "LocalNameFail": ["mlbsn", "sn", "position", "status", "error_details", "errorcode", "mode", "finish_time"],

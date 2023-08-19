@@ -13,19 +13,17 @@ import Model.DataTest.FunctionParameters;
  *
  * @author Administrator
  */
-public class PowerSwicthPing extends PowerSwitchFunc{
+public class PowerSwitchPing extends PowerSwitchFunc{
 
     private final FunctionBase baseFunc;
-    private final AnalysisBase analysisBase;
 
-    public PowerSwicthPing(FunctionParameters parameters) {
+    public PowerSwitchPing(FunctionParameters parameters) {
         this(parameters, null);
     }
     
-    public PowerSwicthPing(FunctionParameters parameters, String item) {
+    public PowerSwitchPing(FunctionParameters parameters, String item) {
         super(parameters, item);
         this.baseFunc = new FunctionBase(parameters, item);
-        this.analysisBase = new AnalysisBase(parameters, item);
     }
     
     @Override
