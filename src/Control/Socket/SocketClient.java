@@ -41,10 +41,10 @@ public class SocketClient extends Thread {
     @Override
     public void run() {
         for (ClientConfig clientConfig : this.config.getClientConfigs()) {
-            this.Clients.put(clientConfig.getName(),
-                    new Client(clientConfig.getHost(),
-                            clientConfig.getPort(),
-                            new Receiver(core, view)));
+            Client client = new Client(clientConfig.getHost(),
+                    clientConfig.getPort(),
+                    new Receiver(core, view));
+            this.Clients.put(clientConfig.getName(), client);
         }
         if (!this.config.isOnSocket() || this.Clients.isEmpty()) {
             setLabelColor(Color.RED);
@@ -89,14 +89,15 @@ public class SocketClient extends Thread {
 
         @Override
         public void run() {
-            while (!this.client.isConnect()) {
-                this.client.connect();
+            while (true) {
+                if (this.client.isConnect() || this.client.connect()) {
+                    this.client.run();
+                }
                 try {
                     Thread.sleep(1000);
                 } catch (InterruptedException ex) {
                 }
             }
-            this.client.run();
         }
 
     }

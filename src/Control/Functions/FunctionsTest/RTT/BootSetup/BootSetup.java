@@ -64,7 +64,6 @@ public class BootSetup extends AbsFunction {
     }
 
     private boolean sendBootSetupCommands(final Telnet telnet, List<String> cmds, String readUntil, int time) {
-
         for (String cmd : cmds) {
             if (!this.functionBase.sendCommand(telnet, cmd)
                     || !this.analysisBase.readShowUntil(telnet, readUntil, new TimeS(time)).contains(readUntil)) {

@@ -49,7 +49,7 @@ public class CheckObject extends AbsFunction {
         addLog(LOG_KEYS.CONFIG, "timeout: %s", time);
         Client client = null;
         try {
-            client = new Client(host, port, (String str) -> {
+            client = new Client(host, port, ((cl, str) -> {
                 try {
                     JSONObject data = JSONObject.parseObject(str);
                     addLog("Socket", data);
@@ -76,7 +76,7 @@ public class CheckObject extends AbsFunction {
                 } catch (Exception e) {
                     addLog(LOG_KEYS.ERROR, e.getLocalizedMessage());
                 }
-            });
+            }));
             TimeS timer = new TimeS(time);
             while (timer.onTime()) {
                 if (client.connect() && client.isConnect()) {

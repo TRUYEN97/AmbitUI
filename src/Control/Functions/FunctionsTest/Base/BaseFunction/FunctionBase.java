@@ -162,7 +162,6 @@ public class FunctionBase extends AbsFunction {
             if (!sendCommand(telnet, cmd == null ? "reboot" : cmd)) {
                 return false;
             }
-            addLog("Telnet", telnet.readAll(new TimeS(20)));
             addLog("PC", "Wait about %s S", waitTime);
             if (sendRebootDUT(waitTime, ip) && pingTo(ip, pingTime)) {
                 addLog("PC", "*************** Reboot soft ok! *********************");

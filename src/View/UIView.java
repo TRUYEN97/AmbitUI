@@ -43,7 +43,7 @@ public class UIView extends javax.swing.JFrame {
     private CheckInput checkInput;
     private Core core;
 
-    public UIView() {
+    public UIView(String name) {
         this.modeTime = new LoadModeTime();
         try {
             for (javax.swing.UIManager.LookAndFeelInfo info : javax.swing.UIManager.getInstalledLookAndFeels()) {
@@ -61,7 +61,7 @@ public class UIView extends javax.swing.JFrame {
         this.programInfo = ProgramInformation.getInstance();
         new Timer(2000, (e) -> {
             String version = programInfo.getVersion();
-            this.setTitle(String.format("AmbitUI - API - ver: %s", version == null ? "" : version));
+            this.setTitle(String.format("%s - API - ver: %s",name,  version == null ? "" : version));
         }).start();
     }
 

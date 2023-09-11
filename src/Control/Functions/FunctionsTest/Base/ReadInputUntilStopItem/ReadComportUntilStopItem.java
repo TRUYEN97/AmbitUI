@@ -9,6 +9,7 @@ import Control.Functions.AbsFunction;
 import Control.Functions.FunctionsTest.Base.BaseFunction.FunctionBase;
 import Model.DataTest.FunctionData.ItemTestData;
 import Model.DataTest.FunctionParameters;
+import Time.WaitTime.Class.TimeS;
 import java.util.concurrent.ExecutorService;
 import java.util.concurrent.Executors;
 import java.util.concurrent.Future;
@@ -50,6 +51,13 @@ public class ReadComportUntilStopItem extends AbsFunction {
             }
             stopThreadpoolFuture();
             this.future = this.executorService.submit(() -> {
+                if(comport.isConnect()){
+                    String data = comport.readLine(new TimeS(10));
+                    if(data == null || data.isBlank()){
+                        return;
+                    }
+                    addLog(LOG_KEYS.COMPORT, data);
+                }
                 while (comport.isConnect()) {
                     String data = comport.readLine();
                     if (data == null) {

@@ -32,15 +32,16 @@ public class Engine {
     private final DhcpRunner dhcpRunner;
     private final SocketClient client;
 
-    public Engine(String version) throws Exception {
+    public Engine(String version, String name) throws Exception {
         this.setting = Setting.getInstance();
         this.modeTests = new ArrayList<>();
-        this.core = new Core(new UIView());
+        this.core = new Core(new UIView(name));
         this.view = this.core.getView();
         this.programInfo = ProgramInformation.getInstance();
         if(version != null){
             this.programInfo.setVersion(version);
         }
+        this.programInfo.setAppName(name);
         this.checkInput = new CheckInput(core, view);
         this.view.setCheckInput(checkInput);
         this.dhcpRunner = DhcpRunner.getInstance();

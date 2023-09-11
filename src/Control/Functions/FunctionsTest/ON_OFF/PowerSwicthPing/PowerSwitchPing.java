@@ -4,7 +4,6 @@
  */
 package Control.Functions.FunctionsTest.ON_OFF.PowerSwicthPing;
 
-import Control.Functions.FunctionsTest.Base.BaseFunction.AnalysisBase;
 import Control.Functions.FunctionsTest.Base.BaseFunction.FunctionBase;
 import Control.Functions.FunctionsTest.Runin.PowerSwitch.PowerSwitchFunc;
 import Model.DataTest.FunctionParameters;
@@ -29,11 +28,12 @@ public class PowerSwitchPing extends PowerSwitchFunc{
     @Override
     public boolean doSomethings() {
         String ip = this.baseFunc.getIp();
+        int time = this.config.getInteger("time_ping", 120);
         addLog("IP: " + ip);
         if (ip == null) {
             return false;
         }
-        return this.baseFunc.pingTo(ip, 120);
+        return this.baseFunc.pingTo(ip, time);
     }
     
 }

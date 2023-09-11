@@ -80,6 +80,7 @@ public final class AllKeyWord {
     public static final String IP = "Ip";
     public static final String INDEX = "index";
     public static final String RESULT = "result";
+    public static final String APP_NAME = "app_name";
     public static final String MESSAGE = "message";
     public static final String VERSION = "test_software_version";
     public static final String START_TIME = "start_time";

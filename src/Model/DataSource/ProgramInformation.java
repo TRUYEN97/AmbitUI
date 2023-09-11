@@ -9,6 +9,7 @@ import Model.AllKeyWord;
 import Model.ErrorLog;
 import Model.Interface.IInit;
 import com.alibaba.fastjson.JSONObject;
+import static java.lang.Runtime.version;
 import java.net.Inet4Address;
 import java.net.Inet6Address;
 import java.net.InetAddress;
@@ -148,4 +149,13 @@ public class ProgramInformation implements IInit {
     public JSONObject toJson() {
         return this.wareHouse.toJsonNonClone();
     }
+
+    public void setAppName(String name) {
+        this.wareHouse.put(AllKeyWord.APP_NAME, name != null ? name.trim() : name);
+    }
+
+    public String getAppName() {
+        return this.wareHouse.getString(AllKeyWord.APP_NAME);
+    }
+
 }

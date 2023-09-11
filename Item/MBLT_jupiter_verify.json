@@ -61,9 +61,8 @@
             "debug_able": true,
             "FixtureCom": "COM5",
             "FixtureBaudRate": 115200,
-            "FixtureCommands": ["AT+READ_FIXNUM%", "AT+TESTSTART%",
-                "AT+VBUS_BOFF%", "AT+CC_BOFF%", "AT+VBUS_AON%", "AT+CC_AON%"],
-            "FixtureKeys": ["pcname", "IO_OK", "OK"],
+            "FixtureCommands": ["AT+TESTSTART%"],
+            "FixtureKeys": ["OK"],
             "FixtureWait": 30,
             "test_name": "fixture_close",
             "func_name": "FixtureActionProxy"
@@ -71,7 +70,7 @@
     ],
     "functions": [
         {
-            "flag": true,
+            "flag": false,
             "time_out": 30,
             "retry": 1,
             "multi": true,
@@ -116,8 +115,66 @@
             "time_ping": 180,
             "test_name": "dut_ping",
             "func_name": "DutPingProxy"
+        },
+        {
+            "flag": true,
+            "begin": 1,
+            "loop_times": 32,
+            "functions": [
+                {
+                    "flag": true,
+                    "time_out": 360,
+                    "multi": false,
+                    "IP": "192.168.1.1",
+                    "debug_able": true,
+                    "Commands": ["AT+VOLTAGE%", "AT+VOLTAGE2%"],
+                    "readUntil": [":", ";"],
+                    "filePath": "APIVoltage.csv",
+                    "test_name": "VoltageTest",
+                    "func_name": "VoltageTestProxy"
+                }
+            ]
+        }, 
+        {
+            "flag": true,
+            "time_out": 600,
+            "debug_able": true,
+            "multi": false,
+            "fail_continue": false,
+            "type": "telnet",
+            "IP": "192.168.1.1",
+            "comport": 1,
+            "baudrate": 115200,
+            "fail_continue": true,
+            "ReadUntil": "root@eero-test:/#",
+            "command": ["stressapptest -s 600 -M 300 -m 5 -C 5 -W -l test_ddr_01.log",
+                "stressapptest -s 600 --cc_test -M 300 -v 20 --cc_line_size 8192 --stop_on_errors -l test_ddr_02.log",
+                "stressapptest -s 600 -f /tmp/file1 -f /tmp/file2 -M 100 -l test_ddr_03.log"],
+            "keyWord": "Status: PASS - please verify no corrected errors",
+            "ReadUntil": "root@eero-test:/#",
+            "Time": 600,
+            "test_name": "ram_stress",
+            "func_name": "TelnetReadUntilKeyProxy"
+        },
+        {
+            "flag": true,
+            "begin": 1,
+            "loop_times": 32,
+            "functions": [
+                {
+                    "flag": true,
+                    "time_out": 360,
+                    "multi": false,
+                    "IP": "192.168.1.1",
+                    "debug_able": true,
+                    "Commands": ["AT+VOLTAGE%", "AT+VOLTAGE2%"],
+                    "readUntil": [":", ";"],
+                    "filePath": "APIVoltage.csv",
+                    "test_name": "VoltageTest",
+                    "func_name": "VoltageTestProxy"
+                }
+            ]
         }
-
     ],
     "end": [
         {
@@ -133,37 +190,6 @@
             "FixtureWait": 30,
             "test_name": "fixtureOpen",
             "func_name": "FixtureActionProxy"
-        },
-        {
-            "flag": true,
-            "time_out": 60,
-            "retry": 2,
-            "multi": false,
-            "followLimit": true,
-            "limitErrorCode": true,
-            "BaseKeys": ["error_details", "status", "finish_time",
-                "test_software_version", "start_time", "station_type",
-                "error_code", "serial", "mode", "station_name", "position"],
-            "TestKeys": ["upper_limit", "lower_limit", "status", "finish_time", "test_name",
-                "error_code", "start_time", "test_value", "units"],
-            "LocalPrefix": ["python/log"],
-            "LocaljsonName": ["mlbsn", "station_name", "mode"],
-            "LocalTxtName": ["mlbsn", "station_name", "mode", "serial"],
-            "Command": "cd python && eero_API_client.py log/",
-            "Spec": "200",
-            "test_name": "UpAPI",
-            "func_name": "UpApiProxy" 
-        },
-        {
-            "flag": true,
-            "time_out": 30,
-            "wait_multi_done": true,
-            "SEND_FORMAT": ["sn", "pcname", "status"],
-            "SEND_FORMAT_FAIL": ["sn", "pcname", "status", "errorcode"],
-            "URL": "http://10.90.100.20/sfcapi/api/connectfinal",
-            "SFIS_TYPE": "SendResult",
-            "test_name": "SendToSfis",
-            "func_name": "SfisFunctionProxy"
         }
     ],
     "final": [
@@ -178,7 +204,7 @@
             "Port": 21,
             "followLimit": false,
             "limitErrorCode": true,
-            "BaseKeys": ["mlbsn", "sn","mo", "error_details", "status", "finish_time",
+            "BaseKeys": ["mlbsn", "sn", "mo", "error_details", "status", "finish_time",
                 "test_software_version", "start_time", "station_type",
                 "error_code", "errorcode", "errorDes", "serial", "mode", "station_name", "position", "cycle_time", "cyctime_final"],
             "TestKeys": ["upper_limit", "lower_limit", "status", "finish_time", "test_name",

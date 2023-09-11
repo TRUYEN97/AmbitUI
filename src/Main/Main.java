@@ -18,8 +18,12 @@ public class Main {
     public static void main(String[] args) {
         try {
             String version = null;
-            if(args.length > 0){
+            String name = "AmbitUI";
+            if(args.length >= 1){
                 version = args[0].trim();
+            }
+            if(args.length >= 2){
+                name = args[1].trim();
             }
             if (!new LoadSource().init()) {
                 String mess = "Main class! Init source files failed!!!";
@@ -27,7 +31,7 @@ public class Main {
                 JOptionPane.showMessageDialog(null, mess);
                 System.exit(0);
             }
-            Engine engine = new Engine(version);
+            Engine engine = new Engine(version, name);
             engine.run();
         } catch (Exception e) {
             e.printStackTrace();

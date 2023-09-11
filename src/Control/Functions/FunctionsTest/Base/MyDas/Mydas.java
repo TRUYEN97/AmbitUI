@@ -128,14 +128,14 @@ public class Mydas extends AbsFunction {
         builder.append(this.processData.getString(AllKeyWord.VERSION, "")).append(",");
         builder.append(this.processData.getString(AllKeyWord.SFIS.PC_NAME, "")).append(",");
         builder.append(this.processData.getString("cycle_time", "")).append(",");
-        builder.append(getStartTime()).append(",");
+        builder.append(getFinishTime()).append(",");
         builder.append(",").append(this.uIInfo.getName()).append(",");
         return builder.toString();
     }
 
-    private String getStartTime() {
+    private String getFinishTime() {
         return new TimeBase().conVertToFormat(
-                this.processData.getString(AllKeyWord.START_TIME, ""),
+                this.processData.getString(AllKeyWord.FINISH_TIME, ""),
                 TimeBase.SIMPLE_DATE_TIME, TimeBase.MM_DD_YYYY_HH_MM_SS);
 
     }

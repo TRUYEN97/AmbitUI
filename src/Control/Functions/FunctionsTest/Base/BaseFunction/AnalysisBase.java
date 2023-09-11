@@ -178,6 +178,20 @@ public class AnalysisBase extends AbsFunction {
         }
         addLog(LOG_KEYS.CONFIG, "Check contains: %s", specs);
         for (String spec : specs) {
+            if (response.contains(spec)) {
+                return true;
+            }
+        }
+        return false;
+    }
+    
+    public boolean macthAll(String response, List<String> specs) {
+        if (response == null) {
+            addLog(LOG_KEYS.PC, "String data == null");
+            return false;
+        }
+        addLog(LOG_KEYS.CONFIG, "Check contains: %s", specs);
+        for (String spec : specs) {
             if (!response.contains(spec)) {
                 addLog(LOG_KEYS.PC, "Not contain \"%s\"", spec);
                 return false;

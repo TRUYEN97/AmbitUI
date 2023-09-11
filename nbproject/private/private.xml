@@ -12,14 +12,10 @@
             <file>file:/D:/Ambit-module/AmbitUI/src/Control/Functions/FunctionsTest/Base/MyDas/Mydas.java</file>
             <file>file:/D:/Ambit-module/AmbitUI/src/Model/DataSource/ModeTest/FunctionConfig/AmbitConfig.java</file>
         </group>
+        <group/>
         <group name="AmbitUI">
-            <file>file:/D:/Ambit-module/AmbitUI/Item/Runin.json</file>
-        </group>
-        <group>
-            <file>file:/D:/Ambit-module/AmbitUI/Item/Runin_ort.json</file>
-            <file>file:/D:/Ambit-module/AmbitUI/src/Control/Core/Core.java</file>
-            <file>file:/D:/Ambit-module/AmbitUI/src/Control/Core/Engine.java</file>
-            <file>file:/D:/Ambit-module/AmbitUI/src/View/UIView.java</file>
+            <file>file:/D:/Ambit-module/AmbitUI/src/Control/Functions/FunctionsTest/Runin/RebootSoft/RebootSoft.java</file>
+            <file>file:/D:/Ambit-module/AmbitUI/src/Control/Functions/FunctionsTest/Base/BaseFunction/FunctionBase.java</file>
         </group>
     </open-files>
 </project-private>
