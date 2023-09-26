@@ -29,6 +29,7 @@ import Control.Functions.FunctionsTest.Base.TxtLog.ZipLog.ZipFileProxy;
 import Control.Functions.FunctionsTest.Runin.PowerSwitch.PowerSwitchProxy;
 import Control.Functions.FunctionsTest.Base.UpLogFTP.UpLogFTPProxy;
 import Control.Functions.FunctionsTest.Base.UpdateTime.CheckTimePCProxy;
+import Control.Functions.FunctionsTest.Base.JsonApi.UploadLog.UploadLogProxy;
 import Control.Functions.FunctionsTest.Base.VirFunction.VirFunctionProxy;
 import Control.Functions.FunctionsTest.Logo.SocketCheck.CheckObjectProxy;
 import Control.Functions.FunctionsTest.MBLT.OpenShort.OpenShortProxy;
@@ -174,5 +175,6 @@ public class Factory {
         this.functions.addType(new CheckObjectProxy());
         this.functions.addType(new FromSfisValueProxy());
         this.functions.addType(new CheckTimePCProxy());
+        this.functions.addType(new UploadLogProxy());
     }
 }

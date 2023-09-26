@@ -1,4 +1,10 @@
 {
+    "UploadLog": {
+        "simple": {
+            "errorcode": "UPLOAD.LOG",
+            "errorDes": "UploadLog"
+        }
+    },
     "CheckTime": {
         "simple": {
             "errorcode": "C.Time",

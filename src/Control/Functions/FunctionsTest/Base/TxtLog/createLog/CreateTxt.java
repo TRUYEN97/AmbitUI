@@ -86,7 +86,7 @@ public class CreateTxt extends AbsFunction {
         loger.add(String.format("Test time = %s s\r\n", processData.getString(AllKeyWord.CYCLE_TIME)));
         loger.add(String.format("Final test time = %.3f s\r\n", processData.getRuntime()));
         loger.add(String.format("Station = %s\r\n", processData.getString(AllKeyWord.STATION_NAME)));
-        loger.add(String.format("Localtion = %s\r\n", processData.getString(AllKeyWord.INDEX)));
+        loger.add(String.format("Location = %s\r\n", processData.getString(AllKeyWord.INDEX)));
         loger.add(String.format("HHSN = %s\r\n", processData.getString(AllKeyWord.SFIS.SN)));
         loger.add(String.format("DEVICESN = %s\r\n", processData.getString(AllKeyWord.SFIS.MLBSN)));
         loger.add("===================================================================\r\n");

@@ -13,9 +13,6 @@
             <file>file:/D:/Ambit-module/AmbitUI/src/Model/DataSource/ModeTest/FunctionConfig/AmbitConfig.java</file>
         </group>
         <group/>
-        <group name="AmbitUI">
-            <file>file:/D:/Ambit-module/AmbitUI/src/Control/Functions/FunctionsTest/Runin/RebootSoft/RebootSoft.java</file>
-            <file>file:/D:/Ambit-module/AmbitUI/src/Control/Functions/FunctionsTest/Base/BaseFunction/FunctionBase.java</file>
-        </group>
+        <group name="AmbitUI"/>
     </open-files>
 </project-private>

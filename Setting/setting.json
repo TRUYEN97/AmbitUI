@@ -18,7 +18,7 @@
         {
             "name": "debug", 
             "type_mode": "debug",
-            "ambit_config": "Item\\Runin_jupiter_debug.json"
+            "ambit_config": "Item\\debug.json"
         }
     ],
     "dhcp": {

@@ -25,14 +25,27 @@ public class Core {
     private final DrawBoardUI drawBoardUI;
     private final UIView view;
     private final UIManager uIManager;
+    private int updateStatus;
 
     public Core(UIView view) {
         this.view = view;
         this.uIManager = new UIManager(this);
         this.drawBoardUI = new DrawBoardUI(this);
+        this.updateStatus = 0;
+    }
+
+    public int getUpdateStatus() {
+        return updateStatus;
+    }
+
+    public void setUpdateStatus(int updateStatus) {
+        this.updateStatus = updateStatus;
     }
 
     public void checkInput(InputData inputData) {
+        if(this.updateStatus != 0){
+            System.exit(0);
+        }
         if (inputData != null && checkIndex(inputData)) {
             UiStatus uiStatus = uIManager.getUiStatus(inputData.getIndex());
             if (uiStatus.update()) {

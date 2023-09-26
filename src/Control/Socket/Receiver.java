@@ -22,13 +22,12 @@ public class Receiver implements IObjectServerReceiver, IObjectClientReceiver {
 
     private final Core core;
     private final JTextArea textArea;
-    private int status;
 
     public Receiver(Core Core, View.UIView view) {
         this.core = Core;
         this.textArea = view.getTextMess();
-        this.status = 0;
         new Timer(1000, (e) -> {
+            int status = this.core.getUpdateStatus();
             if (status == 0) {
                 return;
             }
@@ -36,9 +35,6 @@ public class Receiver implements IObjectServerReceiver, IObjectClientReceiver {
                 showData("The program has a new version!");
             } else if (status == 2) {
                 showData("The program will turn off!");
-            }
-            if (core.getUiManager().isNotTest()) {
-                System.exit(0);
             }
         }).start();
     }
@@ -67,9 +63,9 @@ public class Receiver implements IObjectServerReceiver, IObjectClientReceiver {
         } else if (data.startsWith("sn:")) {
             startTest(data.split(":")[1].trim().toUpperCase());
         } else if (data.equalsIgnoreCase("quit")) {
-            status = 2;
+            this.core.setUpdateStatus(2);
         } else if (data.equalsIgnoreCase("update")) {
-            status = 1;
+            this.core.setUpdateStatus(1);
         }
 
     }
