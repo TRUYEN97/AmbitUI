@@ -28,13 +28,18 @@ public class DutPing extends AbsFunction {
     
     @Override
     public boolean test() {
-        String ip = this.baseFunc.getIp();
-        addLog("IP: " + ip);
-        if (ip == null) {
+        try {
+            String ip = this.baseFunc.getIp();
+            addLog("IP: " + ip);
+            if (ip == null) {
+                return false;
+            }
+            int timePing = config.getInteger("time_ping", 120);
+            return this.baseFunc.pingTo(ip, timePing);
+        } catch (Exception ex) {
+            addLog(LOG_KEYS.ERROR, ex.getLocalizedMessage());
             return false;
         }
-        int timePing = config.getInteger("time_ping", 120);
-        return this.baseFunc.pingTo(ip, timePing);
     }
     
 }

@@ -24,38 +24,44 @@ public class GoldenFile extends AbsFunction {
 
     @Override
     protected boolean test() {
-        String goldenPath = this.config.getString("golden_file");
-        addLog("config", goldenPath);
-        File goldenFile;
-        if (goldenPath == null || !(goldenFile = new File(goldenPath)).exists()) {
-            addLog("config", "Golen file not valid!");
-            return false;
-        }
-        String snInput = this.processData.getString(AllKeyWord.SFIS.SN);
-        addLog("PC", "Input: %s" , snInput);
-        if (!findSNInGoldenFile(goldenFile, snInput)) {
-            return false;
-        }
-        if (this.modeTest.isUseDHCP()) {
-            if (!putMacDHCP()) {
-                addLog("PC","insert mac into DHCP failded!");
+        try {
+            String goldenPath = this.config.getString("golden_file");
+            addLog("config", goldenPath);
+            File goldenFile;
+            if (goldenPath == null || !(goldenFile = new File(goldenPath)).exists()) {
+                addLog("config", "Golen file not valid!");
                 return false;
             }
-            addLog("PC","insert mac into DHCP");
+            String snInput = this.processData.getString(AllKeyWord.SFIS.SN);
+            addLog("PC", "Input: %s", snInput);
+            if (!findSNInGoldenFile(goldenFile, snInput)) {
+                return false;
+            }
+            if (this.modeTest.isUseDHCP()) {
+                if (!putMacDHCP()) {
+                    addLog("PC", "insert mac into DHCP failded!");
+                    return false;
+                }
+                addLog("PC", "insert mac into DHCP");
+            }
+            return true;
+        } catch (Exception e) {
+            addLog(LOG_KEYS.ERROR, e.getLocalizedMessage());
+            return false;
         }
-        return true;
+
     }
 
-    private boolean putMacDHCP() {
+    private boolean putMacDHCP() throws Exception {
         String mac = this.processData.getString(AllKeyWord.SFIS.MAC);
         int id = uIInfo.getID();
-        addLog("PC", "MAC: %s" , mac);
-        addLog("PC", "id: %s" , id);
+        addLog("PC", "MAC: %s", mac);
+        addLog("PC", "id: %s", id);
         if (mac == null || mac.isBlank()
                 || !DhcpData.getInstance().put(mac, id)) {
             return false;
         }
-        addLog("PC","add ethernetmac: %s -- Ip: %s to DHCP data",
+        addLog("PC", "add ethernetmac: %s -- Ip: %s to DHCP data",
                 mac, DhcpData.getInstance().getIP(mac));
         return true;
     }
@@ -79,7 +85,7 @@ public class GoldenFile extends AbsFunction {
                     this.productData.put("sn", sn);
                     addLog("PC", "key: sn - value: %s", sn);
                     this.productData.put("mlbsn", mlbsn);
-                    addLog("PC", "key: mlbsns - value: %s",mlbsn);
+                    addLog("PC", "key: mlbsns - value: %s", mlbsn);
                     this.productData.put("ethernetmac", ethernetmac);
                     addLog("PC", "key: ethernetmac - value: %s", ethernetmac);
                     return true;
@@ -93,7 +99,7 @@ public class GoldenFile extends AbsFunction {
             return false;
         }
     }
-    
+
     private String createTrueMac(String value) {
         if (value.contains(":")) {
             return value;

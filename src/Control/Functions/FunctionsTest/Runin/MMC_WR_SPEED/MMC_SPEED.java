@@ -37,27 +37,33 @@ public class MMC_SPEED extends AbsFunction {
     @Override
     protected boolean test() {
         if (data == null) {
-            String ip = this.baseFunc.getIp();
-            addLog("IP: " + ip);
-            if (ip == null) {
-                return false;
-            }
-            try ( Telnet telnet = this.baseFunc.getTelnet(ip, 23)) {
-                if (telnet == null) {
+            try {
+                String ip = this.baseFunc.getIp();
+                addLog("IP: " + ip);
+                if (ip == null) {
                     return false;
                 }
-                if (!this.baseFunc.sendCommand(telnet, this.config.getString("command"))) {
+                try ( Telnet telnet = this.baseFunc.getTelnet(ip, 23)) {
+                    if (telnet == null) {
+                        return false;
+                    }
+                    if (!this.baseFunc.sendCommand(telnet, this.config.getString("command"))) {
+                        return false;
+                    }
+                    int time = this.config.getInteger("Time", 5);
+                    String until = this.config.getString("ReadUntil");
+                    data = this.analysisBase.readUntilAndShow(telnet, until, new TimeS(time));
+                } catch (Exception e) {
+                    e.printStackTrace();
+                    ErrorLog.addError(this, e.getMessage());
                     return false;
                 }
-                int time = this.config.getInteger("Time", 5);
-                String until = this.config.getString("ReadUntil");
-                data = this.analysisBase.readUntilAndShow(telnet, until, new TimeS(time));
-            } catch (Exception e) {
-                e.printStackTrace();
-                ErrorLog.addError(this, e.getMessage());
+                addLog("Telnet", data);
+            } catch (Exception ex) {
+                ex.printStackTrace();
+                addLog(LOG_KEYS.ERROR, ex.getLocalizedMessage());
                 return false;
             }
-            addLog("Telnet", data);
         }
         return checkResponse();
     }

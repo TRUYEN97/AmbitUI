@@ -8,6 +8,8 @@ import Control.Functions.AbsFunction;
 import Control.Functions.FunctionsTest.Base.BaseFunction.FunctionBase;
 import Model.DataTest.FunctionParameters;
 import Model.ErrorLog;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 
 /**
  *
@@ -28,25 +30,31 @@ public class RebootSoft extends AbsFunction {
 
     @Override
     protected boolean test() {
-        String ip = this.functionBase.getIp();
-        addLog("IP: " + ip);
-        if (ip == null) {
-            return false;
-        }
-        int times = this.config.getInteger("times", 1);
-        addLog("Config", "Run test %s times", times);
-        for (int i = 0; i < times; i++) {
-            addLog(LOG_KEYS.PC, "Times: %s", i + 1);
-            if (!cycleReboot(ip)) {
+        try {
+            String ip = this.functionBase.getIp();
+            addLog("IP: " + ip);
+            if (ip == null) {
                 return false;
             }
+            int times = this.config.getInteger("times", 1);
+            addLog("Config", "Run test %s times", times);
+            for (int i = 0; i < times; i++) {
+                addLog(LOG_KEYS.PC, "Times: %s", i + 1);
+                if (!cycleReboot(ip)) {
+                    return false;
+                }
+            }
+            return true;
+        } catch (Exception ex) {
+            ex.printStackTrace();
+            addLog(LOG_KEYS.ERROR, ex.getLocalizedMessage());
+            return false;
         }
-        return true;
     }
 
     private boolean cycleReboot(String ip) {
         String cmd = this.config.getString("command", "reboot");
-        addLog(LOG_KEYS.CONFIG, "command: %s",cmd);
+        addLog(LOG_KEYS.CONFIG, "command: %s", cmd);
         int waitShutdownTime = this.config.getInteger("waitTime", 10);
         addLog(LOG_KEYS.CONFIG, "Wait for DUT to shut down: %s S", waitShutdownTime);
         int pingTime = this.config.getInteger("pingTimes", 120);

@@ -54,7 +54,7 @@ public class FunctionBase extends AbsFunction {
         return ftp;
     }
 
-    public Telnet getTelnet() {
+    public Telnet getTelnet() throws Exception {
         String ip = this.getIp();
         return getTelnet(ip);
     }
@@ -100,7 +100,7 @@ public class FunctionBase extends AbsFunction {
         return telnet;
     }
 
-    public String getIp() {
+    public String getIp() throws Exception {
         if (this.modeTest.isUseDHCP()) {
             String mac = this.processData.getString(AllKeyWord.SFIS.MAC);
             if (mac == null) {
@@ -145,7 +145,7 @@ public class FunctionBase extends AbsFunction {
         return comPort;
     }
 
-    public AbsCommunicate getTelnetOrComportConnector() {
+    public AbsCommunicate getTelnetOrComportConnector() throws Exception {
         String type = this.config.getString("type", "telnet");
         if (type.equalsIgnoreCase("comport")) {
             return this.getComport();

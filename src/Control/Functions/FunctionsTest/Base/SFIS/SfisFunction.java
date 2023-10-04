@@ -145,8 +145,13 @@ public class SfisFunction extends AbsFunction {
             if (!getDataToProductInfo(data)) {
                 return false;
             }
-            if (this.modeTest.isUseDHCP() && !putMacDHCP()) {
-                addLog("Get MAC from SFIS for DHCP failed!");
+            try {
+                if (this.modeTest.isUseDHCP() && !putMacDHCP()) {
+                    addLog("Get MAC from SFIS for DHCP failed!");
+                    return false;
+                }
+            } catch (Exception e) {
+                addLog(LOG_KEYS.ERROR, e.getLocalizedMessage());
                 return false;
             }
             addLog("add data to production info done.");
@@ -197,7 +202,7 @@ public class SfisFunction extends AbsFunction {
         return value;
     }
 
-    private boolean putMacDHCP() {
+    private boolean putMacDHCP() throws Exception {
         String mac = this.processData.getString(AllKeyWord.SFIS.MAC);
         String oldIP = DhcpData.getInstance().getIP(mac);
         if (mac == null || mac.isBlank()

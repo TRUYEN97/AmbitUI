@@ -43,7 +43,7 @@ public class Core {
     }
 
     public void checkInput(InputData inputData) {
-        if(this.updateStatus != 0){
+        if(this.updateStatus != 0 && uIManager.isNotTest()){
             System.exit(0);
         }
         if (inputData != null && checkIndex(inputData)) {
@@ -140,7 +140,7 @@ public class Core {
         }
         for (UiStatus uiStatuse : this.uIManager.getUiStatuses()) {
             String testSn = uiStatuse.getProcessData().getString(AllKeyWord.SFIS.SN);
-            if (uiStatuse.isTesting() && testSn != null && testSn.equals(sn)) {
+            if (uiStatuse.isTesting() && testSn != null && testSn.equalsIgnoreCase(sn)) {
                 String index = uiStatuse.getName(); 
                 this.view.showSfisText(String.format(" %s is testing at %s\r\n %s đang test ở %s", sn, index, sn, index));
                 return false;

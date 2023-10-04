@@ -26,7 +26,7 @@ public class Receiver implements IObjectServerReceiver, IObjectClientReceiver {
     public Receiver(Core Core, View.UIView view) {
         this.core = Core;
         this.textArea = view.getTextMess();
-        new Timer(1000, (e) -> {
+        new Timer(2000, (e) -> {
             int status = this.core.getUpdateStatus();
             if (status == 0) {
                 return;
@@ -66,6 +66,8 @@ public class Receiver implements IObjectServerReceiver, IObjectClientReceiver {
             this.core.setUpdateStatus(2);
         } else if (data.equalsIgnoreCase("update")) {
             this.core.setUpdateStatus(1);
+        }else if (data.equalsIgnoreCase("cancel")) {
+            this.core.setUpdateStatus(0);
         }
 
     }

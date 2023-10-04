@@ -34,26 +34,29 @@ public class TempCPUJupiter extends AbsFunction {
 
     @Override
     protected boolean test() {
-        String commands = this.config.getString("command");
-        if (commands == null) {
-            addLog("CONFIG", "command is empty!");
-            return false;
-        }
-        addLog("CONFIG", commands);
-        String ip = this.functionBase.getIp();
-        try ( Telnet telnet = this.functionBase.getTelnet(ip, 23)) {
-            if (telnet == null) {
+        try {
+            String commands = this.config.getString("command");
+            if (commands == null) {
+                addLog("CONFIG", "command is empty!");
                 return false;
             }
-            ArrayList<Integer> temps = getTempCPU(commands, telnet);
-            if (temps == null) {
-                return false;
+            addLog("CONFIG", commands);
+            String ip = this.functionBase.getIp();
+            try ( Telnet telnet = this.functionBase.getTelnet(ip, 23)) {
+                if (telnet == null) {
+                    return false;
+                }
+                ArrayList<Integer> temps = getTempCPU(commands, telnet);
+                if (temps == null) {
+                    return false;
+                }
+                addLog("PC", String.format("Temp cpu: %s", temps));
+                setResult(getMaxValue(temps));
+                return true;
             }
-            addLog("PC", String.format("Temp cpu: %s", temps));
-            setResult(getMaxValue(temps));
-            return true;
-        } catch (Exception e) {
-            e.printStackTrace();
+        } catch (Exception ex) {
+            ex.printStackTrace();
+            addLog(LOG_KEYS.ERROR, ex.getLocalizedMessage());
             return false;
         }
     }
@@ -83,7 +86,7 @@ public class TempCPUJupiter extends AbsFunction {
     }
 
     private String getKey(int i, List<String> keys) {
-        if (i >=0 && i < keys.size()) {
+        if (i >= 0 && i < keys.size()) {
             return keys.get(i);
         }
         return null;

@@ -9,6 +9,8 @@ import Control.Functions.AbsFunction;
 import Control.Functions.FunctionsTest.Base.BaseFunction.FunctionBase;
 import Model.DataTest.FunctionParameters;
 import Model.ErrorLog;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 
 /**
  *
@@ -29,16 +31,21 @@ public class DutTelnet extends AbsFunction {
 
     @Override
     protected boolean test() {
-        String ip = this.functionBase.getIp();
-        addLog("IP: " + ip);
-        if (ip == null) {
-            return false;
-        }
-        try ( Telnet telnet = this.functionBase.getTelnet(ip, 23)) {
-            return telnet != null;
-        } catch (Exception e) {
-            e.printStackTrace();
-            ErrorLog.addError(this, e.getMessage());
+        try {
+            String ip = this.functionBase.getIp();
+            addLog("IP: " + ip);
+            if (ip == null) {
+                return false;
+            }
+            try ( Telnet telnet = this.functionBase.getTelnet(ip, 23)) {
+                return telnet != null;
+            } catch (Exception e) {
+                e.printStackTrace();
+                ErrorLog.addError(this, e.getMessage());
+                return false;
+            }
+        } catch (Exception ex) {
+            addLog(LOG_KEYS.ERROR, ex.getLocalizedMessage());
             return false;
         }
     }

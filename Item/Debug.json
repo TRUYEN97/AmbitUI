@@ -83,7 +83,7 @@
             "LocalPrefix": ["UploadApi/log"],
             "LocaljsonName": ["mlbsn", "station_name", "mode"],
             "LocalTxtName": ["mlbsn", "station_name", "mode", "serial"],
-            "Command": "cd UploadApi && java -jar UploadLogAPI.jar 127.0.0.1",
+            "Command": "cd UploadApi && java -jar UploadLogAPI.jar 10.90.1.168",
             "Spec": "{\"result\":true,\"message\":\"Save succeed!\",\"data\":null}",
             "test_name": "UploadLog",
             "func_name": "UploadLogProxy" 

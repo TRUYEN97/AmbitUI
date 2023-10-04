@@ -8,7 +8,6 @@ import Communicate.Impl.Telnet.Telnet;
 import Control.Functions.AbsFunction;
 import Control.Functions.FunctionsTest.Base.BaseFunction.AnalysisBase;
 import Control.Functions.FunctionsTest.Base.BaseFunction.FunctionBase;
-import Model.ErrorLog;
 import Model.DataTest.FunctionParameters;
 import Time.WaitTime.Class.TimeS;
 
@@ -33,27 +32,29 @@ public class CheckCommandTelnet extends AbsFunction {
 
     @Override
     protected boolean test() {
-        String ip = this.functionBase.getIp();
-        try ( Telnet telnet = this.functionBase.getTelnet(ip, 23)) {
-            if (telnet == null) {
-                return false;
+        try {
+            String ip = this.functionBase.getIp();
+            try ( Telnet telnet = this.functionBase.getTelnet(ip, 23)) {
+                if (telnet == null) {
+                    return false;
+                }
+                if (!this.functionBase.sendCommand(telnet, config.getString("command"))) {
+                    return false;
+                }
+                String startkey = config.getString("Startkey");
+                String endkey = config.getString("Endkey");
+                String regex = config.getString("Regex");
+                int time = config.getInteger("Time", 10);
+                String value = this.analysisBase.getValue(telnet, startkey, endkey, regex, new TimeS(time));
+                if (value == null) {
+                    return false;
+                }
+                setResult(value);
+                return true;
             }
-            if (!this.functionBase.sendCommand(telnet, config.getString("command"))) {
-                return false;
-            }
-            String startkey = config.getString("Startkey");
-            String endkey = config.getString("Endkey");
-            String regex = config.getString("Regex");
-            int time = config.getInteger("Time", 10);
-            String value = this.analysisBase.getValue(telnet, startkey, endkey, regex, new TimeS(time));
-            if (value == null) {
-                return false;
-            }
-            setResult(value);
-            return true;
-        } catch (Exception e) {
-            e.printStackTrace();
-            ErrorLog.addError(this, e.getMessage());
+        } catch (Exception ex) {
+            ex.printStackTrace();
+            addLog(LOG_KEYS.ERROR, ex.getLocalizedMessage());
             return false;
         }
     }

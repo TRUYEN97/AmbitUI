@@ -34,26 +34,29 @@ public class TempCPU extends AbsFunction {
 
     @Override
     protected boolean test() {
-        List<String> commands = this.config.getJsonList("command");
-        if (commands.isEmpty()) {
-            addLog("CONFIG", "command is empty!");
-            return false;
-        }
-        addLog("CONFIG", commands);
-        String ip = this.functionBase.getIp();
-        try ( Telnet telnet = this.functionBase.getTelnet(ip, 23)) {
-            if (telnet == null) {
+        try {
+            List<String> commands = this.config.getJsonList("command");
+            if (commands.isEmpty()) {
+                addLog("CONFIG", "command is empty!");
                 return false;
             }
-            ArrayList<Integer> temps = getTempCPU(commands, telnet);
-            if (temps == null) {
-                return false;
+            addLog("CONFIG", commands);
+            String ip = this.functionBase.getIp();
+            try ( Telnet telnet = this.functionBase.getTelnet(ip, 23)) {
+                if (telnet == null) {
+                    return false;
+                }
+                ArrayList<Integer> temps = getTempCPU(commands, telnet);
+                if (temps == null) {
+                    return false;
+                }
+                addLog("PC", String.format("Temp cpu: %s", temps));
+                setResult(getMaxValue(temps));
+                return true;
             }
-            addLog("PC", String.format("Temp cpu: %s", temps));
-            setResult(getMaxValue(temps));
-            return true;
-        } catch (Exception e) {
-            e.printStackTrace();
+        } catch (Exception ex) {
+            ex.printStackTrace();
+            addLog(LOG_KEYS.ERROR, ex.getLocalizedMessage());
             return false;
         }
     }

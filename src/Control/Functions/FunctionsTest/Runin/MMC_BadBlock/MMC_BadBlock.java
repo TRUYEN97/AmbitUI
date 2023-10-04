@@ -5,7 +5,6 @@
 package Control.Functions.FunctionsTest.Runin.MMC_BadBlock;
 
 import Communicate.AbsCommunicate;
-import Communicate.Impl.Telnet.Telnet;
 import Control.Functions.AbsFunction;
 import Control.Functions.FunctionsTest.Base.BaseFunction.FunctionBase;
 import Control.Functions.FunctionsTest.Base.BaseFunction.AnalysisBase;
@@ -35,12 +34,18 @@ public class MMC_BadBlock extends AbsFunction {
 
     @Override
     protected boolean test() {
-        String ip = this.baseFunc.getIp();
-        addLog("IP: " + ip);
-        if (ip == null) {
+        try {
+            String ip = this.baseFunc.getIp();
+            addLog("IP: " + ip);
+            if (ip == null) {
+                return false;
+            }
+            return check(ip);
+        } catch (Exception ex) {
+            ex.printStackTrace();
+            addLog(LOG_KEYS.ERROR, ex.getLocalizedMessage());
             return false;
         }
-        return check(ip);
     }
 
     private boolean check(String ip) {

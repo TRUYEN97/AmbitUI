@@ -33,12 +33,17 @@ public class CheckDutInfo extends AbsFunction {
 
     @Override
     protected boolean test() {
-        String ip = this.baseFunc.getIp();
-        addLog("IP: " + ip);
-        if (ip == null) {
+        try {
+            String ip = this.baseFunc.getIp();
+            addLog("IP: " + ip);
+            if (ip == null) {
+                return false;
+            }
+            return check(ip);
+        } catch (Exception ex) {
+            addLog(LOG_KEYS.ERROR, ex.getLocalizedMessage());
             return false;
         }
-        return check(ip);
     }
 
     private boolean check(String ip) {

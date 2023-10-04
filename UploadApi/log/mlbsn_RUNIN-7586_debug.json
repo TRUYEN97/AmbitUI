@@ -1,0 +1,45 @@
+{
+"product":"jupiter",
+"mo":"",
+"onSfis":"on",
+"line":"mp",
+"pnname":"",
+"mlbsn":"",
+"finish_time":"2023-10-04 01:22:44",
+"mode":"debug",
+"start_time":"2023-10-04 01:22:39",
+"tests":[
+{
+"start_time":"2023-10-04 01:22:39",
+"lower_limit":"",
+"upper_limit":"",
+"error_code":"DUT.PING",
+"units":"",
+"test_name":"dut_ping",
+"finish_time":"2023-10-04 01:22:44",
+"test_value":"failed",
+"status":"failed"
+},
+
+{
+"start_time":"2023-10-04 01:22:44",
+"lower_limit":"",
+"upper_limit":"",
+"error_code":"",
+"units":"",
+"test_name":"shop_floor",
+"finish_time":"2023-10-04 01:22:44",
+"test_value":"passed",
+"status":"passed"
+}
+],
+"error_details":"dut_ping",
+"station":"runin",
+"error_code":"DUT.PING",
+"sn":"GHGH",
+"position":"",
+"pcname":"RUNIN-7586",
+"ethernetmac":"",
+"status":"failed",
+"test_software_version":""
+}
