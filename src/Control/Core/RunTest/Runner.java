@@ -94,8 +94,9 @@ public class Runner implements Runnable {
 
     @Override
     public void run() {
-        this.testTimer.start(0);
+        isStop = false;
         for (int i = 0; i < loopTest && !isStop; i++) {
+            this.testTimer.start(0);
             prepare();
             if (runFunctions(checkFunctions)) {
                 try {
@@ -115,8 +116,9 @@ public class Runner implements Runnable {
                 runFunctions(finalFunctions);
                 checkStatusTestCount();
             }
+            end();
         }
-        end();
+        finalEnd();
     }
 
     private void checkStatusTestCount() {
@@ -142,12 +144,14 @@ public class Runner implements Runnable {
         this.processData.endTest();
         this.subUi.endTest();
         this.testTimer.stop();
+    }
+    
+    private void finalEnd(){
+        this.processData.clearSignal();
         clearAllFunctions();
-        this.isStop = false;
     }
 
     private void clearAllFunctions() {
-        this.processData.clearSignal();
         this.checkFunctions.clear();
         this.testFunctions.clear();
         this.endFunctions.clear();

@@ -13,11 +13,6 @@
             <file>file:/D:/Ambit-module/AmbitUI/src/Model/DataSource/ModeTest/FunctionConfig/AmbitConfig.java</file>
         </group>
         <group/>
-        <group name="AmbitUI">
-            <file>file:/D:/Ambit-module/AmbitUI/src/Control/Functions/FunctionsTest/Base/BaseFunction/AnalysisBase.java</file>
-            <file>file:/D:/Ambit-module/AmbitUI/src/Control/Functions/FunctionsTest/Base/BaseFunction/FunctionBase.java</file>
-            <file>file:/D:/Ambit-module/AmbitUI/src/Control/Core/Core.java</file>
-            <file>file:/D:/Ambit-module/AmbitUI/src/Control/CheckInput.java</file>
-        </group>
+        <group name="AmbitUI"/>
     </open-files>
 </project-private>

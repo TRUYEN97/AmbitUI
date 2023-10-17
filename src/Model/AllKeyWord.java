@@ -40,6 +40,7 @@ public final class AllKeyWord {
         public static final String FLAG = "flag";
         public static final String DEBUG_ABLE = "debug_able";
         public static final String LOOP_FUNC = "loop_times";
+        public static final String LOOP_TESTS = "loop_tests";
         public static final String BEGIN = "begin";
         public static final String TEST_NAME = "test_name";
         public static final String LIMIT_TYPE = "limit_type";
