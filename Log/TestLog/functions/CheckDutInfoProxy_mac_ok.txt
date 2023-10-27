@@ -1,0 +1,21 @@
+2023-10-27 03:45:29.884:   ITEM[mac_ok] - FUNCTION[CheckDutInfoProxy]
+2023-10-27 03:45:29.885:   [PC] Turn: 1
+2023-10-27 03:45:39.583:   Get IP from the function config with key is "IP".
+2023-10-27 03:45:55.752:   [PC] ReadUntil: root@eero-test:/#
+2023-10-27 03:45:56.063:   [PC] Connect to ip: 192.168.1.1
+2023-10-27 03:45:56.321:   [PC] Port is: 23
+2023-10-27 03:45:57.079:   [PC] Ping to IP: 192.168.1.1 - 120 S
+2023-10-27 03:45:57.083:   [Cmd] ------------------------------------ 1
+2023-10-27 03:45:57.084:   [Cmd] Send command: arp -d
+2023-10-27 03:45:57.125:   [Cmd] The ARP entry deletion failed: The requested operation requires elevation.
+2023-10-27 03:45:57.125:   [Cmd] Send command: ping 192.168.1.1 -n 1
+2023-10-27 03:46:00.829:   [Cmd] Pinging 192.168.1.1 with 32 bytes of data:
+2023-10-27 03:46:00.829:   [Cmd] Request timed out.
+2023-10-27 03:46:00.830:   [Cmd] 
+2023-10-27 03:46:00.830:   [Cmd] Ping statistics for 192.168.1.1:
+2023-10-27 03:46:00.831:   [Cmd] Packets: Sent = 1, Received = 0, Lost = 1 (100% loss),
+2023-10-27 03:46:00.831:   [Cmd] ------------------------------------
+2023-10-27 03:46:00.832:   [Cmd] ------------------------------------ 2
+2023-10-27 03:46:00.832:   [Cmd] Send command: arp -d
+2023-10-27 03:46:00.866:   [Cmd] The ARP entry deletion failed: The requested operation requires elevation.
+2023-10-27 03:46:00.866:   [Cmd] Send command: ping 192.168.1.1 -n 1

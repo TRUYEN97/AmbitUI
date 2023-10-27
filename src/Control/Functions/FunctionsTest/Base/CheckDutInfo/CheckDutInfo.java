@@ -4,7 +4,7 @@
  */
 package Control.Functions.FunctionsTest.Base.CheckDutInfo;
 
-import Communicate.Impl.Telnet.Telnet;
+import Communicate.AbsCommunicate;
 import Control.Functions.AbsFunction;
 import Control.Functions.FunctionsTest.Base.BaseFunction.AnalysisBase;
 import Control.Functions.FunctionsTest.Base.BaseFunction.FunctionBase;
@@ -33,29 +33,15 @@ public class CheckDutInfo extends AbsFunction {
 
     @Override
     protected boolean test() {
-        try {
-            String ip = this.baseFunc.getIp();
-            addLog("IP: " + ip);
-            if (ip == null) {
-                return false;
-            }
-            return check(ip);
-        } catch (Exception ex) {
-            addLog(LOG_KEYS.ERROR, ex.getLocalizedMessage());
-            return false;
-        }
-    }
-
-    private boolean check(String ip) {
-        try ( Telnet telnet = this.baseFunc.getTelnet(ip, 23)) {
-            if (telnet == null || !this.baseFunc.sendCommand(telnet, config.getString("command"))) {
+        try ( AbsCommunicate communicate = this.baseFunc.getTelnetOrComportConnector()) {
+            if (communicate == null || !this.baseFunc.sendCommand(communicate, config.getString("command"))) {
                 return false;
             }
             String startkey = config.getString("Startkey");
             String endkey = config.getString("Endkey");
             String regex = config.getString("Regex");
             int time = config.getInteger("Time", 10);
-            return checkValue(this.analysisBase.getValue(telnet, startkey, endkey, regex, new TimeS(time)));
+            return checkValue(this.analysisBase.getValue(communicate, startkey, endkey, regex, new TimeS(time)));
         } catch (Exception e) {
             e.printStackTrace();
             ErrorLog.addError(this, e.getMessage());

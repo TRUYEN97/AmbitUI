@@ -6,6 +6,7 @@ package Control.Functions.FunctionsTest.Base.VirFunction;
 
 import Control.Functions.AbsFunction;
 import Model.DataTest.FunctionParameters;
+import javax.swing.JOptionPane;
 
 /**
  *
@@ -23,6 +24,11 @@ public class VirFunction extends AbsFunction{
 
     @Override
     protected boolean test() {
+        String mess = this.config.getString("mess");
+        if(mess != null && !mess.isBlank()){
+            JOptionPane.showMessageDialog(null, String.format("%s - %s"
+                , this.subUI.getName(), mess));
+        }
         return true;
     }
     

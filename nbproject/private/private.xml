@@ -13,6 +13,10 @@
             <file>file:/D:/Ambit-module/AmbitUI/src/Model/DataSource/ModeTest/FunctionConfig/AmbitConfig.java</file>
         </group>
         <group/>
-        <group name="AmbitUI"/>
+        <group name="AmbitUI">
+            <file>file:/D:/Ambit-module/AmbitUI/src/Control/Core/RunTest/Runner.java</file>
+            <file>file:/D:/Ambit-module/AmbitUI/src/Control/Functions/FunctionsTest/Base/VirFunction/VirFunction.java</file>
+            <file>file:/D:/Ambit-module/AmbitUI/src/Control/Core/Engine.java</file>
+        </group>
     </open-files>
 </project-private>

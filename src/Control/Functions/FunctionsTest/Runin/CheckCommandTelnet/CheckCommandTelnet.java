@@ -4,6 +4,7 @@
  */
 package Control.Functions.FunctionsTest.Runin.CheckCommandTelnet;
 
+import Communicate.AbsCommunicate;
 import Communicate.Impl.Telnet.Telnet;
 import Control.Functions.AbsFunction;
 import Control.Functions.FunctionsTest.Base.BaseFunction.AnalysisBase;
@@ -33,19 +34,18 @@ public class CheckCommandTelnet extends AbsFunction {
     @Override
     protected boolean test() {
         try {
-            String ip = this.functionBase.getIp();
-            try ( Telnet telnet = this.functionBase.getTelnet(ip, 23)) {
-                if (telnet == null) {
+            try ( AbsCommunicate communicate = this.functionBase.getTelnetOrComportConnector()) {
+                if (communicate == null) {
                     return false;
                 }
-                if (!this.functionBase.sendCommand(telnet, config.getString("command"))) {
+                if (!this.functionBase.sendCommand(communicate, config.getString("command"))) {
                     return false;
                 }
                 String startkey = config.getString("Startkey");
                 String endkey = config.getString("Endkey");
                 String regex = config.getString("Regex");
                 int time = config.getInteger("Time", 10);
-                String value = this.analysisBase.getValue(telnet, startkey, endkey, regex, new TimeS(time));
+                String value = this.analysisBase.getValue(communicate, startkey, endkey, regex, new TimeS(time));
                 if (value == null) {
                     return false;
                 }
