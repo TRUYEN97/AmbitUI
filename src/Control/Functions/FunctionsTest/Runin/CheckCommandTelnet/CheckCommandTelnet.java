@@ -5,7 +5,6 @@
 package Control.Functions.FunctionsTest.Runin.CheckCommandTelnet;
 
 import Communicate.AbsCommunicate;
-import Communicate.Impl.Telnet.Telnet;
 import Control.Functions.AbsFunction;
 import Control.Functions.FunctionsTest.Base.BaseFunction.AnalysisBase;
 import Control.Functions.FunctionsTest.Base.BaseFunction.FunctionBase;
@@ -45,7 +44,9 @@ public class CheckCommandTelnet extends AbsFunction {
                 String endkey = config.getString("Endkey");
                 String regex = config.getString("Regex");
                 int time = config.getInteger("Time", 10);
-                String value = this.analysisBase.getValue(communicate, startkey, endkey, regex, new TimeS(time));
+                String readUntil = config.getString("ReadUntil");
+                String value = this.analysisBase.getValue(communicate,
+                        startkey, endkey, regex, new TimeS(time), readUntil);
                 if (value == null) {
                     return false;
                 }

@@ -67,11 +67,12 @@ public class TempCPU extends AbsFunction {
         String endkey = config.getString("Endkey");
         String regex = config.getString("Regex");
         int time = config.getInteger("Time", 10);
+        String readUntil = config.getString("ReadUntil");
         for (String command : commands) {
             if (!this.functionBase.sendCommand(telnet, command)) {
                 return null;
             }
-            String value = this.analysisBase.getValue(telnet, startkey, endkey, regex, new TimeS(time));
+            String value = this.analysisBase.getValue(telnet, startkey, endkey, regex, new TimeS(time), readUntil);
             if (!this.analysisBase.isNumber(value)) {
                 addLog("ERROR", String.format("value is not number! value: %s", value));
                 return null;

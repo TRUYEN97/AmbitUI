@@ -1,0 +1,14 @@
+{
+"mode":"debug",
+"station_name":"RUNIN-7586",
+"start_time":"2023-10-28 06:42:56",
+"tests":[],
+"error_details":"verify_cct_0",
+"serial":"GGB1UD223427025T",
+"error_code":"verify00",
+"position":"",
+"station_type":"RUNIN",
+"finish_time":"2023-10-28 06:45:04",
+"status":"failed",
+"test_software_version":""
+}

@@ -1,0 +1,66 @@
+{
+"station_name":"RUNIN-7586",
+"mo":"2141030850",
+"mlbsn":"GGB1UD223427025T",
+"finish_time":"2023-10-28 06:42:55",
+"mode":"debug",
+"start_time":"2023-10-28 06:42:05",
+"tests":[
+{
+"start_time":"2023-10-28 06:42:05",
+"lower_limit":"",
+"cycle_time":"0.030",
+"upper_limit":"",
+"error_code":"",
+"units":"",
+"errorDes":"",
+"test_name":"gen_node",
+"finish_time":"2023-10-28 06:42:05",
+"errorcode":"",
+"test_value":"passed",
+"status":"passed"
+},
+
+{
+"start_time":"2023-10-28 06:42:05",
+"lower_limit":"",
+"cycle_time":"50.195",
+"upper_limit":"",
+"error_code":"verify00",
+"units":"",
+"errorDes":"verify_cct",
+"test_name":"verify_cct",
+"finish_time":"2023-10-28 06:42:55",
+"errorcode":"verify00",
+"test_value":"null",
+"status":"failed"
+},
+
+{
+"start_time":"2023-10-28 06:42:55",
+"lower_limit":"",
+"cycle_time":"0.244",
+"upper_limit":"",
+"error_code":"API01",
+"units":"",
+"errorDes":"UpAPI",
+"test_name":"UpAPI",
+"finish_time":"2023-10-28 06:42:56",
+"errorcode":"API01",
+"test_value":"failed",
+"status":"failed"
+}
+],
+"error_details":"verify_cct",
+"serial":"GGB1UD223427025T",
+"cycle_time":"50.240",
+"error_code":"verify00",
+"sn":"RZ31ZCM",
+"position":"",
+"station_type":"RUNIN",
+"errorDes":"verify_cct",
+"cyctime_final":"50.484",
+"errorcode":"verify00",
+"status":"failed",
+"test_software_version":""
+}

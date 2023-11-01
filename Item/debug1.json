@@ -1,0 +1,112 @@
+﻿{
+    "station_type": "RUNIN",
+    "time_out_test": 7000,
+    "init": [
+    ],
+    "functions": [
+        {
+            "flag": true,
+            "time_out": 1,
+            "multi": false,
+            "IP": "192.168.1.1",
+            "debug_able": true,
+            "time_ping": 1,
+            "test_name": "dut_ping",
+            "func_name": "DutPingProxy"
+        },
+        {
+            "flag": true,
+            "retry": 2,
+            "time_out": 100,
+            "multi": false,
+            "debug_able": true,
+            "always_run": false,
+            "type": "comport",
+            "IP": "192.168.1.1",
+            "comport": 3,
+            "baudrate": 115200,
+            "ReadUntil": "root@eero-test:/#",
+            "command": "fw_printenv  mac",
+            "Startkey": "mac=",
+            "Endkey": "",
+            "Time": 40,
+            "compare": "ethernetmac",
+            "test_name": "mac_ok",
+            "func_name": "CheckDutInfoProxy"
+        },
+        {
+            "flag": true,
+            "time_out": 100,
+            "debug_able": true,
+            "multi": false,
+            "always_run": true,
+            "test_name": "shop_floor",
+            "func_name": "VirFunctionProxy"
+        }
+
+    ],
+    "end": [
+        {
+            "flag": false,
+            "time_out": 190,
+            "retry": 4,
+            "Time": 30,
+            "multi": false,
+            "followLimit": true,
+            "limitErrorCode": true,
+            "BaseKeys": ["error_details", "status", "finish_time",
+                "test_software_version", "start_time", "station_type",
+                "error_code", "serial", "mode", "station_name", "position"],
+            "TestKeys": ["upper_limit", "lower_limit", "status", "finish_time", "test_name",
+                "error_code", "start_time", "test_value", "units"],
+            "LocalPrefix": ["python/log"],
+            "LocaljsonName": ["mlbsn", "station_name", "mode"],
+            "LocalTxtName": ["mlbsn", "station_name", "mode", "serial"],
+            "Command": "cd python && eero_API_client.py log/",
+            "Spec": "200",
+            "test_name": "UpAPI",
+            "func_name": "UpApiProxy" 
+        },
+        {
+            "flag": false,
+            "time_out": 30,
+            "wait_multi_done": true,
+            "SEND_FORMAT": ["sn", "pcname", "status"],
+            "SEND_FORMAT_FAIL": ["sn", "pcname", "status", "errorcode"],
+            "URL": "http://10.90.100.20/sfcapi/api/connectfinal",
+            "SFIS_TYPE": "SendResult",
+            "test_name": "SendToSfis",
+            "func_name": "SfisFunctionProxy"
+        }
+    ],
+    "final": [
+        {
+            "flag": true,
+            "time_out": 190,
+            "retry": 1,
+            "Time": 30,
+            "multi": false,
+            "followLimit": false,
+            "limitErrorCode": false,
+            "bonus": {
+                "product": "jupiter",
+                "station": "runin",
+                "line": "mp",
+                "onSfis": "on"
+            },
+            "BaseKeys": ["error_details", "status", "finish_time",
+                "test_software_version", "start_time", "onSfis",
+                "error_code", "mlbsn", "sn", "mode", "station", "position", "product"
+                        , "line", "pcname", "pnname", "ethernetmac", "mo"],
+            "TestKeys": ["upper_limit", "lower_limit", "status", "finish_time", "test_name",
+                "error_code", "start_time", "test_value", "units"],
+            "LocalPrefix": ["UploadApi/log"],
+            "LocaljsonName": ["mlbsn", "station_name", "mode"],
+            "LocalTxtName": ["mlbsn", "station_name", "mode", "serial"],
+            "Command": "cd UploadApi && java -jar UploadLogAPI.jar 10.90.1.168",
+            "Spec": "{\"result\":true,\"message\":\"Save succeed!\",\"data\":null}",
+            "test_name": "UploadLog",
+            "func_name": "UploadLogProxy" 
+        }
+    ]
+}

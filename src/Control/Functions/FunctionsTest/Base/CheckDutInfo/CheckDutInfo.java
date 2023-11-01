@@ -40,8 +40,10 @@ public class CheckDutInfo extends AbsFunction {
             String startkey = config.getString("Startkey");
             String endkey = config.getString("Endkey");
             String regex = config.getString("Regex");
+            String readUntil = config.getString("ReadUntil");
             int time = config.getInteger("Time", 10);
-            return checkValue(this.analysisBase.getValue(communicate, startkey, endkey, regex, new TimeS(time)));
+            return checkValue(this.analysisBase.getValue(communicate, 
+                    startkey, endkey, regex, new TimeS(time), readUntil));
         } catch (Exception e) {
             e.printStackTrace();
             ErrorLog.addError(this, e.getMessage());

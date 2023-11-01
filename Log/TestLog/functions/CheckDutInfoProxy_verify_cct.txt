@@ -1,0 +1,108 @@
+2023-10-28 06:42:56.934:   ITEM[verify_cct] - FUNCTION[CheckDutInfoProxy]
+2023-10-28 06:42:56.934:   [PC] Turn: 1
+2023-10-28 06:42:56.935:   [COMPORT] comport: COM3 -- baudrate: 115200
+2023-10-28 06:42:56.935:   [ComPort] Connect to: COM3
+2023-10-28 06:42:56.935:   [ComPort] BaudRate is: 115200
+2023-10-28 06:42:56.958:   [ComPort] Connect COM3 ok
+2023-10-28 06:42:56.958:   [ComPort] Send command:
+2023-10-28 06:42:57.063:  [ComPort] null
+2023-10-28 06:42:57.063:   [ComPort] root@eero-test:/#
+2023-10-28 06:42:57.063:   [ComPort] root@eero-test:/#
+2023-10-28 06:42:57.064:   [ComPort] root@eero-test:/#
+2023-10-28 06:43:21.174:   [ComPort] root@eero-test:/#
+2023-10-28 06:43:21.174:   [ComPort] Format: Log Type - Time(microsec) - Message - Optional Info
+2023-10-28 06:43:21.174:   [ComPort] Log Type: B - Since Boot(Power On Reset),  D - Delta,  S - Statistic
+2023-10-28 06:43:21.174:   [ComPort] S - QC_IMAGE_VERSION_STRING=BOOT.BF.3.3.1.1-445990
+2023-10-28 06:43:21.174:   [ComPort] S - IMAGE_VARIANT_STRING=MAASANAZA
+2023-10-28 06:43:21.175:   [ComPort] S - OEM_IMAGE_VERSION_STRING=CRM
+2023-10-28 06:43:21.175:   [ComPort] S - Boot Config, 0x000002c3
+2023-10-28 06:43:21.175:   [ComPort] B -       127 - PBL, Start
+2023-10-28 06:43:21.175:   [ComPort] B -      1562 - bootable_media_detect_entry, Start
+2023-10-28 06:43:21.175:   [ComPort] B -     76312 - bootable_media_detect_success, Start
+2023-10-28 06:43:21.176:   [ComPort] B -     76317 - elf_loader_entry, Start
+2023-10-28 06:43:21.176:   [ComPort] B -     77973 - auth_hash_seg_entry, Start
+2023-10-28 06:43:21.176:   [ComPort] B -     78330 - auth_hash_seg_exit, Start
+2023-10-28 06:43:21.176:   [ComPort] B -     96260 - elf_segs_hash_verify_entry, Start
+2023-10-28 06:43:21.177:   [ComPort] B -    164046 - PBL, End
+2023-10-28 06:43:21.177:   [ComPort] B -    135237 - SBL1, Start
+2023-10-28 06:43:21.177:   [ComPort] B -    197213 - GCC [RstStat:0x10, RstDbg:0x600000] WDog Stat : 0x4
+2023-10-28 06:43:21.177:   [ComPort] B -    205326 - clock_init, Start
+2023-10-28 06:43:21.178:   [ComPort] D -      7625 - clock_init, Delta
+2023-10-28 06:43:21.178:   [ComPort] B -    213134 - boot_flash_init, Start
+2023-10-28 06:43:21.282:   [ComPort] D -    115625 - boot_flash_init, Delta
+2023-10-28 06:43:21.282:   [ComPort] B -    328851 - boot_config_data_table_init, Start
+2023-10-28 06:43:21.283:   [ComPort] D -      1433 - boot_config_data_table_init, Delta - (575 Bytes)
+2023-10-28 06:43:21.283:   [ComPort] B -    338641 - Boot Setting :  0x00030e18
+2023-10-28 06:43:21.283:   [ComPort] B -    340624 - CDT version:2,Platform ID:8,Major ID:4,Minor ID:1,Subtype:162
+2023-10-28 06:43:21.284:   [ComPort] B -    351939 - sbl1_ddr_set_params, Start
+2023-10-28 06:43:21.284:   [ComPort] B -    358436 - Pre_DDR_clock_init, Start
+2023-10-28 06:43:21.284:   [ComPort] B -    358832 - Pre_DDR_clock_init, End
+2023-10-28 06:43:21.391:   [ComPort] B -    482876 - RFA refclk 48MHz Frequency force selection
+2023-10-28 06:43:21.932:   [ComPort] B -   1007323 - do ddr sanity test, Start
+2023-10-28 06:43:21.932:   [ComPort] D -        61 - do ddr sanity test, Delta
+2023-10-28 06:43:21.933:   [ComPort] B -   1011990 - Image Load, Start
+2023-10-28 06:43:21.933:   [ComPort] D -     30042 - QSEE Image Loaded, Delta - (579728 Bytes)
+2023-10-28 06:43:21.933:   [ComPort] B -   1042856 - Image Load, Start
+2023-10-28 06:43:21.934:   [ComPort] D -      4727 - DEVCFG Image Loaded, Delta - (13592 Bytes)
+2023-10-28 06:43:21.934:   [ComPort] B -   1050115 - Image Load, Start
+2023-10-28 06:43:22.040:   [ComPort] D -     23424 - APPSBL Image Loaded, Delta - (459670 Bytes)
+2023-10-28 06:43:22.040:   [ComPort] B -   1073600 - QSEE Execution, Start
+2023-10-28 06:43:22.040:   [ComPort] D -        61 - QSEE Execution, Delta
+2023-10-28 06:43:22.041:   [ComPort] B -   1080066 - SBL1, End
+2023-10-28 06:43:22.041:   [ComPort] D -    947513 - SBL1, Delta
+2023-10-28 06:43:22.041:   [ComPort] S - Flash Throughput, 31061 KB/s  (1054237 Bytes,  33940 us)
+2023-10-28 06:43:22.041:   [ComPort] S - DDR Frequency, 800 MHz
+2023-10-28 06:43:22.042:   [ComPort] S - Core 0 Frequency, 800 MHz
+2023-10-28 06:43:22.151:  [ComPort] null
+2023-10-28 06:43:22.151:  [ComPort] null
+2023-10-28 06:43:22.259:   [ComPort] eero u-boot 0.9.0-03c6ea5ab6-u (Dec 16 2022 - 15:00:47 +0800)
+2023-10-28 06:43:22.260:  [ComPort] null
+2023-10-28 06:43:22.260:   [ComPort] DRAM:  smem ram ptable found: ver: 1 len: 4
+2023-10-28 06:43:22.260:   [ComPort] 1 GiB
+2023-10-28 06:43:22.694:   [ComPort] NAND:  QPIC: disabled, skipping initialization
+2023-10-28 06:43:22.694:   [ComPort] SF: Unsupported flash IDs: manuf 00, jedec 0000, ext_jedec 0000
+2023-10-28 06:43:22.695:   [ComPort] ipq_spi: SPI Flash not found (bus/cs/speed/mode) = (0/0/48000000/0)
+2023-10-28 06:43:22.695:   [ComPort] 0 MiB
+2023-10-28 06:43:22.695:   [ComPort] MMC:   <NULL>: 0 (eMMC)
+2023-10-28 06:43:23.236:   [ComPort] PCI Link Intialized
+2023-10-28 06:43:23.236:   [ComPort] In:    serial@78AF000
+2023-10-28 06:43:23.237:   [ComPort] Out:   serial@78AF000
+2023-10-28 06:43:23.237:   [ComPort] Err:   serial@78AF000
+2023-10-28 06:43:23.237:   [ComPort] model: [trieste]
+2023-10-28 06:43:23.237:   [ComPort] machid: 80401a2
+2023-10-28 06:43:23.237:   [ComPort] eth0 MAC Address from ART is not valid
+2023-10-28 06:43:23.237:   [ComPort] eth1 MAC Address from ART is not valid
+2023-10-28 06:43:23.238:   [ComPort] board_register_value should be: 08
+2023-10-28 06:43:23.454:   [ComPort] PD: Checking PD contract...
+2023-10-28 06:43:23.454:   [ComPort] Probe for RTS5452
+2023-10-28 06:43:23.454:   [ComPort] RTS2575: Failed to probe device: -110
+2023-10-28 06:43:23.455:   [ComPort] PD: Failed to initialize RTS5452: -19
+2023-10-28 06:43:23.455:   [ComPort] Probe for TPS2575
+2023-10-28 06:43:23.455:   [ComPort] TPS device found
+2023-10-28 06:43:23.455:   [ComPort] TPS: Debug device IS present
+2023-10-28 06:43:23.455:   [ComPort] PD: Enabled: V=9000mV I=3000mA P=27000mW
+2023-10-28 06:43:23.778:   [ComPort] Net:   cmbblk is stable 5
+2023-10-28 06:43:24.531:   [ComPort] MAC0 addr:0:11:22:33:44:55
+2023-10-28 06:43:24.531:   [ComPort] PHY ID1: 0x4d
+2023-10-28 06:43:24.531:   [ComPort] PHY ID2: 0xd0c0
+2023-10-28 06:43:24.531:   [ComPort] MAC1 addr:0:11:22:33:44:56
+2023-10-28 06:43:24.532:   [ComPort] PHY ID1: 0x4d
+2023-10-28 06:43:24.532:   [ComPort] PHY ID2: 0xd101
+2023-10-28 06:43:24.532:   [ComPort] eth0
+2023-10-28 06:43:24.532:   [ComPort] Warning: eth0 MAC addresses don't match:
+2023-10-28 06:43:24.533:   [ComPort] Address in SROM is         00:11:22:33:44:55
+2023-10-28 06:43:24.533:   [ComPort] Address in environment is  e8:d3:eb:9c:ec:60
+2023-10-28 06:43:24.533:   [CONFIG] Start key: "Address in environment is  "
+2023-10-28 06:43:24.533:   [CONFIG] End key: ""
+2023-10-28 06:43:24.533:   [PC] Value: "e8:d3:eb:9c:ec:60"
+2023-10-28 06:43:24.533:   [PC] Time: "27.575/50.000 (S)"
+2023-10-28 06:43:24.533:   [PC] Value is: e8:d3:eb:9c:ec:60
+2023-10-28 06:43:24.533:   [CONFIG] compare key: ethernetmac
+2023-10-28 06:43:24.533:   [PC] Spec is: E8:D3:EB:9C:EC:60
+2023-10-28 06:43:24.655:   ****************************************************
+2023-10-28 06:43:24.655:   Item name = verify_cct
+2023-10-28 06:43:24.655:   Value = e8:d3:eb:9c:ec:60
+2023-10-28 06:43:24.655:   Test status = passed
+2023-10-28 06:43:24.655:   -----------------------------------------------------
+2023-10-28 06:43:24.656:   ****************************************************
+2023-10-28 06:43:24.656:   TIME[27.722 s] - STATUS[PASSED]

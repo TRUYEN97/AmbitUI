@@ -29,23 +29,20 @@ public class AnalysisBase extends AbsFunction {
         return false;
     }
 
-    public String getValue(IReadable readable, String regex) {
-        return getValue(readable, null, null, regex, null);
+    public String getValue(IReadable readable, String regex, AbsTime time, String readUntil) {
+        return getValue(readable, null, null, regex, time, readUntil);
     }
 
-    public String getValue(IReadable readable, String regex, AbsTime time) {
-        return getValue(readable, null, null, regex, time);
+    public String getValue(IReadable readable, String startkey, String endkey, AbsTime time, String readUntil) {
+        return getValue(readable, startkey, endkey, null, time, readUntil);
     }
 
-    public String getValue(IReadable readable, String startkey, String endkey, AbsTime time) {
-        return getValue(readable, startkey, endkey, null, time);
+    public String getValue(IReadable readable, String startkey, String endkey, String readUntil) {
+        return getValue(readable, startkey, endkey, null, null, readUntil);
     }
 
-    public String getValue(IReadable readable, String startkey, String endkey) {
-        return getValue(readable, startkey, endkey, null, null);
-    }
-
-    public String getValue(IReadable readable, String startkey, String endkey, String regex, AbsTime time) {
+    public String getValue(IReadable readable, String startkey, String endkey,
+            String regex, AbsTime time, String readUntil) {
         String line;
         String name = readable.getClass().getSimpleName();
         String value = null;
@@ -53,22 +50,19 @@ public class AnalysisBase extends AbsFunction {
             if (time != null) {
                 time.update();
             }
-            while ((line = getLine(time, readable)) != null) {
+            while (time == null || time.onTime()) {
+                line = getLine(time, readable);
                 addLog(name, line);
+                if(line == null){
+                    continue;
+                }
                 if (regex != null && !regex.isBlank()) {
                     value = findGroup(line, regex);
                 } else {
                     value = subString(line, startkey, endkey);
                 }
-                if (value != null) {
+                if (value != null || (readUntil != null && line.contains(readUntil))) {
                     break;
-                }
-            }
-            if (line == null) {
-                if (time != null) {
-                    addLog("PC", " null - %.3f S", time.getTime());
-                } else {
-                    addLog("PC", " null");
                 }
             }
             return value;

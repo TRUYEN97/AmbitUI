@@ -1,59 +1,103 @@
 ﻿{
     "station_type": "RUNIN",
-    "time_out_test": 7000,
+    "time_out_test": 100,
     "init": [
+	{
+            "flag": false,
+            "multi": false,
+            "always_run": false,
+            "time_out": 100,
+            "timezone": "UTC",
+            "wedUrl": "http://10.90.100.15:8000/auth/login//",
+            "test_name": "CheckTime",
+            "func_name": "CheckTimePCProxy"
+        },
+        {
+            "flag": true,
+            "time_out": 50,
+            "SEND_FORMAT": ["sn", "pcname", "mode"],
+            "DATA_FORMAT": ["mlbsn", "ethernetmac", "pnname"],
+            "URL": "http://10.90.100.20/sfcapi/api/connect",
+            "test_name": "gen_node",
+            "func_name": "SfisFunctionProxy"
+        }, 
+        {
+            "flag": false,
+            "multi": false,
+            "always_run": false,
+            "time_out": 10,
+            "elems": [
+                {
+                    "key": "pnname",
+                    "target": "810-01100",
+                    "type": "equal",
+                    "message": "Sản phẩm không phải là: 810-01100!"
+                },
+                {
+                    "key": "smode",
+                    "target": "Production",
+                    "type": "equal",
+                    "message": "Sản phẩm không phải là hàng Production!"
+                },
+                {
+                    "key": "mlbsn",
+                    "target": "GGB1",
+                    "type": "start_with",
+                    "message": "SN của sản phẩm không phải là hàng Trieste!"
+                },
+                {
+                    "key": "ethernetmac",
+                    "target": "0",
+                    "type": "end_with",
+                    "message": "MAC từ SFIS cần phải kết thúc bằng số 0!"
+                }
+            ],
+            "test_name": "CheckProduct",
+            "func_name": "CheckProductProxy"
+        }
     ],
     "functions": [
         {
             "flag": true,
-            "time_out": 1,
-            "multi": false,
-            "IP": "192.168.1.1",
-            "debug_able": true,
-            "time_ping": 1,
-            "test_name": "dut_ping",
-            "func_name": "DutPingProxy"
-        },
-        {
-            "flag": true,
-            "retry": 2,
-            "time_out": 100,
+            "time_out": 60,
             "multi": false,
             "debug_able": true,
             "always_run": false,
-          // "type": "comport",
-            "IP": "192.168.1.1",
+            "type": "comport",
             "comport": 3,
             "baudrate": 115200,
-            "ReadUntil": "root@eero-test:/#",
-            "command": "fw_printenv  mac",
-            "Startkey": "mac=",
+            "command": "\r\n",
+            "Startkey": "Address in environment is  ",
             "Endkey": "",
-            "Time": 40,
+            "Time": 50,
+            "ReadUntil": ", eth1",
             "compare": "ethernetmac",
-            "test_name": "mac_ok",
+            "test_name": "verify_cct",
             "func_name": "CheckDutInfoProxy"
         },
         {
             "flag": true,
-            "time_out": 100,
+            "time_out": 110,
             "debug_able": true,
             "multi": false,
-            "always_run": true,
-            "test_name": "shop_floor",
-            "func_name": "VirFunctionProxy"
+            "type": "comport",
+            "comport": 3,
+            "baudrate": 115200,
+            "command": ["\r\n"],
+            "keyWord": "IPv6: ADDRCONF(NETDEV_CHANGE): ec_sta1: link becomes ready",
+            "ReadUntil": "IPv6: ADDRCONF(NETDEV_CHANGE): ec_sta1: link becomes ready",
+            "Time": 100,
+            "test_name": "verify_cct",
+            "func_name": "TelnetReadUntilKeyProxy"
         }
-
     ],
     "end": [
         {
-            "flag": false,
-            "time_out": 190,
-            "retry": 4,
-            "Time": 30,
+            "flag": true,
+            "time_out": 30,
             "multi": false,
             "followLimit": true,
-            "limitErrorCode": true,
+            "limitErrorCode": false,
             "BaseKeys": ["error_details", "status", "finish_time",
                 "test_software_version", "start_time", "station_type",
                 "error_code", "serial", "mode", "station_name", "position"],
@@ -68,8 +112,8 @@
             "func_name": "UpApiProxy" 
         },
         {
-            "flag": false,
-            "time_out": 30,
+            "flag": true,
+            "time_out": 5,
             "wait_multi_done": true,
             "SEND_FORMAT": ["sn", "pcname", "status"],
             "SEND_FORMAT_FAIL": ["sn", "pcname", "status", "errorcode"],
@@ -82,16 +126,40 @@
     "final": [
         {
             "flag": true,
-            "time_out": 190,
+            "time_out": 100,
+            "always_run": true,
+            "User": "oper",
+            "always_run": true,
+            "Password": "mfg-oper",
+            "Host": "10.90.100.168",
+            "Port": 21,
+            "followLimit": false,
+            "limitErrorCode": false,
+            "BaseKeys": ["mlbsn", "sn", "mo", "error_details", "status", "finish_time",
+                "test_software_version", "start_time", "station_type",
+                "error_code", "errorcode", "errorDes", "serial", "mode", "station_name", "position", "cycle_time", "cyctime_final"],
+            "TestKeys": ["upper_limit", "lower_limit", "status", "finish_time", "test_name",
+                "error_code", "errorcode", "errorDes", "start_time", "test_value", "units", "cycle_time"],
+            "FtpPrefixTxt": ["data/Trieste", "Text", "pnname", "station_type", "start_day", "station_name", "status"],
+            "FtpPrefixJson": ["data/Trieste", "json","pnname", "station_type", "start_day", "station_name", "status"],
+            "LocalPrefix": ["Log/TestLog"],
+            "LocalName": ["mlbsn", "sn", "position", "status", "mode", "finish_time"],
+            "LocalNameFail": ["mlbsn", "sn", "position", "status", "error_details", "errorcode", "mode", "finish_time"],
+            "test_name": "UpLogFTP",
+            "func_name": "UpLogFTPProxy"
+        },
+        {
+            "flag": true,
+            "time_out": 160,
             "retry": 1,
-            "Time": 30,
+            "Time": 60,
             "multi": false,
             "followLimit": false,
             "limitErrorCode": false,
             "bonus": {
-                "product": "jupiter",
-                "station": "runin",
-                "line": "mp",
+                "product": "Trieste",
+                "station": "CCT",
+                "line": "MP",
                 "onSfis": "on"
             },
             "BaseKeys": ["error_details", "status", "finish_time",
@@ -103,9 +171,9 @@
             "LocalPrefix": ["UploadApi/log"],
             "LocaljsonName": ["mlbsn", "station_name", "mode"],
             "LocalTxtName": ["mlbsn", "station_name", "mode", "serial"],
-            "Command": "cd UploadApi && java -jar UploadLogAPI.jar 10.90.1.168",
+            "Command": "cd UploadApi && java -jar UploadLogAPI.jar 10.90.100.168",
             "Spec": "{\"result\":true,\"message\":\"Save succeed!\",\"data\":null}",
-            "test_name": "UploadLog",
+            "test_name": "UpLogFTP",
             "func_name": "UploadLogProxy" 
         }
     ]

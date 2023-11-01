@@ -1,0 +1,407 @@
+===================================================================
+Start at = 2023-10-28 06:42:56
+End test at = 2023-10-28 06:45:04
+Status = failed
+Version = null
+Error code = -1
+Error des = verify_cct_0
+Local error code = verify00
+Local error des = verify_cct
+Test time = 127.929 s
+Final test time = 128.255 s
+Station = RUNIN-7586
+Location = 
+HHSN = RZ31ZCM
+DEVICESN = GGB1UD223427025T
+===================================================================
+//////////////////////////- ID[0] -//////////////////////////
+2023-10-28 06:42:56.913:   ITEM[gen_node] - FUNCTION[SfisFunctionProxy]
+2023-10-28 06:42:56.913:   [PC] Turn: 1
+2023-10-28 06:42:56.913:   Check SN....
+2023-10-28 06:42:56.913:   send to url: http://10.90.100.20/sfcapi/api/connect
+2023-10-28 06:42:56.913:   [Input] Input: RZ31ZCM
+2023-10-28 06:42:56.913:   [Config] MaxLength: -1
+2023-10-28 06:42:56.913:   [SEND_FORMAT] [sn, pcname, mode]
+2023-10-28 06:42:56.913:   key: SN = RZ31ZCM
+2023-10-28 06:42:56.914:   key: PCNAME = RUNIN-7586
+2023-10-28 06:42:56.914:   key: MODE = debug
+2023-10-28 06:42:56.914:   command: {"PCNAME":"RUNIN-7586","MODE":"debug","SN":"RZ31ZCM"}
+2023-10-28 06:42:56.932:   Response is: {"result":"PASS","message":"OK","data":{"sn":"RZ31ZCM","ethernetmac":"E8D3EB9CEC60","pnname":"810-01100","mlbsn":"GGB1UD223427025T","typemodel":"simple","mo":"2141030850","smode":"Production"}}
+2023-10-28 06:42:56.933:   [DATA_FORMAT] [mlbsn, ethernetmac, pnname]
+2023-10-28 06:42:56.933:   add key: smode -- Value: Production
+2023-10-28 06:42:56.933:   add key: mo -- Value: 2141030850
+2023-10-28 06:42:56.933:   add key: typemodel -- Value: simple
+2023-10-28 06:42:56.933:   add key: pnname -- Value: 810-01100
+2023-10-28 06:42:56.933:   add key: sn -- Value: RZ31ZCM
+2023-10-28 06:42:56.933:   add key: mlbsn -- Value: GGB1UD223427025T
+2023-10-28 06:42:56.933:   add key: ethernetmac -- Value: E8:D3:EB:9C:EC:60
+2023-10-28 06:42:56.933:   add data to production info done.
+2023-10-28 06:42:56.933:   ****************************************************
+2023-10-28 06:42:56.933:   Item name = gen_node
+2023-10-28 06:42:56.933:   Value = passed
+2023-10-28 06:42:56.934:   Test status = passed
+2023-10-28 06:42:56.934:   -----------------------------------------------------
+2023-10-28 06:42:56.934:   ****************************************************
+2023-10-28 06:42:56.934:   TIME[0.021 s] - STATUS[PASSED]
+//////////////////////////////////////////////////////////////
+//////////////////////////- ID[1] -//////////////////////////
+2023-10-28 06:42:56.934:   ITEM[verify_cct] - FUNCTION[CheckDutInfoProxy]
+2023-10-28 06:42:56.934:   [PC] Turn: 1
+2023-10-28 06:42:56.935:   [COMPORT] comport: COM3 -- baudrate: 115200
+2023-10-28 06:42:56.935:   [ComPort] Connect to: COM3
+2023-10-28 06:42:56.935:   [ComPort] BaudRate is: 115200
+2023-10-28 06:42:56.958:   [ComPort] Connect COM3 ok
+2023-10-28 06:42:56.958:   [ComPort] Send command:
+2023-10-28 06:42:57.063:  [ComPort] null
+2023-10-28 06:42:57.063:   [ComPort] root@eero-test:/#
+2023-10-28 06:42:57.063:   [ComPort] root@eero-test:/#
+2023-10-28 06:42:57.064:   [ComPort] root@eero-test:/#
+2023-10-28 06:43:21.174:   [ComPort] root@eero-test:/#
+2023-10-28 06:43:21.174:   [ComPort] Format: Log Type - Time(microsec) - Message - Optional Info
+2023-10-28 06:43:21.174:   [ComPort] Log Type: B - Since Boot(Power On Reset),  D - Delta,  S - Statistic
+2023-10-28 06:43:21.174:   [ComPort] S - QC_IMAGE_VERSION_STRING=BOOT.BF.3.3.1.1-445990
+2023-10-28 06:43:21.174:   [ComPort] S - IMAGE_VARIANT_STRING=MAASANAZA
+2023-10-28 06:43:21.175:   [ComPort] S - OEM_IMAGE_VERSION_STRING=CRM
+2023-10-28 06:43:21.175:   [ComPort] S - Boot Config, 0x000002c3
+2023-10-28 06:43:21.175:   [ComPort] B -       127 - PBL, Start
+2023-10-28 06:43:21.175:   [ComPort] B -      1562 - bootable_media_detect_entry, Start
+2023-10-28 06:43:21.175:   [ComPort] B -     76312 - bootable_media_detect_success, Start
+2023-10-28 06:43:21.176:   [ComPort] B -     76317 - elf_loader_entry, Start
+2023-10-28 06:43:21.176:   [ComPort] B -     77973 - auth_hash_seg_entry, Start
+2023-10-28 06:43:21.176:   [ComPort] B -     78330 - auth_hash_seg_exit, Start
+2023-10-28 06:43:21.176:   [ComPort] B -     96260 - elf_segs_hash_verify_entry, Start
+2023-10-28 06:43:21.177:   [ComPort] B -    164046 - PBL, End
+2023-10-28 06:43:21.177:   [ComPort] B -    135237 - SBL1, Start
+2023-10-28 06:43:21.177:   [ComPort] B -    197213 - GCC [RstStat:0x10, RstDbg:0x600000] WDog Stat : 0x4
+2023-10-28 06:43:21.177:   [ComPort] B -    205326 - clock_init, Start
+2023-10-28 06:43:21.178:   [ComPort] D -      7625 - clock_init, Delta
+2023-10-28 06:43:21.178:   [ComPort] B -    213134 - boot_flash_init, Start
+2023-10-28 06:43:21.282:   [ComPort] D -    115625 - boot_flash_init, Delta
+2023-10-28 06:43:21.282:   [ComPort] B -    328851 - boot_config_data_table_init, Start
+2023-10-28 06:43:21.283:   [ComPort] D -      1433 - boot_config_data_table_init, Delta - (575 Bytes)
+2023-10-28 06:43:21.283:   [ComPort] B -    338641 - Boot Setting :  0x00030e18
+2023-10-28 06:43:21.283:   [ComPort] B -    340624 - CDT version:2,Platform ID:8,Major ID:4,Minor ID:1,Subtype:162
+2023-10-28 06:43:21.284:   [ComPort] B -    351939 - sbl1_ddr_set_params, Start
+2023-10-28 06:43:21.284:   [ComPort] B -    358436 - Pre_DDR_clock_init, Start
+2023-10-28 06:43:21.284:   [ComPort] B -    358832 - Pre_DDR_clock_init, End
+2023-10-28 06:43:21.391:   [ComPort] B -    482876 - RFA refclk 48MHz Frequency force selection
+2023-10-28 06:43:21.932:   [ComPort] B -   1007323 - do ddr sanity test, Start
+2023-10-28 06:43:21.932:   [ComPort] D -        61 - do ddr sanity test, Delta
+2023-10-28 06:43:21.933:   [ComPort] B -   1011990 - Image Load, Start
+2023-10-28 06:43:21.933:   [ComPort] D -     30042 - QSEE Image Loaded, Delta - (579728 Bytes)
+2023-10-28 06:43:21.933:   [ComPort] B -   1042856 - Image Load, Start
+2023-10-28 06:43:21.934:   [ComPort] D -      4727 - DEVCFG Image Loaded, Delta - (13592 Bytes)
+2023-10-28 06:43:21.934:   [ComPort] B -   1050115 - Image Load, Start
+2023-10-28 06:43:22.040:   [ComPort] D -     23424 - APPSBL Image Loaded, Delta - (459670 Bytes)
+2023-10-28 06:43:22.040:   [ComPort] B -   1073600 - QSEE Execution, Start
+2023-10-28 06:43:22.040:   [ComPort] D -        61 - QSEE Execution, Delta
+2023-10-28 06:43:22.041:   [ComPort] B -   1080066 - SBL1, End
+2023-10-28 06:43:22.041:   [ComPort] D -    947513 - SBL1, Delta
+2023-10-28 06:43:22.041:   [ComPort] S - Flash Throughput, 31061 KB/s  (1054237 Bytes,  33940 us)
+2023-10-28 06:43:22.041:   [ComPort] S - DDR Frequency, 800 MHz
+2023-10-28 06:43:22.042:   [ComPort] S - Core 0 Frequency, 800 MHz
+2023-10-28 06:43:22.151:  [ComPort] null
+2023-10-28 06:43:22.151:  [ComPort] null
+2023-10-28 06:43:22.259:   [ComPort] eero u-boot 0.9.0-03c6ea5ab6-u (Dec 16 2022 - 15:00:47 +0800)
+2023-10-28 06:43:22.260:  [ComPort] null
+2023-10-28 06:43:22.260:   [ComPort] DRAM:  smem ram ptable found: ver: 1 len: 4
+2023-10-28 06:43:22.260:   [ComPort] 1 GiB
+2023-10-28 06:43:22.694:   [ComPort] NAND:  QPIC: disabled, skipping initialization
+2023-10-28 06:43:22.694:   [ComPort] SF: Unsupported flash IDs: manuf 00, jedec 0000, ext_jedec 0000
+2023-10-28 06:43:22.695:   [ComPort] ipq_spi: SPI Flash not found (bus/cs/speed/mode) = (0/0/48000000/0)
+2023-10-28 06:43:22.695:   [ComPort] 0 MiB
+2023-10-28 06:43:22.695:   [ComPort] MMC:   <NULL>: 0 (eMMC)
+2023-10-28 06:43:23.236:   [ComPort] PCI Link Intialized
+2023-10-28 06:43:23.236:   [ComPort] In:    serial@78AF000
+2023-10-28 06:43:23.237:   [ComPort] Out:   serial@78AF000
+2023-10-28 06:43:23.237:   [ComPort] Err:   serial@78AF000
+2023-10-28 06:43:23.237:   [ComPort] model: [trieste]
+2023-10-28 06:43:23.237:   [ComPort] machid: 80401a2
+2023-10-28 06:43:23.237:   [ComPort] eth0 MAC Address from ART is not valid
+2023-10-28 06:43:23.237:   [ComPort] eth1 MAC Address from ART is not valid
+2023-10-28 06:43:23.238:   [ComPort] board_register_value should be: 08
+2023-10-28 06:43:23.454:   [ComPort] PD: Checking PD contract...
+2023-10-28 06:43:23.454:   [ComPort] Probe for RTS5452
+2023-10-28 06:43:23.454:   [ComPort] RTS2575: Failed to probe device: -110
+2023-10-28 06:43:23.455:   [ComPort] PD: Failed to initialize RTS5452: -19
+2023-10-28 06:43:23.455:   [ComPort] Probe for TPS2575
+2023-10-28 06:43:23.455:   [ComPort] TPS device found
+2023-10-28 06:43:23.455:   [ComPort] TPS: Debug device IS present
+2023-10-28 06:43:23.455:   [ComPort] PD: Enabled: V=9000mV I=3000mA P=27000mW
+2023-10-28 06:43:23.778:   [ComPort] Net:   cmbblk is stable 5
+2023-10-28 06:43:24.531:   [ComPort] MAC0 addr:0:11:22:33:44:55
+2023-10-28 06:43:24.531:   [ComPort] PHY ID1: 0x4d
+2023-10-28 06:43:24.531:   [ComPort] PHY ID2: 0xd0c0
+2023-10-28 06:43:24.531:   [ComPort] MAC1 addr:0:11:22:33:44:56
+2023-10-28 06:43:24.532:   [ComPort] PHY ID1: 0x4d
+2023-10-28 06:43:24.532:   [ComPort] PHY ID2: 0xd101
+2023-10-28 06:43:24.532:   [ComPort] eth0
+2023-10-28 06:43:24.532:   [ComPort] Warning: eth0 MAC addresses don't match:
+2023-10-28 06:43:24.533:   [ComPort] Address in SROM is         00:11:22:33:44:55
+2023-10-28 06:43:24.533:   [ComPort] Address in environment is  e8:d3:eb:9c:ec:60
+2023-10-28 06:43:24.533:   [CONFIG] Start key: "Address in environment is  "
+2023-10-28 06:43:24.533:   [CONFIG] End key: ""
+2023-10-28 06:43:24.533:   [PC] Value: "e8:d3:eb:9c:ec:60"
+2023-10-28 06:43:24.533:   [PC] Time: "27.575/50.000 (S)"
+2023-10-28 06:43:24.533:   [PC] Value is: e8:d3:eb:9c:ec:60
+2023-10-28 06:43:24.533:   [CONFIG] compare key: ethernetmac
+2023-10-28 06:43:24.533:   [PC] Spec is: E8:D3:EB:9C:EC:60
+2023-10-28 06:43:24.655:   ****************************************************
+2023-10-28 06:43:24.655:   Item name = verify_cct
+2023-10-28 06:43:24.655:   Value = e8:d3:eb:9c:ec:60
+2023-10-28 06:43:24.655:   Test status = passed
+2023-10-28 06:43:24.655:   -----------------------------------------------------
+2023-10-28 06:43:24.656:   ****************************************************
+2023-10-28 06:43:24.656:   TIME[27.722 s] - STATUS[PASSED]
+//////////////////////////////////////////////////////////////
+//////////////////////////- ID[2] -//////////////////////////
+2023-10-28 06:43:24.656:   ITEM[verify_cct_0] - FUNCTION[TelnetReadUntilKeyProxy]
+2023-10-28 06:43:24.657:   [PC] Turn: 1
+2023-10-28 06:43:24.657:   [COMPORT] comport: COM3 -- baudrate: 115200
+2023-10-28 06:43:24.657:   [ComPort] Connect to: COM3
+2023-10-28 06:43:24.657:   [ComPort] BaudRate is: 115200
+2023-10-28 06:43:24.689:   [ComPort] Connect COM3 ok
+2023-10-28 06:43:24.689:   [Config] Waiting for about 100 s
+2023-10-28 06:43:24.690:   [ComPort] Send command:
+2023-10-28 06:43:24.690:   [Config] Time: 100.0
+2023-10-28 06:43:24.690:   [Config] ReadUntil: IPv6: ADDRCONF(NETDEV_CHANGE): ec_sta1: link becomes ready
+2023-10-28 06:43:24.795:   [ComPort] 0
+2023-10-28 06:43:24.795:   [ComPort] IPQ5018#
+2023-10-28 06:43:24.795:   [ComPort] IPQ5018#
+2023-10-28 06:43:24.796:   [ComPort] IPQ5018#
+2023-10-28 06:45:04.714:   [ComPort] IPQ5018#
+2023-10-28 06:45:04.714:   [PC] Response no content spec
+2023-10-28 06:45:04.715:   [CONFIG] Spec: "IPv6: ADDRCONF(NETDEV_CHANGE): ec_sta1: link becomes ready"
+2023-10-28 06:45:04.838:   ****************************************************
+2023-10-28 06:45:04.838:   Item name = verify_cct_0
+2023-10-28 06:45:04.838:   Value = failed
+2023-10-28 06:45:04.839:   Test status = failed
+2023-10-28 06:45:04.839:   -----------------------------------------------------
+2023-10-28 06:45:04.839:   Error code = -1
+2023-10-28 06:45:04.839:   Error des = verify_cct_0
+2023-10-28 06:45:04.839:   Local error code = verify00
+2023-10-28 06:45:04.839:   Local error des = verify_cct
+2023-10-28 06:45:04.839:   ****************************************************
+2023-10-28 06:45:04.840:   TIME[100.183 s] - STATUS[FAILED]
+//////////////////////////////////////////////////////////////
+//////////////////////////- ID[3] -//////////////////////////
+2023-10-28 06:45:04.840:   ITEM[UpAPI] - FUNCTION[UpApiProxy]
+2023-10-28 06:45:04.841:   [PC] Turn: 1
+2023-10-28 06:45:04.841:   [CONFIG] Name elements: [python/log]
+2023-10-28 06:45:04.841:   [CONFIG] Name elements: [mlbsn, station_name, mode]
+2023-10-28 06:45:04.841:   [CONFIG] Name elements: [mlbsn, station_name, mode, serial]
+2023-10-28 06:45:04.841:   [CONFIG] Follow limit: true
+2023-10-28 06:45:04.841:   [CONFIG] Use the limit errorcode: false
+2023-10-28 06:45:04.841:   [PC] Root: error_details = verify_cct_0
+2023-10-28 06:45:04.841:   [PC] -----------------------------------------
+2023-10-28 06:45:04.842:   [PC] Root: status = failed
+2023-10-28 06:45:04.842:   [PC] -----------------------------------------
+2023-10-28 06:45:04.842:   [PC] Root: finish_time = 2023-10-28 06:45:04
+2023-10-28 06:45:04.842:   [PC] -----------------------------------------
+2023-10-28 06:45:04.842:   [PC] Root: test_software_version = null
+2023-10-28 06:45:04.842:   [PC] -----------------------------------------
+2023-10-28 06:45:04.842:   [PC] Root: start_time = 2023-10-28 06:42:56
+2023-10-28 06:45:04.842:   [PC] -----------------------------------------
+2023-10-28 06:45:04.842:   [PC] Root: station_type = RUNIN
+2023-10-28 06:45:04.842:   [PC] -----------------------------------------
+2023-10-28 06:45:04.842:   [PC] Root: error_code = verify00
+2023-10-28 06:45:04.842:   [PC] -----------------------------------------
+2023-10-28 06:45:04.842:   [PC] Root: serial = GGB1UD223427025T
+2023-10-28 06:45:04.843:   [PC] -----------------------------------------
+2023-10-28 06:45:04.843:   [PC] Root: mode = debug
+2023-10-28 06:45:04.843:   [PC] -----------------------------------------
+2023-10-28 06:45:04.843:   [PC] Root: station_name = RUNIN-7586
+2023-10-28 06:45:04.843:   [PC] -----------------------------------------
+2023-10-28 06:45:04.843:   [PC] Root: position =
+2023-10-28 06:45:04.843:   [PC] -----------------------------------------
+2023-10-28 06:45:04.843:   [PC] Item name: gen_node
+2023-10-28 06:45:04.843:   [PC] Item name: verify_cct
+2023-10-28 06:45:04.843:   [PC] Item name: verify_cct_0
+2023-10-28 06:45:04.843:   [PC] Format for json data!
+2023-10-28 06:45:04.844:   [PC] Save data in: python/log/GGB1UD223427025T_RUNIN-7586_debug.json ok
+2023-10-28 06:45:04.844:   ---------------------------------------------------------------
+2023-10-28 06:45:04.844:   Save file txt!
+2023-10-28 06:45:04.844:   [DIR] python/log/GGB1UD223427025T_RUNIN-7586_debug_serial.txt
+2023-10-28 06:45:04.845:   [PC] - add item: gen_node
+2023-10-28 06:45:04.850:   [PC] - add item: verify_cct
+2023-10-28 06:45:04.868:   [PC] - add item: verify_cct_0
+2023-10-28 06:45:04.873:   [PC] - add item: UpAPI
+2023-10-28 06:45:04.877:   [PC] Save file txt at "python/log/GGB1UD223427025T_RUNIN-7586_debug_serial.txt"
+2023-10-28 06:45:04.877:   ---------------------------------------------------------------
+2023-10-28 06:45:04.877:   Save file zip!
+2023-10-28 06:45:04.877:   [PC] python/log/GGB1UD223427025T_RUNIN-7586_debug_serial.txt -> python/log/GGB1UD223427025T_RUNIN-7586_debug_serial.zip
+2023-10-28 06:45:04.888:   [PC] Save data in: python/log/GGB1UD223427025T_RUNIN-7586_debug_serial.zip ok
+2023-10-28 06:45:04.888:   ---------------------------------------------------------------
+2023-10-28 06:45:04.888:   [Cmd] Send command: cd python && eero_API_client.py log/GGB1UD223427025T_RUNIN-7586_debug
+2023-10-28 06:45:04.890:   [PC] Waiting for API reponse about 10 S
+2023-10-28 06:45:05.086:   [Cmd] log/GGB1UD223427025T_RUNIN-7586_debug_serial.zip
+2023-10-28 06:45:05.086:   [Cmd] must have a json file
+2023-10-28 06:45:05.086:   ****************************************************
+2023-10-28 06:45:05.086:   Item name = UpAPI
+2023-10-28 06:45:05.086:   Value = failed
+2023-10-28 06:45:05.086:   Test status = failed
+2023-10-28 06:45:05.086:   -----------------------------------------------------
+2023-10-28 06:45:05.087:   Error code = -1
+2023-10-28 06:45:05.087:   Error des = UpAPI
+2023-10-28 06:45:05.087:   Local error code = API01
+2023-10-28 06:45:05.087:   Local error des = UpAPI
+2023-10-28 06:45:05.087:   ****************************************************
+2023-10-28 06:45:05.087:   TIME[0.247 s] - STATUS[FAILED]
+//////////////////////////////////////////////////////////////
+//////////////////////////- ID[4] -//////////////////////////
+2023-10-28 06:45:05.087:   ITEM[UpLogFTP] - FUNCTION[UpLogFTPProxy]
+2023-10-28 06:45:05.088:   [PC] Turn: 1
+2023-10-28 06:45:05.088:   [CONFIG] Dir elements: [data/Trieste, Text, pnname, station_type, start_day, station_name, status]
+2023-10-28 06:45:05.088:   [CONFIG] Dir elements: [data/Trieste, json, pnname, station_type, start_day, station_name, status]
+2023-10-28 06:45:05.088:   [CONFIG] Name elements: [Log/TestLog]
+2023-10-28 06:45:05.088:   [CONFIG] Name elements: [mlbsn, sn, position, status, error_details, errorcode, mode, finish_time]
+2023-10-28 06:45:05.088:   [CONFIG] Follow limit: false
+2023-10-28 06:45:05.088:   [CONFIG] Use the limit errorcode: false
+2023-10-28 06:45:05.088:   [PC] Root: mlbsn = GGB1UD223427025T
+2023-10-28 06:45:05.088:   [PC] -----------------------------------------
+2023-10-28 06:45:05.088:   [PC] Root: sn = RZ31ZCM
+2023-10-28 06:45:05.089:   [PC] -----------------------------------------
+2023-10-28 06:45:05.089:   [PC] Root: mo = 2141030850
+2023-10-28 06:45:05.089:   [PC] -----------------------------------------
+2023-10-28 06:45:05.089:   [PC] Root: error_details = verify_cct_0
+2023-10-28 06:45:05.089:   [PC] -----------------------------------------
+2023-10-28 06:45:05.089:   [PC] Root: status = failed
+2023-10-28 06:45:05.089:   [PC] -----------------------------------------
+2023-10-28 06:45:05.089:   [PC] Root: finish_time = 2023-10-28 06:45:04
+2023-10-28 06:45:05.089:   [PC] -----------------------------------------
+2023-10-28 06:45:05.089:   [PC] Root: test_software_version = null
+2023-10-28 06:45:05.089:   [PC] -----------------------------------------
+2023-10-28 06:45:05.089:   [PC] Root: start_time = 2023-10-28 06:42:56
+2023-10-28 06:45:05.089:   [PC] -----------------------------------------
+2023-10-28 06:45:05.089:   [PC] Root: station_type = RUNIN
+2023-10-28 06:45:05.089:   [PC] -----------------------------------------
+2023-10-28 06:45:05.089:   [PC] Root: error_code = verify00
+2023-10-28 06:45:05.090:   [PC] -----------------------------------------
+2023-10-28 06:45:05.090:   [PC] Root: errorcode = verify00
+2023-10-28 06:45:05.090:   [PC] -----------------------------------------
+2023-10-28 06:45:05.090:   [PC] Root: errorDes = verify_cct
+2023-10-28 06:45:05.090:   [PC] -----------------------------------------
+2023-10-28 06:45:05.090:   [PC] Root: serial = GGB1UD223427025T
+2023-10-28 06:45:05.090:   [PC] -----------------------------------------
+2023-10-28 06:45:05.090:   [PC] Root: mode = debug
+2023-10-28 06:45:05.090:   [PC] -----------------------------------------
+2023-10-28 06:45:05.090:   [PC] Root: station_name = RUNIN-7586
+2023-10-28 06:45:05.090:   [PC] -----------------------------------------
+2023-10-28 06:45:05.090:   [PC] Root: position =
+2023-10-28 06:45:05.090:   [PC] -----------------------------------------
+2023-10-28 06:45:05.090:   [PC] Root: cycle_time = 127.929
+2023-10-28 06:45:05.090:   [PC] -----------------------------------------
+2023-10-28 06:45:05.090:   [PC] Root: cyctime_final = 128.176
+2023-10-28 06:45:05.091:   [PC] -----------------------------------------
+2023-10-28 06:45:05.091:   [PC] Item name: gen_node
+2023-10-28 06:45:05.091:   [PC] ItemTest: gen_node = {"start_time":"2023-10-28 06:42:56","lower_limit":"","cycle_time":"0.021","upper_limit":"","error_code":"","units":"","errorDes":"","test_name":"gen_node","finish_time":"2023-10-28 06:42:56","errorcode":"","test_value":"passed","status":"passed"}
+2023-10-28 06:45:05.091:   [PC] Item name: verify_cct
+2023-10-28 06:45:05.091:   [PC] ItemTest: verify_cct = {"start_time":"2023-10-28 06:42:56","lower_limit":"","cycle_time":"27.722","upper_limit":"","error_code":"","units":"","errorDes":"","test_name":"verify_cct","finish_time":"2023-10-28 06:43:24","errorcode":"","test_value":"e8:d3:eb:9c:ec:60","status":"passed"}
+2023-10-28 06:45:05.091:   [PC] Item name: verify_cct_0
+2023-10-28 06:45:05.091:   [PC] ItemTest: verify_cct_0 = {"start_time":"2023-10-28 06:43:24","lower_limit":"","cycle_time":"100.183","upper_limit":"","error_code":"verify00","units":"","errorDes":"verify_cct","test_name":"verify_cct_0","finish_time":"2023-10-28 06:45:04","errorcode":"verify00","test_value":"failed","status":"failed"}
+2023-10-28 06:45:05.091:   [PC] Item name: UpAPI
+2023-10-28 06:45:05.091:   [PC] ItemTest: UpAPI = {"start_time":"2023-10-28 06:45:04","lower_limit":"","cycle_time":"0.247","upper_limit":"","error_code":"API01","units":"","errorDes":"UpAPI","test_name":"UpAPI","finish_time":"2023-10-28 06:45:05","errorcode":"API01","test_value":"failed","status":"failed"}
+2023-10-28 06:45:05.091:   [PC] Format for json data!
+2023-10-28 06:45:05.092:   [PC] Save data in: Log/TestLog/json/GGB1UD223427025T_RZ31ZCM__failed_verify_cct_0_verify00_debug_2023-10-28-06-45-04.json ok
+2023-10-28 06:45:05.092:   [PC] Connect to ftp!!
+2023-10-28 06:45:05.092:   [Config] User: oper
+2023-10-28 06:45:05.092:   [Config] PassWord: mfg-oper
+2023-10-28 06:45:05.092:   [Config] Host: 10.90.100.168
+2023-10-28 06:45:05.092:   [Config] Port: 21
+2023-10-28 06:45:05.095:   [PC] Connect to ftp ok!!
+2023-10-28 06:45:05.095:   [Config] Local: Log\TestLog\json\GGB1UD223427025T_RZ31ZCM__failed_verify_cct_0_verify00_debug_2023-10-28-06-45-04.json
+2023-10-28 06:45:05.095:   [Config] Ftp: data/Trieste/json/810-01100/RUNIN/2023-10-28/RUNIN-7586/failed/GGB1UD223427025T_RZ31ZCM__failed_verify_cct_0_verify00_debug_2023-10-28-06-45-04.json
+2023-10-28 06:45:05.108:   [PC] Up file to FTP done!
+2023-10-28 06:45:05.108:   ________________________________________________________
+2023-10-28 06:45:05.109:   Save file txt!
+2023-10-28 06:45:05.109:   [DIR] Log/TestLog/text/GGB1UD223427025T_RZ31ZCM__failed_verify_cct_0_verify00_debug_2023-10-28-06-45-04.txt
+2023-10-28 06:45:05.110:   [PC] - add item: gen_node
+2023-10-28 06:45:05.111:   [PC] - add item: verify_cct
+2023-10-28 06:45:05.111:   [PC] - add item: verify_cct_0
+2023-10-28 06:45:05.111:   [PC] - add item: UpAPI
+2023-10-28 06:45:05.135:   [PC] - add item: UpLogFTP
+2023-10-28 06:45:05.139:   [PC] Save file txt at "Log/TestLog/text/GGB1UD223427025T_RZ31ZCM__failed_verify_cct_0_verify00_debug_2023-10-28-06-45-04.txt"
+2023-10-28 06:45:05.139:   [PC] Connect to ftp!!
+2023-10-28 06:45:05.139:   [Config] User: oper
+2023-10-28 06:45:05.140:   [Config] PassWord: mfg-oper
+2023-10-28 06:45:05.140:   [Config] Host: 10.90.100.168
+2023-10-28 06:45:05.140:   [Config] Port: 21
+2023-10-28 06:45:05.142:   [PC] Connect to ftp ok!!
+2023-10-28 06:45:05.142:   [Config] Local: Log\TestLog\text\GGB1UD223427025T_RZ31ZCM__failed_verify_cct_0_verify00_debug_2023-10-28-06-45-04.txt
+2023-10-28 06:45:05.142:   [Config] Ftp: data/Trieste/Text/810-01100/RUNIN/2023-10-28/RUNIN-7586/failed/GGB1UD223427025T_RZ31ZCM__failed_verify_cct_0_verify00_debug_2023-10-28-06-45-04.txt
+2023-10-28 06:45:05.160:   [PC] Up file to FTP done!
+2023-10-28 06:45:05.160:   ________________________________________________________
+2023-10-28 06:45:05.160:   ****************************************************
+2023-10-28 06:45:05.160:   Item name = UpLogFTP
+2023-10-28 06:45:05.160:   Value = data/Trieste/Text/810-01100/RUNIN/2023-10-28/RUNIN-7586/failed/GGB1UD223427025T_RZ31ZCM__failed_verify_cct_0_verify00_debug_2023-10-28-06-45-04.txt
+2023-10-28 06:45:05.160:   Test status = passed
+2023-10-28 06:45:05.160:   -----------------------------------------------------
+2023-10-28 06:45:05.160:   ****************************************************
+2023-10-28 06:45:05.160:   TIME[0.073 s] - STATUS[PASSED]
+//////////////////////////////////////////////////////////////
+//////////////////////////- ID[5] -//////////////////////////
+2023-10-28 06:45:05.161:   ITEM[UpLogFTP_0] - FUNCTION[UploadLogProxy]
+2023-10-28 06:45:05.161:   [PC] Turn: 1
+2023-10-28 06:45:05.161:   [CONFIG] Name elements: [UploadApi/log]
+2023-10-28 06:45:05.161:   [CONFIG] Name elements: [mlbsn, station_name, mode]
+2023-10-28 06:45:05.161:   [CONFIG] Name elements: [mlbsn, station_name, mode, serial]
+2023-10-28 06:45:05.161:   [CONFIG] Follow limit: false
+2023-10-28 06:45:05.161:   [CONFIG] Use the limit errorcode: false
+2023-10-28 06:45:05.162:   [PC] Root: error_details = verify_cct_0
+2023-10-28 06:45:05.162:   [PC] -----------------------------------------
+2023-10-28 06:45:05.162:   [PC] Root: status = failed
+2023-10-28 06:45:05.162:   [PC] -----------------------------------------
+2023-10-28 06:45:05.162:   [PC] Root: finish_time = 2023-10-28 06:45:04
+2023-10-28 06:45:05.162:   [PC] -----------------------------------------
+2023-10-28 06:45:05.162:   [PC] Root: test_software_version = null
+2023-10-28 06:45:05.162:   [PC] -----------------------------------------
+2023-10-28 06:45:05.162:   [PC] Root: start_time = 2023-10-28 06:42:56
+2023-10-28 06:45:05.162:   [PC] -----------------------------------------
+2023-10-28 06:45:05.162:   [PC] Root: onSfis = on
+2023-10-28 06:45:05.162:   [PC] -----------------------------------------
+2023-10-28 06:45:05.162:   [PC] Root: error_code = verify00
+2023-10-28 06:45:05.162:   [PC] -----------------------------------------
+2023-10-28 06:45:05.163:   [PC] Root: mlbsn = GGB1UD223427025T
+2023-10-28 06:45:05.163:   [PC] -----------------------------------------
+2023-10-28 06:45:05.163:   [PC] Root: sn = RZ31ZCM
+2023-10-28 06:45:05.163:   [PC] -----------------------------------------
+2023-10-28 06:45:05.163:   [PC] Root: mode = debug
+2023-10-28 06:45:05.163:   [PC] -----------------------------------------
+2023-10-28 06:45:05.163:   [PC] Root: station = CCT
+2023-10-28 06:45:05.163:   [PC] -----------------------------------------
+2023-10-28 06:45:05.163:   [PC] Root: position =
+2023-10-28 06:45:05.163:   [PC] -----------------------------------------
+2023-10-28 06:45:05.163:   [PC] Root: product = Trieste
+2023-10-28 06:45:05.163:   [PC] -----------------------------------------
+2023-10-28 06:45:05.163:   [PC] Root: line = MP
+2023-10-28 06:45:05.163:   [PC] -----------------------------------------
+2023-10-28 06:45:05.163:   [PC] Root: pcname = RUNIN-7586
+2023-10-28 06:45:05.163:   [PC] -----------------------------------------
+2023-10-28 06:45:05.164:   [PC] Root: pnname = 810-01100
+2023-10-28 06:45:05.164:   [PC] -----------------------------------------
+2023-10-28 06:45:05.164:   [PC] Root: ethernetmac = E8:D3:EB:9C:EC:60
+2023-10-28 06:45:05.164:   [PC] -----------------------------------------
+2023-10-28 06:45:05.164:   [PC] Root: mo = 2141030850
+2023-10-28 06:45:05.164:   [PC] -----------------------------------------
+2023-10-28 06:45:05.164:   [PC] Item name: gen_node
+2023-10-28 06:45:05.164:   [PC] ItemTest: gen_node = {"start_time":"2023-10-28 06:42:56","lower_limit":"","upper_limit":"","error_code":"","units":"","test_name":"gen_node","finish_time":"2023-10-28 06:42:56","test_value":"passed","status":"passed"}
+2023-10-28 06:45:05.164:   [PC] Item name: verify_cct
+2023-10-28 06:45:05.164:   [PC] ItemTest: verify_cct = {"start_time":"2023-10-28 06:42:56","lower_limit":"","upper_limit":"","error_code":"","units":"","test_name":"verify_cct","finish_time":"2023-10-28 06:43:24","test_value":"e8:d3:eb:9c:ec:60","status":"passed"}
+2023-10-28 06:45:05.164:   [PC] Item name: verify_cct_0
+2023-10-28 06:45:05.164:   [PC] ItemTest: verify_cct_0 = {"start_time":"2023-10-28 06:43:24","lower_limit":"","upper_limit":"","error_code":"verify00","units":"","test_name":"verify_cct_0","finish_time":"2023-10-28 06:45:04","test_value":"failed","status":"failed"}
+2023-10-28 06:45:05.164:   [PC] Item name: UpAPI
+2023-10-28 06:45:05.165:   [PC] ItemTest: UpAPI = {"start_time":"2023-10-28 06:45:04","lower_limit":"","upper_limit":"","error_code":"API01","units":"","test_name":"UpAPI","finish_time":"2023-10-28 06:45:05","test_value":"failed","status":"failed"}
+2023-10-28 06:45:05.165:   [PC] Item name: UpLogFTP
+2023-10-28 06:45:05.165:   [PC] ItemTest: UpLogFTP = {"start_time":"2023-10-28 06:45:05","lower_limit":"","upper_limit":"","error_code":"","units":"","test_name":"UpLogFTP","finish_time":"2023-10-28 06:45:05","test_value":"data/Trieste/Text/810-01100/RUNIN/2023-10-28/RUNIN-7586/failed/GGB1UD223427025T_RZ31ZCM__failed_verify_cct_0_verify00_debug_2023-10-28-06-45-04.txt","status":"passed"}
+2023-10-28 06:45:05.165:   [PC] Format for json data!
+2023-10-28 06:45:05.165:   [PC] Save data in: UploadApi/log/GGB1UD223427025T_RUNIN-7586_debug.json ok
+2023-10-28 06:45:05.165:   ---------------------------------------------------------------
+2023-10-28 06:45:05.165:   Save file txt!
+2023-10-28 06:45:05.165:   [DIR] UploadApi/log/GGB1UD223427025T_RUNIN-7586_debug_serial.txt
+2023-10-28 06:45:05.166:   [PC] - add item: gen_node
+2023-10-28 06:45:05.167:   [PC] - add item: verify_cct
+2023-10-28 06:45:05.167:   [PC] - add item: verify_cct_0
+2023-10-28 06:45:05.167:   [PC] - add item: UpAPI
+2023-10-28 06:45:05.168:   [PC] - add item: UpLogFTP
+2023-10-28 06:45:05.173:   [PC] - add item: UpLogFTP_0
+//////////////////////////////////////////////////////////////

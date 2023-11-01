@@ -1,0 +1,76 @@
+2023-10-28 06:45:05.161:   ITEM[UpLogFTP_0] - FUNCTION[UploadLogProxy]
+2023-10-28 06:45:05.161:   [PC] Turn: 1
+2023-10-28 06:45:05.161:   [CONFIG] Name elements: [UploadApi/log]
+2023-10-28 06:45:05.161:   [CONFIG] Name elements: [mlbsn, station_name, mode]
+2023-10-28 06:45:05.161:   [CONFIG] Name elements: [mlbsn, station_name, mode, serial]
+2023-10-28 06:45:05.161:   [CONFIG] Follow limit: false
+2023-10-28 06:45:05.161:   [CONFIG] Use the limit errorcode: false
+2023-10-28 06:45:05.162:   [PC] Root: error_details = verify_cct_0
+2023-10-28 06:45:05.162:   [PC] -----------------------------------------
+2023-10-28 06:45:05.162:   [PC] Root: status = failed
+2023-10-28 06:45:05.162:   [PC] -----------------------------------------
+2023-10-28 06:45:05.162:   [PC] Root: finish_time = 2023-10-28 06:45:04
+2023-10-28 06:45:05.162:   [PC] -----------------------------------------
+2023-10-28 06:45:05.162:   [PC] Root: test_software_version = null
+2023-10-28 06:45:05.162:   [PC] -----------------------------------------
+2023-10-28 06:45:05.162:   [PC] Root: start_time = 2023-10-28 06:42:56
+2023-10-28 06:45:05.162:   [PC] -----------------------------------------
+2023-10-28 06:45:05.162:   [PC] Root: onSfis = on
+2023-10-28 06:45:05.162:   [PC] -----------------------------------------
+2023-10-28 06:45:05.162:   [PC] Root: error_code = verify00
+2023-10-28 06:45:05.162:   [PC] -----------------------------------------
+2023-10-28 06:45:05.163:   [PC] Root: mlbsn = GGB1UD223427025T
+2023-10-28 06:45:05.163:   [PC] -----------------------------------------
+2023-10-28 06:45:05.163:   [PC] Root: sn = RZ31ZCM
+2023-10-28 06:45:05.163:   [PC] -----------------------------------------
+2023-10-28 06:45:05.163:   [PC] Root: mode = debug
+2023-10-28 06:45:05.163:   [PC] -----------------------------------------
+2023-10-28 06:45:05.163:   [PC] Root: station = CCT
+2023-10-28 06:45:05.163:   [PC] -----------------------------------------
+2023-10-28 06:45:05.163:   [PC] Root: position =
+2023-10-28 06:45:05.163:   [PC] -----------------------------------------
+2023-10-28 06:45:05.163:   [PC] Root: product = Trieste
+2023-10-28 06:45:05.163:   [PC] -----------------------------------------
+2023-10-28 06:45:05.163:   [PC] Root: line = MP
+2023-10-28 06:45:05.163:   [PC] -----------------------------------------
+2023-10-28 06:45:05.163:   [PC] Root: pcname = RUNIN-7586
+2023-10-28 06:45:05.163:   [PC] -----------------------------------------
+2023-10-28 06:45:05.164:   [PC] Root: pnname = 810-01100
+2023-10-28 06:45:05.164:   [PC] -----------------------------------------
+2023-10-28 06:45:05.164:   [PC] Root: ethernetmac = E8:D3:EB:9C:EC:60
+2023-10-28 06:45:05.164:   [PC] -----------------------------------------
+2023-10-28 06:45:05.164:   [PC] Root: mo = 2141030850
+2023-10-28 06:45:05.164:   [PC] -----------------------------------------
+2023-10-28 06:45:05.164:   [PC] Item name: gen_node
+2023-10-28 06:45:05.164:   [PC] ItemTest: gen_node = {"start_time":"2023-10-28 06:42:56","lower_limit":"","upper_limit":"","error_code":"","units":"","test_name":"gen_node","finish_time":"2023-10-28 06:42:56","test_value":"passed","status":"passed"}
+2023-10-28 06:45:05.164:   [PC] Item name: verify_cct
+2023-10-28 06:45:05.164:   [PC] ItemTest: verify_cct = {"start_time":"2023-10-28 06:42:56","lower_limit":"","upper_limit":"","error_code":"","units":"","test_name":"verify_cct","finish_time":"2023-10-28 06:43:24","test_value":"e8:d3:eb:9c:ec:60","status":"passed"}
+2023-10-28 06:45:05.164:   [PC] Item name: verify_cct_0
+2023-10-28 06:45:05.164:   [PC] ItemTest: verify_cct_0 = {"start_time":"2023-10-28 06:43:24","lower_limit":"","upper_limit":"","error_code":"verify00","units":"","test_name":"verify_cct_0","finish_time":"2023-10-28 06:45:04","test_value":"failed","status":"failed"}
+2023-10-28 06:45:05.164:   [PC] Item name: UpAPI
+2023-10-28 06:45:05.165:   [PC] ItemTest: UpAPI = {"start_time":"2023-10-28 06:45:04","lower_limit":"","upper_limit":"","error_code":"API01","units":"","test_name":"UpAPI","finish_time":"2023-10-28 06:45:05","test_value":"failed","status":"failed"}
+2023-10-28 06:45:05.165:   [PC] Item name: UpLogFTP
+2023-10-28 06:45:05.165:   [PC] ItemTest: UpLogFTP = {"start_time":"2023-10-28 06:45:05","lower_limit":"","upper_limit":"","error_code":"","units":"","test_name":"UpLogFTP","finish_time":"2023-10-28 06:45:05","test_value":"data/Trieste/Text/810-01100/RUNIN/2023-10-28/RUNIN-7586/failed/GGB1UD223427025T_RZ31ZCM__failed_verify_cct_0_verify00_debug_2023-10-28-06-45-04.txt","status":"passed"}
+2023-10-28 06:45:05.165:   [PC] Format for json data!
+2023-10-28 06:45:05.165:   [PC] Save data in: UploadApi/log/GGB1UD223427025T_RUNIN-7586_debug.json ok
+2023-10-28 06:45:05.165:   ---------------------------------------------------------------
+2023-10-28 06:45:05.165:   Save file txt!
+2023-10-28 06:45:05.165:   [DIR] UploadApi/log/GGB1UD223427025T_RUNIN-7586_debug_serial.txt
+2023-10-28 06:45:05.166:   [PC] - add item: gen_node
+2023-10-28 06:45:05.167:   [PC] - add item: verify_cct
+2023-10-28 06:45:05.167:   [PC] - add item: verify_cct_0
+2023-10-28 06:45:05.167:   [PC] - add item: UpAPI
+2023-10-28 06:45:05.168:   [PC] - add item: UpLogFTP
+2023-10-28 06:45:05.173:   [PC] - add item: UpLogFTP_0
+2023-10-28 06:45:05.177:   [PC] Save file txt at "UploadApi/log/GGB1UD223427025T_RUNIN-7586_debug_serial.txt"
+2023-10-28 06:45:05.177:   ---------------------------------------------------------------
+2023-10-28 06:45:05.177:   [Cmd] Send command: cd UploadApi && java -jar UploadLogAPI.jar 10.90.100.168 "log/GGB1UD223427025T_RUNIN-7586_debug.json" "log/GGB1UD223427025T_RUNIN-7586_debug_serial.txt"
+2023-10-28 06:45:05.179:   [PC] Waiting for API reponse about 60 S
+2023-10-28 06:45:05.700:   [Cmd] {"result":true,"message":"Save succeed!","data":null}
+2023-10-28 06:45:05.700:   ****************************************************
+2023-10-28 06:45:05.700:   Item name = UpLogFTP_0
+2023-10-28 06:45:05.700:   Value = passed
+2023-10-28 06:45:05.701:   Test status = passed
+2023-10-28 06:45:05.701:   -----------------------------------------------------
+2023-10-28 06:45:05.701:   ****************************************************
+2023-10-28 06:45:05.701:   TIME[0.540 s] - STATUS[PASSED]

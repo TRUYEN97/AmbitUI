@@ -50,7 +50,6 @@ public class PowerSwitchFunc extends AbsFunction {
             return true;
         } catch (Exception e) {
             e.printStackTrace();
-            ErrorLog.addError(this, e.getLocalizedMessage());
             addLog(e.getMessage());
             ErrorLog.addError(this, e.getMessage());
             return false;

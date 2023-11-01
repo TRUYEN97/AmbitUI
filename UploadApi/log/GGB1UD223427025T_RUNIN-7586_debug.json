@@ -1,0 +1,81 @@
+{
+"product":"Trieste",
+"mo":"2141030850",
+"onSfis":"on",
+"line":"MP",
+"pnname":"810-01100",
+"mlbsn":"GGB1UD223427025T",
+"finish_time":"2023-10-28 06:45:04",
+"mode":"debug",
+"start_time":"2023-10-28 06:42:56",
+"tests":[
+{
+"start_time":"2023-10-28 06:42:56",
+"lower_limit":"",
+"upper_limit":"",
+"error_code":"",
+"units":"",
+"test_name":"gen_node",
+"finish_time":"2023-10-28 06:42:56",
+"test_value":"passed",
+"status":"passed"
+},
+
+{
+"start_time":"2023-10-28 06:42:56",
+"lower_limit":"",
+"upper_limit":"",
+"error_code":"",
+"units":"",
+"test_name":"verify_cct",
+"finish_time":"2023-10-28 06:43:24",
+"test_value":"e8:d3:eb:9c:ec:60",
+"status":"passed"
+},
+
+{
+"start_time":"2023-10-28 06:43:24",
+"lower_limit":"",
+"upper_limit":"",
+"error_code":"verify00",
+"units":"",
+"test_name":"verify_cct_0",
+"finish_time":"2023-10-28 06:45:04",
+"test_value":"failed",
+"status":"failed"
+},
+
+{
+"start_time":"2023-10-28 06:45:04",
+"lower_limit":"",
+"upper_limit":"",
+"error_code":"API01",
+"units":"",
+"test_name":"UpAPI",
+"finish_time":"2023-10-28 06:45:05",
+"test_value":"failed",
+"status":"failed"
+},
+
+{
+"start_time":"2023-10-28 06:45:05",
+"lower_limit":"",
+"upper_limit":"",
+"error_code":"",
+"units":"",
+"test_name":"UpLogFTP",
+"finish_time":"2023-10-28 06:45:05",
+"test_value":"data/Trieste/Text/810-01100/RUNIN/2023-10-28/RUNIN-7586/failed/GGB1UD223427025T_RZ31ZCM__failed_verify_cct_0_verify00_debug_2023-10-28-06-45-04.txt",
+"status":"passed"
+}
+],
+"error_details":"verify_cct_0",
+"station":"CCT",
+"error_code":"verify00",
+"sn":"RZ31ZCM",
+"position":"",
+"pcname":"RUNIN-7586",
+"ethernetmac":"E8:D3:EB:9C:EC:60",
+"status":"failed",
+"test_software_version":""
+}

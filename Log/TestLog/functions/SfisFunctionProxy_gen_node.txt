@@ -1,0 +1,28 @@
+2023-10-28 06:42:56.913:   ITEM[gen_node] - FUNCTION[SfisFunctionProxy]
+2023-10-28 06:42:56.913:   [PC] Turn: 1
+2023-10-28 06:42:56.913:   Check SN....
+2023-10-28 06:42:56.913:   send to url: http://10.90.100.20/sfcapi/api/connect
+2023-10-28 06:42:56.913:   [Input] Input: RZ31ZCM
+2023-10-28 06:42:56.913:   [Config] MaxLength: -1
+2023-10-28 06:42:56.913:   [SEND_FORMAT] [sn, pcname, mode]
+2023-10-28 06:42:56.913:   key: SN = RZ31ZCM
+2023-10-28 06:42:56.914:   key: PCNAME = RUNIN-7586
+2023-10-28 06:42:56.914:   key: MODE = debug
+2023-10-28 06:42:56.914:   command: {"PCNAME":"RUNIN-7586","MODE":"debug","SN":"RZ31ZCM"}
+2023-10-28 06:42:56.932:   Response is: {"result":"PASS","message":"OK","data":{"sn":"RZ31ZCM","ethernetmac":"E8D3EB9CEC60","pnname":"810-01100","mlbsn":"GGB1UD223427025T","typemodel":"simple","mo":"2141030850","smode":"Production"}}
+2023-10-28 06:42:56.933:   [DATA_FORMAT] [mlbsn, ethernetmac, pnname]
+2023-10-28 06:42:56.933:   add key: smode -- Value: Production
+2023-10-28 06:42:56.933:   add key: mo -- Value: 2141030850
+2023-10-28 06:42:56.933:   add key: typemodel -- Value: simple
+2023-10-28 06:42:56.933:   add key: pnname -- Value: 810-01100
+2023-10-28 06:42:56.933:   add key: sn -- Value: RZ31ZCM
+2023-10-28 06:42:56.933:   add key: mlbsn -- Value: GGB1UD223427025T
+2023-10-28 06:42:56.933:   add key: ethernetmac -- Value: E8:D3:EB:9C:EC:60
+2023-10-28 06:42:56.933:   add data to production info done.
+2023-10-28 06:42:56.933:   ****************************************************
+2023-10-28 06:42:56.933:   Item name = gen_node
+2023-10-28 06:42:56.933:   Value = passed
+2023-10-28 06:42:56.934:   Test status = passed
+2023-10-28 06:42:56.934:   -----------------------------------------------------
+2023-10-28 06:42:56.934:   ****************************************************
+2023-10-28 06:42:56.934:   TIME[0.021 s] - STATUS[PASSED]

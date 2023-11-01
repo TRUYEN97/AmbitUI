@@ -117,9 +117,9 @@ public class ItemTestData {
         } else {
             this.data.putAll(this.error);
             this.addLog(String.format("Error code = %s", getLimitsErrorCode()));
-            this.addLog(String.format("Error des = %s", getErrorDes()));
+            this.addLog(String.format("Error desc = %s", getErrorDes()));
             this.addLog(String.format("Local error code = %s", getLocalErrorCode()));
-            this.addLog(String.format("Local error des = %s", getLocalErrorDes()));
+            this.addLog(String.format("Local error desc = %s", getLocalErrorDes()));
         }
         this.addLog("****************************************************");
         this.data.put(AllKeyWord.CYCLE_TIME, String.format("%.3f", testTime = getRunTime()));
@@ -214,8 +214,8 @@ public class ItemTestData {
         String uperLimit = allConfig.getString(AllKeyWord.CONFIG.UPPER_LIMIT);
         String lowerLimit = allConfig.getString(AllKeyWord.CONFIG.LOWER_LIMIT);
         this.addLog(String.format("Limit type = %s", limitType));
-        this.addLog(String.format("Uper limit = %s", uperLimit));
-        this.addLog(String.format("Lowet limit = %s", lowerLimit));
+        this.addLog(String.format("Upper limit = %s", uperLimit));
+        this.addLog(String.format("Lower limit = %s", lowerLimit));
     }
 
     public FuncAllConfig getAllConfig() {

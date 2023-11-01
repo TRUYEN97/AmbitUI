@@ -1,0 +1,917 @@
+===================================================================
+Start at = 2023-10-28 06:39:57
+End test at = 2023-10-28 06:41:56
+Status = failed
+Version = null
+Error code = -1
+Error des = verify_cct_0
+Local error code = verify00
+Local error des = verify_cct
+Test time = 119.162 s
+Final test time = 126.193 s
+Station = RUNIN-7586
+Location = 
+HHSN = RZ31ZCM
+DEVICESN = GGB1UD223427025T
+===================================================================
+//////////////////////////- ID[0] -//////////////////////////
+2023-10-28 06:39:57.819:   ITEM[gen_node] - FUNCTION[SfisFunctionProxy]
+2023-10-28 06:39:57.820:   [PC] Turn: 1
+2023-10-28 06:39:57.820:   Check SN....
+2023-10-28 06:39:57.820:   send to url: http://10.90.100.20/sfcapi/api/connect
+2023-10-28 06:39:57.820:   [Input] Input: RZ31ZCM
+2023-10-28 06:39:57.821:   [Config] MaxLength: -1
+2023-10-28 06:39:57.821:   [SEND_FORMAT] [sn, pcname, mode]
+2023-10-28 06:39:57.821:   key: SN = RZ31ZCM
+2023-10-28 06:39:57.821:   key: PCNAME = RUNIN-7586
+2023-10-28 06:39:57.821:   key: MODE = debug
+2023-10-28 06:39:57.821:   command: {"PCNAME":"RUNIN-7586","MODE":"debug","SN":"RZ31ZCM"}
+2023-10-28 06:39:57.851:   Response is: {"result":"PASS","message":"OK","data":{"sn":"RZ31ZCM","ethernetmac":"E8D3EB9CEC60","pnname":"810-01100","mlbsn":"GGB1UD223427025T","typemodel":"simple","mo":"2141030850","smode":"Production"}}
+2023-10-28 06:39:57.851:   [DATA_FORMAT] [mlbsn, ethernetmac, pnname]
+2023-10-28 06:39:57.851:   add key: smode -- Value: Production
+2023-10-28 06:39:57.851:   add key: mo -- Value: 2141030850
+2023-10-28 06:39:57.851:   add key: typemodel -- Value: simple
+2023-10-28 06:39:57.852:   add key: pnname -- Value: 810-01100
+2023-10-28 06:39:57.852:   add key: sn -- Value: RZ31ZCM
+2023-10-28 06:39:57.852:   add key: mlbsn -- Value: GGB1UD223427025T
+2023-10-28 06:39:57.852:   add key: ethernetmac -- Value: E8:D3:EB:9C:EC:60
+2023-10-28 06:39:57.852:   add data to production info done.
+2023-10-28 06:39:57.852:   ****************************************************
+2023-10-28 06:39:57.853:   Item name = gen_node
+2023-10-28 06:39:57.853:   Value = passed
+2023-10-28 06:39:57.853:   Test status = passed
+2023-10-28 06:39:57.853:   -----------------------------------------------------
+2023-10-28 06:39:57.853:   ****************************************************
+2023-10-28 06:39:57.853:   TIME[0.033 s] - STATUS[PASSED]
+//////////////////////////////////////////////////////////////
+//////////////////////////- ID[1] -//////////////////////////
+2023-10-28 06:39:57.857:   ITEM[verify_cct] - FUNCTION[CheckDutInfoProxy]
+2023-10-28 06:39:57.857:   [PC] Turn: 1
+2023-10-28 06:39:57.858:   [COMPORT] comport: COM3 -- baudrate: 115200
+2023-10-28 06:39:57.859:   [ComPort] Connect to: COM3
+2023-10-28 06:39:57.859:   [ComPort] BaudRate is: 115200
+2023-10-28 06:39:57.909:   [ComPort] Connect COM3 ok
+2023-10-28 06:39:57.909:   [ComPort] Send command:
+2023-10-28 06:39:58.013:  [ComPort] null
+2023-10-28 06:39:58.013:  [ComPort] null
+2023-10-28 06:39:58.013:  [ComPort] null
+2023-10-28 06:39:58.013:  [ComPort] null
+2023-10-28 06:39:58.014:  [ComPort] null
+2023-10-28 06:39:58.014:  [ComPort] null
+2023-10-28 06:39:58.014:   [ComPort] BusyBox v1.30.1 () built-in shell (ash)
+2023-10-28 06:39:58.014:  [ComPort] null
+2023-10-28 06:39:58.125:   [ComPort] MM           NM                    MMMMMMM          M       M
+2023-10-28 06:39:58.125:   [ComPort] $MMMMM        MMMMM                MMMMMMMMMMM      MMM     MMM
+2023-10-28 06:39:58.126:   [ComPort] MMMMMMMM     MM MMMMM.              MMMMM:MMMMMM:   MMMM   MMMMM
+2023-10-28 06:39:58.126:   [ComPort] MMMM= MMMMMM  MMM   MMMM       MMMMM   MMMM  MMMMMM   MMMM  MMMMM'
+2023-10-28 06:39:58.127:   [ComPort] MMMM=  MMMMM MMMM    MM       MMMMM    MMMM    MMMM   MMMMNMMMMM
+2023-10-28 06:39:58.127:   [ComPort] MMMM=   MMMM  MMMMM          MMMMM     MMMM    MMMM   MMMMMMMM
+2023-10-28 06:39:58.128:   [ComPort] MMMM=   MMMM   MMMMMM       MMMMM      MMMM    MMMM   MMMMMMMMM
+2023-10-28 06:39:58.128:   [ComPort] MMMM=   MMMM     MMMMM,    NMMMMMMMM   MMMM    MMMM   MMMMMMMMMMM
+2023-10-28 06:39:58.129:   [ComPort] MMMM=   MMMM      MMMMMM   MMMMMMMM    MMMM    MMMM   MMMM  MMMMMM
+2023-10-28 06:39:58.129:   [ComPort] MMMM=   MMMM   MM    MMMM    MMMM      MMMM    MMMM   MMMM    MMMM
+2023-10-28 06:39:58.129:   [ComPort] MMMM$ ,MMMMM  MMMMM  MMMM    MMM       MMMM   MMMMM   MMMM    MMMM
+2023-10-28 06:39:58.130:   [ComPort] MMMMMMM:      MMMMMMM     M         MMMMMMMMMMMM  MMMMMMM MMMMMMM
+2023-10-28 06:39:58.130:   [ComPort] MMMMMM       MMMMN     M           MMMMMMMMM      MMMM    MMMM
+2023-10-28 06:39:58.131:   [ComPort] MMMM          M                    MMMMMMM        M       M
+2023-10-28 06:39:58.131:   [ComPort] M
+2023-10-28 06:39:58.131:   [ComPort] ---------------------------------------------------------------
+2023-10-28 06:39:58.132:   [ComPort] For those about to rock... (Chaos Calmer, unknown)
+2023-10-28 06:39:58.132:   [ComPort] ---------------------------------------------------------------
+2023-10-28 06:39:58.132:   [ComPort] root@eero-test:/#
+2023-10-28 06:39:58.132:   [ComPort] root@eero-test:/#
+2023-10-28 06:39:58.133:   [ComPort] root@eero-test:/#
+2023-10-28 06:40:13.215:   [ComPort] root@eero-test:/#
+2023-10-28 06:40:13.216:   [ComPort] Format: Log Type - Time(microsec) - Message - Optional Info
+2023-10-28 06:40:13.216:   [ComPort] Log Type: B - Since Boot(Power On Reset),  D - Delta,  S - Statistic
+2023-10-28 06:40:13.217:   [ComPort] S - QC_IMAGE_VERSION_STRING=BOOT.BF.3.3.1.1-445990
+2023-10-28 06:40:13.217:   [ComPort] S - IMAGE_VARIANT_STRING=MAASANAZA
+2023-10-28 06:40:13.217:   [ComPort] S - OEM_IMAGE_VERSION_STRING=CRM
+2023-10-28 06:40:13.217:   [ComPort] S - Boot Config, 0x000002c3
+2023-10-28 06:40:13.218:   [ComPort] B -       127 - PBL, Start
+2023-10-28 06:40:13.218:   [ComPort] B -      1562 - bootable_media_detect_entry, Start
+2023-10-28 06:40:13.218:   [ComPort] B -     76369 - bootable_media_detect_success, Start
+2023-10-28 06:40:13.218:   [ComPort] B -     76374 - elf_loader_entry, Start
+2023-10-28 06:40:13.219:   [ComPort] B -     78030 - auth_hash_seg_entry, Start
+2023-10-28 06:40:13.219:   [ComPort] B -     78386 - auth_hash_seg_exit, Start
+2023-10-28 06:40:13.219:   [ComPort] B -     96314 - elf_segs_hash_verify_entry, Start
+2023-10-28 06:40:13.220:   [ComPort] B -    164149 - PBL, End
+2023-10-28 06:40:13.220:   [ComPort] B -    135328 - SBL1, Start
+2023-10-28 06:40:13.220:   [ComPort] B -    197243 - GCC [RstStat:0x10, RstDbg:0x600000] WDog Stat : 0x4
+2023-10-28 06:40:13.220:   [ComPort] B -    205387 - clock_init, Start
+2023-10-28 06:40:13.221:   [ComPort] D -      7533 - clock_init, Delta
+2023-10-28 06:40:13.221:   [ComPort] B -    213073 - boot_flash_init, Start
+2023-10-28 06:40:13.432:   [ComPort] D -    115656 - boot_flash_init, Delta
+2023-10-28 06:40:13.433:   [ComPort] B -    328790 - boot_config_data_table_init, Start
+2023-10-28 06:40:13.433:   [ComPort] D -      1433 - boot_config_data_table_init, Delta - (575 Bytes)
+2023-10-28 06:40:13.433:   [ComPort] B -    338580 - Boot Setting :  0x00030e18
+2023-10-28 06:40:13.434:   [ComPort] B -    340715 - CDT version:2,Platform ID:8,Major ID:4,Minor ID:1,Subtype:162
+2023-10-28 06:40:13.434:   [ComPort] B -    352031 - sbl1_ddr_set_params, Start
+2023-10-28 06:40:13.434:   [ComPort] B -    358222 - Pre_DDR_clock_init, Start
+2023-10-28 06:40:13.435:   [ComPort] B -    358954 - Pre_DDR_clock_init, End
+2023-10-28 06:40:13.541:   [ComPort] B -    482449 - RFA refclk 48MHz Frequency force selection
+2023-10-28 06:40:14.080:   [ComPort] B -   1006927 - do ddr sanity test, Start
+2023-10-28 06:40:14.081:   [ComPort] D -        30 - do ddr sanity test, Delta
+2023-10-28 06:40:14.081:   [ComPort] B -   1011593 - Image Load, Start
+2023-10-28 06:40:14.082:   [ComPort] D -     30226 - QSEE Image Loaded, Delta - (579728 Bytes)
+2023-10-28 06:40:14.082:   [ComPort] B -   1042612 - Image Load, Start
+2023-10-28 06:40:14.082:   [ComPort] D -      4758 - DEVCFG Image Loaded, Delta - (13592 Bytes)
+2023-10-28 06:40:14.083:   [ComPort] B -   1049871 - Image Load, Start
+2023-10-28 06:40:14.188:   [ComPort] D -     23424 - APPSBL Image Loaded, Delta - (459670 Bytes)
+2023-10-28 06:40:14.189:   [ComPort] B -   1073356 - QSEE Execution, Start
+2023-10-28 06:40:14.189:   [ComPort] D -        30 - QSEE Execution, Delta
+2023-10-28 06:40:14.189:   [ComPort] B -   1079822 - SBL1, End
+2023-10-28 06:40:14.190:   [ComPort] D -    947178 - SBL1, Delta
+2023-10-28 06:40:14.190:   [ComPort] S - Flash Throughput, 30924 KB/s  (1054237 Bytes,  34091 us)
+2023-10-28 06:40:14.190:   [ComPort] S - DDR Frequency, 800 MHz
+2023-10-28 06:40:14.190:   [ComPort] S - Core 0 Frequency, 800 MHz
+2023-10-28 06:40:14.298:  [ComPort] null
+2023-10-28 06:40:14.298:  [ComPort] null
+2023-10-28 06:40:14.406:   [ComPort] eero u-boot 0.9.0-03c6ea5ab6-u (Dec 16 2022 - 15:00:47 +0800)
+2023-10-28 06:40:14.406:  [ComPort] null
+2023-10-28 06:40:14.407:   [ComPort] DRAM:  smem ram ptable found: ver: 1 len: 4
+2023-10-28 06:40:14.407:   [ComPort] 1 GiB
+2023-10-28 06:40:14.839:   [ComPort] NAND:  QPIC: disabled, skipping initialization
+2023-10-28 06:40:14.839:   [ComPort] SF: Unsupported flash IDs: manuf 00, jedec 0000, ext_jedec 0000
+2023-10-28 06:40:14.840:   [ComPort] ipq_spi: SPI Flash not found (bus/cs/speed/mode) = (0/0/48000000/0)
+2023-10-28 06:40:14.840:   [ComPort] 0 MiB
+2023-10-28 06:40:14.840:   [ComPort] MMC:   <NULL>: 0 (eMMC)
+2023-10-28 06:40:15.381:   [ComPort] PCI Link Intialized
+2023-10-28 06:40:15.381:   [ComPort] In:    serial@78AF000
+2023-10-28 06:40:15.381:   [ComPort] Out:   serial@78AF000
+2023-10-28 06:40:15.382:   [ComPort] Err:   serial@78AF000
+2023-10-28 06:40:15.382:   [ComPort] model: [trieste]
+2023-10-28 06:40:15.382:   [ComPort] machid: 80401a2
+2023-10-28 06:40:15.382:   [ComPort] eth0 MAC Address from ART is not valid
+2023-10-28 06:40:15.382:   [ComPort] eth1 MAC Address from ART is not valid
+2023-10-28 06:40:15.383:   [ComPort] board_register_value should be: 08
+2023-10-28 06:40:15.596:   [ComPort] PD: Checking PD contract...
+2023-10-28 06:40:15.597:   [ComPort] Probe for RTS5452
+2023-10-28 06:40:15.597:   [ComPort] RTS2575: Failed to probe device: -110
+2023-10-28 06:40:15.597:   [ComPort] PD: Failed to initialize RTS5452: -19
+2023-10-28 06:40:15.598:   [ComPort] Probe for TPS2575
+2023-10-28 06:40:15.598:   [ComPort] TPS device found
+2023-10-28 06:40:15.598:   [ComPort] TPS: Debug device IS present
+2023-10-28 06:40:15.598:   [ComPort] PD: Enabled: V=9000mV I=3000mA P=27000mW
+2023-10-28 06:40:15.921:   [ComPort] Net:   cmbblk is stable 5
+2023-10-28 06:40:16.680:   [ComPort] MAC0 addr:0:11:22:33:44:55
+2023-10-28 06:40:16.680:   [ComPort] PHY ID1: 0x4d
+2023-10-28 06:40:16.681:   [ComPort] PHY ID2: 0xd0c0
+2023-10-28 06:40:16.681:   [ComPort] MAC1 addr:0:11:22:33:44:56
+2023-10-28 06:40:16.681:   [ComPort] PHY ID1: 0x4d
+2023-10-28 06:40:16.681:   [ComPort] PHY ID2: 0xd101
+2023-10-28 06:40:16.681:   [ComPort] eth0
+2023-10-28 06:40:16.682:   [ComPort] Warning: eth0 MAC addresses don't match:
+2023-10-28 06:40:16.682:   [ComPort] Address in SROM is         00:11:22:33:44:55
+2023-10-28 06:40:16.682:   [ComPort] Address in environment is  e8:d3:eb:9c:ec:60
+2023-10-28 06:40:16.682:   [CONFIG] Start key: "Address in environment is  "
+2023-10-28 06:40:16.682:   [CONFIG] End key: ""
+2023-10-28 06:40:16.682:   [PC] Value: "e8:d3:eb:9c:ec:60"
+2023-10-28 06:40:16.683:   [PC] Time: "18.774/50.000 (S)"
+2023-10-28 06:40:16.683:   [PC] Value is: e8:d3:eb:9c:ec:60
+2023-10-28 06:40:16.683:   [CONFIG] compare key: ethernetmac
+2023-10-28 06:40:16.683:   [PC] Spec is: E8:D3:EB:9C:EC:60
+2023-10-28 06:40:16.805:   ****************************************************
+2023-10-28 06:40:16.805:   Item name = verify_cct
+2023-10-28 06:40:16.805:   Value = e8:d3:eb:9c:ec:60
+2023-10-28 06:40:16.805:   Test status = passed
+2023-10-28 06:40:16.805:   -----------------------------------------------------
+2023-10-28 06:40:16.805:   ****************************************************
+2023-10-28 06:40:16.805:   TIME[18.948 s] - STATUS[PASSED]
+//////////////////////////////////////////////////////////////
+//////////////////////////- ID[2] -//////////////////////////
+2023-10-28 06:40:16.806:   ITEM[verify_cct_0] - FUNCTION[TelnetReadUntilKeyProxy]
+2023-10-28 06:40:16.806:   [PC] Turn: 1
+2023-10-28 06:40:16.806:   [COMPORT] comport: COM3 -- baudrate: 115200
+2023-10-28 06:40:16.806:   [ComPort] Connect to: COM3
+2023-10-28 06:40:16.806:   [ComPort] BaudRate is: 115200
+2023-10-28 06:40:16.830:   [ComPort] Connect COM3 ok
+2023-10-28 06:40:16.830:   [Config] Waiting for about 100 s
+2023-10-28 06:40:16.830:   [ComPort] Send command:
+2023-10-28 06:40:16.830:   [Config] Time: 100.0
+2023-10-28 06:40:16.830:   [Config] ReadUntil: IPv6: ADDRCONF(NETDEV_CHANGE): ec_sta1: link becomes ready
+2023-10-28 06:40:16.944:   [ComPort] 0
+2023-10-28 06:40:16.944:   [ComPort] IPQ5018#
+2023-10-28 06:40:16.944:   [ComPort] IPQ5018#
+2023-10-28 06:40:16.944:   [ComPort] IPQ5018#
+2023-10-28 06:40:35.411:   [ComPort] IPQ5018#
+2023-10-28 06:40:35.519:   [ComPort] Format: Log Type - Time(microsec) - Message - Optional Info
+2023-10-28 06:40:35.519:   [ComPort] Log Type: B - Since Boot(Power On Reset),  D - Delta,  S - Statistic
+2023-10-28 06:40:35.520:   [ComPort] S - QC_IMAGE_VERSION_STRING=BOOT.BF.3.3.1.1-445990
+2023-10-28 06:40:35.520:   [ComPort] S - IMAGE_VARIANT_STRING=MAASANAZA
+2023-10-28 06:40:35.520:   [ComPort] S - OEM_IMAGE_VERSION_STRING=CRM
+2023-10-28 06:40:35.520:   [ComPort] S - Boot Config, 0x000002c3
+2023-10-28 06:40:35.520:   [ComPort] B -       127 - PBL, Start
+2023-10-28 06:40:35.521:   [ComPort] B -      1563 - bootable_media_detect_entry, Start
+2023-10-28 06:40:35.521:   [ComPort] B -     69686 - bootable_media_detect_success, Start
+2023-10-28 06:40:35.521:   [ComPort] B -     69691 - elf_loader_entry, Start
+2023-10-28 06:40:35.521:   [ComPort] B -     71343 - auth_hash_seg_entry, Start
+2023-10-28 06:40:35.522:   [ComPort] B -     71700 - auth_hash_seg_exit, Start
+2023-10-28 06:40:35.522:   [ComPort] B -     89628 - elf_segs_hash_verify_entry, Start
+2023-10-28 06:40:35.522:   [ComPort] B -    157426 - PBL, End
+2023-10-28 06:40:35.522:   [ComPort] B -    130082 - SBL1, Start
+2023-10-28 06:40:35.523:   [ComPort] B -    191997 - GCC [RstStat:0x10, RstDbg:0x600000] WDog Stat : 0x4
+2023-10-28 06:40:35.523:   [ComPort] B -    200141 - clock_init, Start
+2023-10-28 06:40:35.523:   [ComPort] D -      7625 - clock_init, Delta
+2023-10-28 06:40:35.523:   [ComPort] B -    207918 - boot_flash_init, Start
+2023-10-28 06:40:35.629:   [ComPort] D -    115656 - boot_flash_init, Delta
+2023-10-28 06:40:35.630:   [ComPort] B -    323635 - boot_config_data_table_init, Start
+2023-10-28 06:40:35.630:   [ComPort] D -      1433 - boot_config_data_table_init, Delta - (575 Bytes)
+2023-10-28 06:40:35.630:   [ComPort] B -    333426 - Boot Setting :  0x00030e18
+2023-10-28 06:40:35.631:   [ComPort] B -    335561 - CDT version:2,Platform ID:8,Major ID:4,Minor ID:1,Subtype:162
+2023-10-28 06:40:35.631:   [ComPort] B -    346876 - sbl1_ddr_set_params, Start
+2023-10-28 06:40:35.631:   [ComPort] B -    353068 - Pre_DDR_clock_init, Start
+2023-10-28 06:40:35.631:   [ComPort] B -    353800 - Pre_DDR_clock_init, End
+2023-10-28 06:40:35.738:   [ComPort] B -    477294 - RFA refclk 48MHz Frequency force selection
+2023-10-28 06:40:36.280:   [ComPort] B -   1001772 - do ddr sanity test, Start
+2023-10-28 06:40:36.281:   [ComPort] D -        30 - do ddr sanity test, Delta
+2023-10-28 06:40:36.281:   [ComPort] B -   1006439 - Image Load, Start
+2023-10-28 06:40:36.389:   [ComPort] D -     30042 - QSEE Image Loaded, Delta - (579728 Bytes)
+2023-10-28 06:40:36.389:   [ComPort] B -   1037274 - Image Load, Start
+2023-10-28 06:40:36.389:   [ComPort] D -      4758 - DEVCFG Image Loaded, Delta - (13592 Bytes)
+2023-10-28 06:40:36.390:   [ComPort] B -   1044533 - Image Load, Start
+2023-10-28 06:40:36.390:   [ComPort] D -     23424 - APPSBL Image Loaded, Delta - (459670 Bytes)
+2023-10-28 06:40:36.390:   [ComPort] B -   1068018 - QSEE Execution, Start
+2023-10-28 06:40:36.391:   [ComPort] D -        30 - QSEE Execution, Delta
+2023-10-28 06:40:36.391:   [ComPort] B -   1074484 - SBL1, End
+2023-10-28 06:40:36.391:   [ComPort] D -    947086 - SBL1, Delta
+2023-10-28 06:40:36.391:   [ComPort] S - Flash Throughput, 31175 KB/s  (1054237 Bytes,  33816 us)
+2023-10-28 06:40:36.392:   [ComPort] S - DDR Frequency, 800 MHz
+2023-10-28 06:40:36.392:   [ComPort] S - Core 0 Frequency, 800 MHz
+2023-10-28 06:40:36.500:   [ComPort] 
+2023-10-28 06:40:36.500:   [ComPort] 
+2023-10-28 06:40:36.610:   [ComPort] eero u-boot 0.9.0-03c6ea5ab6-u (Dec 16 2022 - 15:00:47 +0800)
+2023-10-28 06:40:36.610:   [ComPort] 
+2023-10-28 06:40:36.611:   [ComPort] DRAM:  smem ram ptable found: ver: 1 len: 4
+2023-10-28 06:40:36.611:   [ComPort] 1 GiB
+2023-10-28 06:40:37.046:   [ComPort] NAND:  QPIC: disabled, skipping initialization
+2023-10-28 06:40:37.046:   [ComPort] SF: Unsupported flash IDs: manuf 00, jedec 0000, ext_jedec 0000
+2023-10-28 06:40:37.046:   [ComPort] ipq_spi: SPI Flash not found (bus/cs/speed/mode) = (0/0/48000000/0)
+2023-10-28 06:40:37.046:   [ComPort] 0 MiB
+2023-10-28 06:40:37.047:   [ComPort] MMC:   <NULL>: 0 (eMMC)
+2023-10-28 06:40:37.702:   [ComPort] PCI Link Intialized
+2023-10-28 06:40:37.702:   [ComPort] In:    serial@78AF000
+2023-10-28 06:40:37.702:   [ComPort] Out:   serial@78AF000
+2023-10-28 06:40:37.702:   [ComPort] Err:   serial@78AF000
+2023-10-28 06:40:37.703:   [ComPort] model: [trieste]
+2023-10-28 06:40:37.703:   [ComPort] machid: 80401a2
+2023-10-28 06:40:37.703:   [ComPort] eth0 MAC Address from ART is not valid
+2023-10-28 06:40:37.703:   [ComPort] eth1 MAC Address from ART is not valid
+2023-10-28 06:40:37.703:   [ComPort] board_register_value should be: 08
+2023-10-28 06:40:37.813:   [ComPort] PD: Checking PD contract...
+2023-10-28 06:40:37.813:   [ComPort] Probe for RTS5452
+2023-10-28 06:40:37.814:   [ComPort] RTS2575: Failed to probe device: -110
+2023-10-28 06:40:37.814:   [ComPort] PD: Failed to initialize RTS5452: -19
+2023-10-28 06:40:37.814:   [ComPort] Probe for TPS2575
+2023-10-28 06:40:37.814:   [ComPort] TPS device found
+2023-10-28 06:40:37.815:   [ComPort] TPS: Debug device IS present
+2023-10-28 06:40:37.815:   [ComPort] PD: Enabled: V=9000mV I=3000mA P=27000mW
+2023-10-28 06:40:38.138:   [ComPort] Net:   cmbblk is stable 5
+2023-10-28 06:40:38.894:   [ComPort] MAC0 addr:0:11:22:33:44:55
+2023-10-28 06:40:38.894:   [ComPort] PHY ID1: 0x4d
+2023-10-28 06:40:38.895:   [ComPort] PHY ID2: 0xd0c0
+2023-10-28 06:40:38.895:   [ComPort] MAC1 addr:0:11:22:33:44:56
+2023-10-28 06:40:38.895:   [ComPort] PHY ID1: 0x4d
+2023-10-28 06:40:38.895:   [ComPort] PHY ID2: 0xd101
+2023-10-28 06:40:38.895:   [ComPort] eth0
+2023-10-28 06:40:38.896:   [ComPort] Warning: eth0 MAC addresses don't match:
+2023-10-28 06:40:38.896:   [ComPort] Address in SROM is         00:11:22:33:44:55
+2023-10-28 06:40:38.896:   [ComPort] Address in environment is  e8:d3:eb:9c:ec:60
+2023-10-28 06:40:38.896:   [ComPort] , eth1
+2023-10-28 06:40:38.897:   [ComPort] Warning: eth1 MAC addresses don't match:
+2023-10-28 06:40:38.897:   [ComPort] Address in SROM is         00:11:22:33:44:56
+2023-10-28 06:40:38.897:   [ComPort] Address in environment is  e8:d3:eb:9c:ec:61
+2023-10-28 06:40:38.897:   [ComPort] 
+2023-10-28 06:40:40.957:   [ComPort] Hit any key to stop autoboot:  2  1  0
+2023-10-28 06:40:40.957:   [ComPort] 
+2023-10-28 06:40:43.127:   [ComPort] MMC read: dev # 0, block # 36130, count 98304 ... 98304 blocks read: OK
+2023-10-28 06:40:43.235:   [ComPort] ## Loading kernel from FIT Image at 44000000 ...
+2023-10-28 06:40:43.235:   [ComPort] Using 'config@trieste-dvt' configuration
+2023-10-28 06:40:43.236:   [ComPort] Trying 'kernel@1' kernel subimage
+2023-10-28 06:40:43.236:   [ComPort] Description:  ARM OpenWrt Linux-4.4.60
+2023-10-28 06:40:43.236:   [ComPort] Type:         Kernel Image
+2023-10-28 06:40:43.236:   [ComPort] Compression:  lzma compressed
+2023-10-28 06:40:43.236:   [ComPort] Data Start:   0x440000e4
+2023-10-28 06:40:43.237:   [ComPort] Data Size:    2924239 Bytes = 2.8 MiB
+2023-10-28 06:40:43.237:   [ComPort] Architecture: ARM
+2023-10-28 06:40:43.237:   [ComPort] OS:           Linux
+2023-10-28 06:40:43.237:   [ComPort] Load Address: 0x41208000
+2023-10-28 06:40:43.237:   [ComPort] Entry Point:  0x41208000
+2023-10-28 06:40:43.238:   [ComPort] Hash algo:    crc32
+2023-10-28 06:40:43.238:   [ComPort] Hash value:   ed499a21
+2023-10-28 06:40:43.238:   [ComPort] Hash algo:    sha1
+2023-10-28 06:40:43.238:   [ComPort] Hash value:   a46d60910e503dd5a7beca86e091ecab63069c3b
+2023-10-28 06:40:43.345:   [ComPort] Verifying Hash Integrity ... crc32+ sha1+ OK
+2023-10-28 06:40:43.345:   [ComPort] ## Loading fdt from FIT Image at 44000000 ...
+2023-10-28 06:40:43.345:   [ComPort] Using 'config@trieste-dvt' configuration
+2023-10-28 06:40:43.346:   [ComPort] Trying 'fdt@trieste-dvt' fdt subimage
+2023-10-28 06:40:43.346:   [ComPort] Description:  ARM OpenWrt qcom-ipq50xx-mpxx device tree blob
+2023-10-28 06:40:43.346:   [ComPort] Type:         Flat Device Tree
+2023-10-28 06:40:43.346:   [ComPort] Compression:  uncompressed
+2023-10-28 06:40:43.347:   [ComPort] Data Start:   0x443b30ec
+2023-10-28 06:40:43.347:   [ComPort] Data Size:    60631 Bytes = 59.2 KiB
+2023-10-28 06:40:43.347:   [ComPort] Architecture: ARM
+2023-10-28 06:40:43.347:   [ComPort] Hash algo:    crc32
+2023-10-28 06:40:43.347:   [ComPort] Hash value:   d3127ba3
+2023-10-28 06:40:43.348:   [ComPort] Hash algo:    sha1
+2023-10-28 06:40:43.348:   [ComPort] Hash value:   55c2f7c7db4ed90219d5b3be85ffca00afa720ef
+2023-10-28 06:40:43.348:   [ComPort] Verifying Hash Integrity ... crc32+ sha1+ OK
+2023-10-28 06:40:43.348:   [ComPort] Booting using the fdt blob at 0x443b30ec
+2023-10-28 06:40:44.430:   [ComPort] Uncompressing Kernel Image ... OK
+2023-10-28 06:40:44.430:   [ComPort] Loading Device Tree to 4a3ee000, end 4a3ffcd6 ... OK
+2023-10-28 06:40:44.645:   [ComPort] Using machid 0x80401a2 from environment
+2023-10-28 06:40:44.645:   [ComPort] 
+2023-10-28 06:40:44.646:   [ComPort] Starting kernel ...
+2023-10-28 06:40:44.646:   [ComPort] 
+2023-10-28 06:40:45.297:   [ComPort] [    0.000000] Booting Linux on physical CPU 0x0
+2023-10-28 06:40:45.297:   [ComPort] [    0.000000] Initializing cgroup subsys cpuset
+2023-10-28 06:40:45.297:   [ComPort] [    0.000000] Initializing cgroup subsys cpu
+2023-10-28 06:40:45.298:   [ComPort] [    0.000000] Initializing cgroup subsys cpuacct
+2023-10-28 06:40:45.298:   [ComPort] [    0.000000] Linux version 4.4.60 (adrian@ubuntu-16-RD) (gcc version 5.2.0 (OpenWrt GCC 5.2.0 unknown) ) #63 SMP PREEMPT Mon Dec 19 08:57:44 CST 2022
+2023-10-28 06:40:45.299:   [ComPort] [    0.000000] CPU: ARMv7 Processor [51af8014] revision 4 (ARMv7), cr=10c0383d
+2023-10-28 06:40:45.299:   [ComPort] [    0.000000] CPU: PIPT / VIPT nonaliasing data cache, VIPT aliasing instruction cache
+2023-10-28 06:40:45.299:   [ComPort] [    0.000000] Machine model: IPQ5018/trieste
+2023-10-28 06:40:45.300:   [ComPort] [    0.000000] Ignoring memory range 0x40000000 - 0x41000000
+2023-10-28 06:40:45.300:   [ComPort] [    0.000000] Reserved memory: not enough space all defined regions.
+2023-10-28 06:40:45.300:   [ComPort] [    0.000000] Reserved memory: not enough space all defined regions.
+2023-10-28 06:40:45.300:   [ComPort] [    0.000000] Reserved memory: not enough space all defined regions.
+2023-10-28 06:40:45.301:   [ComPort] [    0.000000] Reserved memory: OVERLAP DETECTED!
+2023-10-28 06:40:45.301:   [ComPort] [    0.000000] q6_code_data@4B000000 (0x4b000000--0x4c400000) overlaps with q6_mem_regions@4B000000 (0x4b000000--0x50400000)
+2023-10-28 06:40:45.301:   [ComPort] [    0.000000] Reserved memory: OVERLAP DETECTED!
+2023-10-28 06:40:45.302:   [ComPort] [    0.000000] q6_mem_regions@4B000000 (0x4b000000--0x50400000) overlaps with q6_ipq5018_data@4C400000 (0x4c400000--0x4d200000)
+2023-10-28 06:40:45.302:   [ComPort] [    0.000000] Memory policy: Data cache writealloc
+2023-10-28 06:40:45.302:   [ComPort] [    0.000000] psci: probing for conduit method from DT.
+2023-10-28 06:40:45.303:   [ComPort] [    0.000000] psci: PSCIv1.0 detected in firmware.
+2023-10-28 06:40:45.303:   [ComPort] [    0.000000] psci: Using standard PSCI v0.2 function IDs
+2023-10-28 06:40:45.303:   [ComPort] [    0.000000] psci: MIGRATE_INFO_TYPE not supported.
+2023-10-28 06:40:45.304:   [ComPort] [    0.000000] PERCPU: Embedded 11 pages/cpu @be6de000 s14400 r8192 d22464 u45056
+2023-10-28 06:40:45.304:   [ComPort] [    0.000000] Built 1 zonelists in Zone order, mobility grouping on.  Total pages: 231972
+2023-10-28 06:40:45.305:   [ComPort] [    0.000000] Kernel command line: console=ttyMSM0,115200n8 root=PARTUUID=8e62e108-93c0-0259-3acf-c8aae4b36321 gpt rootwait swiotlb=1 coherent_pool=2M
+2023-10-28 06:40:45.305:   [ComPort] [    0.000000] PID hash table entries: 4096 (order: 2, 16384 bytes)
+2023-10-28 06:40:45.305:   [ComPort] [    0.000000] Dentry cache hash table entries: 131072 (order: 7, 524288 bytes)
+2023-10-28 06:40:45.306:   [ComPort] [    0.000000] Inode-cache hash table entries: 65536 (order: 6, 262144 bytes)
+2023-10-28 06:40:45.306:   [ComPort] [    0.000000] Memory: 916540K/936960K available (6302K kernel code, 350K rwdata, 1896K rodata, 1024K init, 442K bss, 20420K reserved, 0K cma-reserved, 0K highmem)
+2023-10-28 06:40:45.306:   [ComPort] [    0.000000] Virtual kernel memory layout:
+2023-10-28 06:40:45.307:   [ComPort] [    0.000000]     vector  : 0xffff0000 - 0xffff1000   (   4 kB)
+2023-10-28 06:40:45.307:   [ComPort] [    0.000000]     fixmap  : 0xffc00000 - 0xfff00000   (3072 kB)
+2023-10-28 06:40:45.307:   [ComPort] [    0.000000]     vmalloc : 0xbf800000 - 0xff800000   (1024 MB)
+2023-10-28 06:40:45.308:   [ComPort] [    0.000000]     lowmem  : 0x80000000 - 0xbf000000   (1008 MB)
+2023-10-28 06:40:45.308:   [ComPort] [    0.000000]     pkmap   : 0x7fe00000 - 0x80000000   (   2 MB)
+2023-10-28 06:40:45.308:   [ComPort] [    0.000000]     modules : 0x7f000000 - 0x7fe00000   (  14 MB)
+2023-10-28 06:40:45.309:   [ComPort] [    0.000000]       .text : 0x80208000 - 0x80b01ba0   (9191 kB)
+2023-10-28 06:40:45.309:   [ComPort] [    0.000000]       .init : 0x80c00000 - 0x80d00000   (1024 kB)
+2023-10-28 06:40:45.309:   [ComPort] [    0.000000]       .data : 0x80d00000 - 0x80d57a58   ( 351 kB)
+2023-10-28 06:40:45.309:   [ComPort] [    0.000000]        .bss : 0x80d5a000 - 0x80dc8990   ( 443 kB)
+2023-10-28 06:40:45.310:   [ComPort] [    0.000000] SLUB: HWalign=64, Order=0-3, MinObjects=0, CPUs=2, Nodes=1
+2023-10-28 06:40:45.310:   [ComPort] [    0.000000] Preemptible hierarchical RCU implementation.
+2023-10-28 06:40:45.310:   [ComPort] [    0.000000] 	Build-time adjustment of leaf fanout to 32.
+2023-10-28 06:40:45.311:   [ComPort] [    0.000000] 	RCU restricting CPUs from NR_CPUS=4 to nr_cpu_ids=2.
+2023-10-28 06:40:45.311:   [ComPort] [    0.000000] RCU: Adjusting geometry for rcu_fanout_leaf=32, nr_cpu_ids=2
+2023-10-28 06:40:45.311:   [ComPort] [    0.000000] NR_IRQS:16 nr_irqs:16 16
+2023-10-28 06:40:45.312:   [ComPort] [    0.000000] GICv2m: Node v2m: range[0xb00a000:0xb00affc], SPI[448:480]
+2023-10-28 06:40:45.312:   [ComPort] [    0.000000] GICv2m: Node v2m: range[0xb00b000:0xb00bffc], SPI[480:512]
+2023-10-28 06:40:45.312:   [ComPort] [    0.000000] Architected cp15 timer(s) running at 24.00MHz (virt).
+2023-10-28 06:40:45.313:   [ComPort] [    0.000000] clocksource: arch_sys_counter: mask: 0xffffffffffffff max_cycles: 0x588fe9dc0, max_idle_ns: 440795202592 ns
+2023-10-28 06:40:45.313:   [ComPort] [    0.000005] sched_clock: 56 bits at 24MHz, resolution 41ns, wraps every 4398046511097ns
+2023-10-28 06:40:45.314:   [ComPort] [    0.000018] Switching to timer-based delay loop, resolution 41ns
+2023-10-28 06:40:45.314:   [ComPort] [    0.000504] Calibrating delay loop (skipped), value calculated using timer frequency.. 48.00 BogoMIPS (lpj=240000)
+2023-10-28 06:40:45.314:   [ComPort] [    0.000520] pid_max: default: 32768 minimum: 301
+2023-10-28 06:40:45.639:   [ComPort] [    0.000637] Mount-cache hash table entries: 2048 (order: 1, 8192 bytes)
+2023-10-28 06:40:45.640:   [ComPort] [    0.000652] Mountpoint-cache hash table entries: 2048 (order: 1, 8192 bytes)
+2023-10-28 06:40:45.640:   [ComPort] [    0.001346] Initializing cgroup subsys io
+2023-10-28 06:40:45.640:   [ComPort] [    0.001370] Initializing cgroup subsys memory
+2023-10-28 06:40:45.640:   [ComPort] [    0.001401] Initializing cgroup subsys devices
+2023-10-28 06:40:45.641:   [ComPort] [    0.001418] Initializing cgroup subsys freezer
+2023-10-28 06:40:45.641:   [ComPort] [    0.001430] Initializing cgroup subsys net_cls
+2023-10-28 06:40:45.641:   [ComPort] [    0.001442] Initializing cgroup subsys pids
+2023-10-28 06:40:45.641:   [ComPort] [    0.001490] CPU: Testing write buffer coherency: ok
+2023-10-28 06:40:45.642:   [ComPort] [    0.001938] CPU0: thread -1, cpu 0, socket 0, mpidr 80000000
+2023-10-28 06:40:45.642:   [ComPort] [    0.002010] Setting up static identity map for 0x41300000 - 0x41300058
+2023-10-28 06:40:45.642:   [ComPort] [    0.052679] MSM Memory Dump base table set up
+2023-10-28 06:40:45.643:   [ComPort] [    0.052712] MSM Memory Dump apps data table set up
+2023-10-28 06:40:45.643:   [ComPort] [    0.090466] CPU1: thread -1, cpu 1, socket 0, mpidr 80000001
+2023-10-28 06:40:45.643:   [ComPort] [    0.090602] Brought up 2 CPUs
+2023-10-28 06:40:45.643:   [ComPort] [    0.090625] SMP: Total of 2 processors activated (96.00 BogoMIPS).
+2023-10-28 06:40:45.644:   [ComPort] [    0.090631] CPU: All CPU(s) started in SVC mode.
+2023-10-28 06:40:45.644:   [ComPort] [    0.105404] VFP support v0.3: implementor 51 architecture 3 part 40 variant 3 rev 4
+2023-10-28 06:40:45.644:   [ComPort] [    0.105803] clocksource: jiffies: mask: 0xffffffff max_cycles: 0xffffffff, max_idle_ns: 19112604462750000 ns
+2023-10-28 06:40:45.645:   [ComPort] [    0.105836] futex hash table entries: 512 (order: 3, 32768 bytes)
+2023-10-28 06:40:45.645:   [ComPort] [    0.106122] pinctrl core: initialized pinctrl subsystem
+2023-10-28 06:40:45.645:   [ComPort] [    0.107426] NET: Registered protocol family 16
+2023-10-28 06:40:45.646:   [ComPort] [    0.108812] DMA: preallocated 2048 KiB pool for atomic coherent allocations
+2023-10-28 06:40:45.646:   [ComPort] [    0.130247] cpuidle: using governor ladder
+2023-10-28 06:40:45.646:   [ComPort] [    0.160281] cpuidle: using governor menu
+2023-10-28 06:40:45.646:   [ComPort] [    0.160623] NET: Registered protocol family 42
+2023-10-28 06:40:45.647:   [ComPort] [    0.165712] qcom,gcc-ipq5018 1800000.gcc: Registered ipq5018 GCC clocks provider
+2023-10-28 06:40:45.647:   [ComPort] [    0.170562] irq: no irq domain found for /soc/smp2p-wcss/slave-kernel !
+2023-10-28 06:40:45.647:   [ComPort] [    0.172068] irq: no irq domain found for /soc/smp2p-wcss/slave-kernel !
+2023-10-28 06:40:45.647:   [ComPort] [    0.186603] CPU: IPQ5018, SoC Version: 1.1
+2023-10-28 06:40:45.648:   [ComPort] [    0.188562] IPC logging disabled
+2023-10-28 06:40:45.648:   [ComPort] [    0.188576] IPC logging disabled
+2023-10-28 06:40:45.648:   [ComPort] [    0.188581] IPC logging disabled
+2023-10-28 06:40:45.648:   [ComPort] [    0.188586] IPC logging disabled
+2023-10-28 06:40:45.648:   [ComPort] [    0.188590] IPC logging disabled
+2023-10-28 06:40:45.649:   [ComPort] [    0.188861] sps:sps is ready.
+2023-10-28 06:40:45.649:   [ComPort] [    0.222720] pps_core: LinuxPPS API ver. 1 registered
+2023-10-28 06:40:45.649:   [ComPort] [    0.222735] pps_core: Software ver. 5.3.6 - Copyright 2005-2007 Rodolfo Giometti <giometti@linux.it>
+2023-10-28 06:40:45.650:   [ComPort] [    0.222768] PTP clock support registered
+2023-10-28 06:40:45.650:   [ComPort] [    0.224876] Advanced Linux Sound Architecture Driver Initialized.
+2023-10-28 06:40:45.650:   [ComPort] [    0.225850] clocksource: Switched to clocksource arch_sys_counter
+2023-10-28 06:40:45.650:   [ComPort] [    0.228569] NET: Registered protocol family 2
+2023-10-28 06:40:45.651:   [ComPort] [    0.229509] TCP established hash table entries: 8192 (order: 3, 32768 bytes)
+2023-10-28 06:40:45.651:   [ComPort] [    0.229603] TCP bind hash table entries: 8192 (order: 4, 65536 bytes)
+2023-10-28 06:40:45.651:   [ComPort] [    0.229747] TCP: Hash tables configured (established 8192 bind 8192)
+2023-10-28 06:40:45.652:   [ComPort] [    0.229824] UDP hash table entries: 512 (order: 2, 16384 bytes)
+2023-10-28 06:40:45.652:   [ComPort] [    0.229866] UDP-Lite hash table entries: 512 (order: 2, 16384 bytes)
+2023-10-28 06:40:45.652:   [ComPort] [    0.230115] NET: Registered protocol family 1
+2023-10-28 06:40:45.653:   [ComPort] [    0.239940] squashfs: version 4.0 (2009/01/31) Phillip Lougher
+2023-10-28 06:40:45.653:   [ComPort] [    0.239968] jffs2: version 2.2 (NAND) (SUMMARY) (LZMA) (RTIME) (CMODE_PRIORITY) (c) 2001-2006 Red Hat, Inc.
+2023-10-28 06:40:45.653:   [ComPort] [    0.245200] Key type asymmetric registered
+2023-10-28 06:40:45.654:   [ComPort] [    0.245221] Asymmetric key parser 'x509' registered
+2023-10-28 06:40:45.654:   [ComPort] [    0.245268] io scheduler noop registered
+2023-10-28 06:40:45.654:   [ComPort] [    0.245281] io scheduler deadline registered (default)
+2023-10-28 06:40:45.654:   [ComPort] [    0.253657] TZ Log : Will warn on Access Violation, as paniconaccessviolation is not set
+2023-10-28 06:40:45.655:   [ComPort] [    0.254197] bt_driver 1943008.bt: bt_parse_ipc
+2023-10-28 06:40:45.655:   [ComPort] [    0.254253] bt_driver 1943008.bt: bt_parse_mem
+2023-10-28 06:40:45.655:   [ComPort] [    0.254310] bt_driver 1943008.bt: bt_parse_dt operating in secure mode
+2023-10-28 06:40:45.656:   [ComPort] [    0.255342] bt_rproc_driver bt_rproc_driver: class not registered defering probe
+2023-10-28 06:40:45.656:   [ComPort] [    0.255813] 58000.qcom,msm-eud: ttyEUD0 at MMIO 0x0 (irq = 156, base_baud = 0) is a EUD UART
+2023-10-28 06:40:45.656:   [ComPort] [    0.257494] Registered Sucessfully
+2023-10-28 06:40:45.656:   [ComPort] [    0.258155] msm_serial 78af000.serial: msm_serial: detected port #0
+2023-10-28 06:40:45.657:   [ComPort] [    0.258216] msm_serial 78af000.serial: uartclk = 1843199
+2023-10-28 06:40:45.763:   [ComPort] [    0.258273] 78af000.serial: ttyMSM0 at MMIO 0x78af000 (irq = 20, base_baud = 115199) is a MSM
+2023-10-28 06:40:45.763:   [ComPort] [    0.258307] msm_serial: console setup on port #0
+2023-10-28 06:40:45.764:   [ComPort] [    0.950015] console [ttyMSM0] enabled
+2023-10-28 06:40:45.764:   [ComPort] [    0.955211] msm_serial: driver initialized
+2023-10-28 06:40:45.764:   [ComPort] [    0.958707] msm_serial_hsl_init: driver initialized
+2023-10-28 06:40:45.764:   [ComPort] [    0.976992] brd: module loaded
+2023-10-28 06:40:45.765:   [ComPort] [    0.984286] loop: module loaded
+2023-10-28 06:40:45.765:   [ComPort] [    0.985136] spi_qup 78b5000.spi: IN:block:16, fifo:64, OUT:block:16, fifo:64
+2023-10-28 06:40:45.765:   [ComPort] [    0.989063] libphy: Fixed MDIO Bus: probed
+2023-10-28 06:40:45.979:   [ComPort] [    1.214155] qca-mdio 88000.mdio: Could not find phy-reset-gpio
+2023-10-28 06:40:45.980:   [ComPort] [    1.214347] libphy: qca_mdio: probed
+2023-10-28 06:40:45.980:   [ComPort] [    1.219622] qca-mdio 88000.mdio: qca-mdio driver was registered
+2023-10-28 06:40:46.413:   [ComPort] [    1.663133] qca-mdio 90000.mdio: Could not find phy-reset-gpio
+2023-10-28 06:40:46.413:   [ComPort] [    1.663333] libphy: qca_mdio: probed
+2023-10-28 06:40:46.414:   [ComPort] [    1.668426] qca-mdio 90000.mdio: qca-mdio driver was registered
+2023-10-28 06:40:46.521:   [ComPort] [    1.781953] cnss: INFO: IPC Logging is disabled!
+2023-10-28 06:40:46.522:   [ComPort] [    1.782642] cnss[2]: INFO: Platform driver probed successfully. plat bda28010 tgt 0xfffc
+2023-10-28 06:40:46.522:   [ComPort] [    1.786118] cnss[41]: INFO: Platform driver probed successfully. plat bda38010 tgt 0xfffb
+2023-10-28 06:40:46.523:   [ComPort] [    1.794119] cnss[42]: INFO: Platform driver probed successfully. plat bda40010 tgt 0xfffb
+2023-10-28 06:40:46.523:   [ComPort] [    1.802236] i2c /dev entries driver
+2023-10-28 06:40:46.523:   [ComPort] [    1.811127] i2c i2c-0: get sysfs name from device tree: ktd2027-0030
+2023-10-28 06:40:46.524:   [ComPort] [    1.813367] i2c i2c-0: get sysfs name from device tree: lp5562-0030
+2023-10-28 06:40:46.524:   [ComPort] [    1.821201] qcom-tsens 4a8000.thermal-sensor: tsens calibration failed
+2023-10-28 06:40:46.630:   [ComPort] [    1.856655] device-mapper: ioctl: 4.34.0-ioctl (2015-10-28) initialised: dm-devel@redhat.com
+2023-10-28 06:40:46.631:   [ComPort] [    1.857266] cpufreq: cpufreq_online: CPU0: Running at unlisted freq: 799999 KHz
+2023-10-28 06:40:46.631:   [ComPort] [    1.864229] cpufreq: cpufreq_online: CPU0: Unlisted initial frequency changed to: 800000 KHz
+2023-10-28 06:40:46.631:   [ComPort] [    1.871484] sdhci: Secure Digital Host Controller Interface driver
+2023-10-28 06:40:46.632:   [ComPort] [    1.879901] sdhci: Copyright(c) Pierre Ossman
+2023-10-28 06:40:46.632:   [ComPort] [    1.885874] sdhci-pltfm: SDHCI platform and OF driver helper
+2023-10-28 06:40:46.632:   [ComPort] [    1.890760] sdhci_msm 7804000.sdhci: sdhci_msm_probe: ICE device is not enabled
+2023-10-28 06:40:46.633:   [ComPort] [    1.896101] sdhci_msm 7804000.sdhci: No vreg data found for vdd
+2023-10-28 06:40:46.633:   [ComPort] [    1.903044] sdhci_msm 7804000.sdhci: No vreg data found for vdd-io
+2023-10-28 06:40:46.633:   [ComPort] [    1.910423] sdhci_msm 7804000.sdhci: No vmmc regulator found
+2023-10-28 06:40:46.634:   [ComPort] [    1.915194] sdhci_msm 7804000.sdhci: No vqmmc regulator found
+2023-10-28 06:40:47.067:   [ComPort] [    1.965949] mmc0: SDHCI controller on 7804000.sdhci [7804000.sdhci] using ADMA 64-bit
+2023-10-28 06:40:47.068:   [ComPort] [    1.974973]
+2023-10-28 06:40:47.068:   [ComPort] [    1.974973] Version Rollback Feature Disabled
+2023-10-28 06:40:47.068:   [ComPort] [    1.977960] sps_register_bam_device : unable to create IPC Logging 0 for bam 0x08b04000
+2023-10-28 06:40:47.069:   [ComPort] [    1.981788] sps_register_bam_device : unable to create IPC Logging 1 for bam 0x08b04000sps_register_bam_device : unable to create IPC Logging 2 for bam 0x08b04000
+2023-10-28 06:40:47.069:   [ComPort] [    1.998530] sps_register_bam_device : unable to create IPC Logging 3 for bam 0x08b04000sps_register_bam_device : unable to create IPC Logging 4 for bam 0x08b04000
+2023-10-28 06:40:47.070:   [ComPort] [    2.013752] sps:BAM 0x08b04000 is registered.[    2.030683] qcom-q6v5-wcss-pil cd00000.qcom_q6v5_wcss: ssr registeration success qcom_q6v5_wcss
+2023-10-28 06:40:47.070:   [ComPort] [    2.030816] remoteproc remoteproc1: cd00000.qcom_q6v5_wcss is available
+2023-10-28 06:40:47.071:   [ComPort] [    2.038308] q6v5_wcss_userpd1(be703ab0) node found
+2023-10-28 06:40:47.071:   [ComPort] [    2.045780] platform q6v5_wcss_userpd1: ssr registeration success q6v5_wcss_userpd1
+2023-10-28 06:40:47.071:   [ComPort] [    2.049916] remoteproc remoteproc2: q6v5_wcss_userpd1 is available
+2023-10-28 06:40:47.072:   [ComPort] [    2.057386] q6v5_wcss_userpd2(be703d54) node found
+2023-10-28 06:40:47.072:   [ComPort] [    2.064748] platform q6v5_wcss_userpd2: ssr registeration success q6v5_wcss_userpd2
+2023-10-28 06:40:47.072:   [ComPort] [    2.068476] remoteproc remoteproc3: q6v5_wcss_userpd2 is available
+2023-10-28 06:40:47.072:   [ComPort] [    2.075971] q6v5_wcss_userpd3(be703fc4) node found
+2023-10-28 06:40:47.073:   [ComPort] [    2.083032] platform q6v5_wcss_userpd3: ssr registeration success q6v5_wcss_userpd3
+2023-10-28 06:40:47.073:   [ComPort] [    2.086957] remoteproc remoteproc4: q6v5_wcss_userpd3 is available
+2023-10-28 06:40:47.073:   [ComPort] [    2.094910] of_graph_get_next_endpoint(): no port node found in /soc/csr@6001000
+2023-10-28 06:40:47.074:   [ComPort] [    2.100722] mmc0: MAN_BKOPS_EN bit is not set
+2023-10-28 06:40:47.074:   [ComPort] [    2.108329] coresight-csr 6001000.csr: CSR initialized
+2023-10-28 06:40:47.074:   [ComPort] [    2.112670] of_graph_get_next_endpoint(): no port node found in /soc/cti@6010000
+2023-10-28 06:40:47.075:   [ComPort] [    2.117781] of_graph_get_next_endpoint(): no port node found in /soc/cti@6011000
+2023-10-28 06:40:47.075:   [ComPort] [    2.125262] of_graph_get_next_endpoint(): no port node found in /soc/cti@6012000
+2023-10-28 06:40:47.075:   [ComPort] [    2.132714] of_graph_get_next_endpoint(): no port node found in /soc/cti@6013000
+2023-10-28 06:40:47.076:   [ComPort] [    2.140041] of_graph_get_next_endpoint(): no port node found in /soc/cti@6014000
+2023-10-28 06:40:47.076:   [ComPort] [    2.147434] of_graph_get_next_endpoint(): no port node found in /soc/cti@6015000
+2023-10-28 06:40:47.077:   [ComPort] [    2.154761] of_graph_get_next_endpoint(): no port node found in /soc/cti@6016000
+2023-10-28 06:40:47.077:   [ComPort] [    2.162200] of_graph_get_next_endpoint(): no port node found in /soc/cti@6017000
+2023-10-28 06:40:47.077:   [ComPort] [    2.169688] of_graph_get_next_endpoint(): no port node found in /soc/cti@6018000
+2023-10-28 06:40:47.078:   [ComPort] [    2.177108] of_graph_get_next_endpoint(): no port node found in /soc/cti@6019000
+2023-10-28 06:40:47.078:   [ComPort] [    2.190431] of_graph_get_next_endpoint(): no port node found in /soc/cti@601a000
+2023-10-28 06:40:47.078:   [ComPort] [    2.193658] of_graph_get_next_endpoint(): no port node found in /soc/cti@601b000
+2023-10-28 06:40:47.079:   [ComPort] [    2.201082] of_graph_get_next_endpoint(): no port node found in /soc/cti@601c000
+2023-10-28 06:40:47.079:   [ComPort] [    2.208452] of_graph_get_next_endpoint(): no port node found in /soc/cti@601d000
+2023-10-28 06:40:47.079:   [ComPort] [    2.215777] of_graph_get_next_endpoint(): no port node found in /soc/cti@601e000
+2023-10-28 06:40:47.080:   [ComPort] [    2.221281] mmc0: new HS200 MMC card at address 0001
+2023-10-28 06:40:47.080:   [ComPort] [    2.221321] of_graph_get_next_endpoint(): no port node found in /soc/cti@601f000
+2023-10-28 06:40:47.081:   [ComPort] [    2.221571] of_graph_get_next_endpoint(): no port node found in /soc/cti@6198000
+2023-10-28 06:40:47.081:   [ComPort] [    2.221940] of_graph_get_next_endpoint(): no port node found in /soc/cti@6199000
+2023-10-28 06:40:47.081:   [ComPort] [    2.222284] of_graph_get_next_endpoint(): no port node found in /soc/cti@610c000
+2023-10-28 06:40:47.082:   [ComPort] [    2.222742] sps_register_bam_device : unable to create IPC Logging 0 for bam 0x06064000
+2023-10-28 06:40:47.082:   [ComPort] [    2.222746] sps_register_bam_device : unable to create IPC Logging 1 for bam 0x06064000
+2023-10-28 06:40:47.082:   [ComPort] [    2.222750] sps_register_bam_device : unable to create IPC Logging 2 for bam 0x06064000
+2023-10-28 06:40:47.083:   [ComPort] [    2.222754] sps_register_bam_device : unable to create IPC Logging 3 for bam 0x06064000
+2023-10-28 06:40:47.083:   [ComPort] [    2.222759] sps_register_bam_device : unable to create IPC Logging 4 for bam 0x06064000
+2023-10-28 06:40:47.084:   [ComPort] [    2.223263] sps:BAM 0x06064000 is registered.
+2023-10-28 06:40:47.084:   [ComPort] [    2.223264] coresight-tmc 6048000.tmc: TMC initialized
+2023-10-28 06:40:47.084:   [ComPort] [    2.223904] coresight-tmc 6047000.tmc: TMC initialized
+2023-10-28 06:40:47.191:   [ComPort] [    2.224507] coresight-funnel 6041000.funnel: FUNNEL initialized
+2023-10-28 06:40:47.191:   [ComPort] [    2.224961] coresight-funnel 6100000.funnel: FUNNEL initialized
+2023-10-28 06:40:47.192:   [ComPort] [    2.225390] coresight-funnel 6120000.funnel: FUNNEL initialized
+2023-10-28 06:40:47.192:   [ComPort] [    2.225817] coresight-funnel 6130000.funnel: FUNNEL initialized
+2023-10-28 06:40:47.192:   [ComPort] [    2.226365] coresight-funnel 61a1000.funnel: FUNNEL initialized
+2023-10-28 06:40:47.193:   [ComPort] [    2.227638] coresight-etm4x 619c000.etm: ETM 4.0 initialized
+2023-10-28 06:40:47.193:   [ComPort] [    2.228825] coresight-etm4x 619d000.etm: ETM 4.0 initialized
+2023-10-28 06:40:47.193:   [ComPort] [    2.229330] coresight-replicator-qcom 6046000.replicator: REPLICATOR 1.0 initialized
+2023-10-28 06:40:47.194:   [ComPort] [    2.229954] coresight-stm 6002000.stm: STM initialized
+2023-10-28 06:40:47.194:   [ComPort] [    2.231759] of_graph_get_next_endpoint(): no port node found in /soc/hwevent@6101000
+2023-10-28 06:40:47.194:   [ComPort] [    2.231933] coresight-hwevent 6101000.hwevent: Hardware Event driver initialized
+2023-10-28 06:40:47.195:   [ComPort] [    2.236806] NET: Registered protocol family 10
+2023-10-28 06:40:47.195:   [ComPort] [    2.237832] NET: Registered protocol family 17
+2023-10-28 06:40:47.195:   [ComPort] [    2.237912] bridge: automatic filtering via arp/ip/ip6tables has been deprecated. Update your scripts to load br_netfilter if you need this.
+2023-10-28 06:40:47.196:   [ComPort] [    2.237950] Bridge firewalling registered
+2023-10-28 06:40:47.196:   [ComPort] [    2.237958] 8021q: 802.1Q VLAN Support v1.8
+2023-10-28 06:40:47.196:   [ComPort] [    2.238269] Registering SWP/SWPB emulation handler
+2023-10-28 06:40:47.196:   [ComPort] [    2.256343] remoteproc remoteproc5: bt_rproc_driver is available
+2023-10-28 06:40:47.197:   [ComPort] [    2.256397] bt_rproc_driver bt_rproc_driver: Probed
+2023-10-28 06:40:47.197:   [ComPort] [    2.258005] hctosys: unable to open rtc device (rtc0)
+2023-10-28 06:40:47.197:   [ComPort] [    2.265219] ALSA device list:
+2023-10-28 06:40:47.197:   [ComPort] [    2.265222]   No soundcards found.
+2023-10-28 06:40:47.198:   [ComPort] [    2.439879] Waiting for root device PARTUUID=8e62e108-93c0-0259-3acf-c8aae4b36321...
+2023-10-28 06:40:47.198:   [ComPort] [    2.450134] mmcblk0: mmc0:0001 4FTE4R 3.64 GiB
+2023-10-28 06:40:47.198:   [ComPort] [    2.460714] mmcblk0rpmb: mmc0:0001 4FTE4R partition 3 512 KiB
+2023-10-28 06:40:47.199:   [ComPort] [    2.462756] GPT:Primary header thinks Alt. header is not at the end of the disk.
+2023-10-28 06:40:47.199:   [ComPort] [    2.465431] GPT:7405567 != 7634943
+2023-10-28 06:40:47.199:   [ComPort] [    2.472928] GPT:Alternate GPT header not at the end of the disk.
+2023-10-28 06:40:47.199:   [ComPort] [    2.476127] GPT:7405567 != 7634943
+2023-10-28 06:40:47.200:   [ComPort] [    2.482264] GPT: Use GNU Parted to correct GPT errors.
+2023-10-28 06:40:47.200:   [ComPort] [    2.485535] GPT: device [179:16] (rootfs) set to be root filesystem
+2023-10-28 06:40:47.200:   [ComPort] [    2.490649]  mmcblk0: p1 p2 p3 p4 p5 p6 p7 p8 p9 p10 p11 p12 p13 p14 p15 p16 p17 p18 p19 p20 p21 p22
+2023-10-28 06:40:47.315:   [ComPort] [    2.549423] VFS: Mounted root (squashfs filesystem) readonly on device 179:16.
+2023-10-28 06:40:47.316:   [ComPort] [    2.550911] Freeing unused kernel memory: 1024K (80c00000 - 80d00000)
+2023-10-28 06:40:47.750:   [ComPort] [    2.954760] init: Console is alive
+2023-10-28 06:40:47.750:   [ComPort] [    2.954969] init: - watchdog -
+2023-10-28 06:40:49.166:   [ComPort] [    4.403534] usbcore: registered new interface driver usbfs
+2023-10-28 06:40:49.167:   [ComPort] [    4.403626] usbcore: registered new interface driver hub
+2023-10-28 06:40:49.167:   [ComPort] [    4.408099] usbcore: registered new device driver usb
+2023-10-28 06:40:49.168:   [ComPort] [    4.415817] Button Hotplug driver version 0.4.1
+2023-10-28 06:40:49.168:   [ComPort] [    4.428648] SCSI subsystem initialized
+2023-10-28 06:40:49.168:   [ComPort] [    4.454495] ehci_hcd: USB 2.0 'Enhanced' Host Controller (EHCI) Driver
+2023-10-28 06:40:49.168:   [ComPort] [    4.455386] ehci-platform: EHCI generic platform driver
+2023-10-28 06:40:49.492:   [ComPort] [    4.684142] xhci-hcd xhci-hcd.0.auto: xHCI Host Controller
+2023-10-28 06:40:49.492:   [ComPort] [    4.684197] xhci-hcd xhci-hcd.0.auto: new USB bus registered, assigned bus number 1
+2023-10-28 06:40:49.493:   [ComPort] [    4.688807] xhci-hcd xhci-hcd.0.auto: hcc params 0x0220fe65 hci version 0x110 quirks 0x00010010
+2023-10-28 06:40:49.494:   [ComPort] [    4.696166] xhci-hcd xhci-hcd.0.auto: irq 226, io mem 0x08a00000
+2023-10-28 06:40:49.494:   [ComPort] [    4.705535] hub 1-0:1.0: USB hub found
+2023-10-28 06:40:49.494:   [ComPort] [    4.711128] hub 1-0:1.0: 1 port detected
+2023-10-28 06:40:49.494:   [ComPort] [    4.715012] xhci-hcd xhci-hcd.0.auto: xHCI Host Controller
+2023-10-28 06:40:49.495:   [ComPort] [    4.718748] xhci-hcd xhci-hcd.0.auto: new USB bus registered, assigned bus number 2
+2023-10-28 06:40:49.495:   [ComPort] [    4.724030] usb usb2: We don't know the algorithms for LPM for this host, disabling LPM.
+2023-10-28 06:40:49.496:   [ComPort] [    4.732241] hub 2-0:1.0: USB hub found
+2023-10-28 06:40:49.496:   [ComPort] [    4.739904] hub 2-0:1.0: 1 port detected
+2023-10-28 06:40:49.496:   [ComPort] [    4.749550] usbcore: registered new interface driver usb-storage
+2023-10-28 06:40:49.497:   [ComPort] [    4.750865] usbcore: registered new interface driver uas
+2023-10-28 06:40:49.709:   [ComPort] [    4.957876] init: - preinit -
+2023-10-28 06:40:49.928:   [ComPort] Press the [f] key and hit [enter] to enter failsafe mode
+2023-10-28 06:40:49.929:   [ComPort] Press the [1], [2], [3] or [4] key and hit [enter] to select the debug level
+2023-10-28 06:40:51.997:   [ComPort] Before mount_root
+2023-10-28 06:40:52.105:   [ComPort] [    7.317472] EXT4-fs (mmcblk0p21): recovery complete
+2023-10-28 06:40:52.105:   [ComPort] [    7.318016] EXT4-fs (mmcblk0p21): mounted filesystem with ordered data mode. Opts: (null)
+2023-10-28 06:40:52.105:   [ComPort] [    7.319892] random: procd: uninitialized urandom read (4 bytes read, 6 bits of entropy available)
+2023-10-28 06:40:52.105:   [ComPort] [    7.330909] mount_root: switching to jffs2 overlay
+2023-10-28 06:40:52.106:   [ComPort] After mount_root
+2023-10-28 06:40:52.318:   [ComPort] 256+0 records in
+2023-10-28 06:40:52.318:   [ComPort] 256+0 records out
+2023-10-28 06:40:52.319:   [ComPort] 131072 bytes (128.0KB) copied, 0.009988 seconds, 12.5MB/s
+2023-10-28 06:40:52.319:   [ComPort] ln: /lib/firmware/IPQ5018/caldata.bin: File exists
+2023-10-28 06:40:52.427:   [ComPort] 256+0 records in
+2023-10-28 06:40:52.427:   [ComPort] 256+0 records out
+2023-10-28 06:40:52.427:   [ComPort] 131072 bytes (128.0KB) copied, 0.009638 seconds, 13.0MB/s
+2023-10-28 06:40:52.428:   [ComPort] ln: /lib/firmware/qcn9100/caldata_1.bin: No such file or directory
+2023-10-28 06:40:52.428:   [ComPort] ln: /lib/firmware/qcn6122/caldata_1.bin: File exists
+2023-10-28 06:40:52.428:   [ComPort] 256+0 records in
+2023-10-28 06:40:52.428:   [ComPort] 256+0 records out
+2023-10-28 06:40:52.429:   [ComPort] 131072 bytes (128.0KB) copied, 0.006467 seconds, 19.3MB/s
+2023-10-28 06:40:52.429:   [ComPort] ln: /lib/firmware/qcn9100/caldata_2.bin: No such file or directory
+2023-10-28 06:40:52.429:   [ComPort] ln: /lib/firmware/qcn6122/caldata_2.bin: File exists
+2023-10-28 06:40:52.429:   [ComPort] [    7.675804] procd: - early -
+2023-10-28 06:40:52.429:   [ComPort] [    7.676028] procd: - watchdog -
+2023-10-28 06:40:53.078:   [ComPort] [    8.316335] procd: - ubus -
+2023-10-28 06:40:54.158:   [ComPort] [    9.318558] random: ubusd: uninitialized urandom read (4 bytes read, 7 bits of entropy available)
+2023-10-28 06:40:54.159:   [ComPort] [    9.318864] random: ubusd: uninitialized urandom read (4 bytes read, 7 bits of entropy available)
+2023-10-28 06:40:54.159:   [ComPort] [    9.326516] random: ubusd: uninitialized urandom read (4 bytes read, 7 bits of entropy available)
+2023-10-28 06:40:54.160:   [ComPort] [    9.337096] random: ubusd: uninitialized urandom read (4 bytes read, 7 bits of entropy available)
+2023-10-28 06:40:54.160:   [ComPort] [    9.344145] random: ubusd: uninitialized urandom read (4 bytes read, 7 bits of entropy available)
+2023-10-28 06:40:54.161:   [ComPort] [    9.353203] random: ubusd: uninitialized urandom read (4 bytes read, 7 bits of entropy available)
+2023-10-28 06:40:54.161:   [ComPort] [    9.362028] random: ubusd: uninitialized urandom read (4 bytes read, 7 bits of entropy available)
+2023-10-28 06:40:54.162:   [ComPort] [    9.371004] procd: - init -
+2023-10-28 06:40:54.162:   [ComPort] Please press Enter to activate this console.
+2023-10-28 06:40:55.023:   [ComPort] BT FW mount is successful
+2023-10-28 06:40:55.132:   [ComPort] WIFI FW mount is successful
+2023-10-28 06:40:55.782:   [ComPort] [   11.049918]
+2023-10-28 06:40:55.782:   [ComPort] [   11.049918] Loaded tz app Module Successfully!
+2023-10-28 06:40:55.783:   [ComPort] [   11.050005]
+2023-10-28 06:40:55.783:   [ComPort] [   11.050005] Loaded Sec Key Module Successfully!
+2023-10-28 06:40:55.783:   [ComPort] [   11.054672]
+2023-10-28 06:40:55.783:   [ComPort] [   11.054672] Loaded RSA Sec Key Module Successfully!
+2023-10-28 06:40:55.892:   [ComPort] [   11.109450] device-mapper: req-crypt: dm-req-crypt successfully initalized.
+2023-10-28 06:40:55.892:   [ComPort] [   11.109450]
+2023-10-28 06:40:55.892:   [ComPort] [   11.114192] ntfs: driver 2.1.32 [Flags: R/O MODULE].
+2023-10-28 06:40:55.893:   [ComPort] [   11.125419] Initializing XFRM netlink socket
+2023-10-28 06:40:55.893:   [ComPort] [   11.126972] NET: Registered protocol family 15
+2023-10-28 06:40:56.217:   [ComPort] [   11.351009] ssdk_switch_device_num_init[1159]:INFO:ess-switch dts node number: 1
+2023-10-28 06:40:56.217:   [ComPort] [   11.351051] ssdk_dt_get_switch_node[970]:INFO:ess-switch DT exist!
+2023-10-28 06:40:56.218:   [ComPort] [   11.357528] ssdk_dt_parse_access_mode[856]:INFO:switch_access_mode: local bus
+2023-10-28 06:40:56.218:   [ComPort] [   11.363457] ssdk_dt_parse_access_mode[869]:INFO:switchreg_base_addr: 0x39c00000
+2023-10-28 06:40:56.219:   [ComPort] [   11.370684] ssdk_dt_parse_access_mode[870]:INFO:switchreg_size: 0x200000
+2023-10-28 06:40:56.219:   [ComPort] [   11.377796] ssdk_dt_parse_mac_mode[295]:INFO:mac mode = 0xf
+2023-10-28 06:40:56.219:   [ComPort] [   11.384722] ssdk_dt_parse_mac_mode[301]:INFO:mac mode1 doesn't exit!
+2023-10-28 06:40:56.220:   [ComPort] [   11.390034] ssdk_dt_parse_mac_mode[310]:INFO:mac mode2 doesn't exit!
+2023-10-28 06:40:56.220:   [ComPort] [   11.396676] ssdk_dt_parse_phy_info[659]:INFO:[PORT 2] port_mac_sel = QGMAC_PORT
+2023-10-28 06:40:56.220:   [ComPort] [   11.402987] ssdk_dt_parse_phy_info[678]:INFO:port2's phy-reset-gpio is GPIO39
+2023-10-28 06:40:56.221:   [ComPort] [   11.410021] ssdk_dt_parse_port_bmp[757]:INFO:port_bmp doesn't exist!
+2023-10-28 06:40:56.221:   [ComPort] [   11.417314] ssdk_dt_parse_uniphy[332]:INFO:ess-uniphy DT exist!
+2023-10-28 06:40:56.221:   [ComPort] [   11.423700] ssdk_dt_parse_led[943]:INFO:current dts led_source_num is 0
+2023-10-28 06:40:56.222:   [ComPort] [   11.429373] ssdk_plat_init start
+2023-10-28 06:40:58.603:   [ComPort] [   13.845869] ssdk_mp_reset_init[739]:INFO:MP reset successfully!
+2023-10-28 06:40:58.604:   [ComPort] [   13.845933] ssdk_gcc_clock_init[1033]:INFO:SSDK gcc clock init successfully!
+2023-10-28 06:40:58.604:   [ComPort] [   13.851322] Ethernet port eth0's PHY ID is 0x4dd0c0
+2023-10-28 06:40:58.604:   [ComPort] [   13.857962] Ethernet port eth1's PHY ID is 0x4dd101
+2023-10-28 06:40:58.605:   [ComPort] [   13.862481] mpge_phy_api_ops_init[1089]:INFO:qca probe mpge phy driver succeeded!
+2023-10-28 06:40:58.605:   [ComPort] [   13.867741] qca808x_phy_api_ops_init[2208]:INFO:qca probe qca808x phy driver succeeded!
+2023-10-28 06:40:58.605:   [ComPort] [   13.875813] regi_init[3598]:INFO:Initializing SCOMPHY!
+2023-10-28 06:40:59.903:   [ComPort] [   15.215852] hsl_port_phy_gpio_reset[686]:INFO:GPIO39 reset PHY done
+2023-10-28 06:41:00.121:   [ComPort] [   15.326496] ssdk_switch_register[1710]:INFO:Chip version 0xee
+2023-10-28 06:41:00.121:   [ComPort] [   15.326542] qca_link_polling_select[1315]:INFO:link-polling-required node does not exist
+2023-10-28 06:41:00.122:   [ComPort] [   15.331210] ssdk_switch_register[1744]:INFO:polling is selected
+2023-10-28 06:41:00.122:   [ComPort] [   15.339403] regi_init[3608]:INFO:Initializing SCOMPHY Done!!
+2023-10-28 06:41:00.122:   [ComPort] [   15.345141] regi_init[3631]:INFO:qca-ssdk module init succeeded!
+2023-10-28 06:41:00.123:   [ComPort] [   15.361449] tun: Universal TUN/TAP device driver, 1.6
+2023-10-28 06:41:00.123:   [ComPort] [   15.361475] tun: (C) 1999-2004 Max Krasnyansky <maxk@qualcomm.com>
+2023-10-28 06:41:00.339:   [ComPort] [   15.589914] **********************************************************
+2023-10-28 06:41:00.339:   [ComPort] [   15.589945] * NSS Data Plane driver
+2023-10-28 06:41:00.340:   [ComPort] [   15.595328] **********************************************************
+2023-10-28 06:41:00.340:   [ComPort] [   15.639978] l2tp_core: L2TP core driver, V2.0
+2023-10-28 06:41:00.340:   [ComPort] [   15.641290] l2tp_netlink: L2TP netlink interface
+2023-10-28 06:41:00.769:   [ComPort] [   15.939157] nss_driver - fw of size 761676  bytes copied to load addr: 40000000, nss_id : 0
+2023-10-28 06:41:00.770:   [ComPort] [   15.940561] Supported Frequencies -
+2023-10-28 06:41:00.770:   [ComPort] [   15.946360] 850 MHz 1 GHz
+2023-10-28 06:41:00.770:   [ComPort] [   15.951940]
+2023-10-28 06:41:00.770:   [ComPort] [   15.952865] 7f5f1480: set sdma bc82e000
+2023-10-28 06:41:00.770:   [ComPort] [   15.954599] node size 2 # items 4
+2023-10-28 06:41:00.771:   [ComPort] [   15.957907] memory: 40000000 1073741824 (avl 960843776) items 4 active_cores 1
+2023-10-28 06:41:00.771:   [ComPort] [   15.961331] addr/size storage words 2 2 # words 4 in DTS, ddr size 1000000
+2023-10-28 06:41:00.771:   [ComPort] [   15.968472] 7f5f1480: NSS core 0 DDR from 40000000 to 41000000
+2023-10-28 06:41:00.772:   [ComPort] [   15.975389] 7f5f1480: meminfo init succeed
+2023-10-28 06:41:00.772:   [ComPort] [   15.984854] sit: IPv6 over IPv4 tunneling driver
+2023-10-28 06:41:00.772:   [ComPort] [   15.992573] nat46: module (version 8ff2ae59ec9840a7b8b45f976c51cae80abe0226) loaded.
+2023-10-28 06:41:00.772:   [ComPort] [   15.998194] gre: GRE over IPv4 demultiplexor driver
+2023-10-28 06:41:00.773:   [ComPort] [   16.001832] ip_gre: GRE over IPv4 tunneling driver
+2023-10-28 06:41:00.773:   [ComPort] [   16.009979] ip6_gre: GRE over IPv6 tunneling driver
+2023-10-28 06:41:00.773:   [ComPort] [   16.015409] node size 2 # items 4
+2023-10-28 06:41:00.773:   [ComPort] [   16.015442] memory: 40000000 1073741824 (avl 960843776) items 4 active_cores 1
+2023-10-28 06:41:00.774:   [ComPort] [   16.017788] addr/size storage words 2 2 # words 4 in DTS, ddr size 1000000
+2023-10-28 06:41:00.774:   [ComPort] [   16.024845] 7f5f1480: nss core 0 booted successfully
+2023-10-28 06:41:00.774:   [ComPort] [   16.031370] Ethernet Channel Bonding Driver: v3.7.1 (April 27, 2011)
+2023-10-28 06:41:00.775:   [ComPort] [   16.061592] ip6_tables: (C) 2000-2006 Netfilter Core Team
+2023-10-28 06:41:00.775:   [ComPort] [   16.073179] rmnet_nss_init(): initializing rmnet_nss
+2023-10-28 06:41:00.877:   [ComPort] [   16.088571] nf_conntrack version 0.5.0 (14336 buckets, 57344 max)
+2023-10-28 06:41:00.878:   [ComPort] [   16.098111] openvswitch: Open vSwitch switching datapath
+2023-10-28 06:41:00.878:   [ComPort] [   16.119429] QCA Hy-Fi multicast installation successfully
+2023-10-28 06:41:00.878:   [ComPort] [   16.129180] PPP generic driver version 2.4.2
+2023-10-28 06:41:00.879:   [ComPort] [   16.167293] nss_lag_init[352]:LAG Manager Installed
+2023-10-28 06:41:00.879:   [ComPort] [   16.170723] NET: Registered protocol family 24
+2023-10-28 06:41:00.879:   [ComPort] [   16.177939] PPTP driver version 0.8.5
+2023-10-28 06:41:00.879:   [ComPort] [   16.203244] diag: IPC Logging disabled
+2023-10-28 06:41:00.985:   [ComPort] [   16.214576] TRACK: P[0]	PMask[4]
+2023-10-28 06:41:00.985:   [ComPort] [   16.214598] TRACK: P[1]	PMask[4]
+2023-10-28 06:41:00.986:   [ComPort] [   16.217093] TRACK: P[2]	PMask[4]
+2023-10-28 06:41:00.986:   [ComPort] [   16.261204] TRACK: P[3]	PMask[4]
+2023-10-28 06:41:00.986:   [ComPort] [   16.261298] nik 4097 info->svc_id
+2023-10-28 06:41:01.092:   [ComPort] [   16.310281] QCA multicast snooping installed successfully
+2023-10-28 06:41:01.092:   [ComPort] [   16.314086] <NSS-CRYPTO>:module loaded Build_ID - 12/19/22, 08:52:58 SoC=ipq50xx
+2023-10-28 06:41:01.093:   [ComPort] [   16.329868] cannot find nss-macsec0 node
+2023-10-28 06:41:01.093:   [ComPort] [   16.329959] cannot find nss-macsec1 node
+2023-10-28 06:41:01.093:   [ComPort] [   16.332954] cannot find nss-macsec2 node
+2023-10-28 06:41:01.093:   [ComPort] [   16.341842] nss_macsec init success
+2023-10-28 06:41:01.093:   [ComPort] [   16.384102] u32 classifier
+2023-10-28 06:41:01.094:   [ComPort] [   16.384125]     input device check on
+2023-10-28 06:41:01.094:   [ComPort] [   16.385692]     Actions configured
+2023-10-28 06:41:01.094:   [ComPort] [   16.391953] Mirror/redirect action on
+2023-10-28 06:41:01.200:   [ComPort] [   16.432903] fuse init (API version 7.23)
+2023-10-28 06:41:01.200:   [ComPort] [   16.440480] arp_tables: (C) 2002 David S. Miller
+2023-10-28 06:41:01.201:   [ComPort] [   16.456996] Ebtables v2.0 registered
+2023-10-28 06:41:01.201:   [ComPort] [   16.460347] ip_tables: (C) 2000-2006 Netfilter Core Team
+2023-10-28 06:41:01.201:   [ComPort] [   16.471421] usbcore: registered new interface driver kaweth
+2023-10-28 06:41:01.202:   [ComPort] [   16.474883] l2tp_ppp: PPPoL2TP kernel driver, V2.0
+2023-10-28 06:41:01.309:   [ComPort] [   16.562691] nf_conntrack_rtsp v0.6.21 loading
+2023-10-28 06:41:01.418:   [ComPort] [   16.709661] nf_nat_rtsp v0.6.21 loading
+2023-10-28 06:41:01.529:   [ComPort] [   16.721124] pegasus: v0.9.3 (2013/04/25), Pegasus/Pegasus II USB Ethernet driver
+2023-10-28 06:41:01.530:   [ComPort] [   16.721307] usbcore: registered new interface driver pegasus
+2023-10-28 06:41:01.530:   [ComPort] [   16.730879] PPP MPPE Compression module registered
+2023-10-28 06:41:01.530:   [ComPort] [   16.736430] usbcore: registered new interface driver rtl8150
+2023-10-28 06:41:01.531:   [ComPort] [   16.819580] xt_time: kernel timezone is -0000
+2023-10-28 06:41:01.531:   [ComPort] [   16.824347] usbcore: registered new interface driver asix
+2023-10-28 06:41:01.531:   [ComPort] [   16.828185] usbcore: registered new interface driver ax88179_178a
+2023-10-28 06:41:01.532:   [ComPort] [   16.832857] usbcore: registered new interface driver cdc_ether
+2023-10-28 06:41:01.637:   [ComPort] [   16.863967] usbcore: registered new interface driver rndis_host
+2023-10-28 06:41:01.637:   [ComPort] [   16.868731] usbcore: registered new interface driver smsc95xx
+2023-10-28 06:41:03.155:   [ComPort] [   18.391469] random: jshn: uninitialized urandom read (4 bytes read, 50 bits of entropy available)
+2023-10-28 06:41:03.156:   [ComPort] [   18.433466] random: ubusd: uninitialized urandom read (4 bytes read, 51 bits of entropy available)
+2023-10-28 06:41:04.561:   [ComPort] acfg_tool: Issuing blocking call to wait for events
+2023-10-28 06:41:05.426:   [ComPort] [   20.708643] lp5562 lp5562-0030: internal clock used
+2023-10-28 06:41:06.402:   [ComPort] [   21.647766] vmap allocation for size 1204224 failed: use vmalloc=<size> to increase size.
+2023-10-28 06:41:06.511:   [ComPort] [   21.740010] ECM init
+2023-10-28 06:41:06.511:   [ComPort] [   21.740146] ECM database jhash random seed: 0x3f80511b
+2023-10-28 06:41:06.511:   [ComPort] [   21.786817] ECM init complete
+2023-10-28 06:41:06.511:   [ComPort] [   21.810477] ECM OVS Test INIT
+2023-10-28 06:41:07.490:   [ComPort] lbd: stopping daemon
+2023-10-28 06:41:07.490:   [ComPort] [   22.741423] random: nonblocking pool is initialized
+2023-10-28 06:41:07.818:   [ComPort] [   23.028143] device eth1 entered promiscuous mode
+2023-10-28 06:41:07.818:   [ComPort] [   23.029911] br-lan: port 1(eth1) entered forwarding state
+2023-10-28 06:41:07.818:   [ComPort] [   23.031879] br-lan: port 1(eth1) entered forwarding state
+2023-10-28 06:41:07.819:   [ComPort] [   23.058768] IPv6: ADDRCONF(NETDEV_UP): eth0: link is not ready
+2023-10-28 06:41:08.691:   [ComPort] lbd: stopping daemon
+2023-10-28 06:41:08.797:   [ComPort] [   24.016310] br-lan: port 1(eth1) entered disabled state
+2023-10-28 06:41:09.559:   [ComPort] No qca-mad module enabled
+2023-10-28 06:41:10.102:   [ComPort] qcawifi qcawificfg80211 disable radio wifi0
+2023-10-28 06:41:10.535:   [ComPort] qcawifi qcawificfg80211 disable radio wifi1
+2023-10-28 06:41:10.964:   [ComPort] qcawifi qcawificfg80211 disable radio wifi2
+2023-10-28 06:41:11.505:   [ComPort] qcawifi qcawificfg80211 disable radio wifi0
+2023-10-28 06:41:11.720:   [ComPort] qcawifi qcawificfg80211 disable radio wifi1
+2023-10-28 06:41:11.829:   [ComPort] [   27.063663] registering driver gp_driver
+2023-10-28 06:41:11.829:   [ComPort] [   27.063898] device probed by device tree()
+2023-10-28 06:41:11.830:   [ComPort] [   27.067248] gpOsalOem_Init() 0x0
+2023-10-28 06:41:11.937:   [ComPort] [   27.179506] sh (2134): drop_caches: 3
+2023-10-28 06:41:12.046:   [ComPort] qcawifi qcawificfg80211 disable radio wifi2
+2023-10-28 06:41:13.240:   [ComPort] **** Platform Name: ap *****
+2023-10-28 06:41:13.999:   [ComPort] Copy ART caldata from /dev/mmcblk0p9 to /tmp/virtual_art.bin
+2023-10-28 06:41:14.217:   [ComPort] ****** Starting QDSS for qcn6122 pci0 ********
+2023-10-28 06:41:14.326:   [ComPort] ****** Starting QDSS for qcn6122 pci1 ********
+2023-10-28 06:41:14.434:   [ComPort] [   29.690188] coresight-funnel 6130000.funnel: FUNNEL inport 5 enabled
+2023-10-28 06:41:14.434:   [ComPort] [   29.690774] coresight-funnel 6041000.funnel: FUNNEL inport 7 enabled
+2023-10-28 06:41:14.434:   [ComPort] [   29.698457] coresight-tmc 6048000.tmc: TMC enabled
+2023-10-28 06:41:14.434:   [ComPort] [   29.702031] coresight-replicator-qcom 6046000.replicator: REPLICATOR enabled
+2023-10-28 06:41:14.435:   [ComPort] [   29.717070] coresight-tmc 6047000.tmc: TMC enabled
+2023-10-28 06:41:14.435:   [ComPort] [   29.717124] coresight-funnel 6041000.funnel: FUNNEL inport 7 enabled
+2023-10-28 06:41:14.435:   [ComPort] [   29.725638] coresight-stm 6002000.stm: STM tracing enabled
+2023-10-28 06:41:14.436:   [ComPort] ***** QDSS Tracing Configuration completed *******
+2023-10-28 06:41:14.436:   [ComPort] ****** Starting QDSS for Integrated ********
+2023-10-28 06:41:56.855:   [ComPort] 
+2023-10-28 06:41:56.855:   [PC] Response no content spec
+2023-10-28 06:41:56.855:   [CONFIG] Spec: "IPv6: ADDRCONF(NETDEV_CHANGE): ec_sta1: link becomes ready"
+2023-10-28 06:41:56.978:   ****************************************************
+2023-10-28 06:41:56.978:   Item name = verify_cct_0
+2023-10-28 06:41:56.978:   Value = failed
+2023-10-28 06:41:56.978:   Test status = failed
+2023-10-28 06:41:56.978:   -----------------------------------------------------
+2023-10-28 06:41:56.979:   Error code = -1
+2023-10-28 06:41:56.979:   Error des = verify_cct_0
+2023-10-28 06:41:56.979:   Local error code = verify00
+2023-10-28 06:41:56.979:   Local error des = verify_cct
+2023-10-28 06:41:56.979:   ****************************************************
+2023-10-28 06:41:56.979:   TIME[100.173 s] - STATUS[FAILED]
+//////////////////////////////////////////////////////////////
+//////////////////////////- ID[3] -//////////////////////////
+2023-10-28 06:41:57.047:   ITEM[UpAPI] - FUNCTION[UpApiProxy]
+2023-10-28 06:41:57.047:   [PC] Turn: 1
+2023-10-28 06:41:57.048:   [CONFIG] Name elements: [python/log]
+2023-10-28 06:41:57.048:   [CONFIG] Name elements: [mlbsn, station_name, mode]
+2023-10-28 06:41:57.048:   [CONFIG] Name elements: [mlbsn, station_name, mode, serial]
+2023-10-28 06:41:57.063:   [CONFIG] Follow limit: true
+2023-10-28 06:41:57.063:   [CONFIG] Use the limit errorcode: false
+2023-10-28 06:41:57.064:   [PC] Root: error_details = verify_cct_0
+2023-10-28 06:41:57.064:   [PC] -----------------------------------------
+2023-10-28 06:41:57.064:   [PC] Root: status = failed
+2023-10-28 06:41:57.064:   [PC] -----------------------------------------
+2023-10-28 06:41:57.064:   [PC] Root: finish_time = 2023-10-28 06:41:56
+2023-10-28 06:41:57.064:   [PC] -----------------------------------------
+2023-10-28 06:41:57.064:   [PC] Root: test_software_version = null
+2023-10-28 06:41:57.064:   [PC] -----------------------------------------
+2023-10-28 06:41:57.065:   [PC] Root: start_time = 2023-10-28 06:39:57
+2023-10-28 06:41:57.065:   [PC] -----------------------------------------
+2023-10-28 06:41:57.065:   [PC] Root: station_type = RUNIN
+2023-10-28 06:41:57.065:   [PC] -----------------------------------------
+2023-10-28 06:41:57.065:   [PC] Root: error_code = verify00
+2023-10-28 06:41:57.065:   [PC] -----------------------------------------
+2023-10-28 06:41:57.065:   [PC] Root: serial = GGB1UD223427025T
+2023-10-28 06:41:57.065:   [PC] -----------------------------------------
+2023-10-28 06:41:57.065:   [PC] Root: mode = debug
+2023-10-28 06:41:57.065:   [PC] -----------------------------------------
+2023-10-28 06:41:57.065:   [PC] Root: station_name = RUNIN-7586
+2023-10-28 06:41:57.065:   [PC] -----------------------------------------
+2023-10-28 06:41:57.065:   [PC] Root: position =
+2023-10-28 06:41:57.065:   [PC] -----------------------------------------
+2023-10-28 06:41:57.065:   [PC] Item name: gen_node
+2023-10-28 06:41:57.066:   [PC] Item name: verify_cct
+2023-10-28 06:41:57.066:   [PC] Item name: verify_cct_0
+2023-10-28 06:41:57.066:   [PC] Format for json data!
+2023-10-28 06:41:57.071:   [PC] Save data in: python/log/GGB1UD223427025T_RUNIN-7586_debug.json ok
+2023-10-28 06:41:57.071:   ---------------------------------------------------------------
+2023-10-28 06:41:57.071:   Save file txt!
+2023-10-28 06:41:57.071:   [DIR] python/log/GGB1UD223427025T_RUNIN-7586_debug_serial.txt
+2023-10-28 06:41:57.072:   [PC] - add item: gen_node
+2023-10-28 06:41:57.078:   [PC] - add item: verify_cct
+2023-10-28 06:41:57.083:   [PC] - add item: verify_cct_0
+2023-10-28 06:41:57.088:   [PC] - add item: UpAPI
+2023-10-28 06:41:57.093:   [PC] Save file txt at "python/log/GGB1UD223427025T_RUNIN-7586_debug_serial.txt"
+2023-10-28 06:41:57.093:   ---------------------------------------------------------------
+2023-10-28 06:41:57.093:   Save file zip!
+2023-10-28 06:41:57.093:   [PC] python/log/GGB1UD223427025T_RUNIN-7586_debug_serial.txt -> python/log/GGB1UD223427025T_RUNIN-7586_debug_serial.zip
+2023-10-28 06:41:57.137:   [PC] Save data in: python/log/GGB1UD223427025T_RUNIN-7586_debug_serial.zip ok
+2023-10-28 06:41:57.137:   ---------------------------------------------------------------
+2023-10-28 06:41:57.138:   [Cmd] Send command: cd python && eero_API_client.py log/GGB1UD223427025T_RUNIN-7586_debug
+2023-10-28 06:41:57.147:   [PC] Waiting for API reponse about 10 S
+2023-10-28 06:42:03.718:   [Cmd] log/GGB1UD223427025T_RUNIN-7586_debug_serial.zip
+2023-10-28 06:42:03.718:   [Cmd] must have a json file
+2023-10-28 06:42:03.718:   ****************************************************
+2023-10-28 06:42:03.718:   Item name = UpAPI
+2023-10-28 06:42:03.719:   Value = failed
+2023-10-28 06:42:03.719:   Test status = failed
+2023-10-28 06:42:03.719:   -----------------------------------------------------
+2023-10-28 06:42:03.719:   Error code = -1
+2023-10-28 06:42:03.719:   Error des = UpAPI
+2023-10-28 06:42:03.719:   Local error code = API01
+2023-10-28 06:42:03.719:   Local error des = UpAPI
+2023-10-28 06:42:03.719:   ****************************************************
+2023-10-28 06:42:03.719:   TIME[6.672 s] - STATUS[FAILED]
+//////////////////////////////////////////////////////////////
+//////////////////////////- ID[4] -//////////////////////////
+2023-10-28 06:42:03.791:   ITEM[UpLogFTP] - FUNCTION[UpLogFTPProxy]
+2023-10-28 06:42:03.792:   [PC] Turn: 1
+2023-10-28 06:42:03.792:   [CONFIG] Dir elements: [data/Trieste, Text, pnname, station_type, start_day, station_name, status]
+2023-10-28 06:42:03.792:   [CONFIG] Dir elements: [data/Trieste, json, pnname, station_type, start_day, station_name, status]
+2023-10-28 06:42:03.793:   [CONFIG] Name elements: [Log/TestLog]
+2023-10-28 06:42:03.793:   [CONFIG] Name elements: [mlbsn, sn, position, status, error_details, errorcode, mode, finish_time]
+2023-10-28 06:42:03.793:   [CONFIG] Follow limit: false
+2023-10-28 06:42:03.793:   [CONFIG] Use the limit errorcode: false
+2023-10-28 06:42:03.793:   [PC] Root: mlbsn = GGB1UD223427025T
+2023-10-28 06:42:03.793:   [PC] -----------------------------------------
+2023-10-28 06:42:03.793:   [PC] Root: sn = RZ31ZCM
+2023-10-28 06:42:03.793:   [PC] -----------------------------------------
+2023-10-28 06:42:03.793:   [PC] Root: mo = 2141030850
+2023-10-28 06:42:03.793:   [PC] -----------------------------------------
+2023-10-28 06:42:03.793:   [PC] Root: error_details = verify_cct_0
+2023-10-28 06:42:03.793:   [PC] -----------------------------------------
+2023-10-28 06:42:03.793:   [PC] Root: status = failed
+2023-10-28 06:42:03.793:   [PC] -----------------------------------------
+2023-10-28 06:42:03.793:   [PC] Root: finish_time = 2023-10-28 06:41:56
+2023-10-28 06:42:03.794:   [PC] -----------------------------------------
+2023-10-28 06:42:03.794:   [PC] Root: test_software_version = null
+2023-10-28 06:42:03.794:   [PC] -----------------------------------------
+2023-10-28 06:42:03.794:   [PC] Root: start_time = 2023-10-28 06:39:57
+2023-10-28 06:42:03.794:   [PC] -----------------------------------------
+2023-10-28 06:42:03.794:   [PC] Root: station_type = RUNIN
+2023-10-28 06:42:03.794:   [PC] -----------------------------------------
+2023-10-28 06:42:03.794:   [PC] Root: error_code = verify00
+2023-10-28 06:42:03.794:   [PC] -----------------------------------------
+2023-10-28 06:42:03.794:   [PC] Root: errorcode = verify00
+2023-10-28 06:42:03.794:   [PC] -----------------------------------------
+2023-10-28 06:42:03.794:   [PC] Root: errorDes = verify_cct
+2023-10-28 06:42:03.794:   [PC] -----------------------------------------
+2023-10-28 06:42:03.794:   [PC] Root: serial = GGB1UD223427025T
+2023-10-28 06:42:03.794:   [PC] -----------------------------------------
+2023-10-28 06:42:03.795:   [PC] Root: mode = debug
+2023-10-28 06:42:03.795:   [PC] -----------------------------------------
+2023-10-28 06:42:03.795:   [PC] Root: station_name = RUNIN-7586
+2023-10-28 06:42:03.795:   [PC] -----------------------------------------
+2023-10-28 06:42:03.795:   [PC] Root: position =
+2023-10-28 06:42:03.795:   [PC] -----------------------------------------
+2023-10-28 06:42:03.795:   [PC] Root: cycle_time = 119.162
+2023-10-28 06:42:03.795:   [PC] -----------------------------------------
+2023-10-28 06:42:03.795:   [PC] Root: cyctime_final = 125.903
+2023-10-28 06:42:03.795:   [PC] -----------------------------------------
+2023-10-28 06:42:03.795:   [PC] Item name: gen_node
+2023-10-28 06:42:03.795:   [PC] ItemTest: gen_node = {"start_time":"2023-10-28 06:39:57","lower_limit":"","cycle_time":"0.033","upper_limit":"","error_code":"","units":"","errorDes":"","test_name":"gen_node","finish_time":"2023-10-28 06:39:57","errorcode":"","test_value":"passed","status":"passed"}
+2023-10-28 06:42:03.795:   [PC] Item name: verify_cct
+2023-10-28 06:42:03.796:   [PC] ItemTest: verify_cct = {"start_time":"2023-10-28 06:39:57","lower_limit":"","cycle_time":"18.948","upper_limit":"","error_code":"","units":"","errorDes":"","test_name":"verify_cct","finish_time":"2023-10-28 06:40:16","errorcode":"","test_value":"e8:d3:eb:9c:ec:60","status":"passed"}
+2023-10-28 06:42:03.796:   [PC] Item name: verify_cct_0
+2023-10-28 06:42:03.796:   [PC] ItemTest: verify_cct_0 = {"start_time":"2023-10-28 06:40:16","lower_limit":"","cycle_time":"100.173","upper_limit":"","error_code":"verify00","units":"","errorDes":"verify_cct","test_name":"verify_cct_0","finish_time":"2023-10-28 06:41:56","errorcode":"verify00","test_value":"failed","status":"failed"}
+2023-10-28 06:42:03.796:   [PC] Item name: UpAPI
+2023-10-28 06:42:03.796:   [PC] ItemTest: UpAPI = {"start_time":"2023-10-28 06:41:57","lower_limit":"","cycle_time":"6.672","upper_limit":"","error_code":"API01","units":"","errorDes":"UpAPI","test_name":"UpAPI","finish_time":"2023-10-28 06:42:03","errorcode":"API01","test_value":"failed","status":"failed"}
+2023-10-28 06:42:03.796:   [PC] Format for json data!
+2023-10-28 06:42:03.806:   [PC] Save data in: Log/TestLog/json/GGB1UD223427025T_RZ31ZCM__failed_verify_cct_0_verify00_debug_2023-10-28-06-41-56.json ok
+2023-10-28 06:42:03.806:   [PC] Connect to ftp!!
+2023-10-28 06:42:03.807:   [Config] User: oper
+2023-10-28 06:42:03.807:   [Config] PassWord: mfg-oper
+2023-10-28 06:42:03.807:   [Config] Host: 10.90.100.168
+2023-10-28 06:42:03.807:   [Config] Port: 21
+2023-10-28 06:42:03.992:   [PC] Connect to ftp ok!!
+2023-10-28 06:42:03.993:   [Config] Local: Log\TestLog\json\GGB1UD223427025T_RZ31ZCM__failed_verify_cct_0_verify00_debug_2023-10-28-06-41-56.json
+2023-10-28 06:42:03.993:   [Config] Ftp: data/Trieste/json/810-01100/RUNIN/2023-10-28/RUNIN-7586/failed/GGB1UD223427025T_RZ31ZCM__failed_verify_cct_0_verify00_debug_2023-10-28-06-41-56.json
+2023-10-28 06:42:04.008:   [PC] Up file to FTP done!
+2023-10-28 06:42:04.008:   ________________________________________________________
+2023-10-28 06:42:04.009:   Save file txt!
+2023-10-28 06:42:04.009:   [DIR] Log/TestLog/text/GGB1UD223427025T_RZ31ZCM__failed_verify_cct_0_verify00_debug_2023-10-28-06-41-56.txt
+2023-10-28 06:42:04.010:   [PC] - add item: gen_node
+2023-10-28 06:42:04.011:   [PC] - add item: verify_cct
+2023-10-28 06:42:04.012:   [PC] - add item: verify_cct_0
+2023-10-28 06:42:04.012:   [PC] - add item: UpAPI
+2023-10-28 06:42:04.017:   [PC] - add item: UpLogFTP
+//////////////////////////////////////////////////////////////

@@ -26,7 +26,7 @@ import Control.Functions.FunctionsTest.Base.ReadInputUntilStopItem.ReadComportUn
 import Control.Functions.FunctionsTest.Base.SFIS.SfisFunctionProxy;
 import Control.Functions.FunctionsTest.Base.SendCommandInFileAndPing.SendCommandInFileAndPingProxy;
 import Control.Functions.FunctionsTest.Base.TxtLog.ZipLog.ZipFileProxy;
-import Control.Functions.FunctionsTest.Runin.PowerSwitch.PowerSwitchProxy;
+import Control.Functions.FunctionsTest.Runin.PowerSwitchSnmp.PowerSwitchSnmpProxy;
 import Control.Functions.FunctionsTest.Base.UpLogFTP.UpLogFTPProxy;
 import Control.Functions.FunctionsTest.Base.UpdateTime.CheckTimePCProxy;
 import Control.Functions.FunctionsTest.Base.JsonApi.UploadLog.UploadLogProxy;
@@ -47,6 +47,8 @@ import Control.Functions.FunctionsTest.Other.CheckLed_W_1H_SFT.CheckLed_W_1H_Pro
 import Control.Functions.FunctionsTest.Other.Reboot_CheckLed1H_SFT.Reboot_CheckLed1H_SFT_Proxy;
 import Control.Functions.FunctionsTest.RTT.BootSetup.BootSetupProxy;
 import Control.Functions.FunctionsTest.Runin.CheckCommandCmd.CheckCommandCmdProxy;
+import Control.Functions.FunctionsTest.Runin.PowerSwitch.PowerSwitchProxy;
+import Control.Functions.FunctionsTest.Runin.PowerSwitchNew.PowerSwitchNewProxy;
 import Control.Functions.FunctionsTest.Runin.TelnetReadUntilKey.TelnetReadUntilKeyProxy;
 import Control.Functions.FunctionsTest.Runin.RebootSoft.RebootSoftProxy;
 import Control.Functions.FunctionsTest.Runin.TempCPU.TempCPUJupiterProxy;
@@ -176,5 +178,7 @@ public class Factory {
         this.functions.addType(new FromSfisValueProxy());
         this.functions.addType(new CheckTimePCProxy());
         this.functions.addType(new UploadLogProxy());
+        this.functions.addType(new PowerSwitchNewProxy());
+        this.functions.addType(new PowerSwitchSnmpProxy());
     }
 }

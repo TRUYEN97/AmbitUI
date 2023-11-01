@@ -44,7 +44,8 @@ public class CheckCommandCmd extends AbsFunction {
             String endkey = config.getString("Endkey");
             String regex = config.getString("Regex");
             int time = config.getInteger("Time", 10);
-            String value = this.analysisBase.getValue(cmd, startkey, endkey, regex, new TimeS(time));
+            String readUntil = config.getString("ReadUntil");
+            String value = this.analysisBase.getValue(cmd, startkey, endkey, regex, new TimeS(time), readUntil);
             if (value == null) {
                 return false;
             }

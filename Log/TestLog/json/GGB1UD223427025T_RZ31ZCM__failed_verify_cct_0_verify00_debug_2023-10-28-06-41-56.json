@@ -1,0 +1,81 @@
+{
+"station_name":"RUNIN-7586",
+"mo":"2141030850",
+"mlbsn":"GGB1UD223427025T",
+"finish_time":"2023-10-28 06:41:56",
+"mode":"debug",
+"start_time":"2023-10-28 06:39:57",
+"tests":[
+{
+"start_time":"2023-10-28 06:39:57",
+"lower_limit":"",
+"cycle_time":"0.033",
+"upper_limit":"",
+"error_code":"",
+"units":"",
+"errorDes":"",
+"test_name":"gen_node",
+"finish_time":"2023-10-28 06:39:57",
+"errorcode":"",
+"test_value":"passed",
+"status":"passed"
+},
+
+{
+"start_time":"2023-10-28 06:39:57",
+"lower_limit":"",
+"cycle_time":"18.948",
+"upper_limit":"",
+"error_code":"",
+"units":"",
+"errorDes":"",
+"test_name":"verify_cct",
+"finish_time":"2023-10-28 06:40:16",
+"errorcode":"",
+"test_value":"e8:d3:eb:9c:ec:60",
+"status":"passed"
+},
+
+{
+"start_time":"2023-10-28 06:40:16",
+"lower_limit":"",
+"cycle_time":"100.173",
+"upper_limit":"",
+"error_code":"verify00",
+"units":"",
+"errorDes":"verify_cct",
+"test_name":"verify_cct_0",
+"finish_time":"2023-10-28 06:41:56",
+"errorcode":"verify00",
+"test_value":"failed",
+"status":"failed"
+},
+
+{
+"start_time":"2023-10-28 06:41:57",
+"lower_limit":"",
+"cycle_time":"6.672",
+"upper_limit":"",
+"error_code":"API01",
+"units":"",
+"errorDes":"UpAPI",
+"test_name":"UpAPI",
+"finish_time":"2023-10-28 06:42:03",
+"errorcode":"API01",
+"test_value":"failed",
+"status":"failed"
+}
+],
+"error_details":"verify_cct_0",
+"serial":"GGB1UD223427025T",
+"cycle_time":"119.162",
+"error_code":"verify00",
+"sn":"RZ31ZCM",
+"position":"",
+"station_type":"RUNIN",
+"errorDes":"verify_cct",
+"cyctime_final":"125.903",
+"errorcode":"verify00",
+"status":"failed",
+"test_software_version":""
+}

@@ -1,79 +1,89 @@
-2023-06-13 04:30:08.968:   ITEM[UpLogFTP] - FUNCTION[UpLogFTPProxy]
-2023-06-13 04:30:08.968:   [PC] Turn: 1
-2023-06-13 04:30:08.969:   [CONFIG] Dir elements: [data/Trieste, pnname, station_type, mode, start_day, station_name, status]
-2023-06-13 04:30:08.969:   [CONFIG] Name elements: [Log/TestLog]
-2023-06-13 04:30:08.969:   [CONFIG] Name elements: [mlbsn, sn, position, status, mode, finish_time]
-2023-06-13 04:30:08.969:   [CONFIG] Follow limit: false
-2023-06-13 04:30:08.969:   [CONFIG] Use the limit errorcode: true
-2023-06-13 04:30:08.969:   [PC] Root: mlbsn = null
-2023-06-13 04:30:08.969:   [PC] -----------------------------------------
-2023-06-13 04:30:08.969:   [PC] Root: sn = RYK01Q6
-2023-06-13 04:30:08.969:   [PC] -----------------------------------------
-2023-06-13 04:30:08.969:   [PC] Root: mo = null
-2023-06-13 04:30:08.970:   [PC] -----------------------------------------
-2023-06-13 04:30:08.970:   [PC] Root: error_details = null
-2023-06-13 04:30:08.970:   [PC] -----------------------------------------
-2023-06-13 04:30:08.970:   [PC] Root: status = passed
-2023-06-13 04:30:08.970:   [PC] -----------------------------------------
-2023-06-13 04:30:08.970:   [PC] Root: finish_time = 2023-06-13 04:30:08
-2023-06-13 04:30:08.970:   [PC] -----------------------------------------
-2023-06-13 04:30:08.970:   [PC] Root: test_software_version = 1.5.7
-2023-06-13 04:30:08.970:   [PC] -----------------------------------------
-2023-06-13 04:30:08.970:   [PC] Root: start_time = 2023-06-13 04:30:08
-2023-06-13 04:30:08.970:   [PC] -----------------------------------------
-2023-06-13 04:30:08.971:   [PC] Root: station_type = CCD
-2023-06-13 04:30:08.971:   [PC] -----------------------------------------
-2023-06-13 04:30:08.971:   [PC] Root: error_code = null
-2023-06-13 04:30:08.971:   [PC] -----------------------------------------
-2023-06-13 04:30:08.971:   [PC] Root: errorcode = null
-2023-06-13 04:30:08.971:   [PC] -----------------------------------------
-2023-06-13 04:30:08.971:   [PC] Root: errorDes = null
-2023-06-13 04:30:08.971:   [PC] -----------------------------------------
-2023-06-13 04:30:08.971:   [PC] Root: serial = null
-2023-06-13 04:30:08.971:   [PC] -----------------------------------------
-2023-06-13 04:30:08.971:   [PC] Root: mode = debug
-2023-06-13 04:30:08.971:   [PC] -----------------------------------------
-2023-06-13 04:30:08.971:   [PC] Root: station_name = RUNIN-7586
-2023-06-13 04:30:08.972:   [PC] -----------------------------------------
-2023-06-13 04:30:08.972:   [PC] Root: position =
-2023-06-13 04:30:08.972:   [PC] -----------------------------------------
-2023-06-13 04:30:08.972:   [PC] Root: cycle_time = 0.354
-2023-06-13 04:30:08.972:   [PC] -----------------------------------------
-2023-06-13 04:30:08.972:   [PC] Root: cyctime_final = 0.354
-2023-06-13 04:30:08.972:   [PC] -----------------------------------------
-2023-06-13 04:30:08.972:   [PC] Item name: SocketCheck
-2023-06-13 04:30:08.973:   [PC] ItemTest: SocketCheck = {"start_time":"2023-06-13 04:30:08","lower_limit":"","cycle_time":"0.340","upper_limit":"","error_code":"","units":"","errorDes":"","test_name":"SocketCheck","finish_time":"2023-06-13 04:30:08","errorcode":"","test_value":"passed","status":"passed"}
-2023-06-13 04:30:08.973:   [PC] Format for json data!
-2023-06-13 04:30:08.992:   [PC] Save data in: Log/TestLog/json/mlbsn_RYK01Q6__passed_debug_2023-06-13-04-30-08.json ok
-2023-06-13 04:30:08.992:   [PC] Connect to ftp!!
-2023-06-13 04:30:08.992:   [Config] User: oper
-2023-06-13 04:30:08.992:   [Config] PassWord: mfg-oper
-2023-06-13 04:30:08.992:   [Config] Host: 10.90.100.168
-2023-06-13 04:30:08.993:   [Config] Port: 21
-2023-06-13 04:30:08.997:   [PC] Connect to ftp ok!!
-2023-06-13 04:30:08.997:   [Config] Local: Log\TestLog\json\mlbsn_RYK01Q6__passed_debug_2023-06-13-04-30-08.json
-2023-06-13 04:30:08.997:   [Config] Ftp: data/Trieste/pnname/CCD/debug/2023-06-13/RUNIN-7586/passed/json/mlbsn_RYK01Q6__passed_debug_2023-06-13-04-30-08.json
-2023-06-13 04:30:09.011:   [PC] Up file to FTP done!
-2023-06-13 04:30:09.012:   ________________________________________________________
-2023-06-13 04:30:09.012:   Save file txt!
-2023-06-13 04:30:09.012:   [DIR] Log/TestLog/text/mlbsn_RYK01Q6__passed_debug_2023-06-13-04-30-08.txt
-2023-06-13 04:30:09.013:   [PC] - add item: SocketCheck
-2023-06-13 04:30:09.042:   [PC] - add item: UpLogFTP
-2023-06-13 04:30:09.063:   [PC] Save file txt at "Log/TestLog/text/mlbsn_RYK01Q6__passed_debug_2023-06-13-04-30-08.txt"
-2023-06-13 04:30:09.063:   [PC] Connect to ftp!!
-2023-06-13 04:30:09.063:   [Config] User: oper
-2023-06-13 04:30:09.063:   [Config] PassWord: mfg-oper
-2023-06-13 04:30:09.064:   [Config] Host: 10.90.100.168
-2023-06-13 04:30:09.064:   [Config] Port: 21
-2023-06-13 04:30:09.081:   [PC] Connect to ftp ok!!
-2023-06-13 04:30:09.081:   [Config] Local: Log\TestLog\text\mlbsn_RYK01Q6__passed_debug_2023-06-13-04-30-08.txt
-2023-06-13 04:30:09.081:   [Config] Ftp: data/Trieste/pnname/CCD/debug/2023-06-13/RUNIN-7586/passed/text/mlbsn_RYK01Q6__passed_debug_2023-06-13-04-30-08.txt
-2023-06-13 04:30:09.253:   [PC] Up file to FTP done!
-2023-06-13 04:30:09.254:   ________________________________________________________
-2023-06-13 04:30:09.254:   ****************************************************
-2023-06-13 04:30:09.254:   Item name = UpLogFTP
-2023-06-13 04:30:09.255:   Value = data/Trieste/pnname/CCD/debug/2023-06-13/RUNIN-7586/passed/text/mlbsn_RYK01Q6__passed_debug_2023-06-13-04-30-08.txt
-2023-06-13 04:30:09.255:   Test status = passed
-2023-06-13 04:30:09.255:   -----------------------------------------------------
-2023-06-13 04:30:09.255:   ****************************************************
-2023-06-13 04:30:09.257:   TIME[0.287 s] - STATUS[PASSED]
+2023-10-28 06:45:05.087:   ITEM[UpLogFTP] - FUNCTION[UpLogFTPProxy]
+2023-10-28 06:45:05.088:   [PC] Turn: 1
+2023-10-28 06:45:05.088:   [CONFIG] Dir elements: [data/Trieste, Text, pnname, station_type, start_day, station_name, status]
+2023-10-28 06:45:05.088:   [CONFIG] Dir elements: [data/Trieste, json, pnname, station_type, start_day, station_name, status]
+2023-10-28 06:45:05.088:   [CONFIG] Name elements: [Log/TestLog]
+2023-10-28 06:45:05.088:   [CONFIG] Name elements: [mlbsn, sn, position, status, error_details, errorcode, mode, finish_time]
+2023-10-28 06:45:05.088:   [CONFIG] Follow limit: false
+2023-10-28 06:45:05.088:   [CONFIG] Use the limit errorcode: false
+2023-10-28 06:45:05.088:   [PC] Root: mlbsn = GGB1UD223427025T
+2023-10-28 06:45:05.088:   [PC] -----------------------------------------
+2023-10-28 06:45:05.088:   [PC] Root: sn = RZ31ZCM
+2023-10-28 06:45:05.089:   [PC] -----------------------------------------
+2023-10-28 06:45:05.089:   [PC] Root: mo = 2141030850
+2023-10-28 06:45:05.089:   [PC] -----------------------------------------
+2023-10-28 06:45:05.089:   [PC] Root: error_details = verify_cct_0
+2023-10-28 06:45:05.089:   [PC] -----------------------------------------
+2023-10-28 06:45:05.089:   [PC] Root: status = failed
+2023-10-28 06:45:05.089:   [PC] -----------------------------------------
+2023-10-28 06:45:05.089:   [PC] Root: finish_time = 2023-10-28 06:45:04
+2023-10-28 06:45:05.089:   [PC] -----------------------------------------
+2023-10-28 06:45:05.089:   [PC] Root: test_software_version = null
+2023-10-28 06:45:05.089:   [PC] -----------------------------------------
+2023-10-28 06:45:05.089:   [PC] Root: start_time = 2023-10-28 06:42:56
+2023-10-28 06:45:05.089:   [PC] -----------------------------------------
+2023-10-28 06:45:05.089:   [PC] Root: station_type = RUNIN
+2023-10-28 06:45:05.089:   [PC] -----------------------------------------
+2023-10-28 06:45:05.089:   [PC] Root: error_code = verify00
+2023-10-28 06:45:05.090:   [PC] -----------------------------------------
+2023-10-28 06:45:05.090:   [PC] Root: errorcode = verify00
+2023-10-28 06:45:05.090:   [PC] -----------------------------------------
+2023-10-28 06:45:05.090:   [PC] Root: errorDes = verify_cct
+2023-10-28 06:45:05.090:   [PC] -----------------------------------------
+2023-10-28 06:45:05.090:   [PC] Root: serial = GGB1UD223427025T
+2023-10-28 06:45:05.090:   [PC] -----------------------------------------
+2023-10-28 06:45:05.090:   [PC] Root: mode = debug
+2023-10-28 06:45:05.090:   [PC] -----------------------------------------
+2023-10-28 06:45:05.090:   [PC] Root: station_name = RUNIN-7586
+2023-10-28 06:45:05.090:   [PC] -----------------------------------------
+2023-10-28 06:45:05.090:   [PC] Root: position =
+2023-10-28 06:45:05.090:   [PC] -----------------------------------------
+2023-10-28 06:45:05.090:   [PC] Root: cycle_time = 127.929
+2023-10-28 06:45:05.090:   [PC] -----------------------------------------
+2023-10-28 06:45:05.090:   [PC] Root: cyctime_final = 128.176
+2023-10-28 06:45:05.091:   [PC] -----------------------------------------
+2023-10-28 06:45:05.091:   [PC] Item name: gen_node
+2023-10-28 06:45:05.091:   [PC] ItemTest: gen_node = {"start_time":"2023-10-28 06:42:56","lower_limit":"","cycle_time":"0.021","upper_limit":"","error_code":"","units":"","errorDes":"","test_name":"gen_node","finish_time":"2023-10-28 06:42:56","errorcode":"","test_value":"passed","status":"passed"}
+2023-10-28 06:45:05.091:   [PC] Item name: verify_cct
+2023-10-28 06:45:05.091:   [PC] ItemTest: verify_cct = {"start_time":"2023-10-28 06:42:56","lower_limit":"","cycle_time":"27.722","upper_limit":"","error_code":"","units":"","errorDes":"","test_name":"verify_cct","finish_time":"2023-10-28 06:43:24","errorcode":"","test_value":"e8:d3:eb:9c:ec:60","status":"passed"}
+2023-10-28 06:45:05.091:   [PC] Item name: verify_cct_0
+2023-10-28 06:45:05.091:   [PC] ItemTest: verify_cct_0 = {"start_time":"2023-10-28 06:43:24","lower_limit":"","cycle_time":"100.183","upper_limit":"","error_code":"verify00","units":"","errorDes":"verify_cct","test_name":"verify_cct_0","finish_time":"2023-10-28 06:45:04","errorcode":"verify00","test_value":"failed","status":"failed"}
+2023-10-28 06:45:05.091:   [PC] Item name: UpAPI
+2023-10-28 06:45:05.091:   [PC] ItemTest: UpAPI = {"start_time":"2023-10-28 06:45:04","lower_limit":"","cycle_time":"0.247","upper_limit":"","error_code":"API01","units":"","errorDes":"UpAPI","test_name":"UpAPI","finish_time":"2023-10-28 06:45:05","errorcode":"API01","test_value":"failed","status":"failed"}
+2023-10-28 06:45:05.091:   [PC] Format for json data!
+2023-10-28 06:45:05.092:   [PC] Save data in: Log/TestLog/json/GGB1UD223427025T_RZ31ZCM__failed_verify_cct_0_verify00_debug_2023-10-28-06-45-04.json ok
+2023-10-28 06:45:05.092:   [PC] Connect to ftp!!
+2023-10-28 06:45:05.092:   [Config] User: oper
+2023-10-28 06:45:05.092:   [Config] PassWord: mfg-oper
+2023-10-28 06:45:05.092:   [Config] Host: 10.90.100.168
+2023-10-28 06:45:05.092:   [Config] Port: 21
+2023-10-28 06:45:05.095:   [PC] Connect to ftp ok!!
+2023-10-28 06:45:05.095:   [Config] Local: Log\TestLog\json\GGB1UD223427025T_RZ31ZCM__failed_verify_cct_0_verify00_debug_2023-10-28-06-45-04.json
+2023-10-28 06:45:05.095:   [Config] Ftp: data/Trieste/json/810-01100/RUNIN/2023-10-28/RUNIN-7586/failed/GGB1UD223427025T_RZ31ZCM__failed_verify_cct_0_verify00_debug_2023-10-28-06-45-04.json
+2023-10-28 06:45:05.108:   [PC] Up file to FTP done!
+2023-10-28 06:45:05.108:   ________________________________________________________
+2023-10-28 06:45:05.109:   Save file txt!
+2023-10-28 06:45:05.109:   [DIR] Log/TestLog/text/GGB1UD223427025T_RZ31ZCM__failed_verify_cct_0_verify00_debug_2023-10-28-06-45-04.txt
+2023-10-28 06:45:05.110:   [PC] - add item: gen_node
+2023-10-28 06:45:05.111:   [PC] - add item: verify_cct
+2023-10-28 06:45:05.111:   [PC] - add item: verify_cct_0
+2023-10-28 06:45:05.111:   [PC] - add item: UpAPI
+2023-10-28 06:45:05.135:   [PC] - add item: UpLogFTP
+2023-10-28 06:45:05.139:   [PC] Save file txt at "Log/TestLog/text/GGB1UD223427025T_RZ31ZCM__failed_verify_cct_0_verify00_debug_2023-10-28-06-45-04.txt"
+2023-10-28 06:45:05.139:   [PC] Connect to ftp!!
+2023-10-28 06:45:05.139:   [Config] User: oper
+2023-10-28 06:45:05.140:   [Config] PassWord: mfg-oper
+2023-10-28 06:45:05.140:   [Config] Host: 10.90.100.168
+2023-10-28 06:45:05.140:   [Config] Port: 21
+2023-10-28 06:45:05.142:   [PC] Connect to ftp ok!!
+2023-10-28 06:45:05.142:   [Config] Local: Log\TestLog\text\GGB1UD223427025T_RZ31ZCM__failed_verify_cct_0_verify00_debug_2023-10-28-06-45-04.txt
+2023-10-28 06:45:05.142:   [Config] Ftp: data/Trieste/Text/810-01100/RUNIN/2023-10-28/RUNIN-7586/failed/GGB1UD223427025T_RZ31ZCM__failed_verify_cct_0_verify00_debug_2023-10-28-06-45-04.txt
+2023-10-28 06:45:05.160:   [PC] Up file to FTP done!
+2023-10-28 06:45:05.160:   ________________________________________________________
+2023-10-28 06:45:05.160:   ****************************************************
+2023-10-28 06:45:05.160:   Item name = UpLogFTP
+2023-10-28 06:45:05.160:   Value = data/Trieste/Text/810-01100/RUNIN/2023-10-28/RUNIN-7586/failed/GGB1UD223427025T_RZ31ZCM__failed_verify_cct_0_verify00_debug_2023-10-28-06-45-04.txt
+2023-10-28 06:45:05.160:   Test status = passed
+2023-10-28 06:45:05.160:   -----------------------------------------------------
+2023-10-28 06:45:05.160:   ****************************************************
+2023-10-28 06:45:05.160:   TIME[0.073 s] - STATUS[PASSED]

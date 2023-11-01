@@ -11,6 +11,7 @@ import Control.Functions.FunctionsTest.Base.BaseFunction.FunctionBase;
 import Model.ErrorLog;
 import Time.WaitTime.Class.TimeS;
 import Communicate.Impl.Telnet.Telnet;
+import Model.AllKeyWord;
 import Model.DataTest.FunctionParameters;
 import java.io.IOException;
 import java.util.List;
@@ -74,6 +75,10 @@ public class TelnetReadUntilKey extends AbsFunction {
                 }
                 return false;
             }
+        }
+        String limitType = this.config.getTestType();
+        if(limitType != null && limitType.equalsIgnoreCase(AllKeyWord.MATCH)){
+            setResult(spec);
         }
         return true;
     }

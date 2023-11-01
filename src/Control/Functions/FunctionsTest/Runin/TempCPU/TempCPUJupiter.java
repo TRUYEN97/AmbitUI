@@ -67,6 +67,7 @@ public class TempCPUJupiter extends AbsFunction {
         List<String> endKeys = this.config.getJsonList("Endkeys");
         List<String> Regexs = this.config.getJsonList("Regexs");
         int time = config.getInteger("Time", 10);
+        String readUntil = config.getString("ReadUntil");
         int length = Integer.max(startKeys.size(), endKeys.size());
         if (!this.functionBase.sendCommand(telnet, commands)) {
             return null;
@@ -75,7 +76,7 @@ public class TempCPUJupiter extends AbsFunction {
             String startkey = getKey(i, startKeys);
             String endkey = getKey(i, endKeys);
             String regex = getKey(i, Regexs);
-            String value = this.analysisBase.getValue(telnet, startkey, endkey, regex, new TimeS(time));
+            String value = this.analysisBase.getValue(telnet, startkey, endkey, regex, new TimeS(time), readUntil);
             if (!this.analysisBase.isNumber(value)) {
                 addLog("ERROR", String.format("value is not number! value: %s", value));
                 return null;

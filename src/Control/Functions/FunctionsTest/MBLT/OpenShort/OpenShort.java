@@ -86,7 +86,7 @@ public class OpenShort extends AbsFunction {
                 return false;
             }
             String regex = this.config.getString("CurrentRegex");
-            String value = this.analysisBase.getValue(fixture, regex, new TimeS(1));
+            String value = this.analysisBase.getValue(fixture, regex, new TimeS(1), null);
             if (this.analysisBase.isNumber(value)) {
                 double ampe = Double.parseDouble(value) / 1000.0;
                 addLog("PC", String.format("Current: %s A", ampe));
