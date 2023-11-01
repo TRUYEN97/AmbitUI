@@ -4,7 +4,6 @@
  */
 package Control.Functions.FunctionsTest.Runin.PowerSwitchNew;
 
-import Control.Functions.FunctionsTest.Runin.PowerSwitchSnmp.PowerSwitchFuncSnmp;
 import Control.Functions.AbsFunction;
 import Model.DataTest.FunctionParameters;
 import Model.Factory.AbsProxy;
@@ -18,7 +17,7 @@ public class PowerSwitchNewProxy extends AbsProxy<FunctionParameters, AbsFunctio
 
     @Override
     public AbsFunction takeIt() {
-        return new PowerSwitchFuncSnmp(getParameter());
+        return new PowerSwitchFuncNew(getParameter());
     }
     
 }
