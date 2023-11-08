@@ -21,7 +21,6 @@ public class MMC_WR_SPEED extends AbsFunction {
 
     private final FunctionBase baseFunc;
     private final AnalysisBase analysisBase;
-    private MMC_SPEED mmc_speed;
 
     public MMC_WR_SPEED(FunctionParameters parameters) {
         this(parameters, null);
@@ -53,19 +52,19 @@ public class MMC_WR_SPEED extends AbsFunction {
         List<String> items = this.config.getJsonList("ItemNames");
         List<String> blocks = this.config.getJsonList("Block");
         List<String> KeyWords = this.config.getJsonList("KeyWord");
-        addLog("Config", "Items: " + items);
-        addLog("Config", "Block: " + blocks);
-        addLog("Config", "KeyWord: " + blocks);
+        addLog("Config", "Items: %s", items);
+        addLog("Config", "Block: %s", blocks);
+        addLog("Config", "KeyWord: %s", blocks);
         return runSubItems(items, response, blocks, KeyWords);
     }
 
     private boolean runSubItems(List<String> items, String response, List<String> blocks, List<String> KeyWords) {
         int itemsSize = items.size();
-        boolean rs =true;
+        boolean rs = true;
         for (int i = 0; i < itemsSize; i++) {
             String item = createChildItemName(items.get(i));
             addLog("PC", item);
-            mmc_speed = new MMC_SPEED(functionParameters, item);
+            MMC_SPEED mmc_speed = new MMC_SPEED(functionParameters, item);
             mmc_speed.setData(response, blocks.get(i), KeyWords.get(i));
             mmc_speed.runTest();
             if (!mmc_speed.isPass()) {

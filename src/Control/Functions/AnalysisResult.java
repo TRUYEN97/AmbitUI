@@ -102,9 +102,9 @@ public class AnalysisResult {
     }
 
     private String checkLimitType(String result) {
-        if (isRequired(2)) {
-            return null;
-        }
+//        if (isRequired(2)) {
+//            return null;
+//        }
         String upString = allConfig.getString(AllKeyWord.CONFIG.UPPER_LIMIT);
         String lowString = allConfig.getString(AllKeyWord.CONFIG.LOWER_LIMIT);
         Double upper = cvtString2Num(upString);

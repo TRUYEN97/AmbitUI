@@ -1,0 +1,122 @@
+2023-11-08 06:24:34.271:   ITEM[MMC_READ_WRITE_SPEED_TEST] - FUNCTION[MMC_WR_SPEED_PROXY]
+2023-11-08 06:24:34.272:   [PC] Turn: 1
+2023-11-08 06:24:34.272:   Get IP from the function config with key is "IP".
+2023-11-08 06:24:34.319:   [PC] ReadUntil: root@eero-test:/#
+2023-11-08 06:24:34.319:   [PC] Connect to ip: 192.168.1.1
+2023-11-08 06:24:34.320:   [PC] Port is: 23
+2023-11-08 06:24:34.320:   [PC] Ping to IP: 192.168.1.1 - 120 S
+2023-11-08 06:24:34.320:   [Cmd] ------------------------------------ 1
+2023-11-08 06:24:34.321:   [Cmd] Send command: arp -d
+2023-11-08 06:24:34.369:   [Cmd] The ARP entry deletion failed: The requested operation requires elevation.
+2023-11-08 06:24:34.370:   [Cmd] Send command: ping 192.168.1.1 -n 1
+2023-11-08 06:24:34.403:   [Cmd] Pinging 192.168.1.1 with 32 bytes of data:
+2023-11-08 06:24:34.403:   [Cmd] Reply from 192.168.1.1: bytes=32 time<1ms TTL=64
+2023-11-08 06:24:34.404:   [Cmd] 
+2023-11-08 06:24:34.404:   [Cmd] Ping statistics for 192.168.1.1:
+2023-11-08 06:24:34.404:   [Cmd] Packets: Sent = 1, Received = 1, Lost = 0 (0% loss),
+2023-11-08 06:24:34.404:   [Cmd] Approximate round trip times in milli-seconds:
+2023-11-08 06:24:34.404:   [Cmd] Minimum = 0ms, Maximum = 0ms, Average = 0ms
+2023-11-08 06:24:34.405:   [Cmd] ------------------------------------
+2023-11-08 06:24:34.406:   [PC] ping time: 0.085 S
+2023-11-08 06:24:34.408:   [PC] Telnet to IP: "192.168.1.1" - Port: 23 ok!
+2023-11-08 06:24:34.632:   [Telnet] === IMPORTANT ============================
+2023-11-08 06:24:34.632:   [Telnet] Use 'passwd' to set your login password!
+2023-11-08 06:24:34.632:   [Telnet] ------------------------------------------
+2023-11-08 06:24:34.632:   [Telnet] 
+2023-11-08 06:24:34.632:   [Telnet] 
+2023-11-08 06:24:34.633:   [Telnet] BusyBox v1.30.1 () built-in shell (ash)
+2023-11-08 06:24:34.633:   [Telnet] 
+2023-11-08 06:24:34.633:   [Telnet] MM           NM                    MMMMMMM          M       M
+2023-11-08 06:24:34.633:   [Telnet] $MMMMM        MMMMM                MMMMMMMMMMM      MMM     MMM
+2023-11-08 06:24:34.633:   [Telnet] MMMMMMMM     MM MMMMM.              MMMMM:MMMMMM:   MMMM   MMMMM
+2023-11-08 06:24:34.634:   [Telnet] MMMM= MMMMMM  MMM   MMMM       MMMMM   MMMM  MMMMMM   MMMM  MMMMM'
+2023-11-08 06:24:34.634:   [Telnet] MMMM=  MMMMM MMMM    MM       MMMMM    MMMM    MMMM   MMMMNMMMMM
+2023-11-08 06:24:34.634:   [Telnet] MMMM=   MMMM  MMMMM          MMMMM     MMMM    MMMM   MMMMMMMM
+2023-11-08 06:24:34.634:   [Telnet] MMMM=   MMMM   MMMMMM       MMMMM      MMMM    MMMM   MMMMMMMMM
+2023-11-08 06:24:34.634:   [Telnet] MMMM=   MMMM     MMMMM,    NMMMMMMMM   MMMM    MMMM   MMMMMMMMMMM
+2023-11-08 06:24:34.634:   [Telnet] MMMM=   MMMM      MMMMMM   MMMMMMMM    MMMM    MMMM   MMMM  MMMMMM
+2023-11-08 06:24:34.635:   [Telnet] MMMM=   MMMM   MM    MMMM    MMMM      MMMM    MMMM   MMMM    MMMM
+2023-11-08 06:24:34.635:   [Telnet] MMMM$ ,MMMMM  MMMMM  MMMM    MMM       MMMM   MMMMM   MMMM    MMMM
+2023-11-08 06:24:34.635:   [Telnet] MMMMMMM:      MMMMMMM     M         MMMMMMMMMMMM  MMMMMMM MMMMMMM
+2023-11-08 06:24:34.635:   [Telnet] MMMMMM       MMMMN     M           MMMMMMMMM      MMMM    MMMM
+2023-11-08 06:24:34.635:   [Telnet] MMMM          M                    MMMMMMM        M       M
+2023-11-08 06:24:34.635:   [Telnet] M
+2023-11-08 06:24:34.636:   [Telnet] ---------------------------------------------------------------
+2023-11-08 06:24:34.636:   [Telnet] For those about to rock... (Chaos Calmer, unknown)
+2023-11-08 06:24:34.636:   [Telnet] ---------------------------------------------------------------
+2023-11-08 06:24:34.636:   [Telnet] root@eero-test:/#
+2023-11-08 06:24:34.636:   [Telnet] Send command: test-emmc
+2023-11-08 06:24:34.639:   [Config] Time: 500.0
+2023-11-08 06:24:34.639:   [Config] ReadUntil: root@eero-test:/#
+2023-11-08 06:24:40.530:   [Telnet] test-emmc
+2023-11-08 06:24:40.530:   [Telnet] 
+2023-11-08 06:24:40.530:   [Telnet] 
+2023-11-08 06:24:40.530:   [Telnet] Writing 10MiB of 0x00 in 524288 B chunks to /dev/mmcblk0p20...
+2023-11-08 06:24:40.531:   [Telnet] 20+0 records in
+2023-11-08 06:24:40.531:   [Telnet] 20+0 records out
+2023-11-08 06:24:40.531:   [Telnet] 10485760 bytes (10.0MB) copied, 0.537108 seconds, 18.6MB/s
+2023-11-08 06:24:40.531:   [Telnet] real    0m 0.54s
+2023-11-08 06:24:40.531:   [Telnet] user    0m 0.00s
+2023-11-08 06:24:40.531:   [Telnet] sys     0m 0.08s
+2023-11-08 06:24:40.531:   [Telnet] Reading 10MiB in 524288 B chunks from /dev/mmcblk0p20...
+2023-11-08 06:24:40.532:   [Telnet] 20+0 records in
+2023-11-08 06:24:40.532:   [Telnet] 20+0 records out
+2023-11-08 06:24:40.532:   [Telnet] 10485760 bytes (10.0MB) copied, 0.245163 seconds, 40.8MB/s
+2023-11-08 06:24:40.532:   [Telnet] real    0m 0.24s
+2023-11-08 06:24:40.532:   [Telnet] user    0m 0.00s
+2023-11-08 06:24:40.532:   [Telnet] sys     0m 0.03s
+2023-11-08 06:24:40.533:   [Telnet] 
+2023-11-08 06:24:40.533:   [Telnet] 
+2023-11-08 06:24:40.533:   [Telnet] Writing 10MiB of 0xFF in 524288 B chunks to /dev/mmcblk0p20...
+2023-11-08 06:24:40.533:   [Telnet] 20+0 records in
+2023-11-08 06:24:40.533:   [Telnet] 20+0 records out
+2023-11-08 06:24:40.533:   [Telnet] 10485760 bytes (10.0MB) copied, 0.536982 seconds, 18.6MB/s
+2023-11-08 06:24:40.533:   [Telnet] real    0m 0.54s
+2023-11-08 06:24:40.534:   [Telnet] user    0m 0.00s
+2023-11-08 06:24:40.534:   [Telnet] sys     0m 0.08s
+2023-11-08 06:24:40.534:   [Telnet] Reading 10MiB in 524288 B chunks from /dev/mmcblk0p20...
+2023-11-08 06:24:40.534:   [Telnet] 20+0 records in
+2023-11-08 06:24:40.534:   [Telnet] 20+0 records out
+2023-11-08 06:24:40.534:   [Telnet] 10485760 bytes (10.0MB) copied, 0.246158 seconds, 40.6MB/s
+2023-11-08 06:24:40.534:   [Telnet] real    0m 0.25s
+2023-11-08 06:24:40.535:   [Telnet] user    0m 0.00s
+2023-11-08 06:24:40.535:   [Telnet] sys     0m 0.03s
+2023-11-08 06:24:40.535:   [Telnet] 
+2023-11-08 06:24:40.535:   [Telnet] 
+2023-11-08 06:24:40.535:   [Telnet] Writing 10MiB of random in 524288 B chunks to /dev/mmcblk0p20...
+2023-11-08 06:24:40.535:   [Telnet] 20+0 records in
+2023-11-08 06:24:40.535:   [Telnet] 20+0 records out
+2023-11-08 06:24:40.536:   [Telnet] 10485760 bytes (10.0MB) copied, 3.793349 seconds, 2.6MB/s
+2023-11-08 06:24:40.536:   [Telnet] real    0m 3.79s
+2023-11-08 06:24:40.536:   [Telnet] user    0m 0.01s
+2023-11-08 06:24:40.536:   [Telnet] sys     0m 3.31s
+2023-11-08 06:24:40.536:   [Telnet] Reading 10MiB in 524288 B chunks from /dev/mmcblk0p20...
+2023-11-08 06:24:40.536:   [Telnet] 20+0 records in
+2023-11-08 06:24:40.536:   [Telnet] 20+0 records out
+2023-11-08 06:24:40.537:   [Telnet] 10485760 bytes (10.0MB) copied, 0.246357 seconds, 40.6MB/s
+2023-11-08 06:24:40.537:   [Telnet] real    0m 0.25s
+2023-11-08 06:24:40.537:   [Telnet] user    0m 0.00s
+2023-11-08 06:24:40.537:   [Telnet] sys     0m 0.04s
+2023-11-08 06:24:40.537:   [Telnet] root@eero-test:/#
+2023-11-08 06:24:40.538:   [Config] Items: [emmc_speed_read, emmc_speed_write]
+2023-11-08 06:24:40.538:   [Config] Block: [0x00, 0x00]
+2023-11-08 06:24:40.538:   [Config] KeyWord: [0x00, 0x00]
+2023-11-08 06:24:40.538:   [PC] emmc_speed_read
+2023-11-08 06:24:40.541:   [PC] Turn: 1
+2023-11-08 06:24:40.542:   [Config] Block: 0x00
+2023-11-08 06:24:40.542:   [Config] KeyWord: Reading
+2023-11-08 06:24:40.543:   [PC] 40.8 is a number
+2023-11-08 06:26:00.749:   ****************************************************
+2023-11-08 06:26:00.750:   Item name = emmc_speed_read
+2023-11-08 06:26:00.751:   Limit type = LIMIT
+2023-11-08 06:26:00.751:   Upper limit =
+2023-11-08 06:26:00.752:   Lower limit = 35
+2023-11-08 06:26:00.753:   Value = 40.8
+2023-11-08 06:26:00.753:   Test status = passed
+2023-11-08 06:26:00.754:   -----------------------------------------------------
+2023-11-08 06:26:00.754:   ****************************************************
+2023-11-08 06:26:00.755:   [PC] emmc_speed_write
+2023-11-08 06:26:00.756:   [PC] Turn: 1
+2023-11-08 06:26:00.756:   [Config] Block: 0x00
+2023-11-08 06:26:00.756:   [Config] KeyWord: Writing
+2023-11-08 06:26:00.756:   [PC] 18.6 is a number

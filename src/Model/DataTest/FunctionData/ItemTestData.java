@@ -97,7 +97,7 @@ public class ItemTestData {
 
     public boolean isPass() {
         String stt = this.data.getString(AllKeyWord.SFIS.STATUS);
-        return (stt != null && stt.equals(PASS));
+        return (stt != null && stt.equalsIgnoreCase(PASS));
     }
 
     private void setTestValue(boolean isPass) {

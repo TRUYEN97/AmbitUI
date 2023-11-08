@@ -46,21 +46,21 @@ if __name__ == "__main__":
     else:
         print('Please check the correct grammer')
 
-    get_url = "http://10.90.0.15:8100/api/1/ping"       # Connected successfully
+    get_url = "http://10.90.100.15:8101/api/1/ping"       # Connected successfully
     account = {'name': 'ambit', 'passwd': 'bento'}
 
     get_from_server(get_url,account)
 
-    # request_url = "http://ambit:bento@10.90.0.15:8101/api/1/eden/results"
-    # request_url = "http://ambit:bento@10.90.0.15:8101/api/1/eden/limits"
-    # request_url = "http://ambit:bento@10.90.0.15:8101/api/1/eden/debug"
-    # request_url = "http://ambit:bento@10.90.0.15:8101/api/1/Trieste/results"
-    # request_url = "http://ambit:bento@10.90.0.15:8101/api/1/Trieste/limits"
-    # request_url = "http://ambit:bento@10.90.0.15:8101/api/1/Trieste/debug"
-    # request_url = "http://ambit:bento@10.90.0.15:8101/api/1/results"
-    request_url = "http://ambit:bento@10.90.0.15:8100/api/1/limits"
-    # request_url = "http://ambit:bento@10.90.0.15:8101/api/1/debug"
+    # request_url = "http://ambit:bento@10.90.100.15:8101/api/1/eden/results"
+    # request_url = "http://ambit:bento@10.90.100.15:8101/api/1/eden/limits"
+    # request_url = "http://ambit:bento@10.90.100.15:8101/api/1/eden/debug"
+    # request_url = "http://ambit:bento@10.90.100.15:8101/api/1/Trieste/results"
+    # request_url = "http://ambit:bento@10.90.100.15:8101/api/1/Trieste/limits"
+    # request_url = "http://ambit:bento@10.90.100.15:8101/api/1/Trieste/debug"
+    # request_url = "http://ambit:bento@10.90.100.15:8101/api/1/results"
+    request_url = "http://ambit:bento@10.90.100.15:8101/api/1/limits"
+    # request_url = "http://ambit:bento@10.90.100.15:8101/api/1/debug"
 
-    data = {'station_type': station_info, "model": "EDEN"}
+    data = {'station_type': station_info, "model": "TRIESTE"}
 
     request_json_to_server(request_url, account, data)

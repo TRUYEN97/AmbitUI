@@ -34,8 +34,10 @@ public class DutPing extends AbsFunction {
             if (ip == null) {
                 return false;
             }
+            String type = this.config.getString("type", "check");
+            addLog("Error", "type: %s", type);
             int timePing = config.getInteger("time_ping", 120);
-            return this.baseFunc.pingTo(ip, timePing);
+            return this.baseFunc.pingTo(ip, timePing, !type.equalsIgnoreCase("keep"));
         } catch (Exception ex) {
             addLog(LOG_KEYS.ERROR, ex.getLocalizedMessage());
             return false;

@@ -219,10 +219,14 @@ public class FunctionBase extends AbsFunction {
     }
 
     public boolean pingTo(String ip, int times) {
-        return pingTo(ip, times, !this.modeTest.isUseDHCP());
+        return pingTo(ip, times, !this.modeTest.isUseDHCP(), true);
+    }
+    
+    public boolean pingTo(String ip, int times, boolean checkPing) {
+        return pingTo(ip, times, !this.modeTest.isUseDHCP(), checkPing);
     }
 
-    public boolean pingTo(String ip, int times, boolean arp_d) {
+    public boolean pingTo(String ip, int times, boolean arp_d, boolean checkPing) {
         if (ip == null || times <= 0) {
             addLog("Error", "IP == null ", ip);
             return false;
@@ -246,8 +250,14 @@ public class FunctionBase extends AbsFunction {
                     if (sendCommand(cmd, command)) {
                         String response = cmd.readAll();
                         addLog("Cmd", response.trim());
-                        if (response.contains("TTL=")) {
-                            return true;
+                        if (checkPing) {
+                            if (response.contains("TTL=")) {
+                                return true;
+                            }
+                        }else{
+                            if (!response.contains("TTL=")) {
+                                return false;
+                            }
                         }
                     } else {
                         break;
@@ -259,7 +269,7 @@ public class FunctionBase extends AbsFunction {
         } finally {
             addLog("PC", "ping time: %.3f S", timer.getTime());
         }
-        return false;
+        return !checkPing;
     }
 
 }

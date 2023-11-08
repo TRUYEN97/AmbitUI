@@ -1,0 +1,16 @@
+2023-11-08 06:15:05.613:   [Client] Connect to host: localhost, port: 5000
+2023-11-08 06:15:05.629:   [localhost -> Client] name
+2023-11-08 06:15:05.638:   [Client -> localhost] name:AmbitUI
+2023-11-08 06:15:05.639:   [localhost -> Client] welcome AmbitUI
+2023-11-08 06:16:45.408:   [Client] Connect to host: localhost, port: 5000
+2023-11-08 06:16:45.409:   [localhost -> Client] name
+2023-11-08 06:16:45.414:   [Client -> localhost] name:AmbitUI
+2023-11-08 06:16:45.415:   [localhost -> Client] welcome AmbitUI
+2023-11-08 06:22:02.169:   [Client] Connect to host: localhost, port: 5000
+2023-11-08 06:22:02.170:   [localhost -> Client] name
+2023-11-08 06:22:02.175:   [Client -> localhost] name:AmbitUI
+2023-11-08 06:22:02.175:   [localhost -> Client] welcome AmbitUI
+2023-11-08 06:24:25.087:   [Client] Connect to host: localhost, port: 5000
+2023-11-08 06:24:25.089:   [localhost -> Client] name
+2023-11-08 06:24:25.095:   [Client -> localhost] name:AmbitUI
+2023-11-08 06:24:25.095:   [localhost -> Client] welcome AmbitUI

@@ -58,7 +58,7 @@
     ],
     "functions": [
         {
-            "flag": true,
+            "flag": false,
             "time_out": 60,
             "multi": false,
             "debug_able": true,
@@ -76,7 +76,7 @@
             "func_name": "CheckDutInfoProxy"
         },
         {
-            "flag": true,
+            "flag": false,
             "time_out": 110,
             "debug_able": true,
             "multi": false,
@@ -89,11 +89,30 @@
             "Time": 100,
             "test_name": "verify_cct",
             "func_name": "TelnetReadUntilKeyProxy"
+        },
+        {
+            "flag": true,
+            "time_out": 5000,
+            "debug_able": true,
+            "multi": false,
+            "retry": 2,
+            "type": "telnet",
+            "IP": "192.168.1.1",
+            "comport": 1,
+            "baudrate": 115200,
+            "ItemNames": ["emmc_speed_read", "emmc_speed_write"],
+            "command": "test-emmc",
+            "KeyWord": ["Reading", "Writing"],
+            "Block": ["0x00", "0x00"],
+            "ReadUntil": "root@eero-test:/#",
+            "Time": 500,
+            "test_name": "MMC_READ_WRITE_SPEED_TEST",
+            "func_name": "MMC_WR_SPEED_PROXY"
         }
     ],
     "end": [
         {
-            "flag": true,
+            "flag": false,
             "time_out": 30,
             "multi": false,
             "followLimit": true,
@@ -112,7 +131,7 @@
             "func_name": "UpApiProxy" 
         },
         {
-            "flag": true,
+            "flag": false,
             "time_out": 5,
             "wait_multi_done": true,
             "SEND_FORMAT": ["sn", "pcname", "status"],
@@ -125,7 +144,7 @@
     ],
     "final": [
         {
-            "flag": true,
+            "flag": false,
             "time_out": 100,
             "always_run": true,
             "User": "oper",
@@ -149,7 +168,7 @@
             "func_name": "UpLogFTPProxy"
         },
         {
-            "flag": true,
+            "flag": false,
             "time_out": 160,
             "retry": 1,
             "Time": 60,
