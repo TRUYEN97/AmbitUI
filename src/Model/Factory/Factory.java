@@ -41,12 +41,13 @@ import Control.Functions.FunctionsTest.ON_OFF.AsideOnOffPing.AsideOnOffPingProxy
 import Control.Functions.FunctionsTest.ON_OFF.OpenShortOnOff.OpenShortOnOffProxy;
 import Control.Functions.FunctionsTest.Runin.CheckCommandTelnet.CheckCommandTelnetProxy;
 import Control.Functions.FunctionsTest.Runin.MMC_BadBlock.MMC_BadBlockProxy;
-import Control.Functions.FunctionsTest.Runin.MMC_WR_SPEED.MMC_WR_SPEED_PROXY;
+import Control.Functions.FunctionsTest.Runin.MMC_WR_SPEED_NEW.MMC_WR_SPEED_PROXY_NEW;
 import Control.Functions.FunctionsTest.ON_OFF.PowerSwicthPing.PowerSwitchPingProxy;
 import Control.Functions.FunctionsTest.Other.CheckLed_W_1H_SFT.CheckLed_W_1H_Proxy;
 import Control.Functions.FunctionsTest.Other.Reboot_CheckLed1H_SFT.Reboot_CheckLed1H_SFT_Proxy;
 import Control.Functions.FunctionsTest.RTT.BootSetup.BootSetupProxy;
 import Control.Functions.FunctionsTest.Runin.CheckCommandCmd.CheckCommandCmdProxy;
+import Control.Functions.FunctionsTest.Runin.MMC_WR_SPEED.MMC_WR_SPEED_PROXY;
 import Control.Functions.FunctionsTest.Runin.PowerSwitch.PowerSwitchProxy;
 import Control.Functions.FunctionsTest.Runin.PowerSwitchNew.PowerSwitchNewProxy;
 import Control.Functions.FunctionsTest.Runin.TelnetReadUntilKey.TelnetReadUntilKeyProxy;
@@ -147,6 +148,7 @@ public class Factory {
         this.functions.addType(new FixtureActionProxy());
         this.functions.addType(new TelnetReadUntilKeyProxy());
         this.functions.addType(new CreateJsonApiProxy());
+        this.functions.addType(new MMC_WR_SPEED_PROXY_NEW());
         this.functions.addType(new MMC_WR_SPEED_PROXY());
         this.functions.addType(new PowerSwitchPingProxy());
         this.functions.addType(new OpenShortProxy());

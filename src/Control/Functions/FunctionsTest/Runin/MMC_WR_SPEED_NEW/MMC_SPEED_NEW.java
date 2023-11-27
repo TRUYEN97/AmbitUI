@@ -2,33 +2,34 @@
  * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
  * Click nbfs://nbhost/SystemFileSystem/Templates/Classes/Class.java to edit this template
  */
-package Control.Functions.FunctionsTest.Runin.MMC_WR_SPEED;
+package Control.Functions.FunctionsTest.Runin.MMC_WR_SPEED_NEW;
 
-import Communicate.Impl.Telnet.Telnet;
+import Communicate.AbsCommunicate;
 import Control.Functions.AbsFunction;
 import Control.Functions.FunctionsTest.Base.BaseFunction.AnalysisBase;
 import Control.Functions.FunctionsTest.Base.BaseFunction.FunctionBase;
 import Model.ErrorLog;
 import Model.DataTest.FunctionParameters;
 import Time.WaitTime.Class.TimeS;
+import java.util.ArrayList;
+import java.util.List;
 
 /**
  *
  * @author Administrator
  */
-public class MMC_SPEED extends AbsFunction {
+public class MMC_SPEED_NEW extends AbsFunction {
 
     private final FunctionBase baseFunc;
     private final AnalysisBase analysisBase;
     private String data;
-    private String block;
     private String key;
 
-    public MMC_SPEED(FunctionParameters parameters) {
+    public MMC_SPEED_NEW(FunctionParameters parameters) {
         this(parameters, null);
     }
 
-    public MMC_SPEED(FunctionParameters parameters, String item) {
+    public MMC_SPEED_NEW(FunctionParameters parameters, String item) {
         super(parameters, item);
         this.baseFunc = new FunctionBase(parameters, item);
         this.analysisBase = new AnalysisBase(parameters, item);
@@ -38,21 +39,16 @@ public class MMC_SPEED extends AbsFunction {
     protected boolean test() {
         if (data == null) {
             try {
-                String ip = this.baseFunc.getIp();
-                addLog("IP: " + ip);
-                if (ip == null) {
-                    return false;
-                }
-                try ( Telnet telnet = this.baseFunc.getTelnet(ip, 23)) {
-                    if (telnet == null) {
+                try (AbsCommunicate communicate = this.baseFunc.getTelnetOrComportConnector()) {
+                    if (communicate == null) {
                         return false;
                     }
-                    if (!this.baseFunc.sendCommand(telnet, this.config.getString("command"))) {
+                    if (!this.baseFunc.sendCommand(communicate, this.config.getString("command"))) {
                         return false;
                     }
                     int time = this.config.getInteger("Time", 5);
                     String until = this.config.getString("ReadUntil");
-                    data = this.analysisBase.readUntilAndShow(telnet, until, new TimeS(time));
+                    data = this.analysisBase.readShowUntil(communicate, until, new TimeS(time));
                 } catch (Exception e) {
                     e.printStackTrace();
                     ErrorLog.addError(this, e.getMessage());
@@ -68,9 +64,8 @@ public class MMC_SPEED extends AbsFunction {
         return checkResponse();
     }
 
-    public void setData(String data, String block, String key) {
+    public void setData(String data, String key) {
         this.data = data;
-        this.block = block;
         this.key = key;
     }
 
@@ -78,42 +73,48 @@ public class MMC_SPEED extends AbsFunction {
         if (!checkConfig()) {
             return false;
         }
-        return getSpeed();
+        List<Double> values = getSpeed();
+        addLog("PC", "Values: %s", values);
+        if(values == null || values.isEmpty()){
+            return false;
+        }
+        double sum = 0;
+        for (Double value : values) {
+            sum += value;
+        }
+        double average = sum/values.size();
+        String value = String.format("%.3f", average);
+        addLog("PC", "The average value: %s", value);
+        setResult(value);
+        return true;
     }
 
     private boolean checkConfig() {
-        if (block == null) {
-            block = config.getString("Block");
-        }
-        addLog("Config", "Block: " + block);
         if (key == null) {
             key = this.config.getString("KeyWord");
         }
         addLog("Config", "KeyWord: %s", key);
-        return key != null && block != null;
+        return key != null;
     }
 
-    private boolean getSpeed() {
+    private List<Double> getSpeed() {
         String[] blockData = data.split("\r\n");
-        int model = 0;
-        for (String line : blockData) {
-            if (line.contains("B of " + block + " in ")) {
-                model = 1;
-            }
-            if (line.contains(key) && model == 1) {
-                model = 2;
-            }
-            int start = line.lastIndexOf(" seconds, ") + 10;
-            int end = line.lastIndexOf("MB/s");
-            if (model == 2 && start < end && end > -1) {
-                String value = line.substring(start, end);
-                if (this.analysisBase.isNumber(value)) {
-                    setResult(value);
-                    return true;
+        String line;
+        List<Double> values = new ArrayList<>();
+        for (int i = 0; i < blockData.length; i++) {
+            line = blockData[i].trim();
+            if (line.contains(key)) {
+                for (int j = i+1; j < blockData.length; j++) {
+                    line = blockData[j].trim();
+                    addLog("Data", line);
+                    if(!line.contains("MB/s")){
+                        return values;
+                    }
+                    values.add(this.analysisBase.string2Double(line.replaceAll("MB/s", "")));
                 }
             }
         }
-        return false;
+        return values;
     }
 
 }

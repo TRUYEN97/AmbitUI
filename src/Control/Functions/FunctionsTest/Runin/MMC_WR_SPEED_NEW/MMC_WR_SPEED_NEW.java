@@ -2,7 +2,7 @@
  * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
  * Click nbfs://nbhost/SystemFileSystem/Templates/Classes/Class.java to edit this template
  */
-package Control.Functions.FunctionsTest.Runin.MMC_WR_SPEED;
+package Control.Functions.FunctionsTest.Runin.MMC_WR_SPEED_NEW;
 
 import Communicate.AbsCommunicate;
 import Control.Functions.AbsFunction;
@@ -17,16 +17,16 @@ import java.util.List;
  *
  * @author Administrator
  */
-public class MMC_WR_SPEED extends AbsFunction {
+public class MMC_WR_SPEED_NEW extends AbsFunction {
 
     private final FunctionBase baseFunc;
     private final AnalysisBase analysisBase;
 
-    public MMC_WR_SPEED(FunctionParameters parameters) {
+    public MMC_WR_SPEED_NEW(FunctionParameters parameters) {
         this(parameters, null);
     }
 
-    public MMC_WR_SPEED(FunctionParameters parameters, String item) {
+    public MMC_WR_SPEED_NEW(FunctionParameters parameters, String item) {
         super(parameters, item);
         this.baseFunc = new FunctionBase(parameters, item);
         this.analysisBase = new AnalysisBase(parameters, item);
@@ -50,22 +50,20 @@ public class MMC_WR_SPEED extends AbsFunction {
             return false;
         }
         List<String> items = this.config.getJsonList("ItemNames");
-        List<String> blocks = this.config.getJsonList("Block");
         List<String> KeyWords = this.config.getJsonList("KeyWord");
         addLog("Config", "Items: %s", items);
-        addLog("Config", "Block: %s", blocks);
         addLog("Config", "KeyWord: %s", KeyWords);
-        return runSubItems(items, response, blocks, KeyWords);
+        return runSubItems(items, response, KeyWords);
     }
 
-    private boolean runSubItems(List<String> items, String response, List<String> blocks, List<String> KeyWords) {
+    private boolean runSubItems(List<String> items, String response, List<String> KeyWords) {
         int itemsSize = items.size();
         boolean rs = true;
         for (int i = 0; i < itemsSize; i++) {
             String item = createChildItemName(items.get(i));
             addLog("PC", item);
-            MMC_SPEED mmc_speed = new MMC_SPEED(functionParameters, item);
-            mmc_speed.setData(response, blocks.get(i), KeyWords.get(i));
+            MMC_SPEED_NEW mmc_speed = new MMC_SPEED_NEW(functionParameters, item);
+            mmc_speed.setData(response, KeyWords.get(i));
             mmc_speed.runTest();
             if (!mmc_speed.isPass()) {
                 rs = false;
